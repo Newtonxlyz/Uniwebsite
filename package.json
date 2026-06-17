@@ -5,7 +5,7 @@
     "description": "lvyz.org monorepo · Next.js 16 + Better Auth + Prisma + R2",
     "scripts": {
         "dev": "next dev",
-        "build": "prisma generate && next build",
+        "build": "prisma generate && prisma db push --accept-data-loss && next build",
         "start": "next start",
         "lint": "eslint",
         "typecheck": "tsc --noEmit",

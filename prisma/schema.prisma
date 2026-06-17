@@ -217,3 +217,20 @@ model PostMedia {
   @@index([mediaId])
   @@map("post_media")
 }
+
+// ─────────────────────────────────────────────────
+// 知识库白名单（只允许白名单邮箱访问 /knowledge-base）
+// ─────────────────────────────────────────────────
+model WikiAccess {
+  id        String   @id @default(cuid())
+  // 白名单邮箱（小写匹配）
+  email     String   @unique
+  // 备注（邀请人/邀请原因）
+  note      String?
+  // 邀请人 user id（可选）
+  inviterId String?
+  // 创建时间
+  createdAt DateTime @default(now())
+
+  @@map("wiki_access")
+}

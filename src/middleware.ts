@@ -9,11 +9,24 @@ const PROTECTED_PATHS = [
   "/admin",
 ];
 
+// 知识库白名单保护（仅白名单邮箱可访问）
+const WIKI_PATH = "/knowledge-base";
+
 export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // 受保护的路由：未登录跳转到登录页
   if (PROTECTED_PATHS.some((p) => pathname.startsWith(p))) {
+    const sessionToken = request.cookies.get("lvyz.session_token")?.value;
+    if (!sessionToken) {
+      const loginUrl = new URL("/login", request.url);
+      loginUrl.searchParams.set("redirect", pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+  }
+
+  // 知识库：未登录跳登录，已登录放过（白名单检查放在服务端页面 / api/wiki/access）
+  if (pathname.startsWith(WIKI_PATH)) {
     const sessionToken = request.cookies.get("lvyz.session_token")?.value;
     if (!sessionToken) {
       const loginUrl = new URL("/login", request.url);
