@@ -1,0 +1,36 @@
+{
+  "slug": "crashai-resources",
+  "title": "3.8 资源汇总",
+  "description": "学习路径、论文、工具、社区：CrashAI课程资源导航",
+  "category": "llm",
+  "phase": "C",
+  "order": 24,
+  "sections": [
+    {
+      "type": "text",
+      "title": "CrashAI学习路径总览",
+      "content": "<p><b>CrashAI课程设计为从0到1的完整学习路径。</b>3个阶段，25个课程，从Python基础到前沿探索。</p><p><b>阶段A：基础（0-6课）</b></p><pre>00 高数唤醒：导数、偏导、梯度、链式法则、矩阵、概率\n01 Python速成：语法、NumPy、函数、类\n02 优化器：BGD/SGD/Momentum/AdaGrad/RMSprop/Adam\n03 激活函数：Sigmoid/ReLU/LeakyReLU/GELU/Swish/Softmax\n04 损失函数：MSE/MAE/CE/BCE/Focal/Huber\n05 训练技巧：Dropout/L2/BatchNorm/梯度裁剪/Warmup\n06 数据预处理：归一化/标准化/编码/增强/清洗\n</pre><p><b>阶段B：核心（7-16课）</b></p><pre>07 Transformer：Self-Attention/Multi-Head/Position Encoding\n08 Pandas：DataFrame/Series/清洗/聚合/分组/可视化\n09 Scikit-learn：分类/回归/GBDT/SHAP\n10 RAG基础：LangChain/Chroma/VectorDB/检索策略\n11 GPT系列：GPT-1→2→3→4/参数扩展/数据增长\n12 LLM训练：预训练/数据清洗/Tokenization/分布式训练\n13 Tokenizer：BPE/WordPiece/Byte-level\n14 指令微调与RLHF：SFT/PPO/DPO/奖励模型\n15 LLM评估：PPL/BLEU/ROUGE/HumanEval/MMLU\n16 AIGC：扩散模型/Stable Diffusion/LoRA/多模态\n</pre><p><b>阶段C：应用（17-24课）</b></p><pre>17 Agent：ReAct/Tool/Planning/Memory\n18 多Agent协作：Multi-Agent/通信/工作流编排\n19 RAG高级：混合检索/重排序/查询分解\n20 多模态处理：PDF/Word/Excel/图片/音频/视频\n21 工程整合：API设计/缓存/监控/日志/测试/部署\n22 MLOps：模型管理/CI-CD/监控/A-B测试\n23 前沿探索：MoE/长上下文/世界模型/具身智能\n24 资源汇总：学习路径/论文/工具/社区（本课）\n</pre>"
+    },
+    {
+      "type": "text",
+      "title": "推荐论文（按学习顺序）",
+      "content": "<p><b>基础论文：</b></p><table border=\"1\"><tr><th>论文</th><th>年份</th><th>核心贡献</th></tr><tr><td>Adam: A Method for Stochastic Optimization</td><td>2014</td><td>Adam优化器，最广泛使用的优化算法</td></tr><tr><td>Batch Normalization</td><td>2015</td><td>BN层，加速训练</td></tr><tr><td>Dropout: A Simple Way to Prevent Overfitting</td><td>2014</td><td>Dropout正则化</td></tr></table><p><b>核心论文：</b></p><table border=\"1\"><tr><th>论文</th><th>年份</th><th>核心贡献</th></tr><tr><td>Attention Is All You Need (Transformer)</td><td>2017</td><td>Self-Attention，现代AI基石</td></tr><tr><td>BERT: Pre-training of Deep Bidirectional Transformers</td><td>2018</td><td>双向预训练，NLP里程碑</td></tr><tr><td>GPT-1: Improving Language Understanding by Generative Pre-Training</td><td>2018</td><td>生成式预训练</td></tr><tr><td>GPT-2: Language Models are Unsupervised Multitask Learners</td><td>2019</td><td>零样本学习，WebText</td></tr><tr><td>GPT-3: Language Models are Few-Shot Learners</td><td>2020</td><td>1750亿参数，上下文学习</td></tr><tr><td>Training language models to follow instructions with human feedback (InstructGPT)</td><td>2022</td><td>RLHF，SFT，PPO</td></tr></table><p><b>应用与前沿论文：</b></p><table border=\"1\"><tr><th>论文</th><th>年份</th><th>核心贡献</th></tr><tr><td>LoRA: Low-Rank Adaptation of Large Language Models</td><td>2021</td><td>参数高效微调</td></tr><tr><td>Retrieval-Augmented Generation for Knowledge-Intensive NLP Tasks</td><td>2020</td><td>RAG基础</td></tr><tr><td>ReAct: Synergizing Reasoning and Acting in Language Models</td><td>2022</td><td>Agent推理-行动</td></tr><tr><td>DPO: Direct Preference Optimization</td><td>2023</td><td>无需奖励模型的RLHF</td></tr><tr><td>Mixtral of Experts</td><td>2023</td><td>开源MoE模型</td></tr><tr><td>World Models</td><td>2018</td><td>Ha, Schmidhuber，世界模型</td></tr></table>"
+    },
+    {
+      "type": "text",
+      "title": "推荐工具与框架",
+      "content": "<p><b>深度学习框架：</b></p><table border=\"1\"><tr><th>工具</th><th>用途</th><th>特点</th></tr><tr><td>PyTorch</td><td>深度学习</td><td>动态图，易调试，学术界首选</td></tr><tr><td>TensorFlow</td><td>深度学习</td><td>静态图，生产部署强</td></tr><tr><td>JAX</td><td>深度学习</td><td>Google出品，函数式，自动并行</td></tr><tr><td>HuggingFace Transformers</td><td>预训练模型</td><td>最大的开源模型库</td></tr></table><p><b>LLM应用框架：</b></p><table border=\"1\"><tr><th>工具</th><th>用途</th><th>特点</th></tr><tr><td>LangChain</td><td>LLM应用</td><td>模块化，Chain抽象，工具集成</td></tr><tr><td>LlamaIndex</td><td>RAG</td><td>数据索引，检索优化</td></tr><tr><td>AutoGPT</td><td>Agent</td><td>自主Agent，目标驱动</td></tr><tr><td>MetaGPT</td><td>多Agent</td><td>多Agent软件开发</td></tr></table><p><b>模型训练与部署：</b></p><table border=\"1\"><tr><th>工具</th><th>用途</th><th>特点</th></tr><tr><td>DeepSpeed</td><td>分布式训练</td><td>ZeRO优化，微软出品</td></tr><tr><td>vLLM</td><td>推理加速</td><td>PagedAttention，高吞吐</td></tr><tr><td>Text Generation Inference</td><td>推理服务</td><td>HuggingFace出品，易部署</td></tr><tr><td>MLflow</td><td>实验管理</td><td>实验追踪，模型注册</td></tr></table><p><b>数据与评估：</b></p><table border=\"1\"><tr><th>工具</th><th>用途</th><th>特点</th></tr><tr><td>Weights & Biases</td><td>实验可视化</td><td> beautiful charts，团队协作</td></tr><tr><td>TensorBoard</td><td>训练可视化</td><td>TensorFlow配套，轻量</td></tr><tr><td>EleutherAI LM Eval</td><td>模型评估</td><td>标准化评估框架</td></tr><tr><td>Cleanlab</td><td>数据清洗</td><td>自动检测错误标签</td></tr></table>"
+    },
+    {
+      "type": "text",
+      "title": "学习社区与资源",
+      "content": "<p><b>推荐社区：</b></p><ul><li><b>HuggingFace (huggingface.co)：</b>最大的开源AI社区。模型、数据集、Spaces（应用展示）。</li><li><b>Papers With Code (paperswithcode.com)：</b>论文+代码实现，追踪SOTA。</li><li><b>Reddit r/MachineLearning：</b>最新讨论，研究者交流。</li><li><b>GitHub Awesome-LLM：</b>LLM资源汇总，持续更新。</li><li><b>中文社区：知乎AI话题、机器之心、PaperWeekly。</b></li></ul><p><b>推荐课程（补充）：</b></p><ul><li><b>Stanford CS224N：</b>NLP with Deep Learning，Transformer讲解最清晰。</li><li><b>Stanford CS231N：</b>Convolutional Neural Networks for Visual Recognition，计算机视觉基础。</li><li><b>Fast.ai：</b>Practical Deep Learning for Coders，实用导向。</li><li><b>3Blue1Brown：</b>神经网络/线性代数/微积分的可视化解释（YouTube）。</li><li><b>李沐《动手学深度学习》：</b>免费中文教材+视频，动手实践。</li></ul><p><b>CrashAI下一步：</b></p><pre>1. 完成所有25课的练习（至少做50%）\n2. 选择一个方向深入：\n   - 研究：读论文，复现模型，投稿会议\n   - 工程：做项目，开源贡献，找工作\n   - 产品：做应用，创业，解决实际问题\n3. 加入社区：参与开源项目，回答问题，写博客\n4. 持续学习：AI发展极快，每周都有新论文\n</pre>"
+    },
+    {
+      "type": "exercise",
+      "title": "练习：资源汇总",
+      "content": "<p><b>Q1：</b>根据CrashAI的学习路径，如果你已经学完阶段A和B，接下来应该优先学什么？为什么？</p><p><b>Q2：</b>PyTorch和TensorFlow各有什么特点？如果你要做研究，选哪个？如果你要做生产部署，选哪个？</p><p><b>Q3：</b>为什么HuggingFace Transformers是LLM入门最重要的工具？它解决了什么问题？</p><p><b>Q4：</b>找到5篇核心论文，按年份排序。你能看出LLM发展的什么趋势？</p><p><b>Q5：</b>设计一个你自己的AI学习计划。你想成为研究员、工程师还是产品经理？需要侧重哪些课程？</p>",
+      "answer": "<p><b>A1：</b>接下来应该优先学阶段C的应用课程（17-22课）。因为阶段A和B建立了理论基础，阶段C教你如何把理论应用到实际问题：Agent、RAG、多模态、工程部署、MLOps。这些是企业最需要的实战技能。</p><p><b>A2：</b>PyTorch：动态图，调试方便，API直观，学术界首选。TensorFlow：静态图，生产部署优化好，TFX生态完整。研究选PyTorch（迭代快，社区活跃）。生产部署选TensorFlow（TFX、TensorRT优化、企业支持）。</p><p><b>A3：</b>HuggingFace Transformers提供了统一的模型加载、使用、微调接口。它解决了：1.模型下载和格式统一（不用每个模型写不同代码）；2.预训练权重获取（下载即用）；3.Tokenizer配套（模型和Tokenizer绑定）；4.微调框架（Trainer）；5.社区生态（模型共享、数据集、Spaces）。</p><p><b>A4：</b>核心论文排序：2017 Transformer → 2018 BERT/GPT-1 → 2019 GPT-2 → 2020 GPT-3/RAG → 2021 LoRA → 2022 InstructGPT/RLHF/ReAct → 2023 DPO/MoE。趋势：1.模型越来越大（1.17亿→1750亿）；2.从预训练到对齐（SFT/RLHF）；3.从单模态到多模态；4.从通用到专用（RAG/Agent）；5.从训练到高效微调（LoRA/MoE）。</p><p><b>A5：</b>研究员：侧重阶段B（Transformer、LLM训练、RLHF、评估），多读论文，做实验。工程师：侧重阶段C（Agent、RAG、工程部署、MLOps），多做项目。产品经理：侧重17-20课（Agent、RAG、多模态），了解能力边界，设计产品。</p>"
+    }
+  ]
+}

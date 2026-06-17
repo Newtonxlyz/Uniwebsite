@@ -1,0 +1,36 @@
+{
+  "slug": "aigc",
+  "title": "2.10 AIGC",
+  "description": "Text2Image/Image2Image/Text2Video：AI生成内容的原理与应用",
+  "category": "llm",
+  "phase": "B",
+  "order": 16,
+  "sections": [
+    {
+      "type": "text",
+      "title": "AIGC是什么？——AI当艺术家",
+      "content": "<p><b>AIGC（AI Generated Content）是AI生成内容。</b>包括：文字生成（ChatGPT写文章）、图像生成（Midjourney画插画）、视频生成（Sora做电影）、音频生成（Suno写歌曲）、代码生成（GitHub Copilot写代码）。</p><p><b>AIGC vs 传统AI：</b>传统AI是“判别式”——给定图片，判断是猫还是狗。AIGC是“生成式”——给定文字，生成图片。生成式AI需要学会“创造”而不是“分类”。</p><p><b>核心技术：扩散模型（Diffusion Model）。</b>扩散模型是图像生成的核心。它的原理非常巧妙：</p><ol><li><b>前向扩散（Forward Diffusion）：</b>给一张清晰图片逐步加噪声，直到变成纯噪声。就像把一幅画逐渐喷上油漆，直到完全看不清。</li><li><b>反向扩散（Reverse Diffusion）：</b>训练一个神经网络，学会从噪声中逐步恢复图片。就像给一个模糊的画慢慢擦除油漆，恢复清晰。</li><li><b>生成新图片：</b>随机生成纯噪声，然后用反向扩散逐步恢复，最终得到一张全新图片。</li></ol><p><b>类比理解：雕塑家。</b>想象一个雕塑家：他先有一块大理石（噪声），然后逐步雕刻（反向扩散），最终雕出大卫像（清晰图片）。</p><p><b>条件生成：</b>在反向扩散时，加入“条件”（如文字描述），让模型按条件生成。例如：“一只猫在月球上” → 模型生成对应的图片。</p><p><b>AIGC主要应用：</b></p><table border=\"1\"><tr><th>应用</th><th>代表工具</th><th>技术</th><th>特点</th></tr><tr><td>文生图</td><td>Midjourney, DALL-E, Stable Diffusion</td><td>扩散模型</td><td>根据文字描述生成图像</td></tr><tr><td>图生图</td><td>Stable Diffusion img2img, ControlNet</td><td>条件扩散</td><td>根据输入图片+文字生成新图</td></tr><tr><td>文生视频</td><td>Sora, Runway, Pika</td><td>时空扩散</td><td>根据文字生成视频片段</td></tr><tr><td>文生音乐</td><td>Suno, Udio, AIVA</td><td>音频扩散</td><td>根据文字/风格生成音乐</td></tr></table>"
+    },
+    {
+      "type": "text",
+      "title": "Stable Diffusion与LoRA：可定制图像生成",
+      "content": "<p><b>Stable Diffusion（SD）是开源文生图模型的代表。</b>2022年发布，开源免费，社区庞大。SD的核心架构：U-Net + VAE + CLIP文本编码器。</p><p><b>U-Net：</b>扩散模型的核心网络。输入是带噪声的隐空间表示，输出是去噪后的表示。U-Net的“U”型结构：先下采样（编码），再上采样（解码），中间有跳跃连接。</p><p><b>VAE（变分自编码器）：</b>把图片压缩到隐空间（latent space），再在隐空间做扩散。为什么不在像素空间？像素空间太大（512x512x3=786,432维），隐空间小（64x64x4=16,384维），计算快50倍。</p><p><b>CLIP文本编码器：</b>把文字描述转换成向量，引导图像生成。CLIP训练了4亿张图片-文字对，学会把“一只猫”和猫的图片映射到同一个向量空间。</p><p><b>LoRA（Low-Rank Adaptation）：</b>轻量级微调技术。只训练少量参数（通常是原模型的0.1%~1%），就能让模型学会特定风格或人物。例如：用20张自己的照片训练LoRA，就能让SD生成你的各种风格照片。</p><p><b>LoRA原理：</b>不修改原模型的权重W，而是添加一个低秩矩阵ΔW = A×B。A和B很小，参数量极少。公式：W' = W + α/r × A×B。其中r=4~64（秩），α=1（缩放系数）。</p><p><b>参数表：</b></p><table border=\"1\"><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小</th></tr><tr><td>扩散步数</td><td>去噪迭代次数</td><td>20~50</td><td>太少→质量差；太多→慢且可能过平滑</td></tr><tr><td>CFG Scale</td><td>文字引导强度</td><td>7~12</td><td>太低→不跟文字；太高→artifact</td></tr><tr><td>分辨率</td><td>生成图片尺寸</td><td>512x512, 1024x1024</td><td>太大→显存不足；太小→细节不足</td></tr><tr><td>LoRA秩(r)</td><td>低秩矩阵大小</td><td>4~64</td><td>太大→过拟合；太小→表达能力不足</td></tr></table>"
+    },
+    {
+      "type": "code",
+      "title": "代码实战：用Diffusers生成图片",
+      "content": "<p>我们用HuggingFace的diffusers库来生成图片。</p><pre># 安装：pip install diffusers transformers torch\nfrom diffusers import StableDiffusionPipeline\nimport torch\n\n# 加载模型（需要约4GB显存）\nmodel_id = \"runwayml/stable-diffusion-v1-5\"\npipe = StableDiffusionPipeline.from_pretrained(\n    model_id,\n    torch_dtype=torch.float16  # 用FP16节省显存\n).to(\"cuda\")\n\n# 生成图片\nprompt = \"a beautiful sunset over the ocean, digital art\"\nimage = pipe(\n    prompt,\n    num_inference_steps=50,   # 扩散步数\n    guidance_scale=7.5,       # CFG Scale\n    height=512, width=512\n).images[0]\n\nimage.save(\"sunset.png\")\nprint(\"Image generated!\")\n\n# 加载LoRA\npipe.load_lora_weights(\"path/to/lora_weights\")\nimage = pipe(\"a photo of sks person in a suit\").images[0]\n# sks是LoRA触发词</pre><p><b>显存优化技巧：</b></p><ul><li><b>FP16：</b>用半精度浮点数，显存减半，速度提升20%~50%</li><li><b>CPU Offload：</b>不用的模型部分放到CPU内存</li><li><b>VAE切片：</b>大图片分块处理，避免显存爆炸</li><li><b>Batch生成：</b>一次生成多张，效率更高</li></ul>"
+    },
+    {
+      "type": "example",
+      "title": "例子：计算扩散模型的参数量",
+      "content": "<p><b>Stable Diffusion v1.5的参数量计算：</b></p><pre>U-Net: ~860M参数（主要计算量）\nVAE Encoder: ~34M\nVAE Decoder: ~35M\nCLIP Text Encoder: ~123M\n总计: ~1.05B参数\n\n训练数据: LAION-5B (50亿图文对)\n训练成本: 约256张A100 GPU训练约20天\n电费: 约$150,000</pre><p><b>推理成本：</b></p><pre>512x512图片, 50步:\n- A100: ~2秒\n- 4090: ~3秒\n- Mac M2: ~30秒\n- CPU: ~5分钟\n\n1024x1024图片, 50步:\n- A100: ~5秒\n- 4090: ~8秒\n\n优化后 (FP16 + xformers):\n- 4090: 512x512约1.5秒</pre><p><b>结论：</b>生成一张图的成本约$0.001~$0.01（取决于硬件）。Midjourney每次生成4张图，订阅$10/月约200张，每张成本约$0.05。</p>"
+    },
+    {
+      "type": "exercise",
+      "title": "练习：AIGC",
+      "content": "<p><b>Q1：</b>扩散模型的前向扩散和反向扩散分别做什么？为什么需要两步？</p><p><b>Q2：</b>为什么SD用VAE把图片压缩到隐空间，而不是直接在像素空间做扩散？</p><p><b>Q3：</b>LoRA的ΔW = A×B，为什么叫低秩？如果r=4，原矩阵W是512×512，A和B的维度分别是多少？</p><p><b>Q4：</b>CFG Scale=7.5是什么意思？如果CFG=2和CFG=20分别会怎样？</p><p><b>Q5：</b>训练SD需要50亿图文对，但我的数据集只有1000张图。如何用LoRA训练自己的风格？</p>",
+      "answer": "<p><b>A1：</b>前向扩散：给图片加噪声直到变成纯噪声（不需要学习）。反向扩散：从噪声恢复图片（需要训练神经网络）。两步结合：前向定义了从清晰到噪声的过程，反向学习了这个过程的逆过程，从而能从随机噪声生成新图片。</p><p><b>A2：</b>像素空间太大（512x512x3=786,432维）。隐空间小（64x64x4=16,384维），计算快50倍。VAE负责像素↔隐空间的转换，扩散在高效的隐空间进行。</p><p><b>A3：</b>低秩是因为A×B的秩最多为r（远小于矩阵维度）。如果r=4，A是512×4，B是4×512。参数量从512×512=262,144降到512×4+4×512=4,096，减少64倍。</p><p><b>A4：</b>CFG=7.5表示文字条件的影响力是无条件生成的7.5倍。CFG=2：文字引导弱，图片可能不跟文字描述。CFG=20：文字引导极强，但可能产生artifact（颜色过饱和、重复图案等）。</p><p><b>A5：</b>用LoRA！冻结SD的所有参数，只训练A和B矩阵。1000张图足够训练一个LoRA（通常需要10~100张）。训练参数：学习率1e-4，epoch 10~20，秩r=4~8。训练时间：4090约30分钟~2小时。</p>"
+    }
+  ]
+}

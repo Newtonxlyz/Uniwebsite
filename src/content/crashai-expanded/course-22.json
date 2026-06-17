@@ -1,0 +1,31 @@
+{
+  "slug": "mlops",
+  "title": "3.6 MLOps",
+  "description": "模型版本管理/CI-CD/监控/A-B测试：AI系统的持续运维",
+  "category": "llm",
+  "phase": "C",
+  "order": 22,
+  "sections": [
+    {
+      "type": "text",
+      "title": "什么是MLOps？——DevOps的AI版本",
+      "content": "<p><b>MLOps = Machine Learning + Operations。</b>把DevOps的最佳实践应用到机器学习系统。包括：模型开发、训练、部署、监控、更新的全生命周期管理。</p><p><b>为什么MLOps比DevOps更难？</b></p><ul><li><b>模型是代码+数据：</b>传统软件只需要版本控制代码，ML还需要版本控制数据、超参数、模型权重</li><li><b>模型会退化：</b>数据分布变化（概念漂移）导致模型性能下降，需要持续监控</li><li><b>实验管理：</b>ML需要大量实验（不同超参数、不同数据），需要追踪每次实验</li><li><b>可复现性：</b>同样的代码+数据+超参数，必须得到同样的结果</li></ul><p><b>MLOps生命周期：</b></p><pre>1. 数据准备：收集、清洗、标注、版本化\n2. 实验：训练多个模型，比较性能\n3. 模型注册：把最佳模型注册到模型仓库\n4. 部署：把模型部署到生产环境\n5. 监控：监控模型性能、数据漂移、延迟\n6. 再训练：性能下降时，用新数据重新训练\n7. A/B测试：新模型 vs 旧模型，逐步切换</pre><p><b>MLOps工具链：</b></p><table border=\"1\"><tr><th>功能</th><th>工具</th></tr><tr><td>实验追踪</td><td>MLflow, Weights & Biases, TensorBoard</td></tr><tr><td>模型注册</td><td>MLflow Model Registry, DVC</td></tr><tr><td>工作流编排</td><td>Airflow, Kubeflow, Prefect</td></tr><tr><td>特征存储</td><td>Feast, Tecton</td></tr><tr><td>监控</td><td>Evidently, WhyLabs, Arize</td></tr></table>"
+    },
+    {
+      "type": "code",
+      "title": "代码实战：MLflow实验追踪",
+      "content": "<p>用MLflow追踪实验和模型版本。</p><pre># 安装: pip install mlflow\nimport mlflow\nimport mlflow.sklearn\nfrom sklearn.ensemble import RandomForestClassifier\nfrom sklearn.metrics import accuracy_score\n\n# 设置追踪服务器\nmlflow.set_tracking_uri(\"http://localhost:5000\")\nmlflow.set_experiment(\"customer-churn-prediction\")\n\n# 开始实验\nwith mlflow.start_run(run_name=\"rf_model_v1\"):\n    # 记录参数\n    params = {\n        \"n_estimators\": 100,\n        \"max_depth\": 10,\n        \"min_samples_split\": 5\n    }\n    mlflow.log_params(params)\n    \n    # 训练模型\n    model = RandomForestClassifier(**params)\n    model.fit(X_train, y_train)\n    \n    # 评估\n    y_pred = model.predict(X_test)\n    accuracy = accuracy_score(y_test, y_pred)\n    \n    # 记录指标\n    mlflow.log_metric(\"accuracy\", accuracy)\n    mlflow.log_metric(\"precision\", precision_score(y_test, y_pred))\n    mlflow.log_metric(\"recall\", recall_score(y_test, y_pred))\n    \n    # 记录模型\n    mlflow.sklearn.log_model(model, \"model\")\n    \n    # 记录特征重要性图\n    import matplotlib.pyplot as plt\n    feat_importances = pd.Series(model.feature_importances_, index=feature_names)\n    feat_importances.nlargest(10).plot(kind='barh')\n    plt.savefig(\"feature_importance.png\")\n    mlflow.log_artifact(\"feature_importance.png\")\n\nprint(f\"Experiment logged! Accuracy: {accuracy:.4f}\")\n\n# 查看实验结果\n# 打开 http://localhost:5000 查看所有实验</pre><p><b>MLflow核心概念：</b></p><ul><li><b>Experiment（实验）：</b>一组相关的Run。如“客户流失预测”。</li><li><b>Run（运行）：</b>一次具体的训练。包含参数、指标、模型、Artifact。</li><li><b>Artifact（产物）：</b>训练过程中产生的文件，如图表、数据集、模型。</li><li><b>Model Registry（模型注册表）：</b>管理模型的生命周期：Staging → Production → Archived。</li></ul>"
+    },
+    {
+      "type": "text",
+      "title": "模型监控与A/B测试",
+      "content": "<p><b>为什么需要监控模型？</b>模型上线后，真实数据分布可能与训练数据不同。例如：训练时客户主要是年轻人，上线后老年人增多，模型可能不再准确。</p><p><b>监控维度：</b></p><table border=\"1\"><tr><th>监控项</th><th>指标</th><th>告警阈值</th></tr><tr><td>模型性能</td><td>准确率、F1、AUC</td><td>下降>5%</td></tr><tr><td>数据漂移</td><td>特征分布KL散度、PSI</td><td>PSI>0.2</td></tr><tr><td>概念漂移</td><td>标签分布变化</td><td>显著变化</td></tr><tr><td>延迟</td><td>P50/P95/P99响应时间</td><td>P99>500ms</td></tr><tr><td>吞吐量</td><td>QPS</td><td>低于目标</td></tr><tr><td>错误率</td><td>5xx错误比例</td><td>>1%</td></tr></table><p><b>A/B测试：</b>新模型（B）和旧模型（A）同时运行，逐步把流量切给B。</p><pre>阶段1: A=100%, B=0%   (基线)\n阶段2: A=90%,  B=10%  (小流量验证)\n阶段3: A=70%,  B=30%  (逐步放大)\n阶段4: A=50%,  B=50%  (对照实验)\n阶段5: A=20%,  B=80%  (接近全量)\n阶段6: A=0%,   B=100% (完全切换)\n\n每个阶段监控：\n- 业务指标（转化率、收入）\n- 模型指标（准确率、延迟）\n- 用户反馈（满意度、投诉率）\n\n如果B的性能显著优于A（p<0.05），继续放量。\n如果B的性能显著差于A，回滚到A。</pre><p><b>参数表：</b></p><table border=\"1\"><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小</th></tr><tr><td>A/B流量比例</td><td>B模型接收的流量比例</td><td>10%~50%</td><td>太高→风险大；太低→统计不显著</td></tr><tr><td>置信水平</td><td>统计显著性</td><td>95% (p<0.05)</td><td>太高→难显著；太低→误判</td></tr><tr><td>监控窗口</td><td>评估周期</td><td>7天~30天</td><td>太短→随机波动；太长→风险暴露</td></tr></table>"
+    },
+    {
+      "type": "exercise",
+      "title": "练习：MLOps",
+      "content": "<p><b>Q1：</b>MLOps和DevOps的核心区别是什么？为什么ML需要额外的实验管理？</p><p><b>Q2：</b>什么是数据漂移（Data Drift）和概念漂移（Concept Drift）？举例说明。</p><p><b>Q3：</b>A/B测试中，为什么流量不能一次性切到100%新模型？</p><p><b>Q4：</b>MLflow的Run、Experiment、Artifact分别是什么？</p><p><b>Q5：</b>模型监控中，如果准确率下降但数据漂移指标正常，可能是什么原因？</p>",
+      "answer": "<p><b>A1：</b>MLOps需要管理代码+数据+模型+超参数。DevOps只管理代码。ML需要实验管理是因为：1.超参数组合多，需要追踪每次实验；2.数据版本影响模型性能；3.需要比较不同实验选择最佳模型；4.可复现性要求。</p><p><b>A2：</b>数据漂移：输入特征的分布变化。例：训练时用户年龄20-30岁，上线后40-50岁用户增多。概念漂移：输入和输出关系变化。例：疫情期间训练的销售预测模型，疫情后消费习惯改变，模型失效。</p><p><b>A3：</b>一次性切换风险太大。如果新模型有bug或在某些场景表现差，100%流量会导致严重事故。逐步放量可以及时发现问题并回滚。通常从5%~10%开始。</p><p><b>A4：</b>Run：一次具体的训练执行，包含参数、指标、时间戳。Experiment：一组相关的Run（如同一个任务的不同实验）。Artifact：训练产生的文件（模型、图表、数据集）。</p><p><b>A5：</b>可能原因：1.标签质量问题（标注错误增多）；2.模型bug（代码更新引入）；3.特定子群体性能下降（整体指标掩盖了局部问题）；4.对抗样本或异常输入；5.上游数据预处理变化。</p>"
+    }
+  ]
+}

@@ -1,0 +1,137 @@
+{
+  "characters": [
+    {
+      "name": "雷迪嘎嘎",
+      "en_name": "Lady Gaga",
+      "species": "raven",
+      "role": "father",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/雷迪嘎嘎-侧面.png"
+    },
+    {
+      "name": "噶巴巴",
+      "en_name": "G巴巴",
+      "species": "raven",
+      "role": "son",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/噶巴巴-侧面.png"
+    },
+    {
+      "name": "噶丫丫",
+      "en_name": "G丫丫",
+      "species": "white raven",
+      "role": "daughter",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/噶丫丫_侧面_水墨.jpg"
+    },
+    {
+      "name": "妈妈",
+      "en_name": "Morning Sun",
+      "species": "white raven",
+      "role": "mother (memory only)",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/妈妈_三视图.png"
+    },
+    {
+      "name": "奶奶",
+      "en_name": "Grandma",
+      "species": "raven",
+      "role": "grandmother",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/奶奶_三视图.png"
+    },
+    {
+      "name": "伞志",
+      "en_name": "San Zhi",
+      "species": "squirrel",
+      "role": "friend",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/伞志_三视图.png"
+    },
+    {
+      "name": "白攸白",
+      "en_name": "Bai Youbai",
+      "species": "rabbit",
+      "role": "friend",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/白攸白_三视图.png"
+    },
+    {
+      "name": "丁凌凌",
+      "en_name": "Ding Lingling",
+      "species": "eagle",
+      "role": "rival (positive)",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/丁凌凌_三视图.png"
+    },
+    {
+      "name": "丁刚冲冲",
+      "en_name": "Ding Gang Chongchong",
+      "species": "eagle",
+      "role": "bully (antagonist)",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/丁刚冲冲_三视图.png"
+    },
+    {
+      "name": "真咕咕",
+      "en_name": "Zhen Gugu",
+      "species": "owl",
+      "role": "teacher",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/真咕咕_三视图.png"
+    },
+    {
+      "name": "花拉拉",
+      "en_name": "Hua Lala",
+      "species": "deer",
+      "role": "classmate",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/花拉拉_三视图.png"
+    },
+    {
+      "name": "土路路",
+      "en_name": "Tu Lulu",
+      "species": "hedgehog",
+      "role": "classmate",
+      "key_features": "",
+      "description": "",
+      "personality": "",
+      "appearance": "",
+      "image_url": "/picturebook/characters/土路路_三视图.png"
+    }
+  ],
+  "style": "Chinese ink wash painting combined with low poly geometric faceted 3D art, children's picture book illustration style, clean white background, soft warm lighting, geometric faceted surfaces with ink wash textures, high detail character design, emotional storytelling"
+}

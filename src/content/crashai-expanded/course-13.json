@@ -1,0 +1,41 @@
+{
+  "slug": "tokenizer",
+  "title": "2.7 Tokenizer",
+  "description": "BPE/WordPiece/Byte-level：文本如何变成数字——Tokenization原理与实战",
+  "category": "llm",
+  "phase": "B",
+  "order": 13,
+  "sections": [
+    {
+      "type": "text",
+      "title": "Tokenizer是什么？——文本到数字的翻译官",
+      "content": "<p><b>Tokenizer是LLM的翻译官。</b>它把人类能看懂的文字（你好世界），翻译成模型能处理的数字（[1, 45, 678, 23]）。没有Tokenizer，模型无法理解任何文字。</p><p><b>为什么要Tokenize？</b>神经网络只认识数字。它无法理解你好这两个字，但它能理解数字1和数字45。Tokenizer就是把文字映射到数字的桥梁。</p><p><b>Tokenization完整流程：</b>1.文本输入→2.分词（把文本切成小块）→3.映射到ID（每个token对应唯一整数）→4.输入模型（ID转换成向量）→5.输出解码（模型输出ID，再翻译回文字）。</p><p><b>为什么不用单个字符？</b>如果每个字符是一个token，英文26个字母，中文几万个汉字。但unhappiness有12个字符，如果是一个token，模型只需一步处理。而且词比字符更有语义。</p><p><b>为什么不用单个词？</b>英语有100万+单词，中文词更多。如果每个词是一个token，词汇表太大。而且新词不断出现（如bitcoin、ChatGPT），模型无法处理新词。</p><p><b>解决方案：子词（Subword）Tokenization。</b>把词拆成更小的、有意义的部分。例如：unhappiness → un + happiness。既减少了词汇表大小，又能处理新词（un + known = unknown）。</p><p><b>主流Tokenizer对比：</b></p><table border=\"1\"><tr><th>Tokenizer</th><th>算法</th><th>代表模型</th><th>特点</th></tr><tr><td>BPE</td><td>Byte Pair Encoding</td><td>GPT-2/3/4, LLaMA</td><td>合并最频繁的字符对，简单高效</td></tr><tr><td>WordPiece</td><td>贪婪子词分割</td><td>BERT</td><td>选择使语言模型概率最大的子词</td></tr><tr><td>SentencePiece</td><td>自监督学习</td><td>LLaMA, T5</td><td>不依赖语言，直接处理原始文本</td></tr><tr><td>Byte-level BPE</td><td>字节级BPE</td><td>GPT-2</td><td>用256个字节表示所有语言，词汇表极小</td></tr></table>"
+    },
+    {
+      "type": "text",
+      "title": "BPE算法：最聪明的合并游戏",
+      "content": "<p><b>BPE（Byte Pair Encoding）是GPT系列使用的Tokenizer算法。</b>它的核心思想：反复合并文本中最频繁出现的字符对，直到词汇表达到目标大小。</p><p><b>BPE完整步骤（简单例子）：</b></p><p>假设训练语料只有4个单词（已拆分成字符）：low → l,o,w；lower → l,o,w,e,r；newest → n,e,w,e,s,t；widest → w,i,d,e,s,t。</p><p><b>初始词汇表：</b>所有字符 {l,o,w,e,r,n,s,t,i,d} = 10个token。</p><p><b>第1轮：找最频繁的字符对。</b>统计相邻字符对：l-o:2次，o-w:2次，w-e:2次（newest, widest），e-s:2次（newest, widest）。w-e和e-s并列最频繁（2次）。</p><p><b>合并we：</b>把w和e合并成新token we。词汇表=11个token。文本变成：low→l,o,w；lower→l,o,w,e,r；newest→n,we,s,t；widest→w,i,d,e,s,t。</p><p><b>第2轮：再找最频繁。</b>o-w:2次（low, lower）。合并ow：low→l,ow；lower→l,ow,e,r。</p><p><b>重复这个过程</b>，直到词汇表达到目标大小（如GPT-2的50,000）。</p><p><b>BPE的优雅之处：</b>频率驱动（常见组合如ing、er、tion自动合并为token）、处理新词（没见过ChatGPT？拆成Chat + GPT）、词汇表大小可控、多语言友好（Byte-level BPE用256个字节）。</p><p><b>参数表：</b></p><table border=\"1\"><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小</th></tr><tr><td>vocab_size</td><td>最终词汇表大小</td><td>32K, 50K, 100K</td><td>太大→embedding层过大；太小→token序列过长</td></tr><tr><td>min_frequency</td><td>合并的最小频率</td><td>2</td><td>太大→错过常见组合；太小→合并噪声</td></tr><tr><td>special_tokens</td><td>特殊token</td><td>[CLS], [SEP], [MASK]</td><td>根据模型架构定制</td></tr></table>"
+    },
+    {
+      "type": "text",
+      "title": "中文Tokenizer的特殊挑战",
+      "content": "<p><b>中文没有空格，这是最大的挑战。</b>英文Hello world天然有空格分词，中文你好世界没有空格。中文Tokenizer必须自己决定切分位置。</p><p><b>中文Tokenizer的三种策略：</b></p><p><b>1. 字符级：</b>每个汉字是一个token。优点：词汇表小（几千个常用汉字），不会遇到未登录词。缺点：序列太长。今天天气很好=7个token，但语义上只有3-4个概念。</p><p><b>2. 词级：</b>用分词工具（如jieba）先切词，每个词是一个token。优点：语义完整。今天天气很好=3个token（今天/天气/很好）。缺点：词汇表巨大（几十万个词），新词OOV严重。</p><p><b>3. 子词级：BPE在中文中的表现。</b>BPE能发现有意义的组合：快乐→快+乐（BPE可能合并为快乐，因为这对很常见）；不快乐→不+快乐；超级快乐→超级+快乐。</p><p><b>中文Tokenizer实践建议：</b></p><table border=\"1\"><tr><th>Tokenizer</th><th>适用场景</th><th>中文表现</th></tr><tr><td>BERT-wwm</td><td>中文NLP任务</td><td>Whole Word Masking，整词掩码</td></tr><tr><td>ChatGLM-Tokenizer</td><td>中文对话</td><td>针对中文优化，中英文混合效果好</td></tr><tr><td>SentencePiece</td><td>多语言模型</td><td>不依赖空格，中文/英文/日文统一处理</td></tr><tr><td>Qwen-Tokenizer</td><td>中文大模型</td><td>针对中文词汇表优化，扩展性好</td></tr></table>"
+    },
+    {
+      "type": "code",
+      "title": "代码实战：用HuggingFace训练自己的Tokenizer",
+      "content": "<p>我们用HuggingFace的tokenizers库来训练一个BPE tokenizer。</p><pre>from tokenizers import Tokenizer\nfrom tokenizers.models import BPE\nfrom tokenizers.trainers import BpeTrainer\nfrom tokenizers.pre_tokenizers import Whitespace\n\n# 1. 创建BPE模型\ntokenizer = Tokenizer(BPE(unk_token='[UNK]'))\n\n# 2. 设置预分词器（先用空格切分）\ntokenizer.pre_tokenizer = Whitespace()\n\n# 3. 创建训练器\ntrainer = BpeTrainer(\n    vocab_size=50000,        # 目标词汇表大小\n    min_frequency=2,          # 最少出现2次才合并\n    special_tokens=['[PAD]', '[UNK]', '[CLS]', '[SEP]', '[MASK]']\n)\n\n# 4. 训练（从文本文件）\nfiles = ['train.txt']  # 你的训练语料\ntokenizer.train(files, trainer)\n\n# 5. 保存\ntokenizer.save('my_bpe_tokenizer.json')\n\n# 6. 使用\noutput = tokenizer.encode('Hello world!')\nprint(output.tokens)   # ['Hello', ' world', '!']\nprint(output.ids)      # [1, 45, 23]\nprint(tokenizer.decode(output.ids))  # Hello world!</pre><p><b>参数详解：</b></p><table border=\"1\"><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小</th></tr><tr><td>vocab_size</td><td>目标词汇表大小</td><td>32K-100K</td><td>太大→模型参数过多；太小→序列过长</td></tr><tr><td>min_frequency</td><td>合并的最小频率</td><td>2</td><td>太大→错过常见组合；太小→合并噪声</td></tr><tr><td>unk_token</td><td>未知词标记</td><td>[UNK]</td><td>— 必须存在</td></tr><tr><td>special_tokens</td><td>特殊token列表</td><td>[PAD],[UNK],[CLS],[SEP],[MASK]</td><td>根据模型需求定制</td></tr></table>"
+    },
+    {
+      "type": "example",
+      "title": "例子：对比不同Tokenizer的编码结果",
+      "content": "<p><b>原文：unhappiness</b></p><p><b>字符级：</b>u,n,h,a,p,p,i,n,e,s,s = 11个token</p><p><b>词级：</b>unhappiness = 1个token（如果在词汇表里）</p><p><b>BPE（GPT-2风格）：</b>un + happiness = 2个token（如果un和happiness都是常见子词）；或un + happy + ness = 3个token（如果happy更常见）</p><p><b>结论：</b>子词级Tokenizer在词汇表大小和序列长度之间取得了最佳平衡。BPE能自动发现最有价值的子词组合。</p><p><b>另一个例子：中文</b></p><p><b>原文：</b>人工智能技术</p><p><b>字符级：</b>人,工,智,能,技,术 = 6个token</p><p><b>词级（jieba）：</b>人工智能, 技术 = 2个token</p><p><b>BPE（中文优化）：</b>人工 + 智能 + 技术 = 3个token（如果这三个子词常见）；或人工 + 智 + 能 + 技 + 术 = 5个token（如果智能未被合并）</p><p>这取决于训练语料中哪些子词组合最常见。</p>"
+    },
+    {
+      "type": "exercise",
+      "title": "练习：Tokenizer",
+      "content": "<p><b>Q1：</b>为什么英文用空格分词，但中文用空格分词效果差？</p><p><b>Q2：</b>BPE的核心思想是什么？为什么它能处理新词？</p><p><b>Q3：</b>假设BPE训练语料中chat出现100次，bot出现50次，chatbot出现30次。如果词汇表已满，BPE会合并哪个对？</p><p><b>Q4：</b>中文Tokenizer用字符级有什么优缺点？用词级有什么优缺点？</p><p><b>Q5：</b>vocab_size=10000和vocab_size=100000分别对模型有什么影响？</p>",
+      "answer": "<p><b>A1：</b>英文是拼音文字，空格天然分隔单词。中文是意音文字，没有空格，每个字独立但组合成词才有完整含义。人工智能分开意义不同，人工智能组合才有完整含义。</p><p><b>A2：</b>BPE的核心思想是反复合并语料中最频繁出现的字符对，形成子词。它能处理新词因为新词可以拆成已知的子词。例如ChatGPT未见过，但可以拆成Chat + GPT（如果这两个子词在词汇表中）。</p><p><b>A3：</b>BPE会合并出现最频繁的字符对。chat(100) + bot(50) = 需要看相邻对。chatbot中的chat和bot相邻出现30次。如果ch和at等子词更频繁，会先合并它们。具体取决于整个语料的频率分布。</p><p><b>A4：</b>字符级：优点→词汇表小（几千字），不会OOV；缺点→序列长，语义碎片化。词级：优点→语义完整；缺点→词汇表大（几十万个词），新词OOV严重。</p><p><b>A5：</b>vocab_size=10000：embedding层小，但每个token代表的语义信息少，序列长（一篇长文可能需要1000+token）。vocab_size=100000：embedding层大（增加模型参数），但每个token更语义化，序列短。需要平衡：通常32K-50K是最佳点。</p>"
+    }
+  ]
+}

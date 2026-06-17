@@ -1,0 +1,219 @@
+// lvyz-platform Prisma schema
+// 数据库：PostgreSQL（本地用 Prisma Postgres / 部署用 Vercel + Prisma Postgres）
+// 切换到 SQLite：把 provider 改为 "sqlite"，并把 schema 重写为 SQLite 兼容
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─────────────────────────────────────────────────
+// 认证（Better Auth 兼容 schema）
+// ─────────────────────────────────────────────────
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  emailVerified Boolean   @default(false)
+  name          String
+  image         String?
+  // 角色：GUEST(默认), USER, SUBSCRIBER, EDITOR, ADMIN, SUPERADMIN
+  role          String    @default("USER")
+  // 个人简介
+  bio           String?
+  // 社交
+  websiteUrl    String?
+  // 第三方平台
+  xhsHandle     String?  // 小红书用户名
+  biliHandle    String?  // B站用户名
+  // 状态
+  banned        Boolean   @default(false)
+  // 时间
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  // 关系
+  sessions      Session[]
+  accounts      Account[]
+  posts         Post[]
+  comments      Comment[]
+  media         Media[]
+
+  @@map("users")
+}
+
+model Session {
+  id        String   @id @default(cuid())
+  userId    String
+  token     String   @unique
+  expiresAt DateTime
+  ipAddress String?
+  userAgent String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@map("sessions")
+}
+
+model Account {
+  id                String    @id @default(cuid())
+  userId            String
+  accountId         String   // 第三方平台的 user id
+  providerId        String   // google / github / wechat 等
+  // OAuth 字段
+  accessToken       String?
+  refreshToken      String?
+  idToken           String?
+  accessTokenExpiresAt DateTime?
+  refreshTokenExpiresAt DateTime?
+  scope             String?
+  password          String?  // 邮箱+密码登录（Better Auth 存储）
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([providerId, accountId])
+  @@index([userId])
+  @@map("accounts")
+}
+
+model Verification {
+  id         String   @id @default(cuid())
+  identifier String
+  value      String
+  expiresAt  DateTime
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  @@index([identifier])
+  @@map("verifications")
+}
+
+// ─────────────────────────────────────────────────
+// 内容：博客（Post）
+// ─────────────────────────────────────────────────
+model Post {
+  id          String   @id @default(cuid())
+  slug        String   @unique
+  title       String
+  excerpt     String?  // 摘要
+  // Markdown / MDX 内容
+  content     String
+  // 封面图 URL
+  coverImage  String?
+  // 分类：poetry / blog / tech / life / industry
+  category    String   @default("blog")
+  // 标签（逗号分隔）
+  tags        String?
+  // 状态：DRAFT, PUBLISHED, ARCHIVED
+  status      String   @default("DRAFT")
+  // 是否允许留言
+  allowComments Boolean @default(true)
+  // 嵌入的小红书/B站链接（JSON 数组字符串）
+  embeds      String?
+  // 计数
+  viewCount   Int      @default(0)
+  // 关联
+  authorId    String
+  author      User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  // 时间
+  publishedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  comments    Comment[]
+  media       PostMedia[]
+
+  @@index([authorId])
+  @@index([category])
+  @@index([status, publishedAt])
+  @@map("posts")
+}
+
+// ─────────────────────────────────────────────────
+// 内容：留言
+// ─────────────────────────────────────────────────
+model Comment {
+  id        String   @id @default(cuid())
+  content   String
+  // 状态：VISIBLE, HIDDEN, DELETED
+  status    String   @default("VISIBLE")
+  // 关联
+  postId    String
+  post      Post     @relation(fields: [postId], references: [id], onDelete: Cascade)
+  authorId  String
+  author    User     @relation(fields: [authorId], references: [id], onDelete: Cascade)
+  // 父留言（嵌套回复）
+  parentId  String?
+  parent    Comment? @relation("CommentReplies", fields: [parentId], references: [id], onDelete: Cascade)
+  replies   Comment[] @relation("CommentReplies")
+  // 时间
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([postId])
+  @@index([authorId])
+  @@index([parentId])
+  @@map("comments")
+}
+
+// ─────────────────────────────────────────────────
+// 内容：媒体（R2 上传）
+// ─────────────────────────────────────────────────
+model Media {
+  id          String   @id @default(cuid())
+  // 文件名
+  filename    String
+  // MIME 类型
+  mimeType    String
+  // 文件大小（字节）
+  size        Int
+  // 媒体类型：IMAGE, VIDEO, AUDIO, DOCUMENT
+  type        String
+  // R2 key
+  key         String   @unique
+  // 公开 URL（CDN）
+  url         String
+  // 宽 × 高（图片/视频）
+  width       Int?
+  height      Int?
+  // 视频时长（秒）
+  duration    Float?
+  // 缩略图 URL
+  thumbnailUrl String?
+  // 关联
+  uploaderId  String
+  uploader    User     @relation(fields: [uploaderId], references: [id], onDelete: Cascade)
+  // 时间
+  createdAt   DateTime @default(now())
+
+  posts       PostMedia[]
+
+  @@index([uploaderId])
+  @@index([type])
+  @@map("media")
+}
+
+// 多对多：post ↔ media
+model PostMedia {
+  postId  String
+  mediaId String
+  // 用途：COVER, CONTENT, GALLERY
+  role    String  @default("CONTENT")
+  // 排序
+  order   Int     @default(0)
+
+  post    Post    @relation(fields: [postId], references: [id], onDelete: Cascade)
+  media   Media   @relation(fields: [mediaId], references: [id], onDelete: Cascade)
+
+  @@id([postId, mediaId])
+  @@index([mediaId])
+  @@map("post_media")
+}

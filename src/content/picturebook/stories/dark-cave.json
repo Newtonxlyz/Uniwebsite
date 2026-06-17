@@ -1,0 +1,25 @@
+{
+  "id": "dark-cave",
+  "title": "黑黑的洞穴我不怕",
+  "emoji": "💝",
+  "series": "儿童情感引导系列",
+  "series_category": "emotion",
+  "desc": "暴风雨的夜晚，树洞里的蜡烛熄灭了，嘎巴巴和嘎丫丫被困在黑暗中。",
+  "pages": 20,
+  "age": "3-8岁",
+  "time": 8,
+  "status": "已上线",
+  "chars": [
+    "雷迪嘎嘎",
+    "嘎巴巴",
+    "嘎丫丫"
+  ],
+  "tags": [
+    "勇气",
+    "恐惧",
+    "亲子",
+    "情感引导"
+  ],
+  "text": [],
+  "source": "manual"
+}

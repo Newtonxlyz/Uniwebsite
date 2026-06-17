@@ -1,0 +1,31 @@
+{
+  "slug": "frontier",
+  "title": "3.7 前沿探索",
+  "description": "MoE/长上下文/世界模型/具身智能：AI的下一个前沿",
+  "category": "llm",
+  "phase": "C",
+  "order": 23,
+  "sections": [
+    {
+      "type": "text",
+      "title": "Mixture of Experts (MoE)：用大模型的智能，花小模型的钱",
+      "content": "<p><b>MoE（混合专家模型）是2024年最热门的模型架构。</b>GPT-4、Mixtral 8x7B、DeepSeek-V2都用了MoE。核心思想：不是所有参数都参与每次计算，只激活一部分专家。</p><p><b>类比：医院会诊。</b>一个病人来了，不需要全院1000个医生都看。只需要根据症状，激活3-5个相关科室的专家。 MoE就像这样：每次输入，只路由到最相关的几个专家网络。</p><p><b>MoE架构：</b></p><pre>输入 → 路由器(Router) → 选择Top-k专家 → 专家网络(Expert) → 加权聚合 → 输出\n\n路由器：一个小网络，决定激活哪些专家\n专家网络：多个并行的FFN（前馈网络），每个处理不同方面\nTop-k：通常k=2，每次只激活2个专家（如8个专家中选2个）\n</pre><p><b>参数效率：</b></p><pre>Mixtral 8x7B：\n- 总参数量：46.7B（8个专家，每个7B）\n- 激活参数量：12.9B（每次只激活2个专家）\n- 性能：接近70B密集模型\n- 推理速度：比70B模型快得多（因为只计算12.9B参数）</pre><p><b>MoE的优势与挑战：</b></p><table border=\"1\"><tr><th>特性</th><th>优势</th><th>挑战</th></tr><tr><td>参数效率</td><td>总参数多，激活少</td><td>内存仍需存储所有参数</td></tr><tr><td>推理速度</td><td>比同性能密集模型快</td><td>专家切换有开销</td></tr><tr><td>专业化</td><td>不同专家学不同领域</td><td>负载均衡难</td></tr><tr><td>扩展性</td><td>增加专家几乎线性提升</td><td>通信开销增加</td></tr></table><p><b>参数表：</b></p><table border=\"1\"><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小</th></tr><tr><td>num_experts</td><td>专家数量</td><td>8~64</td><td>太多→路由难；太少→不专业</td></tr><tr><td>top_k</td><td>每次激活专家数</td><td>2~4</td><td>太多→效率低；太少→信息丢失</td></tr><tr><td>capacity_factor</td><td>容量因子</td><td>1.0~1.5</td><td>太高→浪费；太低→丢弃token</td></tr></table>"
+    },
+    {
+      "type": "text",
+      "title": "长上下文：从4K到1M的突破",
+      "content": "<p><b>上下文长度是LLM最重要的能力之一。</b>4K上下文能读一篇论文，128K能读一本书，1M能读一个代码库。</p><p><b>上下文长度演进：</b></p><pre>GPT-3 (2020): 2,048 tokens\nGPT-3.5 (2022): 4,096 tokens\nGPT-4 (2023): 8,192 / 32,768 tokens\nClaude 2.1 (2023): 200,000 tokens\nGemini 1.5 Pro (2024): 1,000,000 tokens (1M!)\nClaude 3 Opus (2024): 200,000 tokens\nKimi (2024): 200,000 tokens\n</pre><p><b>为什么长上下文难？</b></p><p><b>1. 计算复杂度：</b>Attention机制的复杂度是O(N²)，N=token数。4K上下文 = 1600万次计算，1M上下文 = 1万亿次计算（62500倍！）。</p><p><b>2. 内存占用：</b>1M上下文，每个token存KV Cache。假设d=4096，FP16：1M × 4096 × 2字节 × 2(K+V) = 16.4GB。仅KV Cache就16GB！</p><p><b>3. 注意力稀释：</b>序列太长，注意力分数被稀释，远处的token难以关注到。</p><p><b>长上下文解决方案：</b></p><ul><li><b>稀疏注意力：</b>只计算部分位置的注意力。如：局部注意力（只看附近token）、滑动窗口（看左右各W个token）、Longformer（组合局部+全局注意力）</li><li><b>线性注意力：</b>把O(N²)降到O(N)。如：Linear Attention、Performer、RWKV。</li><li><b>外推（Extrapolation）：</b>在短上下文训练，用技术扩展到长上下文。如：ALiBi（位置编码）、RoPE扩展（位置插值）、NTK-aware扩展。</li><li><b>Ring Attention：</b>把长序列分成多个块，在多个GPU上并行计算注意力。</li><li><b>内存优化：</b>KV Cache压缩（量化、剪枝）、FlashAttention（IO感知优化）。</li></ul><p><b>参数表：</b></p><table border=\"1\"><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小</th></tr><tr><td>context_length</td><td>最大上下文长度</td><td>4K~1M</td><td>太长→计算爆炸；太短→信息不足</td></tr><tr><td>sliding_window</td><td>滑动窗口大小</td><td>512~4096</td><td>太大→不稀疏；太小→丢失远处信息</td></tr><tr><td>global_tokens</td><td>全局注意力token数</td><td>16~128</td><td>太少→全局信息不足</td></tr></table>"
+    },
+    {
+      "type": "text",
+      "title": "世界模型与具身智能：AI理解物理世界",
+      "content": "<p><b>世界模型（World Model）：</b>AI学习理解物理世界的规律。知道重力让物体下落，知道水往低处流，知道球会反弹。这是通用人工智能(AGI)的关键。</p><p><b>类比：婴儿的学习。</b>婴儿通过观察世界、互动、试错，建立对物理世界的直觉。世界模型就是AI的“直觉物理”。</p><p><b>世界模型代表工作：</b></p><ul><li><b>Sora (OpenAI, 2024)：</b>视频生成模型，但展现出对物理世界的理解（物体 permanence、碰撞、流体）。</li><li><b>GAIA-1 (Wayve, 2023)：</b>自动驾驶世界模型，能预测未来交通场景。</li><li><b>Genie (Google DeepMind, 2024)：</b>从视频训练世界模型，可以控制虚拟环境。</li><li><b>JEPA (LeCun, 2023)：</b>联合嵌入预测架构，通过预测世界来学习。</li></ul><p><b>具身智能（Embodied AI）：</b>AI有身体，能在物理世界中行动。不是只存在于服务器里，而是有机器人身体，能感知、行动、学习。</p><p><b>具身智能的挑战：</b></p><pre>1. 感知：摄像头、触觉、力觉 → 多模态融合\n2. 行动：精确控制机械臂、行走、抓取\n3. 安全：不能伤害人类、不能破坏环境\n4. 泛化：在实验室训练的模型，能否在真实家庭工作？\n5. 实时：机器人需要毫秒级响应，但LLM推理需要秒级\n</pre><p><b>具身智能代表：</b></p><table border=\"1\"><tr><th>系统</th><th>公司</th><th>特点</th></tr><tr><td>Figure 01</td><td>Figure AI</td><td>人形机器人，OpenAI合作</td></tr><tr><td>Optimus (擎天柱)</td><td>Tesla</td><td>工厂场景，大规模量产计划</td></tr><tr><td>Atlas</td><td>Boston Dynamics</td><td>极致运动能力，液压驱动</td></tr><tr><td>RT-2</td><td>Google DeepMind</td><td>视觉-语言-动作端到端</td></tr></table><p><b>参数表：</b></p><table border=\"1\"><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小</th></tr><tr><td>observation_freq</td><td>感知频率</td><td>30~60Hz</td><td>太低→反应慢；太高→计算压力大</td></tr><tr><td>action_dim</td><td>动作空间维度</td><td>7~50</td><td>太少→不够灵活；太多→难学习</td></tr><tr><td>sim2real_gap</td><td>仿真到现实差距</td><td>越小越好</td><td>太大→仿真训练无效</td></tr></table>"
+    },
+    {
+      "type": "exercise",
+      "title": "练习：前沿探索",
+      "content": "<p><b>Q1：</b>MoE相比密集模型，核心优势是什么？为什么说MoE“用大模型的智能，花小模型的钱”？</p><p><b>Q2：</b>Attention复杂度是O(N²)。如果上下文从4K扩展到1M，计算量增加了多少倍？为什么长上下文这么难？</p><p><b>Q3：</b>世界模型和具身智能有什么关系？为什么LeCun认为世界模型是通往AGI的关键？</p><p><b>Q4：</b>MoE的负载均衡问题是什么？如果所有token都路由到同一个专家，会怎样？</p><p><b>Q5：</b>设计一个MoE架构：8个专家，每个7B参数，top_k=2。计算总参数量、激活参数量、推理时计算量相对于70B密集模型的比例。</p>",
+      "answer": "<p><b>A1：</b>MoE核心优势：1.参数效率高——总参数多（如46.7B），但每次只激活少量（如12.9B），性能接近70B密集模型；2.推理速度快——因为计算量小；3.专业化——不同专家学不同领域。“用大模型的智能，花小模型的钱”：训练时用大数据训大模型，推理时只计算小模型大小的参数。</p><p><b>A2：</b>4K=4000, 1M=1,000,000。计算量增加=(1M/4K)²=(250)²=62,500倍。长上下文难因为：1.计算量爆炸；2.内存占用巨大（KV Cache）；3.注意力稀释（远处token难以关注）。</p><p><b>A3：</b>世界模型是AI理解物理世界的规律，具身智能是AI有身体在物理世界中行动。两者关系：具身智能需要世界模型来理解环境，世界模型可以通过具身交互来学习和验证。LeCun认为人类智能的核心是世界模型——我们时刻在预测世界的状态，规划行动。纯语言模型缺少这种“物理直觉”。</p><p><b>A4：</b>负载均衡问题：如果所有token都路由到同一个专家，其他专家不被训练，浪费参数。解决方案：1.辅助损失函数（auxiliary loss）鼓励均匀分布；2.容量限制（capacity factor）每个专家最多处理一定数量的token；3.噪声注入（Noisy Top-k）给路由分数加噪声。</p><p><b>A5：</b>总参数量=8×7B=56B（加上路由器等，约46.7B，如Mixtral）。激活参数量=2×7B=14B（加上共享参数，约12.9B）。推理计算量≈14B/70B=20%。即MoE推理只需密集模型20%的计算量，但性能接近。</p>"
+    }
+  ]
+}

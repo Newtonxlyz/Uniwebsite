@@ -1,0 +1,1888 @@
+{
+  "cards": [
+    {
+      "id": "card-001",
+      "question": "导数的几何意义是什么？",
+      "answer": "导数 = 切线的斜率。>0 递增，<0 递减，=0 极值点。日常类比：位置对时间的导数就是速度。",
+      "lessonId": "math-basics",
+      "category": "math",
+      "difficulty": 1,
+      "tags": [
+        "derivative",
+        "calculus"
+      ]
+    },
+    {
+      "id": "card-002",
+      "question": "什么是梯度？",
+      "answer": "梯度 = [偏f/偏x1, 偏f/偏x2, ...]，指向函数增长最快的方向。负梯度 = 下降最快的方向。",
+      "lessonId": "math-basics",
+      "category": "math",
+      "difficulty": 2,
+      "tags": [
+        "gradient",
+        "calculus"
+      ]
+    },
+    {
+      "id": "card-003",
+      "question": "链式法则在神经网络中的作用？",
+      "answer": "反向传播就是链式法则。从损失L反向逐步求导到每个权重。Sigmoid导数 = sigma(x)(1-sigma(x))。",
+      "lessonId": "math-basics",
+      "category": "math",
+      "difficulty": 3,
+      "tags": [
+        "chain-rule",
+        "backprop"
+      ]
+    },
+    {
+      "id": "card-004",
+      "question": "矩阵乘法在神经网络中的意义？",
+      "answer": "神经网络层 y = Wx + b。深度学习 = 一串矩阵乘法 + 激活函数。",
+      "lessonId": "math-basics",
+      "category": "math",
+      "difficulty": 2,
+      "tags": [
+        "matrix",
+        "linear-algebra"
+      ]
+    },
+    {
+      "id": "card-005",
+      "question": "对数在AI中的关键用途？",
+      "answer": "1. 乘变加（求导方便）。2. 数值稳定（避免指数爆炸）。3. 信息熵定义。",
+      "lessonId": "math-basics",
+      "category": "math",
+      "difficulty": 2,
+      "tags": [
+        "log",
+        "probability"
+      ]
+    },
+    {
+      "id": "card-006",
+      "question": "Z-Score标准化的公式？",
+      "answer": "x_prime = (x - mu) / sigma -> 均值0，方差1。深度学习的默认标准化方法。",
+      "lessonId": "math-basics",
+      "category": "math",
+      "difficulty": 2,
+      "tags": [
+        "normalization",
+        "statistics"
+      ]
+    },
+    {
+      "id": "card-007",
+      "question": "为什么需要偏导数？",
+      "answer": "多变量函数中对某一个变量求导，其他变量视为常数。用于计算梯度下降中的每个参数更新方向。",
+      "lessonId": "math-basics",
+      "category": "math",
+      "difficulty": 2,
+      "tags": [
+        "partial-derivative",
+        "gradient"
+      ]
+    },
+    {
+      "id": "card-008",
+      "question": "Python列表推导式是什么？",
+      "answer": "[x**2 for x in range(10)] -> [0,1,4,9,16,25,36,49,64,81]。比for循环更简洁高效。",
+      "lessonId": "py-basics",
+      "category": "python",
+      "difficulty": 1,
+      "tags": [
+        "python",
+        "list-comprehension"
+      ]
+    },
+    {
+      "id": "card-009",
+      "question": "NumPy向量计算比Python循环快多少倍？",
+      "answer": "100万维向量点积：Python循环约200ms，NumPy约2ms，快100倍。底层是C+SIMD并行。",
+      "lessonId": "py-basics",
+      "category": "python",
+      "difficulty": 2,
+      "tags": [
+        "numpy",
+        "performance"
+      ]
+    },
+    {
+      "id": "card-010",
+      "question": "如何用NumPy实现Sigmoid？",
+      "answer": "import numpy as np; def sigmoid(x): return 1/(1+np.exp(-x))。向量化：输入数组->输出数组。",
+      "lessonId": "py-basics",
+      "category": "python",
+      "difficulty": 2,
+      "tags": [
+        "numpy",
+        "sigmoid"
+      ]
+    },
+    {
+      "id": "card-011",
+      "question": "Softmax的NumPy实现？",
+      "answer": "def softmax(x): e=np.exp(x-np.max(x)); return e/np.sum(e)。减去max(x)防止数值溢出。",
+      "lessonId": "py-basics",
+      "category": "python",
+      "difficulty": 3,
+      "tags": [
+        "numpy",
+        "softmax"
+      ]
+    },
+    {
+      "id": "card-012",
+      "question": "Python字典的作用？",
+      "answer": "键值对存储。例：student={\"name\":\"Alice\",\"age\":25,\"scores\":[85,90]}。查找O(1)。",
+      "lessonId": "py-basics",
+      "category": "python",
+      "difficulty": 1,
+      "tags": [
+        "python",
+        "dictionary"
+      ]
+    },
+    {
+      "id": "card-013",
+      "question": "NumPy的@运算符是什么？",
+      "answer": "矩阵乘法/点积。np.dot(a,b)的简写。a @ b等价于a.dot(b)。",
+      "lessonId": "py-basics",
+      "category": "python",
+      "difficulty": 2,
+      "tags": [
+        "numpy",
+        "matrix"
+      ]
+    },
+    {
+      "id": "card-014",
+      "question": "什么是Python的Class？",
+      "answer": "封装数据和方法的模板。class NeuralNetwork: def __init__(self,size): self.weights=[...]。self指向实例。",
+      "lessonId": "py-basics",
+      "category": "python",
+      "difficulty": 2,
+      "tags": [
+        "python",
+        "oop"
+      ]
+    },
+    {
+      "id": "card-015",
+      "question": "BGD和SGD的区别？",
+      "answer": "BGD：全部数据，稳定但慢。SGD：单样本，快但噪声大。实战用Mini-batch(32/128)折中。",
+      "lessonId": "optimizer",
+      "category": "optimizer",
+      "difficulty": 2,
+      "tags": [
+        "bgd",
+        "sgd"
+      ]
+    },
+    {
+      "id": "card-016",
+      "question": "Momentum的直觉？",
+      "answer": "像滚下山的小球，有惯性加速收敛。v_t = beta*v_{t-1}+梯度L。beta=0.9表示保留90%旧方向。",
+      "lessonId": "optimizer",
+      "category": "optimizer",
+      "difficulty": 2,
+      "tags": [
+        "momentum",
+        "optimization"
+      ]
+    },
+    {
+      "id": "card-017",
+      "question": "Adam的默认参数？",
+      "answer": "alpha=0.001（学习率），beta1=0.9（一阶矩），beta2=0.999（二阶矩），epsilon=1e-8（数值稳定）。",
+      "lessonId": "optimizer",
+      "category": "optimizer",
+      "difficulty": 2,
+      "tags": [
+        "adam",
+        "hyperparameters"
+      ]
+    },
+    {
+      "id": "card-018",
+      "question": "Adam = Momentum + 什么？",
+      "answer": "RMSprop。Adam同时维护动量（方向）和自适应学习率（步长）。",
+      "lessonId": "optimizer",
+      "category": "optimizer",
+      "difficulty": 2,
+      "tags": [
+        "adam",
+        "rmsprop"
+      ]
+    },
+    {
+      "id": "card-019",
+      "question": "为什么需要自适应学习率？",
+      "answer": "不同参数收敛速度不同。梯度稀疏的参数（如词嵌入）需要更大学习率，梯度密集的需要更小。",
+      "lessonId": "optimizer",
+      "category": "optimizer",
+      "difficulty": 3,
+      "tags": [
+        "adaptive-learning-rate",
+        "optimization"
+      ]
+    },
+    {
+      "id": "card-020",
+      "question": "学习率衰减的作用？",
+      "answer": "初期大步快速接近，后期小步精细调整。常见策略：Step decay（每N步减半）、Cosine annealing。",
+      "lessonId": "optimizer",
+      "category": "optimizer",
+      "difficulty": 3,
+      "tags": [
+        "learning-rate",
+        "scheduling"
+      ]
+    },
+    {
+      "id": "card-021",
+      "question": "梯度裁剪解决什么问题？",
+      "answer": "防止梯度爆炸（RNN中常见）。将梯度范数限制在阈值内（如max_norm=1）。",
+      "lessonId": "optimizer",
+      "category": "optimizer",
+      "difficulty": 3,
+      "tags": [
+        "gradient-clipping",
+        "rnn"
+      ]
+    },
+    {
+      "id": "card-022",
+      "question": "为什么需要激活函数？",
+      "answer": "没有激活函数 = 多层线性 = 单层线性。无论堆多少层都是线性变换，无法拟合非线性数据。",
+      "lessonId": "activation",
+      "category": "activation",
+      "difficulty": 1,
+      "tags": [
+        "activation",
+        "nonlinearity"
+      ]
+    },
+    {
+      "id": "card-023",
+      "question": "ReLU的优缺点？",
+      "answer": "优点：计算简单，不饱和（正区间梯度=1）。缺点：Dead ReLU（负区间梯度=0，神经元永远死亡）。",
+      "lessonId": "activation",
+      "category": "activation",
+      "difficulty": 2,
+      "tags": [
+        "relu",
+        "dead-relu"
+      ]
+    },
+    {
+      "id": "card-024",
+      "question": "Leaky ReLU怎么修复Dead ReLU？",
+      "answer": "f(x)=max(0.01x,x)。负区间也有微小梯度（0.01），防止神经元彻底死亡。",
+      "lessonId": "activation",
+      "category": "activation",
+      "difficulty": 2,
+      "tags": [
+        "leaky-relu",
+        "dead-relu"
+      ]
+    },
+    {
+      "id": "card-025",
+      "question": "GELU相比ReLU的优势？",
+      "answer": "GELU(x)=x*Phi(x)。平滑非线性，保留负值信息。BERT、GPT都用GELU。",
+      "lessonId": "activation",
+      "category": "activation",
+      "difficulty": 3,
+      "tags": [
+        "gelu",
+        "transformer"
+      ]
+    },
+    {
+      "id": "card-026",
+      "question": "Sigmoid的梯度消失问题？",
+      "answer": "Sigmoid输出范围(0,1)，两端接近饱和时导数趋近于0。深层网络中梯度逐层衰减，无法回传。",
+      "lessonId": "activation",
+      "category": "activation",
+      "difficulty": 3,
+      "tags": [
+        "sigmoid",
+        "vanishing-gradient"
+      ]
+    },
+    {
+      "id": "card-027",
+      "question": "MSE的公式和适用场景？",
+      "answer": "MSE = (1/N)Σ(y-y_hat)²。回归任务。对大误差敏感（平方放大）。导数 dL/dy_hat = -2(y-y_hat)。",
+      "lessonId": "loss",
+      "category": "loss",
+      "difficulty": 1,
+      "tags": [
+        "mse",
+        "regression"
+      ]
+    },
+    {
+      "id": "card-028",
+      "question": "CrossEntropy为什么比MSE更适合分类？",
+      "answer": "CE = -Σy*log(y_hat)。错误预测时惩罚大（log放大），收敛更快。+Softmax时梯度=预测-真实。",
+      "lessonId": "loss",
+      "category": "loss",
+      "difficulty": 2,
+      "tags": [
+        "crossentropy",
+        "classification"
+      ]
+    },
+    {
+      "id": "card-029",
+      "question": "BCE用在什么场景？",
+      "answer": "二分类。BCE = -[y*log(y_hat)+(1-y)*log(1-y_hat)]。例：垃圾邮件检测（是/否）。",
+      "lessonId": "loss",
+      "category": "loss",
+      "difficulty": 2,
+      "tags": [
+        "bce",
+        "binary-classification"
+      ]
+    },
+    {
+      "id": "card-030",
+      "question": "Focal Loss解决什么问题？",
+      "answer": "类别不平衡。难分类样本保留权重，简单样本降低权重。目标检测常用gamma=2, alpha=0.25。",
+      "lessonId": "loss",
+      "category": "loss",
+      "difficulty": 3,
+      "tags": [
+        "focal-loss",
+        "imbalanced-data"
+      ]
+    },
+    {
+      "id": "card-031",
+      "question": "Huber Loss是什么？",
+      "answer": "MSE和MAE的混合。小误差用MSE（光滑），大误差用MAE（抗异常值）。参数delta控制分界点。",
+      "lessonId": "loss",
+      "category": "loss",
+      "difficulty": 3,
+      "tags": [
+        "huber",
+        "robust"
+      ]
+    },
+    {
+      "id": "card-032",
+      "question": "Dropout的工作原理？",
+      "answer": "训练时以概率p随机丢弃神经元。强迫网络学习冗余表示，防止过拟合。p=0.5表示丢弃50%。",
+      "lessonId": "training-tricks",
+      "category": "training",
+      "difficulty": 2,
+      "tags": [
+        "dropout",
+        "regularization"
+      ]
+    },
+    {
+      "id": "card-033",
+      "question": "L2正则化怎么写？",
+      "answer": "Loss += lambda*Σw²。惩罚大权重。lambda=0.001~0.01。等价于权重衰减（weight decay）。",
+      "lessonId": "training-tricks",
+      "category": "training",
+      "difficulty": 2,
+      "tags": [
+        "l2",
+        "regularization"
+      ]
+    },
+    {
+      "id": "card-034",
+      "question": "BatchNorm的作用？",
+      "answer": "标准化每层输入（均0方1）。解决内部协变量偏移。训练用batch均值方差，测试用滑动平均。",
+      "lessonId": "training-tricks",
+      "category": "training",
+      "difficulty": 2,
+      "tags": [
+        "batchnorm",
+        "normalization"
+      ]
+    },
+    {
+      "id": "card-035",
+      "question": "Warmup是什么？",
+      "answer": "前N步学习率从小线性增加到目标值。防止初期梯度爆炸，尤其在Transformer大模型中关键。",
+      "lessonId": "training-tricks",
+      "category": "training",
+      "difficulty": 3,
+      "tags": [
+        "warmup",
+        "transformer"
+      ]
+    },
+    {
+      "id": "card-036",
+      "question": "过拟合的3个信号？",
+      "answer": "1. 训练loss下降但验证loss上升。2. 训练准确率远高于验证准确率。3. 模型在测试集表现差。",
+      "lessonId": "training-tricks",
+      "category": "training",
+      "difficulty": 2,
+      "tags": [
+        "overfitting",
+        "validation"
+      ]
+    },
+    {
+      "id": "card-037",
+      "question": "Min-Max归一化 vs Z-Score标准化？",
+      "answer": "Min-Max: x_prime=(x-min)/(max-min)->[0,1]，适合已知上下界。Z-Score: x_prime=(x-mu)/sigma->均0方1，深度学习默认。",
+      "lessonId": "data-prep",
+      "category": "data",
+      "difficulty": 1,
+      "tags": [
+        "normalization",
+        "standardization"
+      ]
+    },
+    {
+      "id": "card-038",
+      "question": "One-Hot编码是什么？",
+      "answer": "类别变量->二进制向量。例：城市[北京,上海,深圳] -> [1,0,0], [0,1,0], [0,0,1]。",
+      "lessonId": "data-prep",
+      "category": "data",
+      "difficulty": 2,
+      "tags": [
+        "encoding",
+        "categorical"
+      ]
+    },
+    {
+      "id": "card-039",
+      "question": "数据增强的作用？",
+      "answer": "扩充训练数据。图像：翻转、裁剪、旋转、加噪声。文本：同义词替换、回译。减少过拟合。",
+      "lessonId": "data-prep",
+      "category": "data",
+      "difficulty": 2,
+      "tags": [
+        "augmentation",
+        "regularization"
+      ]
+    },
+    {
+      "id": "card-040",
+      "question": "为什么要划分训练/验证/测试集？",
+      "answer": "训练集学参数，验证集调超参，测试集最终评估。比例通常70:15:15或80:10:10。",
+      "lessonId": "data-prep",
+      "category": "data",
+      "difficulty": 1,
+      "tags": [
+        "split",
+        "validation"
+      ]
+    },
+    {
+      "id": "card-041",
+      "question": "Self-Attention的核心思想？",
+      "answer": "每个位置都能看到所有其他位置。Query问问题，Key查匹配，Value取内容。计算量O(n²)。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 2,
+      "tags": [
+        "self-attention",
+        "attention"
+      ]
+    },
+    {
+      "id": "card-042",
+      "question": "Attention的4个步骤？",
+      "answer": "1. 生成Q/K/V。2. score=Q*K^T/sqrt(d_k)。3. alpha=softmax(score)。4. Output=alpha*V。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 2,
+      "tags": [
+        "attention",
+        "mechanism"
+      ]
+    },
+    {
+      "id": "card-043",
+      "question": "Multi-Head Attention的好处？",
+      "answer": "多组并行注意力，每个头关注不同方面。例：一个头关注语法，一个关注语义。GPT-3: 96个头。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 3,
+      "tags": [
+        "multi-head",
+        "attention"
+      ]
+    },
+    {
+      "id": "card-044",
+      "question": "位置编码为什么必要？",
+      "answer": "Attention本身没有顺序概念。给每个位置添加独特向量，让模型知道词的位置。原始用正弦，GPT用可学习。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 2,
+      "tags": [
+        "position-encoding",
+        "sequence"
+      ]
+    },
+    {
+      "id": "card-045",
+      "question": "残差连接解决什么？",
+      "answer": "output=LayerNorm(x+Sublayer(x))。解决梯度消失，允许训练更深网络。跳跃连接保留原始信息。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 3,
+      "tags": [
+        "residual",
+        "gradient"
+      ]
+    },
+    {
+      "id": "card-046",
+      "question": "Transformer的Encoder和Decoder区别？",
+      "answer": "Encoder: 双向，适合理解（BERT）。Decoder: 自回归，适合生成（GPT）。Decoder额外有Cross-Attention连接Encoder。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 3,
+      "tags": [
+        "encoder",
+        "decoder"
+      ]
+    },
+    {
+      "id": "card-047",
+      "question": "FFN在Transformer中的作用？",
+      "answer": "两层线性+ReLU。将注意力输出映射到更高维空间再压缩。增加非线性表达能力。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 3,
+      "tags": [
+        "ffn",
+        "feedforward"
+      ]
+    },
+    {
+      "id": "card-048",
+      "question": "DataFrame和Series的区别？",
+      "answer": "Series=一维标签数组。DataFrame=二维表格（多列Series）。类似Excel的一张工作表。",
+      "lessonId": "pandas",
+      "category": "pandas",
+      "difficulty": 1,
+      "tags": [
+        "dataframe",
+        "series"
+      ]
+    },
+    {
+      "id": "card-049",
+      "question": "df.groupby()的常用聚合方法？",
+      "answer": "df.groupby(\"col\").agg({\"a\":\"sum\",\"b\":\"mean\",\"c\":\"count\"}) — 同时多列不同聚合。",
+      "lessonId": "pandas",
+      "category": "pandas",
+      "difficulty": 2,
+      "tags": [
+        "groupby",
+        "aggregation"
+      ]
+    },
+    {
+      "id": "card-050",
+      "question": "pd.pivot_table()的作用？",
+      "answer": "数据透视表。行列交叉汇总。pd.pivot_table(df,index=\"product\",columns=\"date\",values=\"sales\",aggfunc=\"sum\")。",
+      "lessonId": "pandas",
+      "category": "pandas",
+      "difficulty": 2,
+      "tags": [
+        "pivot",
+        "aggregation"
+      ]
+    },
+    {
+      "id": "card-051",
+      "question": "如何处理缺失值？",
+      "answer": "df.fillna({\"age\":df[\"age\"].median()}) 中位数填充。df.dropna() 删除。df.interpolate() 插值。",
+      "lessonId": "pandas",
+      "category": "pandas",
+      "difficulty": 2,
+      "tags": [
+        "missing-values",
+        "data-cleaning"
+      ]
+    },
+    {
+      "id": "card-052",
+      "question": "pd.to_datetime()的作用？",
+      "answer": "将字符串日期转换为datetime对象。支持时间序列操作：df.resample(\"M\").sum() 按月汇总。",
+      "lessonId": "pandas",
+      "category": "pandas",
+      "difficulty": 2,
+      "tags": [
+        "datetime",
+        "time-series"
+      ]
+    },
+    {
+      "id": "card-053",
+      "question": "Scikit-learn的通用API？",
+      "answer": "所有模型统一：.fit(X_train,y_train)训练，.predict(X_test)预测，.score(X_test,y_test)评估。",
+      "lessonId": "sklearn",
+      "category": "sklearn",
+      "difficulty": 1,
+      "tags": [
+        "api",
+        "workflow"
+      ]
+    },
+    {
+      "id": "card-054",
+      "question": "train_test_split的作用？",
+      "answer": "X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=0.2,random_state=42)。random_state保证可复现。",
+      "lessonId": "sklearn",
+      "category": "sklearn",
+      "difficulty": 1,
+      "tags": [
+        "split",
+        "validation"
+      ]
+    },
+    {
+      "id": "card-055",
+      "question": "随机森林 vs GBDT？",
+      "answer": "随机森林：并行训练多棵树，投票。GBDT：串行，每棵树修正上一棵错误。XGBoost/LightGBM都是GBDT。",
+      "lessonId": "sklearn",
+      "category": "sklearn",
+      "difficulty": 3,
+      "tags": [
+        "random-forest",
+        "gbdt"
+      ]
+    },
+    {
+      "id": "card-056",
+      "question": "SHAP是什么？",
+      "answer": "用博弈论解释模型预测。每个特征得到贡献值（Shapley值）。预测 = 基准值 + Σ特征贡献。",
+      "lessonId": "sklearn",
+      "category": "sklearn",
+      "difficulty": 3,
+      "tags": [
+        "shap",
+        "explainability"
+      ]
+    },
+    {
+      "id": "card-057",
+      "question": "特征重要性怎么看？",
+      "answer": "model.feature_importances_ -> 数值越大越重要。可排序出Top-K关键特征。",
+      "lessonId": "sklearn",
+      "category": "sklearn",
+      "difficulty": 2,
+      "tags": [
+        "feature-importance",
+        "interpretation"
+      ]
+    },
+    {
+      "id": "card-058",
+      "question": "RAG的全称和核心流程？",
+      "answer": "Retrieval-Augmented Generation。流程：提问->向量检索相关文档->文档+问题给LLM->基于资料回答。减少幻觉。",
+      "lessonId": "rag-basics",
+      "category": "rag",
+      "difficulty": 1,
+      "tags": [
+        "rag",
+        "retrieval"
+      ]
+    },
+    {
+      "id": "card-059",
+      "question": "Embedding模型是什么？",
+      "answer": "文本->向量的模型。相似语义在向量空间中距离近。常用：text-embedding-3-small, bge-large, M3E。",
+      "lessonId": "rag-basics",
+      "category": "rag",
+      "difficulty": 2,
+      "tags": [
+        "embedding",
+        "vector"
+      ]
+    },
+    {
+      "id": "card-060",
+      "question": "为什么文本要分块？",
+      "answer": "LLM有上下文限制（如4K/8K tokens）。长文档切分成小段，每段单独嵌入存储。chunk_size=500, overlap=50。",
+      "lessonId": "rag-basics",
+      "category": "rag",
+      "difficulty": 2,
+      "tags": [
+        "chunking",
+        "context-window"
+      ]
+    },
+    {
+      "id": "card-061",
+      "question": "LangChain的RetrievalQA Chain是什么？",
+      "answer": "qa = RetrievalQA.from_chain_type(llm, retriever=db.as_retriever())。自动完成检索->拼接->LLM生成。",
+      "lessonId": "rag-basics",
+      "category": "rag",
+      "difficulty": 2,
+      "tags": [
+        "langchain",
+        "chain"
+      ]
+    },
+    {
+      "id": "card-062",
+      "question": "向量数据库的作用？",
+      "answer": "存储高维向量 + 快速相似度搜索。Chroma（本地）、Pinecone（云端）、Milvus（大规模）。",
+      "lessonId": "rag-basics",
+      "category": "rag",
+      "difficulty": 2,
+      "tags": [
+        "vectordb",
+        "database"
+      ]
+    },
+    {
+      "id": "card-063",
+      "question": "GPT的预训练目标是什么？",
+      "answer": "下一个词预测（Next Token Prediction）。给定前N个词，预测第N+1个词。GPT-2: 1.5B参数。",
+      "lessonId": "gpt-series",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "gpt",
+        "pretraining"
+      ]
+    },
+    {
+      "id": "card-064",
+      "question": "Scaling Laws的核心发现？",
+      "answer": "模型性能随参数量、数据量、计算量幂律增长。GPT-3 175B参数验证了这一规律。",
+      "lessonId": "gpt-series",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "scaling-laws",
+        "scaling"
+      ]
+    },
+    {
+      "id": "card-065",
+      "question": "GPT-3的In-Context Learning是什么？",
+      "answer": "不更新参数，通过prompt示例直接学习。Few-shot: 给3-5个示例。Zero-shot: 不给示例。",
+      "lessonId": "gpt-series",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "in-context-learning",
+        "few-shot"
+      ]
+    },
+    {
+      "id": "card-066",
+      "question": "GPT-4相比GPT-3的主要进步？",
+      "answer": "1. 多模态（图片+文本）。2. 更长的上下文（8K/32K）。3. 更强的推理能力（数学/逻辑）。4. RLHF更精细。",
+      "lessonId": "gpt-series",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "gpt4",
+        "multimodal"
+      ]
+    },
+    {
+      "id": "card-067",
+      "question": "LLM预训练的数据来源？",
+      "answer": "Common Crawl（网页）、GitHub（代码）、Wikipedia（百科）、Books（书籍）、Reddit（对话）。总量TB级。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "pretraining",
+        "data"
+      ]
+    },
+    {
+      "id": "card-068",
+      "question": "Tokenization的作用？",
+      "answer": "将文本拆分成数字序列。BPE最常用。GPT-4用~100K词表。1 token约0.75英文词 / 0.5中文字。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "tokenization",
+        "bpe"
+      ]
+    },
+    {
+      "id": "card-069",
+      "question": "分布式训练的数据并行？",
+      "answer": "数据分到多GPU，每份计算梯度后AllReduce平均。每GPU的batch_size小但总batch大。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "distributed",
+        "data-parallel"
+      ]
+    },
+    {
+      "id": "card-070",
+      "question": "ZeRO优化是什么？",
+      "answer": "DeepSpeed的内存优化。将优化器状态、梯度、参数分片到多GPU。7.5B模型可在单GPU训练。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 4,
+      "tags": [
+        "deepspeed",
+        "zero"
+      ]
+    },
+    {
+      "id": "card-071",
+      "question": "BPE算法的基本思想？",
+      "answer": "从字符开始，合并最频繁出现的字符对。迭代直到词表大小达到目标（如50K）。GPT-2/3/4都用BPE。",
+      "lessonId": "tokenizer",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "bpe",
+        "tokenization"
+      ]
+    },
+    {
+      "id": "card-072",
+      "question": "WordPiece和BPE的区别？",
+      "answer": "BPE选频率最高的合并。WordPiece选使训练数据似然度提升最大的合并。BERT用WordPiece。",
+      "lessonId": "tokenizer",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "wordpiece",
+        "bpe"
+      ]
+    },
+    {
+      "id": "card-073",
+      "question": "SentencePiece的特点？",
+      "answer": "不依赖空格分词，直接处理原始文本。支持多语言（中文、日文等）。T5、LLaMA使用。",
+      "lessonId": "tokenizer",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "sentencepiece",
+        "multilingual"
+      ]
+    },
+    {
+      "id": "card-074",
+      "question": "tiktoken是什么？",
+      "answer": "OpenAI的快速BPE分词库。C语言实现，速度比Python快10倍。用于GPT-3/4的token计数。",
+      "lessonId": "tokenizer",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "tiktoken",
+        "openai"
+      ]
+    },
+    {
+      "id": "card-075",
+      "question": "SFT是什么？",
+      "answer": "Supervised Fine-Tuning。在标注的指令-回答对上微调预训练模型。让模型学会遵循指令格式。",
+      "lessonId": "sft-rlhf",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "sft",
+        "fine-tuning"
+      ]
+    },
+    {
+      "id": "card-076",
+      "question": "RLHF的三步流程？",
+      "answer": "1. SFT（有监督微调）。2. Reward Model（训练奖励模型学习人类偏好）。3. PPO（用强化学习优化策略）。",
+      "lessonId": "sft-rlhf",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "rlhf",
+        "ppo"
+      ]
+    },
+    {
+      "id": "card-077",
+      "question": "Reward Model怎么训练？",
+      "answer": "收集人类对多个回答的偏好排序（A > B）。训练模型预测哪个回答更好。输入(问题,回答)->输出分数。",
+      "lessonId": "sft-rlhf",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "reward-model",
+        "preference"
+      ]
+    },
+    {
+      "id": "card-078",
+      "question": "PPO是什么？",
+      "answer": "Proximal Policy Optimization。强化学习算法。限制策略更新幅度，防止训练崩溃。",
+      "lessonId": "sft-rlhf",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "ppo",
+        "reinforcement-learning"
+      ]
+    },
+    {
+      "id": "card-079",
+      "question": "DPO相比RLHF的优势？",
+      "answer": "Direct Preference Optimization。直接优化偏好数据，不需要Reward Model。更简单、更稳定。",
+      "lessonId": "sft-rlhf",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "dpo",
+        "preference"
+      ]
+    },
+    {
+      "id": "card-080",
+      "question": "MMLU测试什么？",
+      "answer": "Massive Multitask Language Understanding。57个学科的多选题测试。考察LLM的广博知识。",
+      "lessonId": "llm-eval",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "mmlu",
+        "benchmark"
+      ]
+    },
+    {
+      "id": "card-081",
+      "question": "HumanEval是什么？",
+      "answer": "编程能力测试。164道Python编程题，测LLM的代码生成能力。GPT-4通过率约90%。",
+      "lessonId": "llm-eval",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "humaneval",
+        "code"
+      ]
+    },
+    {
+      "id": "card-082",
+      "question": "Perplexity（困惑度）的直觉？",
+      "answer": "模型有多困惑：下一个词预测的平均不确定性。越低越好。GPT-3的PPL约20。",
+      "lessonId": "llm-eval",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "perplexity",
+        "metric"
+      ]
+    },
+    {
+      "id": "card-083",
+      "question": "BLEU和ROUGE的区别？",
+      "answer": "BLEU：n-gram精确匹配（机器翻译）。ROUGE：召回率导向（文本摘要）。都有局限性。",
+      "lessonId": "llm-eval",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "bleu",
+        "rouge"
+      ]
+    },
+    {
+      "id": "card-084",
+      "question": "扩散模型的核心思想？",
+      "answer": "训练：给图像加噪->模型学去噪。生成：从纯噪声开始，逐步去噪生成图像。Stable Diffusion基于此。",
+      "lessonId": "aigc",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "diffusion",
+        "stable-diffusion"
+      ]
+    },
+    {
+      "id": "card-085",
+      "question": "LoRA是什么？",
+      "answer": "Low-Rank Adaptation。只训练低秩矩阵（<1%参数），冻结原模型。高效微调Stable Diffusion。",
+      "lessonId": "aigc",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "lora",
+        "fine-tuning"
+      ]
+    },
+    {
+      "id": "card-086",
+      "question": "DALL-E和Stable Diffusion的区别？",
+      "answer": "DALL-E：OpenAI闭源，画质高。Stable Diffusion：开源，本地可运行，社区生态丰富。",
+      "lessonId": "aigc",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "dalle",
+        "stable-diffusion"
+      ]
+    },
+    {
+      "id": "card-087",
+      "question": "CLIP在文生图中的作用？",
+      "answer": "对比学习图文对齐。Text Encoder + Image Encoder生成共享向量空间。Stable Diffusion用它理解文本提示。",
+      "lessonId": "aigc",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "clip",
+        "multimodal"
+      ]
+    },
+    {
+      "id": "card-088",
+      "question": "AI Agent的核心组件？",
+      "answer": "1. LLM（大脑）。2. Tool（工具调用：搜索/计算/代码执行）。3. Memory（记忆上下文）。4. Planning（规划执行）。",
+      "lessonId": "agent",
+      "category": "agent",
+      "difficulty": 2,
+      "tags": [
+        "agent",
+        "architecture"
+      ]
+    },
+    {
+      "id": "card-089",
+      "question": "ReAct框架是什么？",
+      "answer": "Reasoning + Acting。LLM先思考（Thought）再行动（Action），观察结果（Observation）继续循环。",
+      "lessonId": "agent",
+      "category": "agent",
+      "difficulty": 2,
+      "tags": [
+        "react",
+        "framework"
+      ]
+    },
+    {
+      "id": "card-090",
+      "question": "Tool Calling的流程？",
+      "answer": "1. LLM决定需要调用工具。2. 输出JSON参数。3. 执行工具函数。4. 返回结果给LLM。5. LLM整合生成最终回答。",
+      "lessonId": "agent",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "tool-calling",
+        "function"
+      ]
+    },
+    {
+      "id": "card-091",
+      "question": "AutoGen和CrewAI的区别？",
+      "answer": "AutoGen（Microsoft）：多Agent对话，灵活。CrewAI：角色定义（Manager/Worker），工作流导向。",
+      "lessonId": "agent",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "autogen",
+        "crewai"
+      ]
+    },
+    {
+      "id": "card-092",
+      "question": "Agent的记忆类型？",
+      "answer": "短期记忆：当前对话上下文。长期记忆：向量数据库检索历史信息。工作记忆：中间计算结果。",
+      "lessonId": "agent",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "memory",
+        "context"
+      ]
+    },
+    {
+      "id": "card-093",
+      "question": "多Agent协作的两种模式？",
+      "answer": "1. 层级（Manager-Worker）：Manager分配任务，Worker执行。2. 平等（Peer-to-Peer）：Agent互相协商。",
+      "lessonId": "multi-agent",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "collaboration",
+        "pattern"
+      ]
+    },
+    {
+      "id": "card-094",
+      "question": "Agent间如何通信？",
+      "answer": "消息传递（Message Passing）。每个Agent有inbox，接收其他Agent的消息。异步通信。",
+      "lessonId": "multi-agent",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "communication",
+        "message"
+      ]
+    },
+    {
+      "id": "card-095",
+      "question": "工作流编排是什么？",
+      "answer": "预定义Agent的执行顺序和依赖关系。DAG（有向无环图）表示任务依赖。类似Airflow。",
+      "lessonId": "multi-agent",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "workflow",
+        "orchestration"
+      ]
+    },
+    {
+      "id": "card-096",
+      "question": "多Agent系统的容错机制？",
+      "answer": "1. 重试（Retry）。2. 超时（Timeout）。3. 降级（Fallback）。4. 健康检查（Health Check）。",
+      "lessonId": "multi-agent",
+      "category": "agent",
+      "difficulty": 4,
+      "tags": [
+        "fault-tolerance",
+        "reliability"
+      ]
+    },
+    {
+      "id": "card-097",
+      "question": "Hybrid Search是什么？",
+      "answer": "向量搜索 + 关键词搜索（BM25）结合。向量捕获语义相似，关键词捕获精确匹配。用RRF合并结果。",
+      "lessonId": "rag-advanced",
+      "category": "rag",
+      "difficulty": 3,
+      "tags": [
+        "hybrid-search",
+        "bm25"
+      ]
+    },
+    {
+      "id": "card-098",
+      "question": "ReRanking的作用？",
+      "answer": "初筛返回Top-K候选，重排序模型（Cross-Encoder）精确计算查询与文档的相关性，提升精度。",
+      "lessonId": "rag-advanced",
+      "category": "rag",
+      "difficulty": 3,
+      "tags": [
+        "reranking",
+        "cross-encoder"
+      ]
+    },
+    {
+      "id": "card-099",
+      "question": "Query Decomposition是什么？",
+      "answer": "复杂问题拆成子问题。例：\"总结某公司近3年营收变化\" -> 拆成每年分别查询再汇总。",
+      "lessonId": "rag-advanced",
+      "category": "rag",
+      "difficulty": 3,
+      "tags": [
+        "query-decomposition",
+        "planning"
+      ]
+    },
+    {
+      "id": "card-100",
+      "question": "GraphRAG相比传统RAG的优势？",
+      "answer": "构建知识图谱，捕获实体关系。问答时可沿图谱关系推理，而不仅是文本相似度检索。",
+      "lessonId": "rag-advanced",
+      "category": "rag",
+      "difficulty": 4,
+      "tags": [
+        "graphrag",
+        "knowledge-graph"
+      ]
+    },
+    {
+      "id": "card-101",
+      "question": "如何让Agent读取PDF？",
+      "answer": "用PyPDF2 / pdfplumber提取文本。或OCR（Tesseract）处理扫描版。LangChain的PyPDFLoader封装。",
+      "lessonId": "multi-format",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "pdf",
+        "document"
+      ]
+    },
+    {
+      "id": "card-102",
+      "question": "Agent处理Excel的流程？",
+      "answer": "pandas.read_excel() -> DataFrame -> 分析/汇总 -> LLM生成洞察。可写回Excel保存。",
+      "lessonId": "multi-format",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "excel",
+        "pandas"
+      ]
+    },
+    {
+      "id": "card-103",
+      "question": "图片处理Agent需要什么能力？",
+      "answer": "1. OCR识别文字。2. 图像理解（CLIP/GPT-4V）。3. 图像生成（DALL-E）。4. 图像编辑（Inpainting）。",
+      "lessonId": "multi-format",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "image",
+        "multimodal"
+      ]
+    },
+    {
+      "id": "card-104",
+      "question": "Word文档怎么让Agent处理？",
+      "answer": "python-docx提取段落和表格。或转为纯文本/Markdown后处理。保留格式信息。",
+      "lessonId": "multi-format",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "word",
+        "docx"
+      ]
+    },
+    {
+      "id": "card-105",
+      "question": "前端调用LLM API的注意事项？",
+      "answer": "1. 敏感操作放后端。2. 流式输出（SSE）。3. 错误重试。4. 超时控制。5. 输入长度限制。",
+      "lessonId": "integration-guide",
+      "category": "integration",
+      "difficulty": 3,
+      "tags": [
+        "frontend",
+        "api"
+      ]
+    },
+    {
+      "id": "card-106",
+      "question": "CI/CD在AI项目中的作用？",
+      "answer": "自动化：代码提交 -> 测试 -> 构建Docker -> 部署。GitHub Actions / GitLab CI。确保每次变更可靠。",
+      "lessonId": "integration-guide",
+      "category": "integration",
+      "difficulty": 3,
+      "tags": [
+        "cicd",
+        "devops"
+      ]
+    },
+    {
+      "id": "card-107",
+      "question": "模型服务的性能优化？",
+      "answer": "1. 模型量化（INT8/INT4）。2. 批处理（Batching）。3. 缓存（KV Cache）。4. 流式生成。",
+      "lessonId": "integration-guide",
+      "category": "integration",
+      "difficulty": 3,
+      "tags": [
+        "performance",
+        "optimization"
+      ]
+    },
+    {
+      "id": "card-108",
+      "question": "A-B测试在AI产品中的应用？",
+      "answer": "同时部署两个模型版本，各分50%流量。对比用户满意度、响应准确率。决定哪个版本上线。",
+      "lessonId": "integration-guide",
+      "category": "integration",
+      "difficulty": 3,
+      "tags": [
+        "ab-testing",
+        "experiment"
+      ]
+    },
+    {
+      "id": "card-109",
+      "question": "模型版本管理的作用？",
+      "answer": "记录模型版本、参数、数据集、性能指标。MLflow / DVC。可回滚到历史版本。",
+      "lessonId": "mlops",
+      "category": "mlops",
+      "difficulty": 3,
+      "tags": [
+        "model-registry",
+        "versioning"
+      ]
+    },
+    {
+      "id": "card-110",
+      "question": "模型监控需要跟踪什么指标？",
+      "answer": "1. 预测延迟（Latency）。2. 吞吐量（Throughput）。3. 错误率。4. 数据漂移（Data Drift）。5. 模型性能衰减。",
+      "lessonId": "mlops",
+      "category": "mlops",
+      "difficulty": 3,
+      "tags": [
+        "monitoring",
+        "metrics"
+      ]
+    },
+    {
+      "id": "card-111",
+      "question": "什么是数据漂移？",
+      "answer": "生产数据的分布与训练数据不同。例：训练时评论都是中文，上线后突然大量英文。模型性能下降。",
+      "lessonId": "mlops",
+      "category": "mlops",
+      "difficulty": 3,
+      "tags": [
+        "data-drift",
+        "monitoring"
+      ]
+    },
+    {
+      "id": "card-112",
+      "question": "模型生命周期管理？",
+      "answer": "开发 -> 测试 -> 部署 -> 监控 -> 再训练 -> 退役。自动化流水线减少人工干预。",
+      "lessonId": "mlops",
+      "category": "mlops",
+      "difficulty": 3,
+      "tags": [
+        "lifecycle",
+        "pipeline"
+      ]
+    },
+    {
+      "id": "card-113",
+      "question": "MoE（Mixture of Experts）是什么？",
+      "answer": "多个专家网络，门控网络选择激活哪些专家。GPT-4可能用8个专家，每个处理不同任务。",
+      "lessonId": "frontier",
+      "category": "frontier",
+      "difficulty": 4,
+      "tags": [
+        "moe",
+        "architecture"
+      ]
+    },
+    {
+      "id": "card-114",
+      "question": "多模态LLM能处理什么？",
+      "answer": "文本 + 图像 + 音频 + 视频。GPT-4V、Gemini、Claude 3。统一输入输出，跨模态理解。",
+      "lessonId": "frontier",
+      "category": "frontier",
+      "difficulty": 3,
+      "tags": [
+        "multimodal",
+        "vision"
+      ]
+    },
+    {
+      "id": "card-115",
+      "question": "超长上下文有什么用？",
+      "answer": "1M tokens可处理整本书、完整代码库、长篇对话。减少RAG依赖，直接上下文推理。",
+      "lessonId": "frontier",
+      "category": "frontier",
+      "difficulty": 3,
+      "tags": [
+        "long-context",
+        "memory"
+      ]
+    },
+    {
+      "id": "card-116",
+      "question": "具身智能是什么？",
+      "answer": "AI有物理身体与环境交互。机器人、自动驾驶、无人机。强化学习 + 视觉 + 控制。",
+      "lessonId": "frontier",
+      "category": "frontier",
+      "difficulty": 4,
+      "tags": [
+        "embodied-ai",
+        "robotics"
+      ]
+    },
+    {
+      "id": "card-117",
+      "question": "学习LLM的推荐资源？",
+      "answer": "1. 书籍：《动手学深度学习》《Understanding Deep Learning》。2. 课程：Fast.ai、吴恩达DL。3. 论文：Attention Is All You Need。",
+      "lessonId": "crashai-resources",
+      "category": "resources",
+      "difficulty": 1,
+      "tags": [
+        "learning",
+        "books"
+      ]
+    },
+    {
+      "id": "card-118",
+      "question": "Hugging Face是什么？",
+      "answer": "AI模型和数据集的GitHub。提供transformers库、模型Hub、数据集、Spaces（演示）。开源生态中心。",
+      "lessonId": "crashai-resources",
+      "category": "resources",
+      "difficulty": 1,
+      "tags": [
+        "huggingface",
+        "community"
+      ]
+    },
+    {
+      "id": "card-119",
+      "question": "如何跟踪AI最新进展？",
+      "answer": "1. arXiv（论文预印本）。2. Papers With Code（论文+代码）。3. Twitter/X研究者。4. Newsletter：The Batch、Import AI。",
+      "lessonId": "crashai-resources",
+      "category": "resources",
+      "difficulty": 1,
+      "tags": [
+        "news",
+        "tracking"
+      ]
+    },
+    {
+      "id": "card-120",
+      "question": "导数的幂法则是什么？",
+      "answer": "d/dx(x^n) = n*x^(n-1)。例：x^3的导数是3x^2。这是神经网络反向传播的基础。",
+      "lessonId": "math-basics",
+      "category": "math",
+      "difficulty": 1,
+      "tags": [
+        "power-rule",
+        "derivative"
+      ]
+    },
+    {
+      "id": "card-121",
+      "question": "什么是链式法则？",
+      "answer": "复合函数的导数 = 内层导数 * 外层导数。反向传播的核心。",
+      "lessonId": "math-basics",
+      "category": "math",
+      "difficulty": 2,
+      "tags": [
+        "chain-rule",
+        "derivative"
+      ]
+    },
+    {
+      "id": "card-122",
+      "question": "Softmax温度参数的作用？",
+      "answer": "温度T控制输出分布的平滑度。T高->分布均匀（探索），T低->分布尖锐（利用）。",
+      "lessonId": "activation",
+      "category": "activation",
+      "difficulty": 3,
+      "tags": [
+        "softmax",
+        "temperature"
+      ]
+    },
+    {
+      "id": "card-123",
+      "question": "BatchNorm在推理时怎么计算？",
+      "answer": "使用训练时计算的滑动平均均值和方差。而不是当前batch的统计量。",
+      "lessonId": "training-tricks",
+      "category": "training",
+      "difficulty": 3,
+      "tags": [
+        "batchnorm",
+        "inference"
+      ]
+    },
+    {
+      "id": "card-124",
+      "question": "什么是学习率预热？",
+      "answer": "训练前N个step将学习率从0线性增加到目标值。防止大学习率导致初始阶段不稳定。",
+      "lessonId": "training-tricks",
+      "category": "training",
+      "difficulty": 3,
+      "tags": [
+        "warmup",
+        "learning-rate"
+      ]
+    },
+    {
+      "id": "card-125",
+      "question": "数据清洗的常见步骤？",
+      "answer": "1. 去重。2. 处理缺失值。3. 异常值检测。4. 格式统一。5. 编码转换。",
+      "lessonId": "data-prep",
+      "category": "data",
+      "difficulty": 2,
+      "tags": [
+        "data-cleaning",
+        "preprocessing"
+      ]
+    },
+    {
+      "id": "card-126",
+      "question": "什么是特征工程？",
+      "answer": "从原始数据中提取对模型有用的特征。好的特征比复杂模型更重要。",
+      "lessonId": "data-prep",
+      "category": "data",
+      "difficulty": 3,
+      "tags": [
+        "feature-engineering",
+        "ml"
+      ]
+    },
+    {
+      "id": "card-127",
+      "question": "Transformer中为什么除以sqrt(d_k)？",
+      "answer": "防止点积结果过大导致softmax梯度消失。缩放保持数值稳定。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 3,
+      "tags": [
+        "attention",
+        "scaling"
+      ]
+    },
+    {
+      "id": "card-128",
+      "question": "什么是LayerNorm？",
+      "answer": "对每个样本的所有特征做标准化。与BatchNorm不同，不依赖batch。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 3,
+      "tags": [
+        "layernorm",
+        "normalization"
+      ]
+    },
+    {
+      "id": "card-129",
+      "question": "BERT的MLM任务是什么？",
+      "answer": "Masked Language Model。随机mask 15%的词，让模型预测。使BERT学会双向理解。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 3,
+      "tags": [
+        "bert",
+        "mlm"
+      ]
+    },
+    {
+      "id": "card-130",
+      "question": "GPT为什么用Decoder-only？",
+      "answer": "自回归生成：每次预测下一个token。Decoder-only适合生成任务，且可高效训练。",
+      "lessonId": "transformer",
+      "category": "transformer",
+      "difficulty": 3,
+      "tags": [
+        "gpt",
+        "decoder"
+      ]
+    },
+    {
+      "id": "card-131",
+      "question": "pandas的merge和join区别？",
+      "answer": "merge按指定列合并（类似SQL JOIN）。join按索引合并。merge更灵活。",
+      "lessonId": "pandas",
+      "category": "pandas",
+      "difficulty": 2,
+      "tags": [
+        "merge",
+        "join"
+      ]
+    },
+    {
+      "id": "card-132",
+      "question": "sklearn的Pipeline是什么？",
+      "answer": "将多个处理步骤串联。自动处理训练和预测流程。",
+      "lessonId": "sklearn",
+      "category": "sklearn",
+      "difficulty": 2,
+      "tags": [
+        "pipeline",
+        "workflow"
+      ]
+    },
+    {
+      "id": "card-133",
+      "question": "什么是交叉验证？",
+      "answer": "K-Fold：数据分K份，轮流用K-1份训练、1份验证。K=5或10最常用。",
+      "lessonId": "sklearn",
+      "category": "sklearn",
+      "difficulty": 2,
+      "tags": [
+        "cross-validation",
+        "evaluation"
+      ]
+    },
+    {
+      "id": "card-134",
+      "question": "XGBoost相比GBDT的优势？",
+      "answer": "1. 正则化。2. 二阶泰勒展开。3. 列采样。4. 并行计算。5. 缺失值自动处理。",
+      "lessonId": "sklearn",
+      "category": "sklearn",
+      "difficulty": 3,
+      "tags": [
+        "xgboost",
+        "gbdt"
+      ]
+    },
+    {
+      "id": "card-135",
+      "question": "RAG中的检索策略有哪些？",
+      "answer": "1. 向量相似度。2. BM25关键词。3. Hybrid Search。4. 重排序。5. 多路召回。",
+      "lessonId": "rag-basics",
+      "category": "rag",
+      "difficulty": 3,
+      "tags": [
+        "retrieval",
+        "strategy"
+      ]
+    },
+    {
+      "id": "card-136",
+      "question": "Embedding的维度是什么？",
+      "answer": "向量长度（如768、1024、1536）。维度越高表达能力越强，但成本也越高。",
+      "lessonId": "rag-basics",
+      "category": "rag",
+      "difficulty": 2,
+      "tags": [
+        "embedding",
+        "dimension"
+      ]
+    },
+    {
+      "id": "card-137",
+      "question": "Prompt Engineering的核心技巧？",
+      "answer": "1. 清晰指令。2. 提供示例（Few-shot）。3. 角色设定。4. 思维链（CoT）。5. 输出格式指定。",
+      "lessonId": "gpt-series",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "prompt-engineering",
+        "llm"
+      ]
+    },
+    {
+      "id": "card-138",
+      "question": "什么是Temperature参数？",
+      "answer": "控制生成随机性。T=0：确定性。T=1：正常采样。T>1：更随机/创造性。",
+      "lessonId": "gpt-series",
+      "category": "llm",
+      "difficulty": 2,
+      "tags": [
+        "temperature",
+        "sampling"
+      ]
+    },
+    {
+      "id": "card-139",
+      "question": "Top-p（Nucleus Sampling）是什么？",
+      "answer": "从累积概率达到p的最小词集中采样。比Top-k更灵活。常用p=0.9。",
+      "lessonId": "gpt-series",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "top-p",
+        "nucleus-sampling"
+      ]
+    },
+    {
+      "id": "card-140",
+      "question": "LLM的幻觉怎么解决？",
+      "answer": "1. RAG检索增强。2. 指令微调提高事实性。3. 后验验证。4. 人类反馈RLHF。",
+      "lessonId": "gpt-series",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "hallucination",
+        "rag"
+      ]
+    },
+    {
+      "id": "card-141",
+      "question": "什么是KV Cache？",
+      "answer": "Transformer解码时缓存Key和Value矩阵，避免重复计算。推理速度提升10-100倍。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "kv-cache",
+        "inference"
+      ]
+    },
+    {
+      "id": "card-142",
+      "question": "FlashAttention是什么？",
+      "answer": "分块计算Attention，避免存储完整N×N矩阵。减少内存占用，加速长序列训练。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 4,
+      "tags": [
+        "flashattention",
+        "memory"
+      ]
+    },
+    {
+      "id": "card-143",
+      "question": "什么是量化（Quantization）？",
+      "answer": "将FP32/FP16权重转为INT8/INT4。模型体积减至1/4，推理速度提升2-4倍。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "quantization",
+        "optimization"
+      ]
+    },
+    {
+      "id": "card-144",
+      "question": "PEFT是什么？",
+      "answer": "Parameter-Efficient Fine-Tuning。只微调少量参数（如LoRA）。节省GPU内存和训练时间。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "peft",
+        "fine-tuning"
+      ]
+    },
+    {
+      "id": "card-145",
+      "question": "什么是RLAIF？",
+      "answer": "RL from AI Feedback。用AI替代人类做偏好标注。降低成本，但可能引入AI偏见。",
+      "lessonId": "sft-rlhf",
+      "category": "llm",
+      "difficulty": 4,
+      "tags": [
+        "rlaif",
+        "alignment"
+      ]
+    },
+    {
+      "id": "card-146",
+      "question": "Constitutional AI是什么？",
+      "answer": "Anthropic的方法：让AI根据\"宪法原则\"自我批评和修正。减少有害输出。",
+      "lessonId": "sft-rlhf",
+      "category": "llm",
+      "difficulty": 4,
+      "tags": [
+        "constitutional-ai",
+        "safety"
+      ]
+    },
+    {
+      "id": "card-147",
+      "question": "LLM上下文窗口为什么有限？",
+      "answer": "Attention计算复杂度O(n^2)。1M tokens需要巨大的内存和计算。",
+      "lessonId": "frontier",
+      "category": "frontier",
+      "difficulty": 4,
+      "tags": [
+        "context-window",
+        "attention"
+      ]
+    },
+    {
+      "id": "card-148",
+      "question": "什么是Function Calling？",
+      "answer": "LLM输出结构化JSON调用函数。让LLM使用计算器、API、数据库等外部工具。",
+      "lessonId": "agent",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "function-calling",
+        "tool"
+      ]
+    },
+    {
+      "id": "card-149",
+      "question": "RAG vs Fine-Tuning怎么选？",
+      "answer": "RAG：适合频繁变化的知识。Fine-tuning：适合固定领域/风格的深度优化。通常两者结合。",
+      "lessonId": "rag-advanced",
+      "category": "rag",
+      "difficulty": 3,
+      "tags": [
+        "rag",
+        "fine-tuning"
+      ]
+    },
+    {
+      "id": "card-150",
+      "question": "什么是CAG？",
+      "answer": "Cache-Augmented Generation。预先将文档嵌入缓存，查询时直接加载。避免实时检索延迟。",
+      "lessonId": "rag-advanced",
+      "category": "rag",
+      "difficulty": 4,
+      "tags": [
+        "cag",
+        "cache"
+      ]
+    },
+    {
+      "id": "card-151",
+      "question": "Agent的Observability是什么？",
+      "answer": "监控Agent的执行轨迹：输入、输出、工具调用、耗时、成本。LangSmith、Langfuse等工具。",
+      "lessonId": "agent",
+      "category": "agent",
+      "difficulty": 3,
+      "tags": [
+        "observability",
+        "monitoring"
+      ]
+    },
+    {
+      "id": "card-152",
+      "question": "MCP是什么？",
+      "answer": "Model Context Protocol。Anthropic提出的标准协议，让LLM统一调用各种工具和数据源。",
+      "lessonId": "agent",
+      "category": "agent",
+      "difficulty": 4,
+      "tags": [
+        "mcp",
+        "protocol"
+      ]
+    },
+    {
+      "id": "card-153",
+      "question": "什么是模型蒸馏？",
+      "answer": "大模型（教师）教小模型（学生）。学生模仿教师的输出分布。小模型更快更省资源。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 3,
+      "tags": [
+        "distillation",
+        "compression"
+      ]
+    },
+    {
+      "id": "card-154",
+      "question": "Speculative Decoding是什么？",
+      "answer": "小模型快速生成候选token，大模型验证。接受则继续，拒绝则回退。推理速度提升2-3倍。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 4,
+      "tags": [
+        "speculative-decoding",
+        "inference"
+      ]
+    },
+    {
+      "id": "card-155",
+      "question": "什么是vLLM？",
+      "answer": "伯克利开源的LLM推理引擎。PagedAttention技术优化KV Cache内存管理。吞吐量高10-20倍。",
+      "lessonId": "llm-training",
+      "category": "llm",
+      "difficulty": 4,
+      "tags": [
+        "vllm",
+        "inference"
+      ]
+    },
+    {
+      "id": "card-156",
+      "question": "Ollama是什么？",
+      "answer": "本地运行LLM的工具。一键下载和运行开源模型（Llama、Mistral等）。适合开发和隐私场景。",
+      "lessonId": "crashai-resources",
+      "category": "resources",
+      "difficulty": 1,
+      "tags": [
+        "ollama",
+        "local"
+      ]
+    },
+    {
+      "id": "card-157",
+      "question": "什么是Hugging Face Transformers？",
+      "answer": "最流行的LLM库。提供预训练模型、tokenizer、训练脚本。支持PyTorch/TensorFlow/JAX。",
+      "lessonId": "crashai-resources",
+      "category": "resources",
+      "difficulty": 1,
+      "tags": [
+        "transformers",
+        "library"
+      ]
+    }
+  ]
+}

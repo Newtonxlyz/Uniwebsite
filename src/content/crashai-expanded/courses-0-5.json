@@ -1,0 +1,220 @@
+﻿[
+  {
+    "slug": "math-basics",
+    "title": "00. 高数唤醒",
+    "description": "从导数/偏导/链式法则到矩阵/概率，彻底搞懂AI公式里的90%高数知识",
+    "category": "math",
+    "phase": "A",
+    "order": 0,
+    "sections": [
+      {
+        "type": "text",
+        "title": "为什么要学高数？——你比想象中更需要它",
+        "content": "<p>打开任何一篇AI论文或教材，你会发现几乎每个公式都包含这些符号：<b>导数（d/dx）、偏导（∂/∂x）、链式法则、矩阵乘法、对数（log）</b>。</p><p>你可能会问：\"我都忘了高中数学，能学AI吗？\"<b>答案是：完全可以。</b></p><p><b>好消息有三个：</b></p><ul><li><b>AI用到的高数不深</b>——90%的公式只需要求导和链式法则。你不需要学微积分II、多重积分、微分方程。</li><li><b>你每天都在用导数的直觉</b>——开车看速度（位置的变化率）、看理财收益率（钱的变化率）、感觉天气变冷（温度的变化率）。导数就是\"变化率\"。</li><li><b>学完这一章</b>，之后的优化器、激活函数、损失函数、Transformer的公式你都能看懂。</li></ul><p>把这章当做一个\"公式翻译器\"——不追求严谨证明，而是让你看到每个符号时知道它代表什么、为什么这么用。</p>"
+      },
+      {
+        "type": "text",
+        "title": "导数是什么？——先从开车说起",
+        "content": "<p><b>导数的核心思想：函数在某一点的瞬时变化率。</b></p><p><b>🚗 开车类比：</b></p><ul><li>你的车开了1小时，走了60公里。平均速度 = 60公里/小时。</li><li>但看仪表盘，速度在变化：红灯时0，加速到80，刹车时又慢下来。</li><li><b>导数就是仪表盘上的速度</b>——不是平均速度，而是<b>此时此刻</b>的速度。</li><li>位置 s(t) 对时间 t 求导 = 速度 v(t)。速度 v(t) 对时间求导 = 加速度 a(t)。</li></ul><p><b>数学定义（别怕，我们一步步拆）：</b></p><p>f'(x) = lim(Δx→0) [f(x+Δx) - f(x)] / Δx</p><p><b>拆解这个公式：</b></p><ul><li><b>f(x)</b>：一个函数，比如 f(x) = x²。输入x，输出x²。</li><li><b>f(x+Δx)</b>：给x加一个很小的变化Δx，看输出变成什么。比如x=3，Δx=0.001，那f(3.001)=9.006001。</li><li><b>f(x+Δx) - f(x)</b>：输出变化了多少。9.006001 - 9 = 0.006001。</li><li><b>[f(x+Δx)-f(x)] / Δx</b>：输出变化 ÷ 输入变化 = 变化率。0.006001 ÷ 0.001 = 6.001。</li><li><b>lim(Δx→0)</b>：让Δx无限接近0，看看这个变化率趋近于多少。Δx=0.0001→6.0001，Δx=0.00001→6.00001……趋近于6。</li></ul><p><b>所以 f'(3) = 6</b>。意思是：在x=3这个点，函数f(x)=x²的变化率是6。</p><p><b>几何意义：</b>导数 = 函数图像上该点<b>切线的斜率</b>。</p><ul><li><b>导数 > 0</b>：函数在上升（上坡）</li><li><b>导数 < 0</b>：函数在下降（下坡）</li><li><b>导数 = 0</b>：函数的极值点（山顶或谷底）——这就是\"用导数找最小值\"的核心</li></ul><p><b>在AI中的意义：</b></p><p>AI训练就是找损失函数的最小值。损失函数L(w)告诉你\"在当前参数w下，模型表现有多差\"。我们想知道：<b>如果稍微改一下参数w，损失L会变好还是变差？变化多大？</b>——这正好是导数告诉我们的！</p>"
+      },
+      {
+        "type": "table",
+        "title": "常用导数公式表——AI中最常用的10个",
+        "content": "<p>下面这张表是AI中最常用的导数公式。<b>不用背推导过程，但需要记住结果</b>。就像学开车不需要懂发动机原理，但要知道怎么操作方向盘。</p><table><tr><th>函数形式</th><th>导数结果</th><th>例子</th><th>AI中出现场景</th></tr><tr><td>f(x) = C（常数）</td><td>f'(x) = 0</td><td>f(x)=5 → f'(x)=0</td><td>任何常数项</td></tr><tr><td>f(x) = xⁿ</td><td>f'(x) = n·xⁿ⁻¹</td><td>f(x)=x²→f'(x)=2x<br>f(x)=x³→f'(x)=3x²</td><td>幂函数</td></tr><tr><td>f(x) = eˣ</td><td>f'(x) = eˣ（不变！）</td><td>f(x)=eˣ→f'(x)=eˣ</td><td>Softmax、Sigmoid</td></tr><tr><td>f(x) = ln(x)</td><td>f'(x) = 1/x</td><td>f(x)=ln(x)→f'(x)=1/x</td><td>交叉熵损失</td></tr><tr><td>f(x) = sin(x)</td><td>f'(x) = cos(x)</td><td>——</td><td>位置编码</td></tr><tr><td>f(x) = cos(x)</td><td>f'(x) = -sin(x)</td><td>——</td><td>位置编码</td></tr><tr><td>f(x) = σ(x)（Sigmoid）</td><td>f'(x) = σ(x)(1-σ(x))</td><td>σ(0)=0.5, σ'(0)=0.25</td><td>激活函数反向传播</td></tr><tr><td>f(x) = tanh(x)</td><td>f'(x) = 1 - tanh²(x)</td><td>tanh(0)=0, tanh'(0)=1</td><td>RNN、LSTM</td></tr></table><p><b>重要规律：</b></p><ul><li>eˣ的导数就是自己——这就是为什么e在AI中如此重要，求导太方便了</li><li>Sigmoid的导数用输出值就能算：σ'(x)=σ(x)(1-σ(x))——反向传播时不用重新算x</li></ul>"
+      },
+      {
+        "type": "example",
+        "title": "例1：求 f(x)=x² 在 x=4 处的导数",
+        "content": "<p><b>问题：</b>已知 f(x)=x²，求 f'(4)。</p><p><b>Step 1：</b>套用幂函数求导公式 f(x)=xⁿ → f'(x)=n·xⁿ⁻¹</p><p>这里 n=2，所以 f'(x)=2·x²⁻¹ = 2x</p><p><b>Step 2：</b>代入 x=4</p><p>f'(4)=2×4=8</p><p><b>验证（用定义看是否合理）：</b></p><p>在x=4附近：x=4.1时，f(4.1)=16.81，比f(4)=16多了0.81。变化率=0.81/0.1=8.1 ≈ 8 ✓</p><p><b>几何意义：</b>在点(4,16)处，切线的斜率=8。函数在x=4处快速上升。</p>"
+      },
+      {
+        "type": "example",
+        "title": "例2：求 f(x)=3x²+2x+1 的导数",
+        "content": "<p><b>问题：</b>求 f(x)=3x²+2x+1 的导数 f'(x)。</p><p><b>Step 1：</b>逐项求导。常数项1的导数为0。</p><p><b>Step 2：</b>第一项 3x²：3×2×x¹=6x</p><p><b>Step 3：</b>第二项 2x：2×1×x⁰=2</p><p><b>Step 4：</b>合并结果：f'(x)=6x+2</p><p><b>验证：</b>求f'(2)=6×2+2=14。验证：x=2→f(2)=3×4+4+1=17；x=2.01→f(2.01)=3×4.0401+4.02+1=12.1203+5.02=17.1403。变化量0.1403÷0.01≈14.03≈14 ✓</p>"
+      },
+      {
+        "type": "exercise",
+        "title": "基础求导练习",
+        "content": "<p><b>Q1：</b>求 f(x)=5x³ 的导数 f'(x)。</p><p><b>Q2：</b>求 f(x)=x²+4x-3 的导数 f'(x)。</p><p><b>Q3：</b>求 f(x)=2eˣ+3ln(x) 的导数 f'(x)。</p><p><b>Q4：</b>计算 f(x)=x² 在 x=-2 处的导数，并说明函数的升降情况。</p><p><b>Q5：</b>一辆车的位置 s(t)=2t²+3t（t为秒），求第5秒时的瞬时速度。</p>",
+        "answer": "<p><b>A1：</b>f'(x)=5×3×x²=15x²</p><p><b>A2：</b>f'(x)=2x+4。常数-3的导数为0。</p><p><b>A3：</b>f'(x)=2eˣ+3×(1/x)=2eˣ+3/x</p><p><b>A4：</b>f'(x)=2x，f'(-2)=2×(-2)=-4。因为导数为负，函数在x=-2处是下降的。验证：f(-2)=4，f(-1.9)=3.61，确实变小了。</p><p><b>A5：</b>s'(t)=4t+3。代入t=5：s'(5)=4×5+3=23米/秒。也可以说速度是23m/s。</p>"
+      },
+      {
+        "type": "text",
+        "title": "偏导——多变量函数的\"局部视角\"",
+        "content": "<p><b>偏导的定义：</b>当一个函数有多个输入变量时，对其中一个变量求导，其他变量视为常数。</p><p><b>🏠 装修预算类比：</b></p><p>假设装修总费用 f(瓷砖, 油漆, 人工) 取决于三个因素。</p><ul><li>想知道\"换一种瓷砖会多花多少钱？\"→ 对\"瓷砖\"求偏导 ∂f/∂(瓷砖)</li><li>想知道\"涨人工费会多花多少钱？\"→ 对\"人工\"求偏导 ∂f/∂(人工)</li></ul><p>每个偏导都独立地告诉你：<b>只改这一个变量，其他不变，结果变化多少。</b></p><p><b>数学记号：</b></p><ul><li>f(x,y)有两个变量</li><li>∂f/∂x = 对x求偏导（y看作常数）</li><li>∂f/∂y = 对y求偏导（x看作常数）</li></ul><p><b>实例：</b>f(x,y)=x²·y+3y²</p><ul><li>∂f/∂x：把y看作常数→2x·y（因为x²的导数是2x，乘以常数y）</li><li>∂f/∂y：把x看作常数→x²+6y（x²是常数，3y²的导数是6y）</li></ul><p><b>在神经网络中的意义：</b></p><p>神经网络的损失函数 L 取决于<b>数百万个参数</b>（权重w₁,w₂,...,wₙ）。</p><ul><li>∂L/∂w₁ = \"如果稍微改一下w₁，损失L会变多少？\"</li><li>∂L/∂w₂ = \"如果稍微改一下w₂，损失L会变多少？\"</li><li>……这样对每个参数求出偏导</li></ul><p>这就是<b>梯度下降</b>的核心——算出每个参数的偏导，然后沿着下降方向更新。</p>"
+      },
+      {
+        "type": "example",
+        "title": "例3：偏导计算实战",
+        "content": "<p><b>问题：</b>f(x,y)=3x²y+xy²，求 ∂f/∂x 和 ∂f/∂y 在点 (1,2) 处的值。</p><p><b>Step 1：求 ∂f/∂x</b></p><p>把y看作常数：</p><ul><li>第一项 3x²y：3y·2x = 6xy</li><li>第二项 xy²：y²·1 = y²</li><li>∂f/∂x = 6xy + y²</li></ul><p>代入(1,2)：∂f/∂x = 6×1×2 + 2² = 12+4 = 16</p><p><b>解释：</b>在(1,2)处，x每增加1小单位，f约增加16。前提是y不变。</p><p><b>Step 2：求 ∂f/∂y</b></p><p>把x看作常数：</p><ul><li>第一项 3x²y：3x²·1 = 3x²</li><li>第二项 xy²：x·2y = 2xy</li><li>∂f/∂y = 3x² + 2xy</li></ul><p>代入(1,2)：∂f/∂y = 3×1 + 2×1×2 = 3+4 = 7</p><p><b>解释：</b>在(1,2)处，y每增加1小单位，f约增加7。前提是x不变。</p><p><b>总结：</b>在(1,2)处，改变x比改变y对f的影响更大（16 > 7）。</p>"
+      },
+      {
+        "type": "text",
+        "title": "梯度——所有偏导的集合",
+        "content": "<p><b>梯度的定义：</b>梯度 ∇f 是一个向量，包含函数f对所有变量的偏导。</p><p><b>数学表示：</b></p><p>∇f = [∂f/∂x₁, ∂f/∂x₂, ..., ∂f/∂xₙ]</p><p><b>🏔️ 登山类比：</b></p><ul><li>你站在山上某一点，想知道\"往哪个方向走上升最快？\"</li><li><b>梯度方向</b>=上升最快的方向</li><li><b>负梯度方向</b>=下降最快的方向</li><li>梯度下降就是<b>沿着负梯度方向</b>走——快速下山找谷底（最小化损失）</li></ul><p><b>梯度的三个关键性质：</b></p><ol><li><b>方向：</b>指向函数增长最快的方向</li><li><b>大小：</b>梯度向量的长度 = 该方向的变化率大小|∇f| = √((∂f/∂x₁)²+(∂f/∂x₂)²+...)</li><li><b>正交性：</b>梯度方向与等高线垂直</li></ol><p><b>在AI中：</b>一次梯度计算 = 输入所有样本→前向传播→反向传播→得到每个参数的偏导。</p>"
+      },
+      {
+        "type": "example",
+        "title": "例4：梯度计算实战",
+        "content": "<p><b>问题：</b>f(x,y)=x²+2y²，计算梯度∇f(1,1)。</p><p><b>Step 1：求偏导</b></p><p>∂f/∂x = 2x，∂f/∂y = 4y</p><p><b>Step 2：代入(1,1)</b></p><p>∇f(1,1) = [2×1, 4×1] = [2, 4]</p><p><b>Step 3：解释</b></p><ul><li>在(1,1)处，往x方向走变化率是2，往y方向走变化率是4</li><li>梯度方向是[2,4]（约63°角）</li><li>梯度大小 = √(2²+4²) ≈ 4.47</li><li>负梯度方向[-2,-4]是下降最快的方向</li></ul><p><b>验证：</b>从(1,1)沿[-2,-4]走0.1步：新点(0.8,0.6)→f=0.64+0.72=1.36，确实比原值1+2=3小了！</p>"
+      },
+      {
+        "type": "text",
+        "title": "链式法则——神经网络反向传播的核心引擎",
+        "content": "<p><b>链式法则：</b>复合函数 f(g(x)) 的导数 = 外层导数 × 内层导数。</p><p><b>🥟 包子成本类比：</b></p><ul><li>包子价格=面粉价格+肉价+人工</li><li>面粉价格=小麦价格×加工费</li><li>所以：包子价格对小麦的敏感度 = (包子价格对面粉的敏感度) × (面粉价格对小麦的敏感度)</li></ul><p>这就是链式法则：<b>把连锁反应一步步传递回去。</b></p><p><b>数学形式：</b></p><p>df/dx = df/dg · dg/dx</p><p>更常用的扩展形式（多个变量影响）：</p><p>df/dx = (∂f/∂g₁)(dg₁/dx) + (∂f/∂g₂)(dg₂/dx) + ...</p><p><b>神经网络中的链式法则（反向传播）：</b></p><p>一个简单神经网络：输入x→隐藏层h→输出层ŷ→损失L</p><p>损失L对权重w的导数：∂L/∂w = (∂L/∂ŷ) · (∂ŷ/∂h) · (∂h/∂w)</p><p><b>从右往左算：</b></p><ol><li>先算∂h/∂w（权重对输出的影响）</li><li>再算∂ŷ/∂h（隐藏层对输出层的影响）</li><li>最后算∂L/∂ŷ（输出对损失的影响）</li><li>乘起来得到∂L/∂w</li></ol><p><b>这就是\"反向传播\"名字的由来</b>——从损失函数出发，反向逐层传播梯度。</p>"
+      },
+      {
+        "type": "example",
+        "title": "例5：链式法则手算",
+        "content": "<p><b>问题：</b>f(x)=e^(2x+1)，求f'(x)。</p><p><b>Step 1：识别内外函数</b></p><p>外层：e^(□) → 导数是e^(□)（不变）</p><p>内层：2x+1 → 导数是2</p><p><b>Step 2：套用链式法则</b></p><p>f'(x) = e^(2x+1) × 2 = 2e^(2x+1)</p><p><b>验证：</b>x=0时，f(0)=e¹≈2.718。x=0.01时，f(0.01)=e^(1.02)≈2.774。变化=(2.774-2.718)/0.01=5.6。公式给出2e¹≈5.436。接近✓（Δx=0.01不够小，Δx更小会更准）</p><p><b>例6：多层复合</b></p><p>f(x)=ln(x²+1)</p><p>Step 1：外层ln(□)→1/□，内层x²+1→2x</p><p>Step 2：f'(x) = [1/(x²+1)] × 2x = 2x/(x²+1)</p><p>验证：x=2时，f'(2)=4/5=0.8</p>"
+      },
+      {
+        "type": "text",
+        "title": "Sigmoid导数——激活函数反向传播实例",
+        "content": "<p>Sigmoid函数 σ(x) = 1/(1+e⁻ˣ) 是AI中最重要的激活函数之一。</p><p><b>它的导数有一个超棒的发现：</b></p><p>σ'(x) = σ(x) · (1 - σ(x))</p><p>也就是说，<b>用Sigmoid的输出值本身就能算出导数</b>，不需要回过头去算x。</p><p><b>推导（不强制记住，但看看很有趣）：</b></p><p>Step 1：σ(x)=1/(1+e⁻ˣ) = (1+e⁻ˣ)⁻¹</p><p>Step 2：链式法则：σ'(x) = -1×(1+e⁻ˣ)⁻² × (-e⁻ˣ) = e⁻ˣ/(1+e⁻ˣ)²</p><p>Step 3：巧妙地写为：[1/(1+e⁻ˣ)] × [e⁻ˣ/(1+e⁻ˣ)]</p><p>Step 4：注意到 e⁻ˣ/(1+e⁻ˣ) = (1+e⁻ˣ-1)/(1+e⁻ˣ) = 1 - 1/(1+e⁻ˣ) = 1 - σ(x)</p><p>Step 5：所以 σ'(x) = σ(x) × (1-σ(x))</p><p><b>数值验证：</b></p><ul><li>σ(0) = 0.5 → σ'(0) = 0.5×0.5 = 0.25</li><li>σ(5) = 0.9933 → σ'(5) = 0.9933×0.0067 ≈ 0.0067</li><li>σ(-5) = 0.0067 → σ'(-5) = 0.0067×0.9933 ≈ 0.0067</li></ul><p><b>观察：</b>x远离0时，导数非常小——这就是\"梯度消失\"问题：深层网络反向传播时，梯度越乘越小，前层几乎不更新。</p>"
+      },
+      {
+        "type": "table",
+        "title": "Sigmoid导数参数表",
+        "content": "<table><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小的影响</th></tr><tr><td>x</td><td>Sigmoid的输入</td><td>[-5,5]</td><td>x>>0: σ≈1，梯度≈0（饱和）；x<<0: σ≈0，梯度≈0（饱和）</td></tr><tr><td>σ(x)</td><td>Sigmoid输出</td><td>(0,1)</td><td>接近0或1时梯度消失</td></tr><tr><td>σ'(x)</td><td>导数（梯度）</td><td>最大0.25(x=0)</td><td>最大值仅0.25，深度网络连乘后趋近于0</td></tr></table>"
+      },
+      {
+        "type": "exercise",
+        "title": "链式法则与Sigmoid练习",
+        "content": "<p><b>Q1：</b>用链式法则求 f(x)=(3x+1)² 的导数。</p><p><b>Q2：</b>若 σ(x)=1/(1+e⁻ˣ)，计算 σ(2) 和 σ'(2)。</p><p><b>Q3：</b>在一个两层的神经网络中，z₁=w₁·x+b₁，a₁=σ(z₁)，z₂=w₂·a₁+b₂，ŷ=σ(z₂)，损失L=½(ŷ-y)²。写出∂L/∂w₂的链式法则分解式。</p><p><b>Q4：</b>求 f(x)=ln(eˣ+1) 的导数。</p>",
+        "answer": "<p><b>A1：</b>外层(□)²→2(□)，内层3x+1→3。f'(x)=2(3x+1)×3=6(3x+1)=18x+6</p><p><b>A2：</b>σ(2)=1/(1+e⁻²)=1/(1+0.1353)≈0.8808。σ'(2)=0.8808×(1-0.8808)=0.8808×0.1192≈0.1050</p><p><b>A3：</b>∂L/∂w₂ = (∂L/∂ŷ) × (∂ŷ/∂z₂) × (∂z₂/∂w₂) = (ŷ-y) × σ(z₂)(1-σ(z₂)) × a₁</p><p><b>A4：</b>外层ln(□)→1/□，内层eˣ+1→eˣ。f'(x)=eˣ/(eˣ+1)。</p>"
+      },
+      {
+        "type": "text",
+        "title": "矩阵乘法——神经网络的计算引擎",
+        "content": "<p><b>为什么需要矩阵？</b></p><p>神经网络的一层：有n个输入和m个输出。如果不用矩阵，你得写n×m个循环。用矩阵：<b>一行代码</b>搞定。</p><p><b>矩阵乘法规则：</b></p><p>A(m×n) × B(n×p) = C(m×p)</p><p>条件：A的列数必须等于B的行数。</p><p><b>📦 物流类比：</b></p><ul><li>你有3个仓库（3行），每个仓库有4种商品的数量（4列）</li><li>每种商品有5个目的地（5列）的运送单价</li><li>矩阵乘法 = 算出从每个仓库到每个目的地的总运费</li></ul><p><b>神经网络的矩阵形式：</b></p><p>y = Wx + b</p><p>其中：</p><ul><li>x：输入向量（n维）</li><li>W：权重矩阵（m×n维）</li><li>b：偏置向量（m维）</li><li>y：输出向量（m维）</li></ul><p>y的第i个元素 = Σ(W[i][j] × x[j]) + b[i]，j从1到n</p><p><b>堆叠多层：</b></p><p>深度学习 = 一串矩阵乘法 + 激活函数</p><p>h₁ = σ(W₁x + b₁)</p><p>h₂ = σ(W₂h₁ + b₂)</p><p>ŷ = W₃h₂ + b₃</p>"
+      },
+      {
+        "type": "example",
+        "title": "例7：2×3矩阵乘法手算",
+        "content": "<p><b>问题：</b>A = [[1,2,3],[4,5,6]]，B = [[7,8],[9,10],[11,12]]，求A×B。</p><p><b>Step 1：确认维度</b></p><p>A=2×3, B=3×2 → 结果C=2×2</p><p><b>Step 2：逐元素计算</b></p><p>C[0][0] = A第0行×B第0列 = 1×7+2×9+3×11 = 7+18+33 = 58</p><p>C[0][1] = 1×8+2×10+3×12 = 8+20+36 = 64</p><p>C[1][0] = 4×7+5×9+6×11 = 28+45+66 = 139</p><p>C[1][1] = 4×8+5×10+6×12 = 32+50+72 = 154</p><p><b>结果：</b>C = [[58, 64], [139, 154]]</p><p><b>验证：</b>可以用矩阵乘法交换律的变体验证。两个矩阵第0行点积=第0列点积等关系。</p>"
+      },
+      {
+        "type": "text",
+        "title": "对数（Log）——让乘法变加法的魔法",
+        "content": "<p><b>为什么AI中到处是log？</b></p><p>三个核心原因：</p><ul><li><b>乘法变加法：</b>log(ab)=log(a)+log(b)。求导时，加法比乘法简单无数倍。</li><li><b>数值稳定：</b>一个很小的概率 p=0.0001，直接乘n次会下溢为0。取log后是-4+(-4)+...，稳定得多。</li><li><b>信息论定义：</b>信息量 = -log(p)。交叉熵损失源于信息论。</li></ul><p><b>常用对数规则（务必记住）：</b></p><ul><li>log(ab) = log(a) + log(b)</li><li>log(a/b) = log(a) - log(b)</li><li>log(aⁿ) = n·log(a)</li><li>ln(eˣ) = x（自然对数的定义）</li><li>e^(ln(a)) = a</li></ul><p><b>实例：交叉熵损失</b></p><p>CE = -Σ yᵢ·log(ŷᵢ)</p><p>其中y是真实标签（[1,0,0]），ŷ是预测概率（[0.7,0.2,0.1]）。</p><p>计算：CE = -(1×log(0.7) + 0×log(0.2) + 0×log(0.1)) = -log(0.7) ≈ 0.357</p><p>如果预测错了：ŷ=[0.1,0.2,0.7]，CE = -log(0.1) ≈ 2.303</p><p>错误时惩罚大了约6.5倍——这就是交叉熵\"惩罚错误\"的方式。</p>"
+      },
+      {
+        "type": "table",
+        "title": "对数在AI中的参数表",
+        "content": "<table><tr><th>参数</th><th>含义</th><th>典型值</th><th>作用</th></tr><tr><td>log(a)</td><td>a的自然对数（底数e≈2.718）</td><td>a∈(0,∞)</td><td>压缩量级，将乘法转为加法</td></tr><tr><td>-log(p)</td><td>事件的\"信息量\"</td><td>p∈(0,1], -log(p)∈[0,∞)</td><td>小概率事件信息量大</td></tr><tr><td>CE=-Σy·log(ŷ)</td><td>交叉熵损失</td><td>≥0, 越接近0越好</td><td>分类任务的默认损失</td></tr></table>"
+      },
+      {
+        "type": "exercise",
+        "title": "综合练习",
+        "content": "<p><b>Q1：</b>计算 log₂(8) + log₂(16)。</p><p><b>Q2：</b>用对数规则化简：log(ab³/c²)。</p><p><b>Q3：</b>若损失函数 L=-log(ŷ_y)，当真实类别y的第k个元素为1，模型预测ŷ_k=0.01时，损失L是多少？如果ŷ_k=0.99呢？</p><p><b>Q4：</b>矩阵A=[[1,0],[2,3]]，B=[[4],[5]]，求A×B。</p>",
+        "answer": "<p><b>A1：</b>log₂(8)=3（因为2³=8），log₂(16)=4（因为2⁴=16）。所以3+4=7。</p><p><b>A2：</b>log(ab³/c²) = log(a) + log(b³) - log(c²) = log(a) + 3log(b) - 2log(c)</p><p><b>A3：</b>当ŷ_k=0.01：L=-log(0.01)=-(-4.605)=4.605。当ŷ_k=0.99：L=-log(0.99)=-(-0.01005)=0.01005。可见错误（置信度低）时损失大得多。</p><p><b>A4：</b>[[1×4+0×5], [2×4+3×5]] = [[4], [8+15]] = [[4], [23]]。结果是2×1矩阵。</p>"
+      }
+    ]
+  },
+  {
+    "slug": "py-basics",
+    "title": "01. Python速成",
+    "description": "从零到NumPy：Python语法、列表、字典、函数、类、NumPy向量化计算",
+    "category": "python",
+    "phase": "A",
+    "order": 1,
+    "sections": [
+      {
+        "type": "text",
+        "title": "为什么学Python？——AI世界的通用语言",
+        "content": "<p>Python是AI领域的<b>通用语言</b>。就像一个国际机场，不管你去哪里，都得先经过它：</p><ul><li>PyTorch、TensorFlow、JAX——三大深度学习框架都用Python</li><li>NumPy、Pandas、Scikit-learn——数据处理全栈Python</li><li>HuggingFace Transformers——主流LLM接口都是Python</li><li>LangChain、AutoGen、CrewAI——Agent框架全用Python</li></ul><p><b>为什么Python赢了？</b></p><ul><li><b>语法极简：</b>print('Hello')——一行代码。Java要写一堆public static void main。</li><li><b>库丰富：</b>pip install anything。几乎任何AI工具都有Python包。</li><li><b>社区巨大：</b>StackOverflow、GitHub上Python相关问答和项目最多。</li><li><b>胶水语言：</b>底层C/C++加速（NumPy、PyTorch），Python层只是调用接口。你不需要管底层。</li></ul><p>好消息是：<b>学AI只需要Python的基础子集</b>——变量、列表、字典、函数、类、NumPy。不用学装饰器、元类、协程这些高级特性。</p>"
+      },
+      {
+        "type": "text",
+        "title": "变量与数据类型——Python的基本积木",
+        "content": "<p>变量就是\"贴标签\"——把一个名字贴到一个值上。</p><p><b>类比：</b>就像把一件礼物贴上名字标签。你用标签找到礼物，计算机用变量名找到数据。</p><p><b>基础数据类型：</b></p><ul><li><b>整数（int）：</b>age = 25。没有小数点的数字。</li><li><b>浮点数（float）：</b>pi = 3.14159。带小数点的数字。</li><li><b>字符串（str）：</b>name = 'Alice'。文本，用引号包着。</li><li><b>布尔值（bool）：</b>is_student = True。只有True和False两个值。</li><li><b>None：</b>result = None。表示\"没有值\"，像是一个空盒子。</li></ul><p><b>Python的方便之处：</b></p><ul><li>不用声明类型：直接写 name = 'Alice'，Python自动知道是字符串</li><li>类型可变：x = 5（int），然后 x = 'hello'（str）——合法的（但不推荐）</li><li>type()函数查看类型：type(3.14) → float</li></ul><p><b>字符串操作（AI中最常用）：</b></p><ul><li>拼接：'Hello' + ' ' + 'World' → 'Hello World'</li><li>格式化：f'Name: {name}, Age: {age}' → 'Name: Alice, Age: 25'</li><li>切片：text = 'Python'; text[0:3] → 'Pyt'（前3个字符）</li><li>长度：len('Python') → 6</li></ul>"
+      },
+      {
+        "type": "code",
+        "title": "变量与数据类型——动手试试",
+        "code": "# ===== 变量赋值 =====\nname = 'Alice'       # 字符串\nage = 25             # 整数\nheight = 1.75        # 浮点数\nis_student = True    # 布尔值\n\n# 类型自动推断\nprint(type(name))    # <class 'str'>\nprint(type(age))     # <class 'int'>\nprint(type(height))  # <class 'float'>\n\n# 字符串格式化（AI中最常用！）\nprint(f'{name} is {age} years old')\n# 输出: Alice is 25 years old\n\n# 类型转换\nage_str = str(age)   # 25 -> '25'\nage_num = int('25')  # '25' -> 25\n\n# 常见的坑：输入默认是字符串\ntext_input = '3.14'\n# float(text_input) -> 3.14  # 正确\n# int(text_input)   -> 报错  # 不能直接转整数\n# int(float(text_input)) -> 3  # 先转float再int"
+      },
+      {
+        "type": "text",
+        "title": "列表（List）——有序数据的容器",
+        "content": "<p><b>列表</b>是最常用的数据结构，可以放任意类型的数据。</p><p><b>📦 购物车类比：</b>你把要买的东西按顺序放进购物车——['苹果', '牛奶', '面包', '鸡蛋']。你可以加东西、取出一部分、换顺序。</p><p><b>列表的核心操作（必须掌握）：</b></p><p>创建：scores = [85, 90, 78, 92]</p><p>读取：#1 按索引（从0开始）：</p><ul><li>scores[0] → 85（第一个元素）</li><li>scores[-1] → 92（最后一个元素）</li><li>scores[1:3] → [90, 78]（第2到第3个，不含第4个）</li></ul><p>修改：</p><ul><li>scores.append(88) → [85, 90, 78, 92, 88]（末尾追加）</li><li>scores.insert(0, 95) → [95, 85, 90, 78, 92, 88]（开头插入）</li><li>scores.pop() → 88，列表变为[95, 85, 90, 78, 92]（弹出最后一个）</li><li>scores.remove(90) → [95, 85, 78, 92]（删除第一个匹配的值）</li></ul><p>遍历：#1 普通遍历：for s in scores: print(s)</p><p>#2 带索引遍历：for i, s in enumerate(scores): print(f'{i}: {s}')</p><p>#3 列表推导式（Python特色）：squares = [x**2 for x in range(10)] → [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]</p><p>排序：</p><ul><li>scores.sort() → 原地升序排序</li><li>sorted(scores) → 返回新排序列表，原列表不变</li><li>scores.sort(reverse=True) → 降序</li></ul>"
+      },
+      {
+        "type": "code",
+        "title": "列表操作实战",
+        "code": "# ===== 列表创建 =====\nscores = [85, 90, 78, 92]\nprint(len(scores))  # 4\n\n# ===== 访问 =====\nprint(scores[0])   # 85（第1个）\nprint(scores[-1])  # 92（最后1个）\nprint(scores[1:3]) # [90, 78]（索引1到2）\n\n# ===== 修改 =====\nscores.append(88)   # [85, 90, 78, 92, 88]\nscores.insert(0, 95)  # [95, 85, 90, 78, 92, 88]\nlast = scores.pop()   # 88\nprint(scores)       # [95, 85, 90, 78, 92]\n\n# ===== 遍历 =====\nfor s in scores:\n    print(s * 1.1)  # 加10%后打印\n\nfor i, s in enumerate(scores):\n    if s >= 90:\n        print(f'{i}: 优秀({s})')\n\n# ===== 列表推导式 =====\nsquares = [x**2 for x in range(10)]\n# 相当于：\n# squares = []\n# for x in range(10):\n#     squares.append(x**2)\nprint(squares)  # [0,1,4,9,16,25,36,49,64,81]\n\n# ===== 高级用法：条件推导 =====\n# 筛选出>=90的分数\ngood = [s for s in scores if s >= 90]\nprint(good)  # [95, 92]"
+      },
+      {
+        "type": "text",
+        "title": "字典（Dict）——键值对数据容器",
+        "content": "<p><b>字典</b>存储键值对——每个\"键\"对应一个\"值\"。</p><p><b>📖 字典类比：</b>真正的词典。你查单词（键）得到定义（值）。不能查定义反向得到单词。</p><p><b>为什么AI中频繁用字典？</b></p><ul><li>超参数配置：config = {'lr': 0.001, 'batch_size': 32, 'epochs': 100}</li><li>样本标签对：dataset = {'img1.png': 0, 'img2.png': 1}</li><li>统计数据：stats = {'accuracy': 0.92, 'loss': 0.35}</li></ul><p><b>字典的核心操作：</b></p><p>创建：student = {'name': 'Alice', 'age': 25, 'scores': [85, 90]}</p><p>读取：</p><ul><li>student['name'] → 'Alice'</li><li>student.get('grade', 'N/A') → 'N/A'（安全读取，不存在返回默认值）</li></ul><p>修改：</p><ul><li>student['age'] = 26（修改已有键）</li><li>student['city'] = 'Beijing'（新增键值对）</li></ul><p>遍历：</p><ul><li>for key in student: print(key, student[key])（遍历键）</li><li>for key, val in student.items(): print(key, val)（遍历键值对）</li></ul>"
+      },
+      {
+        "type": "code",
+        "title": "字典操作实战",
+        "code": "# ===== 创建字典 =====\nstudent = {\n    'name': 'Alice',\n    'age': 25,\n    'scores': [85, 90, 78, 92],\n    'is_active': True\n}\n\n# ===== 读取 =====\nprint(student['name'])           # 'Alice'\nprint(student.get('grade'))      # None（安全访问）\nprint(student.get('grade', 'N/A'))  # 'N/A'（默认值）\n\n# ===== 修改/新增 =====\nstudent['age'] = 26             # 修改\nstudent['city'] = 'Beijing'     # 新增\n\n# ===== 遍历 =====\nfor key, value in student.items():\n    print(f'{key}: {value}')\n\n# ===== 字典推导式 =====\nsquares_dict = {x: x**2 for x in range(5)}\n# {0: 0, 1: 1, 2: 4, 3: 9, 4: 16}\n\n# ===== 嵌套字典 =====\nconfig = {\n    'model': {\n        'hidden_size': 768,\n        'num_layers': 12\n    },\n    'training': {\n        'lr': 0.001,\n        'batch_size': 32\n    }\n}\nprint(config['model']['hidden_size'])  # 768"
+      },
+      {
+        "type": "text",
+        "title": "条件与循环——控制程序的流程",
+        "content": "<p><b>条件语句（if/elif/else）：</b>让程序根据情况做不同的事。</p><p><b>🚦 红绿灯类比：</b>红灯停，绿灯行，黄灯等一等——就是if-elif-else。</p><p><b>基本结构：</b></p><pre>if 条件1:\n    做事情A\nelif 条件2:\n    做事情B\nelse:\n    做事情C</pre><p><b>比较运算符：</b>==（等于）、!=（不等于）、>、<、>=、<=</p><p><b>逻辑运算符：</b>and（且）、or（或）、not（非）</p><p><b>循环（for/while）：</b>重复做某件事。</p><ul><li><b>for循环：</b>遍历一个序列（如列表、字符串、range）。确定次数。for x in range(5): print(x) → 0,1,2,3,4</li><li><b>while循环：</b>条件为真就一直做。不确定次数。while score < 100: score += 1</li></ul><p><b>range(start, stop, step)：</b>生成整数序列。</p><ul><li>range(5) → 0,1,2,3,4（不含5）</li><li>range(2, 7) → 2,3,4,5,6</li><li>range(0, 10, 2) → 0,2,4,6,8</li></ul><p><b>break和continue：</b></p><ul><li>break：跳出整个循环</li><li>continue：跳过当前迭代，继续下一次</li></ul>"
+      },
+      {
+        "type": "code",
+        "title": "条件与循环实战",
+        "code": "# ===== if-elif-else =====\nscore = 85\nif score >= 90:\n    grade = 'A'\nelif score >= 80:\n    grade = 'B'\nelif score >= 70:\n    grade = 'C'\nelse:\n    grade = 'D'\nprint(f'Score {score}: {grade}')  # Score 85: B\n\n# ===== 逻辑组合 =====\ntemp = 35\nhumidity = 80\nif temp > 30 and humidity > 70:\n    print('又热又闷')  # 会输出\n\n# ===== for循环 =====\nfor i in range(5):\n    print(i, end=' ')  # 0 1 2 3 4\n    \nprint()  # 换行\n\n# 遍历列表\nfruits = ['apple', 'banana', 'cherry']\nfor fruit in fruits:\n    print(f'I like {fruit}')\n\n# ===== 带索引遍历 =====\nfor i, fruit in enumerate(fruits):\n    print(f'{i}: {fruit}')\n\n# ===== while循环 =====\ncount = 0\nwhile count < 3:\n    print(f'Count: {count}')\n    count += 1\n\n# ===== break示例 =====\nfor num in range(10):\n    if num == 5:\n        break  # 遇到5就跳出\n    print(num, end=' ')  # 0 1 2 3 4"
+      },
+      {
+        "type": "text",
+        "title": "函数——封装可复用的代码块",
+        "content": "<p><b>函数</b>是一段可以反复调用的代码。就像一台咖啡机——你按一下按钮（调用函数），它执行一系列步骤（磨豆、加热、冲泡），给你输出（咖啡）。</p><p><b>为什么用函数？</b></p><ul><li><b>复用：</b>写一次，用很多次</li><li><b>可读：</b>把复杂逻辑拆成有名字的小块</li><li><b>测试：</b>每个函数可以单独测试</li></ul><p><b>函数定义语法：</b></p><pre>def 函数名(参数1, 参数2=默认值):\n    \"\"\"文档字符串——说明函数做什么\"\"\"\n    执行代码\n    return 返回值</pre><p><b>关键概念：</b></p><ul><li><b>参数：</b>输入给函数的值</li><li><b>返回值：</b>函数输出的结果。没有return返回None</li><li><b>默认参数：</b>def greet(name, greeting='Hello')，不传greeting就用'Hello'</li><li><b>Docstring：</b>函数的说明文档，用三重引号</li></ul>"
+      },
+      {
+        "type": "code",
+        "title": "函数实战",
+        "code": "# ===== 简单函数 =====\ndef greet(name, greeting='Hello'):\n    \"\"\"用指定问候语向某人打招呼\"\"\"\n    return f'{greeting}, {name}!'\n\nprint(greet('Alice'))          # Hello, Alice!\nprint(greet('Bob', 'Hi'))      # Hi, Bob!\n\n# ===== 计算函数 =====\ndef sigmoid(x):\n    \"\"\"Sigmoid激活函数\"\"\"\n    return 1 / (1 + 2.71828**-x)\n\nprint(sigmoid(0))   # 0.5\nprint(sigmoid(2))   # ~0.8808\n\n# ===== 多返回值 =====\ndef compute_stats(numbers):\n    \"\"\"计算列表的均值和标准差（简化版）\"\"\"\n    n = len(numbers)\n    mean = sum(numbers) / n\n    variance = sum((x - mean)**2 for x in numbers) / n\n    std = variance**0.5\n    return mean, std\n\navg, std = compute_stats([85, 90, 78, 92])\nprint(f'平均分: {avg:.1f}, 标准差: {std:.1f}')\n# 平均分: 86.2, 标准差: 5.5\n\n# ===== 函数作为参数 =====\ndef apply_to_all(func, data):\n    \"\"\"对data中每个元素应用func\"\"\"\n    return [func(x) for x in data]\n\nscores = [1, 2, 3, 4, 5]\ndoubled = apply_to_all(lambda x: x*2, scores)\nprint(doubled)  # [2, 4, 6, 8, 10]"
+      },
+      {
+        "type": "text",
+        "title": "类（Class）——数据和行为的封装",
+        "content": "<p><b>类</b>就像一张蓝图。你根据蓝图造出一个个\"对象\"（实例）。</p><p><b>🏭 类比：</b></p><ul><li>类 = 汽车的<b>设计图纸</b>——定义了所有汽车的结构</li><li>对象 = 根据图纸造出的<b>一辆具体汽车</b>——有自己的颜色、车牌号</li></ul><p><b>为什么AI中要用类？</b></p><ul><li>模型定义：nn.Module是PyTorch中所有模型的基类</li><li>数据集：torch.utils.data.Dataset</li><li>层：nn.Linear, nn.Conv2d等都是类</li></ul><p><b>类的核心元素：</b></p><ul><li><b>__init__：</b>创建对象时自动调用，初始化属性</li><li><b>self：</b>代表对象本身。方法第一个参数永远是self</li><li><b>属性：</b>对象的数据（如self.name, self.weights）</li><li><b>方法：</b>对象的函数（如forward()）</li></ul>"
+      },
+      {
+        "type": "code",
+        "title": "类实战——实现一个简单神经网络层",
+        "code": "# ===== 定义一个简单的线性层 =====\nclass LinearLayer:\n    \"\"\"模拟神经网络中的一个全连接层\"\"\"\n    \n    def __init__(self, input_size, output_size):\n        \"\"\"\n        初始化权重和偏置\n        input_size: 输入特征数\n        output_size: 输出特征数\n        \"\"\"\n        # 1) 用随机小数值初始化权重\n        self.weights = [[0.01] * output_size for _ in range(input_size)]\n        # 2) 偏置初始化为0\n        self.bias = [0.0] * output_size\n        self.input_size = input_size\n        self.output_size = output_size\n        \n    def forward(self, x):\n        \"\"\"\n        前向传播：y = Wx + b\n        x: 输入向量，长度为input_size\n        返回：输出向量，长度为output_size\n        \"\"\"\n        y = []\n        for j in range(self.output_size):\n            # 计算第j个输出的值\n            val = self.bias[j]\n            for i in range(self.input_size):\n                val += x[i] * self.weights[i][j]\n            y.append(val)\n        return y\n    \n    def __repr__(self):\n        return f'LinearLayer({self.input_size} -> {self.output_size})'\n\n\n# ===== 使用这个类 =====\nlayer = LinearLayer(3, 2)  # 3个输入 → 2个输出\nprint(layer)  # LinearLayer(3 -> 2)\n\nx = [1.0, 2.0, 3.0]\noutput = layer.forward(x)\nprint(output)  # [0.06, 0.06]\n# 验证：\n# y[0] = 0 + 1*0.01 + 2*0.01 + 3*0.01 = 0.06\n# y[1] = 0 + 1*0.01 + 2*0.01 + 3*0.01 = 0.06\n\n# ===== 更面向对象的方式（继承） =====\nimport math\n\nclass NeuralNetwork:\n    \"\"\"一个两层的神经网络\"\"\"\n    \n    def __init__(self, input_size, hidden_size, output_size):\n        self.layer1 = LinearLayer(input_size, hidden_size)\n        self.layer2 = LinearLayer(hidden_size, output_size)\n        \n    def forward(self, x):\n        # 第一层\n        h = self.layer1.forward(x)\n        # ReLU激活（稍后详解）\n        h = [max(0, z) for z in h]\n        # 第二层\n        y = self.layer2.forward(h)\n        return y\n\nnet = NeuralNetwork(784, 128, 10)  # 28x28图片 -> 10个数字\nprint(f'网络结构：{net.layer1} -> ReLU -> {net.layer2}')"
+      },
+      {
+        "type": "text",
+        "title": "NumPy——AI计算的超级引擎",
+        "content": "<p><b>NumPy</b>是Python做科学计算的核心库。它提供了：</p><ul><li><b>多维数组</b>：比Python列表强大得多</li><li><b>快速矩阵运算</b>：底层用C语言和SIMD指令，比纯Python循环快10-100倍</li><li><b>广播</b>：不同形状的数组自动对齐进行计算</li></ul><p><b>为什么不能只用列表？</b></p><ul><li>Python列表：存储的是对象的引用，每个元素都是Python对象，内存开销大</li><li>NumPy数组：存储的是连续内存的原始数值，缓存友好，计算极快</li></ul><p><b>100万维向量点积对比：</b></p><ul><li>Python循环：约200毫秒</li><li>NumPy dot()：约2毫秒</li><li><b>快100倍！</b></li></ul><p>神经网络一次前向传播需要数亿次乘加，不用NumPy/PyTorch根本不可能。</p>"
+      },
+      {
+        "type": "code",
+        "title": "NumPy核心操作",
+        "code": "import numpy as np\n\n# ===== 创建数组 =====\n# 从列表创建\na = np.array([1, 2, 3, 4, 5])\nprint(a)         # [1 2 3 4 5]\nprint(a.shape)   # (5,) —— 一维，5个元素\n\n# 二维数组（矩阵）\nA = np.array([[1, 2, 3], [4, 5, 6]])\nprint(A.shape)   # (2, 3) —— 2行3列\n\n# 特殊数组\nzeros = np.zeros((2, 3))  # [[0,0,0],[0,0,0]]\nones = np.ones((3, 2))    # [[1,1],[1,1],[1,1]]\neye = np.eye(3)           # 3x3单位矩阵\nar = np.arange(0, 10, 2)  # [0, 2, 4, 6, 8]\n\n# ===== 数组运算 —— 向量化（关键！）=====\na = np.array([1, 2, 3])\nb = np.array([4, 5, 6])\n\nprint(a + b)        # [5, 7, 9]   —— 逐元素加\nprint(a * b)        # [4, 10, 18] —— 逐元素乘（不是矩阵乘法！）\nprint(np.sqrt(a))   # [1.0, 1.41, 1.73]\n\n# ===== 点积 / 矩阵乘法 =====\nprint(np.dot(a, b))     # 1*4+2*5+3*6 = 32 （一维点积）\nprint(a @ b)            # 32 （@是点积的简写）\n\n# 矩阵乘法\nA = np.array([[1, 2], [3, 4]])  # 2x2\nB = np.array([[5, 6], [7, 8]])  # 2x2\nprint(A @ B)\n# 结果:\n# [[19, 22],\n#  [43, 50]]"
+      },
+      {
+        "type": "code",
+        "title": "NumPy高级操作——AI必备",
+        "code": "import numpy as np\n\n# ===== 广播（Broadcasting）=====\n# 不同形状的数组自动对齐\nmatrix = np.array([[1, 2, 3], [4, 5, 6]])   # 2x3\nbias = np.array([0.1, 0.2, 0.3])             # (3,)\nresult = matrix + bias                        # 广播：每行都加bias\nprint(result)\n# [[1.1, 2.2, 3.3],\n#  [4.1, 5.2, 6.3]]\n\n# ===== 索引和切片 =====\narr = np.array([[1, 2, 3, 4], [5, 6, 7, 8]])\nprint(arr[0, 1])      # 2（第0行第1列）\nprint(arr[:, 1:3])    # 所有行，第1-2列 -> [[2,3],[6,7]]\n\n# ===== 随机数 =====\nnp.random.seed(42)  # 固定随机种子，保证可复现\nrand = np.random.randn(3, 4)  # 标准正态分布随机数\nuniform = np.random.rand(2, 3)  # [0,1)均匀分布\n\n# ===== 统计函数 =====\ndata = np.array([1, 2, 3, 4, 5])\nprint(np.mean(data))   # 3.0\nprint(np.std(data))    # 1.414\nprint(np.max(data))    # 5\nprint(np.sum(data))    # 15\n\n# ===== 重塑形状 =====\n# reshape不改变数据，只改变形状\narr = np.arange(12)        # [0..11]\nprint(arr.reshape(3, 4))   # 3行4列\nprint(arr.reshape(2, 2, 3)) # 2个2x3矩阵"
+      },
+      {
+        "type": "example",
+        "title": "向量化 vs 循环——不同在哪？",
+        "content": "<p><b>问题：</b>计算两个长度为1000000的向量的点积。</p><p><b>方法1：Python纯循环</b></p><pre>def dot_product_py(a, b):\n    result = 0\n    for i in range(len(a)):\n        result += a[i] * b[i]\n    return result</pre><p><b>方法2：NumPy向量化</b></p><pre>def dot_product_np(a, b):\n    return a @ b  # 一行！</pre><p><b>结果对比：</b></p><ul><li>Python循环：约200毫秒（CPU做100万次Python解释器操作）</li><li>NumPy：约2毫秒（C语言直接操作内存，加SIMD向量化指令）</li><li><b>差距100倍！</b></li></ul><p><b>原理：</b></p><ul><li>Python循环：每次迭代都要做类型检查、引用计数、分配临时对象</li><li>NumPy：底层C代码一次处理多个数据，CPU缓存命中率高</li><li>GPU上差距更大：GPU一次可以做数千次并行乘加</li></ul>"
+      },
+      {
+        "type": "code",
+        "title": "动手实现：用NumPy实现Sigmoid和Softmax",
+        "code": "import numpy as np\n\n# ===== Sigmoid =====\ndef sigmoid(x):\n    \"\"\"Sigmoid激活函数——向量化版本\"\"\"\n    return 1 / (1 + np.exp(-x))\n\n# 测试\nx = np.array([-2, -1, 0, 1, 2])\nprint('Sigmoid:')\nprint(sigmoid(x))\n# [0.1192, 0.2689, 0.5, 0.7311, 0.8808]\n\n# ===== Softmax =====\ndef softmax(x):\n    \"\"\"\n    Softmax函数——将向量转换为概率分布\n    x: 输入向量或矩阵\n    返回：概率分布，各元素和为1\n    \"\"\"\n    # 数值稳定技巧：减去最大值防止exp溢出\n    x_max = np.max(x, axis=-1, keepdims=True)\n    exp_x = np.exp(x - x_max)\n    return exp_x / np.sum(exp_x, axis=-1, keepdims=True)\n\n# 测试\nx = np.array([1.0, 2.0, 3.0])\nprint('\\nSoftmax:')\nprobs = softmax(x)\nprint(probs)\nprint('Sum:', np.sum(probs))\n# 输出:\n# [0.090, 0.245, 0.665]\n# Sum: 1.0\n\n# 验证：3最大，对应概率最高(66.5%)\n\n# ===== 预测一个批次的样本 =====\n# 假设模型输出(logits) 3个样本，4个类别\nlogits = np.array([\n    [2.0, 1.0, 0.1, 0.5],\n    [0.3, 3.0, 0.2, 1.5],\n    [1.5, 0.2, 2.5, 0.8]\n])\npredictions = softmax(logits)\nprint('\\nBatch predictions:')\nprint(np.round(predictions, 3))\nprint('\\nPredicted classes:', np.argmax(predictions, axis=1))\n# [0, 1, 2]  # 三个样本分别预测为类别0,1,2"
+      },
+      {
+        "type": "exercise",
+        "title": "练习",
+        "content": "<p><b>Q1：</b>写一个函数，输入一个列表，用列表推导式筛选出所有偶数并平方。</p><p><b>Q2：</b>用字典存储学生的三门课成绩：'Alice': [85, 90, 78], 'Bob': [92, 88, 95]，计算每个人的平均分。</p><p><b>Q3：</b>用NumPy创建一个3×3的随机矩阵，计算它的转置和所有元素的和。</p><p><b>Q4：</b>写一个类SigmoidLayer，实现Sigmoid激活函数的前向传播。</p><p><b>Q5：</b>用NumPy实现一个函数mse_loss(y_pred, y_true)，计算均方误差。</p>",
+        "answer": "<p><b>A1：</b></p><pre>def even_squares(numbers):\n    return [x**2 for x in numbers if x % 2 == 0]\nprint(even_squares([1,2,3,4,5,6]))  # [4, 16, 36]</pre><p><b>A2：</b></p><pre>scores = {'Alice': [85, 90, 78], 'Bob': [92, 88, 95]}\nfor name, sc in scores.items():\n    avg = sum(sc) / len(sc)\n    print(f'{name}: {avg:.1f}')\n# Alice: 84.3\n# Bob: 91.7</pre><p><b>A3：</b></p><pre>import numpy as np\nnp.random.seed(42)\nA = np.random.randn(3, 3)\nprint('Original:', A, sep='\\n')\nprint('Transpose:', A.T, sep='\\n')\nprint('Sum:', np.sum(A))</pre><p><b>A4：</b></p><pre>class SigmoidLayer:\n    def forward(self, x):\n        return 1 / (1 + np.exp(-x))\nlayer = SigmoidLayer()\nprint(layer.forward(np.array([-1, 0, 1])))</pre><p><b>A5：</b></p><pre>def mse_loss(y_pred, y_true):\n    return np.mean((y_pred - y_true) ** 2)\ny_true = np.array([3, 5, 7])\ny_pred = np.array([2.5, 5.5, 6.5])\nprint(mse_loss(y_pred, y_true))  # 0.25</pre>"
+      }
+    ]
+  }]

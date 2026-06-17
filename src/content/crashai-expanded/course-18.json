@@ -1,0 +1,31 @@
+{
+  "slug": "multi-agent",
+  "title": "3.2 多Agent协作",
+  "description": "Multi-Agent系统/协作模式/通信/工作流编排",
+  "category": "llm",
+  "phase": "C",
+  "order": 18,
+  "sections": [
+    {
+      "type": "text",
+      "title": "为什么需要多Agent？——从一个人干活到团队协作",
+      "content": "<p><b>单个Agent能力有限，就像一个人不可能精通所有技能。</b>多Agent系统让多个Agent协作，每个Agent专攻一个领域，就像公司里有产品经理、程序员、设计师、测试工程师。</p><p><b>类比：餐厅团队。</b>一个餐厅有：前台（接待顾客）、厨师（做菜）、服务员（上菜）、清洁工（打扫卫生）。每个人只做自己擅长的事，但通过协作完成整个用餐体验。</p><p><b>多Agent的核心优势：</b></p><ul><li><b>专业分工：</b>每个Agent专攻一个领域，深度而非广度</li><li><b>并行处理：</b>多个Agent同时工作，提高效率</li><li><b>冗余备份：</b>一个Agent失败，其他Agent可以接管</li><li><b>模块化：</b>新增Agent不需要修改现有Agent</li><li><b>可扩展：</b>根据任务复杂度动态增减Agent数量</li></ul><p><b>多Agent架构：</b></p><table border=\"1\"><tr><th>架构</th><th>特点</th><th>代表系统</th></tr><tr><td>层级式</td><td>中央Agent协调，子Agent执行</td><td>AutoGPT, MetaGPT</td></tr><tr><td>扁平式</td><td>Agent平等协商，投票决策</td><td>ChatDev, CAMEL</td></tr><tr><td>管道式</td><td>Agent按流水线顺序处理</td><td>LangChain Sequential</td></tr><tr><td>市场式</td><td>Agent像自由市场一样交易资源</td><td>AgentMarket, 研究阶段</td></tr></table>"
+    },
+    {
+      "type": "text",
+      "title": "Agent之间的通信——团队怎么开会",
+      "content": "<p><b>多Agent系统需要通信机制，就像团队需要开会。</b>Agent之间如何传递信息、协调行动、解决冲突？</p><p><b>通信方式：</b></p><p><b>1. 直接通信：</b>Agent A直接给Agent B发送消息。简单高效，但耦合度高。</p><p><b>2. 黑板系统（Blackboard）：</b>所有Agent共享一个公共数据区（黑板）。Agent把结果写到黑板上，其他Agent从黑板读取。解耦，但可能有读写冲突。</p><p><b>3. 消息队列：</b>Agent发送消息到队列，其他Agent异步消费。可靠，但延迟较大。</p><p><b>4. 发布-订阅：</b>Agent发布事件，订阅该事件的Agent接收并处理。灵活，适合一对多通信。</p><p><b>协作模式：</b></p><table border=\"1\"><tr><th>模式</th><th>描述</th><th>适用场景</th></tr><tr><td>分工协作</td><td>每个Agent负责一个子任务</td><td>复杂任务分解</td></tr><tr><td>竞争协作</td><td>多个Agent尝试同一任务，选最佳结果</td><td>需要高质量输出的任务</td></tr><tr><td>教学协作</td><td>一个Agent教另一个Agent新技能</td><td>知识传递</td></tr><tr><td>辩论协作</td><td>Agent互相挑战，找出最佳方案</td><td>需要多角度分析的问题</td></tr></table>"
+    },
+    {
+      "type": "example",
+      "title": "例子：多Agent软件开发团队",
+      "content": "<p><b>场景：用多Agent系统开发一个 TODO App。</b></p><p><b>Agent角色分配：</b></p><pre>产品经理Agent：写需求文档、设计功能列表\n  → 输出：PRD文档、用户故事\n\n架构师Agent：设计系统架构、数据库 schema\n  → 输出：架构图、API设计\n\n前端开发Agent：写HTML/CSS/JS代码\n  → 输出：前端代码\n\n后端开发Agent：写服务器代码、数据库操作\n  → 输出：后端代码\n\n测试Agent：写测试用例、执行测试\n  → 输出：测试报告、bug列表\n\nDevOps Agent：写Dockerfile、部署脚本\n  → 输出：部署配置</pre><p><b>协作流程：</b></p><pre>1. 产品经理先写PRD\n2. 架构师根据PRD设计架构\n3. 前端和后端并行开发（基于架构设计）\n4. 测试Agent在开发完成后进行测试\n5. 发现bug → 通知开发Agent修复\n6. DevOps Agent在测试通过后部署\n\n总时间：单Agent需要10天，多Agent并行只需3天</pre><p><b>这个例子来自MetaGPT和ChatDev的真实研究。</b>实验表明，多Agent系统可以生成可运行的软件项目，虽然代码质量不如人类团队，但已经能完成简单应用的完整开发流程。</p>"
+    },
+    {
+      "type": "exercise",
+      "title": "练习：多Agent协作",
+      "content": "<p><b>Q1：</b>多Agent系统相比单Agent，核心优势是什么？什么时候需要多Agent？</p><p><b>Q2：</b>黑板系统（Blackboard）和消息队列有什么区别？各适合什么场景？</p><p><b>Q3：</b>如果两个Agent对同一个任务给出不同结果，系统应该如何决策？</p><p><b>Q4：</b>设计一个多Agent系统来处理客户投诉。需要哪些Agent？它们如何协作？</p><p><b>Q5：</b>多Agent系统的最大挑战是什么？如何解决Agent之间的冲突？</p>",
+      "answer": "<p><b>A1：</b>核心优势：专业分工、并行处理、冗余备份、模块化。当任务复杂到需要多个领域专业知识时，或者需要并行处理大量子任务时，需要多Agent。简单任务（如查天气）不需要多Agent。</p><p><b>A2：</b>黑板系统：共享内存，所有Agent读写同一个数据区。适合需要实时共享状态的场景，但可能有竞争条件。消息队列：异步通信，Agent发送消息到队列，其他Agent消费。适合解耦、可靠传输，但有一定延迟。</p><p><b>A3：</b>可以：1.投票（多数Agent认同的结果胜出）；2.置信度加权（置信度高的Agent权重更大）；3.上级Agent仲裁（中央协调者决定）；4.重新执行（让Agent重新考虑对方观点）；5.人类介入（复杂冲突由人类判断）。</p><p><b>A4：</b>需要的Agent：接收Agent（接收投诉）、分析Agent（分析投诉类型和紧急程度）、处理Agent（根据类型分配给不同处理流程：退款/技术支持/产品建议）、回复Agent（生成回复）、升级Agent（处理无法解决的投诉）、记录Agent（记录所有交互）。协作：接收→分析→处理→（如需升级）升级→回复→记录。</p><p><b>A5：</b>最大挑战：协调复杂性、通信开销、冲突解决。解决冲突：1.明确角色和权限；2.建立冲突解决协议（如投票、仲裁）；3.设定共同目标（所有Agent服务于用户利益）；4. human-in-the-loop（关键决策由人类确认）。</p>"
+    }
+  ]
+}

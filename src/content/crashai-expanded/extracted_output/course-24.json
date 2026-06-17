@@ -1,0 +1,40 @@
+{
+  "slug": "crashai-resources",
+  "title": "X. 学习资源与工具",
+  "description": "精选课程/书籍/论文/工具推荐，持续学习路线图",
+  "category": "llm",
+  "phase": "C",
+  "order": 24,
+  "sections": [
+    {
+      "type": "text",
+      "title": "学习路线图——从今天的你到AI从业者",
+      "content": "<p>恭喜你！你已经完成了CrashAI的全部课程。从高数基础到前沿趋势，你走过了所有关键知识模块。但现在你需要问自己一个问题：</p><p><b>接下来我要怎么学，才能从\"知道这些概念\"到\"真正能用这些技术\"？</b></p><p>这是一条经典的学习路线图：</p><pre>\n阶段0: 你已经在这里 ⬇\n├── 高数唤醒（导数、矩阵、概率） ✅\n├── Python速成（语法、NumPy）   ✅\n├── 优化器与损失函数               ✅\n├── 训练技巧（Dropout/BatchNorm） ✅\n├── 数据预处理                      ✅\n└── Transformer核心                ✅\n\n阶段1: 动手实战（做中学）\n├── Kaggle打比赛（数据科学全流程）\n│   - 选题: Titanic（入门）, House Prices（回归）\n│   - 时间: 1-2周一个比赛\n│   - 目标: 学会数据清洗→特征工程→建模→提交的完整流程\n│\n├── PyTorch手写经典模型\n│   - Linear Regression → MLP → CNN → RNN → Transformer\n│   - 每天写一个模型,共5天\n│   - 目标: 理解每一行代码为什么这样写\n│\n└── HuggingFace微调开源模型\n    - 按Bert/GPT-2/tinyLlama的顺序\n    - 每2天一个模型\n    - 目标: 学会加载/训练/保存/部署的完整流程\n\n阶段2: 项目实战（简历含金量）\n├── 构建RAG问答系统\n│   - 技术栈: FastAPI + Chroma + GPT-4o-mini + Streamlit\n│   - 时间: 1周\n│   - 产出: 一个可以面试展示的产品\n│\n├── 多Agent协作系统\n│   - 技术栈: AutoGen/CrewAI\n│   - 场景: 自动写报告、代码审查、研究助手\n│   - 时间: 1周\n│\n└── LLM微调项目\n    - 用LoRA微调Qwen/LLaMA做特定任务\n    - 时间: 3-5天\n\n阶段3: 深水区（研究能力）\n├── 阅读经典论文\n│   - Attention Is All You Need (2017)\n│   - BERT: Pre-training of Deep Bidirectional Transformers (2018)\n│   - GPT-3: Language Models are Few-Shot Learners (2020)\n│   - InstructGPT/ChatGPT: Training language models to follow instructions (2022)\n│   - DPO: Direct Preference Optimization (2023)\n│   - Llama 3: The Llama 3 Herd of Models (2024)\n│\n├── 复现经典实验\n│   - 从头训练一个小GPT\n│   - 用DPO做对齐实验\n│\n└── 开始你的研究/开源项目\n    - 找一个你感兴趣的问题\n    - 读相关论文的引用链\n    - 提出改进方案\n</pre><p><b>关键提醒：</b><b>不要试图什么都学！</b>先选一个方向（推荐RAG或Agent），深耕2-3周，做一个完整的项目。比学100个概念但一个都没实践过的要好100倍。</p>"
+    },
+    {
+      "type": "text",
+      "title": "免费课程推荐——顶级免费的AI学习资源",
+      "content": "<p>以下课程全部免费（或免费版本足够学习）。按推荐顺序排列：</p><p><b>推荐度⭐⭐⭐⭐⭐ 必学：</b></p><p><b>1. Andrej Karpathy: Neural Networks: Zero to Hero</b><br/>前特斯拉AI负责人、OpenAI联合创始人在YouTube上的系列课程。从零手写神经网络，讲解反向传播、GPT实现。全程代码+白板推导。10个视频，每个1-2小时。<br/>🔗 搜索: youtube.com/AndrejKarpathy</p><p><b>2. Fast.ai: Practical Deep Learning for Coders</b><br/>世界上最成功的免费AI实践课程。从行一行代码开始，到训练自己的CNN模型。重实践、重直觉、轻数学。<br/>🔗 course.fast.ai</p><p><b>3. Stanford CS224n: Natural Language Processing with Deep Learning</b><br/>斯坦福最高的NLP课。Chris Manning教授主讲。从词向量到Transformer到LLM。<br/>🔗 web.stanford.edu/class/cs224n</p><p><b>推荐度⭐⭐⭐⭐：</b></p><p><b>4. Stanford CS229: Machine Learning</b><br/>吴恩达的经典课程，1996年至今一直更新。数学推导详细，适合打基础。<br/>🔗 cs229.stanford.edu</p><p><b>5. Full Stack LLM Bootcamp</b><br/>从提示工程到RAG到LLM部署的全栈课程。重工程化。<br/>🔗 fullstackdeeplearning.com/llm-bootcamp</p>"
+    },
+    {
+      "type": "text",
+      "title": "必读论文清单——影响AI格局的8篇论文",
+      "content": "<p>不是要你立刻全部读完。顺着路线图，边做项目边读相关的：</p><p><b>入门必读（看得懂的就能学）：</b></p><ol><li><b>Attention Is All You Need (Vaswani et al., 2017)</b><br/>Transformer的起源。一切GPT/BERT/LLaMA都从这里开始。9页，清晰明了。<br/><b>为什么必读：</b>理解所有LLM的底层架构</li><li><b>BERT: Pre-training of Deep Bidirectional Transformers (Devlin et al., 2018)</b><br/>预训练+微调范式的开创者。11页。<br/><b>为什么必读：</b>理解\"用别人的话训练自己\"（Masked Language Model）</li></ol><p><b>进阶必读：</b></p><ol start=\"3\"><li><b>Language Models are Few-Shot Learners / GPT-3 (Brown et al., 2020)</b><br/>GPT-3论文，75页。展示了1750亿参数的巨大能力——\"不给例子也能做好\"。<br/><b>为什么必读：</b>理解Scaling Law和In-Context Learning</li><li><b>Training Language Models to Follow Instructions / InstructGPT (Ouyang et al., 2022)</b><br/>ChatGPT的根源。讲述了RLHF怎么让GPT听从指令。68页。<br/><b>为什么必读：</b>理解SFT和RLHF的完整过程</li><li><b>Direct Preference Optimization (Rafailov et al., 2023)</b><br/>DPO——不需要奖励模型的RL替代方案。14页。<br/><b>为什么必读：</b>理解更简单高效的对齐方法</li><li><b>Scaling Data-Constrained Language Models (Muennighoff et al., 2023)</b><br/>发现重复数据训练比只用一次有效。揭示数据重复的Scaling Law。<br/><b>为什么必读：</b>理解数据质量和数据复用的关系</li></ol><p><b>前沿探索：</b></p><ol start=\"7\"><li><b>The Llama 3 Herd of Models (Meta, 2024)</b><br/>开源最强模型系列的完整技术报告。92页。<br/><b>为什么必读：</b>了解最新SOTA模型的训练全貌</li><li><b>GPT-4 Technical Report (OpenAI, 2023)</b><br/>注意：OpenAI因为竞争原因隐藏了大量细节（此报告就是被社区吐槽的\\技术报告没有技术\"的那个）。但仍有有价值的信息。<br/><b>为什么必读：</b>了解GPT-4的安全评估和基准测试方法</li></ol>"
+    },
+    {
+      "type": "text",
+      "title": "推荐书籍——深入理论知识",
+      "content": "<p>比看论文更系统、更详细。</p><p><b>免费在线书籍：</b></p><ol><li><b>Understanding Deep Learning (Simon J.D. Prince, 2023)</b><br/>目前最好的深度学习入门书。数学友好、图示精美、从基础到LLM全覆盖。<br/>免费在线阅读：udlbook.github.io/udlbook</li><li><b>Speech and Language Processing (Dan Jurafsky & James H. Martin, 第3版)</b><br/>NLP圣经。从传统方法到Transformer都有详细覆盖。<br/>免费在线阅读：web.stanford.edu/~jurafsky/slp3</li><li><b>Dive into Deep Learning (Mu Li et al.)</b><br/>动手深度学习，每章都有可运行代码。中文/英文都有。<br/>免费在线阅读：d2l.ai</li></ol><p><b>纸质/付费书籍：</b></p><ol start=\"4\"><li><b>Deep Learning (花书, Ian Goodfellow et al., 2016)</b><br/>深度学习经典，偏理论。不是入门书，适合有一定基础后系统学习。<br/>MIT Press出版。中文版为\"深度学习\"</li><li><b>构建LLM从零开始 (Sebastian Raschka, 2024)</b><br/>2024年新书，手把手教你从头实现一个类GPT模型。<br/>Build a Large Language Model (From Scratch)</li></ol>"
+    },
+    {
+      "type": "text",
+      "title": "工具与平台推荐——日常利器",
+      "content": "<p>按分类推荐的实用工具：</p><p><b>模型训练与部署：</b></p><ul><li><b>PyTorch：</b>最主流的深度学习框架。这个不用解释了，整个课程都在用它</li><li><b>HuggingFace Hub：</b>模型界的GitHub。可以找到几乎所有开源LLM，一行代码加载</li><li><b>DeepSpeed：</b>微软的分布式训练框架。如果你有超过1张GPU就必用</li><li><b>vLLM：</b>最快的LLM推理引擎之一。比HuggingFace原生快10-20倍</li><li><b>Ollama：</b>让你的笔记本就能直接跑LLM。一个命令：ollama run qwen2.5</li></ul><p><b>实验管理：</b></p><ul><li><b>MLflow：</b>记录每次训练的配置和结果，给模型加版本号</li><li><b>Weights & Biases：</b>更现代化的实验追踪，自动生成漂亮的图表</li><li><b>langfuse：</b>专注LLM应用监控，追踪每次调用的token和成本</li></ul><p><b>向量数据库（RAG必备）：</b></p><ul><li><b>Chroma：</b>最简单的向量库，Python一行代码创建，适合原型</li><li><b>Milvus：</b>全球最快的向量数据库之一，支持十亿级向量</li><li><b>Qdrant：</b>性能优秀的向量库，Rust编写，API友好</li><li><b>Pinecone：</b>SaaS模式，免运维，适合不想管服务器的团队</li></ul><p><b>Agent框架：</b></p><ul><li><b>LangChain：</b>最广泛的LLM应用框架。管你PDF、Chroma、OpenAI的连接</li><li><b>AutoGen：</b>微软的多Agent框架，让Agent自由对话</li><li><b>CrewAI：</b>简单直观的多Agent框架，\"角色-工具-任务\"三部曲</li></ul>"
+    },
+    {
+      "type": "text",
+      "title": "建议的学习计划——3个月AI实战路线",
+      "content": "<p>如果你每天投入2-3小时，这是3个月可以完成的路线：</p><p><b>第1个月：基础巩固 + 小项目</b></p><ul><li>第1周：复习高数（导数、矩阵、链式法则），重看前面的课程</li><li>第2周：用PyTorch手写线性回归 → CNN → MNIST手写数字识别的完整训练</li><li>第3周：用HuggingFace微调BERT做情感分类，训练/保存/评估全流程</li><li>第4周：从零实现一个简单的RAG系统（Chroma + LlamaIndex + Streamlit UI）</li></ul><p><b>第2个月：实战项目 + 深入理解</b></p><ul><li>第5周：搭建完整的RAG应用（FastAPI后端 + React前端 + 向量库 + 缓存）</li><li>第6周：学习多Agent系统（用AutoGen实现自动化编程工作流）</li><li>第7周：阅读论文（Attention / BERT / InstructGPT），每篇2-3天深读</li><li>第8周：微调开源LLM（用LoRA微调Qwen2.5到特定领域）</li></ul><p><b>第3个月：前沿探索 + 深度项目</b></p><ul><li>第9-10周：你的核心项目——投入2周做一个完整的AI产品。自己选题（AI读书笔记、智能客服、Auto Research...），全栈实现并部署</li><li>第11周：学习前沿论文（Llama 3 / GPT-4o / Sora），理解最新技术栈</li><li>第12周：整理项目经验，写技术博客或发布开源项目，开始投简历！</li></ul><p><b>一些建议：</b></p><ul><li><b>不要只看不写：</b>不要看完视频课就抛诸脑后。一定要动手写代码</li><li><b>允许自己不懂：</b>有些概念（比如多模态、超长上下文）现在的理解可能是模糊的，这完全正常</li><li><b>做项目是王道：</b>只有项目才能真正验证你是否理解了。面试官也看项目</li><li><b>加入社区：</b>加入AI中文交流群、逛GitHub Issues、看HuggingFace论坛。AI发展极快，一个人的信息渠道永远不够</li><li><b>保持热情：</b>AI领域每2-3个月就有大的变化。这不是坏事——这意味着你永远有新东西可以学习，永远不会无聊</li></ul><p>祝你在AI的世界里找到属于自己的位置。这条路很长，但坚持下去的人都会找到回报。</p>"
+    }
+  ]
+}

@@ -1,0 +1,279 @@
+[
+  {
+    "slug":"math-basics",
+    "title":"00. 高数唤醒",
+    "description":"从导数/偏导/链式法则到矩阵/概率，彻底搞懂AI公式里的90%高数知识",
+    "category":"math","phase":"A","order":0,
+    "sections":[
+      {"type":"text","title":"为什么要学高数？","content":"<p>打开任何一篇AI论文或教材，你会发现几乎每个公式都包含：<b>导数、偏导、链式法则、矩阵乘法、对数</b></p><p>好消息是：<b>AI用到的高数不深</b>——90%的公式只需要求导和链式法则。学完这一章，之后的优化器、激活函数、损失函数、Transformer的公式你都能看懂。</p>"},
+      {"type":"text","title":"导数是什么？","content":"<p><b>导数 = 函数在某点的瞬时变化率</b></p><p><b>日常类比：车速</b>——位置对时间的导数就是速度。</p><p><b>数学定义：</b>f'(x) = lim(\u0394x\u21920) [f(x+\u0394x)-f(x)]/\u0394x</p><p><b>几何意义：</b>导数 = 切线的斜率。>0递增，<0递减，=0极值点。</p>"},
+      {"type":"table","title":"常用导数表","content":"<p>幂函数 x\u207f\u2192nx\u207f\u207b\u00b9 | 指数 e\u02e3\u2192e\u02e3 | 对数 ln(x)\u21921/x</p>"},
+      {"type":"text","title":"偏导与梯度","content":"<p><b>偏导：</b>多变量函数中对某一个变量求导，其他变量视为常数。</p><p><b>梯度：</b>\u2207f = [\u2202f/\u2202x\u2081, \u2202f/\u2202x\u2082, ..., \u2202f/\u2202x\u2099]——指向函数增长最快的方向。</p><p><b>负梯度方向</b> = 下降最快的方向 = 梯度下降的核心。</p>"},
+      {"type":"text","title":"链式法则与反向传播","content":"<p><b>链式法则：</b>复合函数的导数 = 内层导数 \u00d7 外层导数。</p><p><b>神经网络意义：</b>反向传播就是链式法则。从损失L反向逐步求导到每个权重。</p><p><b>Sigmoid导数：</b>\u03c3'(x)=\u03c3(x)(1-\u03c3(x))——用输出值本身就能算出导数。</p>"},
+      {"type":"text","title":"矩阵乘法与对数","content":"<p>神经网络层：y = Wx + b。深度学习 = 一串矩阵乘法 + 激活函数。</p><p><b>对数规则：</b>log(ab)=log(a)+log(b), log(a\u1d47)=b\u00b7log(a)</p><p>AI中log用途：乘变加(求导方便)、数值稳定、信息熵定义。</p>"}
+    ]
+  },
+  {
+    "slug":"py-basics",
+    "title":"01. Python速成",
+    "description":"从零到NumPy：Python语法、列表、字典、函数、类、NumPy向量化计算",
+    "category":"python","phase":"A","order":1,
+    "sections":[
+      {"type":"text","title":"为什么学Python？","content":"<p>Python是AI领域的<b>通用语言</b>。几乎所有框架（PyTorch/TensorFlow/JAX）都用Python。语法简洁，库丰富。</p>"},
+      {"type":"code","title":"基础语法","code":"# 变量与数据类型\nname = 'Alice'; age = 25; height = 1.75\n# 列表\nscores = [85, 90, 78, 92]; scores.append(88)\n# 字典\nstudent = {'name': 'Alice', 'age': 25, 'scores': scores}\n# 列表推导式\nsquares = [x**2 for x in range(10)]\n# 条件与循环\nfor i, score in enumerate(scores):\n    if score >= 90: print(f'{i}: 优秀')"},
+      {"type":"code","title":"函数与类","code":"def greet(name, greeting='Hello'):\n    return f'{greeting}, {name}!'\n\nclass NeuralNetwork:\n    def __init__(self, input_size, hidden_size):\n        self.weights = [[0.0]*hidden_size for _ in range(input_size)]\n    def forward(self, x):\n        return [sum(x[i]*self.weights[i][j] for i in range(len(x)))\n                for j in range(len(self.weights[0]))]"},
+      {"type":"code","title":"NumPy","code":"import numpy as np\na = np.array([1,2,3]); b = np.array([4,5,6])\nprint(a+b) # [5,7,9]\nprint(a@b) # 32 点积\nA = np.eye(3) # 3x3单位矩阵\n# 比Python循环快100倍！底层C+SIMD并行"},
+      {"type":"example","title":"向量化vs循环","content":"<p>100万维向量点积：Python循环约200ms，NumPy约2ms，<b>快100倍</b>。神经网络前向传播就是大量矩阵乘法，必须用NumPy或GPU加速。</p>"},
+      {"type":"exercise","title":"练习","content":"<p>Q1: 写sigmoid(x)用NumPy实现</p><p>Q2: 实现Softmax，输入[1,2,3]输出概率分布</p>","answer":"<p>A1: def sigmoid(x): return 1/(1+np.exp(-x))</p><p>A2: def softmax(x): exp=np.exp(x-np.max(x)); return exp/np.sum(exp) // [0.090,0.245,0.665]</p>"}
+    ]
+  },
+  {
+    "slug":"optimizer",
+    "title":"02. 优化器",
+    "description":"BGD/SGD/Momentum/AdaGrad/RMSprop/Adam：从梯度下降到自适应学习率",
+    "category":"llm","phase":"A","order":2,
+    "sections":[
+      {"type":"text","title":"优化器做什么？","content":"<p>优化器决定神经网络如何更新权重以最小化损失。方向=负梯度(-\u2207L)，步长=学习率\u03b1。</p>"},
+      {"type":"text","title":"BGD vs SGD","content":"<p><b>BGD：</b>W=W-\u03b1\u00d7(1/N)\u2211\u2207L——全部数据，稳定但慢。</p><p><b>SGD：</b>W=W-\u03b1\u00d7\u2207L(x\u1d62)——单样本，快但噪声大。实战用Mini-batch(32/128)折中。</p>"},
+      {"type":"formula","title":"Momentum","content":"<pre>v_t = \u03b2\u00b7v_(t-1) + \u2207L(W_t)\nW_(t+1) = W_t - \u03b1\u00b7v_t</pre><p>\u03b2=0.9：90%保持旧方向。像滚下山的小球，有惯性加速收敛。</p>"},
+      {"type":"formula","title":"Adam（最常用）","content":"<p><b>Adam = Momentum + RMSprop</b></p><pre>m_t = \u03b2\u2081\u00b7m_(t-1)+(1-\u03b2\u2081)\u00b7\u2207L\nv_t = \u03b2\u2082\u00b7v_(t-1)+(1-\u03b2\u2082)\u00b7(\u2207L)\u00b2\nW_(t+1)=W_t-\u03b1\u00b7m\u0302_t/(\u221av\u0302_t+\u03b5)</pre><p>每个参数自适应学习率。默认\u03b1=0.001, \u03b2\u2081=0.9, \u03b2\u2082=0.999。</p>"}
+    ]
+  },
+  {
+    "slug":"activation",
+    "title":"03. 激活函数",
+    "description":"Sigmoid/ReLU/LeakyReLU/GELU/Swish/Softmax",
+    "category":"llm","phase":"A","order":3,
+    "sections":[
+      {"type":"text","title":"为什么需要激活函数？","content":"<p><b>没有激活函数 = 多层线性 = 单层线性</b>：y=W\u2082(W\u2081x+b\u2081)+b\u2082=(W\u2082W\u2081)x+(W\u2082b\u2081+b\u2082)=W'x+b'。无论堆多少层都是线性变换！</p>"},
+      {"type":"text","title":"Sigmoid与ReLU","content":"<p><b>Sigmoid：</b>\u03c3(x)=1/(1+e\u207b\u02e3)，输出(0,1)适合概率。导数\u03c3'(x)=\u03c3(x)(1-\u03c3(x))。两端饱和梯度消失。</p><p><b>ReLU：</b>f(x)=max(0,x)。计算简单，不饱和（正区间梯度=1）。问题：Dead ReLU（负区间梯度=0）。修复：Leaky ReLU(f(x)=max(0.01x,x))。</p>"},
+      {"type":"text","title":"GELU与Softmax","content":"<p><b>GELU：</b>GELU(x)=x\u00b7\u03a6(x)。平滑非线性，保留负值信息。BERT、GPT、Transformer都使用。</p><p><b>Softmax：</b>\u03c3(z)\u1d62=e^{z\u1d62}/\u2211e^{z\u2c7c}——将任意向量变成概率分布。+CrossEntropy时梯度=预测-真实。</p>"}
+    ]
+  },
+  {
+    "slug":"loss",
+    "title":"04. 损失函数",
+    "description":"MSE/MAE/CE/BCE/Focal/Huber：不同任务的误差度量",
+    "category":"llm","phase":"A","order":4,
+    "sections":[
+      {"type":"text","title":"损失函数是指南针","content":"<p>损失函数 L(\u0177,y) 衡量模型预测有多差。回归\u2192MSE/MAE，分类\u2192CE/BCE，不平衡\u2192Focal。</p>"},
+      {"type":"formula","title":"MSE","content":"<p><b>MSE=(1/N)\u2211(y-\u0177)\u00b2</b>。大误差敏感（平方放大）。导数\u2202L/\u2202\u0177=-2(y-\u0177)。</p><p>例：[3,5,7]预测[2.5,5.5,6.5]\u2192MSE=0.25</p>"},
+      {"type":"formula","title":"CrossEntropy","content":"<p><b>CE=-\u2211y\u00b7log(\u0177)</b>。衡量概率分布差异。错误时惩罚大。</p><p>例：y=[1,0,0], \u0177=[0.7,0.2,0.1]\u2192CE=0.357；\u0177=[0.1,0.2,0.7]\u2192CE=2.303（错误时惩罚大6倍）</p>"},
+      {"type":"formula","title":"BCE与Focal Loss","content":"<p><b>BCE</b>=-[y\u00b7log(\u0177)+(1-y)\u00b7log(1-\u0177)]——二分类。</p><p><b>Focal Loss</b>=-\u03b1(1-\u0177)^\u03b3\u00b7log(\u0177)——难分类样本保留权重。目标检测\u03b3=2, \u03b1=0.25。</p>"}
+    ]
+  },
+  {
+    "slug":"training-tricks",
+    "title":"1.6 训练技巧",
+    "description":"Dropout/L2/BatchNorm/梯度裁剪/Warmup",
+    "category":"llm","phase":"A","order":5,
+    "sections":[
+      {"type":"text","title":"为什么训练会失败？","content":"<ul><li><b>过拟合：</b>记住数据而非学规律</li><li><b>梯度消失/爆炸：</b>太大太小都出问题</li><li><b>内部协变量偏移：</b>每层输入分布变化</li><li><b>学习率问题：</b>初期太大发散，后期太小收敛慢</li></ul>"},
+      {"type":"text","title":"Dropout & L2 & BatchNorm","content":"<p><b>Dropout：</b>训练时以概率p随机丢弃神经元。强迫网络学习冗余表示。p=0.5。</p><p><b>L2：</b>Loss+=\u03bb\u2211w\u00b2。惩罚大权重。\u03bb=0.001~0.01。</p><p><b>BatchNorm：</b>标准化每层输入。训练用batch均值方差，测试用滑动平均。</p><p><b>梯度裁剪/Warmup：</b>防止梯度爆炸和平稳启动。</p>"}
+    ]
+  },
+  {
+    "slug":"data-prep",
+    "title":"1.7 数据预处理",
+    "description":"归一化/标准化/编码/增强/清洗",
+    "category":"llm","phase":"A","order":6,
+    "sections":[
+      {"type":"text","title":"数据预处理重要性","content":"<p><b>Garbage in, garbage out</b>——数据决定模型上限，算法只逼近这个上限。</p><p>步骤：清洗\u2192标准化\u2192编码\u2192增强\u2192划分(训练/验证/测试)</p>"},
+      {"type":"formula","title":"归一化vs标准化","content":"<p><b>Min-Max：</b>x'=(x-min)/(max-min)\u2192[0,1]（已知上下界）</p><p><b>Z-Score：</b>x'=(x-\u03bc)/\u03c3\u2192均0方1（<b>深度学习默认</b>）</p>"},
+      {"type":"code","title":"数据清洗代码","code":"import pandas as pd, numpy as np\ndf = pd.read_csv('data.csv')\ndf = df.drop_duplicates()\ndf['age'] = df['age'].fillna(df['age'].mean())\nfrom sklearn.preprocessing import StandardScaler, LabelEncoder\ndf[['age']] = StandardScaler().fit_transform(df[['age']])\nle = LabelEncoder()\ndf['city'] = le.fit_transform(df['city'])"}
+    ]
+  },
+  {
+    "slug":"transformer",
+    "title":"2.1 Transformer",
+    "description":"Self-Attention/Multi-Head/Position Encoding：现代AI的基石",
+    "category":"llm","phase":"B","order":7,
+    "sections":[
+      {"type":"text","title":"为什么Transformer改变了AI？","content":"<p>2017 Google发表Attention Is All You Need。此后BERT/GPT系列/ViT/CLIP/ChatGPT/GPT-4都基于Transformer。</p><p><b>核心创新：用Attention替代RNN/CNN，实现全局并行计算。</b></p>"},
+      {"type":"formula","title":"Self-Attention","content":"<p>每个位置都能看到所有其他位置。</p><p>Step1: 生成Q(Query), K(Key), V(Value)</p><p>Step2: score=Q\u00b7K^T/\u221ad_k（余弦相似度）</p><p>Step3: \u03b1=softmax(score)（权重，和为1）</p><p>Step4: Output=\u03b1\u00b7V（加权平均）</p>"},
+      {"type":"text","title":"Multi-Head & Position Encoding & 架构","content":"<p><b>多头注意力：</b>多组并行，每个头关注不同方面。GPT-3: d=12288, 96个头。</p><p><b>位置编码：</b>给每个位置添加独特向量。原始用正弦编码，GPT用可学习编码。</p><p><b>架构：</b>Encoder=[Emb+Pos\u2192Attn\u2192Add&Norm\u2192FFN\u2192Add&Norm]\u00d7N。Decoder额外加Cross-Attn。FFN=两层线性+ReLU。</p><p><b>残差连接：</b>output=LayerNorm(x+Sublayer(x))——解决梯度消失。</p>"}
+    ]
+  },
+  {
+    "slug":"pandas",
+    "title":"2.2 Pandas数据分析",
+    "description":"DataFrame/Series/数据清洗/聚合/分组/可视化",
+    "category":"python","phase":"B","order":8,
+    "sections":[
+      {"type":"text","title":"Pandas是什么？","content":"<p>Python的Excel on steroids。Series=一维标签数组，DataFrame=二维表格。</p>"},
+      {"type":"code","title":"DataFrame操作","code":"import pandas as pd, numpy as np\nsales = pd.DataFrame({\n    'date': ['2024-01-01','2024-01-02','2024-01-03'],\n    'product': ['A','B','A'],\n    'qty': [10, 5, 8],\n    'price': [100, 200, 150]\n})\nsales.head(); sales.info(); sales.describe()\nsales['revenue'] = sales['qty'] * sales['price']"},
+      {"type":"code","title":"分组聚合与清洗","code":"# 分组\nsales.groupby('product')['revenue'].sum()\nsales.groupby('product').agg({'qty':'sum','revenue':'mean'})\n# 透视表\npd.pivot_table(sales, index='product', columns='date', values='revenue', aggfunc='sum')\n# 缺失值\nsales.fillna({'qty': sales['qty'].median()}, inplace=True)\nsales['date'] = pd.to_datetime(sales['date'])"}
+    ]
+  },
+  {
+    "slug":"sklearn",
+    "title":"2.3 Scikit-learn",
+    "description":"分类/回归/GBDT/SHAP：经典机器学习全流程",
+    "category":"llm","phase":"B","order":9,
+    "sections":[
+      {"type":"text","title":"Scikit-learn是什么？","content":"<p>Python最成熟的传统ML库。统一API：.fit()训练，.predict()预测，.score()评估。适合结构化数据。</p>"},
+      {"type":"code","title":"ML全流程","code":"from sklearn.ensemble import RandomForestClassifier\nfrom sklearn.model_selection import train_test_split\nfrom sklearn.metrics import classification_report\n\nX_train, X_test, y_train, y_test = train_test_split(\n    X, y, test_size=0.2, random_state=42)\nmodel = RandomForestClassifier(n_estimators=100, max_depth=10)\nmodel.fit(X_train, y_train)\nprint(classification_report(y_test, model.predict(X_test)))\n# 特征重要性\nimportances = pd.DataFrame({\n    'feature': feature_names,\n    'importance': model.feature_importances_\n}).sort_values('importance', ascending=False)"},
+      {"type":"text","title":"GBDT与SHAP","content":"<p><b>GBDT：</b>每棵树修正上一棵树错误。XGBoost(Kaggle王者)、LightGBM(大数据快)、CatBoost(自动处理类别)。</p><p><b>SHAP：</b>用博弈论解释模型。每个特征得到贡献值(Shapley值)。预测=基准值+\u2211特征贡献。</p>"}
+    ]
+  },
+  {
+    "slug":"rag-basics",
+    "title":"2.4 RAG基础",
+    "description":"检索增强生成：LangChain/Chroma/VectorDB/检索策略",
+    "category":"llm","phase":"B","order":10,
+    "sections":[
+      {"type":"text","title":"RAG是什么？","content":"<p><b>RAG = Retrieval-Augmented Generation</b>——让LLM在回答前先检索知识库，减少幻觉。</p><p>流程：用户提问\u2192向量检索相关文档\u2192文档+问题给LLM\u2192LLM基于资料回答。</p>"},
+      {"type":"text","title":"Embedding与向量库","content":"<p><b>文本\u2192向量</b>。相似语义的文本在向量空间中距离近。常用模型：text-embedding-3-small, bge系列, M3E。</p>"},
+      {"type":"code","title":"LangChain实现","code":"from langchain_community.vectorstores import Chroma\nfrom langchain_community.embeddings import OpenAIEmbeddings\nfrom langchain.text_splitter import CharacterTextSplitter\n\nsplitter = CharacterTextSplitter(chunk_size=500, chunk_overlap=50)\nchunks = splitter.split_documents(documents)\ndb = Chroma.from_documents(chunks, OpenAIEmbeddings())\ndocs = db.similarity_search(query, k=3)  # 最相似3段\n\n# RAG Chain\nfrom langchain.chains import RetrievalQA\nqa = RetrievalQA.from_chain_type(llm, retriever=db.as_retriever())\nanswer = qa.run(query)"}
+    ]
+  },
+  {
+    "slug":"gpt-series",
+    "title":"2.5 GPT系列",
+    "description":"GPT-1/2/3/4进化史、Scaling Laws、架构演进",
+    "category":"llm","phase":"B","order":11,
+    "sections":[
+      {"type":"text","title":"GPT进化史","content":"<p><b>GPT-1(2018)：</b>12层1.17亿参数。证明预训练+微调有效。</p><p><b>GPT-2(2019)：</b>48层15亿参数。零样本能力惊人。</p><p><b>GPT-3(2020)：</b>96层1750亿参数。涌现in-context learning。d_model=12288。</p><p><b>GPT-3.5(2022)：</b>+RLHF，ChatGPT发布。</p><p><b>GPT-4(2023)：</b>多模态，约1.8万亿参数(MoE)。</p><p><b>GPT-4o(2024)：</b>原生多模态(文本+图像+语音统一处理)。</p>"},
+      {"type":"text","title":"Scaling Laws","content":"<p>Loss \u2248 N^{-\u03b1} + D^{-\u03b2}。模型性能随参数/数据/算力增长可预测提高。</p><p>关键：同时放大参数和数据比只放大一个更有效。Chinchilla(2022)发现70B模型需约1.4T tokens。</p>"},
+      {"type":"text","title":"架构演进","content":"<p><b>Decoder-only</b>：只用Decoder自回归生成。<b>MoE</b>：每个token只激活部分专家。<b>GQA</b>：减少KV缓存加速推理。<b>RoPE</b>：旋转位置编码。<b>FlashAttention</b>：通过tiling加速注意力计算。</p>"}
+    ]
+  },
+  {
+    "slug":"llm-training",
+    "title":"2.6 LLM训练",
+    "description":"预训练全流程：数据清洗/Tokenization/训练策略/分布式训练",
+    "category":"llm","phase":"B","order":12,
+    "sections":[
+      {"type":"text","title":"预训练流程","content":"<p><b>数据收集\u2192清洗\u2192Tokenize\u2192训练\u2192评估</b></p><p>数据来源：CommonCrawl(网页)、书籍、论文、代码。数据质量决定模型上限，清洗去重比数量更重要。</p>"},
+      {"type":"text","title":"数据清洗关键步骤","content":"<ul><li><b>去重：</b>MinHash去网页相似内容</li><li><b>语言过滤：</b>fastText检测语言</li><li><b>质量过滤：</b>困惑度过滤+启发式规则</li><li><b>隐私过滤：</b>去除PII</li><li><b>毒性过滤：</b>去除有害内容</li></ul>"},
+      {"type":"text","title":"分布式训练","content":"<p><b>数据并行：</b>每卡存完整模型，分batch计算后梯度同步。</p><p><b>模型并行：</b>模型太大放不下，切分到多卡。张量并行(切矩阵)+流水线并行(切层)。</p><p><b>ZeRO：</b>优化器状态/梯度/参数分片存储。</p><p>框架：DeepSpeed(微软)、Megatron-LM(NVIDIA)、FSDP(PyTorch)。</p>"}
+    ]
+  },
+  {
+    "slug":"tokenizer",
+    "title":"2.7 Tokenizer",
+    "description":"BPE/WordPiece/SentencePiece/Unigram/tiktoken",
+    "category":"llm","phase":"B","order":13,
+    "sections":[
+      {"type":"text","title":"Tokenizer是什么？","content":"<p><b>文本\u2194Token ID双向转换器</b>。LLM只能处理数字。\u201cI like AI\u201d\u2192[40,1234,89]\u2192LLM\u2192[903,56]\u2192\u201cMe too\u201d。GPT-4词汇表约100k tokens。</p>"},
+      {"type":"text","title":"BPE算法","content":"<p>最常用的子词切分算法。GPT/LLaMA使用。</p><p>训练：每个字符是一个token，迭代合并最常见token对直到词汇表达到目标大小。</p><p>例：\u201clow\u201d \u201clowest\u201d \u201clower\u201d\u2192l,o,w,e,s,t,r\u2192lo(常见对)\u2192low\u2192子词共享。</p>"},
+      {"type":"text","title":"各类Tokenizer","content":"<p>BPE(GPT/LLaMA)按频率合并 | WordPiece(BERT)按互信息合并 | SentencePiece(Gemma/T5)可直接处理原始文本含空格 | tiktoken(GPT-4/Claude)OpenAI优化版BPE快3-6倍。</p>"}
+    ]
+  },
+  {
+    "slug":"sft-rlhf",
+    "title":"2.8 指令微调与RLHF",
+    "description":"SFT/RLHF/PPO/DPO：让LLM听懂指令并和人类对齐",
+    "category":"llm","phase":"B","order":14,
+    "sections":[
+      {"type":"text","title":"指令微调SFT","content":"<p>用(指令,回答)对微调预训练模型。预训练模型只能续写文本，SFT让它学会回答问题。GPT-3.5用了约1.2万条高质量数据。</p>"},
+      {"type":"text","title":"RLHF三阶段","content":"<p><b>RLHF</b>——ChatGPT核心技术。</p><ol><li>SFT：人工撰写数据微调</li><li>训练奖励模型RM：收集人类偏好训练打分模型</li><li>PPO优化：用RM打分更新LLM</li></ol>"},
+      {"type":"formula","title":"PPO与DPO","content":"<p><b>PPO：</b>限制每次更新不偏离旧策略太远。RLHF需同时维护4个模型(策略/价值/参考/奖励)。</p><p><b>DPO：</b>不需奖励模型，直接用偏好数据优化。更简单稳定。</p><pre>Loss=-log(\u03c3(\u03b2\u00b7log(\u03c0_\u03b8(y_w|x)/\u03c0_ref(y_w|x))-\u03b2\u00b7log(\u03c0_\u03b8(y_l|x)/\u03c0_ref(y_l|x)))))</pre><p>好回答概率上升，坏回答下降。</p>"}
+    ]
+  },
+  {
+    "slug":"llm-eval",
+    "title":"2.9 LLM评估",
+    "description":"MMLU/HumanEval/BLEU/ROUGE/Perplexity",
+    "category":"llm","phase":"B","order":15,
+    "sections":[
+      {"type":"text","title":"评估为什么重要？","content":"<p>无法改进无法衡量的东西。MMLU(57学科选择题)最常用综合基准。HumanEval测代码编译通过率。</p><p>其他：GSM8K(小学数学)、HellaSwag(常识推理)、BigBench(200+任务)。</p>"},
+      {"type":"text","title":"生成质量评估","content":"<p><b>自动指标：</b>Perplexity(困惑度越低越好)、BLEU(翻译n-gram匹配)、ROUGE(摘要召回率)。</p><p><b>人工评估：</b>Chatbot Arena(ELO评分盲测)、AlpacaEval(GPT-4评估)、MT-Bench(多轮对话)。</p>"}
+    ]
+  },
+  {
+    "slug":"aigc",
+    "title":"2.10 AIGC",
+    "description":"扩散模型/Stable Diffusion/DALL-E/LoRA",
+    "category":"llm","phase":"B","order":16,
+    "sections":[
+      {"type":"text","title":"AIGC是什么？","content":"<p>AI内容生成。文本(GPT/Claude)、图像(SD/DALL-E 3/Midjourney)、视频(Sora/Runway)、音频(ElevenLabs/Suno)。</p>"},
+      {"type":"text","title":"扩散模型","content":"<p><b>前向：</b>逐步加噪声到随机。反向：从噪声去噪恢复图片。</p><p>核心：UNet预测噪声\u03b5。训练目标：最小化MSE。采样器：DDIM/DPM-Solver加速。</p>"},
+      {"type":"text","title":"Stable Diffusion & LoRA","content":"<p><b>SD：</b>在潜空间做扩散，降低计算量。ControlNet用姿态/深度控制生成。</p><p><b>LoRA：</b>低秩适配，冻结原模型加小参数矩阵训练特定风格。文件小(~10-100MB)，可叠加。</p>"}
+    ]
+  },
+  {
+    "slug":"agent",
+    "title":"3.1 Agent",
+    "description":"AutoGen/CrewAI/ReAct/Tool使用：让LLM自主行动",
+    "category":"llm","phase":"C","order":17,
+    "sections":[
+      {"type":"text","title":"Agent是什么？","content":"<p><b>Agent = LLM + 工具 + 记忆 + 自主决策</b>。传统LLM只能问答，Agent能理解任务\u2192拆解步骤\u2192调用工具\u2192观察结果\u2192修正行动。</p>"},
+      {"type":"text","title":"ReAct模式","content":"<p><b>ReAct = Reasoning + Acting</b>（推理+行动）。Agent循环：Thought\u2192Action\u2192Observation\u2192Thought。</p>"},
+      {"type":"code","title":"Tool使用","code":"from langchain.tools import tool\n\n@tool\ndef search_web(query: str) -> str:\n    \"\"\"搜索互联网信息\"\"\"\n    return f\"搜索结果: {query}\"\n\n@tool\ndef calculate(expr: str) -> str:\n    \"\"\"数学计算\"\"\"\n    return str(eval(expr))\n\ntools = [search_web, calculate]\nresult = agent.run(\"请搜索股价并计算涨幅\")"},
+      {"type":"text","title":"框架对比","content":"<p>AutoGen(多Agent对话) | CrewAI(角色化团队) | LangGraph(有状态图控制流) | OpenAI Assistants(托管服务)。</p>"}
+    ]
+  },
+  {
+    "slug":"multi-agent",
+    "title":"3.2 多Agent协作",
+    "description":"Multi-Agent系统/协作模式/通信/工作流编排",
+    "category":"llm","phase":"C","order":18,
+    "sections":[
+      {"type":"text","title":"为什么需要多Agent？","content":"<p>单Agent能力有限。多Agent可以分工(每个Agent专注专长)、辩论(验证答案)、监督(执行+检查)、迭代(不同环节)。</p>"},
+      {"type":"text","title":"协作模式","content":"<p><b>对话式：</b>Agent之间自由对话(AutoGen)。用户\u2192PM拆解\u2192Coder写代码\u2192Reviewer检查\u2192报告。</p><p><b>管道式：</b>每个Agent处理一步，输出是下一步输入。分析\u2192可视化\u2192报告\u2192发布。</p><p><b>辩论式：</b>独立分析后讨论。研究者+行业专家+财务分析师分别写报告\u2192综合汇总。</p>"}
+    ]
+  },
+  {
+    "slug":"rag-advanced",
+    "title":"3.3 RAG高级",
+    "description":"Hybrid Search/ReRanking/Query Decomposition/GraphRAG",
+    "category":"llm","phase":"C","order":19,
+    "sections":[
+      {"type":"text","title":"基础RAG的局限","content":"<p>切分太小丢失上下文/太大有噪声。单纯语义检索不够精确。复杂问题需多步推理。</p>"},
+      {"type":"text","title":"Hybrid Search","content":"<p><b>向量检索+关键词检索融合。</b>score=\u03b1\u00b7向量相似度+(1-\u03b1)\u00b7BM25分数。\u03b1=0.5~0.7。</p><p>主流向量库：Elasticsearch(内置BM25+向量)、Pinecone、Weaviate、Milvus、Qdrant。</p>"},
+      {"type":"text","title":"ReRanking & Query Decomposition","content":"<p><b>ReRanking：</b>向量检索先召回Top50，用cross-encoder重排序取Top5，增加15-20%精度。</p><p><b>Query Decomposition：</b>复杂问题拆子问题分别检索。比较Transformer和RNN\u2192子查询1: Transformer优缺点，子查询2: RNN优缺点。</p><p><b>GraphRAG：</b>从文档建知识图谱，回答需跨文档推理的问题。</p>"}
+    ]
+  },
+  {
+    "slug":"multi-format",
+    "title":"3.4 多格式+Agent",
+    "description":"PDF/Word/Excel/图片处理：让Agent读写各种文件格式",
+    "category":"llm","phase":"C","order":20,
+    "sections":[
+      {"type":"text","title":"Agent处理文件","content":"<p>让Agent读写常见文件——企业应用关键能力。自动提取PDF合同\u2192填入Excel\u2192生成Word报告\u2192发送邮件。</p>"},
+      {"type":"code","title":"多格式读写","code":"import PyPDF2\nreader = PyPDF2.PdfReader('contract.pdf')\ntext = '\\n'.join(p.extract_text() for p in reader.pages)\n\nfrom docx import Document\ndoc = Document('report.docx')\nfor para in doc.paragraphs:\n    print(para.text)\n\nimport pandas as pd\ndf = pd.read_excel('data.xlsx')\ndf['processed'] = df['value'] * 1.1\ndf.to_excel('output.xlsx', index=False)"}
+    ]
+  },
+  {
+    "slug":"integration-guide",
+    "title":"3.5 整合指南",
+    "description":"前后端整合/CI/CD/部署方案/性能优化/监控告警",
+    "category":"llm","phase":"C","order":21,
+    "sections":[
+      {"type":"text","title":"项目架构","content":"<p><b>D(数据层)+E(交互层)整合部署</b></p><p>前端React/Next.js | 后端FastAPI/Python | LLM GPT-4 API | 向量库Chroma/Pinecone | DB PostgreSQL+Redis。</p>"},
+      {"type":"text","title":"DevOps & 部署","content":"<p><b>CI/CD：</b>Git提交\u2192GitHub Actions自动测试\u2192Docker构建\u2192部署。</p><p><b>部署方案：</b>Vercel(Next.js最佳) | Docker+云服务器(需后端) | K8s(大规模)。</p><p><b>优化：</b>CDN静态资源、API缓存(Redis)、DB索引、LLM结果缓存。</p>"}
+    ]
+  },
+  {
+    "slug":"mlops",
+    "title":"3.6 MLOps",
+    "description":"模型部署/版本管理/监控/A-B测试/模型生命周期",
+    "category":"llm","phase":"C","order":22,
+    "sections":[
+      {"type":"text","title":"MLOps是什么？","content":"<p><b>MLOps = ML + DevOps + Data Engineering</b>。管理ML模型全生命周期：开发\u2192训练\u2192评估\u2192部署\u2192监控\u2192迭代。</p>"},
+      {"type":"table","title":"部署方式","content":"<table><tr><th>方式</th><th>延迟</th><th>成本</th><th>适用</th></tr><tr><td>API调用(GPT-4)</td><td>低</td><td>按量</td><td>原型/中小</td></tr><tr><td>自建推理服务</td><td>低</td><td>GPU</td><td>大规模/隐私</td></tr><tr><td>边缘部署</td><td>极低</td><td>设备</td><td>离线</td></tr></table>"},
+      {"type":"text","title":"监控与迭代","content":"<p>监控：延迟/P99/吞吐量/错误率、数据漂移、概念漂移。</p><p>迭代：A/B测试新旧模型、自动回滚、金丝雀发布、模型版本化(MLflow)。</p>"}
+    ]
+  },
+  {
+    "slug":"frontier",
+    "title":"3.7 前沿趋势",
+    "description":"MoE/多模态/Agent 2.0/超长上下文/具身智能",
+    "category":"llm","phase":"C","order":23,
+    "sections":[
+      {"type":"text","title":"MoE与多模态","content":"<p><b>MoE：</b>多个专家+门控路由。每个输入只激活部分专家。GPT-4=8专家每token路由2个，总参1.8T活跃~370B。</p><p><b>原生多模态：</b>GPT-4o/Claude 3/Gemini支持文本+图像+音频统一理解。</p>"},
+      {"type":"text","title":"Agent 2.0与具身智能","content":"<p><b>超长上下文：</b>Gemini 1M tokens，下一步无限上下文(Infini-Attention)。</p><p><b>Agent 2.0：</b>从工具使用到自主工作。Devin自主编程、计算机操控、多Agent协作团队。</p><p><b>具身智能：</b>LLM+机器人。Figure 01/GPT-4o驱动机器人能看听说操作。</p>"}
+    ]
+  },
+  {
+    "slug":"crashai-resources",
+    "title":"X. 学习资源与工具",
+    "description":"精选课程/书籍/论文/工具推荐，持续学习路线图",
+    "category":"llm","phase":"C","order":24,
+    "sections":[
+      {"type":"text","title":"推荐资源","content":"<p><b>免费课程：</b>Andrej Karpathy Neural Networks: Zero to Hero(YouTube)、Fast.ai、Stanford CS224n/CS229。</p><p><b>书籍：</b>Deep Learning(花书)、Speech and Language Processing、Understanding Deep Learning(免费在线)。</p><p><b>必读论文：</b>Attention Is All You Need(2017)、BERT(2018)、GPT-3(2020)、InstructGPT(2022)、DPO(2023)。</p>"},
+      {"type":"text","title":"工具推荐与学习路线","content":"<p><b>工具：</b>PyTorch/HuggingFace/DeepSpeed/vLLM/Ollama | langfuse/MLflow/W&B。</p><p><b>学习路线：</b></p><ol><li>高数基础+Python（本章站）</li><li>Kaggle打比赛（实践数据科学全流程）</li><li>用PyTorch手写线性回归\u2192MLP\u2192CNN\u2192RNN\u2192Transformer</li><li>HuggingFace微调开源模型</li><li>搭建RAG应用\u2192Agent系统</li><li>阅读论文+复现经典实验\u2192开始研究</li></ol>"}
+    ]
+  }
+]

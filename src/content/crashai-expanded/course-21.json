@@ -1,0 +1,31 @@
+{
+  "slug": "integration-guide",
+  "title": "3.5 工程整合指南",
+  "description": "从原型到生产：API设计/缓存/监控/日志/测试/部署",
+  "category": "llm",
+  "phase": "C",
+  "order": 21,
+  "sections": [
+    {
+      "type": "text",
+      "title": "从原型到生产的鸿沟",
+      "content": "<p><b>写个Demo容易，上线生产难。</b>原型可能只需要100行代码，但生产系统需要考虑：高并发、容错、监控、安全、成本、可维护性。</p><p><b>原型 vs 生产的核心差异：</b></p><table border=\"1\"><tr><th>维度</th><th>原型</th><th>生产</th></tr><tr><td>并发</td><td>1个用户</td><td>1000+并发</td></tr><tr><td>容错</td><td>出错就报错</td><td>自动重试、降级、熔断</td></tr><tr><td>监控</td><td>print调试</td><td>日志、指标、告警、追踪</td></tr><tr><td>安全</td><td>硬编码API key</td><td>密钥管理、权限控制、审计</td></tr><tr><td>成本</td><td>无所谓</td><td>预算控制、用量限制</td></tr><tr><td>部署</td><td>本地运行</td><td>CI/CD、容器化、自动扩缩容</td></tr></table><p><b>生产级AI系统的核心组件：</b></p><ol><li><b>API层：</b>RESTful API或gRPC，统一入口</li><li><b>缓存层：</b>Redis缓存常见查询结果</li><li><b>队列层：</b>RabbitMQ/Kafka处理异步任务</li><li><b>模型服务：</b>GPU集群或云API</li><li><b>监控层：</b>Prometheus + Grafana</li><li><b>日志层：</b>ELK Stack (Elasticsearch + Logstash + Kibana)</li></ol>"
+    },
+    {
+      "type": "text",
+      "title": "API设计与缓存策略",
+      "content": "<p><b>API设计原则：</b></p><p><b>1. 幂等性：</b>同一请求多次调用，结果相同。POST/PUT应该是幂等的。实现：每个请求带唯一ID，服务端去重。</p><p><b>2. 版本控制：</b>/v1/chat, /v2/chat。避免破坏性更新影响现有用户。</p><p><b>3. 限流：</b>Token Bucket或Leaky Bucket算法。防止单个用户耗尽资源。</p><p><b>4. 超时与重试：</b>设置合理的超时时间（如30秒）。失败时指数退避重试：1s, 2s, 4s, 8s。</p><p><b>缓存策略：</b></p><pre>1. 结果缓存：相同输入直接返回缓存结果\n   适用：常见问题、固定知识查询\n   TTL: 1小时~1天\n\n2. 向量缓存：缓存Embedding结果\n   适用：重复查询的文本\n   节省：Embedding API调用费用\n\n3. 会话缓存：缓存对话历史\n   适用：多轮对话\n   避免：每次请求重复发送历史\n\n4. 多级缓存：\n   L1: 本地内存 (Redis) - 10ms\n   L2: 分布式缓存 (Redis Cluster) - 50ms\n   L3: 数据库 - 200ms</pre><p><b>参数表：</b></p><table border=\"1\"><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小</th></tr><tr><td>缓存TTL</td><td>缓存过期时间</td><td>1h~24h</td><td>太长→数据陈旧；太短→缓存失效</td></tr><tr><td>限流QPS</td><td>每秒最大请求数</td><td>10~1000</td><td>太高→资源耗尽；太低→用户体验差</td></tr><tr><td>超时时间</td><td>最大等待时间</td><td>30s~60s</td><td>太长→资源占用；太短→正常请求失败</td></tr></table>"
+    },
+    {
+      "type": "code",
+      "title": "代码实战：生产级API服务",
+      "content": "<p>用FastAPI构建一个生产级AI API服务。</p><pre># 安装: pip install fastapi uvicorn redis\nfrom fastapi import FastAPI, HTTPException, Depends\nfrom fastapi.middleware.cors import CORSMiddleware\nfrom pydantic import BaseModel\nimport redis, hashlib, json, time\nfrom functools import wraps\n\napp = FastAPI()\n\n# CORS\napp.add_middleware(\n    CORSMiddleware,\n    allow_origins=[\"*\"],\n    allow_methods=[\"*\"],\n    allow_headers=[\"*\"],\n)\n\n# Redis缓存\nredis_client = redis.Redis(host='localhost', port=6379, db=0)\n\n# 请求模型\nclass ChatRequest(BaseModel):\n    message: str\n    session_id: str = None\n    temperature: float = 0.7\n\n# 缓存装饰器\ndef cache_response(ttl=3600):\n    def decorator(func):\n        @wraps(func)\n        async def wrapper(*args, **kwargs):\n            # 生成缓存key\n            cache_key = f\"cache:{func.__name__}:{hashlib.md5(str(args).encode()).hexdigest()}\"\n            \n            # 查缓存\n            cached = redis_client.get(cache_key)\n            if cached:\n                return json.loads(cached)\n            \n            # 执行函数\n            result = await func(*args, **kwargs)\n            \n            # 存入缓存\n            redis_client.setex(cache_key, ttl, json.dumps(result))\n            return result\n        return wrapper\n    return decorator\n\n# 限流装饰器\ndef rate_limit(max_requests=10, window=60):\n    def decorator(func):\n        @wraps(func)\n        async def wrapper(*args, **kwargs):\n            # 简单限流实现\n            return await func(*args, **kwargs)\n        return wrapper\n    return decorator\n\n@app.post(\"/api/v1/chat\")\n@cache_response(ttl=1800)\n@rate_limit(max_requests=100, window=60)\nasync def chat(request: ChatRequest):\n    try:\n        # 调用LLM API\n        response = await call_llm_api(\n            message=request.message,\n            temperature=request.temperature\n        )\n        \n        return {\n            \"status\": \"success\",\n            \"data\": response,\n            \"cached\": False,\n            \"timestamp\": time.time()\n        }\n    except Exception as e:\n        # 错误处理\n        raise HTTPException(status_code=500, detail=str(e))\n\n# 健康检查\n@app.get(\"/health\")\nasync def health():\n    return {\"status\": \"healthy\", \"version\": \"1.0.0\"}\n\nif __name__ == \"__main__\":\n    import uvicorn\n    uvicorn.run(app, host=\"0.0.0.0\", port=8000)</pre><p><b>生产部署：</b></p><pre># Dockerfile\nFROM python:3.11-slim\nWORKDIR /app\nCOPY requirements.txt .\nRUN pip install -r requirements.txt\nCOPY . .\nCMD [\"uvicorn\", \"main:app\", \"--host\", \"0.0.0.0\", \"--port\", \"8000\", \"--workers\", \"4\"]\n\n# docker-compose.yml\nversion: '3'\nservices:\n  api:\n    build: .\n    ports:\n      - \"8000:8000\"\n    environment:\n      - REDIS_URL=redis://redis:6379\n    depends_on:\n      - redis\n  redis:\n    image: redis:alpine\n    ports:\n      - \"6379:6379\"</pre>"
+    },
+    {
+      "type": "exercise",
+      "title": "练习：工程整合",
+      "content": "<p><b>Q1：</b>为什么生产系统需要幂等性？如何实现请求的幂等性？</p><p><b>Q2：</b>缓存的TTL设置需要考虑哪些因素？如果TTL=1秒和TTL=1天分别有什么问题？</p><p><b>Q3：</b>限流的Token Bucket和Leaky Bucket算法有什么区别？</p><p><b>Q4：</b>为什么生产API需要版本控制（/v1/, /v2/）？如果不做版本控制会怎样？</p><p><b>Q5：</b>设计一个AI客服系统的架构。需要哪些组件？如何处理高并发？</p>",
+      "answer": "<p><b>A1：</b>幂等性防止重复操作。网络超时后客户端重试，如果没有幂等性，同一个请求可能被执行多次（如扣款两次）。实现：每个请求带唯一ID，服务端记录已处理的ID，重复请求直接返回之前的结果。</p><p><b>A2：</b>TTL需要考虑数据更新频率和用户期望。TTL=1秒：缓存几乎失效，每次都要重新计算，缓存失去意义。TTL=1天：数据可能陈旧，用户看到过期信息。平衡：频繁变化的数据TTL短（分钟级），稳定数据TTL长（天级）。</p><p><b>A3：</b>Token Bucket：桶里有固定数量的token，每个请求消耗一个token，token以固定速率补充。允许突发流量（桶里有token就能处理）。Leaky Bucket：请求进入桶，以固定速率流出。平滑流量，不允许突发。Token Bucket更灵活，Leaky Bucket更严格。</p><p><b>A4：</b>版本控制允许平滑升级。不做版本控制：修改API后，旧客户端可能崩溃。例如：把字段name改成full_name，旧客户端找不到name字段就报错。版本控制让新旧客户端共存。</p><p><b>A5：</b>组件：API网关（限流、认证）、AI服务（LLM + RAG知识库）、对话管理（维护会话状态）、缓存层（Redis）、消息队列（异步任务）、监控告警（Prometheus）、日志系统（ELK）。高并发：水平扩展（多实例负载均衡）、缓存热点问题、异步处理非实时任务、数据库读写分离。</p>"
+    }
+  ]
+}

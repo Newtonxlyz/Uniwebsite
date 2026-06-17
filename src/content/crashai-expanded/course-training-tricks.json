@@ -1,0 +1,160 @@
+{
+  "slug": "training-tricks",
+  "title": "05. 训练技巧",
+  "description": "学习率/Batch/正则化/Dropout/早期停止：让模型训练又快又稳的实用技术",
+  "category": "llm",
+  "phase": "A",
+  "order": 5,
+  "sections": [
+    {
+      "type": "text",
+      "title": "为什么训练需要技巧？",
+      "content": "<p>上一章我们学习了损失函数——它告诉模型“你错了多少”。但知道错了多少和能够正确地把错误改正过来，是两回事。</p><p><b>训练一个神经网络就像炖牛肉——火候太大会烧焦（发散），火候太小炖不烂（收敛慢），调料不对味道奇怪（过拟合）。本章就是“炖牛肉宝典”。</p><p>具体来说，我们将学习：</p><ul><li><b>学习率：</b>步长大小如何调整？热身(温炉) · 阶梯衰减 · 余弦衰减</li><li><b>Batch Size：</b>每步用多少数据计算更新？大vs小的影响</li><li><b>正则化(L1/L2)：</b>给损失加“罚款”避免过拟合</li><li><b>Dropout：</b>训练时随机抛弃神经元，迫使网络学习冗余表示</li><li><b>早期停止：</b>在过拟合前自动停下来</li></ul>"
+    },
+    {
+      "type": "text",
+      "title": "学习率是什么？从头学起",
+      "content": "<p><b>学习率 (Learning Rate, α) 是训练中最重要的超参数。</b></p><p>在梯度下降中：</p><p><code>Wₜ₊₁ = Wₜ - α · ∇L(Wₜ)</code></p><p>学习率 α 决定了“每步走多远”。</p><p><b>日常比喻：</b>你在山谷里要找到最低点。学习率就是你的步子大小：</p><ul><li>步子太大 (α=1.0)：跨过山谷，跳来跳去，发散</li><li>步子適中 (α=0.01)：稳步下降，快速到达底部</li><li>步子太小 (α=0.00001)：爬得极慢，可能陷入局部最优</li></ul><p><b>一个典型的实验事实：</b></p><p>在CIFAR-10数据集上，用ResNet-50训练：</p><ul><li>α=0.1: 发散（loss变NaN）</li><li>α=0.01: 50轮达到75%准确率</li><li>α=0.001: 50轮只到60%，还在慢慢下降</li><li>α=0.0001: 50轮只到50%，太慢</li></ul>"
+    },
+    {
+      "type": "text",
+      "title": "学习率策略：Warmup + 衰减",
+      "content": "<p>在实战中，我们不会用固定的学习率，而是让它随训练进程动态调整。</p><p><b>1. Warmup（热身）</b></p><p>开始时学习率从0慢慢升到目标值。原因：初始化的权重是随机的，刚开始梯度不稳定；大学习率在开始阶段可能会将参数射到很远的坏区域。</p><p>GPT-3用了<strong>375步Warmup</strong>（从0到0.6×10⁻⁴）。</p><p><code>α(t) = αₜₒₜ × (t / T_warmup)</code> — 线性升温</p><p><b>2. 阶梯衰减 (Step Decay)</b></p><p>每T步将学习率乘以衰减因子。</p><p><code>α(t) = α₀ × γ^{floor(t / T)}</code></p><p>例：α₀=0.01, γ=0.1, T=30轮→50轮时0.01, 30轮后0.001, 60轮后0.0001</p><p><b>3. 余弦衰减 (Cosine Decay)</b></p><p>学习率按余弦函数从最大值平滑下降到最小值。最常用。</p><p><code>α(t) = α_min + 0.5×(α_max - α_min)×(1 + cos(π×t/T_max))</code></p><p>优点：平滑下降，报文当中可以学得更好。</p><p><b>4. 多兹马减速（Cosine with Restarts）</b></p><p>学习率周期性重置，每次重置后训练“跳出”局部最优找更好的解。</p><p><b>实战建议：</b></p><ul><li>Adam默认学习率0.001，通常无需Warmup</li><li>SGD+Momentum建议+Cosine Decay+热身</li><li>Transformer皆需Warmup，因Adam初期方差估计不稳</li></ul>"
+    },
+    {
+      "type": "table",
+      "title": "学习率策略参数对照表",
+      "content": "<table><tr><th>策略</th><th>关键参数</th><th>适用场景</th><th>备注</th></tr><tr><td>固定学习率</td><td>α</td><td>简单小模型</td><td>不建议大模型</td></tr><tr><td>Warmup</td><td>T_warmup, α_target</td><td>Transformer/Large Batch</td><td>典型500-4000步</td></tr><tr><td>阶梯衰减</td><td>α₀, γ(0.1), T(30)</td><td>传统CV任务</td><td>简单粗糙</td></tr><tr><td>余弦衰减</td><td>α_max, α_min, T_max</td><td>最常用</td><td>平滑下降</td></tr><tr><td>多兹马减速</td><td>α_max, T_0, T_mult</td><td>避免局部最优</td><td>SGD常用</td></tr><tr><td>指数衰减</td><td>α₀, γ(0.95/epoch)</td><td>收敛稳定</td><td>每轮乘γ</td></tr></table>"
+    },
+    {
+      "type": "example",
+      "title": "学习率数值示例",
+      "content": "<p><b>问题：</b>W=5.0, L(W)=W², ∇L=2W=10。分别用α=0.1, 0.5, 2.0更新一步，观察结果。</p><p><b>α=0.1（合适）：</b></p><p>Wₙ₊₁ = 5.0 - 0.1×10 = 4.0 → L=16↓（下降4→0）</p><p><b>α=0.5（较大）：</b></p><p>Wₙ₊₁ = 5.0 - 0.5×10 = 0.0 → L=0（一步到达最优点）</p><p><b>α=2.0（过大）：</b></p><p>Wₙ₊₁ = 5.0 - 2.0×10 = -15.0 → L=225（越过最优点，损失反而增大4.5倍！）</p><p><b>实战中：</b>训练ResNet-34于ImageNet，使用阶梯衰减：</p><pre>α₀=0.1，每30轮×0.1\nEpoch 1-30: α=0.1 → Top-1 error 从 100% → 52%\nEpoch 31-60: α=0.01 → Top-1 error → 42%\nEpoch 61-90: α=0.001 → Top-1 error → 40%</pre>"
+    },
+    {
+      "type": "exercise",
+      "title": "实战练习",
+      "content": "<p><b>Q1：</b>假设你在训练一个GPT模型，学习率设为0.001，第100步时loss突然变NaN。可能原因是什么？怎么修复？</p><p><b>A1：</b>学习率过大导致发散。补救：(1)降低学习率（如0.0001）；(2)添加Warmup；(3)加梯度裁剪。</p><p><b>Q2：</b>一个余弦衰减策略：α_max=0.01, α_min=0.00001, T_max=100轮。计算t=0, 25, 50, 100轮时的学习率。</p><p><b>A2：</b>t=0: 0.01（最大）</p><pre>t=25: 0.00001 + 0.5×(0.01-0.00001)×(1+cos(π×25/100))\n     = 0.00001 + 0.5×0.00999×(1+cos(π/4))\n     = 0.00001 + 0.5×0.00999×(1+0.707) = 0.00854\nt=50: 0.00500\nt=100: 0.00001</pre><p><b>Q3：</b>SGD训练中如果loss下降很慢但很稳定，应该怎么办？</p><p><b>A3：</b>学习率可能太小。尝试倍增学习率或加Momentum。另外检查是否数据标准化不对。</p>",
+      "answer": "<p>A1: 学习率过大导致发散。补救：降低学习率+Warmup+gradient clipping</p><p>A2: t=0: 0.01, t=25: 0.00854, t=50: 0.00500, t=100: 0.00001</p><p>A3: 学习率太小。测试用线性扫描找最佳学习率范围</p>"
+    },
+    {
+      "type": "text",
+      "title": "Batch Size是什么？从头学起",
+      "content": "<p><b>Batch size = 每次反向传播用的样本数。</b></p><p>正在更新权重前，我们需要累积多少个样本的梯度？</p><p><b>三种模式：</b></p><ul><li><b>Batch GD（全数据）：</b>batch_size=N。稳定但慢，实际不用。</li><li><b>SGD（单样本）：</b>batch_size=1。快但噪声大，可以跳出局部最优但不稳定。</li><li><b>Mini-batch（小批量）：</b>batch_size=16/32/64/128/256。实战标配，兼顾速度和稳定性。</li></ul><p><b>为什么Mini-batch最好？</b></p><ul><li>梯度是N个样本的平均，batch大小越大梯度越准确</li><li>但太大的batch可能导致“锐利最小值”问题——收敛到sharp minima（泛化差）</li><li>GPU内存限制batch大小上限</li></ul><p><b>几个重要事实：</b></p><ul><li>batch_size×学习率保持不变原则：batch翻倍→学习率也翻倍（linear scaling rule）</li><li>GPT-3 batch_size=3.2M tokens（多GPU汇总）</li><li>ImageNet上2K batch_size与8K准确率相同，但训练时间减半</li></ul>"
+    },
+    {
+      "type": "text",
+      "title": "Batch Size参数与影响",
+      "content": "<p><b>大batch的优势：</b></p><ul><li>梯度更准确，收敛进程更平滑</li><li>充分利用GPU并行计算（向量化）</li><li>总训练时间可能更短</li></ul><p><b>小batch的优势：</b></p><ul><li>噪声可以帮助跳出局部最优</li><li>泛化性能更好（解释1：小batch向量更像治疗器的Brownian motion）</li><li>内存占用少，可训练更大模型</li></ul><p><b>Batch size对巡回的影响：</b></p><p>巡回=epoch (1轮 = 全数据走一遍)。batch_size越大，每轮更新次数=N/batch_size越少。</p><p>例：N=50000, batch_size=32 → 1563 updates/epoch</p><p>batch_size=256 → 195 updates/epoch</p>"
+    },
+    {
+      "type": "table",
+      "title": "Batch Size参数对照表",
+      "content": "<table><tr><th>Batch Size</th><th>稳定性</th><th>速度</th><th>泛化</th><th>内存</th><th>适用场景</th></tr><tr><td>1 (SGD)</td><td>很差</td><td>很快（per step）</td><td>很好</td><td>极低</td><td>Online learning</td></tr><tr><td>8-16</td><td>低</td><td>快</td><td>好</td><td>低</td><td>GAN/RL/不稳定场景</td></tr><tr><td>32-64</td><td>中</td><td>较快</td><td>良好</td><td>中</td><td>最常用，建议默认</td></tr><tr><td>128-256</td><td>高</td><td>中</td><td>中</td><td>较高</td><td>大数据集/CV任务</td></tr><tr><td>512-1024</td><td>很高</td><td>慢</td><td>偏低</td><td>很高</td><td>BatchNorm常用，需多GPU</td></tr><tr><td>4096+</td><td>极高</td><td>极慢</td><td>偏低</td><td>极高</td><td>Large batch training（需warmup+特殊调参）</td></tr></table>"
+    },
+    {
+      "type": "example",
+      "title": "Batch Size数值示例",
+      "content": "<p><b>问题：</b>数据集N=1000，学习率α=0.01，计算batch_size=32和256时每轮的更新次数，以及同样epoch数下的最终损失趋势。</p><p><b>Step 1: 计算每轮更新次数</b></p><pre>batch_size=32: 1000/32 = 31.25 → 31 updates/epoch\nbatch_size=256: 1000/256 = 3.91 → 3 updates/epoch</pre><p>同样10轮：</p><pre>batch=32: 310 updates\nbatch=256: 30 updates</pre><p>大batch更新次数远少于小batch，但每步看到更多数据。</p><p><b>Step 2: 对数据的视角</b></p><p>batch=32时30步后看到所有数据一遝</p><p>batch=256时第1步看到256个数据，但看完全部1000需要4步</p><p><b>Step 3: 大batch的Linear Scaling Rule</b></p><p>batch从32→256（×8），学习率应从0.01→0.08保持效果相同。但实际上需要Warmup避免开始时梯度不稳定。</p>"
+    },
+    {
+      "type": "exercise",
+      "title": "实战练习",
+      "content": "<p><b>Q1：</b>你用VGG训练CIFAR-10，batch_size=64时显卡翁内存占用约80%。想提高训练速度是应该增大还是减小batch？为什么？</p><p><b>A1：</b>显卡内存不足时不能增大batch。可以用积累梯度(accumulate gradient)——多歡小batch后再更新权重。或用gradient checkpoint减少内存消耗。</p><p><b>Q2：</b>batch_size=32训练BERT-Large能装下4根显卡，每步用0.5s。如果batch_size=64呢？</p><p><b>A2：</b>batch翻倍→1根显卡内存不足，需要2根显卡并行计算，通信开销可能让速度只提升~1.5倍。</p><p><b>Q3：</b>假设你发现验证集准确率随batch_size增大而下降，这是为什么？怎么解决？</p><p><b>A3：</b>大batch收敛到sharp minima（泛化差）。解决：(1)增大学习率并加Warmup；(2)加正则化(L2/Dropout/BatchNorm)；(3)用Sampling SGD替代</p>",
+      "answer": "<p>A1: 用gradient accumulation或checkpointing，不能直接增大batch</p><p>A2: batch=64需多卡，通信开销减缓显卡数直线加成</p><p>A3: sharp minima问题。增大学习率+Warmup+正则化</p>"
+    },
+    {
+      "type": "text",
+      "title": "正则化是什么？从头学起",
+      "content": "<p><b>正则化 = 给损失函数加“罚款”，让模型不要太复杂。</b></p><p>过拟合的核心问题：模型只记住了数据而没学到规律。正则化通过增加一个罚款项《λ·R(W)》来控制模型复杂度。</p><p><b>日常比喻：</b>如果老师说</p><p>“如果你把答案写得超长，我会扣分”，学生就不会无端拉长答案。正则化就是这个“超长扣分”。</p><p><b>公式：</b></p><p>L_total = L_data + λ · R(W)</p><ul><li>L_data: 原来的损失（如CrossEntropy, MSE）</li><li>R(W): 权重的“复杂度”</li><li>λ: 正则化强度——越大罚款越重，模型越简单</li></ul><p><b>三种常见正则化：</b></p><ul><li><b>L1（Lasso）：</b>R(W) = ∑|w_i|。推向稀疏（许多权重变为0）。</li><li><b>L2（Ridge / 权重衰减）：</b>R(W) = ½∑w_i²。权重趋近0但不为0。</li><li><b>Elastic Net（弹性网）：</b>R(W) = r·∑|w_i| + (1-r)·½∑w_i²。结合L1+L2。</li></ul>"
+    },
+    {
+      "type": "text",
+      "title": "L1 vs L2：详细分析",
+      "content": "<p><b>L2正则化（Weight Decay）</b></p><p>L_total = L_data + λ/2 · ∑w_i²</p><p>梯度：∂L/∂w_i = ∂L_data/∂w_i + λ·w_i</p><p>更新的时候：</p><p>w_i → w_i - α·(∂L_data/∂w_i + λ·w_i)</p><p>w_i → w_i·(1 - αλ) - α·∂L_data/∂w_i</p><p>看到有一个“(1 - αλ)”的衰减系数——这就是“Weight Decay”名字的由来。</p><p><b>L1正则化（Lasso）</b></p><p>L_total = L_data + λ · ∑|w_i|</p><p>梯度：∂L/∂w_i = ∂L_data/∂w_i + λ·sign(w_i)</p><p>罚款不取决于权重大小，只取决于符号。这导致小权重被拉到0——特征选择。</p><p><b>关键区别：</b></p><ul><li>L2：权重趋近0但不等于0。适合所有特征都可能有用的场景。</li><li>L1：权重变为0——特征选择。适合有许多无用特征。</li><li>全局最优解唯一性：L2有解析解；L1可能多个最优解。</li></ul>"
+    },
+    {
+      "type": "table",
+      "title": "正则化参数对照表",
+      "content": "<table><tr><th>类型</th><th>公式</th><th>罚款方式</th><th>稀疏</th><th>̣ 范围</th><th>适用场景</th></tr><tr><td>L2 (Weight Decay)</td><td>½∑w²</td><td>权重越大罚款越重</td><td>❌ 不为0</td><td>0.0001~0.01</td><td>神经网络默认</td></tr><tr><td>L1 (Lasso)</td><td>∑|w|</td><td>绝对值罚款</td><td>✅ 为0</td><td>0.0001~0.01</td><td>特征选择/稀疏模型</td></tr><tr><td>Elastic Net</td><td>r·L1+(1-r)·L2</td><td>组合</td><td>部分</td><td>λ=0.0001~0.01, r=0.5</td><td>特征多且相关</td></tr></table>"
+    },
+    {
+      "type": "example",
+      "title": "正则化数值示例",
+      "content": "<p><b>问题：</b>设有一个某一权重 w=2.0，原始梯度∂L_data/∂w=0.5，学习率α=0.1。计算不加正则化、加L2(λ=0.01)、加L1(λ=0.01)时的更新后权重。</p><p><b>无正则化：</b></p><pre>w' = 2.0 - 0.1×0.5 = 2.0 - 0.05 = 1.95</pre><p><b>L2正则化 (λ=0.01)：</b></p><pre>∂L/∂w = 0.5 + 0.01×2.0 = 0.5 + 0.02 = 0.52\nw' = 2.0 - 0.1×0.52 = 2.0 - 0.052 = 1.948w' = 2.0×(1-0.1×0.01) - 0.1×0.5 = 1.998 - 0.05 = 1.948</pre><p>L2加了额外的-0.002更新。权重越大这个修正越明显。</p><p><b>L1正则化 (λ=0.01)：</b></p><pre>∂L/∂w = 0.5 + 0.01×sign(2.0) = 0.5 + 0.01 = 0.51\nw' = 2.0 - 0.1×0.51 = 2.0 - 0.051 = 1.949</pre><p><b>对比（多步走向稳态）：</b></p><pre>Epoch | 无正则化 | L2(λ=0.01) | L1(λ=0.01)\n0     | 2.000       | 2.000       | 2.000\n10    | 1.500       | 1.492       | 1.490\n50    | 0.750       | 0.735       | 0.721\n100   | 0.375       | 0.359       | 0.310\n500   | 0.012       | 0.008       | 0.000（L1达到0！）</pre><p>L1的稀疏效果明显——小权重被拉到0。L2趋近0但不等于0。</p>"
+    },
+    {
+      "type": "exercise",
+      "title": "实战练习",
+      "content": "<p><b>Q1：</b>训练一个100层ResNet时，发现训练loss下降正常但验证loss在某节点开始上升。应该用什么正则化？λ应该设多大？</p><p><b>A1：</b>经典过拟合。建议用L2 (Weight Decay)，设置λ=0.0001开始，按十倍调整直到验证集性能挺住。PyTorch中: optimizer=SGD(params, lr=0.1, weight_decay=1e-4)</p><p><b>Q2：</b>你的数据集有20000个特征但只有1000个样本。应该选择L1还是L2？为什么？</p><p><b>A2：</b>L1。因为大多数特征可能无用，L1能将无用特征对应的权重压到0，实现特征选择。同时有助于避免维度灾难。</p><p><b>Q3：</b>Adam优化器中的weight_decay和L2正则化是同一回事吗？</p><p><b>A3：</b>不是。Adam中直接加L2在梯度中会与自适应学习率交互，导致正则化效果偏离。AdamW提出分离weight decay和梯度更新——按Decoupled Weight Decay更新。建议用AdamW替Adam。</p>",
+      "answer": "<p>A1: L2正则化，weight_decay从1e-4开始调</p><p>A2: L1，因为稀疏特征选择在p≫n时最有用</p><p>A3: 不同。AdamW的weight decay是解耦的更新，而非在梯度中加L2项</p>"
+    },
+    {
+      "type": "text",
+      "title": "Dropout是什么？从头学起",
+      "content": "<p><b>Dropout = 训练时随机“抛弃”一些神经元，让网络更健壮。</b></p><p>2012年Hinton发明。怎么做：每次训练迭代时，以概率 p 随机将某些神经元的输出设为0。</p><p><b>日常比喻：</b>如果你只会用一只脚踩自行车，按你的脚你就剳车。但如果训练时随机抵你的一只脚，你就会学会用另一只脚。最终你两只脚都能骑得很好——这就是Dropout的本质。</p><p><b>数学表示：</b></p><pre>训练时: r ~ Bernoulli(p)  →  输出 = r × h / (1-p)\n测试时: 输出 = h  (scaling by keep_prob)</pre><p>为什么要除以(1-p)？因为训练时只有(1-p)的神经元在工作，为了让测试时期望值与训练时保持一致，需要做这个缩放。</p>"
+    },
+    {
+      "type": "text",
+      "title": "Dropout变种与实践",
+      "content": "<p><b>1. 标准Dropout (p=0.5)</b></p><p>隐藏层用p=0.5，输入层p=0.2~0.3。最常用。</p><p><b>2. 空间Dropout (Spatial Dropout)</b></p><p>CNN中用——整个通道随机置零而不是像素。因为CNN中相邻像素高度相关，抵单个像素效果不好。</p><p><b>3. AlphaDropout</b></p><p>SELU激活函数的配套Dropout。保持输出的均值和方差不变。</p><p><b>4. Monte Carlo Dropout</b></p><p>测试时也保留Dropout，多次前向传播获得不确定性估计。这是一种Bayesian近似。</p><p><b>5. 递进Dropout</b></p><p>深层用p=0.5，浅层用p=0.1。因为深层参数更多，更容易过拟合。</p><p><b>黄金规则：</b></p><ul><li>隐藏层Dropout p=0.5——最稳妥。模型过拟合时提高到0.5，不过拟合时降低到0.2</li><li>输入层Dropout p=0.2~0.3——只抛弃少量输入特征</li><li>Dropout与BatchNorm一般不同时使用（但可以）</li><li>CNN层少用Dropout（用BatchNorm+Data Aug替代）</li><li>Transformer/GPT不用Dropout（大模型用正则化+数据质量控制）</li></ul>"
+    },
+    {
+      "type": "table",
+      "title": "Dropout参数对照表",
+      "content": "<table><tr><th>类型</th><th>默认p</th><th>适用层</th><th>特点</th><th>适用场景</th></tr><tr><td>标准Dropout</td><td>0.5</td><td>全连接隐藏层</td><td>最简单常用</td><td>MLP/FC网络</td></tr><tr><td>输入Dropout</td><td>0.2-0.3</td><td>输入层</td><td>保护输入特征</td><td>噪声数据</td></tr><tr><td>空间Dropout</td><td>0.2-0.5</td><td>CNN卷积层</td><td>整通道置零</td><td>CNN</td></tr><tr><td>AlphaDropout</td><td>0.05-0.1</td><td>SELU激活层</td><td>保持均值方差</td><td>Self-normalizing网络</td></tr><tr><td>MC Dropout</td><td>同训练</td><td>任意</td><td>测试时保留</td><td>不确定性估计</td></tr></table>"
+    },
+    {
+      "type": "example",
+      "title": "Dropout数值示例",
+      "content": "<p><b>问题：</b>一个隐藏层有4个神经元，输出向量h=[1.0, 2.0, 3.0, 4.0]，Dropout概率p=0.5。测试时和两次训练时的输出是多少？</p><p><b>测试时（不抛弃）：</b></p><pre>输出 = h = [1.0, 2.0, 3.0, 4.0]</pre><p><b>训练时第1次迭代：</b></p><pre>Bernoulli(0.5) mask = [1,0,1,0]\n原始输出 = [1.0, 0.0, 3.0, 0.0]\n缩放 = [1.0/(1-0.5), 0, 3.0/(1-0.5), 0]\n      = [2.0, 0.0, 6.0, 0.0]</pre><p><b>训练时第2次迭代：</b></p><pre>Bernoulli(0.5) mask = [0,1,0,1]\n输出 = [0.0, 4.0, 0.0, 8.0]</pre><p><b>观察：</b></p><ul><li>每次训练只用约50%的神经元</li><li>第1次用第1,3个神经元，第2次用第2,4个</li><li>缩放确保期望值相同：E[2.0,0,6.0,0]=[1.0,0,3.0,0]</li><li>最终网络学习到的是所有神经元的“平均”表示，更健壮</li></ul>"
+    },
+    {
+      "type": "exercise",
+      "title": "实战练习",
+      "content": "<p><b>Q1：</b>你的MLP在训练集上准确率99.5%，但验证集只有85%，差距14.5%。应该加Dropout吗？用多大概率？</p><p><b>A1：</b>经典的过拟合，应该加Dropout。隐藏层p=0.5，输入层p=0.2开始调整。可以同时加L2(λ=0.0001)和Data Augmentation。</p><p><b>Q2：</b>为什么GPT等Transformer模型不用Dropout？<p><b>A2：</b>(1)大模型尾部网络层力量大，Dropout可能会影响信息流递；(2)大数据量已经提供天然正则化；(3)更常用兆义正则化和权重衰减。</p><p><b>Q3：</b>Dropout训练后的模型在测试时输出与训练时的“平均网络”有何关系？</p><p><b>A3：</b>Dropout可以看作大量子网络的集成学习（ensemble）。训练时从2ⁿ个子网络中随机采样一个，测试时的输出等价于所有子网络的平均。这就是为什么Dropout能提升泛化性能。</p>",
+      "answer": "<p>A1: 是的。隐藏层 Dropout p=0.5，输入层 p=0.2</p><p>A2: 大数据量+兆义正则化已足够，Dropout在大模型中效果不显著</p><p>A3: Dropout = 子网络集成的近似，说明为什么测试时不用Dropout但保持scaling</p>"
+    },
+    {
+      "type": "text",
+      "title": "早期停止是什么？从头学起",
+      "content": "<p><b>早期停止 = 在验证集性能开始下降时停止训练。</b></p><p>训练过程中：</p><ul><li>训练loss一直下降</li><li>验证loss先下降，然后在某个点开始上升（过拟合开始）</li></ul><p>早期停止在验证集性能下降前把最好的模型保存下来。</p><p><b>为什么有效？</b></p><ul><li>它是最简单的正则化方法</li><li>它限制了迭代次数=parameter空间的有效复杂度</li><li>它无额外参数（只有patience和监视频率）</li></ul>"
+    },
+    {
+      "type": "text",
+      "title": "Early Stopping策略与实战",
+      "content": "<p><b>1. Patience（耐心值）</b></p><p>等待多少轮没改善后停止。</p><ul><li>patience=5: 验证loss连续5轮不下降则停</li><li>patience=20: 等待20轮（大模型）</li><li>patience太小: 可能在平台区早停</li><li>patience太大: 浪费计算资源</li></ul><p><b>2. 监视指标</b></p><ul><li>验证loss（最常用）</li><li>验证准确率（注意“更高更好”还是“更低更好”）</li><li>F1 Score / AUC / BLEU…</li></ul><p><b>3. Restore Best Weights</b></p><p>最重要的一个选项——停止后自动回滑到验证集最佳时的权重。不然最后一步的模型可能已经过拟合。</p><p><b>4. Delta（改善阈值）</b></p><p>只有验证loss下降超过某个阈值时才视为“有改善”。</p><p>例如delta=0.001，如果下降小于0.001则不计数。避免因小浮动而算“改善”。</p><p><b>实战经验：</b></p><ul><li>patience默认5-10。大模型可用30-50</li><li>早期停止与Learning Rate Decay联用效果最佳</li><li>ReduceLROnPlateau: 验证loss平台时降学习率，再观察patience</li><li>如果训练loss已经很低但验证大幅上升——过拟合，应即停</li></ul>"
+    },
+    {
+      "type": "table",
+      "title": "Early Stopping参数对照表",
+      "content": "<table><tr><th>参数</th><th>默认值</th><th>作用</th><th>指南</th></tr><tr><td>patience</td><td>5-10</td><td>等待多少轮无改善后停止</td><td>10个好起点</td></tr><tr><td>min_delta</td><td>1e-4</td><td>最小改善阈值</td><td>1e-4避免噪声影响</td></tr><tr><td>monitor</td><td>val_loss</td><td>监视指标</td><td>val_loss或val_acc</td></tr><tr><td>mode</td><td>min</td><td>min/loss趋小 or max/acc趋大</td><td>val_loss用min</td></tr><tr><td>restore_best_weights</td><td>True</td><td>回滑最佳权重</td><td>建议开启</td></tr><tr><td>start_from_epoch</td><td>5-10</td><td>多少轮后开始监视</td><td>避免初期浮动</td></tr></table>"
+    },
+    {
+      "type": "example",
+      "title": "Early Stopping数值示例",
+      "content": "<p><b>简单例子：</b></p><p>训练一个网络的验证loss记录：</p><pre>Epoch | val_loss | 是否最佳？ | 等待计数\n1     | 0.850    | ✓           | 0\n2     | 0.720    | ✓           | 0\n3     | 0.650    | ✓           | 0\n4     | 0.620    | ✓           | 0\n5     | 0.610    | ✓           | 0\n6     | 0.615    | ✗           | 1\n7     | 0.618    | ✗           | 2\n8     | 0.612    | ✗           | 3\n9     | 0.625    | ✗           | 4\n10    | 0.640    | ✗           | 5 → STOP!</pre><p>patience=5，第6轮开始验证loss不再下降，连续5轮后训练停止。最终保存的是第5轮的模型（val_loss=0.610）。</p><p><b>复杂例子：</b></p><p>一个大型模型训练ResNet-50于ImageNet，使用patience=10：</p><pre>Epoch  | train_loss | val_acc  | 最佳 | 等待\n------|------------|----------|------|------\n1     | 1.824      | 48.2%    | ✓  | 0\n...    | ...        | ...      | ...  | ...\n30    | 0.315      | 74.1%    | ✓  | 0\n31    | 0.308      | 74.2%    | ✓  | 0\n32    | 0.298      | 74.4%    | ✓  | 0\n33    | 0.278      | 74.3%    | ✗  | 1\n34    | 0.265      | 74.0%    | ✗  | 2\n35    | 0.251      | 73.8%    | ✗  | 3\n36    | 0.248      | 74.0%    | ✗  | 4\n37    | 0.241      | 73.5%    | ✗  | 5\n38    | 0.239      | 73.2%    | ✗  | 6\n39    | 0.235      | 73.0%    | ✗  | 7\n40    | 0.232      | 72.5%    | ✗  | 8\n41    | 0.230      | 72.1%    | ✗  | 9\n42    | 0.228      | 71.8%    | ✗  | 10 → STOP</pre><p>train_loss一直下降，但val_acc在epoch32后不再上升，过拟合开始。patience=10后停止，回滑到epoch32的权重。</p>"
+    },
+    {
+      "type": "exercise",
+      "title": "实战练习",
+      "content": "<p><b>Q1：</b>你的训练中验证loss波动很大，patience=5导致训练早停。应该怎么办？</p><p><b>A1：</b>(1)增大patience，如10-20；(2)加smoothed val_loss（移动平均）作为监视指标；(3)增大min_delta降低灵敏度；(4)检查batch_size是否太小导致噪声大。</p><p><b>Q2：</b>你的训练过程中，验证loss下降到某点后平台，然后在patience到达前扫描到更低点。这是否意味着early stopping失败？</p><p><b>A2：</b>不是！patience恢复的确会重置计数。这表示模型假性平台后又找到更好的解。patience越大，防止这种早停的能力越强。</p><p><b>Q3：</b>Early Stopping和LR Reduce on Plateau有什么区别？能同时使用吗？</p><p><b>A3：</b>ReduceLROnPlateau是在验证loss平台时减少学习率，而不是停止训练。两者可以完美配合：</p><pre>val_loss 平台（patience=3）→ Reduce LR (×0.1)\nval_loss 再平台（patience=5）→ Reduce LR 再×0.1\nval_loss 仍平台（patience=10）→ Early Stop</pre>",
+      "answer": "<p>A1: 增大patience到20，或用movng avg val_loss监视</p><p>A2: 不是失败。Patience重置是正常的，说明模型继续学习</p><p>A3: 可以同时使用。先Reduce LR再Early Stop</p>"
+    },
+    {
+      "type": "text",
+      "title": "梯度裁剪 (Gradient Clipping)",
+      "content": "<p><b>梯度裁剪 = 当梯度太大时“截断”它，防止梯度爆炸。</b></p><p>在深层网络或RNN/LSTM中，梯度有可能变得极大，导致权重更新飞快，loss变NaN。</p><p><b>两种方法：</b></p><ul><li><b>Value Clipping：</b>单个梯度值被截断到[max_grad, max_grad]范围</li><li><b>Norm Clipping：</b>所有梯度的范数被截断到max_norm以下</li></ul><p><b>Norm Clipping公式：</b></p><pre>||g|| ≤ max_norm: g' = g\n||g|| > max_norm: g' = g × (max_norm / ||g||)</pre><p>保持梯度方向不变，但缩放其大小。</p><p><b>常见参数：</b></p><ul><li>max_norm=1.0: 严格裁剪</li><li>max_norm=5.0: 常见默认</li><li>max_norm=10.0: 宽松裁剪</li></ul><p><b>常用场景：</b></p><ul><li>RNN/LSTM: 更时间步梯度累乘容易爆炸</li><li>Transformer: 大型模型训练时保险</li><li>GAN: 生成器和辨别器的竞争训练不稳定</li><li>RL: PPO等策略梯度可能很大</li></ul>"
+    },
+    {
+      "type": "table",
+      "title": "训练技巧一览表",
+      "content": "<table><tr><th>技巧</th><th>解决问题</th><th>关键参数</th><th>黄金规则</th><th>备注</th></tr><tr><td>学习率</td><td>收敛慢/发散</td><td>α, Warmup, Decay</td><td>Adam=0.001, SGD+Cosine</td><td>最重要超参</td></tr><tr><td>Batch Size</td><td>速度/稳定性</td><td>batch_size</td><td>32/64/128</td><td>大batch需加正则</td></tr><tr><td>L2 Regularization</td><td>过拟合</td><td>λ</td><td>1e-4（神经网络）</td><td>最常用正则化</td></tr><tr><td>L1 Regularization</td><td>特征选择</td><td>λ</td><td>0.001-0.01</td><td>稀疏解</td></tr><tr><td>Dropout</td><td>过拟合</td><td>p</td><td>hidden=0.5, input=0.2</td><td>CNN少用</td></tr><tr><td>Early Stopping</td><td>过拟合</td><td>patience, delta</td><td>patience=10</td><td>最简单正则化</td></tr><tr><td>梯度裁剪</td><td>梯度爆炸</td><td>max_norm</td><td>RNN=5.0, Transformer=1.0</td><td>RNN必用</td></tr></table>"
+    },
+    {
+      "type": "text",
+      "title": "实战总结：训练流程检查清单",
+      "content": "<p>训练一个新模型时，建议按以下顺序调参：</p><ol><li><b>确保数据正确</b>——先过拟合一小批数据（如16个）确保loss能降到0</li><li><b>设置学习率</b>——Adam α=0.001, SGD+Momentum α=0.01起步</li><li><b>选Batch Size</b>——显卡内存允许的最大值，建议32-256</li><li><b>加正则化</b>——L2 weight_decay=1e-4开始</li><li><b>加Dropout</b>——如果过拟合严重</li><li><b>设Early Stopping</b>——patience=10</li><li><b>加梯度裁剪</b>——RNN/语言模型必用</li><li><b>使用Warmup + Cosine Decay</b>——对大模型差不多是必须的</li></ol><p><b>常见问题诊断指南：</b></p><ul><li><b>Loss NaN：</b>学习率太大 / 梯度爆炸 → 降学习率 + gradient clipping</li><li><b>Loss不下降：</b>学习率太小 / 数据没标准化 / 激活函数不对 → 检查数据/模型</li><li><b>Train高但Validation低：</b>过拟合 → 增强正则化 / 多数据 / 小模型</li><li><b>Train低但Validation也低：</b>正则化太强 / 数据问题 / 模型不足 → 减弱正则化 / 增加模型大小</li></ul><p><b>PyTorch实现示例：</b></p><pre># AdamW + Cosine Decay + Warmup + Early Stopping + Gradient Clipping\nimport torch, torch.optim as optim\nfrom torch.optim.lr_scheduler import CosineAnnealingLR\n\nmodel = MyModel()\noptimizer = optim.AdamW(model.parameters(), lr=1e-3, weight_decay=1e-4)\nscheduler = CosineAnnealingLR(optimizer, T_max=100)\n\nbest_val_loss = float('inf')\npatience_counter = 0\npatience = 10\n\nfor epoch in range(200):\n    train_loss = train_one_epoch(model, optimizer, dataloader)\n    # Gradient Clipping\n    torch.nn.utils.clip_grad_norm_(model.parameters(), max_norm=5.0)\n    \n    val_loss = evaluate(model, val_loader)\n    scheduler.step()\n    \n    # Early Stopping\n    if val_loss < best_val_loss:\n        best_val_loss = val_loss\n        torch.save(model.state_dict(), 'best_model.pth')\n        patience_counter = 0\n    else:\n        patience_counter += 1\n        if patience_counter >= patience:\n            print(f'Early stop at epoch {epoch}')\n            break</pre>"
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "slug": "multi-format",
+  "title": "3.4 多模态与格式处理",
+  "description": "PDF/Word/Excel/图片/音频/视频：非结构化数据如何喂给AI",
+  "category": "llm",
+  "phase": "C",
+  "order": 20,
+  "sections": [
+    {
+      "type": "text",
+      "title": "为什么需要多模态处理？",
+      "content": "<p><b>真实世界的数据不只有文本。</b>PDF合同、Excel报表、PPT演示、产品图片、客服录音、监控视频——企业80%的数据是非结构化的。AI如果不能处理这些数据，就无法真正融入工作流。</p><p><b>多模态AI的目标：</b>让模型能同时理解文本、图像、音频、视频，并在它们之间建立关联。例如：“这张图表显示Q3销售额下降，请分析原因并给出建议”——模型需要同时理解图表（图像）和文字指令（文本）。</p><p><b>常见格式与处理方法：</b></p><table border=\"1\"><tr><th>格式</th><th>挑战</th><th>处理方法</th><th>工具</th></tr><tr><td>PDF</td><td>复杂排版、表格、图片混合</td><td>OCR + 版面分析 + 结构化提取</td><td>PyMuPDF, pdfplumber, Marker</td></tr><tr><td>Word</td><td>样式复杂、修订记录、批注</td><td>提取纯文本 + 保留标题层级</td><td>python-docx, mammoth</td></tr><tr><td>Excel</td><td>多sheet、公式、图表</td><td>转CSV/JSON + 保留公式</td><td>pandas, openpyxl</td></tr><tr><td>图片</td><td>分辨率、格式多样、内容复杂</td><td>OCR + 视觉理解模型</td><td>PaddleOCR, GPT-4V</td></tr><tr><td>音频</td><td>方言、噪音、多说话人</td><td>语音识别(ASR) + 说话人分离</td><td>Whisper, FunASR</td></tr><tr><td>视频</td><td>时序信息、关键帧、字幕</td><td>抽帧 + 关键帧理解 + ASR</td><td>ffmpeg, Video-LLaMA</td></tr></table>"
+    },
+    {
+      "type": "code",
+      "title": "代码实战：PDF解析与结构化",
+      "content": "<p>PDF是最难处理的格式之一。我们用多种方法解析PDF。</p><pre># 方法1: PyMuPDF (fitz) - 适合文本为主的PDF\nimport fitz  # PyMuPDF\n\ndef extract_text_pymupdf(pdf_path):\n    doc = fitz.open(pdf_path)\n    text = \"\"\"\n    for page in doc:\n        text += page.get_text() + \"\\n\\n\"\n    return text\n\n# 方法2: pdfplumber - 适合表格\nimport pdfplumber\n\ndef extract_tables(pdf_path):\n    tables = []\n    with pdfplumber.open(pdf_path) as pdf:\n        for page in pdf.pages:\n            page_tables = page.extract_tables()\n            tables.extend(page_tables)\n    return tables\n\n# 方法3: Marker - 高质量的PDF转Markdown\n# pip install marker-pdf\nfrom marker.converters.pdf import PdfConverter\nfrom marker.models import create_model_dict\n\nconverter = PdfConverter(create_model_dict())\ndoc = converter(pdf_path)\nmarkdown = doc.rendered\n\n# 表格转DataFrame\nimport pandas as pd\nfor table in tables:\n    df = pd.DataFrame(table[1:], columns=table[0])\n    print(df.head())</pre><p><b>解析策略选择：</b></p><ul><li><b>纯文本PDF：</b>PyMuPDF（快，简单）</li><li><b>表格多的PDF：</b>pdfplumber（保留表格结构）</li><li><b>复杂排版PDF：</b>Marker（保留标题层级、列表、公式）</li><li><b>扫描版PDF：</b>OCR（PaddleOCR, Tesseract）</li></ul><p><b>参数表：</b></p><table border=\"1\"><tr><th>参数</th><th>含义</th><th>典型值</th><th>太大/太小</th></tr><tr><td>OCR语言</td><td>识别的语言</td><td>chi_sim+eng</td><td>漏设→识别失败</td></tr><tr><td>DPI</td><td>扫描分辨率</td><td>300</td><td>太低→识别差；太高→慢</td></tr><tr><td>chunk_size</td><td>分块大小</td><td>500~1000字符</td><td>太大→丢失粒度；太小→上下文断裂</td></tr></table>"
+    },
+    {
+      "type": "code",
+      "title": "代码实战：图片理解与OCR",
+      "content": "<p>让AI看懂图片和提取文字。</p><pre># 方法1: OCR提取文字\nfrom paddleocr import PaddleOCR\n\nocr = PaddleOCR(use_angle_cls=True, lang='ch')  # 中文识别\nresult = ocr.ocr('invoice.jpg', cls=True)\n\nfor line in result[0]:\n    text, confidence = line[1]\n    print(f\"{text} (置信度: {confidence:.2f})\")\n\n# 方法2: GPT-4V理解图片内容\nfrom openai import OpenAI\nclient = OpenAI()\n\nresponse = client.chat.completions.create(\n    model=\"gpt-4o\",\n    messages=[\n        {\"role\": \"user\", \"content\": [\n            {\"type\": \"text\", \"text\": \"这张发票的总金额是多少？\"},\n            {\"type\": \"image_url\", \"image_url\": {\"url\": \"data:image/jpeg;base64,...\"}}\n        ]}\n    ]\n)\nprint(response.choices[0].message.content)\n\n# 方法3: 本地多模态模型 (LLaVA)\nfrom llava.model.builder import load_pretrained_model\nfrom llava.mm_utils import get_model_name_from_path\n\nmodel_path = \"liuhaotian/llava-v1.5-7b\"\ntokenizer, model, image_processor, context_len = load_pretrained_model(\n    model_path=model_path,\n    model_base=None,\n    model_name=get_model_name_from_path(model_path)\n)\n# 然后处理图片和文本...</pre><p><b>OCR vs 视觉理解：</b></p><ul><li><b>OCR：</b>只提取文字。快、便宜、精确。适合发票、合同、证件。</li><li><b>视觉理解（GPT-4V）：</b>理解图片内容+提取文字。慢、贵、更全面。适合图表分析、场景理解。</li><li><b>本地模型（LLaVA）：</b>隐私好、无API费用。但精度和速度不如GPT-4V。</li></ul>"
+    },
+    {
+      "type": "example",
+      "title": "例子：构建文档处理Pipeline",
+      "content": "<p><b>场景：构建一个企业知识库，支持PDF/Word/Excel/图片上传。</b></p><p><b>Pipeline设计：</b></p><pre>上传文件 → 格式检测 → 解析 → 结构化 → Embedding → 存入向量库\n\n1. 格式检测：根据文件扩展名和MIME类型判断\n   .pdf → PDF解析器\n   .docx → Word解析器\n   .xlsx → Excel解析器\n   .jpg/.png → 图片解析器\n\n2. 解析：\n   PDF: Marker → Markdown\n   Word: python-docx → 纯文本 + 标题层级\n   Excel: pandas → CSV/JSON\n   图片: PaddleOCR → 文字 + GPT-4V → 图片描述\n\n3. 结构化：\n   提取标题、段落、表格、图片说明\n   为每段生成摘要\n\n4. Embedding：\n   文本用text-embedding-3-small\n   图片描述也用文本Embedding\n\n5. 存入向量库：\n   Chroma / Milvus / Pinecone\n\n6. 检索增强：\n   用户提问 → 检索相关文档片段 → LLM回答</pre><p><b>性能指标：</b></p><table border=\"1\"><tr><th>指标</th><th>目标</th><th>优化方法</th></tr><tr><td>解析准确率</td><td>>95%</td><td>多解析器对比，选最优结果</td></tr><tr><td>处理速度</td><td><1秒/页</td><td>并行处理、缓存、预处理</td></tr><tr><td>存储成本</td><td>低</td><td>Embedding压缩、去重</td></tr><tr><td>检索准确率</td><td>>90%</td><td>混合检索、重排序</td></tr></table>"
+    },
+    {
+      "type": "exercise",
+      "title": "练习：多模态处理",
+      "content": "<p><b>Q1：</b>为什么PDF是最难处理的格式之一？解析扫描版PDF和文本版PDF有什么区别？</p><p><b>Q2：</b>OCR和视觉理解模型（如GPT-4V）有什么区别？什么时候用OCR，什么时候用视觉理解？</p><p><b>Q3：</b>处理Excel文件时，如何保留公式和多个sheet的关系？</p><p><b>Q4：</b>为什么需要把非结构化数据转换成结构化数据（如Markdown、JSON）再存入向量库？</p><p><b>Q5：</b>设计一个处理医疗报告（PDF+图片）的Pipeline。需要考虑哪些特殊因素？</p>",
+      "answer": "<p><b>A1：</b>PDF是固定版式格式，不像Word有结构化标记。解析扫描版PDF需要OCR（先识别文字），解析文本版PDF直接提取文字。扫描版更慢、更贵、准确率更低。</p><p><b>A2：</b>OCR只提取文字，快、便宜、精确。视觉理解模型能理解图片内容（如识别图表趋势、场景描述），慢、贵、更全面。发票、合同用OCR；图表分析、场景理解用视觉模型。</p><p><b>A3：</b>用openpyxl读取Excel时，可以保存公式字符串（非计算结果），保留sheet名称和关系。需要计算时，可用pandas读取计算后的值，或xlwings调用Excel引擎计算。</p><p><b>A4：</b>非结构化数据（如PDF混合格式）无法直接Embedding。转换成结构化数据后，可以：1.统一格式便于检索；2.保留标题层级便于上下文；3.提取关键信息（表格、公式）便于理解；4.去重和分块。</p><p><b>A5：</b>特殊因素：1.隐私合规（HIPAA等，数据脱敏）；2.医学术语识别（专业OCR模型）；3.手写文字（医生手写处方）；4.图片标注（X光、CT需要专业模型分析）；5.结构化提取（提取诊断、用药、剂量等关键字段）；6.审计追踪（谁访问了什么数据）。</p>"
+    }
+  ]
+}
