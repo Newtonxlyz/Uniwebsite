@@ -9,7 +9,7 @@ import { prisma } from "@/lib/db";
 
 export const auth = betterAuth({
   // 数据库适配
-  database: prismaAdapter(prisma, { provider: "sqlite" }),
+  database: prismaAdapter(prisma, { provider: "postgresql" }),
 
   // 邮箱+密码登录
   emailAndPassword: {
