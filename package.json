@@ -28,8 +28,8 @@
                          "lucide-react":  "^1.17.0",
                          "next":  "16.2.9",
                          "pg":  "^8.21.0",
-                         "react":  "19.2.7",
-                         "react-dom":  "19.2.7",
+                         "react":  "19.1.1",
+                         "react-dom":  "19.1.1",
                          "react-markdown":  "^10.1.0",
                          "react-syntax-highlighter":  "^16.1.1",
                          "remark-gfm":  "^4.0.1",
@@ -50,5 +50,15 @@
                             "prisma":  "^6.1.0",
                             "tsx":  "^4.19.2",
                             "typescript":  "5.9.3"
-                        }
+                        },
+    "pnpm":  {
+                 "onlyBuiltDependencies":  [
+                                               "@prisma/client",
+                                               "@prisma/engines",
+                                               "esbuild",
+                                               "prisma",
+                                               "sharp",
+                                               "unrs-resolver"
+                                           ]
+             }
 }

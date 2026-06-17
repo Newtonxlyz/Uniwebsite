@@ -47,3 +47,7 @@ next-env.d.ts
 # Picturebook assets (deploy to R2 instead of Git)
 public/picturebook/
 
+
+verceltoken.txt
+.vercel-token*
+
