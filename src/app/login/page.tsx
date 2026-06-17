@@ -20,16 +20,20 @@ function LoginPageInner() {
     setError("");
     setLoading(true);
     try {
-      const result = await signIn.email({ email, password });
+      const result = await signIn.email({
+        email,
+        password,
+        callbackURL: redirect,  // Better Auth 登录成功后自动跳到这
+      });
       if (!result.error) {
-        router.push(redirect);
-        router.refresh();
+        // 保险：手动跳一次（防止 callbackURL 不生效）
+        window.location.href = redirect;
       } else {
         setError(result.error.message || "登录失败");
+        setLoading(false);
       }
     } catch (e) {
       setError((e as Error).message || "登录失败");
-    } finally {
       setLoading(false);
     }
   };
