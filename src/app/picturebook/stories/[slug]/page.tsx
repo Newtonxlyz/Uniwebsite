@@ -8,6 +8,9 @@ import TextOnlyReader from "@/components/text-only-reader";
 
 export const dynamic = "force-dynamic";
 
+// R2 CDN 基础 URL（绘本图片统一从 R2 加载）
+const R2_PUBLIC_URL = process.env.R2_PUBLIC_URL || "https://media.lvyz.org";
+
 function getReaderPages(story: {
   text?: { page: number; body: string }[];
   image_dir?: string | null;
@@ -16,7 +19,8 @@ function getReaderPages(story: {
   return story.text.map((t) => ({
     page_number: t.page,
     text: t.body,
-    image: `/picturebook/stories/${story.image_dir}/page_${String(t.page).padStart(2, "0")}.png`,
+    // 优先从 R2 加载（绘本图都搬 R2 了）；找不到则 fallback 到 public/
+    image: `${R2_PUBLIC_URL}/picturebook/${story.image_dir}/page_${String(t.page).padStart(2, "0")}.svg`,
   }));
 }
 

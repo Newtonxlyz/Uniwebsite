@@ -9,8 +9,6 @@ import {
   PenLine,
   ShoppingBag,
 } from "lucide-react";
-import { ThemeToggle } from "@/components/theme-toggle";
-
 const sites = [
   {
     href: "/crashai",
@@ -91,18 +89,6 @@ export default function HomePage() {
         <p className="mb-8 max-w-2xl text-sm text-gray-500 italic">
           "正在从传统工程向AI转型，目标百万年薪"
         </p>
-
-        <div className="flex gap-4">
-          <button className="glass-card rounded-full px-6 py-2 text-sm font-medium text-white transition-all hover:scale-105">
-            📄 下载简历
-          </button>
-          <button className="glass-card rounded-full px-6 py-2 text-sm font-medium text-gray-300 transition-all hover:scale-105">
-            📧 联系我
-          </button>
-          <div className="absolute right-6 top-6">
-            <ThemeToggle />
-          </div>
-        </div>
       </section>
 
       {/* Site Cards */}
