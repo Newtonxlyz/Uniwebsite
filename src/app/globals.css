@@ -57,8 +57,14 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
 }
 
-/* Liquid Glass Card */
-.glass-card {
+/* Light mode: 主背景色和前景色 */
+.light body {
+  background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #fef3c7 100%);
+  color: #0f172a;
+}
+
+/* Liquid Glass Card - Dark */
+.dark .glass-card {
   background: rgba(255, 255, 255, 0.08);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
@@ -68,11 +74,30 @@ body {
   transition: all 0.3s ease;
 }
 
-.glass-card:hover {
+.dark .glass-card:hover {
   background: rgba(255, 255, 255, 0.12);
   border-color: rgba(255, 255, 255, 0.25);
   transform: translateY(-2px);
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Liquid Glass Card - Light */
+.light .glass-card {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(99, 102, 241, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 8px 32px rgba(99, 102, 241, 0.08);
+  transition: all 0.3s ease;
+  color: #0f172a;
+}
+
+.light .glass-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  border-color: rgba(99, 102, 241, 0.4);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 40px rgba(99, 102, 241, 0.15);
 }
 
 .glass-card-strong {
@@ -82,11 +107,22 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
+.light .glass-card-strong {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(99, 102, 241, 0.3);
+  color: #0f172a;
+}
+
 .glass-nav {
   background: rgba(255, 255, 255, 0.06);
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.light .glass-nav {
+  background: rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(99, 102, 241, 0.2);
 }
 
 /* Gradient glow effect */

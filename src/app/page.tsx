@@ -4,15 +4,12 @@ import { useSession } from "@/lib/auth-client";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import {
-  GraduationCap,
-  Briefcase,
-  Wrench,
-  Target,
   BookOpen,
   Database,
   PenLine,
   ShoppingBag,
 } from "lucide-react";
+import { ThemeToggle } from "@/components/theme-toggle";
 
 const sites = [
   {
@@ -63,44 +60,7 @@ const sites = [
   },
 ];
 
-const profileSections = [
-  {
-    icon: <GraduationCap className="h-5 w-5 text-indigo-400" />,
-    title: "教育背景",
-    items: [
-      "西安交通大学 · 工程力学学士 + 航天工程硕士",
-      "211/985 TOP10 | 2006-2012",
-      "英语B2.2 · 德语B2.2（自学）",
-    ],
-  },
-  {
-    icon: <Briefcase className="h-5 w-5 text-emerald-400" />,
-    title: "职业经历",
-    items: [
-      "一汽-大众 · 车辆安全 · 14年专业经验",
-      "驻奥迪团队领队 | A3/A4/A6/Q2/Q3/Q5/C-BEV/ASUVe",
-      "约束系统开发 | 项目管理 | CNCAP/C-IASI专家",
-    ],
-  },
-  {
-    icon: <Wrench className="h-5 w-5 text-cyan-400" />,
-    title: "专业技能",
-    items: [
-      "ANSA | Pamcrash | EVA | Falcon | MADYMO",
-      "HTML/CSS/JS | Bootstrap | Python | Power BI",
-      "LS-DYNA | 碰撞安全仿真 | 数据分析",
-    ],
-  },
-  {
-    icon: <Target className="h-5 w-5 text-rose-400" />,
-    title: "当前目标",
-    items: [
-      "华为鸿蒙智行BU · 18-19级（AI应用工程师）",
-      "副业产品化 · 百万年薪 · 持续学习",
-      "从传统工程向AI转型，用技术创造价值",
-    ],
-  },
-];
+const profileSections = [] as const;
 
 export default function HomePage() {
   const session = useSession();
@@ -139,33 +99,9 @@ export default function HomePage() {
           <button className="glass-card rounded-full px-6 py-2 text-sm font-medium text-gray-300 transition-all hover:scale-105">
             📧 联系我
           </button>
-        </div>
-      </section>
-
-      {/* Profile Sections */}
-      <section className="mx-auto max-w-5xl px-6 pb-16">
-        <div className="grid gap-6 md:grid-cols-2">
-          {profileSections.map((section) => (
-            <div key={section.title} className="glass-card animate-fade-in p-6">
-              <div className="mb-4 flex items-center gap-3">
-                {section.icon}
-                <h3 className="text-lg font-semibold text-white">
-                  {section.title}
-                </h3>
-              </div>
-              <ul className="space-y-2">
-                {section.items.map((item, i) => (
-                  <li
-                    key={i}
-                    className="flex items-start gap-2 text-sm text-gray-400"
-                  >
-                    <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-indigo-400" />
-                    {item}
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))}
+          <div className="absolute right-6 top-6">
+            <ThemeToggle />
+          </div>
         </div>
       </section>
 
