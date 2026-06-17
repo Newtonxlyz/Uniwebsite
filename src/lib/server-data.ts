@@ -22,7 +22,10 @@ export async function getLessons() {
 }
 
 export async function getCards() {
-  return readJsonSafe<any[]>("cards.json", []);
+  // cards.json 格式: { cards: [...] }
+  const data = await readJsonSafe<{ cards?: any[] } | any[]>("cards.json", { cards: [] });
+  if (Array.isArray(data)) return data;
+  return data.cards || [];
 }
 
 export async function getLessonBySlug(slug: string) {
