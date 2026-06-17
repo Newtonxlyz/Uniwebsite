@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState, useCallback } from "react";
-import { getCards } from "@/lib/data";
 import { cn } from "@/lib/utils";
 import { RotateCcw, Settings, Flame, BarChart3, Brain } from "lucide-react";
 
@@ -42,7 +41,9 @@ export default function CardsPage() {
 
   useEffect(() => {
     const loadData = async () => {
-      const allCards = await getCards();
+      // 通过 API 拿数据，避免 client bundle 拖入 fs
+      const res = await fetch("/api/crashai/cards");
+      const allCards = res.ok ? await res.json() : [];
       setCards(allCards);
 
       const savedReviews = JSON.parse(localStorage.getItem("crashai_card_reviews") || "{}");
