@@ -1,45 +1,54 @@
 import Link from "next/link";
-import { ArrowLeft, Database } from "lucide-react";
+import { ArrowLeft, Database, ExternalLink } from "lucide-react";
 
 export const metadata = {
   title: "知识库 · Lvyz Web",
-  description: "Dify RAG · 车辆安全 · 技术文档",
+  description: "车辆安全 · 约束系统 · 碰撞分析 · C-NCAP/C-IASI 知识库",
 };
 
 export default function KnowledgeBasePage() {
   return (
-    <div className="min-h-screen bg-[#0a0a1a] pt-20 px-6 pb-16">
-      <div className="mx-auto max-w-2xl">
-        <header className="mb-10">
-          <Link
-            href="/"
-            className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mb-6"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            返回首页
-          </Link>
+    <div className="min-h-screen bg-[#0a0a1a]">
+      {/* 顶部导航条 */}
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-[#0a0a1a]/95 backdrop-blur">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
           <div className="flex items-center gap-3">
-            <Database className="h-8 w-8 text-cyan-400" />
-            <h1 className="text-3xl font-bold text-white">
+            <Database className="h-5 w-5 text-cyan-400" />
+            <h1 className="text-lg font-semibold text-white">
               <span className="text-gradient">知识库</span>
             </h1>
+            <span className="text-xs text-gray-500 hidden sm:inline">
+              车辆安全 · 约束系统 · 碰撞分析
+            </span>
           </div>
-          <p className="mt-2 text-gray-400">Dify RAG · 车辆安全 · 技术文档</p>
-        </header>
-
-        <div className="glass-card p-8 text-center">
-          <span className="text-5xl mb-4 block">📚</span>
-          <h2 className="text-xl font-semibold text-white mb-3">即将上线</h2>
-          <p className="text-gray-400 mb-6">
-            知识库正在构建中，基于 Dify RAG 提供车辆安全与技术文档的智能检索。
-          </p>
-          <div className="flex flex-wrap justify-center gap-2">
-            <span className="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-300">Dify RAG</span>
-            <span className="px-3 py-1 text-xs rounded-full bg-cyan-500/20 text-cyan-300">车辆安全</span>
-            <span className="px-3 py-1 text-xs rounded-full bg-blue-500/20 text-blue-300">技术文档</span>
+          <div className="flex items-center gap-2">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 text-xs text-gray-400 hover:text-white transition-colors"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" />
+              返回首页
+            </Link>
+            <a
+              href="/wiki/index.html"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-xs text-cyan-400 hover:text-cyan-300 transition-colors"
+            >
+              <ExternalLink className="h-3.5 w-3.5" />
+              新窗口打开
+            </a>
           </div>
         </div>
-      </div>
+      </header>
+
+      {/* iframe 嵌入 wiki 知识库 */}
+      <iframe
+        src="/wiki/index.html"
+        title="Lvyz 知识库"
+        className="w-full border-0"
+        style={{ height: "calc(100vh - 57px)" }}
+      />
     </div>
   );
 }

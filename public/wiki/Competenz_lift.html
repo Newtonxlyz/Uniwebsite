@@ -1,0 +1,2184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Topics for becoming a really good OS engineer</title>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Occupant Safety Basics" content="" />
+    <meta name="Lv Yuanzhuo" content="" />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- FontAwesome JS -->
+    <script defer src="assets/fontawesome/js/all.js"></script>
+    <!-- Global CSS -->
+    <link
+      rel="stylesheet"
+      href="assets/plugins/bootstrap/css/bootstrap.min.css"
+    />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css" />
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css" />
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body class="body-purple">
+    <div class="page-wrapper">
+      <!-- ******Header****** -->
+      <header id="header" class="header">
+        <div class="container">
+          <div class="branding">
+            <h1 class="logo">
+              <a href="#">
+                <span aria-hidden="true" class="fa fa-plane icon"></span>
+                <span class="text-highlight">Competence ！-</span
+                ><span class="text-bold"> LIFT IT UP! </span
+                ><span><i class="fa fa-arrow-up" aria-hidden="true"></i></span>
+              </a>
+            </h1>
+          </div>
+          <!--//branding-->
+
+          <div class="top-search-box">
+            <form
+              class="form-inline search-form justify-content-center"
+              action=""
+              method="get"
+            >
+              <input
+                type="text"
+                placeholder="Search..."
+                name="search"
+                class="form-control search-input"
+              />
+              <button type="submit" class="btn search-btn" value="Search">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <!--//container-->
+      </header>
+      <!--//header-->
+      <div class="doc-wrapper">
+        <div class="container">
+          <div class="header-grid">
+            <div id="doc-header" class="doc-header text-center">
+              <h1 class="doc-title">
+                <i class="fa fa-car" aria-hidden="true"></i> Competence lift up!
+              </h1>
+              <div class="meta">
+                <i class="far fa-clock"></i> Last updated: Nov 26th, 2020
+              </div>
+            </div>
+            <!--//doc-header-->
+            <!--//home button-->
+            <div class="cta-container home-cta">
+              <a class="btn btn-cta" href="index.html"
+                ><i class="fa fa-home fa-2x" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+          <!--//home button-->
+          <div class="doc-body row">
+            <div class="doc-content col-md-9 col-12 order-1">
+              <div class="content-inner">
+                <!-- //doc-section-0-overview -->
+                <section id="overview" class="doc-section">
+                  <h2 class="section-title">综述</h2>
+                  <div class="section-block">
+                    <p>
+                      本节的所有的内容旨在提升作为一名约束系统工程师，你需要进阶的能力，有些内容仍旧比较“基础”，但是请注意，这些基础的内容恰恰是我们能够开展工作，进行准确优化分析的基础和前提。<br />
+                      比如
+                      <abbr title="Time To Fire">TTF</abbr
+                      >，比如各种假人的详细结构，比如ISO通道对应的曲线，等等。
+                      <code
+                        >本章是持续更新的，我们会把涉及约束系统开发的最新信息或者最新的法规动态做总结，定期维护到本节中。</code
+                      ><br />
+                      目前本节的结构分为：假人，点火时间，KneeMapping，儿童保护，约束系统罚分项目，THOR假人初探，ISO
+                      code。
+                    </p>
+                  </div>
+                </section>
+                <!-- //doc-section-0-overview -->
+                <!--//doc-section-1-dummmy-->
+                <section id="dummy" class="doc-section">
+                  <h2 class="section-title">假人</h2>
+                  <p>
+                    在我们的基础基础知识宝库中，关于假人的部分同本部分有重合，但这里将对假人进行更为详细的介绍，其中THOR假人作为CNCAP2021最新引入的测试假人，也将单独为其开辟一章。
+                  </p>
+                  <div id="dummy-history" class="section-block">
+                    <h3 class="block-title">假人发展历史</h3>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-history.png"
+                        alt="dummy-history"
+                      />
+                      <figcaption class="text-center">假人发展历史</figcaption>
+                    </figure>
+                    <h4 class="block-title">THOR假人</h4>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\THOR-history.png"
+                        alt="THOR-history"
+                      />
+                      <figcaption class="text-center">
+                        THOR假人发展历史
+                      </figcaption>
+                    </figure>
+                    <h4 class="block-title">儿童假人</h4>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-child-history.png"
+                        alt="dummy-child-history"
+                      />
+                      <figcaption class="text-center">
+                        儿童假人发展历史
+                      </figcaption>
+                    </figure>
+                    <h4 class="block-title">Whiplash假人</h4>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-whiplash-history.png"
+                        alt="dummy-whiplash-history"
+                      />
+                      <figcaption class="text-center">
+                        Whiplash假人发展历史
+                      </figcaption>
+                    </figure>
+                    <h4 class="block-title">各国法规应用假人情况</h4>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-x-regulations.png"
+                        alt="dummy-x-regulations"
+                      />
+                      <figcaption class="text-center">
+                        各国法规应用假人情况
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div id="dummy-structure" class="section-block">
+                    <h3 class="block-title">假人组成</h3>
+                    <div class="table-responsive table-strips text-no-wrap">
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th>类别</th>
+                            <th>主要部位</th>
+                            <th>材料</th>
+                            <th>制造商</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>物理性能</td>
+                            <td>头部</td>
+                            <td>金属、聚氨酯，乙烯基</td>
+                            <td>Humanetics Kistler Cellbond Jasti</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">物理性能</td>
+                            <td>颈部</td>
+                            <td>橡胶</td>
+                            <td>Humanetics Kistler Cellbond Jasti</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">物理性能</td>
+                            <td>胸部</td>
+                            <td>金属、橡胶捏钛合金、高密度泡沫</td>
+                            <td>Humanetics Kistler Cellbond Jasti</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">物理性能</td>
+                            <td>腹部</td>
+                            <td>金属、橡胶</td>
+                            <td>Humanetics Kistler Cellbond Jasti</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">物理性能</td>
+                            <td>骨盆</td>
+                            <td>金属、橡胶、塑料</td>
+                            <td>Humanetics Kistler Cellbond Jasti</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">物理性能</td>
+                            <td>手臂</td>
+                            <td>金属、橡胶</td>
+                            <td>Humanetics Kistler Cellbond Jasti</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">物理性能</td>
+                            <td>腿部及脚部</td>
+                            <td>金属、橡胶</td>
+                            <td>Humanetics Kistler Cellbond Jasti</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">电测量</td>
+                            <td>力传感器</td>
+                            <td>电子元件</td>
+                            <td>Humanetics Kistler MG</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">电测量</td>
+                            <td>加速度传感器</td>
+                            <td>电子元件</td>
+                            <td>Meas Endevco</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">电测量</td>
+                            <td>位移传感器</td>
+                            <td>电子元件</td>
+                            <td>
+                              Humanetics Kistler Firstmark Honeywell Servo
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">电测量</td>
+                            <td>倾角、温湿度、角速度传感器</td>
+                            <td>电子元件</td>
+                            <td>IES</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">电测量</td>
+                            <td>数模转换芯片</td>
+                            <td>电子元件</td>
+                            <td>Kistler MG</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">电测量</td>
+                            <td>数据记录仪</td>
+                            <td>电子元件</td>
+                            <td>DTI Kistler; DTS</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <!-- table end -->
+                    </div>
+                    <!-- block-end -->
+                  </div>
+                  <div id="dummy-percentile" class="section-block">
+                    <h3 class="block-title">人体测量-百分位</h3>
+                    <h4 class="block-title">百分位的概念</h4>
+                    <p>
+                      国家整体百分比（例如美国成年男性）低于一个确定的特征（例如身高和体重）。
+                      假人百分位应用：5th%ile, 50th%ile, 95th%ile。
+                      例如：5th%ile女性假人,即：5%的所有女性身高和体重低于这个假人。
+                    </p>
+                    <h4 class="block-title">百分位的分布和差异</h4>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-percentile.png"
+                        alt="dummy-percentile"
+                      />
+                      <figcaption class="text-center">
+                        dummy-percentile
+                      </figcaption>
+                    </figure>
+                    <p>美国在1960s的各百分位的情况：</p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-percentile-usa-1960s.png"
+                        alt="美国在1960s的各百分位的情况"
+                      />
+                      <figcaption class="text-center">
+                        美国在1960s的各百分位的情况
+                      </figcaption>
+                    </figure>
+                    <p>
+                      各个国家因为人种的不同，其假人的分位是有差别的，但目前现行的标准，仍旧遵循国际标准。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-percentile-different-countries.png"
+                        alt="不同国家的50分位男性的情况"
+                      />
+                      <figcaption class="text-center">
+                        不同国家的50分位男性的情况
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div id="dummy-accuracy" class="section-block">
+                    <h3 class="block-title">生物仿真度</h3>
+                    <p>
+                      我们通过一定的测试手段，来评价假人能够反应真实伤害的程度。比如志愿者测试，尸体实验，动物试验等等，辅以仿真的手段，不断优化假人的结构以及传感器，来提升假人的生物仿真度。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-test-volunteer.png"
+                        alt="志愿者试验"
+                      />
+                      <figcaption class="text-center">志愿者试验</figcaption>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-test-dead.jpg"
+                        alt="尸体试验"
+                      />
+                      <figcaption class="text-center">尸体试验</figcaption>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-test-animal.jpg"
+                        alt="动物试验"
+                      />
+                      <figcaption class="text-center">动物试验</figcaption>
+                    </figure>
+                    <p>通过不断的试验以及标定，来完成提升精度的目标</p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-test-process.png"
+                        alt="试验-对标-优化流程"
+                      />
+                      <figcaption class="text-center">
+                        试验-对标-优化流程
+                      </figcaption>
+                    </figure>
+                    <p>
+                      ISO组织定义了生物仿真度的评价方式： 人体物理特征的再现质量
+                      ISO9790
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-accuracy-biofidelity-rating-iso.png"
+                        alt="ISO9790"
+                      />
+                      <figcaption class="text-center">ISO9790</figcaption>
+                    </figure>
+                  </div>
+                  <div id="dummy-injury-standard" class="section-block">
+                    <h3 class="block-title">假人损伤标准</h3>
+                    <p>
+                      损伤标准(Injury
+                      Criteria)是评价事故载荷严重性和损伤风险的重要工具。损伤标准将物理参数（如加速度、力）和身体某一部位遭受某种形式伤害（如脑震荡、骨折）的可能性联系起来。损伤标准一般是以试验数据结合经验证据得来的。可能造成人体损伤的真实人体试验是不可能进行的，因此这些标准的形成和验证需要利用外推法和长时间的逐步推断过程。
+                    </p>
+                    <code
+                      >损伤标准趋向于描述与活组织的损伤耐受限度相关的性能，而毁坏标准则与用尸体作为活人替代品进行测试相关，这两种情况都根据物理参数建立了一个极限值。如果试验或等同条件的事故中所计算得到的物理参数超过了极限值，50%以上的受测组织将产生解刨学或生理定义下的结构损伤。
+                    </code>
+                    <p>
+                      保护标准则是用拟人化测试假人作为真人代替品进行测量时设定的一个极限值，此时，人体损伤耐受限度要由经验调查得来。假设一个健康中年人受到和保护标准中规定的数值差不多的载荷时，他或她基本上不会有标准中对应的损伤。实际的损伤风险可以用风险函数来估计，风险函数建立了所开发的标准与损伤可能性之间的关系。每一个损伤标准会被定义一个耐受值，在对应的加载条件下，小于耐受值得载荷所造成的损伤风险将不会超过50%。
+                    </p>
+                    <code
+                      >损伤生物力学最关键的问题之一是评价严重性与导致损伤的载荷之间的关系，也就是寻求一项能描述一定的载荷与其所导致特定损伤的概率间的关系。很有必要在装备精良的试验室里用真人替代品来做试验以确定人体的生物力学响应和相应的损伤耐受水平，从而建立损伤风险函数。为确定损伤风险曲线，必须使用一些基本的统计方法，用得较多的是最大可能性法，累积频率分布和威布尔分布等
+                    </code>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-injury-frb-ais-calculation-table.png"
+                        alt="dummy-injury-frb-ais-calculation-table"
+                      />
+                      <figcaption class="text-center">
+                        <!-- dummy-injury-frb-ais-calculation-table -->
+                      </figcaption>
+                    </figure>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-injury-risk-curves-us.png"
+                        alt="dummy-injury-frb-ais-calculation-table"
+                      />
+                      <figcaption class="text-center">
+                        <!-- dummy-injury-frb-ais-calculation-table -->
+                      </figcaption>
+                    </figure>
+                    <h4 class="block-title">损伤定级</h4>
+                    <p>
+                      部分内容参考<a
+                        href="RHS-knowledgebase-section4.html#biotic-injury"
+                        >约束系统基础知识中AIS的内容。</a
+                      >本处举例说明伤害的定损关联。
+                    </p>
+                    <div class="table-responsive table-strips">
+                      <table class="table table-light">
+                        <thead>
+                          <tr>
+                            <th>AIS CODE</th>
+                            <th>损伤</th>
+                            <th>举例</th>
+                            <th>AIS 致死概率 %</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">1</td>
+                            <td>轻度</td>
+                            <td>表面擦伤</td>
+                            <td>0</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">2</td>
+                            <td>中度</td>
+                            <td>胸骨骨折</td>
+                            <td>1-2</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">3</td>
+                            <td>重度</td>
+                            <td>肱骨开放性骨折</td>
+                            <td>8-10</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">4</td>
+                            <td>严重</td>
+                            <td>气管穿孔</td>
+                            <td>5-50</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">5</td>
+                            <td>危重</td>
+                            <td>肝破裂伴随组织丢失</td>
+                            <td>5-50</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">6</td>
+                            <td>极重</td>
+                            <td>主动脉完全切断</td>
+                            <td>100</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <!-- table end -->
+                    <code>我们只关注AIS4以下的伤害评价！</code>
+                    <!-- 头部损伤AIS对应 -->
+                    <h4 class="block-title">AIS头部损伤分类（AAAM）</h4>
+                    <div class="table-responsive table-strips">
+                      <table class="table table-light">
+                        <thead>
+                          <tr>
+                            <th>AIS 等级</th>
+                            <th>举例</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">1</td>
+                            <td>皮肤/头皮；擦伤，浅表划伤 面：鼻骨骨折</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">2</td>
+                            <td>
+                              皮肤：大面积撕裂 颅盖骨折：单一的，未移位
+                              下颌骨骨折：开放的，移位 上颌骨骨折：LeFort I
+                              型和LeFort II型
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">3</td>
+                            <td>
+                              颅底骨折 上颌骨骨折：LeFort III型 头皮整体脱落
+                              单一的小脑损伤
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">4</td>
+                            <td>
+                              颅盖骨折：复杂的，开放并破裂 脑组织暴露或部分缺失
+                              小的硬脑膜外或者硬脑膜下血肿
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">5</td>
+                            <td>
+                              较大的穿透伤（伤口直径＞2cm） 脑干受压
+                              大的硬膜外或硬膜下血肿 弥漫性轴索损伤
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">6</td>
+                            <td>头盖骨和脑出现大面积的损坏（压溃伤）</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h4 class="block-title">AIS颈部损伤分类（AAAM2005）</h4>
+                    <div class="table-responsive table-strips">
+                      <table class="table table-light">
+                        <thead>
+                          <tr>
+                            <th>AIS 等级</th>
+                            <th>举例</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">1</td>
+                            <td>皮肤与肌肉：擦伤、挫伤（血肿）、微小撕裂伤</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">2</td>
+                            <td>
+                              脊椎动脉：微小撕裂伤 颈椎与胸椎：非骨折性错位
+                              胸椎与腰椎：椎间盘突出
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">3</td>
+                            <td>
+                              颈椎动脉：大的撕裂伤 颈椎与胸椎：多重神经根撕裂伤
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">4</td>
+                            <td>颈椎与胸椎：脊髓不完全挫伤</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">5</td>
+                            <td>颈椎与胸椎：非骨折脊椎撕裂伤</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">6</td>
+                            <td>
+                              断头、颈椎：脊椎撕裂在C3或者更高的位置，并伴随骨折
+                            </td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h4 class="block-title">AIS胸部损伤分类（AAAM2005）</h4>
+                    <div class="table-responsive table-strips">
+                      <table class="table table-light">
+                        <thead>
+                          <tr>
+                            <th>AIS 等级</th>
+                            <th>骨骼损伤举例</th>
+                            <th>软组织损伤举例</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">1</td>
+                            <td>1根肋骨骨折</td>
+                            <td>支气管挫伤</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">2</td>
+                            <td>2-3根肋骨骨折</td>
+                            <td>支气管局部撕裂</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">3</td>
+                            <td>
+                              一侧肋骨4根或更多根骨折；2—3根肋骨骨折，并有血胸和气胸
+                            </td>
+                            <td>肺挫伤；轻微的心脏挫伤</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">4</td>
+                            <td>
+                              连枷胸：两侧肋骨各有4根或更多根骨折；一侧有4根或更多根肋骨骨折，并有血胸或气胸
+                            </td>
+                            <td>
+                              双侧肺部破裂；轻微的大动脉破裂；严重的心脏挫伤
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">5</td>
+                            <td>双侧连枷胸</td>
+                            <td>严重的大动脉破裂；肺部破裂，并有张力性气胸</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">6</td>
+                            <td></td>
+                            <td>动脉破裂并伴随大出血且胸腔纵膈</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h4 class="block-title">AIS腹部损伤分类（AAAM2005）</h4>
+                    <div class="table-responsive table-strips">
+                      <table class="table table-light">
+                        <thead>
+                          <tr>
+                            <th>AIS 等级</th>
+                            <th>举例</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">1</td>
+                            <td>皮肤，肌肉；擦伤（血肿）</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">2</td>
+                            <td>脾或者肝挫伤（创伤面积小于）</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">3</td>
+                            <td>肾大面积挫伤；脾：破裂</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">4</td>
+                            <td>腹部大动脉：小的裂口；肾或肝：破裂</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">5</td>
+                            <td>肾：器官及其动脉系统全部损伤</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">6</td>
+                            <td>肝脏撕裂（所有附着血管分离）</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h4 class="block-title">AIS下肢损伤分类（AAAM2005）</h4>
+                    <div class="table-responsive table-strips">
+                      <table class="table table-light">
+                        <thead>
+                          <tr>
+                            <th>AIS 等级</th>
+                            <th>举例</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">1</td>
+                            <td>脚踝、髋部；扭伤，挫伤</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">2</td>
+                            <td>
+                              髌骨、胫骨、腓骨、根骨、跖骨：骨折；
+                              骨盆；骨折（封闭的，未错位）； 脚趾：截断，压碎；
+                              髋部、膝盖：脱臼；
+                              肌肉、腱；破损（断裂、撕裂、撕脱）
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">3</td>
+                            <td>
+                              股骨：骨折 骨盆：骨折（开放的，错位的）
+                              膝盖以下截肢
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">4</td>
+                            <td>骨盆：“翻书型”骨折</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">5</td>
+                            <td>
+                              骨盆：明显的变形，伴随着血管破裂并失血20%以上
+                            </td>
+                          </tr>
+                          <tr>
+                            <td scope="row">6</td>
+                            <td>/</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                  <div id="dummy-technical-stability" class="section-block">
+                    <h3 class="block-title">假人的技术指标</h3>
+                    <ul>
+                      <li>
+                        可重复性<code
+                          >用相同的假人重复试验应该得到相同的结果
+                        </code>
+                      </li>
+                      <li>
+                        再现性<code
+                          >用另一个假人（同一类型）重复试验应该得到相似的结果
+                        </code>
+                      </li>
+                      <li>耐久性</li>
+                      <li>灵敏度</li>
+                      <li>校准方便程度</li>
+                      <li>可修复性</li>
+                    </ul>
+                    <p>这里举例来说明可重复性以及再现性</p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-accuracy-repeatability-standard.png"
+                        alt="SID II 评价标准"
+                      />
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\dummy-accuracy-repeatability-score-table.png"
+                        alt="SID II 各部位评价得分"
+                      />
+                      <figcaption class="text-center">
+                        可重复性以及可再现性的评价，其中CV：变异系数=标准差/平均值
+                        目标＜7%
+                      </figcaption>
+                    </figure>
+                    <p>
+                      对于灵敏度来说，即假人不应对环境温度以及湿度变化做出较大差别的反应，下面的表格列出了目前的假人对环境的一些要求：
+                    </p>
+                    <div class="table-responsive table-strips">
+                      <table class="table table-light">
+                        <thead>
+                          <tr>
+                            <th>Lastfall</th>
+                            <th>Temperature</th>
+                            <th>Humidity</th>
+                            <th>Keeping Hours</th>
+                            <th>Time Interval Datalog</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">TWG OoP Seite</td>
+                            <td>20.6 – 22.2°C</td>
+                            <td>10 - 70 %</td>
+                            <td>4h</td>
+                            <td>--</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">EuroNCAP Frontcrash</td>
+                            <td>19.0 - 22.0°C</td>
+                            <td>--</td>
+                            <td>5h</td>
+                            <td><=10 Minuten</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">EuroNCAP Seitencrash</td>
+                            <td>20.6 - 22.2°C</td>
+                            <td>--</td>
+                            <td>5h</td>
+                            <td><=10 Minuten</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">EuroNCAP Kindersicherheit</td>
+                            <td>18.0 - 22.0°C</td>
+                            <td>--</td>
+                            <td>5h</td>
+                            <td>--</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">EuroNCAP Whiplash</td>
+                            <td>19.5 - 25.5°C</td>
+                            <td>10 - 70 %</td>
+                            <td>3h</td>
+                            <td>--</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">US-NCAP Frontcrash</td>
+                            <td>20.6 – 22.2°C</td>
+                            <td>--</td>
+                            <td>4h</td>
+                            <td>--</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">US-NCAP Seitencrash</td>
+                            <td>20.6 – 22.2°C</td>
+                            <td>--</td>
+                            <td>4h</td>
+                            <td>--</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">IIHS Frontcrash & SOL</td>
+                            <td>20.0 - 22.2°C</td>
+                            <td>10 - 70 %</td>
+                            <td>16h</td>
+                            <td>--</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">IIHS Seitencrash</td>
+                            <td>20.0 - 22.2°C</td>
+                            <td>10 - 70 %</td>
+                            <td>16h</td>
+                            <td>--</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">C-NCAP Frontcrash</td>
+                            <td>20.0 - 22.0°C</td>
+                            <td>10 - 70 %</td>
+                            <td>5h</td>
+                            <td>--</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">C-NCAP Seitencrash</td>
+                            <td>20.6 -22.2°C</td>
+                            <td>10 - 70 %</td>
+                            <td>5h</td>
+                            <td>--</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">
+                              Pfahl 2.&3. SR Seitencrash (AUDI intern)
+                            </td>
+                            <td>20.6 - 22.2°C</td>
+                            <td>--</td>
+                            <td>--</td>
+                            <td>--</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                  </div>
+                </section>
+                <!--//doc-section-1-dummy-->
+                <!--//doc-section-ISO--->
+                <section id="ISO" class="doc-section">
+                  <h2 class="section-title">假人的 ISO CODE</h2>
+                  <p>
+                    这是一个简短的假人通道展示文件，当你对假人甚至车辆的传感器通道命名或者布置有迷惑或者疑问时，请参照
+                  </p>
+                  <div class="cta-container d-inline-block">
+                    <a
+                      class="btn btn-primary btn-cta"
+                      href="assets\files\传感器通道位置_RED_C_Figures_162p2.pdf"
+                      target="_blank"
+                      ><i class="fa fa-book" aria-hidden="true"></i>
+                      此PDF文件。</a
+                    >
+                  </div>
+                  <p>
+                    这里面包含了几乎所有的假人通道的图示以及车身传感器布置的图示。
+                  </p>
+                  <p>有关于传感器通道各个字母的定义或者含义，请</p>
+                  <div class="cta-container d-inline-block">
+                    <a
+                      class="btn btn-primary btn-cta"
+                      href="assets\files\传感器通道命名含义_RED_B_Codes_162p2.pdf"
+                      target="_blank"
+                      ><i class="fa fa-book" aria-hidden="true"></i>
+                      参照此PDF文件。</a
+                    >
+                  </div>
+                </section>
+                <!--//doc-section-ISO-->
+                <!-- //doc-section-OLC and TTF -->
+                <section id="OLC-TTF" class="doc-section">
+                  <h2 class="section-title">OLC</h2>
+                  <p>
+                    OLC 全称是Occupant Load
+                    Criterion，旨在项目开发早期，约束系统定义尚未完善的情况下，独立于约束系统强相关的参数，通过一定的手段来评价结构可能对之后约束系统乘员伤害大小的风险。<br />
+                    因为它不依赖于约束系统的参数或者零部件，给结构设计带来的便利，我们不需要等到结构的内外饰基本定义完毕再开展约束系统的匹配和分析工作，这样往往太晚，造成项目拖期的情形。
+                  </p>
+                  <p>
+                    独立于约束系统，就说明OLC一定是同车身结构强相关，怎么样简历OLC同车身结构的关系，使得其计算值有更精确的评价能力和参考意义，是早期约束系统风险评估的关键。
+                  </p>
+                  <p>
+                    在早期车辆安全开发的时候，OLC还没有诞生，设计人员通过“中位延迟”的物理量来进行评价，其数学意义在于寻找初始速度到速度为零（未反弹阶段）的平均值，来作为参考。<br />这样的缺点在于它忽略了车身运动过程中对约束系统有重要影响的参数。比如在速度变化过程中的车身结构功能的变化（即没有考虑到速度发生变化时，车辆结构和人之间的关系，比如相对距离），反弹的速度，乘员空间以及假人由于惯性带来的前倾量。
+                  </p>
+                  <p>
+                    基于这样的评价方式带来的缺点，OLC诞生了，它尽可能的考虑到车身在运动过程中同约束系统以及假人之间互动的关系。同时能够尽量减少计算或者试验的成本，以相对经济的方式得出相对可靠的评价指标。
+                  </p>
+                  <div id="OLC" class="section-block">
+                    <h3 class="block-title">OLC定义</h3>
+
+                    <p>
+                      因为OLC值本身的属性（同具体的约束系统不强相关），所以OLC假设在结构设计早期，发生碰撞时，约束系统的延迟速度是线性变化的，来抵消惯性作用下的假人运动。
+                    </p>
+                    <p>这样的理想的约束系统同车身结构的协同作用如下图：</p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\OLC-define.png"
+                        alt="OLC定义"
+                      />
+                      <figcaption class="text-center">OLC定义</figcaption>
+                    </figure>
+                    <code
+                      >请注意，这里用来评价的假人是HIII50分位假人，座椅位置的设定也是根据50分位假人的位置来确定的。一般来说，假人胸部到方向盘的距离是300mm，所以图中我们看到，当假人的运动速度和车身的运动速度重合时，假人应该相对车身运动了300mm。<br />在假人初始运动的65mm过程中，因为安全带松弛量以及气囊展开需要的时间差等原因，假人是不受任何约束的。在65mm之后，安全带以及气囊开始真正的起作用，假人收到约束，其理想的约束状态应该是线性递减的，直至同车身速度一致。这种一致，有的时候已经在车身回弹的时刻。也就是说，OLC考虑了车身反弹的因素。这是之前简单的取中位值来评价车身安全所没有考虑到的因素之一。</code
+                    >
+                    <p>
+                      下图所示，解释了一般情况下假人相对车身运动的一般情况：
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\OLC-displacement-car-dummy.png"
+                        alt="假人相对车身的运动情况"
+                      />
+                      <figcaption class="text-center">
+                        假人相对车身的运动情况
+                      </figcaption>
+                    </figure>
+                    <div id="TTF" class="section-block">
+                      <h3 class="block-title">TTF定义</h3>
+                      <p>针对TTF的计算方法以及定义，请参照</p>
+                      <div class="cta-container d-inline-block">
+                        <a
+                          class="btn btn-primary btn-cta"
+                          href="RHS-knowledgebase-section4.html#DAB-TTF"
+                          target="_blank"
+                          ><i class="fa fa-book" aria-hidden="true"></i>
+                          TTF定义章节</a
+                        >
+                      </div>
+                      <p>这里面包含了基础的TTF计算方法及相关解释。</p>
+                    </div>
+                  </div>
+                  <h2 class="section-title"></h2>
+                </section>
+                <!-- //doc-section-OLC and TTF -->
+                <!-- //doc-section-childseat -->
+                <section id="childProtection" class="doc-section">
+                  <h2 class="section-title">儿童保护</h2>
+                  <p>儿童座椅章节将分为六小节来进行阐述，分别为：</p>
+                  <ol>
+                    <li>车辆儿童保护简介</li>
+                    <li>儿童座椅结构及原理</li>
+                    <li>儿童约束系统(ECE R44/GB 27887-2011)</li>
+                    <li>ISOFIX固定点系统(ECE R14/GB 14167-2013)</li>
+                    <li>ISOFIX在车辆上的安装要求(ECE R16/GB 14166-2013)</li>
+                    <li>CNCAP对儿童约束系统的规定</li>
+                  </ol>
+                  <div id="childProtection-intro" class="section-block">
+                    <h3 class="block-title">简介</h3>
+                    <p>对于乘坐车辆的儿童，我们经常有这样的保护误区：</p>
+                    <ol>
+                      <li>
+                        <p class="text-danger">
+                          最保险的保护措施是抱着孩子坐在后排:
+                        </p>
+                        <p>
+                          测试表示：车速在只有10km/h行驶时发生碰撞，儿童的冲击力就足以达到自身重量的10倍。试验数据
+                          还显示，当汽车以40km/h速度行驶时突然紧急制动，重达5.5公斤的婴儿产生的冲击力相当于110公
+                          斤， <span class="text-danger"> 你能抱得住吗？</span>
+                        </p>
+                      </li>
+                      <li>
+                        <p class="text-danger">让孩子自由坐在后排:</p>
+                        <p>汽车遇到正面碰撞时，孩子几乎没有生还的可能。</p>
+                      </li>
+                      <li>
+                        <p class="text-danger">
+                          让孩子独自坐在后排并系好安全带:
+                        </p>
+                        <p>
+                          安全带都是专为成年人设计的，不完全适合儿童体型。孩子使用成人安全带若系得太紧，在发生交
+                          通意外时就可能造成<span class="text-danger"
+                            >孩子的腰部被挤伤或脖子、脸颊被压伤。</span
+                          >如果系得太松，发生车辆碰撞，儿童
+                          又可能会从安全带和座椅之间的空当飞出去。
+                        </p>
+                      </li>
+                    </ol>
+                    <p class="text-success font-weight-bold">
+                      目前最有效的保护方式是使用儿童安全座椅，能降低婴儿死亡率达70%，降低4-7岁儿童死亡率达
+                      59%
+                      ，在撞车事故中，系安全带的成人比坐在儿童座椅中的儿童更易受到伤害，在汽车里坐在安
+                      全座椅上的儿童是最为安全的乘员
+                    </p>
+                    <p>
+                      目前世界上已经有部分国家强制要求使用儿童汽车安全座椅：
+                    </p>
+                    <table class="table table-dark">
+                      <tbody>
+                        <tr>
+                          <td class="text-nowrap">美国</td>
+                          <td>
+                            儿童乘车时必须使用儿童安全座椅；而如果汽车前座安装有双安全气囊，则必须把儿童
+                            安全座椅安装在后座上。违例者会被罚款100美元～300美元。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-nowrap">瑞典</td>
+                          <td>
+                            早在1982年就开始制定法规，要求7岁以下儿童乘车时，车上应备有保护儿童安全的装
+                            置。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-nowrap">加拿大</td>
+                          <td>
+                            在1985年就正式立法，规定儿童乘车必须使用儿童安全座椅。
+                          </td>
+                        </tr>
+                        <tr>
+                          <td class="text-nowrap">澳大利亚</td>
+                          <td>
+                            体重在18千克以下的儿童，乘车时必须坐在儿童安全座椅上；较重的儿童，则需扣上安
+                            全带。如果汽车前座安装有双安全气囊，切勿将儿童放在前排座位，
+                            违例者会被罚款。
+                          </td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="block-title">儿童乘车安全法国及标准</h4>
+                    <p>
+                      目前世界上有关儿童乘车安全方面的标准主要有欧洲ECE
+                      R44标准、美国FMVSS 213标准、加拿 大 CMVSS213标准、日本
+                      JIS标准、澳洲 AS1754标准等，其中欧洲ECE
+                      R44标准由于全面且严 格，被许多国家普遍借鉴和采用。<br />中国国家标准：《GB27887
+                      /
+                      2011-机动车儿童乘员用约束系统》。该标准属于国家强制性标准，该标准相当大一部分为引用欧洲ECE
+                      R44标准。
+                    </p>
+                  </div>
+                  <div id="childProtection-structure" class="section-block">
+                    <h3 class="block-title">五点式儿童座椅结构</h3>
+                    <div class="section-block" id="childProtection-5pseat">
+                      <h4 class="block-title">基本结构</h4>
+                      <div class="container row">
+                        <figure class="figure col-6-lg col-sm">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-5p-seat-1.png"
+                            alt="五点式儿童座椅图示1"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            五点式儿童座椅图示1
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-6-lg col-sm">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-5p-seat-2.png"
+                            alt="五点式儿童座椅图示2"
+                          />
+                          <figcaption class="figure-caption">
+                            五点式儿童座椅图示2
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <p>五点式儿童座椅有以下优点：</p>
+                      <ul>
+                        <li>
+                          五点式安全带能从五个不同方向同时消散撞击产生的力量，将外力从孩子身上转移
+                        </li>
+                        <li>
+                          五点式安全带消散力量的过程能最大限度地减少力量的积聚，从而避免更大的伤害。
+                        </li>
+                        <li>
+                          高性能肩垫能有效地吸收巨大的冲击力，同时其防滑特性能降低宝宝向前及头部的位移，避免头部受伤。
+                        </li>
+                        <li>
+                          五点式安全带可根据宝宝的体型大小不断调整，从而更贴合、全面地保护宝宝。
+                        </li>
+                        <li>
+                          在最安全的状态下保证宝宝足够的活动空间，同时宝宝无法自己打开卡扣，让父母更安心。
+                        </li>
+                      </ul>
+                      <h4 class="block-title">调节原理</h4>
+                      <figure class="figure">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-5p-seat-adjustment.png"
+                          alt="儿童座椅肩带调节原理"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          儿童座椅肩带调节原理
+                        </figcaption>
+                      </figure>
+                      <h4 class="block-title">ISOFIX连接装置调节原理</h4>
+                      <figure class="figure">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-5p-ISOFIX-adjustment.png"
+                          alt="ISOFIX调节原理"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          ISOFIX调节原理
+                        </figcaption>
+                      </figure>
+                      <h4 class="block-title">头枕连接装置调节原理</h4>
+                      <figure class="figure">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-5p-headrest-adjustment.png"
+                          alt="头枕调节原理"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          头枕调节原理
+                        </figcaption>
+                      </figure>
+                      <h4 class="block-title">靠背装置调节原理</h4>
+                      <figure class="figure">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-5p-backrest-adjustment.png"
+                          alt="背装置调节原理"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          背装置调节原理
+                        </figcaption>
+                      </figure>
+                      <h4 class="block-title">儿童座椅分类</h4>
+                      <figure class="figure">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-seat-forms.png"
+                          alt="儿童座椅分类"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          儿童座椅分类
+                        </figcaption>
+                      </figure>
+                      <h4 class="block-title">儿童座椅固定方式</h4>
+                      <!-- start container -->
+                      <div class="container row">
+                        <figure class="figure col-lg-4 col-md col-sm">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-5p-montage-belt.png"
+                            alt="三点式安全带固定"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            三点式安全带固定<br />
+                            这种儿童安全座椅固定方式是使用汽车
+                            上的成人用安全带，在国内销售的很多
+                            儿童安全座椅都是只支持此种安装方式。
+                            但由于用成人安全带绑定比较复杂，导
+                            致安装不规范，误装的儿童座椅是极不 安全的。
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-4 col-md col-sm">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-5p-montage-ISO.png"
+                            alt="ISOFIX固定方式"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            ISOFIX固定方式 <br />（International Standards
+                            Organization
+                            FIX）儿童安全座椅固定系统，是欧洲从1990年开始实施的针对儿童座椅接口
+                            的标准。目前在欧洲地区销售的车型上都会将
+                            此接口作为标准配置，该配置的特点就是有两
+                            个与儿童座椅进行硬连接的固定接口。
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-4 col-md col-sm">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-5p-montage-LATCH.png"
+                            alt="LATCH固定方式"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            LATCH固定方式 <br />
+                            LATCH（Lower Anchors And Tethers for
+                            Children）儿童使用的下扣件和扣带，从2002年9月1日起，美国便规定
+                            几乎所有种类的轿车必须提供LATCH系统的
+                            儿童座椅固定方式。它与欧洲标准ISOFIX固
+                            定方式最大的区别是连接方式并不是硬连接
+                            而是挂钩式连接，并且固定点比ISOFIX多一
+                            个，共三个。两个标准的固定方式有共同
+                            性，ISOFIX是兼容于LATCH的，但只有ISO
+                            FIX接口就不能使用LATCH接口的儿童座椅
+                            （因其缺少一个固定点）
+                          </figcaption>
+                        </figure>
+                      </div>
+                      <!-- end container -->
+                    </div>
+                    <!-- end child seat structure -->
+                  </div>
+                  <!-- start child RHS -->
+                  <div id="childProtection-System" class="section-block">
+                    <h3 class="block-title">儿童约束系统</h3>
+                    <p>
+                      根据ECE-R44的描述，儿童约束系统是指：<code
+                        >是指带有保护锁扣的织带或相应柔软的部件、调整装置、附加装置、以及在某些功能的
+                        辅助装置，（例如手提式婴儿床（便携睡床）、婴儿携带装置、辅助座椅和/或碰撞防护），且能将其稳
+                        固放置在机动车上的装置。其设计是通过限制佩带者身体的移动来减轻在车辆碰撞事故或突然减速情况
+                        下对佩带人员的伤害</code
+                      >
+                    </p>
+                    <p>儿童约束系统按使用儿童的重量分为五个“质量组”:</p>
+                    <table class="table table-light">
+                      <thead class="thead-light">
+                        <tr>
+                          <th>组别</th>
+                          <th>儿童体重</th>
+                          <th>大致年龄</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>0</td>
+                          <td><10KG</td>
+                          <td>0-15month</td>
+                        </tr>
+                        <tr>
+                          <td>0+</td>
+                          <td><13KG</td>
+                          <td>0-15month</td>
+                        </tr>
+                        <tr>
+                          <td>I</td>
+                          <td>9-18KG</td>
+                          <td>9month-4year</td>
+                        </tr>
+                        <tr>
+                          <td>II</td>
+                          <td>15-25KG</td>
+                          <td>3-7year</td>
+                        </tr>
+                        <tr>
+                          <td>III</td>
+                          <td>22-36KG</td>
+                          <td>6-12year</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p>分为7种尺寸类别</p>
+                    <ul>
+                      <li>A-ISO/F3：全高度的前向初学走路儿童用CRS</li>
+                      <li>B-ISO/F2：降低高度的前向初学走路儿童用CRS</li>
+                      <li>B1-ISO/F2X：降低高度的前向初学走路儿童用CRS</li>
+                      <li>D-ISO/R2：缩小尺寸的后向初学走路儿童用CRS</li>
+                      <li>
+                        E-ISO/R1：后向婴儿用CRS F-ISO/L1：左侧向CRS（便携床）
+                      </li>
+                      <li>G-ISO/L2：右侧向CRS（便携床）</li>
+                    </ul>
+                    <p>儿童约束系统按在车辆上放置的位置，分为四种类型:</p>
+                    <table class="table table-light">
+                      <tbody>
+                        <tr>
+                          <td>通用类</td>
+                          <td>可用于所有座椅位置所装配的安全带</td>
+                        </tr>
+                        <tr>
+                          <td>特殊车辆类</td>
+                          <td>
+                            用于专用类型车辆或作为一个“嵌入到座椅上的”儿童约束系统
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>半通用类</td>
+                          <td>
+                            只能与协配的安全带和由儿童约束系统制造商按照所装配车的要求设
+                            计的附加卡扣配合使用
+                          </td>
+                        </tr>
+                        <tr>
+                          <td>限定用途类</td>
+                          <td>用于特殊车型的指定座椅位置</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <h4 class="block-title">儿童约束系统的要求</h4>
+                    <p>
+                      儿童约束系统有几项一般性要求，所有的儿童座椅都需要满足：
+                    </p>
+                    <ol>
+                      <li>
+                        0组和0+组儿童约束系统不得前向安装<code>
+                          *
+                          因婴幼儿颈部还未完全发育好，还不足以支撑相对较重的头部重量，1岁以内、13公斤以下婴幼儿必须乘坐后向儿
+                          童座椅，并确保安全座椅靠背与垂直方向的夹角大于45°，后向儿童座椅比正向儿童座椅能提供更多的对婴幼儿
+                          头、 颈、脊椎的保护</code
+                        >
+                      </li>
+                      <li>
+                        0组和0+组儿童约束系统应为整体式儿童约束系统，便携床除外
+                      </li>
+                      <li>
+                        任何结构儿童约束系统都应有一个在任何位置都能够永久清晰可见的警告标签
+                      </li>
+                      <li>
+                        后向儿童约束系统，在儿童约束系统头部所在区域，应在其内侧可视面（头部两侧），粘贴永久性标签。
+                        <figure class="figure">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-warning-tag.png"
+                            alt="警告标签样式"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            警告标签样式
+                          </figcaption>
+                        </figure>
+                      </li>
+                    </ol>
+                    <h5 class="block-title">材料要求</h5>
+                    <ul>
+                      <li>
+                        所用材料的毒性及儿童易受影响程度与GB6675《国家玩具安全规范》相一致
+                      </li>
+                      <li>气味要求 B3<3.5</li>
+                      <li>甲醛含量不能超标</li>
+                      <li>
+                        所用材料的阻燃性符合《GB
+                        8410-汽车内饰材料的燃烧特性》的规定 / TL1010
+                        燃烧速度不大于100mm/min
+                      </li>
+                      <li>
+                        <code
+                          >材料的吸能性-头枕、靠背、侧翼头部最大加速度小于60g</code
+                        >
+                      </li>
+                    </ul>
+                    <h5 class="block-title">金属部件耐腐蚀性能</h5>
+                    <p>
+                      试验方法：
+                      50h±0.5h，盐雾试验后，用清水清洗或浸在38°C洁净的流水中除去形成的盐渍并在18°C-25°C
+                      环境中干燥24h±1h。<br />
+                      试验要求：
+                      不能有削弱儿童约束系统原有特性的迹象，无明显的腐蚀现象。例如：不能有红锈，锌腐蚀的面
+                      积不能超过总面积的5%。
+                    </p>
+                    <h5 class="block-title">抗翻转性能</h5>
+                    <p>
+                      试验方法：
+                      将儿童假人放置在约束系统内，约束系统固定在试验座椅或车辆
+                      座椅内，整个座椅绕座椅纵向中心平面内的水平轴线，以2°/s—5°/s
+                      翻转360°。之后反方向旋转一周。
+                      绕与上两个试验中旋转轴垂直的轴重复进行两个方向的翻转试验。
+                      * 儿童假人采用该约束系统所属组别中最大和最小的两个。<br />
+                      试验要求： <br />儿童假人不应从装置中掉出。
+                      假人的头部从原始位置产生的位移不大于300mm。
+                    </p>
+                    <h5 class="block-title">动态试验要求</h5>
+                    <table class="table table-dark">
+                      <thead class="thead-light">
+                        <tr>
+                          <th class="text-nowrap">试验</th>
+                          <th class="text-nowrap">儿童约束系统</th>
+                          <th colspan="3" class="text-center">正面碰撞</th>
+                          <th colspan="3" class="text-center">后面碰撞</th>
+                        </tr>
+                        <tr>
+                          <th></th>
+                          <th></th>
+                          <th>speed km/h</th>
+                          <th>试验脉冲</th>
+                          <th>试验期间停止距离mm</th>
+                          <th>speed km/h</th>
+                          <th>试验脉冲</th>
+                          <th>试验期间停止距离mm</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td rowspan="2" class="align-middle">
+                            仅带试验座椅的滑车
+                          </td>
+                          <td>
+                            前向的前排座椅及后排座 椅上的通用类、半通用类
+                            和受限制类约束系统
+                          </td>
+                          <td>50(+0/-2)</td>
+                          <td>1</td>
+                          <td>650±50</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>
+                            后向的前排座椅及后排座 椅上的通用类、半通用类
+                            和受限制类约束系统
+                          </td>
+                          <td>50(+0/-2)</td>
+                          <td>1</td>
+                          <td>650±50</td>
+                          <td>30(+0/-2)</td>
+                          <td>2</td>
+                          <td>275±50</td>
+                        </tr>
+                        <tr>
+                          <td rowspan="2" class="align-middle">
+                            刚性车身系统滑车
+                          </td>
+                          <td>前向</td>
+                          <td>50(+0/-2)</td>
+                          <td>1/3</td>
+                          <td>650±50</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>后向</td>
+                          <td>50(+0/-2)</td>
+                          <td>1/3</td>
+                          <td>650±50</td>
+                          <td>30(+0/-2)</td>
+                          <td>2/4</td>
+                          <td>275±50</td>
+                        </tr>
+                        <tr>
+                          <td rowspan="2" class="align-middle">整车试验</td>
+                          <td>前向</td>
+                          <td>50(+0/-2)</td>
+                          <td>3</td>
+                          <td>不做规定</td>
+                          <td>-</td>
+                          <td>-</td>
+                          <td>-</td>
+                        </tr>
+                        <tr>
+                          <td>后向</td>
+                          <td>50(+0/-2)</td>
+                          <td>3</td>
+                          <td>不做规定</td>
+                          <td>30(+0/-2)</td>
+                          <td>4</td>
+                          <td>不做规定</td>
+                        </tr>
+                      </tbody>
+                    </table>
+                    <p class="text-sm">
+                      所有0组和0+组的儿童约束系统都将按照正面碰撞和后面碰撞中的“后向”条件进行<br />
+                      第3试验脉冲—经受正面碰撞的车辆减速度脉冲。<br />
+                      第4试验脉冲—经受后面碰撞的车辆减速度脉冲。 <br />
+                      *如果试验以更高的碰撞速度进行，并且车辆满足要求，那么试验也是合格的。
+                    </p>
+                    <div class="container row">
+                      <figure class="figure col-lg-6 col-md-auto">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-sled-input-frb.png"
+                          alt="正碰试验滑车波形"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          正碰试验滑车波形
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-lg-6 col-md-auto">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-sled-input-hrb.png"
+                          alt="后碰试验滑车波形"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          后碰试验滑车波形
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <!-- end container -->
+                    <h6 class="block-title">试验要求：</h6>
+                    <p>对于儿童约束装置</p>
+                    <ul>
+                      <li>
+                        约束系统的任何部件不得断裂，带扣、锁止装置或位移系统不应有脱扣现象
+                      </li>
+                      <li>
+                        若儿童约束系统被成人安全带固定，则成人安全带不应从导向件或锁止装置中脱离
+                      </li>
+                      <li>动态试验后带扣开启力不大于80N</li>
+                    </ul>
+                    <p>对于假人伤害：</p>
+                    <ul>
+                      <li>
+                        胸部加速度
+                        <ul>
+                          <li>胸部合成加速度超过55g的累计时间不超过3ms。</li>
+                          <li>
+                            沿腹部朝向头部垂直加速度超过30g的累计时间不超过3ms。
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        腹部侵入量:约束装置的任何部位不得有侵入假人腹部的黏土迹象
+                      </li>
+                      <li>
+                        假人位移-前向：假人头部不应超过BA平面和DA平面
+                        判断时间：以300ms或假人最终停止运动的时刻二者中最先发生的时刻为准。
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-sled-frontfacing-displacement.png"
+                            alt="前向儿童约束系统"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            前向儿童约束系统<br />
+                            注：1.当使用增高垫及10岁大的假人试验时，Cr线到DA平面距离为840mm<br />
+                            2.对A类、B类的儿童约束系统， Cr线到BA平面距离为500mm
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        假人位移-后向：由仪表板支撑的后向儿童约束系统<br />假人头部不应超过AB平面、AD和DCr平面
+                        判断时间：以300ms或假人最终停止
+                        运动的时刻二者中最先发生的时刻为准。
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-sled-rearfacing-withIT-displacement.png"
+                            alt="仪表板支撑的后向儿童约束系统"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            仪表板支撑的后向儿童约束系统
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        假人位移-后向：无仪表板支撑的后向儿童约束系统（0组）<br />假人头部不应超过AB平面、AD和DE平面
+                        判断时间：以300ms或假人最终停止
+                        运动的时刻二者中最先发生的时刻为准。
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-sled-rearfacing-withoutIT-displacement.png"
+                            alt="非仪表板支撑的后向0组儿童约束系统和便携床"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            非仪表板支撑的后向0组儿童约束系统和便携床
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        假人位移-后向：无仪表板支撑的后向儿童约束系统（非0组）<br />假人头部不应超过FG平面、FD和DE平面
+                        判断时间：以300ms或假人最终停止。
+                        运动的时刻二者中最先发生的时刻为准。
+                        <ul>
+                          <li>
+                            当在整车或车身上进行动态试验时，假人头部
+                            不应与车内任何部分接触，如果不可避免,儿童假人头部碰撞的速度应小于24km/h，且接触的部分应符合GB11552中有关能量吸收试验的要求。
+                          </li>
+                          <li>
+                            在整车上进行的试验，应能够在试验后不使用任何工具，就可把假人从约束系统中取出。
+                          </li>
+                          <li>在整车上进行试验后，带扣的开启力应小于80N。</li>
+                        </ul>
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-sled-rearfacing-withoutIT-non0group-displacement.png"
+                            alt="非仪表板支撑的后向非0组儿童约束系统"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            非仪表板支撑的后向非0组儿童约束系统
+                          </figcaption>
+                        </figure>
+                      </li>
+                    </ul>
+                    <p>对于零部件：</p>
+                    <ul>
+                      <li>
+                        带扣：
+                        <ul>
+                          <li>
+                            带扣按钮因该为红色，其他部分则不能为红色。
+                            <figure class="figure col-md-auto">
+                              <img
+                                class="figure-img img-fluid rounded"
+                                src="assets\images\childProtection-seat-buckle-requirments.jpg"
+                                alt="带扣颜色要求"
+                              />
+                              <figcaption class="figure-caption text-center">
+                                带扣颜色要求
+                              </figcaption>
+                            </figure>
+                          </li>
+                          <li>
+                            带扣温度试验:不得有削弱儿童约束系统原有特性的迹象
+                            <figure class="figure col-md-auto">
+                              <img
+                                class="figure-img img-fluid rounded"
+                                src="assets\images\childProtection-seat-buckle-temperature-requirments.jpg"
+                                alt="带扣温度要求"
+                              />
+                              <figcaption class="figure-caption text-center">
+                                带扣温度要求
+                              </figcaption>
+                            </figure>
+                          </li>
+                          <li>带扣耐久试:5000±5次开闭循环</li>
+                          <li>
+                            带扣强度试验:0组、0+组:断裂载荷≥4KN;I组、II组、III组:断裂载荷≥10KN
+                          </li>
+                          <li>
+                            带扣开启力试验:空载试验开启力：40N-80N;加载试验后开启力：不大于80N
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        织带：
+                        <ul>
+                          <li>
+                            宽度要求：
+                            <ol>
+                              <li>0组、0+组、I组:与假人接触最小宽度为25mm</li>
+                              <li>II组、III组:与假人接触最小宽度为38mm</li>
+                            </ol>
+                          </li>
+                          <li>
+                            织带耐环境性能:
+                            <ol>
+                              <li>
+                                常温条件：23 ±5 °C、湿度50% ±10%；放置时间：24 ±
+                                1h
+                              </li>
+                              <li>
+                                光老化条件：光老化后灰度至第4级 ；23 ±5
+                                °C、湿度50% ±10%； 放置时间：24 ± 1h
+                              </li>
+                              <li>
+                                低温条件：首先23 ±5 °C、湿度 50% ±10%、放置24 ±
+                                1h；然后至 低温-30 ±5 °C 放置90min；最后 用2kg
+                                ±2kg、温度为-30 ±5 °C 重 块压放30min
+                              </li>
+                              <li>
+                                高温条件： +60 ±5 °C 、湿度65% ±5%
+                                、放置时间：3h
+                              </li>
+                              <li>耐水性：20°C的蒸馏水放置 3h</li>
+                            </ol>
+                          </li>
+                          <li>
+                            织带静态强度要求:<br />
+                            <figure class="figure col-md-auto">
+                              <img
+                                class="figure-img img-fluid rounded"
+                                src="assets\images\childProtection-seat-belts-requirments.jpg"
+                                alt="织带静态强度试验"
+                              />
+                              <figcaption class="figure-caption text-center">
+                                织带静态强度试验
+                              </figcaption>
+                            </figure>
+                            <ol>
+                              <li>0组、0+组、I组:断裂载荷≥3.6KN;</li>
+                              <li>II组:断裂载荷≥5KN;</li>
+                              <li>III组:断裂载荷≥7.2KN</li>
+                              <li>
+                                两次断裂载荷之间差值不超过二者中 最大值的10%
+                              </li>
+                            </ol>
+                          </li>
+                          <li>
+                            织带磨损性能: <br />
+                            <div class="container row">
+                              <figure class="figure col-lg-6 col-md-auto">
+                                <img
+                                  class="figure-img img-fluid rounded"
+                                  src="assets\images\childProtection-seat-belts-slip-friction-requirments.jpg"
+                                  alt="织带滑过快速调节装置"
+                                />
+                                <figcaption class="figure-caption text-center">
+                                  织带滑过快速调节装置
+                                </figcaption>
+                              </figure>
+                              <figure class="figure col-lg-6 col-md-auto">
+                                <img
+                                  class="figure-img img-fluid rounded"
+                                  src="assets\images\childProtection-seat-belts-rigid-friction-requirments.jpg"
+                                  alt="织带通过刚性部件"
+                                />
+                                <figcaption class="figure-caption text-center">
+                                  织带通过刚性部件
+                                </figcaption>
+                              </figure>
+                            </div>
+                            <!-- end container -->
+                          </li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <p>ISOFIX连接装置：</p>
+                    <ul>
+                      <li>
+                        ISOFIX与车辆下固定点的连接要求：听、触、可见三种中的两种以及两种以上组合<br />
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-connect.jpg"
+                            alt="听、触、可见三种中的两种以及两种以上组合"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            听、触、可见三种中的两种以及两种以上组合
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        耐久试验要求:2500±5次开闭后，接插功能OK<br />
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-fraction.jpg"
+                            alt="耐久试验要求"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            耐久试验要求
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        设计要求：ISOFIX儿童约束系统连接装置的尺寸不应超过下图所示最大尺寸：<br />
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-design.jpg"
+                            alt="连接装置尺寸"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            连接装置尺寸
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        上拉带设计要求:ISOFIX儿童约束系统上拉带连接装置的尺寸不应超过下图所示最大尺寸,确保其与车辆上的ISOFIX上固定点相扣接
+                        <br />
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-belt-design.jpg"
+                            alt="上拉带连接装置尺寸"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            上拉带连接装置尺寸
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-belt-design-1.jpg"
+                            alt="上拉带连接装置尺寸-1"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            上拉带连接装置尺寸-1
+                          </figcaption>
+                        </figure>
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- end chiid RHS div -->
+                  <!-- start isofix div -->
+                  <div id="childProtection-isofix" class="section-block">
+                    <h3 class="block-title">ISOFIX</h3>
+                    <p>
+                      ISOFIX 固定系统:即国际标准化组织固定装置 International
+                      Standards Organisation FIX。对应的欧洲法规为：ECE R14-
+                      Sicherheitsgurtverankerung<br />
+                      对应的中国法规为：GB14167-2013
+                      《汽车安全带安装固定点、ISOFIX固定点系统及上拉带固定点》。<br />其定义为：由两个规定的ISOFIX下部固定点组成，用于固定ISOFIX儿童约束系统，与抗转动装置相联的一套系统。
+                    </p>
+                    <h4 class="block-title">为什么要引入ISOFIX系统呢？</h4>
+                    <code>
+                      <ol>
+                        <li>用成人安全带固定儿童约束系统，安装不可靠</li>
+                        <li>
+                          不同整车制造商设计的成人安全带长度不一致，无法适应市场上不同种类的儿童座椅尺寸
+                        </li>
+                        <li>
+                          ISOFIX为刚性连接，降低在发生碰撞事故时的伤害风险
+                        </li>
+                      </ol>
+                    </code>
+                    <h4 class="block-title">ISOFIX系统分为两大类：</h4>
+                    <div class="container row">
+                      <figure class="figure col-lg-6 col-md-auto">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-isofix-form-commen.jpg"
+                          alt="通用类ISOFIX"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          通用类ISOFIX系统的布置：
+                          正面向前的儿童约束系统与2个ISOFIX下附加连
+                          接装置和一个上卡扣相连
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-lg-6 col-md-auto">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-isofix-form-halfcommen.jpg"
+                          alt="半通用类ISOFIX"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          半通用类ISOFIX系统的布置：
+                          任何这类儿童约束系统（不管前向或后向）与2
+                          个ISOFIX下附加连接装置和一个防旋转的固定点
+                          相连（腿状支架）
+                        </figcaption>
+                      </figure>
+                      <h4 class="block-title">对ISOFIX位置的最低数量要求：</h4>
+                      <code>
+                        <ul>
+                          <li>
+                            所有M1类车辆应配置至少2个ISOFIX位置，至少有2个ISOFIX位置应同时装备ISOFIX固定点系统及
+                            ISOFIX上拉带固定点。安装在各个ISOFIX位置上的ISOFIX固定模块的型式和数量按GB14166确定。
+                          </li>
+                          <li>
+                            如果车辆只装有一排座椅(例如单排跑车)，可以不设置ISOFIX位置。
+                          </li>
+                          <li>2个ISOFIX位置中至少有1个位于第二排座椅上。</li>
+                          <li>
+                            如果ISOFIX固定点系统安装在配备了气囊的前排乘坐位置，应安装气囊的抑制开关。(防止气囊起爆后对
+                            儿童造成伤害)
+                          </li>
+                          <li>
+                            对内置式儿童约束系统，ISOFIX位置的数量应至少为2减去质量组0，0+或I的内置儿童约束系统的数量。
+                          </li>
+                          <li>
+                            对具有多于一排座椅的敞蓬车辆，应至少配备2个ISOFIX下固定点。如果此类车辆装备了上拉带固定点，
+                            则应满足GB14166-2013的相应条款规定；如果此类车辆无法安装上拉带固定点，可以不安装。
+                          </li>
+                        </ul>
+                      </code>
+                      <h4 class="block-title">设计要求</h4>
+                      <div class="container row">
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-design-2.jpg"
+                            alt="ISOFIX设计要求"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            应有两个直径为6 mm±0.1 mm的横向水平刚
+                            性杆件，两杆件最小有效长度为25 mm，且两
+                            杆件同轴（下图中最大、最小距离的要求目的
+                            是使刚性杆件尽量长，以提高其强度)
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-design-3.jpg"
+                            alt="ISOFIX设计要求"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            安装在车辆乘坐位置上的所有ISOFIX固定点系
+                            统，应位于距H点之后不小于120
+                            mm处（水平测量至杆件中心）
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-design-4.jpg"
+                            alt="ISOFIX设计要求"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            直径不小于13 mm的圆形图标，且图标应与
+                            其背景有鲜明的对比，图标应靠近每个固定
+                            点系统的杆件位置
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-design-5.jpg"
+                            alt="ISOFIX设计要求"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            大写字母“ISOFIX”的字高不小于6 mm
+                          </figcaption>
+                        </figure>
+                        <code>
+                          每个ISOFIX下固定点杆件(在正常使用时)或每个永久固定导向装置，在无座垫和靠背遮挡时；沿通过杆件
+                          或导向装置中点的垂直纵向平面，沿水平面向上30˚方向应清晰可见。或者，车辆上每个下固定点杆件和
+                          导向装置附近都应有永久性标识，标识由制造商选择
+                        </code>
+                      </div>
+                      <h5 class="block-title">ISOFIX上拉带固定点的设计要求</h5>
+                      <figure class="figure col-md-auto">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-isofix-top-fix.jpg"
+                          alt="ISOFIX上拉带固定点的设计要求"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          ISOFIX上拉带固定点的位置应布置在上图中阴影区域
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-md-auto">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-isofix-top-fix-1.jpg"
+                          alt="ISOFIX上拉带固定点的设计要求"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          对每个有盖的ISOFIX上拉带固定点，盖上应有镜像对称的符号标记，且不使用工具就应能将盖移开。
+                        </figcaption>
+                      </figure>
+                      <h4 class="block-title">
+                        ISOFIX固定点系统静态强度测试要求
+                      </h4>
+                      <table class="table">
+                        <thead>
+                          <tr>
+                            <th>方向</th>
+                            <th>角度</th>
+                            <th>力值</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">前向</td>
+                            <td>0˚±5˚</td>
+                            <td>8 kN±0.25 kN</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">斜向</td>
+                            <td>
+                              75˚±5˚
+                              (施加于前向两侧，或较恶劣的一侧，或两侧对称时仅施加于其中一侧)
+                            </td>
+                            <td>5 kN±0.25 kN</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                      <p>
+                        在30s内尽快加载到规定的最大力值，也可在2s以内加载到最大值，持续时间不少于0.2s
+                        <br />
+                        SFAD的X点位移不超过125mm，允许永久变形和部分开裂
+                      </p>
+                      <div class="container row">
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-statictest.jpg"
+                            alt="ISOFIX固定点系统静态强度测试前向加载示意图"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            ISOFIX固定点系统静态强度测试前向加载示意图
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-statictest-block.png"
+                            alt="ISOFIX固定点系统静态强度测试SFAD-静态加载装置"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            ISOFIX固定点系统静态强度测试SFAD-静态加载装置
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-statictest-1.png"
+                            alt="ISOFIX固定点系统静态强度测试试验环境"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            ISOFIX固定点系统静态强度测试前向加载试验环境
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-statictest-load.png"
+                            alt="ISOFIX固定点系统静态强度测试前向加载曲线"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            ISOFIX固定点系统静态强度测试前向加载曲线
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-statictest-2.png"
+                            alt="ISOFIX固定点系统静态强度测试试验环境"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            ISOFIX固定点系统静态强度测试斜向加载试验环境
+                          </figcaption>
+                        </figure>
+                        <figure class="figure col-lg-6 col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-statictest-load-1.png"
+                            alt="ISOFIX固定点系统静态强度测试前向加载曲线"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            ISOFIX固定点系统静态强度测试斜向加载曲线
+                          </figcaption>
+                        </figure>
+                      </div>
+                    </div>
+                    <!-- end container -->
+                  </div>
+                  <!-- end isofix div -->
+                  <!-- start isofix-car div -->
+                  <div id="childProtection-isofix-car" class="section-block">
+                    <h3 class="block-title">
+                      ISOFIX儿童约束系统在车辆上的安装要求
+                    </h3>
+                    <p>
+                      对应的欧洲法规：ECE R16- Sicherheitsgurte und
+                      Haltesysteme。<br />对应的中国法规：GB14166-2013《机动车乘员用安全带、约束系统、儿童约束系统和
+                      ISOFIX儿童约束系统》
+                    </p>
+                    <h4 class="block-title">
+                      利用成人安全带固定的儿童约束系统安装要求
+                    </h4>
+                    <figure class="figure col-md-auto">
+                      <img
+                        class="figure-img img-fluid rounded"
+                        src="assets\images\childProtection-isofix-car-mount-belt-block.png"
+                        alt="利用成人安全带固定的儿童约束系统安装要求"
+                      />
+                      <figcaption class="figure-caption text-center">
+                        注意： 1.固定模块的基座应与座 垫表面的前部和后部都接触
+                        2.安全带的腰带应在腰带路线的末端与固定模块两侧均接触
+                      </figcaption>
+                    </figure>
+                    <code
+                      >应用通用类固定模块检查车辆上安全带的长度是否足够
+                      ,成人安全带固定好固定模块后，安全带卷收器上织带余
+                      量应不小于150mm
+                    </code>
+                    <h4 class="block-title">
+                      利用ISOFIX位置固定的儿童约束系统安装要求
+                    </h4>
+                    <div class="container row">
+                      <figure class="figure col-lg-6 col-md-auto">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-isofix-car-mount-iso-block-1.png"
+                          alt="ISOFIX儿童约束固定模块"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          ISOFIX儿童约束固定模块
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-lg-6 col-md-auto">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\childProtection-isofix-car-mount-iso-block-2.png"
+                          alt="ISOFIX儿童约束固定模块"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          ISOFIX儿童约束固定模块
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <code>
+                      <ul>
+                        <li>
+                          对所有安装在车辆上的ISOFIX固定点系统，应保证能安装GB14166-2013附录B图B.5或图B.6中描述
+                          的ISOFIX儿童约束固定模块ISO/F2(B) 或ISO/F2X（B1）
+                        </li>
+                        <li>
+                          检查车内空间是否能够容纳相对应的儿童约束固定模块 (CRF)
+                        </li>
+                        <li>确认二者是否可以扣接</li>
+                      </ul>
+                    </code>
+                    <p>同时：</p>
+                    <ul>
+                      <li>
+                        汽车制造厂必须在用户手册中申明在不同乘坐位置可以安装什么类型、什么重量组的儿童约束系统
+                      </li>
+                      <li>装有安全气囊的乘坐位置应配备警告标示</li>
+                      <li>
+                        需要给每个安装安全气囊的乘员乘坐位置配备警告标识，以防止在此
+                        乘坐位置使用后向儿童约束系统
+                      </li>
+                      <li>
+                        警告标识是包括解释性文字的象形图，应当持久地固定在明显的位置上，
+                        让安装后向儿童约束系统人员容易发现，永久性提示应当任何时候均可
+                        见，防止关门时不可见 <br />
+                        <figure class="figure col-md-auto">
+                          <img
+                            class="figure-img img-fluid rounded"
+                            src="assets\images\childProtection-isofix-warning-sign.jpg"
+                            alt="警告标识"
+                          />
+                          <figcaption class="figure-caption text-center">
+                            警告标识
+                          </figcaption>
+                        </figure>
+                      </li>
+                      <li>
+                        如装备有自动识别是否存在后向儿童约束系统的装置，并确保在装上这
+                        样的儿童约束系统后安全气囊不再展开，可不执行此要求
+                      </li>
+                    </ul>
+                  </div>
+                  <!-- end isofix-car div -->
+                  <!-- start CNCAP-kisi div -->
+                  <div id="childProtection-structure" class="section-block">
+                    <h3 class="block-title text-danger">
+                      C-NCAP对儿童约束系统规定(庆波！)
+                    </h3>
+                  </div>
+                  <!-- end CNCAP-kisi div -->
+                </section>
+                <!-- //doc-section-childseat -->
+              </div>
+              <!--//content-inner-->
+            </div>
+            <!--//doc-content-->
+            <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+              <div id="doc-nav" class="doc-nav">
+                <nav
+                  id="doc-menu"
+                  class="nav doc-menu flex-column sticky"
+                  data-spy="scroll"
+                >
+                  <a class="nav-link scrollto" href="#overview">综述</a>
+                  <a class="nav-link scrollto" href="#dummy">假人</a>
+                  <nav class="doc-sub-menu nav flex-column">
+                    <a class="nav-link scrollto" href="#dummy-history"
+                      >假人发展历史</a
+                    >
+                    <a class="nav-link scrollto" href="#dummy-structure"
+                      >假人组成</a
+                    >
+                    <a class="nav-link scrollto" href="#dummy-percentile"
+                      >人体测量-百分位</a
+                    >
+                    <a class="nav-link scrollto" href="#dummy-accuracy"
+                      >生物仿真度</a
+                    >
+                    <a class="nav-link scrollto" href="#dummy-injury-standard"
+                      >假人损伤标准</a
+                    >
+                    <a
+                      class="nav-link scrollto"
+                      href="#dummy-technical-stability"
+                      >假人的技术指标</a
+                    >
+                  </nav>
+                  <a class="nav-link scrollto" href="#ISO">ISO code</a>
+                  <a class="nav-link scrollto" href="#OLC-TTF"
+                    >点火时间(TTF图示尚未添加、模板尚未添加)</a
+                  >
+                  <a class="nav-link scrollto" href="#childProtection"
+                    >儿童保护(in process @Qingbo)</a
+                  >
+                  <a class="nav-link scrollto btn-primary" href="#THOR"
+                    >THOR假人初探(in process @Yuanzhuo)</a
+                  >
+                </nav>
+                <!--//doc-menu-->
+              </div>
+            </div>
+            <!--//doc-sidebar-->
+          </div>
+          <!--//doc-body-->
+        </div>
+        <!--//container-->
+      </div>
+      <!--//doc-wrapper-->
+    </div>
+    <!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+      <div class="container">
+        <small class="copyright"
+          >Organized by Lv Yuanzhuo--RHS Direction TEBS1 for engineers</small
+        >
+      </div>
+      <!--//container-->
+    </footer>
+    <!--//footer-->
+
+    <!-- Main Javascript -->
+    <script
+      type="text/javascript"
+      src="assets/plugins/jquery-3.4.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/plugins/bootstrap/js/bootstrap.min.js"
+    ></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>
+    <script
+      type="text/javascript"
+      src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/plugins/stickyfill/dist/stickyfill.min.js"
+    ></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+  </body>
+</html>

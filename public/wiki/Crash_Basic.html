@@ -1,0 +1,2221 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Topics for becoming a really good OS engineer</title>
+    <!-- Meta -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="Crash Basics" content="" />
+    <meta
+      name="Lv Yuanzhuo"
+      content="the knowledge comes from TEBS1 for Structural Analysis"
+    />
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800"
+      rel="stylesheet"
+      type="text/css"
+    />
+    <!-- FontAwesome JS -->
+    <script defer src="assets/fontawesome/js/all.js"></script>
+    <!-- Global CSS -->
+    <link
+      rel="stylesheet"
+      href="assets/plugins/bootstrap/css/bootstrap.min.css"
+    />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="assets/plugins/prism/prism.css" />
+    <link rel="stylesheet" href="assets/plugins/elegant_font/css/style.css" />
+
+    <!-- Theme CSS -->
+    <link id="theme-style" rel="stylesheet" href="assets/css/styles.css" />
+  </head>
+
+  <body class="body-purple">
+    <div class="page-wrapper">
+      <!-- ******Header****** -->
+      <header id="header" class="header">
+        <div class="container">
+          <div class="branding">
+            <h1 class="logo">
+              <a href="#">
+                <span aria-hidden="true" class="fa fa-plane icon"></span>
+                <span class="text-highlight">Crash ！-</span
+                ><span class="text-bold"> Structural! </span
+                ><span><i class="fa fa-arrow-up" aria-hidden="true"></i></span>
+              </a>
+            </h1>
+          </div>
+          <!--//branding-->
+
+          <div class="top-search-box">
+            <form
+              class="form-inline search-form justify-content-center"
+              action=""
+              method="get"
+            >
+              <input
+                type="text"
+                placeholder="Search..."
+                name="search"
+                class="form-control search-input"
+              />
+              <button type="submit" class="btn search-btn" value="Search">
+                <i class="fas fa-search"></i>
+              </button>
+            </form>
+          </div>
+        </div>
+        <!--//container-->
+      </header>
+      <!--//header-->
+      <div class="doc-wrapper">
+        <div class="container">
+          <div class="header-grid">
+            <div id="doc-header" class="doc-header text-center">
+              <h1 class="doc-title">
+                <i class="fa fa-car" aria-hidden="true"></i> Crash Basics!
+              </h1>
+              <div class="meta">
+                <i class="far fa-clock"></i> Last updated: Jan 08th, 2021
+              </div>
+            </div>
+            <!--//doc-header-->
+            <!--//home button-->
+            <div class="cta-container home-cta">
+              <a class="btn btn-cta" href="index.html"
+                ><i class="fa fa-home fa-2x" aria-hidden="true"></i
+              ></a>
+            </div>
+          </div>
+          <!--//home button-->
+          <div class="doc-body row">
+            <div class="doc-content col-md-9 col-12 order-1">
+              <div class="content-inner">
+                <!-- //doc-section-0-overview -->
+                <section id="crash-overview" class="doc-section">
+                  <h2 class="section-title">综述</h2>
+                  <div class="section-block">
+                    <p>
+                      本节的所有的内容旨在提升作为一名结构碰撞工程师，你需要了解的内容，有些内容比较“基础”，但是请注意，这些基础的内容恰恰是我们能够开展工作，进行准确优化分析的基础和前提。<br />
+                      本节的内容同约束系统基础知识有所交叉，请二者并行参考学习，内容的整理是由<a
+                        href="mailto:guoqi.huo@faw-vw.com"
+                        >霍国起</a
+                      >，<a href="mailto:jingwei.shan@faw-vw.com">单经纬</a>，<a
+                        href="mailto:si.wu@faw-vw.com"
+                        >吴思</a
+                      >，<a href="mailto:lizhe.xie@faw-vw.com">谢立哲</a>，<a
+                        href="mailto:hailei.yu@faw-vw.com"
+                        >于海雷</a
+                      >，<a href="mailto:wei.xing@faw-vw.com">邢伟</a>，<a
+                        href="mailto:wei.ding.te@faw-vw.com"
+                        >丁伟</a
+                      >，<a href="mailto:xiao.wei@faw-vw.com">韦筱</a>，<a
+                        href="mailto:yamei.sun@faw-vw.com"
+                        >孙雅梅</a
+                      >分别汇总完成的，排名不分先后。
+                    </p>
+                  </div>
+                </section>
+                <!-- //doc-section-0-overview -->
+                <!--//doc-section-1-crash-front-->
+                <section id="crash-front" class="doc-section">
+                  <h2 class="section-title">正碰</h2>
+                  <p>
+                    本节重点关注正碰中的设计要素，关键参数以及分析优化的一般思路。
+                  </p>
+                  <div id="crash-front-design" class="section-block">
+                    <h3 class="block-title">设计要点</h3>
+                    <h4 id="c-d-engineroom" class="block-title">
+                      前舱变形空间
+                    </h4>
+                    <p>
+                      前舱变形空间：防火墙到车体最前端的可变形空间，不包括发动机与变速箱等刚体在X向的距离，<code
+                        >在前期总布置阶段考虑前舱变形空间，用于溃缩吸收能量。要求为经验值，不是硬性指标。对于无后驱的电动车，前舱变形空间即为防火墙到车体最前端的距离，可实现短前悬。
+                      </code>
+                    </p>
+                    <div class="container row">
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-d-engineroom-1.png"
+                          alt="50km/h全宽正碰前舱变形空间"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          50km/h全宽正碰前舱变形空间：D1+D2一般要求大于420mm
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-d-engineroom-2.png"
+                          alt="64km/h偏置正碰前舱变形空间"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          64km/h偏置正碰前舱变形空间：D1+D2一般要求大于540mm
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <h4 id="c-d-bumper" class="block-title">防撞梁</h4>
+                    <p>防撞梁的截面形式如下：</p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-bumper.png"
+                        alt="防撞梁截面形式"
+                      />
+                      <figcaption class="text-center">
+                        防撞梁截面形式
+                      </figcaption>
+                    </figure>
+                    <p>通用材料：高强度钢,合成高强度材料。</p>
+                    <p>成型工艺：</p>
+                    <ul>
+                      <li>冷压</li>
+                      <li><code>高强度钢辊压成型-强度较高</code></li>
+                      <li><code>铸件-强度较高</code></li>
+                    </ul>
+                    <p>
+                      开发准则：在概念设计阶段明确开发目标：高速碰撞吸能，RCAR要求，行人保护要求。
+                    </p>
+                    <p>
+                      偏置试验要求：安装螺栓与焊接都不能失效，否则影响前纵梁的变形形式。
+                    </p>
+                    <p>
+                      拓展：横梁上支架，焊点等位置是应力集中点，如果发生断裂的情况，则可以考虑优化支架或者焊点位置。
+                    </p>
+                    <h4 id="c-d-cms" class="block-title">吸能盒</h4>
+                    <p>
+                      通用材料：高强度钢、铝合金，其截面多为四边形或者六边形。
+                    </p>
+                    <p>
+                      吸能诱导设计：弱化槽
+                      弱化孔。如果不采用诱导结构也能使吸能盒充分变形，那么吸能效果更好。
+                    </p>
+                    <p>
+                      高速吸能效果：一般64km/h偏置碰，能吸收5%左右的动能；50km/h正碰能吸收15%左右动能。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-cms-deformprocess.png"
+                        alt="吸能盒压溃过程"
+                      />
+                      <figcaption class="text-center">
+                        吸能盒压溃过程
+                      </figcaption>
+                    </figure>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-cms-nio.png"
+                        alt="未能压溃的吸能盒"
+                      />
+                      <figcaption class="text-center">
+                        未能压溃的吸能盒
+                      </figcaption>
+                    </figure>
+                    <p>
+                      经济性考量：与横梁一起作为一个零件，通过螺栓连接在前纵梁。在低速碰撞中，作为易损件，提高维修经济性。
+                    </p>
+                    <p>
+                      拓展：吸能盒的压溃强度要低于前纵梁的压溃强度，来保证在RCAR试验中前纵梁不会弯折。
+                    </p>
+                    <h4 id="c-d-longbeam" class="block-title">前纵梁</h4>
+                    <p>
+                      作用：
+                      高速碰撞中主要的前碰载荷，也是主要吸能的结构，一般全宽正碰中能吸收10%左右的能量。
+                    </p>
+                    <p>
+                      布置：
+                      总布置时，前纵梁应保持整体的“笔直”形态，如果弯曲，则容易发生失稳，不能发挥作用。另外，在总布置时要考虑动力总成，轮胎型号，前轮距等因素，从保证有足够的空间布置前纵梁。
+                    </p>
+                    <p>截面形式</p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-longbeam.png"
+                        alt="截面形式"
+                      />
+                      <figcaption class="text-center">截面形式</figcaption>
+                    </figure>
+                    <p>
+                      四边形的截面，高宽比一般在1.3~1.6为好，对于带倒角（一般为20mm）的截面，高宽比一般为0.8~1.2为好。如果高宽比太大，容易导致碰撞时失稳，降低能量吸收。有些特殊设计高宽比大，Model
+                      X的为3.0，通过挤压铝的成型方式，并有加强筋。这种设计宽度小，利于前舱布置。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-longbeam-modelx.png"
+                        alt="modelX纵梁"
+                      />
+                      <figcaption class="text-center">modelX纵梁</figcaption>
+                    </figure>
+                    <p>
+                      <code
+                        >设计原则：吸收尽量多的碰撞能量，保证有足够的长度，采用高强度钢材料，同时考虑设置诱导变形结构
+                        从前向后，强度依次增强
+                        前段变形完毕后，后段才开始变形，从而避免整个纵梁失稳
+                        前段优先考虑横向弯曲，中断允许变形来吸收一部分能量，后段只允许有轻微变形，且发生在最后
+                        先考虑横向弯曲，中断允许变形来吸收一部分能量，后段只允许有轻微变形，且发生在最后</code
+                      >
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-longbeam-position.png"
+                        alt="纵梁位置示意图"
+                      />
+                      <figcaption class="text-center">
+                        纵梁位置示意图
+                      </figcaption>
+                    </figure>
+                    <code
+                      >一种方案：
+                      在前纵梁上使用激光拼焊技术。将2个不同厚度，不同材料钢板拼接焊在一起，这样前纵梁在纵向上强度成阶梯，还节约了材料减轻了重量。碰撞中，前端先压溃，保证变形方向。</code
+                    >
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-longbeam-design.png"
+                        alt="纵梁设计方案"
+                      />
+                      <figcaption class="text-center">纵梁设计方案</figcaption>
+                    </figure>
+                    <p>性能要求：</p>
+                    <ul>
+                      <li>前段折叠压溃变形主要用来吸能</li>
+                      <li>中段轻微折弯变形，避免大的加速度峰值</li>
+                      <li>
+                        后段不能有大的变形，避免动力总成撞击防火墙，造成大的乘员舱侵入
+                      </li>
+                      <li>中后段不能有“Z”字形变形，前段可以</li>
+                      <li>
+                        偏置碰中，尽量避免非撞击侧的纵梁有大的横向弯曲，不然不利于载荷在非撞击侧向后传递
+                      </li>
+                      <li>
+                        一般来说，偏置碰中，保证左右前纵梁吸能在8%以上，全宽正碰中，保证在20%以上的吸能，才能获得很好的乘降
+                      </li>
+                    </ul>
+                    <p>
+                      拓展：对于小偏置的开发中，可以通过加强上纵梁与前纵梁的连接来使得前纵梁也参与到形变吸能过程中，从尽量多的吸收能量，减少对A柱冲击。例如丰田的TNGA，本田的ACE结构等。
+                    </p>
+                    <h4 id="c-d-motorcover" class="block-title">发动机罩</h4>
+                    <p>
+                      设计要求：
+                      在前部碰撞中，发动机罩强度不能太大，避免铰链被破坏，避免前盖侵入风挡玻璃和驾驶室。
+                    </p>
+                    <p>
+                      设计思路：
+                      弱化发动机罩中部，避免发动机罩后部受到大的冲击力。同时要保证铰链点以及铰链的强度，避免连接失效，避免发动机罩侵入玻璃与乘员舱。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-motorcover.png"
+                        alt="碰撞后的发动机罩"
+                      />
+                      <figcaption class="text-center">
+                        碰撞后的发动机罩
+                      </figcaption>
+                    </figure>
+                    <p>
+                      拓展：发动机罩的设计要同时考虑行人保护的需求，材料硬度不能太高。
+                    </p>
+
+                    <h4 id="c-d-subframe" class="block-title">副车架</h4>
+                    <p>
+                      作用：
+                      封闭的副车架纵梁如果超过不可变形空间（动力总成）前端，副车架是前碰初期起到传载作用的主要结构之一
+                    </p>
+                    <p>
+                      偏置碰撞：
+                      为了在偏置碰中发挥副车架吸能的效果，副车架应尽量向前延伸，端面在高度方向与ODB重叠，这样能撞到ODB的壁障。
+                    </p>
+
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-subframe.png"
+                        alt="副车架端面高度要与ODB壁障重叠"
+                      />
+                      <figcaption class="text-center">
+                        副车架端面高度要与ODB壁障重叠
+                      </figcaption>
+                    </figure>
+
+                    <p>
+                      注意事项：如果转向机以及横向稳定杆安悬置：悬置支架不应占据前舱的可变形空间，对于后悬置可考虑在一定载荷下可控失效，使动力总成在前碰中下沉，减小对乘员舱的冲击。
+                    </p>
+                    <code>
+                      拓展：为了应对MPDB工况，需要副车架参与碰撞，减小对移动壁障的侵入装在副车
+                      架上，则需要考虑布置位置，避免在碰撞中侵入防火墙。</code
+                    >
+                    <h4 id="c-d-hangstruct" class="block-title">悬置</h4>
+                    <p>参考上一小节。</p>
+                    <h4 id="c-d-aggr" class="block-title">动力总成</h4>
+                    <p>
+                      属性：
+                      一般作为刚性部件，在碰撞中不可压溃变形，直接影响前舱可变形空间的布置。
+                    </p>
+                    <p>
+                      要求：
+                      尽量在X向尺寸要小，这样可以增加前舱可变形空间；各个部件尽量布置紧凑，使其突出部分减小
+                      在Y向上也不可过大，不然会影响纵梁的布置以及走向。
+                    </p>
+                    <p>
+                      拓展：动力总成的设计布置，还要特别注意油路与起动机线束的布置，避免在碰撞中发生漏油与短路的情况。
+                    </p>
+                    <h4 id="c-d-kickdown" class="block-title">Kickdown</h4>
+                    <p>
+                      定义： 一般指的是前纵梁与底板纵梁以及防火墙连接的部分。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-kickdown.png"
+                        alt="kickdown结构"
+                      />
+                      <figcaption class="text-center">kickdown结构</figcaption>
+                    </figure>
+                    <p>
+                      作用：
+                      负责将纵梁上的碰撞载荷能量传递到底板纵梁，并且将载荷能量向两侧的中通道和门槛梁传递。
+                    </p>
+                    <p>
+                      尺寸与角度：
+                      kickdown截面高度至少保证有60mm，过度平缓，最好有135°过度角。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-kickdown-design.png"
+                        alt="kickdown设计"
+                      />
+                      <figcaption class="text-center">kickdown设计</figcaption>
+                    </figure>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-kickdown-design-bmw.png"
+                        alt="BMW-kickdown设计"
+                      />
+                      <figcaption class="text-center">
+                        BMW-kickdown设计
+                      </figcaption>
+                    </figure>
+                    <p>
+                      走向：
+                      纵梁，kickdown与底板纵梁在纵向上最好直线走向，便于前端的碰撞载荷和能量向后传递
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-kickdown-position.png"
+                        alt="kickdown走向"
+                      />
+                      <figcaption class="text-center">kickdown走向</figcaption>
+                    </figure>
+                    <p>
+                      Z向落差：
+                      即kickdown上端表面与下端表面之间的Z向距离，该距离尽量小于250mm
+                    </p>
+                    <p>
+                      Kickdown上翘的危害分析与解决方法：<br />
+                      危害：如果碰撞中kickdown上翘，则会挤压防火墙并侵入乘员舱；<br />
+                      分析：导致上翘的主要原因是kickdown上下端Z向落差大，产生了很大弯矩；<br />
+                      解决措施：通过对kickdown进行加强来避免上翘，主要是采用U形，W形和Z形加强，通过实际分析，W形加强版效果较好，抗弯能力很强。另外，也可以在Kickdown内打结构胶，以增加其强度。
+                    </p>
+                    <h4 id="c-d-battery" class="block-title">蓄电池</h4>
+                    <p>
+                      结构特性：
+                      在碰撞中蓄电池是不可变形的硬块，需要减少其侵占可变形空间的趋势。
+                    </p>
+                    <p>
+                      布置位置：<br />
+                      1.前舱<br />
+                      高度：<br />
+                      考虑行人保护头部伤害，距离发动机罩Z向距离≥80mm。<br />
+                      纵向：<br />
+                      与刚性结构合理错开，如真空助力器（向后入侵导致防火墙侵入大，制动踏板后移量大）。<br />
+                      考虑布置在前舱的不可变形空间范围之内，并弱化蓄电池支架的结构来配合前纵梁的压溃变形。<br />
+                      2.汽车后部
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-battery.png"
+                        alt="Q5蓄电池"
+                      />
+                      <figcaption class="text-center">Q5蓄电池</figcaption>
+                    </figure>
+                    <h4 id="c-d-firewall" class="block-title">防火墙</h4>
+                    <p>
+                      结构特性：<br />
+                      隔开驾驶室与乘员舱，它的变形直接影响乘员的生存空间，如果防火墙入侵过大
+                      直接导致乘员腿部胫骨骨折。
+                    </p>
+                    <p>设计要求：</p>
+                    <p>
+                      入侵量 适用于EuroNCAP法规要求：入侵量小于50mm。
+                      将防火墙划分不同区域，考察各区域的侵入量指标。
+                    </p>
+                    <p>以z=190mm为界，X向侵入量要求如下：</p>
+                    <ul>
+                      <li>上部<120mm</li>
+                      <li>真空助力器<90mm</li>
+                      <li>
+                        下部<70mm,
+                        <ul>
+                          <li>歇脚钣金上部<60mm</li>
+                          <li>歇脚钣金下部<25mm</li>
+                          <li>防火墙与底板纵梁交汇处<25mm</li>
+                        </ul>
+                      </li>
+                    </ul>
+                    <p>加强结构</p>
+                    <p>
+                      在防火墙上增加防撞横梁，加强防火墙强度，减少碰撞中的侵入量，并且可以将载荷传递到另一侧
+                      防火墙横梁越向上靠近前纵梁根部其横向传递载荷的效果越好。
+                      较多防火墙也采用激光拼焊技术，上半部分采用较弱，较薄的材料；下半部分采用较厚，较强的材料。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-firewall.png"
+                        alt="防火墙结构"
+                      />
+                      <figcaption class="text-center">防火墙结构</figcaption>
+                    </figure>
+                    <h4 id="c-d-brake" class="block-title">制动系统</h4>
+                    <p>
+                      结构特性：
+                      真空助力器后方与踏板系统相连，真空助力器受到挤压会导致踏板后移量偏大，也是造成驾驶员
+                      腿部伤害的重要原因。
+                    </p>
+                    <p>设计要求</p>
+                    <p>入侵量</p>
+                    <p>在x和z方向上：</p>
+                    <ul>
+                      <li>制动踏板<50mm</li>
+                      <li>离合踏板<50mm</li>
+                      <li>加速踏板<50mm</li>
+                    </ul>
+                    <p>
+                      加强结构 <br />
+                      踏板的安装板结构尽量强一些，并且能够与其他较强结构搭接，可以使其与防火墙整体变形
+                      在制动踏板悬臂上增加防撞杆，通过防撞杆来限制制动踏板的后移。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-brake.jpg"
+                        alt="制动系统"
+                      />
+                      <figcaption class="text-center">制动系统</figcaption>
+                    </figure>
+                    <h4 id="c-d-tunnel" class="block-title">中通道</h4>
+                    <p>
+                      结构特性：<br />
+                      地板纵梁：与前纵梁、后底板纵梁保持一个流畅的载荷传递通道，或者
+                      将载荷传递至门槛梁结构上，对于车身下部强度要求很高的车型，可以考虑
+                      多于常规的双底板纵梁结构。<br />
+                      中通道：与前围板相连，重要的载荷传递路径。
+                    </p>
+                    <p>设计要求</p>
+                    <p>
+                      地板纵梁载荷传递：<br />
+                      前舱主要的载荷传递路径是前纵梁Kickdown，它们传递载荷需要在底板上向两侧分散，所以Kickdown与底板纵梁及门槛之间要有很好的搭接关系，以增加载荷能量的传递。
+                    </p>
+                    <p>
+                      中通道载荷传递：<br />
+                      通过大量的CAE仿真确定，改善中通道的传递路径，可以较大的降低防火墙的侵入量。
+                      <code
+                        >设计中需要关注：
+                        截面与前围板的搭接过渡。截面较大，与前围板过度自然，有利于载荷传递</code
+                      >
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-tunnel.png"
+                        alt="中通道"
+                      />
+                      <figcaption class="text-center">中通道</figcaption>
+                    </figure>
+                    <h4 id="c-d-shotgun" class="block-title">shotgun</h4>
+                    <p>
+                      结构特性：<br />
+                      与前纵梁，侧围形成封闭结构，有效避免悬臂结构在碰撞中出现失稳的变形模式。
+                    </p>
+                    <p>设计要求</p>
+                    <ul>
+                      <li>
+                        长度确定：<br />
+                        根据前纵梁的可变形区域来确定，与前纵梁不可变形部分相平齐即可
+                      </li>
+                      <li>
+                        高度确定：<br />
+                        高度要兼顾行人保护的要求
+                      </li>
+                      <li>
+                        碰撞兼容性 <br />
+                        车身耐撞性要求shotgun根部无大变形。 C-NCAP
+                        2021要实施兼容性评估，即MPDB工况，需要尽可能多的纵向载荷传递路径，要求shotgun尽量前伸，并加强与纵梁的连结
+                      </li>
+                    </ul>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-shotgun.png"
+                        alt="shotgun"
+                      />
+                      <figcaption class="text-center">shotgun</figcaption>
+                    </figure>
+                    <h4 id="c-d-sill" class="block-title">门槛</h4>
+                    <p>
+                      结构特性：
+                      一般由门槛梁内板A，门槛内侧加强板B，门槛外侧加强板C，门槛梁外板D构成，
+                      是乘员舱结构的重要支撑件
+                    </p>
+                    <p>
+                      设计要求<br />
+                      厚度确定：<br />
+                      门槛梁内板A>1.5mm 门槛内侧加强板B，高强度材料>1mm
+                      门槛外侧加强板C，高强度材料>1.5mm 门槛梁外板D>0.7mm
+                      根据具体情况，尽量增加A,C所围成的截面面积。
+                    </p>
+                    <p>
+                      加强结构<br />
+                      在门槛加强板结构尽量避免竖直筋结构和不必要的孔,
+                      门槛梁尽量避免4层板焊结构,
+                      门槛与A柱的接头部位通过增加隔板结构来加强。
+                    </p>
+                    <p>
+                      碰撞要求<br />
+                      不允许门槛有明显变形和焊点失效,
+                      NCAP前碰工况中，前120ms内，门槛z向运动<70mm。
+                    </p>
+                    <h4 id="c-d-apillar" class="block-title">A柱</h4>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-apillar.png"
+                        alt="A柱"
+                      />
+                      <figcaption class="text-center">A柱</figcaption>
+                    </figure>
+                    <p>
+                      结构特性：
+                      保护乘员舱完整的重要屏障，也是前碰载荷向后传递的中转站。
+                    </p>
+                    <ol>
+                      <li>载荷经过A柱向上传递</li>
+                      <li>通过A柱由门向后传递</li>
+                      <li>与门槛连接，将载荷传递给门槛</li>
+                    </ol>
+                    <p>
+                      设计重点：<br />
+                      A柱下部与门槛搭接区域强度非常重要，拐角处要圆滑过渡，充分利用与侧围外板之间的空间，并且尽量增大与门槛的重叠长度。
+                      A柱上部的拐角处，此区域不应有急剧的截面变化，并且要保证一定的强度。
+                      焊接边尽量宽>15mm，A柱竖板用高强度材料>1.5mm。
+                    </p>
+                    <p>
+                      碰撞要求<br />
+                      A柱无明显变形，焊点不能失效，会导致CCB后移加大，增加对乘员的伤害,
+                      A柱上边梁不能出现弯折，会直接压缩乘员的生存空间,
+                      A柱下部允许有轻微变形
+                    </p>
+                    <p>
+                      抗扭盒设计<br />
+                      避免A柱下端的翻边刺破轮胎，导致车身加速度异常，对乘员保护不利。
+                    </p>
+
+                    <h4 id="c-d-frontdoor" class="block-title">前门结构</h4>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-frontdoor.png"
+                        alt="前门结构"
+                      />
+                      <figcaption class="text-center">前门结构</figcaption>
+                    </figure>
+                    <p>
+                      结构特性：<br />
+                      在前碰中为重要的载荷传递路径之一，尤其是在偏置碰中，
+                      EuroNCAP中要考察碰撞中的门洞力
+                      是否失去；失去门洞力将要被罚分。
+                    </p>
+                    <p>
+                      主要承载部件：
+                      窗框加强板：要避免平板结构，尽量利用空间增大截面的宽度，设计纵向的加强筋结构，同时注意与门内板加强板的连接强度。<br />
+                      <code
+                        >防撞梁,防撞梁安装板,以上结构一般要选用较强的材料。</code
+                      >
+                    </p>
+                    <p>
+                      碰撞要求<br />
+                      碰撞后车门打开有要求：
+                      设计落锁功能时，速度定义应尽量高于碰撞法规标准要求的速度,或者增加发生碰撞时门锁自动解开的功能。
+                    </p>
+                    <h4 id="c-d-ccb" class="block-title">仪表板横梁CCB</h4>
+                    <p>
+                      结构特性：
+                      仪表板横梁是用来安装仪表板(IP)总成，向后入侵会减少乘员生存
+                      空间，同时直接对乘员胸部，腿部等产生伤害
+                    </p>
+                    <p>
+                      设计要求：考虑成本，重量，刚度，模态侵入量。<br />
+                      直梁式：简单，成本低，重量轻，但性能不足。<br />
+                      两段式：成本高，重量大，满足各种装配需求，刚度，模态好。<br />
+                      铸铝式：制造精度高，刚度，模态好，成本高。
+                    </p>
+                    <p>
+                      碰撞要求 <br />
+                      <code
+                        >侵入量与A柱后移，转向系统后移相关。<br />
+                        X向：动态<30mm，静态<20mm。</code
+                      >
+                    </p>
+
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-ccb.png"
+                        alt="中央柱管"
+                      />
+                      <figcaption class="text-center">中央柱管</figcaption>
+                    </figure>
+                    <h4 id="c-d-floor" class="block-title">乘员舱底板</h4>
+
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-floor.png"
+                        alt="乘员舱底板"
+                      />
+                      <figcaption class="text-center">乘员舱底板</figcaption>
+                    </figure>
+                    <p>
+                      结构特性：<br />
+                      作为乘员舱完整性的重要组成部分，在EuroNCAP中对底板有修正项。
+                    </p>
+                    <p>
+                      碰撞要求：<br />
+                      底板前端，防火墙下端不允许有焊点开裂，底板不能出现褶皱变形。<br />
+                      在EuroNCAP要求乘员舱放脚的区域不能有底板撕裂，焊点失效，否则将被扣分，除非能证明在更高的碰撞速度下该底板撕裂或焊点失效不会使乘员伤害增加。
+                    </p>
+                    <h4 id="c-d-tireframe" class="block-title">轮辋</h4>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-tireframe.png"
+                        alt="轮辋"
+                      />
+                      <figcaption class="text-center">轮辋</figcaption>
+                    </figure>
+                    <p>
+                      结构特性： 车轮与A柱下端也可以作为载荷向后传递的路径。
+                    </p>
+                    <p>
+                      在偏置碰中，碰撞侧载荷能量较大，轮胎轮辋对A柱下端的冲击很大，因此二者的变形是考察的重点。<br />
+                      无论是前期CAE仿真，还是后期试验要考察轮辋变形情况，都要进行分析参考。
+                    </p>
+                  </div>
+                  <!-- end c-d div -->
+                  <div id="crash-pulse" class="doc-section">
+                    <h3 class="block-title">车身脉冲评价指标</h3>
+                    <p>
+                      在正面碰撞中一般用加速度计采集左右两侧B柱下端车辆碰撞加速度信号，因为B柱下端是与门槛搭接处,结构的刚度和强度都很高,在前碰中可以认为不变形,用此处采集的加速度信号通常能够代表整车碰撞加速度信号,也叫车身脉冲(Pulse)。<br />
+                      整车脉冲呈现出不规则性,即使同一车型,做同样的工况的试验,得出的脉冲基本是不同的，但虽然脉冲不同,但对乘员产生的响应确基本是相同的,也就是说这些不同的脉冲中包含着相同的因子（factor）,而这个因子可以代表该脉冲,甚至可以通过该因子来判断脉冲的优劣。本章将介绍两种用来评价脉冲的方法：
+                      <code
+                        >脉冲指数 VPI(Vehicle Pulse
+                        Index)，乘员负载指数OLC(Occupant Load Criterion)。</code
+                      >
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-vpi.png"
+                        alt="脉冲指数"
+                      />
+                      <figcaption class="text-center">脉冲指数</figcaption>
+                    </figure>
+                    <h4 id="c-p-vpi" class="block-title">脉冲指数 VPI</h4>
+                    <!-- <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-vpi.png"
+                        alt="VPI"
+                      />
+                      <figcaption class="text-center">VPI</figcaption>
+                    </figure> -->
+                    <p>
+                      现在很多公司来研究脉冲的“因子”,表现出的方法各种各样，但都是以车内乘员保护为出发点来研究的,但原理基本是一样的。这种脉冲“因子”评价指标被称为VPI(Vehicle
+                      Pulse
+                      Index)，它是车身前部碰撞安全性能的一个可计算指标。它有如下特点:
+                    </p>
+                    <ol>
+                      <li>
+                        VPI是车辆前部碰撞加速度波形对所承载的质量所受惯性载荷的严重程度的数值化测量
+                      </li>
+                      <li>
+                        在前碰过程中,对于有NCAP较高星级要求的,VPI的值一般不超过63g仅供参考),该值仅是概念性的,它不仅与车身有关,还与约束系统有关
+                      </li>
+                      <li>VPI不能用于判断由侵入量造成的损伤。</li>
+                    </ol>
+                    <p>
+                      它的数学模型如图所示，是一个二阶受迫振动模型，xf为车身位移输入，x为车身乘员位移输出，x1为相对基座的位移。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-vpi-equition.png"
+                        alt="VPI数学模型"
+                      />
+                      <figcaption class="text-center">VPI数学模型</figcaption>
+                    </figure>
+                    <p>
+                      VPI指标只是通过某种算法获得的个参数,由于它并不考虑侵入量等因素,因此用该参数在判断同车型的多种不同结构方案的优劣时,仅供参考,具体判断方案优劣,还需要综合考虑其他方面因素。
+                      公式中,k可以看作约束系统的弹性系数,C可以看作约束系统的阻尼系数，𝑋 ̈<sub>𝑓</sub>可以看作整车的脉冲,如果以乘员的胸部作研究对象,那么公式中的m就是胸部质量,VPI即为乘员胸部加速度值,也就是𝑋 ̈<sub>1</sub>。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-vpi-2nd-pulse.png"
+                        alt="二阶受迫振动模型"
+                      />
+                      <figcaption class="text-center">
+                        二阶受迫振动模型
+                      </figcaption>
+                    </figure>
+                    <p>
+                      VPI的求解有好多种方法,最简单的就是利用Matlab软件求解上述微分方程,另外还可以根据上面的原理图建立有限元模型,用专用有限元求解器进行求解。
+                      <code
+                        >弹簧单元可以使用材料MAT_SPRING NONLINEAR
+                        ELASTIC,阻尼单元可以使用MAT DAMPER NONLINEAR
+                        VISCOUS,提交DYNA/Pamcrash求解器进行求解,输出质量m的加速度曲线，获取曲线的最大值即为VPI。</code
+                      >
+                      需要特别说明的是,VPI仅用来评估整车脉冲的相对优劣性!例如对于某一个特定的车辆,特定的约束系统,可以根据不同的整车耐撞性方案的整车脉冲计算得到VPl,然后参考VPI值来判定两个方案的优劣性，VPI仅是辅助判定因素，根据大量的统计结果,对于特定车型,特定约束系统,VPI值较低,车身耐撞性较好,但这不是绝对的。不要将VPI值在不同车型、不同的约束系统,甚至不同的公司之间直接进行对比,以此来判定车身耐撞性的优劣！
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-vpi-matlab.png"
+                        alt="MATLAB求解"
+                      />
+                      <figcaption class="text-center">
+                        在项目最前期，通过搭建简单的刚度模型，能够评估VPI，用于确定平台特征参数（纵梁刚度、长度、迟滞）确定后，该值锁定。
+                      </figcaption>
+                    </figure>
+                    <h4 id="c-p-olc" class="block-title">乘员负载指数OLC</h4>
+                    <p>请参考约束系统相关OLC内容！</p>
+                  </div>
+                  <div id="crash-ridedown" class="doc-section">
+                    <h3 class="block-title">乘降（ride-down）</h3>
+                    <p>
+                      乘员在正面碰撞中，产生减速运动，乘员的初始动能得到吸收。对乘员、车体以及壁障之间的相互作用关系进行简化：车体相对固定壁障之间碰撞结构变形产生的减速等效为刚度为k2的弹簧，乘员与车体之间通过约束系统产生的约束效果可以等效为刚度为k1的弹簧，通过对减速过程的简化可以看出，乘员的减速过程不仅与约束系统相关，还与车体减速相关，为了研究车体减速与乘员吸能之间的关系，从理论出发探寻正碰中乘员减速吸能过程与整车减速之间的相互关系，从而对车身结构进行评价。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-d-ridedown-explain.png"
+                        alt="Ride-Down"
+                      />
+                      <figcaption class="text-center">Ride-Down</figcaption>
+                    </figure>
+                  </div>
+                  <p>
+                    乘降是指正碰中乘员动能伴随整车减速过程中被吸收的部分，对应的是被约束系统吸收的部分，上图为乘降的模型。
+                  </p>
+                  <figure>
+                    <img
+                      class="img-fluid rounded mx-auto d-block"
+                      src="assets\images\c-d-ridedown-Energy-equition.png"
+                      alt="乘降能量模型推导"
+                    />
+                    <figcaption class="text-center">
+                      乘降能量模型推导
+                    </figcaption>
+                  </figure>
+                  <p>由上可得：</p>
+                  <figure>
+                    <img
+                      class="img-fluid rounded mx-auto d-block"
+                      src="assets\images\c-d-ridedown-Energy-equition-2.png"
+                      alt="乘降能量模型"
+                    />
+                    <figcaption class="text-center">乘降能量模型</figcaption>
+                  </figure>
+                  <p>
+                    由上面公式可知，乘员动能由两部分吸收，一部分是约束系统吸收，另一部分是车辆减速吸收，乘降效率𝜇如下：
+                  </p>
+                  <figure>
+                    <img
+                      class="img-fluid rounded mx-auto d-block"
+                      src="assets\images\c-d-ridedown-effeciency-equition.png"
+                      alt="乘降效率"
+                    />
+                    <figcaption class="text-center">乘降效率</figcaption>
+                  </figure>
+                  <p>
+                    通过大量试验统计结果表明，<code
+                      >车身结构的乘降效率越高，乘员的伤害越低。</code
+                    ><br />
+                    假人由于受到多种约束作用，受力情况复杂，身体每个部位的加速度情况差异性较大，实际计算乘员的乘降需要对人体的某个部位进行计算，通常对乘员的胸部/骨盆处进行乘降计算。
+                    乘降仅用于评价车身吸能效果，整体的安全保护效果情况还需要根据约束系统匹配结果进行综合评价，不能仅仅通过乘降进行完全评价。
+                  </p>
+                  <figure>
+                    <img
+                      class="img-fluid rounded mx-auto d-block"
+                      src="assets\images\c-d-ridedown-effeciency.png"
+                      alt="乘降效率趋势"
+                    />
+                    <figcaption class="text-center">乘降效率趋势</figcaption>
+                  </figure>
+                  <code
+                    >乘降较少用于开发后期，仅用于开发前期车身吸能效果评估及定义。</code
+                  >
+                  <div id="crash-frb" class="doc-section">
+                    <h3 class="block-title">全宽正碰</h3>
+                    <p>
+                      全正碰也叫“正面100%重叠刚性壁障碰撞”，它是模拟实际交通事故中，两辆同级别的车辆以50km/h
+                      的速度100%重叠相对碰撞的事故工况，
+                      该工况下，车身耐撞性总体是考察车身结构的吸能情况，控制车身的总体脉冲，不能太大，车身结构有较好的吸能性，所以对于车辆前端结构较"软”的车辆，能在全正碰工况下获得不错的耐撞性能。第一节中所说的关键零部件设计要点适用于全正碰工况。
+                    </p>
+                    <h4 id="c-f-energy" class="block-title">区域能量管理</h4>
+                    <p>
+                      将全正碰碰撞区域划分成三个区域，这三个区域在碰撞过程中所起的作用不同，不同区域的长度随着动力总成、悬架以及非结构件在前舱中的位置而变化
+                    </p>
+                    <ol>
+                      <li>
+                        S1
+                        应该相对较软，目的是减少车辆与行人相撞或车一车相撞过程中的车辆的“侵略性”,同时也是高速碰撞中的主要吸能结构之一。
+                      </li>
+                      <li>
+                        S2 是初始压溃区域， 此区域刚度明显比S1
+                        区域强。初始压溃区域也是主要的吸能区如果能够实现结构在轴线方向上的压溃，那么最初的压溃区域将表现为相对一致的、渐进的结构折叠模式。
+                      </li>
+                      <li>
+                        S3、S4
+                        为第二压溃区域，该区域中的结构拓扑非常复杂，主要的碰撞变形模式为轴向模式/弯曲模式复合的变化形式。该区域必须尽可能有效地为渐进压溃吸能结构提供一个稳定的支撑平台并把载荷传递给乘员舱。
+                      </li>
+                    </ol>
+                    <code
+                      >各区域的承载能力分配需要综合变形模式，吸能效果，来综合设定，设定承载力，设定加速度目标。
+                      对于正碰，足够的变形空间是前提，但良好的吸能特性是必不可少的。为了使结构有效的吸能，在概念阶段对主要吸能部件的吸能做出规划是非常有必要的。
+                      在目前常见承载式车身中，碰撞能量主要由保险杠横梁、吸能盒、前纵梁、上纵梁(
+                      shotgun)、Kickdown.副车架等吸收。对于承载式车身的正碰，保险杠横梁与吸能盒要吸收10%左右的能量，
+                      前纵梁要吸收至少约20%的能量，
+                      而整个前部结构的能量吸收要占到70%。对于带有封闭式副车架的承载式车身，副车架也可以作为主要吸能部件来设计。
+                    </code>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-energymanagement.png"
+                        alt="车身前部溃缩区域"
+                      />
+                      <figcaption class="text-center">
+                        车身前部溃缩区域
+                      </figcaption>
+                    </figure>
+                    <p>
+                      影响结构能量吸收能力的因素很多，能量吸收能力又往往是与结构的变形模式相关的。对于汽车结构中的薄壁梁来说，影响变形方式和能量吸收能力的因素有截面尺寸、厚度、长度、材料特性等。但是有时候简单地将钢板加厚，或将中低强度钢改为高强度等反而会事与愿违。因此在碰撞区域各部件的安全性设计上，主要考虑使其具有合适的刚度，达到各部件的刚度协调，在车身变形与能量吸收上达到平衡。也就是说车辆前部结构刚度并不是越大越好，较“硬”的刚度不仅吸能较少，而且车辆受瞬间冲击的作用减速很快，造成乘员响应减速度很大，极易达到人体所能承受的减速度损伤极限。
+                    </p>
+                    <div class="table-responsive table-strips text-no-wrap">
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th>部件</th>
+                            <th>吸能盒</th>
+                            <th>前纵梁</th>
+                            <th>shotgun</th>
+                            <th>防撞梁</th>
+                            <th>发动机罩盖</th>
+                            <th>副车架</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>吸能</td>
+                            <td>15.5%</td>
+                            <td>24%</td>
+                            <td>0.8%</td>
+                            <td>2.0%</td>
+                            <td>2.0%</td>
+                            <td>0.5%</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h4 id="c-f-sectionforce" class="block-title">截面力</h4>
+                    <code
+                      >在全正碰中，各关键部件的截面力也是重点要分析和考察的指标，它是表征部件承载力的指标。载荷传递路径与各结构件能承受的载荷大小和变形模式、能量吸收、侵入量、整车脉冲都是密不可分的。一旦车辆的骨架定下来以后，载荷路径也就定了，接下来要做的是确定各结构的承载能力，即分配碰撞载荷的大小，以便开始截面等细节方面的设计。前面说过，车身耐撞性设计原理就是碰撞动能的传递和耗散。动能在车身上传递也是为了能量更好地吸收。在合理匹配车身区域的刚度同时，也要合理地布置能量的传递路径。如图所示，是典型的全正碰载荷能量传递路径。</code
+                    >
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-sectionforce.png"
+                        alt="载荷传递路径"
+                      />
+                      <figcaption class="text-center">载荷传递路径</figcaption>
+                    </figure>
+                    <p>
+                      整车载荷传递，可以将载荷传递落实到关键的零部件上，这样可以在设计分析时能更直观地把握。如图所示，将载荷的传递路径在关键零部件上表示出来。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-sectionforce-part-path.png"
+                        alt="载荷分配关键零件路径"
+                      />
+                      <figcaption class="text-center">
+                        载荷分配关键零件路径
+                      </figcaption>
+                    </figure>
+                    <p>
+                      为了获得理想的吸能和变形模式，应根据所设计车辆要满足的碰撞标准要求、车辆的整备质量和整车脉冲目标等来确定各碰撞空间零部件的截面力，从车头到乘员舱的截面力应是逐渐增强。因此设计好的传递路径能很好地提高车身整体耐撞性，有的车型在传递路径上进行特别设计，如图
+                      所示，是Honda CIVIC
+                      新老车身结构的对比，在右边的新的车身结构上， 特地设计了Y
+                      型结构，就是为了载荷的传递。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-sectionforce-civic-loadpath.png"
+                        alt="CIVIC载荷传递路径"
+                      />
+                      <figcaption class="text-center">
+                        CIVIC载荷传递路径
+                      </figcaption>
+                    </figure>
+                    <p>
+                      为了使能量传递，除了设计合理的传递路径外，各个传递路径还要有合理的，相互匹配的承载能力。因此关键路径的截面力要合理的分配。比如前纵梁的截面力，如果太小，纵梁很快变形，不能迅速向后传递载荷，如果截面力太大，则可能导致不变形，吸能效率低。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-sectionforce-path.png"
+                        alt="全正碰各路径的截面力情况"
+                      />
+                      <figcaption class="text-center">
+                        全正碰各路径的截面力情况
+                      </figcaption>
+                    </figure>
+                    <code
+                      >一方面，各关键零部件截面力大小，在溃缩空间一定情况下，理论上截面力越大，
+                      则该零部件吸能越多，如果发现某零部件截面力比正常情况下要小很多，那么就可以考虑对该零部件进行适当增强优化，以增加其截面力。<br />
+                      另一方面，比较在同一传递路径上截面力的大小关系，前门己经说明，理想的碰撞溃缩是从前往后，即，吸能盒、纵梁前段，纵梁后段，Kickdown
+                      等依次溃缩。例如，纵梁前段先于吸能盒溃缩，那么可能吸能盒的截面力可能偏大，或者纵梁前段截面力可能偏小，可能需要适当弱化吸能盒的结构，或加强纵梁前段的结构。
+                    </code>
+                    <h4 id="c-f-spacedesign" class="block-title">空间设计</h4>
+                    <p>
+                      足够的碰撞空间是控制整车脉冲的基本前提。结合国内外多次试验经验，总结出如下表加速度与碰撞空间的关系，对设计有一定指导意义。一般情况认为，50km/h
+                      正碰较理想平均加速度为20g 左右，而在各国NCAP
+                      评价中正碰要得到较好的星级评价，要求防火墙侵入量i
+                      很小。因此，从理论上要保证较好的加速度，对于50km/h
+                      全正碰， 前结构碰撞空间D1+D2
+                      (见示意图）至少保证大于420mm，对于56km/h
+                      全正碰，至少保证大于560mm。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-space-table.png"
+                        alt="全宽正碰空间布置"
+                      />
+                      <figcaption class="text-center">
+                        全宽正碰空间布置
+                      </figcaption>
+                    </figure>
+                    <p>
+                      理论上有了碰撞空间，实际能否充分利用与结构特点有很大关系。例如，碰撞空间D1+D2约为434mm
+                      ,
+                      按理论碰撞空间算,碰撞空间较充分,但实际试验时脉冲很高，峰值达到58g，第二阶段平均值在40g
+                      以上，C- NCAP
+                      正碰得分很低。分析其原因可能是变速箱最后端与副车架之间间隙很小，约25mm，碰撞开始后30ms,
+                      变速箱碰撞到副车架并且一直保持不变形到碰撞结束，从而导致左侧脉冲峰值很高，如图1-50
+                      所示。在此要说明的是前结构设计时一定要考虑真正可以利用的变形空间，
+                      对于相对较硬的“
+                      刚性体”，如发动机、变速箱和副车架，必须考虑它们之间的相对运动位移。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-sapce-bottom.png"
+                        alt="全宽正碰底部"
+                      />
+                      <figcaption class="text-center">全宽正碰底部</figcaption>
+                    </figure>
+                    <h4 id="c-f-pulse" class="block-title">二阶波</h4>
+                    <p>
+                      在全正碰中，为了方便研宄车身脉冲，采用二阶波的方法来理想整车加速度。如图，图中的红色二阶波是对车身加速度的简化。这样可以通过简单的参数来描述或替代复杂的整车脉冲。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-2nd-pulse.png"
+                        alt="车身加速度简化"
+                      />
+                      <figcaption class="text-center">
+                        车身加速度简化
+                      </figcaption>
+                    </figure>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-2nd-pulse-simplify.png"
+                        alt="乘员保护加速度简化"
+                      />
+                      <figcaption class="text-center">
+                        乘员保护加速度简化-这种简化的二阶波对乘员保护来说是等效的
+                      </figcaption>
+                    </figure>
+                    <p>
+                      将变化复杂的整车脉冲简化成二阶波便于研究车身加速度对乘员保护的影响，也便于对车身结构进行优化。通过大量的分析研宄，根据这种简化波型，抬高第一台阶和降低第二台阶峰值有利于降低乘员的伤害指标，抬高第一阶峰值有利于减少胸部加速度，胸部压缩量和头部损伤。实际的脉冲应该是有2个峰值的马鞍型，前端高抬、中段回落、尾端有限制升高并呈平坦特性。第1个峰值出现在10ms
+                      左右，大小为15 20g，这便于安全气囊触发；在30~50ms
+                      内逐渐升高，峰值不宜过大，减缓乘员与气囊的接触；50ms
+                      后缓慢下降。
+                      由于二阶波波形简单可以参数化，因此可以在整车开发前期用二阶波分别来定义乘员保护开发的目标脉冲输入，定义整车耐撞性要达到的脉冲目标，设置整车的前碰溃缩空间，提供前舱的布置目标要求，然后初步定义二阶波形，如图所示。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-2nd-pulse-occupant-design.png"
+                        alt="乘员保护二阶波定义"
+                      />
+                      <figcaption class="text-center">
+                        乘员保护二阶波定义
+                      </figcaption>
+                    </figure>
+                    <code
+                      >图中的二阶波是加速度与压缩空间的关系，D1
+                      是前舱的前部溃缩空间，即前保蒙皮与发动机前端之间结构件的变形，D1
+                      还可以划分成三个空间:前保蒙皮压溃空间，前保横梁和吸能盒压溃空间，纵梁前段和中段压溃变形空间。D2
+                      是前舱后部的溃缩空间，即发动机后端与防火墙之间的结构件变形。G1
+                      与G2 可以通过优化来确定。根据前舱的压溃变形空间来定义A-D
+                      的图，在将A-D
+                      转化为A-T(加速度时间的关系)，这就是之前说的二阶波。
+                      定义了车身结构的二阶波，这样可以将车身结构设计优化和乘员保护设计优化分开来,
+                      定义的二阶波既是车身结构设计优化的目标,也是乘员保护、约束系统优化分析的输入条件,
+                      因此车身结构设计优化工作可以和约束系统的优化分析工作同时进行。
+                    </code>
+                    <h4 id="c-f-pulsedesign" class="block-title">脉冲设计</h4>
+                    <h5 class="block-title">30ms 脉冲设计</h5>
+                    <p>
+                      对于一定重量、一定碰撞速度的车辆，其碰撞能量是一定的。从h—
+                      节理论可知，要使其整个过程峰值不要太高，
+                      那么能量就要尽量“平均”
+                      分摊在各个时刻吸收。一般情况下，前30ms
+                      主要是前保、吸能盒、前纵梁前端和副车架前端发生变形吸能，从脉冲看，这阶段脉冲不能太低，一般要求在15g-25g
+                      左右，少数前悬较短车辆达到30g，另外从约束系统触发上考虑，在全正碰中，前10ms,
+                      整车脉冲尽可能髙于10g。那么从结构上就有以下要求：
+                    </p>
+                    <code>
+                      在保证整体压溃模式的前提下，前保横梁、吸能盒、前纵梁前端和副车架前端一定要保证一定截面和强度，对于无封闭式副车架的车辆，其前保和前纵梁更要求截面和强度较大，以保证前30ms
+                      的加速度不会太低。</code
+                    >
+                    <p>
+                      某车型前纵梁前端加强前后的加速度对比，不难看出，20ms
+                      前加速度提高， 整体峰值有所下降。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-pulsedesign-1.png"
+                        alt="某车型纵梁前端和吸能盒加强前后加速度对比"
+                      />
+                      <figcaption class="text-center">
+                        某车型纵梁前端和吸能盒加强前后加速度对比
+                      </figcaption>
+                    </figure>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-pulsedesign-longbeam.png"
+                        alt="某车型纵梁改进方案"
+                      />
+                      <figcaption class="text-center">
+                        某车型纵梁改进方案
+                      </figcaption>
+                    </figure>
+                    <p>
+                      Kickdown 处结构尽可能使过渡平滑，Z
+                      方向跳跃尽可能小，并且一定要保证一定高度的截面，如果Kickdown
+                      上翘较大，那么要在里面增加抗弯能力强的加强板。
+                    </p>
+                    <h5 class="block-title">30~60ms 脉冲设计</h5>
+                    <p>
+                      这个时间段是乘员对车身脉冲产生响应的时间段，因此这个时间段脉冲应尽可能低。一般30ms
+                      左右动力总成己经撞到刚性墙，加速度会迅速升高到最高点，这个时刻的加速度与以下几个主要因素有关
+                    </p>
+                    <ol>
+                      <li>
+                        前纵梁、Kickdown
+                        和副车架的强度直接决定着前舱变形模式，直接影响到整车加速度变化。因此，在前纵梁前端充分变形后，希望前纵梁中部发生一定Y
+                        向折弯，结构设计时 可以考虑。
+                      </li>
+                      <li>
+                        动力总成悬置的结构、类型和强度直接关系到整车加速度。动力总成悬置是连接动力总成与车身的机构，它决定了动力总成与车身的相对位移，对正碰加速度影响很大。从多次试验经验看，某些车型动力总成悬置在碰撞中不会断裂脱落，相对位移很小，而某些车型在碰撞时悬置会发生断裂，动力总成与车身相对位移较大。例如，在全正碰中，右悬置完全断裂，发动机后移量较大，而左悬置和后悬置部分损坏，右侧加速度明显小于左侧。因此在设计时，就要慎重考虑选择悬置的类型结构，在设计时就要考虑碰撞断裂与否。如果整车碰撞空间很充分，加速度不高，可以不用考虑悬置设计为碰撞断裂；如果碰撞空间很有限，加速度较高，悬置可设计为碰撞时断裂形式。这种设计考虑断裂的悬置不仅可用在动力总成悬置上，车身其他部位结构也可根据实际借鉴，Mini-cooper
+                        车身上多处可见此类结构，在铸造件和厚板件上设置有诱导断裂的结构槽。
+                      </li>
+                    </ol>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-pulsedesign-displacement.png"
+                        alt="动力总成与整车位移"
+                      />
+                      <figcaption class="text-center">
+                        动力总成与整车位移
+                      </figcaption>
+                    </figure>
+                    <p>
+                      根据它们的位移曲线，可以获得发动机停止时刻40.5ms,
+                      整车向前移动了464mm, 而整车停止时刻62ms,
+                      整车向前移动了538mm。
+                      根据整车的加速度脉冲和整车的位移，可以得到整车加速度在整车位移上变化曲线，即A-D
+                      曲线，如图所示。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-pulsedesign-acc-vs-dis.png"
+                        alt="整车加速度-位移曲线"
+                      />
+                      <figcaption class="text-center">
+                        整车加速度-位移曲线
+                      </figcaption>
+                    </figure>
+                    <p>
+                      根据A-D
+                      就很容易求出在发动机停止前车身的平均加速度14g,以及发动机停止时刻到车辆反弹时刻车身的平均加速度44g。如图中黑线所示。从这两个阶段的平均加速度看，在发动机停止时刻前，平均加速度过低，不利于前期的能量的释放和吸收。对于某个特定的整车来说，在该工况下的整车碰撞能量是一定的，如果前期的能量不能尽早地释放出来，势必后期将释放更多的能量，而碰撞中后期正是约束系统发挥作用的时候，这期间将有更多的能量由乘员来吸收。也就是说车身的乘降(Ride-down)降低。
+                    </p>
+                    <code
+                      >对于这种分析最好能结合标杆车(Benchmark)来对比分析，这样将更能明确车身耐撞性能，明确车身改进的方向。例如下图虚线所示的标杆车，在能量分布上明显要优于该车。一是前期平均加速度高,能量释放较多;二是后期平均加速度低;三是整车的压缩变形量大。
+                    </code>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-f-pulsedesign-benchmark-curve.png"
+                        alt="标杆车对比"
+                      />
+                      <figcaption class="text-center">
+                        标杆车对比，图中的黑线是整车碰撞过程中理想的脉冲，即等效方波（
+                        ESW
+                        )通过结构设计使碰撞中的波形是方波是不可能的，但可以合理安排车辆前部的碰撞变形空间来实现对前碰结构压缩变形的有效利用。
+                      </figcaption>
+                    </figure>
+                    <h4 id="c-f-pulseanalysis" class="block-title">脉冲分析</h4>
+                    <p>
+                      书接上文，我们继续来对某典型的车身脉冲进行分析。如下图所示，
+                      分别是车身左右B 下端的x 向加速度，和发动机上部左右加速度。
+                    </p>
+                    <div class="container row">
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-f-pulseanalysis-1.png"
+                          alt="车身脉冲"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          车身脉冲
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-f-pulseanalysis-2.png"
+                          alt="前舱动力总成脉冲"
+                        />
+                        <figcaption class="figure-caption">
+                          前舱动力总成脉冲
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <p>从加速曲线可以将全正碰分成三个阶段</p>
+                    <ol>
+                      <li>
+                        A 阶段：0~25ms,
+                        主要变形溃缩为前保和吸能盒，其中左侧加速度脉冲正常，
+                        吸能盒完
+                        全压溃；而右侧加速度脉冲有很大的起伏，通过录像确认在9.5ms
+                        时吸能盒焊点开裂，开裂后，吸能盒抵抗力立即下降，但开裂后上下两个U
+                        形板支撑开，又产生很大的抵抗力，因此右侧加速度又迅速上升，在17ms
+                        达到最高，然后两个U 形板弯折，加速度立即下降，直到21ms
+                        时压缩机等附件碰到冷却模块。
+                      </li>
+                      <li>
+                        B 阶段：25~48.8ms ,
+                        发动机向后移动，纵梁的激光拼焊前端开始溃缩，在29.5ms
+                        时右悬置失效，因此右侧加速度在该时刻有较大的波动，可以结合录像来确认。在发动机上加速度计采集的信号，如图1-61
+                        所示，可以判断：在36.4ms
+                        时，左后悬置断裂。发动机后端撞向转向机构等加速度继续增加，直至43ms
+                        时刻，左侧加速度下落很快，结合录像和后期的拆车可以判定：副车架左下固定螺栓断裂，瞬时失去力传递路径，
+                        在48.8ms 加速度跌至最低。
+                      </li>
+                      <li>
+                        C 阶段：48.8ms
+                        后，发动机在失去短暂的力传递路径后，撞击到副车架、转向机构等,
+                        加速度迅速升到一个峰值，然后碰撞载荷逐渐卸载，约在67.6ms
+                        时，车身开始反弹。
+                      </li>
+                    </ol>
+                  </div>
+                </section>
+                <!-- //end doc-section-crash-front -->
+                <!-- //start doc-section-side-crash -->
+                <section id="crash-side" class="doc-section">
+                  <h2 class="section-title">侧面碰撞</h2>
+                  <div id="c-s-design" class="section-block">
+                    <h3 class="block-title">设计要点</h3>
+                    <h4 id="c-s-sidewall" class="block-title">侧围布置</h4>
+                    <p>
+                      侧碰中，乘员生存空间、缓冲空间较小，因此侧围的侵入变形速度至关重要，布置侧围，一方面要阻止变形侵入（吸能），一方面也要传递碰撞力。
+                    </p>
+                    <p>吸能：</p>
+                    <ul>
+                      <li>门槛、门内防撞梁、B柱均是主要变形吸能部件</li>
+                      <li>
+                        门槛和MDB重叠高度至少为门槛的1/3高度，前期定义离地高度时，应该给予安全方面的输入
+                      </li>
+                      <li>门防撞梁中心部分要与MDB下部重合</li>
+                    </ul>
+                    <p>传递：</p>
+                    <ul>
+                      <li>通过座椅横梁、顶盖横梁传递碰撞力到非撞击侧</li>
+                      <li>
+                        座椅横梁要保证足够的刚度和强度，尽可能减小变形，保证座椅生存空间
+                      </li>
+                      <li>
+                        顶盖横梁取决于天窗类型，其位置不同，顶盖边梁的焊点位置、数量也要相应匹配，否则易造成边梁撕裂（Q3
+                        C-IASI MDB案例）
+                      </li>
+                    </ul>
+                    <h4 id="c-s-bpillar" class="block-title">B柱</h4>
+                    <ul>
+                      <li>
+                        侧碰中，B柱是最重要的结构，其变形情况直接决定侧面的侵入速度和侵入量
+                        （C-IASI中就考察B柱到座椅中线的距离，涉及乘员生存空间）。
+                      </li>
+                      <li>
+                        理想的B柱变形是“S”形，即上部不变形或少许变形，中部不折弯，下部软区向内变形但无撕裂发生。
+                      </li>
+                      <li>
+                        上部保证头部空间，中部保证胸部生存空间，下部也要控制侵入量，避免B柱下护板过度向内运动挤压侧气囊的展开（ASUVe侧气囊打到B柱下护板）。
+                      </li>
+                      <li>
+                        中部若向车内折弯，则顶部也会有压溃变形，整体上影响乘员生存空间。
+                      </li>
+                      <li>
+                        B柱区域分：软区，过渡区，正常区，三者的硬度变化如图。
+                      </li>
+                      <li>
+                        B柱本体厚度1.4mm-1.8mm，加强板厚度1.2mm-2.0mm（A4PA
+                        C-IASI年型中B柱加强板厚度2.3mm），局部采用小加强板，材料采用HSLA-350/B340LA/DP590（冷轧钢卷牌号）。
+                      </li>
+                      <li>
+                        B柱下部可通过激光拼焊，焊接一个较薄较弱的材料，增大下部变形，减小上部变形侵入。
+                      </li>
+                      <li>
+                        B柱与顶盖连接采用大圆角结构，重叠量至少要大于300mm。
+                      </li>
+                      <li>
+                        B柱与门槛连接采用大圆角结构，重叠量至少要大于500mm。
+                      </li>
+                      <li>
+                        截面设计方面，截面过度要均匀，避免大的突变（保证整体受力均衡）；截面在Y向要尽可能大，不小于40mm。
+                      </li>
+                    </ul>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-bpillar.png"
+                        alt="B柱"
+                      />
+                      <figcaption class="text-center">B柱</figcaption>
+                    </figure>
+                    <h4 id="c-s-sill" class="block-title">门槛</h4>
+                    <ul>
+                      <li>
+                        B柱下部变形带动门槛变形+壁障下沿撞击门槛，使得门槛向车内变形，理想状态是广顺的弧度，没有局部折弯，没有法兰边撕裂，以保证乘员的生存空间。
+                      </li>
+                      <li>
+                        在柱碰中，容易发生外门槛局部撕裂，VW标准底线：内门槛不能有折弯或者撕裂。
+                      </li>
+                      <li>
+                        铰链柱下端与门槛搭接的区域，焊点距离采用30mm-40mm。
+                      </li>
+                      <li>门槛其他区域的法兰边焊点间距不超过50mm。</li>
+                      <li>
+                        门槛在X向的截面要均匀，不能有突然的变化，并且门槛在X向不能倾斜，以保证整体受力均匀。
+                      </li>
+                      <li>为了抵抗碰撞，内外门槛之间增加一些小的加强件。</li>
+                    </ul>
+                    <h4 id="c-s-doorpipe" class="block-title">车门防撞梁</h4>
+                    <ul>
+                      <li>
+                        侧碰中防撞梁既传递载荷，也吸收碰撞能量，在碰撞中要避免折弯、撕裂、固定点脱开等失效情况
+                      </li>
+                      <li>防撞梁通常采用超高强度钢</li>
+                      <li>
+                        一般有两种形式：钣金冲压&钢管形式，前者性能好、强度大，但成本高，后者结构简单、成本低（FAW-VW产品均是钣金冲压）
+                      </li>
+                      <li>
+                        防撞梁截面尺寸不应小于25-30mm，至少厚1.8mm，纵向刚度要匹配好，在梁的两端有一定尺寸的截面是比较好的设计。中部刚度高，而两端刚度低是不好的
+                        ->
+                        两端有一定尺寸截面，能保证刚度（极端情况：两端就是平板）
+                      </li>
+                      <li>
+                        防撞梁要贯穿车门，两端与A柱、B柱、C柱由一定重合，其中最好与B柱根部重合（变形随形考量？）->不同主机厂设计不尽相同
+                      </li>
+                    </ul>
+                    <div class="container row">
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-door-crashbeam-1.png"
+                          alt="车门防撞梁"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          车门防撞梁
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-door-crashbeam-2.png"
+                          alt="车门防撞梁布置"
+                        />
+                        <figcaption class="figure-caption">
+                          车门防撞梁布置
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-door-front.png"
+                          alt="车门防撞梁布置-前门"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          车门防撞梁布置-前门
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-door-rear.png"
+                          alt="车门防撞梁布置-后门"
+                        />
+                        <figcaption class="figure-caption">
+                          车门防撞梁布置-后门
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <h4 id="c-s-floorbeam" class="block-title">底板横梁</h4>
+                    <ul>
+                      <li>
+                        侧碰中要对碰撞力进行传递，其中地板横梁就是重要的传递媒介，这也要求横梁不能有大的变形（即能抗住冲击变形）。
+                      </li>
+                      <li>
+                        横梁截面要有足够的深度，不能有突变（避免应力集中），在中通道处保持一定的截面，平缓过渡。
+                      </li>
+                      <li>
+                        横梁与门槛连接处的设计也很重要，要有过渡区域，避免局部受力过大。
+                      </li>
+                    </ul>
+                    <div class="container row">
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-floorbeam-a4-1.jpg"
+                          alt="A4地板横梁布置-1"
+                        />
+                        <figcaption class="figure-caption">
+                          A4地板横梁布置-1
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-floorbeam-a4-2.jpg"
+                          alt="A4地板横梁布置-2"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          A4地板横梁布置-2
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-floorbeam-a4-3.jpg"
+                          alt="A4地板横梁布置-3"
+                        />
+                        <figcaption class="figure-caption">
+                          A4地板横梁布置-3
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <h4 id="c-s-waistline" class="block-title">腰线</h4>
+                    <ul>
+                      <li>侧柱撞中，该部位也是主要的受力区域</li>
+                      <li>
+                        Y向，截面的深度要尽可能的大；Z向，宽度要尽可能的大
+                      </li>
+                      <li>
+                        上、前、后边缘要焊接在门内板上，选择合适的材料和厚度，能传递10kN载荷
+                      </li>
+                      <li>不能有折弯、撕裂的失效</li>
+                    </ul>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-waistline.png"
+                        alt="门腰线-窗台加强板"
+                      />
+                      <figcaption class="text-center">
+                        门腰线-窗台加强板
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div id="c-s-theory" class="section-block">
+                    <h3 class="block-title">侧碰原理</h3>
+                    <p>
+                      侧碰速度曲线如右图。壁障以13.89m/s的初速度开始减速，被撞侧门内板开始速度为0，与壁障碰撞后速度迅速上升，由于碰撞侧门内板受到撞击，因此最高速度超过壁障速度，然后下降。碰撞侧门内板受到撞击后变形，挤压侧气囊，侧气囊推动假人运动，假人运动速度迅速上升。非碰撞侧速度一开始缓慢增加，最终与壁障速度一致，此时壁障推动整车运动。
+                    </p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-theory-velocity.png"
+                        alt="侧碰速度变化"
+                      />
+                      <figcaption class="text-center">侧碰速度变化</figcaption>
+                    </figure>
+                    <p>
+                      侧碰中侵入速度对乘员保护影响很大，侵入速度的大小和时间分布合理性很重要（与结构设计有很大关系）。理想的碰撞侧与乘员接触区域的侵入速度曲线如下图，40ms前有一个峰值，随后慢慢下降，差的曲线如图，在40ms后又出现一个峰值。
+                    </p>
+                    <div class="container row">
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-theory-intrusion-velocity-1.png"
+                          alt="侵入速度"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          侵入速度
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-theory-intrusion-velocity-2.png"
+                          alt="侵入速度"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          侵入速度
+                        </figcaption>
+                      </figure>
+                      <p>
+                        侧碰中，车内成员与壁障之间距离很短，仅有侧围、内饰和气囊来阻挡撞击力。侧碰的伤害更多是对人体脏器的伤害，如胸部、腹部，根据生物力学，脏器损伤对撞击速度很敏感，如肝脏受到9m/s的撞击就撕裂。因此，在侧碰中重点是降低侵入速度。
+                      </p>
+                    </div>
+                    <p>侧碰中侵入量和侵入速度两个指标需要满足如表中的要求：</p>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-theory-intrusion-velocity-table.png"
+                        alt="侧碰各点侵入速度一般要求表"
+                      />
+                      <figcaption class="text-center">
+                        侧碰各点侵入速度一般要求表
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div id="c-s-loadpath" class="section-block">
+                    <h3 class="block-title">侧碰载荷传递</h3>
+                    <p>
+                      为了降低MDB侧碰中的乘员伤害，尽可能将撞击的能力分散开，向车辆前后，向车辆另一侧传递。
+                      增加横向载荷的传递，保持连续的传力结构。如顶盖横梁与B柱，形成连贯的闭环；门槛与中通道之间增加座椅加强横梁。
+                    </p>
+                  </div>
+                  <div class="container row">
+                    <figure class="figure col-6-lg col-sm">
+                      <img
+                        class="figure-img img-fluid rounded"
+                        src="assets\images\c-s-loadpath-1.png"
+                        alt="载荷传递路径"
+                      />
+                      <figcaption class="figure-caption text-center">
+                        载荷传递路径
+                      </figcaption>
+                    </figure>
+                    <figure class="figure col-6-lg col-sm">
+                      <img
+                        class="figure-img img-fluid rounded"
+                        src="assets\images\c-s-loadpath-2.png"
+                        alt="载荷传递路径"
+                      />
+                      <figcaption class="figure-caption">
+                        载荷传递路径
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div id="c-s-strucanalysis" class="section-block">
+                    <h3 class="block-title">车身结构评估</h3>
+                    <p>
+                      侧碰车身耐撞性重点围绕乘员舱完整性展开。侧碰之后，需对车身结构变形进行主观、客观的评价分析。
+                    </p>
+                    <div class="table-responsive table-strips text-wrap">
+                      <table class="table table-dark">
+                        <thead>
+                          <tr>
+                            <th>位置</th>
+                            <th>主观评价点</th>
+                            <th>客观评价点</th>
+                            <th>备注</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td scope="row">B柱</td>
+                            <td>
+                              <li>S型变形模式</li>
+                              <li>不允许在腰线以上出现塑性变形绞</li>
+                            </td>
+                            <td>
+                              <li>侵入量</li>
+                              <li>侵入速度</li>
+                            </td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td scope="row">车门</td>
+                            <td>
+                              <li>防撞梁焊点不应撕裂或失效</li>
+                              <li>门下边缘翻转变形不应过大</li>
+                            </td>
+                            <td>
+                              <li>侵入量</li>
+                              <li>侵入速度</li>
+                            </td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td scope="row">门槛</td>
+                            <td>MDB碰撞中，门槛不允许折弯，更不能向内翻转</td>
+                            <td>
+                              <li>侵入量</li>
+                              <li>侵入速度</li>
+                            </td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td scope="row">座椅横梁</td>
+                            <td>不应有大的弯折和压溃变形</td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td scope="row">中通道</td>
+                            <td>
+                              不应受到产生过大的形变导致不能很好地传递载荷
+                            </td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                          <tr>
+                            <td scope="row">顶侧梁</td>
+                            <td>不应出现弯折</td>
+                            <td></td>
+                            <td>承载着将侧碰载荷右前向后传递的作用</td>
+                          </tr>
+                          <tr>
+                            <td scope="row">顶横梁</td>
+                            <td>不应出现大的弯曲变形</td>
+                            <td></td>
+                            <td>承载着将上部载荷传递到非碰撞侧的作用</td>
+                          </tr>
+                        </tbody>
+                      </table>
+                    </div>
+                    <h4 id="c-s-s-bpillar" class="block-title">B柱</h4>
+                    <code
+                      >B柱的立项变形模式是“S”型，不允许在腰线以上出现结构塑性绞
+                      <br />
+                      B柱折弯区间应在靠下部的位置，避免上部的侵入，侵占乘员生存空间
+                    </code>
+                    <div class="container row">
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-s-bpillar-good.png"
+                          alt="assets\images\c-s-s-bpillar-good.png"
+                        />
+                        <figcaption class="figure-caption text-center">
+                          B柱变形折弯在下部
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="figure-img img-fluid rounded"
+                          src="assets\images\c-s-s-bpillar-bad.png"
+                          alt="assets\images\c-s-s-bpillar-bad.png"
+                        />
+                        <figcaption class="figure-caption">
+                          B柱变形折弯在上部，靠近乘员头部
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <h5>B柱的侵入量</h5>
+                    <ul>
+                      <li>
+                        一般小于200mm是可接受的。目前内部没有对侵入量明确的数值要求，转而考察假人“生存空间”，应>385mm。
+                      </li>
+                      <li>靠近乘员头部和胸部对应的区域，侵入量应较小。</li>
+                    </ul>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-bpillar-intrusion.png"
+                        alt="assets\images\c-s-s-bpillar-intrusion.png"
+                      />
+                      <figcaption class="text-center">
+                        MDB侧碰B柱侵入量
+                      </figcaption>
+                    </figure>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-bpillar-intrusion-aclass-scan.png"
+                        alt="assets\images\c-s-s-bpillar-intrusion-aclass-scan.png"
+                      />
+                      <figcaption class="text-center">
+                        某A级轿车AE-MDB侧碰B柱静态侵入量
+                      </figcaption>
+                    </figure>
+                    <h5>B柱侵入速度</h5>
+                    <ul>
+                      <li>一般认为不能有两个波峰</li>
+                      <li>
+                        峰值小于9m/s是可以接受的。目前VW内部在早期开发时，将<7m/s作为模拟计算的Vorgabe。
+                      </li>
+                    </ul>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-bpillar-intrusion-speed.png"
+                        alt="assets\images\c-s-s-bpillar-intrusion-speed.png"
+                      />
+                      <figcaption class="text-center">侧碰侵入速度</figcaption>
+                    </figure>
+                    <figure>
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-bpillar-intrusion-speed-aclass.png"
+                        alt="assets\images\c-s-s-bpillar-intrusion-speed-aclass.png"
+                      />
+                      <figcaption class="text-center">
+                        某A级轿车AE MDB侧碰B柱侵入速度
+                      </figcaption>
+                    </figure>
+                    <h4 id="c-s-s-sill" class="block-title">门槛</h4>
+                    <code
+                      >AE MDB工况下不允许出现弯折，更不能向内翻转。 <br />
+                      柱碰中，门槛弯折不可避免，但必须提升门槛强度，使其变形控制在一定范围，不影响座椅稳定。</code
+                    >
+                    <div class="container row">
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="img-fluid rounded mx-auto d-block"
+                          src="assets\images\c-s-s-sill-deform-aclass.png"
+                          alt="assets\images\c-s-s-sill-deform-aclass.png"
+                        />
+                        <figcaption class="text-center">
+                          某A级轿车AE MDB侧碰，门槛几乎没有变形折弯
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="img-fluid rounded mx-auto d-block"
+                          src="assets\images\c-s-s-sill-deform-aclass-1.png"
+                          alt="assets\images\c-s-s-sill-deform-aclass-1.png"
+                        />
+                        <figcaption class="text-center">
+                          某A级轿车前柱碰，门槛产生向内折弯，但座椅横梁起到了有效的横向支撑
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <h4 id="c-s-s-door" class="block-title">车门</h4>
+                    <h5>车门——主观评价</h5>
+                    <ul>
+                      <li>车门防撞梁不应出现大的弯曲变形</li>
+                      <li>
+                        车门、及防撞梁连接位置不应出现焊点撕裂或结构失效，例如车门铰链、车门锁钩、防撞梁焊点等
+                      </li>
+                      <li>门下边缘翻转变形大，能看到车内饰，也是不好的设计</li>
+                    </ul>
+                    <figure class="figure mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-door.png"
+                        alt="assets\images\c-s-s-door.png"
+                      />
+                      <figcaption class="text-center">门外板撕裂</figcaption>
+                    </figure>
+                    <h5>车门——客观评价</h5>
+                    <h6>车门侵入量</h6>
+                    <p>门内板侵入量应不大于150mm</p>
+                    <div class="container row">
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="img-fluid rounded mx-auto d-block"
+                          src="assets\images\c-s-s-door-intrusion.png"
+                          alt="assets\images\c-s-s-door-intrusion.png"
+                        />
+                        <figcaption class="text-center">车门变形</figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="img-fluid rounded mx-auto d-block"
+                          src="assets\images\c-s-s-door-intrusion-chart.png"
+                          alt="assets\images\c-s-s-door-intrusion-chart.png"
+                        />
+                        <figcaption class="text-center">
+                          某A级轿车AE MDB车门侵入速度
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <h6>车门侵入速度</h6>
+                    <p>门内板侵入速度<7.5m/s</p>
+                    <div class="container row">
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="img-fluid rounded mx-auto d-block"
+                          src="assets\images\c-s-s-bpillar-intrusion-speed.png"
+                          alt="assets\images\c-s-s-bpillar-intrusion-speed.png"
+                        />
+                        <figcaption class="text-center">
+                          车门侵入速度
+                        </figcaption>
+                      </figure>
+                      <figure class="figure col-6-lg col-sm">
+                        <img
+                          class="img-fluid rounded mx-auto d-block"
+                          src="assets\images\c-s-s-bpillar-intrusion-speed-aclass.png"
+                          alt="assets\images\c-s-s-bpillar-intrusion-speed-aclass.png"
+                        />
+                        <figcaption class="text-center">
+                          车门各点侵入速度曲线
+                        </figcaption>
+                      </figure>
+                    </div>
+                    <h4 id="c-s-s-seatbeam" class="block-title">座椅横梁</h4>
+                    <p>在侧碰中不能有大的折弯和压溃变形</p>
+                    <h4 id="c-s-s-tunnel" class="block-title">中通道</h4>
+                    <p>
+                      不应受到座椅横梁的挤压而产生过大变形，导致不能很好地传递载荷
+                    </p>
+                    <h4 id="c-s-s-topbeam" class="block-title">顶侧梁</h4>
+                    <p>
+                      在侧碰中不应出现弯折，C-IASI
+                      MDB中，撞击位置更高、能量更大，对顶横梁的冲击更大。
+                    </p>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-topbeam-1.png"
+                        alt="assets\images\c-s-s-topbeam-1.png"
+                      />
+                      <figcaption class="text-center">不应出现折弯</figcaption>
+                    </figure>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-topbeam-2.png"
+                        alt="assets\images\c-s-s-topbeam-2.png"
+                      />
+                      <figcaption class="text-center">
+                        某轿车C-IASI MDB顶侧梁弯折
+                      </figcaption>
+                    </figure>
+                    <p>
+                      C-IASI MDB中，撞击位置更高、能量更大，对顶横梁的冲击更大。
+                    </p>
+                    <h4 id="c-s-s-topquerbeam" class="block-title">顶部横梁</h4>
+                    <p>在侧碰中不应出现弯折 。</p>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-topquerbeam.png"
+                        alt="assets\images\c-s-s-topquerbeam.png"
+                      />
+                      <figcaption class="text-center">
+                        在侧碰中不应出现弯折
+                      </figcaption>
+                    </figure>
+                  </div>
+                  <div id="c-s-sc-canalysis" class="section-block">
+                    <h3 class="block-title">侧碰分析</h3>
+                    <p>
+                      侧碰分析不同于前碰分析，侧碰分析主要从以下几个方面来进行。
+                    </p>
+                    <h4 id="c-s-s-deform" class="block-title">车身变形</h4>
+                    <p>
+                      前面已经说过，关于侧碰车身相关部件的侧碰变形要求。除考察车身结构变形外，与乘员保护息息相关的座椅变形情况也是考察的重点，比如座椅是否向一边倾斜，座椅骨架的变形情况，座椅安装横梁的变形情况，座椅滑轨的变形情况，这些都是进行乘员保护分析的重要参考。
+                    </p>
+                    <h4 id="c-s-s-intrusion" class="block-title">侵入量</h4>
+                    <p>
+                      与前碰一样，车身的侵入量对乘员保护特别重要，尤其在侧碰中，乘员与车身侧围结构，乘员与撞击的壁障等之间的空间特别小，因此侧碰车身侵入量对乘员的伤害很敏感。试验结束后必须测量车身侧围相关结构的侵入量。如图所示，是侧面MDB时，侧围需要测量侵入量的点。
+                    </p>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-intrusion.png"
+                        alt="assets\images\c-s-s-intrusion.png"
+                      />
+                      <figcaption class="text-center">
+                        侧面侵入量测量点
+                      </figcaption>
+                    </figure>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-intrusion-scan.png"
+                        alt="assets\images\c-s-s-intrusion-scan.png"
+                      />
+                      <figcaption class="text-center">侧面侵入量</figcaption>
+                    </figure>
+                    <p>
+                      同样，侧碰中B柱的变形情况也可以那样表示出来，如图所示，是碰撞前后B柱的变形情况。
+                    </p>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-intrusion-bpillar.png"
+                        alt="assets\images\c-s-s-intrusion-bpillar.png"
+                      />
+                      <figcaption class="text-center">B柱侵入量</figcaption>
+                    </figure>
+                    <h4 id="c-s-s-intruspeed" class="block-title">侵入速度</h4>
+                    <p>
+                      碰撞后考察车身相关点的侵入速度。侵入速度相对于车身来说是横向的，取其绝对值，它求解的方法是对测量点的加速度进行积分，即为测量点的侵入速度。如图2-30所示，是某车型的侧碰侧门测量点的侵入速度。从曲线看，侧碰速度都处于较低的水平。
+                    </p>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-intruspeed.png"
+                        alt="assets\images\c-s-s-intruspeed.png"
+                      />
+                      <figcaption class="text-center">
+                        侧围测量点的侵入速度
+                      </figcaption>
+                    </figure>
+                    <h4 id="c-s-s-intruacc" class="block-title">侵入加速度</h4>
+                    <p>
+                      加速度-时间曲线主要考察波形和峰值，一般情况侧碰加速度峰值不会太高，不是造成乘员伤害的主要原因。图中是某车型50km/h侧碰非碰撞侧B柱根部加速度和速度曲线，认为比较理想。
+                    </p>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-s-intruacc.png"
+                        alt="assets\images\c-s-s-intruacc.png"
+                      />
+                      <figcaption class="text-center">
+                        侧碰加速度和速度
+                      </figcaption>
+                    </figure>
+                    <p>
+                      加速度-时间曲线反应了车辆在Y方向上速度变化的过程。<br />
+                      速度-时间曲线反应了车辆速度由零开始增加到与MDB共同速度的过程，可以直观看出到达共同速度的时刻。达到共同速度的时刻越早，反映车辆结构越硬，反之则越软。上图是某车型速度-时间曲线。一般车辆侧碰达到共同速度时刻在50ms-70ms之间。
+                    </p>
+                  </div>
+                  <div id="c-s-ncap-interpretation" class="section-block">
+                    <h3 class="block-title">NCAP解读</h3>
+                    <p>
+                      从2018年，C-NCAP官方将采用新的侧碰评价标准，该评价标准较之前的标准严格了很多，又与EuroNCAP侧碰标准有所不同，给车辆侧碰设计带来很大的困难。
+                    </p>
+                    <h4 id="c-s-n-different" class="block-title">标准差异</h4>
+                    <p>
+                      新版侧碰标准最大的不同在壁障，壁障比较如表2-2所示。通过表可看出，C-NCAP2018壁障向后覆盖较2015版增大了350mm，壁障高度增高了50mm，台车质量增加了450kg。壁障撞击能量增加了很多，同时撞击的高度提高了，这意味着门槛的布置要进一步匹配，或者门槛在侧碰中的作用大大降低。壁障对后排乘员的覆盖加大，因此对后排侧围结构设计提出更高的要求。
+                    </p>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-n-different.png"
+                        alt="assets\images\c-s-n-different.png"
+                      />
+                      <figcaption class="text-center">
+                        侧碰壁障差异对比
+                      </figcaption>
+                    </figure>
+                    <p>
+                      在假人方面的差异就是新版C-NCAP侧碰前排采用了WorldSID假人。
+                    </p>
+                    <h4 id="c-s-n-strategy" class="block-title">应对策略</h4>
+                    <code>
+                      对于侧碰，无论老版本MDB壁障还是新版本的AE-MDB壁障，提升侧碰耐撞性能，唯有降低侧碰的侵入量和侵入速度，而这两个指标只有通过侧围结构的“加强”来进行，“加强”有两个层面意思，一是直接加强车身侧围材料，即增加材料厚度和提升材料牌号，另外是，通过侧围合理的结构设计，合理的强度匹配，达到不提升重量成本的前提下，提升侧碰的耐撞性能。
+                    </code>
+                    <p>
+                      对于前排，一般会配备SAB，所以车身结构设计有很大的空间，而后排就不同，一般后排不配备SAB，侧碰中除了门护板就是侧围钣金结构，如果侧围钣金结构达不到要求，那么单纯靠门护板优化很难提升后排乘员得分。
+                      在老版本的侧碰中后排假人基本能获得满分，而采用新版的试验标准进行试验时，一般得分会有大幅下降。主要原因是后排没有SAB的保护，侵入速度的较大，如下表，是几个车型在进行AE-MDB时，后排侵入速度及对应的伤害值，无SAB。
+                    </p>
+                    <figure class="mx-auto">
+                      <img
+                        class="img-fluid rounded mx-auto d-block"
+                        src="assets\images\c-s-n-strategy.png"
+                        alt="assets\images\c-s-n-strategy.png"
+                      />
+                      <figcaption class="text-center">
+                        后排侧碰侵入速度及假人伤害，侧碰试验结果看，侵入速度与假人的伤害有非常大的关系，对于后排不带SAB的情况，只要能将侧围侵入速度和侵入量控制在表2-1的水平，那么后排基本可以获得满分。
+                      </figcaption>
+                    </figure>
+                  </div>
+                </section>
+                <!-- //end doc-section-side-crash -->
+              </div>
+              <!--//content-inner-->
+            </div>
+            <!--//doc-content-->
+            <div class="doc-sidebar col-md-3 col-12 order-0 d-none d-md-flex">
+              <div id="doc-nav" class="doc-nav">
+                <nav
+                  id="doc-menu"
+                  class="nav doc-menu flex-column sticky"
+                  data-spy="scroll"
+                >
+                  <a class="nav-link scrollto" href="#crash-overview">综述</a>
+                  <a class="nav-link scrollto" href="#crash-front">前向碰撞</a>
+                  <nav class="doc-sub-menu nav flex-column">
+                    <a class="nav-link scrollto" href="#crash-front-design"
+                      >设计要点</a
+                    >
+                    <nav class="nav flex-column">
+                      <a class="nav-link scrollto ml-4" href="#c-d-engineroom"
+                        >前舱空间</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-bumper"
+                        >保险杠</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-cms"
+                        >吸能盒</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-longbeam"
+                        >前纵梁</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-motorcover"
+                        >发动机罩</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-subframe"
+                        >副车架</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-hangstruct"
+                        >悬置</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-aggr"
+                        >动力总成</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-kickdown"
+                        >Kickdown</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-battery"
+                        >蓄电池</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-firewall"
+                        >防火墙</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-brake"
+                        >制动系统</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-tunnel"
+                        >地板纵梁、中通道</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-shotgun"
+                        >shotgun</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-sill"
+                        >门槛</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-appllar"
+                        >A柱</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-frontdoor"
+                        >前门结构</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-ccb"
+                        >仪表板横梁CCB</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-floor"
+                        >乘员舱底板</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-d-tireframe"
+                        >轮辋</a
+                      >
+                    </nav>
+                    <a class="nav-link scrollto" href="#crash-pulse"
+                      >车身脉冲评价指标</a
+                    >
+                    <nav class="nav flex-column">
+                      <a class="nav-link scrollto ml-4" href="#c-p-vpi"
+                        >脉冲指数</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-p-olc"
+                        >乘员负载指数</a
+                      >
+                    </nav>
+                    <a class="nav-link scrollto" href="#crash-ridedown"
+                      >乘降（ride-down）</a
+                    >
+                    <a class="nav-link scrollto" href="#crash-frb">全宽正碰</a>
+                    <nav class="nav flex-column">
+                      <a class="nav-link scrollto ml-4" href="#c-f-energy"
+                        >区域能量管理</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-f-sectionforce"
+                        >截面力</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-f-spacedesign"
+                        >空间设计</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-f-pulse"
+                        >二阶波形</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-f-pulsedesign"
+                        >脉冲设计</a
+                      >
+                      <a
+                        class="nav-link scrollto ml-4"
+                        href="#c-f-pulseanalysis"
+                        >车身脉冲分析</a
+                      >
+                    </nav>
+                  </nav>
+                  <a class="nav-link scrollto" href="#crash-side">侧面碰撞</a>
+                  <nav class="doc-sub-menu nav flex-column">
+                    <a class="nav-link scrollto" href="#c-s-design">设计要点</a>
+                    <nav class="nav flex-column">
+                      <a class="nav-link scrollto ml-4" href="#c-s-sidewall"
+                        >侧围布置</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-bpillar"
+                        >B柱</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-sill"
+                        >门槛</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-doorpipe"
+                        >车门防撞梁</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-floorbeam"
+                        >底板横梁</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-waistline"
+                        >腰线</a
+                      >
+                    </nav>
+                    <a class="nav-link scrollto" href="#c-s-theory">侧碰原理</a>
+                    <a class="nav-link scrollto" href="#c-s-loadpath"
+                      >侧碰载荷传递</a
+                    >
+                    <a class="nav-link scrollto" href="#c-s-strucanalysis"
+                      >车身结构评估</a
+                    >
+                    <nav class="nav flex-column">
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-bpillar"
+                        >B柱</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-sill"
+                        >门槛</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-door"
+                        >车门</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-seatbeam"
+                        >座椅横梁</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-tunnel"
+                        >中通道</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-topbeam"
+                        >顶侧梁</a
+                      >
+                      <a
+                        class="nav-link scrollto ml-4"
+                        href="#c-s-s-topquerbeam"
+                        >顶横梁</a
+                      >
+                    </nav>
+                    <a class="nav-link scrollto" href="#c-s-sc-analysis"
+                      >侧碰分析</a
+                    >
+                    <nav class="nav flex-column">
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-deform"
+                        >车身结构变形</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-intrusion"
+                        >车身侵入量</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-intruspeed"
+                        >车身侵入速度</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-s-intruacc"
+                        >车身加速度</a
+                      >
+                    </nav>
+                    <a class="nav-link scrollto" href="#c-s-ncap-interpretation"
+                      >NCAP新侧碰法规解读</a
+                    >
+                    <nav class="nav flex-column">
+                      <a class="nav-link scrollto ml-4" href="#c-s-n-different"
+                        >标准差异</a
+                      >
+                      <a class="nav-link scrollto ml-4" href="#c-s-n-strategy"
+                        >应对策略</a
+                      >
+                    </nav>
+                  </nav>
+                </nav>
+                <!--//doc-menu-->
+              </div>
+            </div>
+            <!--//doc-sidebar-->
+          </div>
+          <!--//doc-body-->
+        </div>
+        <!--//container-->
+      </div>
+      <!--//doc-wrapper-->
+    </div>
+    <!--//page-wrapper-->
+
+    <footer id="footer" class="footer text-center">
+      <div class="container">
+        <small class="copyright"
+          >Organized by Lv Yuanzhuo--RHS Direction TEBS1 for engineers</small
+        >
+      </div>
+      <!--//container-->
+    </footer>
+    <!--//footer-->
+
+    <!-- Main Javascript -->
+    <script
+      type="text/javascript"
+      src="assets/plugins/jquery-3.4.1.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/plugins/bootstrap/js/bootstrap.min.js"
+    ></script>
+    <script type="text/javascript" src="assets/plugins/prism/prism.js"></script>
+    <script
+      type="text/javascript"
+      src="assets/plugins/jquery-scrollTo/jquery.scrollTo.min.js"
+    ></script>
+    <script
+      type="text/javascript"
+      src="assets/plugins/stickyfill/dist/stickyfill.min.js"
+    ></script>
+    <script type="text/javascript" src="assets/js/main.js"></script>
+  </body>
+</html>
