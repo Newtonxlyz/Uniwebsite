@@ -3,6 +3,8 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { BookOpen, Lock, CheckCircle, PlayCircle } from "lucide-react";
 
+export const dynamic = "force-dynamic";
+
 export default async function CrashAIDashboard() {
   const lessons = await getLessons();
 

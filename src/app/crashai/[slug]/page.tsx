@@ -2,6 +2,8 @@ import { loadLessons } from "@/lib/server-data";
 import { notFound } from "next/navigation";
 import { LessonContent } from "@/components/lesson-content";
 
+export const dynamic = "force-dynamic";
+
 interface PageProps {
   params: Promise<{ slug: string }>;
 }

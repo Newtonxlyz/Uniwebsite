@@ -47,7 +47,7 @@ function SectionCard({ section, index, lessonSlug, lessonTitle }: SectionCardPro
   const [expanded, setExpanded] = useState(true);
 
   return (
-    <div className={`glass-card overflow-hidden ${typeStyles[section.type] || 'border-white/10'}`}>
+    <div className={`glass-card overflow-hidden ${typeStyles[section.type as string] || 'border-white/10'}`}>
       {/* Section header */}
       <div className="flex items-center justify-between px-5 py-3 border-b border-white/5">
         <div className="flex items-center gap-2">
@@ -58,8 +58,8 @@ function SectionCard({ section, index, lessonSlug, lessonTitle }: SectionCardPro
             {expanded ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
           <span className="flex items-center gap-1.5 text-xs font-medium px-2 py-0.5 rounded-full bg-white/5 text-white/60">
-            {typeIcons[section.type] || <Lightbulb size={14} />}
-            {typeLabels[section.type] || section.type}
+            {typeIcons[section.type as string] || <Lightbulb size={14} />}
+            {typeLabels[section.type as string] || section.type}
           </span>
           <h3 className="text-base font-semibold text-white/90">
             {section.title}

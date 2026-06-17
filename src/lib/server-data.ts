@@ -2,6 +2,7 @@
 // 后续会把 crashai 完整迁移到 Prisma + Blog 体系
 // 现在返回空数据，避免 page crash
 
+import "server-only";
 import { promises as fs } from "fs";
 import path from "path";
 
