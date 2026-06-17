@@ -54,7 +54,22 @@
 body {
   background: hsl(var(--background));
   color: hsl(var(--foreground));
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  font-family: "Century Gothic", "Microsoft YaHei", "微软雅黑", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  font-feature-settings: "kern" 1, "liga" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* 全局 font-family 兜底（包括子站 iframe 内容） */
+html, body, * {
+  font-family: "Century Gothic", "Microsoft YaHei", "微软雅黑", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif !important;
+}
+
+/* 字体优先级：英文用 Century Gothic，中文用微软雅黑 */
+/* 浏览器会自动 fallback，英文不会触发中文 font，混合字体由浏览器选择最合适的 */
+:root {
+  --font-sans: "Century Gothic", "Microsoft YaHei", "微软雅黑", -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --font-zh: "Microsoft YaHei", "微软雅黑", "Century Gothic", -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 /* Light mode: 主背景色和前景色 */
@@ -62,6 +77,48 @@ body {
   background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #fef3c7 100%);
   color: #0f172a;
 }
+
+/* 白天模式覆盖所有浅色 text 变体（避免 white/white-90/gray-300 等深色背景专用色） */
+.light .text-white { color: #0f172a !important; }
+.light .text-white\/80 { color: rgba(15, 23, 42, 0.85) !important; }
+.light .text-white\/70 { color: rgba(15, 23, 42, 0.75) !important; }
+.light .text-white\/60 { color: rgba(15, 23, 42, 0.65) !important; }
+.light .text-white\/50 { color: rgba(15, 23, 42, 0.55) !important; }
+.light .text-white\/40 { color: rgba(15, 23, 42, 0.45) !important; }
+.light .text-white\/30 { color: rgba(15, 23, 42, 0.35) !important; }
+.light .text-white\/20 { color: rgba(15, 23, 42, 0.25) !important; }
+.light .text-white\/10 { color: rgba(15, 23, 42, 0.15) !important; }
+.light .text-white\/5 { color: rgba(15, 23, 42, 0.08) !important; }
+.light .text-gray-100 { color: #1e293b !important; }
+.light .text-gray-200 { color: #334155 !important; }
+.light .text-gray-300 { color: #475569 !important; }
+.light .text-gray-400 { color: #475569 !important; }
+.light .text-gray-500 { color: #475569 !important; }
+.light .text-gray-600 { color: #334155 !important; }
+.light .text-gray-700 { color: #1e293b !important; }
+.light .text-gray-800 { color: #0f172a !important; }
+.light .text-gray-900 { color: #020617 !important; }
+.light .text-slate-300 { color: #475569 !important; }
+.light .text-slate-400 { color: #475569 !important; }
+.light .text-slate-500 { color: #334155 !important; }
+
+/* 白天模式 border 颜色加深 */
+.light .border-white\/10 { border-color: rgba(15, 23, 42, 0.12) !important; }
+.light .border-white\/15 { border-color: rgba(15, 23, 42, 0.18) !important; }
+.light .border-white\/20 { border-color: rgba(15, 23, 42, 0.22) !important; }
+.light .border-white\/5 { border-color: rgba(15, 23, 42, 0.08) !important; }
+.light .border-white\/30 { border-color: rgba(15, 23, 42, 0.3) !important; }
+
+/* 白天模式背景色：原来透明黑（给暗色用的）改为透明白 */
+.light .bg-white\/5 { background-color: rgba(255, 255, 255, 0.6) !important; }
+.light .bg-white\/10 { background-color: rgba(255, 255, 255, 0.7) !important; }
+.light .bg-white\/\[0\.02\] { background-color: rgba(99, 102, 241, 0.04) !important; }
+.light .bg-white\/\[0\.07\] { background-color: rgba(99, 102, 241, 0.08) !important; }
+.light .bg-\[\#0a0a1a\] { background: linear-gradient(135deg, #f8fafc 0%, #eff6ff 50%, #fef3c7 100%) !important; }
+.light .bg-\[\#0a0a1a\]\/95 { background: rgba(255, 255, 255, 0.95) !important; }
+.light .bg-black\/20 { background-color: rgba(99, 102, 241, 0.06) !important; }
+.light .bg-black\/30 { background-color: rgba(99, 102, 241, 0.1) !important; }
+.light .bg-black\/40 { background-color: rgba(99, 102, 241, 0.14) !important; }
 
 /* Liquid Glass Card - Dark */
 .dark .glass-card {
@@ -174,6 +231,14 @@ body {
 }
 ::-webkit-scrollbar-thumb:hover {
   background: rgba(255, 255, 255, 0.25);
+}
+
+.light ::-webkit-scrollbar-thumb {
+  background: rgba(15, 23, 42, 0.2);
+}
+
+.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(15, 23, 42, 0.35);
 }
 
 /* Selection */
