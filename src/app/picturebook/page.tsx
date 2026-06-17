@@ -52,7 +52,7 @@ export default function PictureBookPage() {
             </p>
 
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/picturebook/stories" className="px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-medium hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300">
+              <Link href="/picturebook/stories/dark-cave" className="px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-medium hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300">
                 开始阅读
               </Link>
               <Link href="/picturebook/characters" className="px-8 py-3 rounded-full border border-white/20 text-white/80 hover:bg-white/5 transition-all duration-300">
@@ -71,32 +71,7 @@ export default function PictureBookPage() {
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* 乌鸦喝水系列 */}
-              {["本领", "智慧", "友情", "创新"].map((title, i) => (
-                <Link key={i}
-                  href={`/picturebook/stories/drinking-water-${i + 1}`}
-                  className="glass-card p-6 group hover:border-pink-500/50 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3 mb-4">
-                    <span className="text-3xl">💧</span>
-                    <div>
-                      <h3 className="text-lg font-semibold text-white group-hover:text-pink-400 transition-colors">
-                        乌鸦喝水 · {title}
-                      </h3>
-                      <p className="text-xs text-gray-500">20页 · 亲子共读</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-400 line-clamp-2">
-                    经典寓言新编，雷迪嘎嘎版本的乌鸦喝水故事。{title}的冒险从这里开始。
-                  </p>
-                  <div className="mt-4 flex items-center gap-2">
-                    <span className="text-xs px-2 py-0.5 rounded-full bg-pink-500/20 text-pink-300">已上线</span>
-                    <span className="text-xs text-gray-500">#乌鸦喝水系列</span>
-                  </div>
-                </Link>
-              ))}
-
-              {/* 黑黑的洞穴我不怕 */}
+              {/* 黑黑的洞穴我不怕 - 真实已上线 */}
               <Link href="/picturebook/stories/dark-cave"
                 className="glass-card p-6 group hover:border-pink-500/50 transition-all duration-300"
               >
