@@ -13,8 +13,7 @@
                     "db:push":  "prisma db push",
                     "db:migrate":  "prisma migrate dev",
                     "db:studio":  "prisma studio",
-                    "db:seed":  "tsx prisma/seed.ts",
-                    "prebuild":  "pnpm approve-builds --all || true"
+                    "db:seed": "tsx prisma/seed.ts"
                 },
     "dependencies":  {
                          "@aws-sdk/client-s3":  "^3.703.0",
