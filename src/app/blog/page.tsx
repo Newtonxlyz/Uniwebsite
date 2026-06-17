@@ -26,10 +26,10 @@ export default async function BlogListPage({
 }: {
   searchParams: Promise<{ category?: string; page?: string; q?: string }>;
 }) {
-  const params = await searchParams;
-  const category = params.category || undefined;
-  const page = parseInt(params.page || "1", 10);
-  const search = params.q || undefined;
+  const sp = await searchParams;
+  const category = sp.category || undefined;
+  const page = parseInt(sp.page || "1", 10);
+  const search = sp.q || undefined;
 
   const { items, total, pageCount } = await listPublishedPosts({ category, page, search });
 

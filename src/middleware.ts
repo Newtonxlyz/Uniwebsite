@@ -1,4 +1,4 @@
-// lvyz.org 全站统一认证中间件 (Next.js 16 proxy convention)
+// lvyz.org 全站统一认证中间件 (Next.js 15 middleware convention)
 // 自动拦截需要登录的路由
 import { NextResponse } from "next/server";
 import type { NextRequest } from "next/server";
@@ -9,7 +9,7 @@ const PROTECTED_PATHS = [
   "/admin",
 ];
 
-export function proxy(request: NextRequest) {
+export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   // 受保护的路由：未登录跳转到登录页

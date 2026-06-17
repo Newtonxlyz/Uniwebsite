@@ -8,8 +8,9 @@ export function generateStaticParams() {
   return characters.map((c) => ({ slug: c.id }));
 }
 
-export default function CharacterDetailPage({ params }: { params: { slug: string } }) {
-  const char = characters.find((c) => c.id === params.slug);
+export default async function CharacterDetailPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const char = characters.find((c) => c.id === slug);
   if (!char) notFound();
 
   const relatedSeries = series.filter(s => {
