@@ -31,6 +31,12 @@ let cachedStories: StoryEntry[] | null = null;
 function loadExtraStory(extra: any): StoryEntry {
   // 将 story-dark-cave.json 的扁平 pages 转成主 schema
   const pages = (extra.pages || []).filter((p: any) => p.page_number > 0);
+  // 角色名 → slug 映射（character.json 暂无 id 字段，先用英文别名 slug）
+  const charSlug: Record<string, string> = {
+    "雷迪嘎嘎": "lady-gaga",
+    "噶巴巴": "gababa",
+    "噶丫丫": "gayaya",
+  };
   return {
     id: extra.id,
     title: extra.title,
@@ -42,12 +48,12 @@ function loadExtraStory(extra: any): StoryEntry {
     age: extra.age_range || "3-8",
     time: extra.reading_time || 8,
     status: "published",
-    chars: ["雷迪嘎嘎", "噶巴巴", "噶丫丫"],
+    chars: Object.keys(charSlug), // 用此三角色
     tags: ["怕黑", "兄妹情", "情感引导"],
     text: pages.map((p: any) => ({
       page: p.page_number,
       body: stripMarkdown(p.text || ""),
-      image: p.image, // 保留原图路径
+      image: p.image,
     })) as any,
     illustrated: pages.some((p: any) => p.image && p.image.length > 0),
     image_dir: `stories/${extra.id}`,
