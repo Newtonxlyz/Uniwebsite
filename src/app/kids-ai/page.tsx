@@ -1,183 +1,267 @@
-import { Sparkles, Brain, Palette, Shield, ArrowRight, Star, Lightbulb } from "lucide-react";
-import Link from "next/link";
-import { kidsLessons } from "@/content/kids-ai/lessons";
-import LessonCard from "./components/lesson-card";
-import AIChatDemo from "./components/ai-chat-demo";
+"use client";
 
-export const metadata = {
-  title: "儿童AI学堂 · LvyzWeb",
-  description: "为5-12岁儿童打造的AI启蒙学习乐园",
+import Link from "next/link";
+import { useState, useEffect } from "react";
+import {
+  Sparkles, Star, Map, Trophy, Wrench, MessageCircle, Heart,
+  ChevronRight, Award, BookOpen, Play, Check,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+import { kidsLessons } from "@/content/kids-ai/lessons";
+import chapters from "@/content/kids-ai/chapters.json";
+
+// 童趣鲜艳配色
+const C = {
+  primary: "#FF6B9D",   // 桃粉
+  secondary: "#4ECDC4", // 薄荷青
+  accent: "#FFE66D",    // 暖黄
+  purple: "#A78BFA",    // 紫罗兰
+  blue: "#60A5FA",      // 天蓝
+  green: "#34D399",     // 翠绿
+  orange: "#FB923C",    // 橘色
+  red: "#F87171",       // 暖红
 };
 
-export default function KidsAIPage() {
+// 3 个角色（小智/妙妙/博博）
+const CHARACTERS = [
+  { id: "zhi", name: "小智", emoji: "🤖", role: "AI 老师", color: C.blue, desc: "住在电脑里的小机器人，知道很多 AI 的事" },
+  { id: "miao", name: "妙妙", emoji: "🐱", role: "探索队长", color: C.primary, desc: "最喜欢探索新奇的东西" },
+  { id: "bo", name: "博博", emoji: "🦉", role: "知识管家", color: C.orange, desc: "学完每章帮你总结" },
+];
+
+const FEATURES = [
+  { icon: Map, title: "10 章课程", desc: "从认识 AI 到创意工坊", color: C.primary },
+  { icon: MessageCircle, title: "6 个互动游戏", desc: "找 AI、分类、接龙、指令魔法", color: C.secondary },
+  { icon: Wrench, title: "5 个本地 AI 工具", desc: "写作/画画/音乐/讲故事/语音", color: C.accent },
+  { icon: Trophy, title: "成就系统", desc: "徽章、进度、作品集", color: C.purple },
+];
+
+export default function KidsAIHome() {
   return (
-    <div className="min-h-screen bg-[#0a0a1a]">
-      {/* Hero Section */}
-      <section className="relative pt-28 pb-16 px-6 overflow-hidden">
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute -top-40 -right-40 h-96 w-96 rounded-full bg-emerald-500/10 blur-3xl" />
-          <div className="absolute top-1/2 -left-40 h-80 w-80 rounded-full bg-cyan-500/8 blur-3xl" />
-          <div className="absolute -bottom-20 right-1/3 h-60 w-60 rounded-full bg-purple-500/8 blur-3xl" />
+    <div className="min-h-screen pt-16" style={{ background: `linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)` }}>
+      {/* HERO 区 — 童趣鲜艳 */}
+      <section className="relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          {/* 浮动装饰 */}
+          <div className="absolute top-20 left-8 text-6xl animate-float opacity-60" style={{ animationDelay: "0s" }}>⭐</div>
+          <div className="absolute top-32 right-12 text-5xl animate-float opacity-60" style={{ animationDelay: "1s" }}>🚀</div>
+          <div className="absolute top-60 left-1/4 text-4xl animate-float opacity-50" style={{ animationDelay: "2s" }}>✨</div>
+          <div className="absolute bottom-20 right-1/3 text-5xl animate-float opacity-50" style={{ animationDelay: "0.5s" }}>🎨</div>
         </div>
 
-        <div className="max-w-4xl mx-auto text-center relative">
-          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs mb-6">
+        <div className="relative max-w-6xl mx-auto px-6 py-12 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs mb-4 bg-white/80 backdrop-blur border-2" style={{ borderColor: C.primary, color: C.primary }}>
             <Sparkles className="h-3 w-3" />
-            适合 5-12 岁儿童
+            适合 6-12 岁 · 零基础起步
           </div>
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            <span className="bg-gradient-to-r from-emerald-400 via-cyan-400 to-purple-400 bg-clip-text text-transparent">
-              AI 启蒙学堂
-            </span>
+          <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: C.primary, fontFamily: "Microsoft YaHei, sans-serif" }}>
+            AI 启蒙学堂
           </h1>
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto mb-8 leading-relaxed">
-            用有趣的方式学习人工智能。我们通过故事、游戏和动手实验，
-            <br />
-            让孩子理解AI如何工作，学会与AI做朋友。
+          <p className="text-xl md:text-2xl font-medium mb-2" style={{ color: C.secondary }}>
+            和小智一起，探索 AI 的奇妙世界！
           </p>
-          <div className="flex flex-wrap gap-4 justify-center">
-            <a
-              href="#lessons"
-              className="glass-card inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-white hover:scale-105 transition-all"
+          <p className="text-base mb-8 max-w-2xl mx-auto text-gray-600">
+            10 章互动课程 + 6 个趣味游戏 + 5 个 AI 创作工具，
+            玩着学 AI，理解 AI，成为 AI 小达人！
+          </p>
+
+          {/* 三个角色卡片 */}
+          <div className="grid grid-cols-3 gap-3 max-w-2xl mx-auto mb-8">
+            {CHARACTERS.map((c) => (
+              <div
+                key={c.id}
+                className="bg-white rounded-2xl p-4 shadow-lg border-2 hover:scale-105 transition-transform"
+                style={{ borderColor: c.color }}
+              >
+                <div className="text-5xl mb-2">{c.emoji}</div>
+                <h3 className="text-base font-bold" style={{ color: c.color }}>
+                  {c.name}
+                </h3>
+                <p className="text-xs text-gray-500">{c.role}</p>
+              </div>
+            ))}
+          </div>
+
+          {/* CTA */}
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              href="/kids-ai/map"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full text-white font-bold shadow-lg hover:scale-105 transition-all"
+              style={{ background: `linear-gradient(135deg, ${C.primary} 0%, ${C.purple} 100%)` }}
             >
-              <Brain className="h-4 w-4 text-emerald-400" />
+              <Map className="h-4 w-4" />
               开始学习
-              <ArrowRight className="h-4 w-4" />
-            </a>
-            <a
-              href="#demo"
-              className="glass-card inline-flex items-center gap-2 px-6 py-3 text-sm font-medium text-gray-400 hover:text-white hover:scale-105 transition-all"
+            </Link>
+            <Link
+              href="/kids-ai/create"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white font-bold shadow-lg hover:scale-105 transition-all border-2"
+              style={{ borderColor: C.secondary, color: C.secondary }}
             >
-              <Lightbulb className="h-4 w-4 text-amber-400" />
-              动手试试
-            </a>
+              <Wrench className="h-4 w-4" />
+              创意工坊
+            </Link>
           </div>
         </div>
       </section>
 
-      {/* Feature Highlights */}
-      <section className="px-6 pb-16">
-        <div className="max-w-5xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-4">
-          {[
-            {
-              icon: "🤖",
-              title: "AI启蒙",
-              desc: "用孩子的语言解释AI原理",
-              color: "border-emerald-500/30 text-emerald-400",
-            },
-            {
-              icon: "🎨",
-              title: "创意工坊",
-              desc: "和AI一起创作故事与画作",
-              color: "border-purple-500/30 text-purple-400",
-            },
-            {
-              icon: "🏆",
-              title: "成就系统",
-              desc: "收集徽章，解锁新技能",
-              color: "border-amber-500/30 text-amber-400",
-            },
-          ].map((f) => (
-            <div
-              key={f.title}
-              className={`glass-card p-6 text-center border ${f.color} border-opacity-30`}
+      {/* 4 大特色 */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          {FEATURES.map((f) => {
+            const Icon = f.icon;
+            return (
+              <div
+                key={f.title}
+                className="bg-white rounded-2xl p-5 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all"
+              >
+                <div
+                  className="inline-flex h-12 w-12 items-center justify-center rounded-2xl mb-3"
+                  style={{ background: `${f.color}20`, color: f.color }}
+                >
+                  <Icon className="h-6 w-6" />
+                </div>
+                <h3 className="text-sm font-bold mb-1 text-gray-800">{f.title}</h3>
+                <p className="text-xs text-gray-500">{f.desc}</p>
+              </div>
+            );
+          })}
+        </div>
+      </section>
+
+      {/* 10 章课程地图 */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-bold mb-2" style={{ color: C.primary }}>
+            🗺️ 学习地图
+          </h2>
+          <p className="text-sm text-gray-500">
+            10 章循序渐进，每章 15-20 分钟
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          {(chapters as any[]).slice(0, 10).map((chapter: any, i: number) => (
+            <Link
+              key={chapter.id}
+              href={`/kids-ai/chapter/${chapter.id}`}
+              className="group bg-white rounded-2xl p-5 shadow-md hover:shadow-xl hover:-translate-y-1 transition-all border-2 border-transparent hover:border-pink-200"
             >
-              <span className="text-4xl block mb-3">{f.icon}</span>
-              <h3 className="text-white font-semibold mb-1">{f.title}</h3>
-              <p className="text-sm text-gray-500">{f.desc}</p>
-            </div>
+              <div className="flex items-center gap-4">
+                <div
+                  className="flex-shrink-0 w-12 h-12 rounded-2xl flex items-center justify-center text-white font-bold"
+                  style={{ background: `linear-gradient(135deg, ${C.primary} 0%, ${C.secondary} 100%)` }}
+                >
+                  {i + 1}
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg font-bold text-gray-800 truncate">
+                    {chapter.title}
+                  </h3>
+                  <p className="text-sm text-gray-500 truncate">
+                    {chapter.subtitle}
+                  </p>
+                </div>
+                <div className="text-right">
+                  <span
+                    className="inline-block text-xs px-2 py-1 rounded-full text-white"
+                    style={{ background: C.secondary }}
+                  >
+                    {chapter.duration || "15-20分钟"}
+                  </span>
+                </div>
+              </div>
+            </Link>
           ))}
         </div>
       </section>
 
-      {/* Lessons Section */}
-      <section id="lessons" className="px-6 pb-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              <span className="bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent">
-                AI知识小课堂
-              </span>
+      {/* 6 个互动游戏 */}
+      <section className="py-12" style={{ background: `linear-gradient(135deg, ${C.accent}20 0%, ${C.primary}10 100%)` }}>
+        <div className="max-w-6xl mx-auto px-6">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold mb-2" style={{ color: C.purple }}>
+              🎮 6 个互动游戏
             </h2>
-            <p className="text-gray-500 text-sm">
-              {kidsLessons.length} 节课，每节课5-10分钟
+            <p className="text-sm text-gray-500">
+              玩着学 AI，越玩越聪明
             </p>
           </div>
 
-          <div className="space-y-4">
-            {kidsLessons.map((lesson, idx) => (
-              <LessonCard key={lesson.id} lesson={lesson} defaultOpen={idx === 0} />
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Interactive Demo */}
-      <section id="demo" className="px-6 pb-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">
-              <span className="bg-gradient-to-r from-amber-400 to-rose-400 bg-clip-text text-transparent">
-                动手试试
-              </span>
-            </h2>
-            <p className="text-gray-500 text-sm">
-              体验AI的神奇魔力——和AI一起创作
-            </p>
-          </div>
-          <AIChatDemo />
-        </div>
-      </section>
-
-      {/* Achievement Preview */}
-      <section className="px-6 pb-16">
-        <div className="max-w-4xl mx-auto">
-          <div className="text-center mb-10">
-            <h2 className="text-2xl md:text-3xl font-bold text-white mb-3">成就徽章</h2>
-            <p className="text-gray-500 text-sm">完成课程，收集徽章</p>
-          </div>
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
             {[
-              { emoji: "🌟", name: "初识AI", desc: "完成第一课" },
-              { emoji: "🧠", name: "学习达人", desc: "完成3节课" },
-              { emoji: "🎨", name: "创意之星", desc: "完成AI绘画" },
-              { emoji: "💬", name: "提示词高手", desc: "写出精彩提示词" },
-            ].map((badge) => (
+              { name: "找 AI 小工具", icon: "🔍", color: C.blue, desc: "在房间里找 AI 朋友" },
+              { name: "水果分类", icon: "🍎", color: C.green, desc: "教 AI 认识水果" },
+              { name: "AI vs 人类", icon: "🤔", color: C.primary, desc: "猜猜谁画的" },
+              { name: "指令魔法", icon: "✨", color: C.purple, desc: "给 AI 下指令" },
+              { name: "故事接龙", icon: "📖", color: C.orange, desc: "和 AI 一起编故事" },
+              { name: "教 AI 认动物", icon: "🐱", color: C.red, desc: "训练 AI 模型" },
+            ].map((game, i) => (
               <div
-                key={badge.name}
-                className="glass-card p-5 text-center opacity-60 hover:opacity-100 transition-opacity"
+                key={game.name}
+                className="bg-white rounded-2xl p-5 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer"
               >
-                <span className="text-3xl block mb-2">{badge.emoji}</span>
-                <p className="text-white text-sm font-medium">{badge.name}</p>
-                <p className="text-xs text-gray-500 mt-1">{badge.desc}</p>
+                <div className="text-5xl mb-3">{game.icon}</div>
+                <h3 className="text-base font-bold mb-1 text-gray-800">{game.name}</h3>
+                <p className="text-xs text-gray-500 mb-2">{game.desc}</p>
+                <span
+                  className="inline-flex items-center gap-1 text-xs px-3 py-1 rounded-full text-white"
+                  style={{ background: game.color }}
+                >
+                  <Play className="h-3 w-3" />
+                  开始玩
+                </span>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Bottom CTA */}
-      <section className="px-6 pb-20">
-        <div className="max-w-2xl mx-auto text-center">
-          <div className="glass-card p-10">
-            <Star className="h-10 w-10 text-amber-400 mx-auto mb-4" />
-            <h2 className="text-xl font-bold text-white mb-3">准备好开始AI冒险了吗？</h2>
-            <p className="text-gray-400 text-sm mb-6">
-              每天5分钟，让孩子成为AI时代的小达人
-            </p>
-            <div className="flex gap-3 justify-center">
-              <Link
-                href="/picturebook"
-                className="glass-card inline-flex items-center gap-2 px-5 py-2.5 text-sm text-white hover:scale-105 transition-all"
-              >
-                绘本故事
-              </Link>
-              <Link
-                href="/crashai"
-                className="glass-card inline-flex items-center gap-2 px-5 py-2.5 text-sm text-gray-400 hover:text-white hover:scale-105 transition-all"
-              >
-                进阶课程
-              </Link>
+      {/* 创意工坊入口 */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div
+          className="rounded-3xl p-8 md:p-12 text-white text-center"
+          style={{ background: `linear-gradient(135deg, ${C.purple} 0%, ${C.primary} 100%)` }}
+        >
+          <Wrench className="h-12 w-12 mx-auto mb-4 opacity-90" />
+          <h2 className="text-3xl md:text-4xl font-bold mb-3">
+            创意工坊
+          </h2>
+          <p className="text-lg mb-6 opacity-90">
+            5 个 AI 工具：写作、画画、音乐、讲故事、语音
+          </p>
+          <Link
+            href="/kids-ai/create"
+            className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white font-bold hover:scale-105 transition-all"
+            style={{ color: C.purple }}
+          >
+            <Sparkles className="h-4 w-4" />
+            开始创作
+          </Link>
+        </div>
+      </section>
+
+      {/* 家长信任栏 */}
+      <section className="max-w-6xl mx-auto px-6 py-12">
+        <div className="bg-white rounded-3xl p-8 shadow-lg">
+          <div className="text-center mb-6">
+            <Heart className="h-8 w-8 mx-auto mb-2" style={{ color: C.primary }} />
+            <h2 className="text-2xl font-bold text-gray-800">家长放心</h2>
+          </div>
+          <div className="grid md:grid-cols-3 gap-6 text-center">
+            <div>
+              <div className="text-3xl mb-2">🛡️</div>
+              <h3 className="font-bold text-gray-800 mb-1">内容安全</h3>
+              <p className="text-sm text-gray-500">全年龄审核，无广告，无不良内容</p>
+            </div>
+            <div>
+              <div className="text-3xl mb-2">📚</div>
+              <h3 className="font-bold text-gray-800 mb-1">教育价值</h3>
+              <p className="text-sm text-gray-500">与课标对齐，培养计算思维与创造力</p>
+            </div>
+            <div>
+              <div className="text-3xl mb-2">👀</div>
+              <h3 className="font-bold text-gray-800 mb-1">家长面板</h3>
+              <p className="text-sm text-gray-500">查看学习进度、时长、内容</p>
             </div>
           </div>
         </div>

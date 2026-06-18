@@ -1,205 +1,442 @@
-import Link from "next/link";
-import { ArrowLeft, Users, BookOpen, Sparkles } from "lucide-react";
-import { characters, series } from "@/content/picturebook";
+"use client";
 
-export const metadata = {
-  title: "雷迪嘎嘎绘本世界 · Lvyz",
-  description: "1840个雷迪嘎嘎系列绘本故事，水墨×低多边形独特画风，3-10岁儿童亲子共读",
+import Link from "next/link";
+import { useEffect, useState } from "react";
+import {
+  ArrowRight, BookOpen, Sparkles, Star, Heart, Users,
+  ChevronRight, Play, Lock, Unlock,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
+
+// 雷迪嘎嘎绘本世界 — 配色系统（鲜艳版）
+// 主色：墨黑（深褐黑）+ 琥珀金 + 竹青 + 桃粉 + 紫藤 + 樱花粉
+const COLORS = {
+  ink: "#2A2420",
+  paper: "#FAF8F5",
+  amber: "#D4A03D",
+  bamboo: "#4A9B7F",
+  rose: "#D4778C",
+  wisteria: "#8B7EC8",
+  cherry: "#E8A4B8",
+  orange: "#E8923A",
+  teal: "#3D9B8F",
+  indigo: "#5B6BC8",
 };
 
-export default function PictureBookPage() {
-  const topSeries = series.filter(s => s.priority === 0);
-  const restSeries = series.filter(s => s.priority >= 1);
-  const featuredCharacters = characters.slice(0, 6);
+const R2 = "https://media.lvyz.org/picturebook-source";
 
+const SERIES = [
+  { id: "idiom", name: "成语故事", icon: "📜", color: COLORS.amber, count: 600 },
+  { id: "poetry", name: "诗歌故事", icon: "🌸", color: "#5BA4CF", count: 252 },
+  { id: "grow-boy", name: "噶巴巴成长", icon: "🧒", color: COLORS.bamboo, count: 320 },
+  { id: "grow-girl", name: "噶丫丫成长", icon: "👧", color: COLORS.rose, count: 180 },
+  { id: "emotion", name: "儿童情感引导", icon: "💗", color: COLORS.wisteria, count: 120 },
+  { id: "science", name: "科普系列", icon: "🔬", color: COLORS.teal, count: 95 },
+  { id: "idiom-story", name: "俚语歇后语", icon: "💬", color: COLORS.orange, count: 78 },
+  { id: "mother", name: "思念母亲", icon: "🌺", color: COLORS.cherry, count: 45 },
+  { id: "origin", name: "起源故事", icon: "✨", color: COLORS.indigo, count: 50 },
+];
+
+const STORIES = [
+  {
+    id: "dark-cave",
+    title: "黑黑的洞穴我不怕",
+    titleEn: "The Dark Cave I'm Not Afraid",
+    series: "儿童情感引导",
+    cover: `${R2}/book-cave.jpg`,
+    age: "3-8岁",
+    duration: "8分钟",
+    rating: 4.9,
+    isFree: true,
+    status: "已上线",
+  },
+  {
+    id: "crow-water-1",
+    title: "乌鸦喝水 · 本领",
+    titleEn: "The Crow Drinks · Skill",
+    series: "噶巴巴成长",
+    cover: `${R2}/book-crow1.jpg`,
+    age: "5-8岁",
+    duration: "6分钟",
+    rating: 4.8,
+    isFree: true,
+    status: "已上线",
+  },
+  {
+    id: "crow-water-2",
+    title: "乌鸦喝水 · 智慧",
+    titleEn: "The Crow Drinks · Wisdom",
+    series: "噶巴巴成长",
+    cover: `${R2}/book-crow2.jpg`,
+    age: "5-8岁",
+    duration: "6分钟",
+    rating: 4.7,
+    isFree: true,
+    status: "已上线",
+  },
+  {
+    id: "crow-water-3",
+    title: "乌鸦喝水 · 友情",
+    titleEn: "The Crow Drinks · Friendship",
+    series: "噶巴巴成长",
+    cover: `${R2}/book-crow3.jpg`,
+    age: "5-8岁",
+    duration: "6分钟",
+    rating: 4.8,
+    isFree: false,
+    status: "已上线",
+  },
+  {
+    id: "crow-water-4",
+    title: "乌鸦喝水 · 创新",
+    titleEn: "The Crow Drinks · Innovation",
+    series: "噶巴巴成长",
+    cover: `${R2}/book-crow4.jpg`,
+    age: "5-8岁",
+    duration: "6分钟",
+    rating: 4.6,
+    isFree: false,
+    status: "已上线",
+  },
+];
+
+const CHARACTERS = [
+  { id: "ladigaga", name: "雷迪嘎嘎", species: "乌鸦爸爸", emoji: "🐦‍⬛", color: COLORS.ink },
+  { id: "gababa", name: "噶巴巴", species: "小乌鸦", emoji: "🧒", color: COLORS.bamboo },
+  { id: "gayaya", name: "噶丫丫", species: "白乌鸦", emoji: "👧", color: COLORS.rose },
+  { id: "gugu", name: "真咕咕", species: "猫头鹰", emoji: "🦉", color: COLORS.indigo },
+  { id: "youyou", name: "白攸白", species: "白兔", emoji: "🐰", color: COLORS.cherry },
+  { id: "chengguang", name: "晨光", species: "乌鸦妈妈", emoji: "🦢", color: COLORS.wisteria },
+];
+
+const STATS = [
+  { value: "1,840+", label: "故事" },
+  { value: "12", label: "IP角色" },
+  { value: "5", label: "已上线" },
+  { value: "9", label: "系列" },
+];
+
+export default function PictureBookHome() {
   return (
-    <div className="min-h-screen bg-[#0a0a1a]">
-      {/* Background decoration */}
-      <div className="fixed inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-96 h-96 bg-pink-500/10 rounded-full blur-3xl" />
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 bg-amber-500/10 rounded-full blur-3xl" />
-      </div>
+    <div className="min-h-screen pt-16">
+      {/* HERO 区 - 鲜艳配色 */}
+      <section className="relative overflow-hidden">
+        {/* 背景渐变 + 浮动装饰 */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute inset-0"
+            style={{
+              background: `linear-gradient(135deg, ${COLORS.paper} 0%, #FEF3C7 35%, #FCE7F3 70%, #E0E7FF 100%)`,
+            }}
+          />
+          <div className="absolute top-20 left-10 text-6xl animate-float opacity-30">🌸</div>
+          <div className="absolute top-40 right-20 text-5xl animate-float opacity-30" style={{ animationDelay: "1s" }}>📖</div>
+          <div className="absolute bottom-20 left-1/4 text-4xl animate-float opacity-30" style={{ animationDelay: "2s" }}>✨</div>
+          <div className="absolute top-1/2 right-1/4 text-5xl animate-float opacity-30" style={{ animationDelay: "0.5s" }}>🐦‍⬛</div>
+        </div>
 
-      <div className="relative">
-        {/* Navigation */}
-        <nav className="fixed top-0 left-0 right-0 z-50 glass-nav px-6 h-16 flex items-center justify-between">
-          <Link href="/" className="flex items-center gap-2 text-white/80 hover:text-white transition-colors">
-            <ArrowLeft className="h-4 w-4" />
-            <span className="text-sm">Lvyz</span>
-          </Link>
-          <div className="flex items-center gap-4">
-            <Link href="/picturebook/characters" className="text-sm text-gray-400 hover:text-white transition-colors">角色屋</Link>
-            <Link href="/picturebook/stories" className="text-sm text-gray-400 hover:text-white transition-colors">故事馆</Link>
-          </div>
-        </nav>
-
-        {/* Hero Section */}
-        <section className="pt-32 pb-20 px-6 text-center relative">
-          <div className="max-w-4xl mx-auto">
-            <div className="mb-8">
-              <span className="text-7xl inline-block animate-bounce-slow">🐦‍⬛</span>
+        <div className="relative max-w-7xl mx-auto px-6 py-16 lg:py-20 grid lg:grid-cols-2 gap-10 items-center">
+          {/* 左：文字 */}
+          <div>
+            <div
+              className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs mb-6"
+              style={{ background: "rgba(212, 124, 140, 0.15)", color: COLORS.rose, border: `1px solid ${COLORS.rose}40` }}
+            >
+              <Sparkles className="h-3 w-3" />
+              水墨 × 低多边形 · 独特画风
             </div>
-            <h1 className="text-5xl md:text-7xl font-bold mb-4">
-              <span className="bg-gradient-to-r from-pink-400 via-purple-400 to-amber-400 bg-clip-text text-transparent">
-                雷迪嘎嘎绘本世界
-              </span>
+            <h1 className="text-4xl md:text-6xl font-bold mb-4" style={{ color: COLORS.ink, fontFamily: "Microsoft YaHei, sans-serif" }}>
+              雷迪嘎嘎
+              <span className="ml-2 text-gradient">绘本世界</span>
             </h1>
-            <p className="text-2xl text-gray-400 mb-3 italic">
-              "一只乌鸦的千个故事"
+            <p className="text-lg md:text-xl mb-2" style={{ color: COLORS.amber, fontWeight: 600 }}>
+              一只乌鸦的千个故事
             </p>
-            <p className="text-gray-500 mb-10 max-w-xl mx-auto">
-              水墨×低多边形独特画风 · 1840个故事 · 3-10岁亲子共读
+            <p className="text-base mb-8 max-w-lg" style={{ color: "#57534E" }}>
+              专为 3-10 岁儿童打造的沉浸式绘本体验。1,840 个故事，12 个 IP 角色，9 大系列，
+              在水墨与几何的独特美学中陪伴孩子成长。
             </p>
-
-            <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/picturebook/stories/dark-cave" className="px-8 py-3 rounded-full bg-gradient-to-r from-pink-500 to-rose-500 text-white font-medium hover:shadow-lg hover:shadow-pink-500/25 transition-all duration-300">
-                开始阅读
+            <div className="flex flex-wrap gap-3">
+              <Link
+                href="/picturebook/stories"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white font-medium shadow-lg hover:scale-105 transition-all"
+                style={{ background: `linear-gradient(135deg, ${COLORS.amber} 0%, ${COLORS.orange} 100%)` }}
+              >
+                <BookOpen className="h-4 w-4" />
+                进入故事馆
               </Link>
-              <Link href="/picturebook/characters" className="px-8 py-3 rounded-full border border-white/20 text-white/80 hover:bg-white/5 transition-all duration-300">
+              <Link
+                href="/picturebook/characters"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full font-medium hover:scale-105 transition-all"
+                style={{ background: "white", color: COLORS.ink, border: `2px solid ${COLORS.ink}20` }}
+              >
+                <Users className="h-4 w-4" />
                 认识角色
               </Link>
             </div>
+            <p className="mt-6 text-xs" style={{ color: "#A8A29E" }}>
+              已有 <span className="font-semibold" style={{ color: COLORS.amber }}>5</span> 本绘本上线 · 全部免费试读
+            </p>
           </div>
-        </section>
 
-        {/* Featured Stories - Phase 0 */}
-        <section className="py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Sparkles className="h-6 w-6 text-amber-400" />
-              <h2 className="text-2xl font-bold text-white">精选上线故事</h2>
+          {/* 右：Hero 图 */}
+          <div className="relative">
+            <div className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-2xl">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={`${R2}/hero-ladigaga.jpg`}
+                alt="雷迪嘎嘎"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
             </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {/* 黑黑的洞穴我不怕 - 真实已上线 */}
-              <Link href="/picturebook/stories/dark-cave"
-                className="glass-card p-6 group hover:border-pink-500/50 transition-all duration-300"
-              >
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="text-3xl">💝</span>
-                  <div>
-                    <h3 className="text-lg font-semibold text-white group-hover:text-pink-400 transition-colors">
-                      黑黑的洞穴我不怕
-                    </h3>
-                    <p className="text-xs text-gray-500">20页 · 情感引导 · 3-8岁</p>
-                  </div>
-                </div>
-                <p className="text-sm text-gray-400 line-clamp-2">
-                  噶丫丫害怕黑暗的洞穴，雷迪嘎嘎如何帮助她克服恐惧？一个关于勇气的温暖故事。
-                </p>
-                <div className="mt-4 flex items-center gap-2">
-                  <span className="text-xs px-2 py-0.5 rounded-full bg-amber-500/20 text-amber-300">即将上线</span>
-                  <span className="text-xs text-gray-500">#情感引导系列</span>
-                </div>
-              </Link>
+            {/* 浮动小气泡 */}
+            <div
+              className="absolute -top-4 -left-4 px-3 py-2 rounded-2xl text-sm font-bold shadow-lg animate-float"
+              style={{ background: COLORS.amber, color: "white" }}
+            >
+              1840+ 故事
+            </div>
+            <div
+              className="absolute -bottom-4 -right-4 px-3 py-2 rounded-2xl text-sm font-bold shadow-lg animate-float"
+              style={{ background: COLORS.bamboo, color: "white", animationDelay: "1s" }}
+            >
+              12 IP 角色
             </div>
           </div>
-        </section>
+        </div>
+      </section>
 
-        {/* Character Wall */}
-        <section className="py-16 px-6 bg-white/[0.02]">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <Users className="h-6 w-6 text-purple-400" />
-              <h2 className="text-2xl font-bold text-white">角色屋</h2>
-              <Link href="/picturebook/characters" className="ml-auto text-sm text-gray-400 hover:text-white transition-colors">
-                查看全部 →
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
-              {featuredCharacters.map((char) => (
-                <Link key={char.id}
-                  href={`/picturebook/characters/${char.id}`}
-                  className="glass-card p-4 text-center group hover:border-white/30 transition-all duration-300"
-                >
-                  <div className="text-4xl mb-2">{char.emoji}</div>
-                  <h3 className="text-sm font-semibold text-white group-hover:text-purple-300 transition-colors truncate">
-                    {char.name}
-                  </h3>
-                  <p className="text-xs text-gray-500 truncate">{char.species}</p>
-                  <p className="text-xs text-gray-600 mt-1">{char.storyCount}个故事</p>
-                </Link>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* Series Grid */}
-        <section className="py-16 px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="flex items-center gap-3 mb-8">
-              <BookOpen className="h-6 w-6 text-blue-400" />
-              <h2 className="text-2xl font-bold text-white">故事馆</h2>
-              <Link href="/picturebook/stories" className="ml-auto text-sm text-gray-400 hover:text-white transition-colors">
-                浏览全部 →
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-              {topSeries.map((s) => (
-                <Link key={s.id}
-                  href={`/picturebook/stories?series=${s.id}`}
-                  className="glass-card p-5 group hover:border-white/30 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-3">
-                    <span className="text-2xl">{s.image_emoji}</span>
-                    <div className="flex-1 min-w-0">
-                      <h3 className={`font-semibold truncate ${s.color} group-hover:brightness-110`}>
-                        {s.name}
-                      </h3>
-                      <p className="text-xs text-gray-500">{s.count}个故事</p>
-                    </div>
-                  </div>
-                  <p className="text-sm text-gray-400 mt-2 line-clamp-2">{s.description}</p>
-                </Link>
-              ))}
-            </div>
-
-            <details className="mt-6">
-              <summary className="text-sm text-gray-500 hover:text-gray-300 cursor-pointer transition-colors">
-                还有 {restSeries.length} 个系列
-              </summary>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
-                {restSeries.map((s) => (
-                  <Link key={s.id}
-                    href={`/picturebook/stories?series=${s.id}`}
-                    className="glass-card p-4 group hover:border-white/30 transition-all duration-300"
-                  >
-                    <div className="flex items-center gap-3">
-                      <span className="text-xl">{s.image_emoji}</span>
-                      <div className="flex-1 min-w-0">
-                        <h3 className={`font-semibold text-sm truncate ${s.color}`}>
-                          {s.name}
-                        </h3>
-                        <p className="text-xs text-gray-500">{s.count}个故事</p>
-                      </div>
-                    </div>
-                  </Link>
-                ))}
+      {/* 数据统计栏 */}
+      <section style={{ background: COLORS.ink }} className="py-10">
+        <div className="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6">
+          {STATS.map((s) => (
+            <div key={s.label} className="text-center">
+              <div className="text-3xl md:text-4xl font-bold mb-1" style={{ color: COLORS.amber }}>
+                {s.value}
               </div>
-            </details>
+              <div className="text-sm text-white/70">{s.label}</div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* 9 大系列 */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="flex items-end justify-between mb-8">
+          <div>
+            <h2 className="text-3xl font-bold" style={{ color: COLORS.ink }}>
+              🎨 9 大主题系列
+            </h2>
+            <p className="text-sm mt-1" style={{ color: "#7A6F65" }}>
+              按主题、年龄、情绪多维分类
+            </p>
           </div>
-        </section>
+          <Link
+            href="/picturebook/stories"
+            className="hidden md:inline-flex items-center gap-1 text-sm hover:gap-2 transition-all"
+            style={{ color: COLORS.amber }}
+          >
+            查看全部 <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
 
-        {/* Footer */}
-        <footer className="py-10 px-6 border-t border-white/5 text-center">
-          <p className="text-sm text-gray-600">
-            🐦 雷迪嘎嘎绘本世界 · 一只乌鸦的千个故事
-          </p>
-          <p className="text-xs text-gray-700 mt-2">
-            水墨×低多边形 独特画风 · 面向3-10岁儿童
-          </p>
-        </footer>
-      </div>
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4">
+          {SERIES.map((s) => (
+            <Link
+              key={s.id}
+              href={`/picturebook/stories?series=${encodeURIComponent(s.name)}`}
+              className="group relative overflow-hidden rounded-2xl p-6 transition-all hover:scale-[1.03] hover:shadow-xl"
+              style={{
+                background: "white",
+                border: `1px solid ${s.color}30`,
+              }}
+            >
+              <div
+                className="absolute top-0 left-0 right-0 h-1"
+                style={{ background: s.color }}
+              />
+              <div className="text-4xl mb-3">{s.icon}</div>
+              <h3 className="text-lg font-bold mb-1" style={{ color: COLORS.ink }}>
+                {s.name}
+              </h3>
+              <p className="text-xs flex items-center gap-2" style={{ color: "#7A6F65" }}>
+                <span
+                  className="px-2 py-0.5 rounded-full text-[10px] font-medium"
+                  style={{ background: `${s.color}20`, color: s.color }}
+                >
+                  {s.count} 个故事
+                </span>
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
 
-      <style>{`
-        @keyframes bounce-slow {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-bounce-slow { animation: bounce-slow 3s ease-in-out infinite; }
-      `}</style>
+      {/* 最新绘本 - 封面墙 */}
+      <section style={{ background: "rgba(250, 248, 245, 0.5)" }} className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="flex items-end justify-between mb-8">
+            <div>
+              <h2 className="text-3xl font-bold" style={{ color: COLORS.ink }}>
+                📚 已上线绘本
+              </h2>
+              <p className="text-sm mt-1" style={{ color: "#7A6F65" }}>
+                5 本成品绘本 · 全部免费试读
+              </p>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
+            {STORIES.map((story) => (
+              <Link
+                key={story.id}
+                href={`/picturebook/stories/${story.id}`}
+                className="group"
+              >
+                <div
+                  className="relative aspect-[3/4] rounded-2xl overflow-hidden shadow-lg group-hover:scale-105 group-hover:shadow-2xl transition-all"
+                  style={{ background: "white" }}
+                >
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={story.cover}
+                    alt={story.title}
+                    className="w-full h-full object-cover"
+                  />
+                  <div className="absolute top-2 left-2">
+                    <span
+                      className="px-2 py-0.5 rounded-full text-[10px] font-medium text-white"
+                      style={{ background: story.isFree ? COLORS.bamboo : COLORS.amber }}
+                    >
+                      {story.isFree ? "免费" : "会员"}
+                    </span>
+                  </div>
+                </div>
+                <h4
+                  className="mt-2 text-sm font-semibold line-clamp-1"
+                  style={{ color: COLORS.ink }}
+                >
+                  {story.title}
+                </h4>
+                <p className="text-xs flex items-center gap-1" style={{ color: "#7A6F65" }}>
+                  <Star className="h-3 w-3" style={{ color: COLORS.amber, fill: COLORS.amber }} />
+                  {story.rating} · {story.duration}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* 角色快览 */}
+      <section className="max-w-7xl mx-auto px-6 py-16">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-bold" style={{ color: COLORS.ink }}>
+            🐦 角色宇宙
+          </h2>
+          <p className="text-sm mt-1" style={{ color: "#7A6F65" }}>
+            12 个 IP 角色，陪伴式成长
+          </p>
+        </div>
+        <div className="grid grid-cols-3 md:grid-cols-6 gap-4">
+          {CHARACTERS.map((c) => (
+            <Link
+              key={c.id}
+              href={`/picturebook/characters/${c.id}`}
+              className="text-center group"
+            >
+              <div
+                className="aspect-square rounded-full mx-auto mb-2 flex items-center justify-center text-5xl transition-transform group-hover:scale-110"
+                style={{
+                  background: `linear-gradient(135deg, ${c.color}30 0%, ${c.color}10 100%)`,
+                  border: `3px solid ${c.color}60`,
+                }}
+              >
+                {c.emoji}
+              </div>
+              <h4 className="text-sm font-bold" style={{ color: COLORS.ink }}>
+                {c.name}
+              </h4>
+              <p className="text-xs" style={{ color: "#7A6F65" }}>
+                {c.species}
+              </p>
+            </Link>
+          ))}
+        </div>
+      </section>
+
+      {/* 阅读模式介绍 */}
+      <section style={{ background: COLORS.ink }} className="py-16">
+        <div className="max-w-7xl mx-auto px-6">
+          <h2 className="text-3xl font-bold text-center mb-10 text-white">
+            ✨ 3 种阅读模式
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="rounded-2xl p-6 text-center" style={{ background: "rgba(255,255,255,0.05)" }}>
+              <div className="text-5xl mb-4">📖</div>
+              <h3 className="text-xl font-bold text-white mb-2">绘本模式</h3>
+              <p className="text-sm text-white/70">
+                沉浸式翻页阅读，4:3 高清插图，支持左右滑动/键盘翻页
+              </p>
+            </div>
+            <div className="rounded-2xl p-6 text-center" style={{ background: "rgba(212,160,61,0.15)", border: `1px solid ${COLORS.amber}40` }}>
+              <div className="text-5xl mb-4">🔊</div>
+              <h3 className="text-xl font-bold text-white mb-2">有声模式</h3>
+              <p className="text-sm text-white/70">
+                智能朗读，童声配音，跟读模式帮孩子学讲话
+              </p>
+            </div>
+            <div className="rounded-2xl p-6 text-center" style={{ background: "rgba(255,255,255,0.05)" }}>
+              <div className="text-5xl mb-4">🎮</div>
+              <h3 className="text-xl font-bold text-white mb-2">互动模式</h3>
+              <p className="text-sm text-white/70">
+                点击角色触发反馈，参与故事情节，理解更深
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA 转化区 */}
+      <section
+        className="py-16"
+        style={{
+          background: `linear-gradient(135deg, ${COLORS.amber} 0%, ${COLORS.orange} 50%, ${COLORS.rose} 100%)`,
+        }}
+      >
+        <div className="max-w-3xl mx-auto px-6 text-center">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+            开启雷迪嘎嘎的阅读之旅
+          </h2>
+          <p className="text-white/90 mb-8">
+            1,840 个故事，9 大系列，全年龄免费试读
+          </p>
+          <div className="flex flex-wrap justify-center gap-3">
+            <Link
+              href="/picturebook/stories"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white font-bold hover:scale-105 transition-all"
+              style={{ color: COLORS.amber }}
+            >
+              <BookOpen className="h-4 w-4" />
+              立即开始
+            </Link>
+            <Link
+              href="/register"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full font-bold border-2 border-white text-white hover:bg-white/10 transition-all"
+            >
+              <Heart className="h-4 w-4" />
+              注册收藏
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="border-t border-gray-200 px-6 py-8 text-center bg-white">
+        <p className="text-xs" style={{ color: "#A8A29E" }}>
+          © 2026 雷迪嘎嘎绘本世界 · 水墨×低多边形 · 一只乌鸦的千个故事
+        </p>
+      </footer>
     </div>
   );
 }

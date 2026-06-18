@@ -1,0 +1,909 @@
+[
+  {
+    "id": 1,
+    "title": "你好，AI！",
+    "subtitle": "认识人工智能",
+    "icon": "Sparkles",
+    "color": "#4A90D9",
+    "targetAge": "6-8岁",
+    "duration": "15-20分钟",
+    "description": "和小智一起，发现生活中无处不在的AI小助手！",
+    "badge": {
+      "name": "AI探索家",
+      "icon": "Compass",
+      "description": "完成了AI世界的初次探险"
+    },
+    "nodes": [
+      {
+        "id": "1-1",
+        "title": "小智自我介绍",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "你好呀！我是小智，一个住在电脑里的小机器人。别看我个子小，我知道好多关于AI的事情呢！"
+          },
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "喵~我是妙妙！我最喜欢探索新奇的东西了。今天我们要一起去发现AI的奥秘！"
+          },
+          {
+            "type": "dialog",
+            "character": "bo",
+            "text": "咕咕~我是博博。当你学完每一章，我会帮你总结知识点哦。准备好了吗？让我们开始吧！"
+          }
+        ]
+      },
+      {
+        "id": "1-2",
+        "title": "生活中的AI发现",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "AI其实就在你身边！你能找到房间里藏着哪些AI吗？"
+          },
+          {
+            "type": "interactive",
+            "text": "find-ai-devices"
+          },
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "太棒了！你找到了这么多AI朋友！手机里的语音助手、推荐视频的算法、还有智能拍照，都是AI在帮忙呢！"
+          }
+        ]
+      },
+      {
+        "id": "1-3",
+        "title": "AI vs 人类",
+        "type": "game",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "AI很厉害，但它和人类有很多不同哦。我们来玩个游戏：看看下面的事情，是AI做的还是人类做的？"
+          },
+          {
+            "type": "interactive",
+            "text": "ai-or-human-quiz"
+          }
+        ]
+      },
+      {
+        "id": "1-4",
+        "title": "本章小结",
+        "type": "summary",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "bo",
+            "text": "咕咕~让我来总结一下今天学到的知识吧！"
+          },
+          {
+            "type": "text",
+            "text": "🎯 本章要点：\n\n1. AI是人工智能的简称，就像一个有超能力的小助手\n2. AI就在我们身边：语音助手、视频推荐、智能拍照...\n3. AI没有感情，需要人类教它学习\n4. AI和人类各有长处，我们是最好的搭档！"
+          },
+          {
+            "type": "quiz",
+            "question": "下面哪个是AI的例子？",
+            "options": [
+              "会自己思考的机器人",
+              "需要人类操作的计算器",
+              "普通的电风扇",
+              "手工画的图画"
+            ],
+            "correctAnswer": 0,
+            "explanation": "AI能够自己处理信息和做出判断，就像会自己思考的机器人！"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 2,
+    "title": "AI的眼睛",
+    "subtitle": "计算机视觉",
+    "icon": "Eye",
+    "color": "#F5A623",
+    "targetAge": "6-9岁",
+    "duration": "15-20分钟",
+    "description": "探索AI如何\"看\"世界，体验神奇的图像识别！",
+    "badge": {
+      "name": "视觉小达人",
+      "icon": "Eye",
+      "description": "学会了AI视觉的奥秘"
+    },
+    "nodes": [
+      {
+        "id": "2-1",
+        "title": "AI怎么看世界",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "你知道吗？AI也有\"眼睛\"！它的眼睛是摄像头，但真正的\"视力\"来自一种叫\"计算机视觉\"的技术。"
+          },
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "就像我可以用眼睛分辨猫粮和狗粮，AI也能分辨不同的东西！而且它能同时看成千上万张图片呢！"
+          },
+          {
+            "type": "text",
+            "text": "💡 小知识：\n\n计算机视觉让AI能够：\n• 识别图片里的物体（这是猫还是狗？）\n• 找到人脸在哪里（拍照时自动对焦）\n• 读取文字（把照片里的字变成文字）\n• 判断情绪（这个人是开心还是难过？）"
+          }
+        ]
+      },
+      {
+        "id": "2-2",
+        "title": "教AI认东西",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "想不想当一回AI老师？我们来教AI认识不同的动物吧！"
+          },
+          {
+            "type": "interactive",
+            "text": "teach-ai-animals"
+          },
+          {
+            "type": "dialog",
+            "character": "bo",
+            "text": "太神奇了！你给AI看的例子越多，它认得越准。这就是\"训练数据\"的力量！"
+          }
+        ]
+      },
+      {
+        "id": "2-3",
+        "title": "AI也会犯错",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "AI虽然聪明，但有时候也会闹笑话哦！"
+          },
+          {
+            "type": "text",
+            "text": "😄 AI的搞笑错误：\n\n• 把面包机认成了\"一个奇怪的脸\"\n• 把熊猫认成了\"穿着熊猫服装的人\"\n• 把云朵认成了\"一团棉花糖\"\n\n这些错误告诉我们：AI还在学习中，它需要我们不断教它！"
+          },
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "就像我有时候也会把毛线球当成老鼠一样，哈哈！"
+          }
+        ]
+      },
+      {
+        "id": "2-4",
+        "title": "创作时间",
+        "type": "create",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "现在轮到你了！用AI绘画工具，创作一幅\"我的未来世界\"吧！"
+          },
+          {
+            "type": "interactive",
+            "text": "ai-painting-future"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 3,
+    "title": "AI的耳朵",
+    "subtitle": "语音识别",
+    "icon": "Mic",
+    "color": "#7ED321",
+    "targetAge": "6-9岁",
+    "duration": "15-20分钟",
+    "description": "发现AI如何听懂我们说话，体验语音交互的魔法！",
+    "badge": {
+      "name": "语音小专家",
+      "icon": "Mic",
+      "description": "掌握了语音识别的秘密"
+    },
+    "nodes": [
+      {
+        "id": "3-1",
+        "title": "AI怎么听懂话",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "AI不仅能看，还能\"听\"！它的耳朵是麦克风，但它怎么知道你在说什么呢？"
+          },
+          {
+            "type": "text",
+            "text": "🔊 语音识别的魔法步骤：\n\n1. 收集声音：麦克风把声音变成数字信号\n2. 分解声音：把一句话切成很多小片段\n3. 匹配文字：把声音片段和文字对应起来\n4. 理解意思：根据上下文猜出你想说什么"
+          },
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "就像我听见开罐头的声音就知道要吃饭了，AI也是通过声音来\"理解\"世界的！"
+          }
+        ]
+      },
+      {
+        "id": "3-2",
+        "title": "和AI聊天",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "来试试和AI对话吧！你可以问它问题，或者让它帮你做事情。"
+          },
+          {
+            "type": "interactive",
+            "text": "voice-chat-demo"
+          }
+        ]
+      },
+      {
+        "id": "3-3",
+        "title": "声音的秘密",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "bo",
+            "text": "咕咕~声音是很神奇的东西。每个人的声音都像指纹一样独一无二！"
+          },
+          {
+            "type": "text",
+            "text": "🛡️ 声音安全小贴士：\n\n• 你的声音是个人信息，要保护好\n• 不要随便给陌生人录语音\n• AI可以模仿声音，所以要确认对方是谁\n• 遇到奇怪的语音消息，要告诉爸爸妈妈"
+          }
+        ]
+      },
+      {
+        "id": "3-4",
+        "title": "创作时间",
+        "type": "create",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "录制一段\"给AI的语音日记\"吧！说说你今天学到了什么，或者有什么有趣的想法。"
+          },
+          {
+            "type": "interactive",
+            "text": "voice-diary"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 4,
+    "title": "AI的大脑",
+    "subtitle": "机器学习",
+    "icon": "Brain",
+    "color": "#C5A3FF",
+    "targetAge": "8-10岁",
+    "duration": "20-25分钟",
+    "description": "揭开AI学习的秘密，体验训练AI模型的乐趣！",
+    "badge": {
+      "name": "训练小大师",
+      "icon": "Brain",
+      "description": "学会了训练AI的方法"
+    },
+    "nodes": [
+      {
+        "id": "4-1",
+        "title": "什么是机器学习",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "前面我们知道了AI能看、能听，但它到底是怎么学会这些本领的呢？答案就是——机器学习！"
+          },
+          {
+            "type": "text",
+            "text": "🧠 机器学习 = 从例子中学习规律\n\n就像你通过看很多猫的照片学会了\"猫长什么样\"，AI也是通过看很多例子来学习的。\n\n不同的是，AI可以同时看几百万张图片，而且不会觉得累！"
+          },
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "就像我通过闻很多味道，学会了分辨哪种猫粮最好吃！"
+          }
+        ]
+      },
+      {
+        "id": "4-2",
+        "title": "给AI上课",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "现在你来当AI的老师！我们要教AI分辨水果。把图片拖到正确的篮子里吧！"
+          },
+          {
+            "type": "interactive",
+            "text": "fruit-classifier"
+          },
+          {
+            "type": "dialog",
+            "character": "bo",
+            "text": "太棒了！你给AI看的例子越多，它学得越好。这就是\"训练数据\"的重要性！"
+          }
+        ]
+      },
+      {
+        "id": "4-3",
+        "title": "数据的重要性",
+        "type": "game",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "我们来做个实验：用不同数量的数据训练AI，看看效果有什么不一样！"
+          },
+          {
+            "type": "interactive",
+            "text": "data-amount-experiment"
+          },
+          {
+            "type": "text",
+            "text": "📊 实验结果：\n\n• 只看10张图片的AI：准确率 60%\n• 看100张图片的AI：准确率 85%\n• 看10000张图片的AI：准确率 98%\n\n结论：数据越多，AI越聪明！"
+          }
+        ]
+      },
+      {
+        "id": "4-4",
+        "title": "创作时间",
+        "type": "create",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "训练一个\"我的宠物识别器\"吧！上传你宠物的照片，让AI学会认出它！"
+          },
+          {
+            "type": "interactive",
+            "text": "pet-recognizer"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 5,
+    "title": "AI会说话",
+    "subtitle": "自然语言处理",
+    "icon": "MessageCircle",
+    "color": "#4A90D9",
+    "targetAge": "8-10岁",
+    "duration": "20-25分钟",
+    "description": "探索AI如何理解和生成文字，学会和AI对话的技巧！",
+    "badge": {
+      "name": "对话小高手",
+      "icon": "MessageCircle",
+      "description": "掌握了和AI对话的秘诀"
+    },
+    "nodes": [
+      {
+        "id": "5-1",
+        "title": "AI怎么懂人话",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "人类语言好复杂啊！同样一句话，不同的语气意思完全不同。AI是怎么理解的呢？"
+          },
+          {
+            "type": "text",
+            "text": "💬 自然语言处理（NLP）让AI能够：\n\n• 分词：把句子切成一个个词语\n• 理解语法：知道\"猫追老鼠\"和\"老鼠追猫\"不一样\n• 猜意图：明白\"我饿了\"是想吃东西\n• 生成回答：组织语言回复你"
+          }
+        ]
+      },
+      {
+        "id": "5-2",
+        "title": "和AI聊天",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "来和AI玩\"故事接龙\"吧！你说一句，AI说一句，看看能编出什么有趣的故事！"
+          },
+          {
+            "type": "interactive",
+            "text": "story-relay"
+          }
+        ]
+      },
+      {
+        "id": "5-3",
+        "title": "提示词的秘密",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "想让AI更好地帮助你，有一个秘诀——提示词！就是你怎么跟AI描述你的需求。"
+          },
+          {
+            "type": "text",
+            "text": "✨ 提示词小技巧：\n\n❌ 不好的提示：\"写个故事\"\n✅ 好的提示：\"写一个关于小猫冒险的童话故事，要有勇敢、友谊的主题，300字左右\"\n\n越详细的描述，AI越能给你想要的结果！"
+          },
+          {
+            "type": "interactive",
+            "text": "prompt-magic"
+          }
+        ]
+      },
+      {
+        "id": "5-4",
+        "title": "创作时间",
+        "type": "create",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "和AI一起写一个\"冒险小故事\"吧！你来设定角色和开头，AI帮你发展情节。"
+          },
+          {
+            "type": "interactive",
+            "text": "ai-story-creation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "title": "AI的创意",
+    "subtitle": "生成式AI",
+    "icon": "Wand2",
+    "color": "#F5A623",
+    "targetAge": "9-11岁",
+    "duration": "20-25分钟",
+    "description": "发现AI的创造力，学习如何正确使用生成式AI！",
+    "badge": {
+      "name": "创意小魔法师",
+      "icon": "Wand2",
+      "description": "掌握了AI创意的魔法"
+    },
+    "nodes": [
+      {
+        "id": "6-1",
+        "title": "什么是生成式AI",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "以前的AI主要是\"识别\"和\"判断\"，但现在的AI还能\"创造\"！这就是生成式AI。"
+          },
+          {
+            "type": "text",
+            "text": "🎨 生成式AI能创造什么？\n\n• 文字：故事、诗歌、邮件、代码\n• 图片：绘画、设计图、照片\n• 音乐：旋律、歌曲、配乐\n• 视频：动画、特效、剪辑\n• 3D模型：游戏角色、建筑、产品"
+          },
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "就像我能在梦里创造奇妙的世界一样，AI也能创造出从未存在过的东西！"
+          }
+        ]
+      },
+      {
+        "id": "6-2",
+        "title": "AI怎么创造",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "生成式AI就像一个读过全世界所有书的超级大脑。它通过学习海量内容，学会了\"创作\"的规律。"
+          },
+          {
+            "type": "interactive",
+            "text": "generative-ai-demo"
+          },
+          {
+            "type": "text",
+            "text": "💡 关键概念：\n\n• 大模型：读了海量数据的AI\n• 生成：根据你的要求创造新内容\n• 不是复制：AI创造的是全新的，不是抄袭\n• 需要引导：你的提示词决定输出质量"
+          }
+        ]
+      },
+      {
+        "id": "6-3",
+        "title": "使用规则",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "bo",
+            "text": "咕咕~生成式AI很强大，但我们要学会正确使用它。"
+          },
+          {
+            "type": "text",
+            "text": "📜 AI使用公约：\n\n1. AI是助手，不是替代：用它激发灵感，但思考要靠自己\n2. 检查事实：AI有时会\"胡说八道\"，重要信息要核实\n3. 标注来源：如果用了AI的帮助，要诚实说明\n4. 尊重版权：不要让别人以为AI作品是你独立完成的\n5. 保护隐私：不要输入个人信息给AI"
+          }
+        ]
+      },
+      {
+        "id": "6-4",
+        "title": "创作时间",
+        "type": "create",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "用AI生成\"我的专属表情包\"吧！描述你想要的表情和风格，让AI为你创作。"
+          },
+          {
+            "type": "interactive",
+            "text": "emoji-generator"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 7,
+    "title": "AI小画家",
+    "subtitle": "AI绘画创作",
+    "icon": "Palette",
+    "color": "#7ED321",
+    "targetAge": "8-12岁",
+    "duration": "25-30分钟",
+    "description": "掌握AI绘画技巧，创作属于你的艺术作品！",
+    "badge": {
+      "name": "AI小画家",
+      "icon": "Palette",
+      "description": "创作了精美的AI艺术作品"
+    },
+    "nodes": [
+      {
+        "id": "7-1",
+        "title": "AI绘画原理",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "想知道AI是怎么把文字变成图片的吗？让我来揭秘！"
+          },
+          {
+            "type": "text",
+            "text": "🖼️ AI绘画的步骤：\n\n1. 理解文字：AI先分析你描述的内容\n2. 想象画面：在\"脑海\"中构建图像\n3. 逐步绘制：从模糊到清晰，一层层添加细节\n4. 优化调整：让画面更美观、更符合描述\n\n就像你画画时先打草稿，再上色，最后加细节一样！"
+          }
+        ]
+      },
+      {
+        "id": "7-2",
+        "title": "提示词技巧",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "提示词就像给AI的\"画画指令\"，描述得越详细，画出来的效果越好！"
+          },
+          {
+            "type": "interactive",
+            "text": "prompt-lab"
+          },
+          {
+            "type": "text",
+            "text": "✨ 提示词公式：\n\n[主体] + [动作] + [场景] + [风格] + [光线] + [情绪]\n\n例如：\n\"一只橘色小猫在樱花树下打盹，水彩风格，柔和阳光，温馨宁静\""
+          }
+        ]
+      },
+      {
+        "id": "7-3",
+        "title": "风格探索",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "同样的主题，不同的风格，效果完全不同！来试试看吧！"
+          },
+          {
+            "type": "interactive",
+            "text": "style-explorer"
+          }
+        ]
+      },
+      {
+        "id": "7-4",
+        "title": "创作时间",
+        "type": "create",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "创作\"我的AI自画像\"系列吧！用3种不同的风格画自己。"
+          },
+          {
+            "type": "interactive",
+            "text": "self-portrait-series"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 8,
+    "title": "AI小作家",
+    "subtitle": "AI故事创作",
+    "icon": "BookOpen",
+    "color": "#C5A3FF",
+    "targetAge": "8-12岁",
+    "duration": "25-30分钟",
+    "description": "学会用AI辅助创作，写出精彩的故事！",
+    "badge": {
+      "name": "AI小作家",
+      "icon": "BookOpen",
+      "description": "创作了动人的AI故事"
+    },
+    "nodes": [
+      {
+        "id": "8-1",
+        "title": "故事的结构",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "bo",
+            "text": "一个好故事就像一次冒险，有起承转合四个部分。"
+          },
+          {
+            "type": "text",
+            "text": "📖 故事结构：\n\n• 起（开头）：介绍角色和背景\n• 承（发展）：遇到问题或挑战\n• 转（高潮）：最紧张刺激的部分\n• 合（结局）：问题解决，收获成长\n\nAI可以帮你完善每个部分，但故事的创意来自你！"
+          }
+        ]
+      },
+      {
+        "id": "8-2",
+        "title": "和AI brainstorming",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "不知道写什么？让AI帮你头脑风暴！给它一个主题，它会给你很多有趣的想法。"
+          },
+          {
+            "type": "interactive",
+            "text": "story-brainstorm"
+          }
+        ]
+      },
+      {
+        "id": "8-3",
+        "title": "创作与修改",
+        "type": "create",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "AI写的故事不一定完美，你要像导演一样审查和修改它。"
+          },
+          {
+            "type": "interactive",
+            "text": "story-editor"
+          },
+          {
+            "type": "text",
+            "text": "✏️ 修改清单：\n\n□ 故事有没有开头、中间、结尾？\n□ 角色性格一致吗？\n□ 情节合理吗？\n□ 有没有错别字或不通顺的句子？\n□ 这是你想表达的故事吗？"
+          }
+        ]
+      },
+      {
+        "id": "8-4",
+        "title": "作品展示",
+        "type": "summary",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "恭喜你完成了故事创作！你的作品已经保存到作品集里了。"
+          },
+          {
+            "type": "interactive",
+            "text": "work-showcase"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 9,
+    "title": "AI小导演",
+    "subtitle": "AI动画与音乐",
+    "icon": "Film",
+    "color": "#4A90D9",
+    "targetAge": "9-12岁",
+    "duration": "25-30分钟",
+    "description": "探索AI动画和音乐创作，制作你的多媒体作品！",
+    "badge": {
+      "name": "AI小导演",
+      "icon": "Film",
+      "description": "导演了精彩的AI多媒体作品"
+    },
+    "nodes": [
+      {
+        "id": "9-1",
+        "title": "AI动画原理",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "AI不仅能画静态图片，还能让图片\"动\"起来！这就是AI动画。"
+          },
+          {
+            "type": "text",
+            "text": "🎬 AI动画的魔法：\n\n• 文生视频：文字描述 → 视频画面\n• 图生视频：静态图片 → 动态场景\n• 风格迁移：把视频变成卡通、油画等风格\n• 动作捕捉：让卡通角色模仿真人的动作"
+          }
+        ]
+      },
+      {
+        "id": "9-2",
+        "title": "AI音乐基础",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "AI还能创作音乐！从旋律到节奏，从古典到流行，它都能尝试。"
+          },
+          {
+            "type": "interactive",
+            "text": "ai-music-lab"
+          },
+          {
+            "type": "text",
+            "text": "🎵 音乐元素：\n\n• 旋律：主要的曲调线条\n• 节奏：音乐的节拍感\n• 和声：多个音符同时响起\n• 音色：不同乐器的声音特点\n• 风格：流行、古典、爵士、电子..."
+          }
+        ]
+      },
+      {
+        "id": "9-3",
+        "title": "多媒体合成",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "把故事、图画、音乐合在一起，就是一部完整的作品！这就是导演的工作。"
+          },
+          {
+            "type": "interactive",
+            "text": "media-composer"
+          }
+        ]
+      },
+      {
+        "id": "9-4",
+        "title": "创作时间",
+        "type": "create",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "制作一个\"1分钟AI动画短片\"吧！用你学到的所有技能。"
+          },
+          {
+            "type": "interactive",
+            "text": "mini-animation"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "title": "AI小创客",
+    "subtitle": "AI游戏与应用",
+    "icon": "Gamepad2",
+    "color": "#F5A623",
+    "targetAge": "10-12岁",
+    "duration": "30-35分钟",
+    "description": "设计AI游戏和应用，成为负责任的AI小创客！",
+    "badge": {
+      "name": "AI小创客",
+      "icon": "Gamepad2",
+      "description": "设计了创新的AI应用"
+    },
+    "nodes": [
+      {
+        "id": "10-1",
+        "title": "游戏中的AI",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "你玩游戏的时候，对手有时候是真人，有时候是AI。游戏AI是怎么工作的呢？"
+          },
+          {
+            "type": "text",
+            "text": "🎮 游戏AI的类型：\n\n• 规则型AI：按照固定规则行动（如象棋AI）\n• 学习型AI：通过玩很多局来变强\n• 行为树AI：像真人有不同状态和反应\n• 生成型AI：自动创造游戏关卡和内容"
+          },
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "就像我玩追逐游戏时，会预判你的逃跑路线一样，游戏AI也会\"思考\"怎么赢你！"
+          }
+        ]
+      },
+      {
+        "id": "10-2",
+        "title": "应用中的AI",
+        "type": "interactive",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "AI可以让应用变得更聪明。来设计一个\"帮助同学的AI小应用\"吧！"
+          },
+          {
+            "type": "interactive",
+            "text": "app-designer"
+          }
+        ]
+      },
+      {
+        "id": "10-3",
+        "title": "产品设计思维",
+        "type": "knowledge",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "bo",
+            "text": "一个好的AI产品，不仅要技术厉害，还要真正帮助人。"
+          },
+          {
+            "type": "text",
+            "text": "💡 产品设计思维：\n\n1. 发现问题：同学们有什么困难？\n2. 头脑风暴：AI能怎么帮忙？\n3. 设计原型：画出应用的界面\n4. 测试改进：让同学试用，收集反馈\n5. 迭代优化：根据反馈不断改进"
+          }
+        ]
+      },
+      {
+        "id": "10-4",
+        "title": "毕业创作",
+        "type": "create",
+        "content": [
+          {
+            "type": "dialog",
+            "character": "zhi",
+            "text": "恭喜你来到最后一章！现在用你学到的所有知识，完成你的\"毕业创作\"吧！"
+          },
+          {
+            "type": "dialog",
+            "character": "miao",
+            "text": "你可以选择一个方向：AI游戏、AI故事、AI绘画、AI动画，或者把它们组合起来！"
+          },
+          {
+            "type": "interactive",
+            "text": "graduation-project"
+          },
+          {
+            "type": "dialog",
+            "character": "bo",
+            "text": "咕咕~你已经成为一名合格的AI小创客了！记住：AI是工具，创意和善良的心才是你最宝贵的财富。继续探索吧，未来属于你！"
+          }
+        ]
+      }
+    ]
+  }
+]
