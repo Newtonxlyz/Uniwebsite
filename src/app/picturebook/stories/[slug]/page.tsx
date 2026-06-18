@@ -14,13 +14,27 @@ const R2_PUBLIC_URL = process.env.R2_PUBLIC_URL || "https://media.lvyz.org";
 function getReaderPages(story: {
   text?: { page: number; body: string }[];
   image_dir?: string | null;
+  pages?: number;
 }) {
-  if (!story.text || !story.image_dir) return [];
-  return story.text.map((t) => ({
-    page_number: t.page,
-    text: t.body,
-    // 优先从 R2 加载（绘本图都搬 R2 了）；找不到则 fallback 到 public/
-    image: `${R2_PUBLIC_URL}/picturebook/${story.image_dir}/page_${String(t.page).padStart(2, "0")}.svg`,
+  if (!story.image_dir) return [];
+
+  // 优先用 text 数组（如果存在）；否则按 story.pages 总数生成空页
+  const textArr = story.text || [];
+  const totalPages = story.pages || textArr.length || 1;
+
+  if (textArr.length > 0) {
+    return textArr.map((t) => ({
+      page_number: t.page,
+      text: t.body,
+      image: `${R2_PUBLIC_URL}/picturebook/${story.image_dir}/page_${String(t.page).padStart(2, "0")}.svg`,
+    }));
+  }
+
+  // 仅有图没文字：生成占位页
+  return Array.from({ length: totalPages }, (_, i) => ({
+    page_number: i + 1,
+    text: `第 ${i + 1} 页 · 内容待补充`,
+    image: `${R2_PUBLIC_URL}/picturebook/${story.image_dir}/page_${String(i + 1).padStart(2, "0")}.svg`,
   }));
 }
 
