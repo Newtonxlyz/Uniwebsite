@@ -41,6 +41,7 @@ model User {
   posts         Post[]
   comments      Comment[]
   media         Media[]
+  siteAccess    SiteAccess[]
 
   @@map("users")
 }
@@ -233,4 +234,35 @@ model WikiAccess {
   createdAt DateTime @default(now())
 
   @@map("wiki_access")
+}
+
+// ─────────────────────────────────────────────────
+// 全站子站粒度权限（按 user 维度 + 子站粒度）
+// ─────────────────────────────────────────────────
+enum SiteAccessLevel {
+  NONE       // 无权
+  READ       // 只读
+  COMMENT    // 读+评论
+  EDIT       // 写
+  ADMIN      // 子站管理员
+}
+
+model SiteAccess {
+  id        String          @id @default(cuid())
+  // 关联 user
+  userId    String
+  user      User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  // 子站：crashai / kids-ai / picturebook / blog / knowledge-base / merchandise
+  site      String
+  // 权限等级
+  level     SiteAccessLevel @default(READ)
+  // 备注
+  note      String?
+  // 时间
+  createdAt DateTime        @default(now())
+  updatedAt DateTime        @updatedAt
+
+  @@unique([userId, site])
+  @@index([site])
+  @@map("site_access")
 }
