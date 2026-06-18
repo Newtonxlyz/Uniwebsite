@@ -100,6 +100,14 @@ export default function KidsAIHome() {
               <Wrench className="h-4 w-4" />
               创意工坊
             </Link>
+            <Link
+              href="/kids-ai/achievements"
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-white font-bold shadow-lg hover:scale-105 transition-all border-2"
+              style={{ borderColor: C.accent, color: "#F59E0B" }}
+            >
+              <Trophy className="h-4 w-4" />
+              成就
+            </Link>
           </div>
         </div>
       </section>
