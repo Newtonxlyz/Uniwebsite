@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, BookOpen, Star, Clock, Users, Heart, Tag, Volume2, Headphones, Type, Globe } from "lucide-react";
+import { ArrowLeft, ChevronLeft, ChevronRight, BookOpen, Star, Clock, Users, Heart, Tag, Volume2, Headphones, Type, Globe } from "lucide-react";
 import { characters } from "@/content/picturebook";
 import { getStoryById } from "@/content/picturebook/story-data";
 import StoryReader from "@/components/story-reader";
@@ -16,12 +16,21 @@ function getReaderPages(story: any) {
   const textArr = story.text || [];
   const totalPages = story.pages || textArr.length || 1;
 
+  // 优先用 page-level image（如 dark-cave 的绝对路径 /picturebook/stories/dark-cave/page_NN.png）
   if (textArr.length > 0) {
-    return textArr.map((t: any) => ({
-      page_number: t.page,
-      text: t.body,
-      image: `${R2_PUBLIC_URL}/picturebook/${story.image_dir}/page_${String(t.page).padStart(2, "0")}.svg`,
-    }));
+    return textArr.map((t: any, i: number) => {
+      // dark-cave 风格：从 textArr 顺序映射 1-indexed 图片
+      const idx = i + 1;
+      const absPath = (t as any).image || `${R2_PUBLIC_URL}/picturebook/${story.image_dir}/page_${String(idx).padStart(2, "0")}.svg`;
+      const finalSrc = absPath.startsWith("http") || absPath.startsWith("/")
+        ? absPath
+        : `${R2_PUBLIC_URL}${absPath.startsWith("/") ? "" : "/"}${absPath}`;
+      return {
+        page_number: t.page,
+        text: t.body,
+        image: finalSrc,
+      };
+    });
   }
 
   return Array.from({ length: totalPages }, (_, i) => ({
