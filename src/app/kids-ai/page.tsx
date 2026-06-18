@@ -203,23 +203,27 @@ export default function KidsAIHome() {
               { name: "指令魔法", icon: "✨", color: C.purple, desc: "给 AI 下指令" },
               { name: "故事接龙", icon: "📖", color: C.orange, desc: "和 AI 一起编故事" },
               { name: "教 AI 认动物", icon: "🐱", color: C.red, desc: "训练 AI 模型" },
-            ].map((game, i) => (
-              <div
-                key={game.name}
-                className="bg-white rounded-2xl p-5 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer"
-              >
-                <div className="text-5xl mb-3">{game.icon}</div>
-                <h3 className="text-base font-bold mb-1 text-gray-800">{game.name}</h3>
-                <p className="text-xs text-gray-500 mb-2">{game.desc}</p>
-                <span
-                  className="inline-flex items-center gap-1 text-xs px-3 py-1 rounded-full text-white"
-                  style={{ background: game.color }}
+            ].map((game, i) => {
+              const slugs = ["find-ai", "fruit-sort", "ai-vs-human", "magic-command", "story-chain", "train-ai"];
+              return (
+                <Link
+                  key={game.name}
+                  href={`/kids-ai/games/${slugs[i]}`}
+                  className="bg-white rounded-2xl p-5 text-center shadow-md hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer"
                 >
-                  <Play className="h-3 w-3" />
-                  开始玩
-                </span>
-              </div>
-            ))}
+                  <div className="text-5xl mb-3">{game.icon}</div>
+                  <h3 className="text-base font-bold mb-1 text-gray-800">{game.name}</h3>
+                  <p className="text-xs text-gray-500 mb-2">{game.desc}</p>
+                  <span
+                    className="inline-flex items-center gap-1 text-xs px-3 py-1 rounded-full text-white"
+                    style={{ background: game.color }}
+                  >
+                    <Play className="h-3 w-3" />
+                    开始玩
+                  </span>
+                </Link>
+              );
+            })}
           </div>
         </div>
       </section>
