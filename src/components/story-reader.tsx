@@ -1,7 +1,6 @@
 "use client";
 
 import { useState, useCallback, useRef, useEffect } from "react";
-import Image from "next/image";
 import {
   ChevronLeft, ChevronRight, Volume2, VolumeX, BookOpen,
   Play, Pause, SkipForward, SkipBack
@@ -319,13 +318,12 @@ export default function StoryReader({ title, pages }: StoryReaderProps) {
       {/* Image Container */}
       <div className="relative aspect-[4/3] rounded-2xl overflow-hidden bg-white/5 border border-white/10 mb-4">
         {pageImage ? (
-          <Image
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
             src={pageImage}
             alt={`${title} - 第${page.page_number}页`}
-            fill
-            className={`object-contain transition-opacity duration-300 ${isPlaying ? "opacity-90" : "opacity-100"}`}
-            sizes="(max-width: 768px) 100vw, 600px"
-            priority={currentPage < 3}
+            className={`absolute inset-0 w-full h-full object-contain transition-opacity duration-300 ${isPlaying ? "opacity-90" : "opacity-100"}`}
+            loading={currentPage < 3 ? "eager" : "lazy"}
           />
         ) : (
           <div className="w-full h-full flex items-center justify-center">

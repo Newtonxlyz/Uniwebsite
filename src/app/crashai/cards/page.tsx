@@ -322,11 +322,16 @@ export default function CardsPage() {
                 flipped ? "hidden" : "block"
               )}
             >
-              <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-gray-400 mb-4 inline-block">
-                {currentCard.type} · {currentCard.source}
-              </span>
-              <p className="text-lg text-white leading-relaxed">{currentCard.front}</p>
-              <p className="text-xs text-gray-500 mt-4">点击翻转</p>
+              <div className="flex items-center justify-center gap-2 mb-4">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300">
+                  {currentCard.category || "通用"}
+                </span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-white/10 text-gray-400">
+                  难度 {currentCard.difficulty || 1}
+                </span>
+              </div>
+              <p className="text-xl text-white leading-relaxed whitespace-pre-line">{currentCard.question || currentCard.front}</p>
+              <p className="text-xs text-gray-500 mt-6">点击翻转查看答案</p>
             </div>
             <div
               className={cn(
@@ -336,7 +341,10 @@ export default function CardsPage() {
               style={{ transform: "rotateY(180deg)" }}
             >
               <div className="text-sm text-gray-400 mb-2">答案</div>
-              <div className="text-base text-white leading-relaxed" dangerouslySetInnerHTML={{ __html: currentCard.back }} />
+              <div
+                className="text-base text-white leading-relaxed whitespace-pre-line"
+                dangerouslySetInnerHTML={{ __html: currentCard.answer || currentCard.back || "" }}
+              />
             </div>
           </div>
         </div>
