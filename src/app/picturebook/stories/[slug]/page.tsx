@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, ChevronLeft, ChevronRight, BookOpen, Users, Layers } from "lucide-react";
+import { ArrowLeft, BookOpen, Star, Clock, Users, Heart, Tag, Volume2, Headphones, Type, Globe } from "lucide-react";
 import { characters } from "@/content/picturebook";
 import { getStoryById } from "@/content/picturebook/story-data";
 import StoryReader from "@/components/story-reader";
@@ -8,35 +8,44 @@ import TextOnlyReader from "@/components/text-only-reader";
 
 export const dynamic = "force-dynamic";
 
-// R2 CDN 基础 URL（绘本图片统一从 R2 加载）
+// R2 CDN 基础 URL
 const R2_PUBLIC_URL = process.env.R2_PUBLIC_URL || "https://media.lvyz.org";
 
-function getReaderPages(story: {
-  text?: { page: number; body: string }[];
-  image_dir?: string | null;
-  pages?: number;
-}) {
+function getReaderPages(story: any) {
   if (!story.image_dir) return [];
-
-  // 优先用 text 数组（如果存在）；否则按 story.pages 总数生成空页
   const textArr = story.text || [];
   const totalPages = story.pages || textArr.length || 1;
 
   if (textArr.length > 0) {
-    return textArr.map((t) => ({
+    return textArr.map((t: any) => ({
       page_number: t.page,
       text: t.body,
       image: `${R2_PUBLIC_URL}/picturebook/${story.image_dir}/page_${String(t.page).padStart(2, "0")}.svg`,
     }));
   }
 
-  // 仅有图没文字：生成占位页
   return Array.from({ length: totalPages }, (_, i) => ({
     page_number: i + 1,
     text: `第 ${i + 1} 页 · 内容待补充`,
     image: `${R2_PUBLIC_URL}/picturebook/${story.image_dir}/page_${String(i + 1).padStart(2, "0")}.svg`,
   }));
 }
+
+// 系列专属色（与 stories 页一致）
+const SERIES_COLORS: Record<string, string> = {
+  "成语故事": "#D4A03D",
+  "诗歌故事": "#5BA4CF",
+  "噶巴巴成长": "#4A9B7F",
+  "噶丫丫成长": "#D4778C",
+  "儿童情感引导": "#8B7EC8",
+  "科普系列": "#3D9B8F",
+  "俚语歇后语": "#E8923A",
+  "思念母亲": "#E8A4B8",
+  "起源故事": "#5B6BC8",
+};
+
+const PAPER = "#FAF8F5";
+const INK = "#2A2420";
 
 type Params = Promise<{ slug: string }>;
 
@@ -49,160 +58,184 @@ export default async function StoryDetailPage({ params }: { params: Params }) {
   const readerPages = hasIllustrations ? getReaderPages(story) : [];
   const hasText = story.text && story.text.length > 0;
 
-  // Match characters to their profile links
+  const seriesColor = SERIES_COLORS[story.series] || "#D4A03D";
+
   const storyChars = story.chars
-    .map((name) => {
+    .map((name: string) => {
       const ch = characters.find((x) => x.name === name);
       return ch ? { name, id: ch.id, slug: ch.id } : { name, id: "", slug: "" };
     })
-    .filter((c) => c.id);
+    .filter((c: any) => c.id);
 
   return (
-    <div className="min-h-screen bg-[#0a0a1a] pt-20 px-6 pb-16">
-      <div className="max-w-4xl mx-auto">
-        <Link
-          href="/picturebook"
-          className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mb-6"
-        >
-          <ArrowLeft className="h-4 w-4" />
-          返回绘本首页
-        </Link>
+    <div className="min-h-screen pt-16" style={{ background: PAPER }}>
+      {/* HERO */}
+      <section
+        className="relative overflow-hidden"
+        style={{
+          background: `linear-gradient(135deg, ${seriesColor}15 0%, ${PAPER} 50%, ${seriesColor}08 100%)`,
+        }}
+      >
+        <div className="max-w-5xl mx-auto px-6 py-10">
+          <Link
+            href="/picturebook"
+            className="inline-flex items-center gap-2 text-sm mb-4 transition-colors"
+            style={{ color: INK }}
+          >
+            <ArrowLeft className="h-4 w-4" />
+            返回绘本首页
+          </Link>
 
-        {/* Story Header */}
-        <div className="glass-card p-8 mb-8">
-          <div className="flex items-start gap-6">
-            <div className="text-6xl">{story.emoji}</div>
-            <div className="flex-1 min-w-0">
-              <h1 className="text-2xl md:text-3xl font-bold text-white mb-2">
-                {story.title}
-              </h1>
-              <div className="flex flex-wrap gap-2 mb-3">
-                <span className="text-sm px-3 py-1 rounded-full bg-amber-500/20 text-amber-300">
-                  {story.series}
-                </span>
-                <span className="text-sm px-3 py-1 rounded-full bg-white/10 text-gray-300">
-                  {story.age}
-                </span>
-                <span className="text-sm px-3 py-1 rounded-full bg-white/10 text-gray-300">
-                  {story.pages}页 / {story.time}分钟
-                </span>
-                <span
-                  className={`text-sm px-3 py-1 rounded-full ${
-                    hasIllustrations
-                      ? "bg-emerald-500/20 text-emerald-300"
-                      : "bg-amber-500/20 text-amber-300"
-                  }`}
-                >
-                  {hasIllustrations ? "\u5df2\u4e0a\u7ebf" : "\u5373\u5c06\u4e0a\u7ebf"}
-                </span>
+          <div className="bg-white rounded-3xl p-6 md:p-8 shadow-xl">
+            <div className="flex items-start gap-5">
+              <div
+                className="flex-shrink-0 w-20 h-20 rounded-3xl flex items-center justify-center text-4xl shadow-lg"
+                style={{
+                  background: `linear-gradient(135deg, ${seriesColor} 0%, ${seriesColor}80 100%)`,
+                }}
+              >
+                {story.emoji}
               </div>
-              <p className="text-gray-400 leading-relaxed">{story.desc}</p>
+              <div className="flex-1 min-w-0">
+                <div className="flex flex-wrap items-center gap-2 mb-3">
+                  <span
+                    className="text-xs px-3 py-1 rounded-full text-white font-medium"
+                    style={{ background: seriesColor }}
+                  >
+                    {story.series}
+                  </span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700">
+                    {story.age}
+                  </span>
+                  <span className="text-xs px-3 py-1 rounded-full bg-gray-100 text-gray-700">
+                    {story.pages}页 / {story.time}分钟
+                  </span>
+                  <span
+                    className={`text-xs px-3 py-1 rounded-full text-white ${
+                      hasIllustrations ? "bg-emerald-500" : "bg-amber-500"
+                    }`}
+                  >
+                    {hasIllustrations ? "已上线" : "即将上线"}
+                  </span>
+                </div>
+                <h1 className="text-3xl md:text-4xl font-bold mb-3" style={{ color: INK }}>
+                  {story.title}
+                </h1>
+                <p className="text-base" style={{ color: "#57534E" }}>
+                  {story.desc}
+                </p>
+              </div>
             </div>
+
+            {/* 角色 + 标签 */}
+            {(storyChars.length > 0 || story.tags.length > 0) && (
+              <div className="mt-6 pt-6 border-t border-gray-100 space-y-3">
+                {storyChars.length > 0 && (
+                  <div className="flex items-start gap-2">
+                    <Users className="h-4 w-4 mt-1 flex-shrink-0" style={{ color: seriesColor }} />
+                    <div className="flex flex-wrap gap-2">
+                      {storyChars.map((c: any) => (
+                        <Link
+                          key={c.id}
+                          href={`/picturebook/characters/${c.slug}`}
+                          className="text-sm px-3 py-1 rounded-full text-white font-medium hover:scale-105 transition-transform"
+                          style={{ background: seriesColor }}
+                        >
+                          {c.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </div>
+                )}
+                {story.tags.length > 0 && (
+                  <div className="flex items-start gap-2 flex-wrap">
+                    <Tag className="h-4 w-4 mt-1 flex-shrink-0" style={{ color: "#A8A29E" }} />
+                    {story.tags.map((tag: string) => (
+                      <span
+                        key={tag}
+                        className="text-xs px-2 py-0.5 rounded-full"
+                        style={{ background: "#F5F5F4", color: "#57534E" }}
+                      >
+                        #{tag}
+                      </span>
+                    ))}
+                  </div>
+                )}
+              </div>
+            )}
           </div>
-
-          {/* Characters */}
-          {storyChars.length > 0 && (
-            <div className="mt-6 pt-6 border-t border-white/5 flex flex-wrap gap-2">
-              {storyChars.map((c) => (
-                <Link
-                  key={c.id}
-                  href={`/picturebook/characters/${c.slug}`}
-                  className="text-sm px-3 py-1 rounded-full bg-white/5 text-gray-300 hover:bg-white/10 hover:text-white transition-colors"
-                >
-                  {c.name}
-                </Link>
-              ))}
-            </div>
-          )}
-
-          {/* Tags */}
-          {story.tags.length > 0 && (
-            <div className="mt-3 flex flex-wrap gap-1.5">
-              {story.tags.map((tag) => (
-                <span
-                  key={tag}
-                  className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-gray-500"
-                >
-                  #{tag}
-                </span>
-              ))}
-            </div>
-          )}
         </div>
+      </section>
 
-        {/* Content: Illustrated Reader, Text-Only Reader, or Coming Soon */}
+      {/* 阅读器 / 故事文本 */}
+      <div className="max-w-5xl mx-auto px-6 pb-16">
         {hasIllustrations && readerPages.length > 0 ? (
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+            <h2
+              className="text-xl font-semibold mb-6 flex items-center gap-2"
+              style={{ color: INK }}
+            >
               <span>📖</span> 互动阅读器
             </h2>
             <StoryReader title={story.title} pages={readerPages} />
           </div>
         ) : hasText ? (
           <div className="mb-8">
-            <h2 className="text-xl font-semibold text-white mb-6 flex items-center gap-2">
+            <h2
+              className="text-xl font-semibold mb-6 flex items-center gap-2"
+              style={{ color: INK }}
+            >
               <span>📖</span> 故事文本
             </h2>
-            <TextOnlyReader title={story.title} pages={story.text!} />
+            <TextOnlyReader title={story.title} pages={story.text} />
           </div>
         ) : (
-          <div className="glass-card p-16 text-center mb-8">
-            <div className="text-6xl mb-6 animate-float">🎨</div>
-            <h2 className="text-2xl font-semibold text-white mb-3">
+          <div className="bg-white rounded-3xl p-12 text-center shadow-md mb-8">
+            <div className="text-6xl mb-4 animate-float">🎨</div>
+            <h2 className="text-2xl font-semibold mb-3" style={{ color: INK }}>
               绘图制作中
             </h2>
-            <p className="text-gray-400 max-w-md mx-auto">
+            <p className="text-sm max-w-md mx-auto" style={{ color: "#7A6F65" }}>
               这个故事的插图正在画师们的工作台上待完成。敬请期待！
             </p>
-            <div className="mt-8 flex items-center justify-center gap-8 text-sm text-gray-500">
-              <div className="text-center">
-                <span className="text-2xl block mb-1">{story.pages}</span>
-                页插图
-              </div>
-              <div className="text-center">
-                <span className="text-2xl block mb-1">{story.chars.length}</span>
-                个角色
-              </div>
-              <div className="text-center">
-                <span className="text-2xl block mb-1">{story.series}</span>
-                系列
-              </div>
-            </div>
           </div>
         )}
 
-        {/* Reading Modes */}
-        <div className="glass-card p-6 mb-8">
-          <h3 className="text-sm font-medium text-gray-300 mb-4">
-            \u9605\u8bfb\u6a21\u5f0f
+        {/* 阅读模式 */}
+        <div className="bg-white rounded-2xl p-6 shadow-md mb-8">
+          <h3 className="text-sm font-semibold mb-4 flex items-center gap-2" style={{ color: INK }}>
+            <Volume2 className="h-4 w-4" style={{ color: seriesColor }} />
+            阅读模式
           </h3>
           <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-            {(
-              [
-                ["\u{1F4D6}", "\u7ed8\u672c\u6a21\u5f0f", hasIllustrations ? "\u5df2\u4e0a\u7ebf" : "\u5373\u5c06\u4e0a\u7ebf"],
-                ["\u{1F50A}", "\u6709\u58f0\u6a21\u5f0f", hasText ? "\u5df2\u4e0a\u7ebf" : "\u5373\u5c06\u4e0a\u7ebf"],
-                ["\u{1F4DD}", "\u8ddf\u8bfb\u6a21\u5f0f", hasText ? "\u5df2\u4e0a\u7ebf" : "\u5373\u5c06\u4e0a\u7ebf"],
-                ["\u{1F310}", "\u591a\u8bed\u8a00", "\u5373\u5c06\u4e0a\u7ebf"],
-              ] as const
-            ).map((item) => {
-              const icon = item[0];
-              const name = item[1];
-              const status = item[2];
+            {[
+              { icon: "📖", name: "绘本模式", status: hasIllustrations ? "已上线" : "即将上线", Icon: BookOpen },
+              { icon: "🔊", name: "有声模式", status: hasText ? "已上线" : "即将上线", Icon: Volume2 },
+              { icon: "📝", name: "跟读模式", status: hasText ? "已上线" : "即将上线", Icon: Type },
+              { icon: "🌐", name: "多语言", status: "即将上线", Icon: Globe },
+            ].map((item) => {
+              const Icon = item.Icon;
               return (
                 <div
-                  key={name}
-                  className="p-4 rounded-xl bg-white/5 text-center"
+                  key={item.name}
+                  className="p-4 rounded-xl text-center transition-all hover:scale-105"
+                  style={{
+                    background: item.status === "已上线" ? `${seriesColor}15` : "#F5F5F4",
+                    border: item.status === "已上线" ? `1px solid ${seriesColor}40` : "1px solid #E5E7EB",
+                  }}
                 >
-                  <span className="text-3xl block mb-2">{icon}</span>
-                  <p className="text-sm font-medium text-white">{name}</p>
+                  <Icon
+                    className="h-5 w-5 mx-auto mb-2"
+                    style={{ color: item.status === "已上线" ? seriesColor : "#A8A29E" }}
+                  />
+                  <p className="text-sm font-medium" style={{ color: INK }}>
+                    {item.name}
+                  </p>
                   <span
-                    className={`text-xs block mt-1 ${
-                      status === "\u5df2\u4e0a\u7ebf"
-                        ? "text-emerald-400"
-                        : "text-amber-400"
-                    }`}
+                    className="text-xs block mt-1"
+                    style={{ color: item.status === "已上线" ? "#059669" : "#F59E0B" }}
                   >
-                    {status}
+                    {item.status}
                   </span>
                 </div>
               );
@@ -210,19 +243,22 @@ export default async function StoryDetailPage({ params }: { params: Params }) {
           </div>
         </div>
 
-        {/* Navigation */}
-        <div className="flex justify-between">
+        {/* 底部导航 */}
+        <div className="flex justify-between items-center">
           <Link
             href="/picturebook/stories"
-            className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium shadow hover:scale-105 transition-all"
+            style={{ background: "white", color: INK, border: `1px solid ${INK}20` }}
           >
             <ChevronLeft className="h-4 w-4" />
             返回故事馆
           </Link>
           <Link
             href="/picturebook"
-            className="flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-medium text-white shadow hover:scale-105 transition-all"
+            style={{ background: `linear-gradient(135deg, ${seriesColor} 0%, ${seriesColor}80 100%)` }}
           >
+            <BookOpen className="h-4 w-4" />
             绘本首页
             <ChevronRight className="h-4 w-4" />
           </Link>
