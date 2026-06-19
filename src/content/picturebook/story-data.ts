@@ -28,39 +28,6 @@ export interface StoryEntry {
 
 let cachedStories: StoryEntry[] | null = null;
 
-function loadExtraStory(extra: any): StoryEntry {
-  // 将 story-dark-cave.json 的扁平 pages 转成主 schema
-  const pages = (extra.pages || []).filter((p: any) => p.page_number > 0);
-  // 角色名 → slug 映射（character.json 暂无 id 字段，先用英文别名 slug）
-  const charSlug: Record<string, string> = {
-    "雷迪嘎嘎": "lady-gaga",
-    "噶巴巴": "gababa",
-    "噶丫丫": "gayaya",
-  };
-  return {
-    id: extra.id,
-    title: extra.title,
-    emoji: "🦉",
-    series: "儿童情感引导",
-    series_category: extra.series_id || "emotion",
-    desc: extra.description || extra.desc || "",
-    pages: pages.length,
-    age: extra.age_range || "3-8",
-    time: extra.reading_time || 8,
-    status: "published",
-    chars: Object.keys(charSlug), // 用此三角色
-    tags: ["怕黑", "兄妹情", "情感引导"],
-    text: pages.map((p: any) => ({
-      page: p.page_number,
-      body: stripMarkdown(p.text || ""),
-      image: p.image,
-    })) as any,
-    illustrated: pages.some((p: any) => p.image && p.image.length > 0),
-    image_dir: `stories/${extra.id}`,
-    source: "extra",
-  };
-}
-
 function stripMarkdown(s: string): string {
   return s
     .replace(/^#+\s*/gm, "")          // 去掉 # ## ### 标题
@@ -79,14 +46,18 @@ export async function getAllStories(): Promise<StoryEntry[]> {
 
   // 合并额外的单文件故事（如 story-dark-cave.json）
   const extras: StoryEntry[] = [];
+  const mergedMain = [...main];
   const extraFiles = ["story-dark-cave.json"];
   for (const fname of extraFiles) {
     try {
       const p = path.join(process.cwd(), "src", "content", "picturebook", fname);
       const r = await fs.readFile(p, "utf-8");
       const data = JSON.parse(r);
-      // 避免重复
-      if (!main.find((s) => s.id === data.id)) {
+      const idx = mergedMain.findIndex((s) => s.id === data.id);
+      if (idx >= 0) {
+        // 主 stories.json 已有同 id：用 extra 覆盖 text/image/image_dir
+        mergedMain[idx] = mergeExtra(data, mergedMain[idx]);
+      } else {
         extras.push(loadExtraStory(data));
       }
     } catch {
@@ -94,8 +65,28 @@ export async function getAllStories(): Promise<StoryEntry[]> {
     }
   }
 
-  cachedStories = [...main, ...extras];
+  cachedStories = [...mergedMain, ...extras];
   return cachedStories;
+}
+
+// 用 extra JSON 覆盖主 stories.json 同 id 的记录（填充真实 text/image）
+function mergeExtra(extra: any, mainStory: StoryEntry): StoryEntry {
+  const pages = (extra.pages || []).filter((p: any) => p.page_number > 0);
+  return {
+    ...mainStory,
+    title: extra.title || mainStory.title,
+    desc: extra.description || mainStory.desc,
+    age: extra.age_range || mainStory.age,
+    time: extra.reading_time || mainStory.time,
+    chars: mainStory.chars?.length ? mainStory.chars : Object.keys({ 雷迪嘎嘎: 1, 噶巴巴: 1, 噶丫丫: 1 }),
+    text: pages.map((p: any) => ({
+      page: p.page_number,
+      body: stripMarkdown(p.text || ""),
+      image: p.image,
+    })) as any,
+    illustrated: pages.some((p: any) => p.image && p.image.length > 0),
+    image_dir: `stories/${extra.id}`, // 强制 stories/ 前缀对齐 R2
+  };
 }
 
 export async function getStoryById(id: string): Promise<StoryEntry | null> {
