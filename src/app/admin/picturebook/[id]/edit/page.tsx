@@ -141,9 +141,37 @@ export default function PicturebookEditPage() {
   const addPages = async (files: FileList) => {
     for (const f of Array.from(files)) {
       if (!f.type.startsWith("image/")) continue;
-      const fd = new FormData();
-      fd.append("file", f);
-      await fetch(`/api/admin/picturebook/${id}/upload-page`, { method: "POST", body: fd });
+      // 走预签名直传
+      const presignRes = await fetch("/api/admin/picturebook/presign", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          storyId: id,
+          fileName: f.name,
+          fileType: f.type,
+          fileSize: f.size,
+          kind: "page",
+        }),
+      });
+      if (!presignRes.ok) {
+        alert("预签名失败: " + (await presignRes.json()).error);
+        continue;
+      }
+      const { uploadUrl, publicUrl, pageNum } = await presignRes.json();
+      const putRes = await fetch(uploadUrl, {
+        method: "PUT",
+        headers: { "Content-Type": f.type },
+        body: f,
+      });
+      if (!putRes.ok) {
+        alert("R2 上传失败: " + putRes.status);
+        continue;
+      }
+      await fetch("/api/admin/picturebook/confirm-upload", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ storyId: id, publicUrl, kind: "page", pageNum, size: f.size }),
+      });
     }
     load();
   };

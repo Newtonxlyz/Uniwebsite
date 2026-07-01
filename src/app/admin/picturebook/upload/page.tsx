@@ -29,6 +29,62 @@ const SERIES_COLORS: Record<string, string> = {
   "乌鸦喝水系列": "#5BA4CF",
 };
 
+// 预签名直传：浏览器 PUT 到 R2，绕过 Vercel 4.5MB body 限制
+async function uploadFileDirect(
+  storyId: string,
+  file: File,
+  kind: "page" | "cover" | "video",
+  pageNum: number | null,
+  text?: string
+): Promise<void> {
+  // 1. 拿预签名 URL
+  const presignRes = await fetch("/api/admin/picturebook/presign", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      storyId,
+      fileName: file.name,
+      fileType: file.type,
+      fileSize: file.size,
+      kind,
+      pageNum: pageNum ?? undefined,
+    }),
+  });
+  if (!presignRes.ok) {
+    const j = await presignRes.json().catch(() => ({}));
+    throw new Error(`预签名失败: ${j.error || presignRes.status}`);
+  }
+  const { uploadUrl, publicUrl, pageNum: resolvedNum } = await presignRes.json();
+
+  // 2. 浏览器 PUT 到 R2
+  const putRes = await fetch(uploadUrl, {
+    method: "PUT",
+    headers: { "Content-Type": file.type },
+    body: file,
+  });
+  if (!putRes.ok) {
+    throw new Error(`R2 直传失败: ${putRes.status}`);
+  }
+
+  // 3. 通知后端写库
+  const confirmRes = await fetch("/api/admin/picturebook/confirm-upload", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      storyId,
+      publicUrl,
+      kind,
+      pageNum: kind === "page" ? (pageNum ?? resolvedNum) : undefined,
+      text,
+      size: file.size,
+    }),
+  });
+  if (!confirmRes.ok) {
+    const j = await confirmRes.json().catch(() => ({}));
+    throw new Error(`写库失败: ${j.error || confirmRes.status}`);
+  }
+}
+
 export default function PicturebookUploadPage() {
   const router = useRouter();
   const [step, setStep] = useState(1);
@@ -50,6 +106,7 @@ export default function PicturebookUploadPage() {
   const [coverFile, setCoverFile] = useState<File | null>(null);
   const [videoFile, setVideoFile] = useState<File | null>(null);
   const [videoUploading, setVideoUploading] = useState(false);
+  const [uploadProgress, setUploadProgress] = useState<{ current: number; total: number }>({ current: 0, total: 0 });
   const fileInputRef = useRef<HTMLInputElement | null>(null);
   const [dragOver, setDragOver] = useState(false);
 
@@ -136,33 +193,25 @@ export default function PicturebookUploadPage() {
       }
       const story = await storyRes.json();
 
-      // 2. 上传封面
+      // 2. 上传封面（预签名直传）
       if (coverFile) {
-        const fd = new FormData();
-        fd.append("file", coverFile);
-        fd.append("kind", "cover");
-        await fetch(`/api/admin/picturebook/${story.id}/upload-page`, { method: "POST", body: fd });
+        await uploadFileDirect(story.id, coverFile, "cover", null);
       }
 
       // 3. 上传视频
       if (videoFile) {
         setVideoUploading(true);
-        const fd = new FormData();
-        fd.append("file", videoFile);
-        fd.append("kind", "video");
-        await fetch(`/api/admin/picturebook/${story.id}/upload-page`, { method: "POST", body: fd });
+        await uploadFileDirect(story.id, videoFile, "video", null);
         setVideoUploading(false);
       }
 
-      // 4. 逐页上传（顺序保证）
+      // 4. 逐页上传（直传 R2，绕过 4.5MB 限制）
+      setUploadProgress({ current: 0, total: pages.length });
       for (let i = 0; i < pages.length; i++) {
         const p = pages[i];
         if (!p.file) continue;
-        const fd = new FormData();
-        fd.append("file", p.file);
-        fd.append("pageNum", String(p.pageNum));
-        if (p.text) fd.append("text", p.text);
-        await fetch(`/api/admin/picturebook/${story.id}/upload-page`, { method: "POST", body: fd });
+        setUploadProgress({ current: i + 1, total: pages.length });
+        await uploadFileDirect(story.id, p.file, "page", p.pageNum, p.text);
       }
 
       // 5. 跳到列表
@@ -492,6 +541,12 @@ export default function PicturebookUploadPage() {
 
             <div className="bg-amber-50 border border-amber-200 rounded-xl p-3 text-xs text-amber-800">
               ℹ️ 上传过程中请保持页面打开。共 {pages.length} 张图片 + 1 个封面{videoFile ? " + 1 个视频" : ""}。
+              {submitting && uploadProgress.total > 0 && (
+                <span className="block mt-1 font-mono">
+                  进度: {uploadProgress.current}/{uploadProgress.total}
+                  {videoUploading && " · 视频上传中..."}
+                </span>
+              )}
             </div>
 
             <div className="flex justify-between pt-2">
