@@ -51,6 +51,20 @@ export function NavBar() {
               <span className="text-sm text-gray-300 dark:text-gray-300 light:text-slate-700 hidden sm:inline">
                 {user.name}
               </span>
+              <Link
+                href="/admin/picturebook"
+                className="text-xs px-2 py-1 rounded-md bg-amber-500/20 text-amber-300 hover:bg-amber-500/30 transition-colors"
+                title="绘本管理"
+              >
+                📚 管理
+              </Link>
+              <Link
+                href="/admin/site-access"
+                className="text-xs px-2 py-1 rounded-md bg-indigo-500/20 text-indigo-300 hover:bg-indigo-500/30 transition-colors hidden sm:inline"
+                title="子站权限"
+              >
+                ⚙️
+              </Link>
               <button
                 onClick={() => doSignOut()}
                 className="text-sm text-gray-400 dark:text-gray-400 light:text-slate-600 hover:text-white dark:hover:text-white light:hover:text-slate-900 transition-colors"
