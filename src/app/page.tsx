@@ -77,14 +77,20 @@ const POEM_SECTIONS = [
 ];
 const SECTION_INTERVAL = 3000; // 3 秒一段
 
-// 背景音乐 URL
-const BGM_URL = "https://media.lvyz.org/music/ye-xiang-chou.aac";
+// 背景音乐 URL（多格式 fallback + 错误提示）
+const BGM_URLS = [
+  "https://media.lvyz.org/music/ye-xiang-chou.mp3",
+  "https://media.lvyz.org/music/ye-xiang-chou.aac",
+  "https://media.lvyz.org/music/ye-xiang-chou.m4a",
+];
 const BGM_KEY = "lvyz-home-bgm-muted";
+const BGM_ERR_KEY = "lvyz-home-bgm-error";
 
 export default function HomePage() {
   const session = useSession();
   const user = session.data?.user ?? null;
   const [bgmMuted, setBgmMuted] = useState(false);
+  const [bgmError, setBgmError] = useState<string | null>(null);
   const [activeSection, setActiveSection] = useState(0);
   const [isPaused, setIsPaused] = useState(false);
   const audioRef = useRef<HTMLAudioElement | null>(null);
@@ -94,15 +100,38 @@ export default function HomePage() {
   useEffect(() => {
     const savedMuted = localStorage.getItem(BGM_KEY);
     if (savedMuted !== null) setBgmMuted(savedMuted === "true");
+    const savedErr = localStorage.getItem(BGM_ERR_KEY);
+    if (savedErr) setBgmError(savedErr);
 
     if (!audioRef.current) {
-      audioRef.current = new Audio(BGM_URL);
+      audioRef.current = new Audio();
       audioRef.current.loop = true;
       audioRef.current.volume = 0.35;
+      audioRef.current.preload = "auto";
+
+      // 尝试每个 URL，第一个能播就停下
+      let idx = 0;
+      const tryNext = () => {
+        if (idx >= BGM_URLS.length) {
+          const msg = "BGM 文件无法播放（已尝试 mp3/aac/m4a 三个格式）";
+          setBgmError(msg);
+          localStorage.setItem(BGM_ERR_KEY, msg);
+          return;
+        }
+        audioRef.current!.src = BGM_URLS[idx];
+        audioRef.current!.load();
+        idx++;
+      };
+      audioRef.current.addEventListener("error", () => tryNext());
+      audioRef.current.addEventListener("canplay", () => {
+        setBgmError(null);
+        localStorage.removeItem(BGM_ERR_KEY);
+      });
+      tryNext();
     }
 
     const startAudio = () => {
-      if (audioRef.current && !bgmMuted) {
+      if (audioRef.current && !bgmMuted && !bgmError) {
         audioRef.current.play().catch(() => {});
       }
       document.removeEventListener("click", startAudio);
@@ -116,7 +145,7 @@ export default function HomePage() {
       document.removeEventListener("keydown", startAudio);
       if (audioRef.current) audioRef.current.pause();
     };
-  }, [bgmMuted]);
+  }, [bgmMuted, bgmError]);
 
   // 诗段自动滚动：3 秒一段
   useEffect(() => {
@@ -216,7 +245,7 @@ export default function HomePage() {
           </div>
 
           {/* 背景音乐控制 */}
-          <div className="mt-6 flex items-center justify-center gap-2 text-xs text-gray-500">
+          <div className="mt-6 flex flex-col items-center gap-2 text-xs text-gray-500">
             <button
               onClick={toggleBgm}
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-white/5 hover:bg-white/10 transition-colors"
@@ -226,6 +255,11 @@ export default function HomePage() {
                   <VolumeX className="h-3.5 w-3.5" />
                   音乐已关
                 </>
+              ) : bgmError ? (
+                <>
+                  <VolumeX className="h-3.5 w-3.5" />
+                  音乐文件加载失败
+                </>
               ) : (
                 <>
                   <Volume2 className="h-3.5 w-3.5 animate-pulse" />
@@ -233,6 +267,11 @@ export default function HomePage() {
                 </>
               )}
             </button>
+            {bgmError && (
+              <p className="text-[10px] text-amber-400/80 max-w-md text-center">
+                ⚠️ {bgmError}。可能需要重新上传音频文件（mp3 格式）。
+              </p>
+            )}
           </div>
         </div>
       </section>
