@@ -1,66 +1,117 @@
-// GET  /api/blog/posts/[id] - 获取单篇文章（公开只读已发布，作者可读自己草稿）
-// PATCH /api/blog/posts/[id] - 更新
-// DELETE /api/blog/posts/[id] - 删除
-import { NextRequest, NextResponse } from "next/server";
-import { getPostById, getPostBySlug, updatePost, deletePost, incrementViewCount } from "@/lib/posts";
-import { z } from "zod";
+// /api/blog/posts/[id] - 文章单条
+// GET / PATCH / DELETE
+import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/db";
+import { headers } from "next/headers";
+import { NextResponse } from "next/server";
+import { S3Client, DeleteObjectsCommand } from "@aws-sdk/client-s3";
 
-const updateSchema = z.object({
-  title: z.string().min(1).max(200).optional(),
-  content: z.string().min(1).optional(),
-  excerpt: z.string().optional(),
-  coverImage: z.string().url().optional(),
-  category: z.enum(["poetry", "blog", "tech", "life", "industry"]).optional(),
-  tags: z.string().optional(),
-  status: z.enum(["DRAFT", "PUBLISHED", "ARCHIVED"]).optional(),
-  allowComments: z.boolean().optional(),
-  embeds: z.string().optional(),
-});
+const ALLOWED_ROLES = ["EDITOR", "ADMIN", "SUPERADMIN"];
 
-export async function GET(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+async function getActor() {
+  const session = await auth.api.getSession({ headers: await headers() });
+  if (!session) return { error: "未登录", status: 401 };
+  const user = await prisma.user.findUnique({ where: { id: session.user.id } });
+  if (!user) return { error: "用户不存在", status: 404 };
+  return { user };
+}
+
+function isAdminOrEditor(role: string | undefined) {
+  return role && ALLOWED_ROLES.includes(role);
+}
+
+export async function GET(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  const { searchParams } = new URL(req.url);
-  const increment = searchParams.get("view") === "1";
-
-  // id 可以是 slug 或 cuid
-  const post = id.length > 20
-    ? await getPostById(id)
-    : await getPostBySlug(id);
-
-  if (!post) {
-    return NextResponse.json({ error: "Not found" }, { status: 404 });
-  }
-  if (increment && post.status === "PUBLISHED") {
-    await incrementViewCount(post.id);
-  }
+  const post = await prisma.post.findFirst({
+    where: { OR: [{ id }, { slug: id }] },
+    include: {
+      author: { select: { id: true, name: true, image: true } },
+    },
+  });
+  if (!post) return NextResponse.json({ error: "文章不存在" }, { status: 404 });
   return NextResponse.json(post);
 }
 
-export async function PATCH(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function PATCH(req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  try {
-    const body = await req.json();
-    const parsed = updateSchema.safeParse(body);
-    if (!parsed.success) {
-      return NextResponse.json({ error: "Invalid input", issues: parsed.error.issues }, { status: 400 });
-    }
-    const post = await updatePost(id, parsed.data);
-    return NextResponse.json(post);
-  } catch (error) {
-    const msg = (error as Error).message;
-    const status = msg === "Unauthorized" ? 401 : msg === "Forbidden" ? 403 : 500;
-    return NextResponse.json({ error: msg }, { status });
+  const auth = await getActor();
+  if ("error" in auth) return NextResponse.json({ error: auth.error }, { status: auth.status });
+
+  const existing = await prisma.post.findUnique({ where: { id } });
+  if (!existing) return NextResponse.json({ error: "文章不存在" }, { status: 404 });
+
+  // 权限：作者本人或 ADMIN/EDITOR
+  const isAuthor = existing.authorId === auth.user.id;
+  if (!isAuthor && !isAdminOrEditor(auth.user.role)) {
+    return NextResponse.json({ error: "无权限" }, { status: 403 });
   }
+
+  const body = await req.json();
+  const updateData: any = {};
+  for (const k of ["title", "content", "excerpt", "coverImage", "category", "tags", "status", "allowComments", "embeds"]) {
+    if (body[k] !== undefined) updateData[k] = body[k];
+  }
+  if (body.excerpt === "") updateData.excerpt = null;
+  if (body.coverImage === "") updateData.coverImage = null;
+
+  // 状态变更时更新 publishedAt
+  if (body.status === "PUBLISHED" && existing.status !== "PUBLISHED") {
+    updateData.publishedAt = new Date();
+  }
+  if (body.status === "DRAFT" || body.status === "ARCHIVED") {
+    // 保持 publishedAt 不变（草稿也有发布过的）
+  }
+
+  const post = await prisma.post.update({ where: { id }, data: updateData });
+  return NextResponse.json(post);
 }
 
-export async function DELETE(req: NextRequest, { params }: { params: Promise<{ id: string }> }) {
+export async function DELETE(_req: Request, { params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
-  try {
-    await deletePost(id);
-    return NextResponse.json({ ok: true });
-  } catch (error) {
-    const msg = (error as Error).message;
-    const status = msg === "Unauthorized" ? 401 : msg === "Forbidden" ? 403 : 500;
-    return NextResponse.json({ error: msg }, { status });
+  const auth = await getActor();
+  if ("error" in auth) return NextResponse.json({ error: auth.error }, { status: auth.status });
+
+  const existing = await prisma.post.findUnique({ where: { id } });
+  if (!existing) return NextResponse.json({ error: "文章不存在" }, { status: 404 });
+
+  const isAuthor = existing.authorId === auth.user.id;
+  if (!isAuthor && !isAdminOrEditor(auth.user.role)) {
+    return NextResponse.json({ error: "无权限" }, { status: 403 });
   }
+
+  // 删关联的 Media
+  const postMedia = await prisma.postMedia.findMany({
+    where: { postId: id },
+    include: { media: true },
+  });
+  const keys = postMedia.map((pm) => pm.media.key).filter(Boolean);
+
+  if (keys.length > 0) {
+    try {
+      const r2 = new S3Client({
+        region: "auto",
+        endpoint: `https://${process.env.R2_ACCOUNT_ID}.r2.cloudflarestorage.com`,
+        credentials: {
+          accessKeyId: process.env.R2_ACCESS_KEY_ID!,
+          secretAccessKey: process.env.R2_SECRET_ACCESS_KEY!,
+        },
+      });
+      await r2.send(new DeleteObjectsCommand({
+        Bucket: process.env.R2_BUCKET_NAME!,
+        Delete: { Objects: keys.map((k) => ({ Key: k })) },
+      }));
+    } catch (e) {
+      console.warn("[delete post] R2 fail:", e);
+    }
+  }
+
+  // 删 PostMedia + Media 记录
+  const mediaIds = postMedia.map((pm) => pm.mediaId);
+  await prisma.postMedia.deleteMany({ where: { postId: id } });
+  if (mediaIds.length > 0) {
+    await prisma.media.deleteMany({ where: { id: { in: mediaIds } } });
+  }
+
+  await prisma.post.delete({ where: { id } });
+  return NextResponse.json({ ok: true, deletedMedia: mediaIds.length });
 }

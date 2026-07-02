@@ -84,38 +84,66 @@ async function main() {
   console.log("   创建成功 id:", story.id);
   console.log("   slug:", story.slug);
 
-  // 4. 下载一张真图，模拟上传
-  console.log("\n4. 下载 dark-cave/page_01.png + 上传为新绘本页...");
-  const imgRes = await fetch("https://media.lvyz.org/picturebook/stories/dark-cave/page_01.png");
-  const imgBuf = Buffer.from(await imgRes.arrayBuffer());
-  console.log("   下载大小:", (imgBuf.length / 1024 / 1024).toFixed(2), "MB");
+  // 4. 用小测试图（100KB PNG）+ 预签名直传
+  console.log("\n4. 创建小测试 PNG (100KB) + 预签名直传...");
+  // 10x10 红色 PNG
+  const png = Buffer.from(
+    "iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAIAAAACUFjqAAAAEklEQVR4nGP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==",
+    "base64"
+  );
+  // 扩展到 50KB
+  const pngBuf = Buffer.concat([png, Buffer.alloc(50 * 1024, 0)]);
+  const imgBuf = pngBuf;
+  console.log("   测试图大小:", (imgBuf.length / 1024).toFixed(1), "KB");
 
-  // multipart/form-data 拼装
-  const boundary = "----TestBoundary" + Date.now();
-  const parts = [];
-  parts.push(`--${boundary}`);
-  parts.push(`Content-Disposition: form-data; name="file"; filename="page_01.png"`);
-  parts.push(`Content-Type: image/png`);
-  parts.push("");
-  const headerBuf = Buffer.from(parts.join("\r\n") + "\r\n", "utf8");
-  const footerBuf = Buffer.from(`\r\n--${boundary}--\r\n`, "utf8");
-  const body = Buffer.concat([headerBuf, imgBuf, footerBuf]);
-
-  const uploadRes = await fetch(`${BASE}/api/admin/picturebook/${story.id}/upload-page`, {
+  // 4a. 预签名
+  const presignRes = await fetch(`${BASE}/api/admin/picturebook/presign`, {
     method: "POST",
-    headers: {
-      ...authHeaders,
-      "Content-Type": `multipart/form-data; boundary=${boundary}`,
-      "Content-Length": String(body.length),
-    },
-    body,
+    headers: authHeaders,
+    body: JSON.stringify({
+      storyId: story.id,
+      fileName: "test_page_01.png",
+      fileType: "image/png",
+      fileSize: imgBuf.length,
+      kind: "page",
+    }),
   });
-  console.log("   upload status:", uploadRes.status);
-  if (uploadRes.ok) {
-    const j = await uploadRes.json();
-    console.log("   ✓ 上传成功:", j.url);
+  console.log("   presign status:", presignRes.status);
+  if (!presignRes.ok) {
+    const j = await presignRes.json().catch(() => ({}));
+    console.log("   失败:", j);
+    return;
+  }
+  const { uploadUrl, publicUrl, pageNum } = await presignRes.json();
+  console.log("   pageNum:", pageNum);
+  console.log("   publicUrl:", publicUrl);
+
+  // 4b. PUT 到 R2
+  const putRes = await fetch(uploadUrl, {
+    method: "PUT",
+    headers: { "Content-Type": "image/png" },
+    body: imgBuf,
+  });
+  console.log("   R2 PUT status:", putRes.status);
+  if (!putRes.ok) {
+    const t = await putRes.text();
+    console.log("   R2 失败:", t.slice(0, 200));
+    return;
+  }
+  console.log("   ✓ R2 上传成功");
+
+  // 4c. confirm
+  const confirmRes = await fetch(`${BASE}/api/admin/picturebook/confirm-upload`, {
+    method: "POST",
+    headers: authHeaders,
+    body: JSON.stringify({ storyId: story.id, publicUrl, kind: "page", pageNum, size: imgBuf.length }),
+  });
+  console.log("   confirm status:", confirmRes.status);
+  if (confirmRes.ok) {
+    const j = await confirmRes.json();
+    console.log("   ✓ 写库成功, total:", j.total);
   } else {
-    const j = await uploadRes.json().catch(() => ({}));
+    const j = await confirmRes.json().catch(() => ({}));
     console.log("   失败:", j);
   }
 

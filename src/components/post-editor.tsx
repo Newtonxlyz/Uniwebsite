@@ -3,8 +3,9 @@
 
 import { useState, useRef } from "react";
 import { useRouter } from "next/navigation";
-import { Save, Send, Upload, X, Plus, Image as ImageIcon, Video, Music, FileText } from "lucide-react";
+import { Save, Send, Upload, X, Plus, Image as ImageIcon, Video, Music, FileText, Loader2 } from "lucide-react";
 import { Markdown } from "./markdown";
+import { formatBytes } from "@/lib/utils";
 
 interface PostData {
   id?: string;
@@ -24,9 +25,73 @@ interface Props {
   post?: PostData;
 }
 
+type UploadKind = "image" | "audio" | "video" | "pdf";
+
+// 预签名直传 R2（绕过 Vercel 4.5MB body 限制）
+async function uploadMedia(
+  file: File,
+  kind: UploadKind
+): Promise<{ url: string; type: "IMAGE" | "VIDEO" | "AUDIO" | "DOCUMENT"; filename: string }> {
+  // 1. 拿预签名 URL
+  const presignRes = await fetch("/api/blog/media/presign", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      fileName: file.name,
+      fileType: file.type,
+      fileSize: file.size,
+    }),
+  });
+  if (!presignRes.ok) {
+    const j = await presignRes.json().catch(() => ({}));
+    throw new Error(`预签名失败: ${j.error || presignRes.status}`);
+  }
+  const { uploadUrl, publicUrl } = await presignRes.json();
+
+  // 2. 浏览器 PUT 到 R2
+  const putRes = await fetch(uploadUrl, {
+    method: "PUT",
+    headers: { "Content-Type": file.type },
+    body: file,
+  });
+  if (!putRes.ok) throw new Error(`R2 上传失败: ${putRes.status}`);
+
+  // 3. 写 Media 表
+  const confirmRes = await fetch("/api/blog/media/confirm", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      key: publicUrl.replace("https://media.lvyz.org/", ""),
+      publicUrl,
+      filename: file.name,
+      mimeType: file.type,
+      size: file.size,
+    }),
+  });
+  if (!confirmRes.ok) {
+    const j = await confirmRes.json().catch(() => ({}));
+    throw new Error(`写库失败: ${j.error || confirmRes.status}`);
+  }
+  const media = await confirmRes.json();
+  return { url: media.url, type: media.type, filename: media.filename };
+}
+
+// 生成插入正文的 markdown/HTML
+function mediaToMarkdown(url: string, type: string, filename: string): string {
+  if (type === "IMAGE") return `\n\n![${filename}](${url})\n\n`;
+  if (type === "VIDEO")
+    return `\n\n<video src="${url}" controls style="max-width:100%;border-radius:12px;margin:1rem 0;box-shadow:0 4px 12px rgba(0,0,0,0.2);"></video>\n\n`;
+  if (type === "AUDIO")
+    return `\n\n<audio src="${url}" controls style="width:100%;margin:1rem 0;"></audio>\n\n**🎵 ${filename}**\n\n`;
+  return `\n\n[📎 ${filename}](${url})\n\n`;
+}
+
 export function PostEditor({ mode, post }: Props) {
   const router = useRouter();
-  const fileInputRef = useRef<HTMLInputElement>(null);
+  const imageInputRef = useRef<HTMLInputElement>(null);
+  const audioInputRef = useRef<HTMLInputElement>(null);
+  const videoInputRef = useRef<HTMLInputElement>(null);
+  const coverInputRef = useRef<HTMLInputElement>(null);
   const [data, setData] = useState<PostData>(post || {
     title: "",
     content: "",
@@ -40,7 +105,9 @@ export function PostEditor({ mode, post }: Props) {
   });
   const [preview, setPreview] = useState(false);
   const [saving, setSaving] = useState(false);
-  const [uploading, setUploading] = useState(false);
+  const [uploadingKind, setUploadingKind] = useState<UploadKind | null>(null);
+  const [uploadingCover, setUploadingCover] = useState(false);
+  const [uploadError, setUploadError] = useState<string | null>(null);
   const [embedUrls, setEmbedUrls] = useState<string[]>(() => {
     if (!post?.embeds) return [];
     try {
@@ -106,35 +173,32 @@ export function PostEditor({ mode, post }: Props) {
     }
   };
 
-  const handleFileUpload = async (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    if (!file) return;
-    setUploading(true);
+  // 媒体上传通用处理
+  const handleMediaUpload = async (kind: UploadKind, file: File) => {
+    setUploadError(null);
+    setUploadingKind(kind);
     try {
-      const formData = new FormData();
-      formData.append("file", file);
-      const res = await fetch("/api/blog/upload", {
-        method: "POST",
-        body: formData,
-      });
-      if (!res.ok) {
-        const err = await res.json();
-        alert("上传失败: " + (err.error || res.statusText));
-        return;
-      }
-      const media = await res.json();
-      // 插入到 content 末尾
-      const insertText = media.type === "IMAGE"
-        ? `\n\n![${media.filename}](${media.url})\n\n`
-        : media.type === "VIDEO"
-        ? `\n\n<video src="${media.url}" controls style="max-width:100%;border-radius:8px;margin:1rem 0;"></video>\n\n`
-        : media.type === "AUDIO"
-        ? `\n\n<audio src="${media.url}" controls></audio>\n\n`
-        : `\n\n[📎 ${media.filename}](${media.url})\n\n`;
+      const media = await uploadMedia(file, kind);
+      const insertText = mediaToMarkdown(media.url, media.type, media.filename);
       update("content", data.content + insertText);
+    } catch (e: any) {
+      setUploadError(e.message);
     } finally {
-      setUploading(false);
-      if (fileInputRef.current) fileInputRef.current.value = "";
+      setUploadingKind(null);
+    }
+  };
+
+  // 封面图上传
+  const handleCoverUpload = async (file: File) => {
+    setUploadError(null);
+    setUploadingCover(true);
+    try {
+      const media = await uploadMedia(file, "image");
+      update("coverImage", media.url);
+    } catch (e: any) {
+      setUploadError(e.message);
+    } finally {
+      setUploadingCover(false);
     }
   };
 
@@ -204,13 +268,51 @@ export function PostEditor({ mode, post }: Props) {
 
       {/* 封面图 */}
       <div>
-        <label className="block text-sm font-medium text-gray-300 mb-2">封面图 URL（可选）</label>
+        <label className="block text-sm font-medium text-gray-300 mb-2">封面图（可选）</label>
+        {data.coverImage ? (
+          <div className="relative">
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src={data.coverImage} alt="封面" className="w-full max-h-64 object-cover rounded-lg" />
+            <button
+              type="button"
+              onClick={() => update("coverImage", "")}
+              className="absolute top-2 right-2 p-1.5 rounded-full bg-black/60 text-white hover:bg-black/80"
+            >
+              <X className="h-4 w-4" />
+            </button>
+          </div>
+        ) : (
+          <div
+            onClick={() => coverInputRef.current?.click()}
+            className="glass-card p-6 border-2 border-dashed border-white/10 hover:border-amber-400/50 cursor-pointer flex flex-col items-center justify-center min-h-[120px] transition-colors"
+          >
+            {uploadingCover ? (
+              <>
+                <Loader2 className="h-6 w-6 animate-spin text-amber-400 mb-2" />
+                <p className="text-sm text-gray-400">上传中...</p>
+              </>
+            ) : (
+              <>
+                <ImageIcon className="h-8 w-8 text-gray-500 mb-2" />
+                <p className="text-sm text-gray-400">点击上传封面图（最大 10MB）</p>
+              </>
+            )}
+          </div>
+        )}
+        <input
+          ref={coverInputRef}
+          type="file"
+          accept="image/*"
+          onChange={(e) => e.target.files?.[0] && handleCoverUpload(e.target.files[0])}
+          className="hidden"
+        />
+        <p className="text-xs text-gray-500 mt-1">或粘贴 URL：</p>
         <input
           type="url"
           value={data.coverImage}
           onChange={(e) => update("coverImage", e.target.value)}
-          placeholder="https://media.lvyz.org/uploads/..."
-          className="w-full glass-card px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-400/50"
+          placeholder="https://media.lvyz.org/..."
+          className="w-full mt-1 glass-card px-3 py-2 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-amber-400/50 text-sm"
         />
       </div>
 
@@ -254,26 +356,79 @@ export function PostEditor({ mode, post }: Props) {
 
       {/* 媒体上传 */}
       <div className="glass-card p-4">
-        <h3 className="text-sm font-medium text-gray-300 mb-3">📎 插入媒体</h3>
-        <div className="flex flex-wrap gap-2 mb-3">
+        <h3 className="text-sm font-medium text-gray-300 mb-3">📎 插入媒体（点击插入到正文末尾）</h3>
+        {uploadError && (
+          <p className="text-xs text-red-400 mb-2">✗ {uploadError}</p>
+        )}
+        <div className="grid grid-cols-3 gap-2 mb-3">
           <input
-            ref={fileInputRef}
+            ref={imageInputRef}
             type="file"
-            accept="image/*,video/*,audio/*,.pdf"
-            onChange={handleFileUpload}
+            accept="image/*"
+            onChange={(e) => e.target.files?.[0] && handleMediaUpload("image", e.target.files[0])}
+            className="hidden"
+          />
+          <input
+            ref={audioInputRef}
+            type="file"
+            accept="audio/*"
+            onChange={(e) => e.target.files?.[0] && handleMediaUpload("audio", e.target.files[0])}
+            className="hidden"
+          />
+          <input
+            ref={videoInputRef}
+            type="file"
+            accept="video/*"
+            onChange={(e) => e.target.files?.[0] && handleMediaUpload("video", e.target.files[0])}
             className="hidden"
           />
           <button
             type="button"
-            onClick={() => fileInputRef.current?.click()}
-            disabled={uploading}
-            className="flex items-center gap-1.5 px-3 py-1.5 text-sm glass-card hover:scale-105 transition-transform disabled:opacity-50"
+            onClick={() => imageInputRef.current?.click()}
+            disabled={!!uploadingKind}
+            className="flex flex-col items-center gap-1.5 px-3 py-3 text-sm glass-card hover:scale-105 transition-transform disabled:opacity-50"
+            style={{ background: "rgba(96,165,250,0.1)" }}
           >
-            <Upload className="h-4 w-4" />
-            {uploading ? "上传中..." : "上传文件"}
+            {uploadingKind === "image" ? (
+              <Loader2 className="h-5 w-5 animate-spin text-blue-400" />
+            ) : (
+              <ImageIcon className="h-5 w-5 text-blue-400" />
+            )}
+            <span className="text-xs">🖼️ 图片</span>
+            <span className="text-[10px] text-gray-500">10MB</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => audioInputRef.current?.click()}
+            disabled={!!uploadingKind}
+            className="flex flex-col items-center gap-1.5 px-3 py-3 text-sm glass-card hover:scale-105 transition-transform disabled:opacity-50"
+            style={{ background: "rgba(167,139,250,0.1)" }}
+          >
+            {uploadingKind === "audio" ? (
+              <Loader2 className="h-5 w-5 animate-spin text-purple-400" />
+            ) : (
+              <Music className="h-5 w-5 text-purple-400" />
+            )}
+            <span className="text-xs">🎵 音频</span>
+            <span className="text-[10px] text-gray-500">50MB</span>
+          </button>
+          <button
+            type="button"
+            onClick={() => videoInputRef.current?.click()}
+            disabled={!!uploadingKind}
+            className="flex flex-col items-center gap-1.5 px-3 py-3 text-sm glass-card hover:scale-105 transition-transform disabled:opacity-50"
+            style={{ background: "rgba(251,146,60,0.1)" }}
+          >
+            {uploadingKind === "video" ? (
+              <Loader2 className="h-5 w-5 animate-spin text-orange-400" />
+            ) : (
+              <Video className="h-5 w-5 text-orange-400" />
+            )}
+            <span className="text-xs">🎬 视频</span>
+            <span className="text-[10px] text-gray-500">500MB</span>
           </button>
         </div>
-        <p className="text-xs text-gray-500">支持图片、视频、音频、PDF · 最大 100MB</p>
+        <p className="text-xs text-gray-500">上传后会自动插入到正文末尾</p>
       </div>
 
       {/* 嵌入链接 */}

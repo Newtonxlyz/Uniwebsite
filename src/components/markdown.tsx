@@ -3,6 +3,7 @@
 
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
+import rehypeRaw from "rehype-raw";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 
@@ -14,6 +15,7 @@ export function Markdown({ content }: Props) {
   return (
     <ReactMarkdown
       remarkPlugins={[remarkGfm]}
+      rehypePlugins={[rehypeRaw]}
       components={{
         h1: ({ children }) => <h1 className="text-3xl font-bold text-white mt-8 mb-4">{children}</h1>,
         h2: ({ children }) => <h2 className="text-2xl font-bold text-white mt-6 mb-3">{children}</h2>,
@@ -56,6 +58,25 @@ export function Markdown({ content }: Props) {
         },
         img: ({ src, alt }) => (
           <img src={src} alt={alt} className="rounded-lg my-4 w-full" />
+        ),
+        // raw HTML 标签（rehype-raw 启用后）
+        video: ({ src, controls, ...rest }: any) => (
+          <video
+            src={src}
+            controls={controls !== false}
+            className="rounded-xl my-4 w-full max-h-[600px] bg-black"
+            {...rest}
+          />
+        ),
+        audio: ({ src, controls, ...rest }: any) => (
+          <div className="my-4 rounded-xl bg-white/5 p-3">
+            <audio
+              src={src}
+              controls={controls !== false}
+              className="w-full"
+              {...rest}
+            />
+          </div>
         ),
         table: ({ children }) => (
           <table className="w-full my-4 border border-white/10">{children}</table>
