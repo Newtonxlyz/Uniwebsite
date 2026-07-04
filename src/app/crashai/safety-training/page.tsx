@@ -145,7 +145,10 @@ export default async function SafetyTrainingPage() {
           {PATHS.map((path, idx) => {
             const Icon = path.icon;
             const lesson = lessonMap.get(path.id);
-            const cardCount = cardCountByLesson[path.id] || 0;
+            const pathChapters = safetyLessons
+              .filter((l: any) => l.slug.startsWith(path.id + "-") || l.slug === path.id)
+              .sort((a: any, b: any) => (a.slug < b.slug ? -1 : 1));
+            const cardCount = safetyCards.filter((c: any) => c.lessonSlug?.startsWith(path.id)).length;
             return (
               <article
                 key={path.id}
@@ -189,25 +192,37 @@ export default async function SafetyTrainingPage() {
                   </div>
                 </div>
 
-                {/* 章节列表 */}
+                {/* 章节列表（带超链接） */}
                 <div className="p-6 grid md:grid-cols-2 gap-6">
                   <div>
                     <h3 className="text-sm font-bold text-gray-300 mb-3 flex items-center gap-1.5">
                       <BookOpen className="h-3.5 w-3.5" />
-                      章节路线（{path.chapters.length}）
+                      章节路线（{pathChapters.length}）
                     </h3>
                     <ol className="space-y-2">
-                      {path.chapters.map((c, i) => (
-                        <li key={i} className="flex items-start gap-2 text-sm text-gray-300">
-                          <span
-                            className="flex-shrink-0 h-5 w-5 rounded-full flex items-center justify-center text-xs text-white font-bold"
-                            style={{ background: path.color }}
-                          >
-                            {i + 1}
-                          </span>
-                          <span>{c}</span>
-                        </li>
-                      ))}
+                      {pathChapters.map((lesson: any) => {
+                        const num = lesson.order - 24 + (lesson.slug.match(/-(\d+)-/) ? parseInt(lesson.slug.match(/-(\d+)-/)[1]) : 1);
+                        return (
+                          <li key={lesson.slug}>
+                            <Link
+                              href={`/crashai/${lesson.slug}`}
+                              className="flex items-start gap-2 text-sm text-gray-300 hover:text-white group p-2 rounded-lg hover:bg-white/5 transition-all"
+                            >
+                              <span
+                                className="flex-shrink-0 h-6 w-6 rounded-full flex items-center justify-center text-xs text-white font-bold group-hover:scale-110 transition-transform"
+                                style={{ background: path.color }}
+                              >
+                                {lesson.title.match(/D\w\.(\d+)/)?.[1] || "?"}
+                              </span>
+                              <span className="flex-1">
+                                <span className="block group-hover:text-white">{lesson.title.replace(/^D\d+\.\d+\s+/, "")}</span>
+                                <span className="block text-xs text-gray-500 mt-0.5">⏱ {lesson.duration} 分钟 · {lesson.sections.length} 节</span>
+                              </span>
+                              <span className="text-gray-500 group-hover:text-white group-hover:translate-x-1 transition-all">→</span>
+                            </Link>
+                          </li>
+                        );
+                      })}
                     </ol>
                   </div>
                   <div className="space-y-3">
@@ -302,9 +317,9 @@ export default async function SafetyTrainingPage() {
             <Sparkles className="h-5 w-5 text-amber-400" />
             40 张模型训练概念闪卡（按路径分类）
           </h2>
-          <div className="grid md:grid-cols-4 gap-3">
+          <div className="grid md:grid-cols-4 gap-3 mb-4">
             {PATHS.map((path) => {
-              const cardCount = cardCountByLesson[path.id] || 0;
+              const cardCount = safetyCards.filter((c: any) => c.lessonSlug?.startsWith(path.id)).length;
               const Icon = path.icon;
               return (
                 <Link
@@ -319,6 +334,13 @@ export default async function SafetyTrainingPage() {
               );
             })}
           </div>
+          <Link
+            href="/crashai/cards"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-xl bg-amber-500/20 text-amber-300 text-sm hover:bg-amber-500/30"
+          >
+            <Sparkles className="h-4 w-4" />
+            全部 197 张闪卡（含 157 张通用 + 40 张模型训练） →
+          </Link>
         </div>
       </div>
     </div>

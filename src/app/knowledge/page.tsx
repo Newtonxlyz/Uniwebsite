@@ -56,13 +56,15 @@ export default function KnowledgeBrowser() {
     if (!index || !window.Fuse) return null;
     return new window.Fuse(index.entries, {
       keys: [
-        { name: "title", weight: 0.5 },
-        { name: "excerpt", weight: 0.3 },
-        { name: "categoryLabel", weight: 0.2 },
+        { name: "title", weight: 0.35 },
+        { name: "excerpt", weight: 0.5 },
+        { name: "categoryLabel", weight: 0.15 },
       ],
-      threshold: 0.4,
+      threshold: 0.35,
+      ignoreLocation: true,        // search anywhere in excerpt, not just start
       includeScore: true,
-      minMatchCharLength: 2,
+      minMatchCharLength: 1,
+      useExtendedSearch: true,     // enable advanced operators
     });
   }, [index, fuseReady]);
 
@@ -182,49 +184,23 @@ export default function KnowledgeBrowser() {
           </div>
 
           {/* Result count */}
-          <div className="text-xs text-gray-500 mb-3">
+          <div className="text-xs text-gray-500 mb-4">
             {query || activeCat
               ? `找到 ${filtered.length} 篇${query ? `包含 "${query}"` : ""}${activeCat ? `（${categories.find((c) => c.key === activeCat)?.label}）` : ""}`
-              : `共 ${index.total} 篇`}
+              : `共 ${index.total} 篇 · 按类别浏览`}
           </div>
 
-          {/* Article list */}
+          {/* Article list - grouped when no filter, flat when searching/filtering */}
           {filtered.length === 0 ? (
             <div className="glass-card p-8 text-center text-gray-400">
               <Search className="h-12 w-12 mx-auto mb-3 opacity-30" />
               <p>没有匹配的文章</p>
               <p className="text-xs mt-2">试试其他关键词或清除筛选</p>
             </div>
+          ) : query || activeCat ? (
+            <FlatView entries={filtered} query={query} />
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
-              {filtered.map((a) => (
-                <Link
-                  key={a.slug}
-                  href={a.url}
-                  className="glass-card p-4 hover:scale-[1.02] transition-all group"
-                >
-                  <div className="flex items-start gap-3">
-                    <FileText className="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" />
-                    <div className="min-w-0 flex-1">
-                      <div className="flex items-start justify-between gap-2 mb-1">
-                        <h3 className="text-sm font-medium text-white group-hover:text-cyan-400 transition-colors line-clamp-2">
-                          {highlightMatch(a.title, query)}
-                        </h3>
-                      </div>
-                      <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
-                        <Folder className="h-3 w-3" />
-                        <span>{a.categoryLabel}</span>
-                        <span>·</span>
-                        <span>{(a.size / 1024).toFixed(1)} KB</span>
-                      </div>
-                      <p className="text-xs text-gray-400 line-clamp-2">
-                        {highlightMatch(a.excerpt, query)}
-                      </p>
-                    </div>
-                  </div>
-                </Link>
-              ))}
-            </div>
+            <GroupedView categories={categories} entries={index.entries} />
           )}
         </div>
       </div>
@@ -259,4 +235,83 @@ function highlightMatch(text: string, query: string) {
     parts.push(text.substring(lastIndex));
   }
   return parts;
+}
+
+function FlatView({ entries, query }: { entries: Entry[]; query: string }) {
+  return (
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+      {entries.map((a) => (
+        <Link
+          key={a.slug}
+          href={a.url}
+          className="glass-card p-4 hover:scale-[1.02] transition-all group"
+        >
+          <div className="flex items-start gap-3">
+            <FileText className="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+            <div className="min-w-0 flex-1">
+              <h3 className="text-sm font-medium text-white group-hover:text-cyan-400 transition-colors line-clamp-2 mb-1">
+                {highlightMatch(a.title, query)}
+              </h3>
+              <div className="flex items-center gap-2 text-xs text-gray-500 mb-2">
+                <Folder className="h-3 w-3" />
+                <span>{a.categoryLabel}</span>
+                <span>·</span>
+                <span>{(a.size / 1024).toFixed(1)} KB</span>
+              </div>
+              <p className="text-xs text-gray-400 line-clamp-3">
+                {highlightMatch(a.excerpt, query)}
+              </p>
+            </div>
+          </div>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+interface CategoryInfo {
+  key: string;
+  label: string;
+  count: number;
+}
+
+function GroupedView({ categories, entries }: { categories: CategoryInfo[]; entries: Entry[] }) {
+  return (
+    <>
+      {categories.map((cat) => {
+        const catEntries = entries.filter((e) => e.category === cat.key);
+        if (catEntries.length === 0) return null;
+        return (
+          <section key={cat.key} className="mb-8">
+            <h2 className="text-sm font-medium text-gray-400 mb-3 flex items-center gap-2 border-b border-white/10 pb-2">
+              <Folder className="h-4 w-4" />
+              {cat.label}
+              <span className="text-xs text-gray-500">({catEntries.length})</span>
+            </h2>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3">
+              {catEntries.map((a) => (
+                <Link
+                  key={a.slug}
+                  href={a.url}
+                  className="glass-card p-4 hover:scale-[1.02] transition-all group"
+                >
+                  <div className="flex items-start gap-3">
+                    <FileText className="h-5 w-5 text-cyan-400 flex-shrink-0 mt-0.5" />
+                    <div className="min-w-0 flex-1">
+                      <h3 className="text-sm font-medium text-white group-hover:text-cyan-400 transition-colors line-clamp-2 mb-1">
+                        {a.title}
+                      </h3>
+                      <div className="flex items-center gap-2 text-xs text-gray-500">
+                        <span>{(a.size / 1024).toFixed(1)} KB</span>
+                      </div>
+                    </div>
+                  </div>
+                </Link>
+              ))}
+            </div>
+          </section>
+        );
+      })}
+    </>
+  );
 }
