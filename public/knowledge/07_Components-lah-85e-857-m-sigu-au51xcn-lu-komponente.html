@@ -1,0 +1,2668 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH-85E-857-M_SiGu_AU51xCN_LU_Komponenten_Seat [redacted-person] Specification_EN</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>V26_BT-LAH Final_Basismodul-TE-V26_Nov[redacted-ext](V5).docx</p>
+</blockquote>
+<p>[redacted-prj]/4CX_BL [redacted]</p>
+<blockquote>
+<p>Scope of supply</p>
+<p><strong>Development, [redacted-person] Specification</strong>:
+LAH.85E.857.M</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Author</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-person]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Dept./OU</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Phone</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Cell</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Fax</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>E-mail</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>First issue</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-phone]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Date of revision</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] version</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>2.0</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Distribution list</strong></p>
+<p><strong>Approval</strong></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Role</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Department</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Signature</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Front/[redacted-person] Protection</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Revision record</strong></p>
+<p><em>[I: BT-LAH-941]</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Version</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Description of change(s)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Author/editor (name, OU)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>First issue</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] index added</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>RFQ for the Chinese market</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Contents</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#preface">Preface 6</a></p>
+<ol type="1">
+<li><p><a href="#general-requirements">General requirements
+6</a></p></li>
+</ol></li>
+<li><p><a href="#general-project-specifications">General project
+specifications 7</a></p>
+<ol type="1">
+<li><p><a href="#brief-description-of-the-scope-of-development">Brief
+description of the scope of development 7</a></p></li>
+<li><p><a href="#_bookmark4">Objectives 7</a></p></li>
+<li><p><a href="#assignment-of-the-part">Assignment of the part
+8</a></p>
+<ol type="1">
+<li><p><a href="#target-vehicles">Target vehicle(s) 8</a></p></li>
+<li><p><a href="#location-of-use-and-target-market">Location of use and
+target market 8</a></p></li>
+<li><p><a href="#variant-management">Variant management 8</a></p></li>
+</ol></li>
+<li><p><a href="#scope-of-development-and-supply">Scope of development
+and supply 9</a></p></li>
+<li><p><a href="#scope-of-quotation">Scope of quotation 9</a></p>
+<ol type="1">
+<li><p><a href="#scope-of-quotation-for-front-seat-belt-assys-left-and-right">Scope
+of quotation for front seat belt ASSYs, left and right 11</a></p></li>
+<li><p><a href="#scope-of-quotation-for-rear-outer-seat-belt-assys-left-and-right">Scope
+of quotation for rear outer seat belt ASSYs, left and right
+12</a></p></li>
+<li><p><a href="#scope-of-quotation-for-seat-belt-assy-rear-center">Scope of
+quotation for seat belt ASSY, rear center 13</a></p></li>
+<li><p><a href="#scope-of-quotation-for-seat-belt-height-adjustment-assy-front">Scope
+of quotation for seat belt height adjustment ASSY, front 13</a></p></li>
+<li><p><a href="#scope-of-quotation-for-lap-belt-pretensioner-assy">Scope of
+quotation for lap belt pretensioner ASSY 13</a></p></li>
+<li><p><a href="#scope-of-quotation-for-front-seat-belt-buckle-assys-left-and-right">Scope
+of quotation for front seat belt buckle ASSYs, left and right
+14</a></p></li>
+<li><p><a href="#scope-of-quotation-for-rear-outer-and-center-seat-belt-buckle-assys">Scope
+of quotation for rear outer and center seat belt buckle ASSYs
+14</a></p></li>
+</ol></li>
+<li><p><a href="#engineering-process">Engineering process 15</a></p>
+<ol type="1">
+<li><p><a href="#schedule-and-milestones">Schedule and milestones
+15</a></p></li>
+<li><p><a href="#project-tracking-metrics">Project-tracking metrics
+16</a></p></li>
+<li><p><a href="#sample-versions-and-numbers-of-samples">Sample versions
+and numbers of samples 16</a></p></li>
+<li><p><a href="#type-approval-testing-and-certification">Type-approval
+testing and certification 17</a></p></li>
+</ol></li>
+<li><p><a href="#quality-and-reliability">Quality and reliability
+18</a></p>
+<ol type="1">
+<li><p><a href="#quality-strategies">Quality strategies 18</a></p></li>
+<li><p><a href="#risk-management-fmea-and-fta">Risk management (FMEA and
+FTA) 19</a></p></li>
+</ol></li>
+<li><p><a href="#department-specific-and-project-specific-dmu-guidelines">Department-specific
+and project-specific DMU guidelines 19</a></p></li>
+<li><p><a href="#the-following-applies-to-audi-required-knowledge-of-product-data-management">The
+following applies to [redacted-co]: Required knowledge of product data management
+19</a></p></li>
+</ol></li>
+<li><p><a href="#project-management-and-organization">Project management
+and organization 20</a></p>
+<ol type="1">
+<li><p><a href="#responsibilities-in-the-project-and-work-breakdown-structure">Responsibilities
+in the project and work breakdown structure 20</a></p></li>
+<li><p><a href="#documentation">Documentation 20</a></p>
+<ol type="1">
+<li><p><a href="#sample-documentation">Sample documentation
+20</a></p></li>
+<li><p><a href="#data-exchange">Data exchange 21</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#system-environment">System environment 22</a></p>
+<ol type="1">
+<li><p><a href="#functional-system-environment">Functional system
+environment 22</a></p></li>
+<li><p><a href="#physical-system-environment">Physical system
+environment 22</a></p></li>
+<li><p><a href="#system-circuit-diagram">System circuit diagram
+22</a></p></li>
+</ol></li>
+<li><p><a href="#technical-requirements">Technical requirements
+23</a></p>
+<ol type="1">
+<li><p><a href="#designation-and-part-number">Designation and part
+number 23</a></p></li>
+<li><p><a href="#block-and-schematic-circuit-diagram">Block and
+schematic circuit diagram 23</a></p></li>
+<li><p><a href="#functions">Functions 23</a></p>
+<ol type="1">
+<li><p><a href="#description-of-the-functions">Description of the
+function(s) 23</a></p></li>
+<li><p><a href="#misuse">Misuse 23</a></p></li>
+<li><p><a href="#emergency-operation">Emergency operation
+23</a></p></li>
+</ol></li>
+<li><p><a href="#architecture">Architecture 23</a></p></li>
+<li><p><a href="#ecu-strategy">ECU strategy 23</a></p></li>
+<li><p><a href="#electrical-interfaces">Electrical interfaces
+23</a></p></li>
+<li><p><a href="#specific-characteristic-data">Specific characteristic
+data 23</a></p></li>
+<li><p><a href="#safety-requirements">Safety requirements 24</a></p>
+<ol type="1">
+<li><p><a href="#safety-of-road-users-and-vehicle-occupants">Safety of
+road users and vehicle occupants 24</a></p></li>
+<li><p><a href="#vehicle-safety">Vehicle safety 24</a></p></li>
+</ol></li>
+<li><p><a href="#alternatives-and-future-variants">Alternatives and
+future variants 24</a></p></li>
+<li><p><a href="#weight-targets">Weight targets 24</a></p></li>
+<li><p><a href="#installation">Installation 24</a></p>
+<ol type="1">
+<li><p><a href="#points-of-use-and-installation-position">Points of use
+and installation position 24</a></p></li>
+<li><p><a href="#installation-solution">Installation solution
+24</a></p></li>
+<li><p><a href="#geometry">Geometry 25</a></p></li>
+<li><p><a href="#tolerances">Tolerances 25</a></p></li>
+</ol></li>
+<li><p><a href="#shaping-and-styling">Shaping and styling
+25</a></p></li>
+<li><p><a href="#ergonomics">Ergonomics 25</a></p>
+<ol type="1">
+<li><p><a href="#appearance-and-tactile-properties">Appearance and
+tactile properties 25</a></p></li>
+<li><p><a href="#acoustics">Acoustics 26</a></p></li>
+<li><p><a href="#handling">Handling 26</a></p></li>
+</ol></li>
+<li><p><a href="#technical-materials-specifications">Technical materials
+specifications 26</a></p></li>
+<li><p><a href="#resistance-to-chemicals-and-chemical-requirements">Resistance to
+chemicals and chemical requirements 26</a></p>
+<ol type="1">
+<li><p><a href="#cleanliness-requirements">Cleanliness requirements
+26</a></p></li>
+<li><p><a href="#cleaning">Cleaning 26</a></p></li>
+<li><p><a href="#corrosion-protection">Corrosion protection
+26</a></p></li>
+<li><p><a href="#degrees-of-protection">Degrees of protection
+26</a></p></li>
+</ol></li>
+<li><p><a href="#environmental-compatibility">Environmental
+compatibility 27</a></p>
+<ol type="1">
+<li><p><a href="#selection-of-materials">Selection of materials
+27</a></p></li>
+<li><p><a href="#recycling-strategy">Recycling strategy 27</a></p></li>
+<li><p><a href="#life-cycle-assessment">Life cycle assessment
+27</a></p></li>
+</ol></li>
+<li><p><a href="#mechanical-requirements">Mechanical requirements
+27</a></p>
+<ol type="1">
+<li><p><a href="#load">Load 27</a></p></li>
+<li><p><a href="#vibration-behavior">Vibration behavior 27</a></p></li>
+<li><p><a href="#stiffness-and-spring-characteristics">Stiffness and
+spring characteristics 27</a></p></li>
+<li><p><a href="#plastic-and-elastic-deformation">Plastic and elastic
+deformation 27</a></p></li>
+<li><p><a href="#pressure">Pressure 27</a></p></li>
+</ol></li>
+<li><p><a href="#service-life">Service life 27</a></p></li>
+<li><p><a href="#electrical-requirements">Electrical requirements
+28</a></p>
+<ol type="1">
+<li><p><a href="#description-of-general-requirements">Description of
+general requirements 28</a></p></li>
+</ol></li>
+<li><p><a href="#climatic-requirements">Climatic requirements
+28</a></p></li>
+<li><p><a href="#after-sales-service-requirements">After-sales service
+requirements 28</a></p></li>
+<li><p><a href="#transport-protection">Transport protection
+28</a></p></li>
+<li><p><a href="#logistics-requirements">Logistics requirements
+28</a></p></li>
+<li><p><a href="#quality-assurance-requirements">Quality assurance
+requirements 28</a></p></li>
+</ol></li>
+<li><p><a href="#requirements-for-testing">Requirements for testing
+29</a></p>
+<ol type="1">
+<li><p><a href="#test-equipmenttest-mules">Test equipment/test mules
+29</a></p></li>
+<li><p><a href="#proof-of-fulfillment">Proof of fulfillment
+29</a></p></li>
+<li><p><a href="#test-plan">Test plan 29</a></p></li>
+<li><p><a href="#tests">Tests 29</a></p>
+<ol type="1">
+<li><p><a href="#durability-testing">Durability testing 29</a></p></li>
+</ol></li>
+<li><p><a href="#test-parameters-and-cycles">Test parameters and cycles
+29</a></p></li>
+<li><p><a href="#properties-of-the-sample-version-that-is-to-be-tested">Properties
+of the sample version that is to be tested 29</a></p></li>
+<li><p><a href="#operating-states">Operating states 29</a></p></li>
+<li><p><a href="#virtual-testing-and-simulation">Virtual testing and
+simulation 30</a></p></li>
+<li><p><a href="#in-vehicleroad-testing">In-vehicle/road testing
+30</a></p></li>
+</ol></li>
+<li><p><a href="#definitions-terms-and-abbreviations">Definitions,
+terms, and abbreviations 31</a></p>
+<ol type="1">
+<li><p><a href="#terms">Terms 31</a></p></li>
+<li><p><a href="#_bookmark100">Abbreviations 32</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark101">Applicable documents 34</a></p>
+<ol type="1">
+<li><p><a href="#drawings-plans-and-drafts-variant-tree">Drawings,
+plans, and drafts; variant tree 34</a></p></li>
+<li><p><a href="#technical-specifications">Technical specifications
+34</a></p></li>
+<li><p><a href="#type-approval-testing-documents-regulations-legislation">Type-approval
+testing documents, regulations, legislation 35</a></p></li>
+<li><p><a href="#general-project-independent-performance-specifications">[redacted]Specifications 35</a></p></li>
+<li><p><a href="#intellectual-property-rights-and-licenses-to-be-observed">Intellectual
+property rights and licenses to be observed 35</a></p></li>
+<li><p><a href="#other-documents">Other documents 36</a></p></li>
+</ol></li>
+</ol>
+<h1 id="preface">Preface</h1>
+<p><em>[I: BT-LAH-4]</em></p>
+<blockquote>
+<p>[redacted](BT-LAH) is based on the
+structure of module 2 of the [redacted-person] of the [redacted-person] (VDA) [redacted-person] Specification (<a href="http://www.vda-qmc.de/"><u>www.vda-qmc.de</u></a>) and describes
+part-specific requirements. Volkswagen standard [redacted-co]99000 includes the
+content of VDA module 1, which describes general project-related
+requirements for the performance of part development contracts.</p>
+</blockquote>
+<p><em>[I: BT-LAH-13]</em></p>
+<blockquote>
+<p>Text segments with identification numbers preceded by "A" are
+requirements the contractor must fulfill (e.g., <em>[A: BT-LAH-1]</em>).
+If the segment's ID starts with an "I", then this segment contains
+information about the [redacted-person]. If a text segment does
+not have an ID or has one that does not start with "A" or "I," then this
+segment is also a requirement.</p>
+</blockquote>
+<h2 id="general-requirements">General requirements</h2>
+<blockquote>
+<p><em>[A: BT-LAH-5]</em></p>
+<p><strong>This BT-LAH and [redacted-co]99000 including parts 1 to 4 define the
+basic scope of the contractor's performance obligations.</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH-6]</em></p>
+<blockquote>
+<p>This BT-LAH describes the performance specifications, requirements,
+and test conditions that the contractor and the product to be developed
+must fulfill.</p>
+</blockquote>
+<h1 id="general-project-specifications">General project
+specifications</h1>
+<h2 id="brief-description-of-the-scope-of-development">Brief description
+of the scope of development</h2>
+<blockquote>
+<p>As per the scopes of quotation described below, the contractor must
+develop, test, and supply complete seat belts and seat belt buckles.</p>
+<p>The scope comprises the following vehicle projects:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p>[redacted-prj]/4_Cx_BL</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Seat belt, front</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left &amp; right</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sec. 2.5.1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt, rear</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left &amp; right</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sec. 2.5.2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt, rear</p>
+</blockquote></td>
+<td><blockquote>
+<p>Center</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sec. 2.5.3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt height adjustment</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left &amp; right</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>C</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sec. 2.5.4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Lap belt pretensioner, front</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left &amp; right</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sec. 2.5.5</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt buckles, front</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left &amp; right</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>C*</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sec. 2.5.6</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt buckles, rear</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left &amp; right</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sec. 2.5.7</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt buckles, rear</p>
+</blockquote></td>
+<td><blockquote>
+<p>Center</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sec. 2.5.7</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>X = different parts G = same parts C = carry-over part (COP)*</p>
+<p>*): AU381/0EU_K –&gt; Sedan</p>
+<p>Further variants or same parts may arise during the course of
+development.</p>
+<p>Additional specifications must be taken from [redacted]LAH.DUM.857.D and LAH.DUM.857.T and from Group
+request-for-quotation (RFQ) matrix tabular drawing TAB.[redacted-phone]BC.</p>
+</blockquote>
+<h2 id="objectives">Objectives</h2>
+<blockquote>
+<p>The following properties must be taken into account when
+developing/calibrating the parts:</p>
+<p>Maximum possible user-friendliness, simple installation/removal both
+in production and in after- sales service, low production costs, low
+weight, and high-quality acoustics.</p>
+<p>Compliance is required with all applicable national laws,
+consumer-test requirements, and [redacted-co] requirements as per the [redacted]</p>
+<p>All documents required for developing, evaluating, testing, and
+manufacturing production parts must be provided, e.g., individual-part
+drawings, CAD part models, test results, releases, lists, images.</p>
+</blockquote>
+<h2 id="assignment-of-the-part">Assignment of the part</h2>
+<h2 id="target-vehicles">Target vehicle(s)</h2>
+<blockquote>
+<p>Designation of target vehicle:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>[redacted-prj]/4_Cx_BL</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Sedan</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Five-seater</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Engineering project number:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>[redacted-prj]/4_Cx_BL</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Does not apply.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="location-of-use-and-target-market">Location of use and target
+market</h2>
+<blockquote>
+<p>Target market:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-prj]/4_Cx_BL</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>China (fully built-up unit [FBU])</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The pertinent legal requirements of the target markets must be
+met.</p>
+<p><em>[A: BT-LAH-21]</em></p>
+<p><em>[A: BT-LAH-22]</em></p>
+<p><em>[A: BT-LAH-25]</em></p>
+<p>Different belt force limiter levels or characteristic curves and
+different switches in the seat belt buckles may be required for this
+purpose.</p>
+<p>The necessary certifications in each case must be obtained and
+verified for all seat belt parts.</p>
+<p>The type approval marking on the parts is made, as specified
+uniformly throughout the Group, by means of laser engraving on the latch
+plate of the seat belt assemblies (ASSYs).</p>
+<p>The arrangement of the markings must be taken from the templates in
+section 8.6 and, if necessary, agreed upon with the appropriate [redacted-co]
+department.</p>
+</blockquote>
+<h2 id="variant-management">Variant management</h2>
+<blockquote>
+<p>Target: [redacted-person] RFQ matrix TAB.[redacted-phone]BC</p>
+<p><em>[A: BT-LAH-916]</em></p>
+</blockquote>
+<h2 id="scope-of-development-and-supply">Scope of development and
+supply</h2>
+<blockquote>
+<p><em>[A: BT-LAH-936]</em></p>
+<p>The seat belt and seat belt buckle scopes to be developed and
+supplied must be taken from Group RFQ matrix TAB.[redacted-phone]BC.</p>
+<p>The requirements of [redacted-co]99000, "Scope of development and supply"
+section apply.</p>
+<p><em>[A: BT-LAH-31]</em></p>
+<p>The contractor undertakes to assist the purchaser in integrating the
+part.</p>
+<p><em>[A: BT-LAH-714]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>The design responsibility share agreed upon during contractual
+negotiations is specified on the [redacted]as part of
+the [redacted-person] RFQ process.</p>
+<p>(Does not apply to [redacted-co].)</p>
+<p>The following applies to [redacted-co]:</p>
+<p><em>[A: BT-LAH-936]</em></p>
+<p>The requirements of the design responsibility agreement apply. The
+following design responsibility share applies to the parts: 90%</p>
+</blockquote>
+<h2 id="scope-of-quotation">Scope of quotation</h2>
+<blockquote>
+<p><em>[A: BT-LAH-33]</em></p>
+<p>The seat belt and seat belt buckle scopes described in the Group RFQ
+matrix for the [redacted-person] Electric ([redacted-prj]) Company installment have
+preferential applicability when it comes to preparing the quotation.</p>
+<p>The RFQ matrix is archived in TAB.[redacted-phone]BC "[redacted-person] RFQ Matrix,"
+in the [redacted]KVS.</p>
+</blockquote>
+<p><em>[A: BT-LAH-33]</em></p>
+<blockquote>
+<p>The contractor undertakes to base the quotation on all requirements
+as agreed conditions. Deviations from the BT-LAH must be added to the
+quotation and documented.</p>
+</blockquote>
+<p><em>[I: BT-LAH-837]</em></p>
+<blockquote>
+<p>Prior to nomination, a contractor must first be audited and approved
+in accordance with the purchaser's established Group-wide evaluation
+criteria (part-oriented evaluation of development partners).</p>
+</blockquote>
+<p><em>[A: BT-LAH-34]</em></p>
+<blockquote>
+<p>Together with the quotation, the contractor must submit the following
+documents to the purchaser's engineering or other appropriate
+departments for review:</p>
+</blockquote>
+<p><em>[A: BT-LAH-35]</em></p>
+<ul>
+<li><p>List of all open items and deviations from the BT-LAH (with same
+structure as the BT- LAH)</p></li>
+<li><p>[redacted-person] Specification</p></li>
+<li><p>Documentation of experience gained in similar projects</p></li>
+</ul>
+<p><em>[A: BT-LAH-36]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p>Documentation of sufficient development expertise and development
+capacity</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<ul>
+<li><p>Documentation of the required facilities for testing, laboratory
+research, and CAD</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<ul>
+<li><p>Documentation of experience in prototype construction
+(particularly in the construction of safety-critical parts)</p></li>
+</ul>
+<p><em>[A: BT-LAH-38]</em></p>
+<ul>
+<li><p>Planning of sufficient supply capacity, taking into account
+potential bottlenecks in the contractor's other projects</p></li>
+<li><p>Work breakdown structure as per [redacted-co]99000</p></li>
+<li><p>Project schedule as per [redacted-co]99000</p></li>
+<li><p>Assembly and fastening solution</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-41]</em></p>
+<p><em>[A: BT-LAH-42]</em></p>
+<p><em>[A: BT-LAH-43]</em></p>
+<p><em>[A: BT-LAH-44]</em></p>
+</blockquote>
+<ul>
+<li><p>Details of the quantity of in-house/outsourced products and
+services (development, production)</p></li>
+<li><p>Test plan/test management</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-45]</em></p>
+<p><em>[A: BT-LAH-46]</em></p>
+</blockquote>
+<ul>
+<li><p>Materials to be used for each individual part (only the materials
+need to be specified, not the basic substances)</p></li>
+<li><p>Simulations to be carried out by the contractor The following
+applies to [redacted-co]:</p></li>
+</ul>
+<p><em>[A: BT-LAH-49]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>It must be demonstrated that the requirements profile stipulated in
+section 2.9 "Required knowledge of product data management" has already
+been fulfilled or will be fulfilled by the time the contract is awarded,
+e.g., by providing appropriate qualification documentation.</p>
+</blockquote>
+<h2 id="scope-of-quotation-for-front-seat-belt-assys-left-and-right">Scope
+of quotation for front seat belt ASSYs, left and right</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Housing</p>
+</blockquote></th>
+<th><ul>
+<li><p>With dimples to prevent rattling</p></li>
+<li><p>7/16" nut, over-tightening torque &gt; 40 Nm</p></li>
+<li><p>Rotary stop: Group tee stop 1</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Seat belt pretensioner</p>
+</blockquote></td>
+<td><blockquote>
+<p>Pyrotechnic; tensioning displacement as per [redacted-person]
+Specification</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Force limiter</p>
+</blockquote></td>
+<td><blockquote>
+<p>2-stage force levels as per restraint system requirement</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Ignition socket, seat belt pretensioner</p>
+</blockquote></td>
+<td><blockquote>
+<p>See RFQ matrix</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Ignition socket, force limiter</p>
+</blockquote></td>
+<td><blockquote>
+<p>See RFQ matrix</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Ground connection</p>
+</blockquote></td>
+<td><blockquote>
+<p>Threaded connection to the body as per [redacted-co]80150</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Connector positions and cable routing</p>
+</blockquote></td>
+<td><ul>
+<li><p>The position and direction of plug connections must be agreed
+upon in terms of accessibility with the appropriate [redacted-co]
+department</p></li>
+<li><p>Cable attachments must be provided on the retractor and/or seat
+belt guide and designed for 2 wires or 2 wires + wrapping.</p></li>
+<li><p>Easy, visible installation of the cables must be ensured</p></li>
+<li><p>The cables must not slide out</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Webbing/colors</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rukaflex as per color combination table</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Marking</p>
+</blockquote></td>
+<td><ul>
+<li><p>As per section 8.6, [redacted-person] Specification, and
+drawing</p></li>
+<li><p>2D matrix code as per [redacted-co]01064 (issue [redacted-phone])</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Retractor spool cover</p>
+</blockquote></td>
+<td><blockquote>
+<p>No</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt guide on retractor</p>
+</blockquote></td>
+<td><ul>
+<li><p>At the webbing passage: radii &gt; R 20</p></li>
+<li><p>No edges or burrs</p></li>
+<li><p>Otherwise as per [redacted-person] Specification</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Miscellaneous</p>
+</blockquote></td>
+<td><ul>
+<li><p>It must be possible to bolt on the retractor without pulling out
+the webbing (sufficient screw/nut driver clearance to the webbing spool
+must be ensured).</p></li>
+<li><p>The retractor must not exhibit any damage after the [redacted-person] for Technology (AZT) crash test.</p></li>
+<li><p>Retractors must not rattle; see LAH.DUM.857.D.</p></li>
+<li><p>Steps for insulating the sound of the retractor must be
+implemented at no additional cost if the specifications are not
+met.</p></li>
+<li><p>Compression stress-strain characteristics for extraction and
+retraction of the webbing adjusted for</p></li>
+</ul>
+<blockquote>
+<p>wearing comfort</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="scope-of-quotation-for-rear-outer-seat-belt-assys-left-and-right">Scope
+of quotation for rear outer seat belt ASSYs, left and right:</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Housing</p>
+</blockquote></th>
+<th><ul>
+<li><p>With dimples to prevent rattling</p></li>
+<li><p>Through hole: 11.2 mm +0.1 mm</p></li>
+<li><p>Rotary stop: Group tee stop 1</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Retractor</p>
+<p>Rest-of-the-world (ROW)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Without seat belt pretensioner</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Force limiter</p>
+</blockquote></td>
+<td><blockquote>
+<p>Force level as per restraint system requirement</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Ignition socket, seat belt pretensioner</p>
+</blockquote></td>
+<td><blockquote>
+<p>See RFQ matrix</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Ground connection</p>
+</blockquote></td>
+<td><blockquote>
+<p>Threaded connection to the body as per [redacted-co]80150</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Connector positions and cable routing</p>
+</blockquote></td>
+<td><ul>
+<li><p>The position and direction of plug connections must be agreed
+upon in terms of accessibility with the appropriate [redacted-co]
+department</p></li>
+<li><p>Cable attachments must be provided on the retractor and/or seat
+belt guide and designed for 2 wires or 2 wires + wrapping.</p></li>
+<li><p>Easy, visible installation of the cables must be ensured</p></li>
+<li><p>The cables must not slide out</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Webbing/colors</p>
+</blockquote></td>
+<td><blockquote>
+<p>- Rukaflex as per color combination table</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Marking</p>
+</blockquote></td>
+<td><ul>
+<li><p>As per section 8.6, [redacted-person] Specification, and
+drawing</p></li>
+<li><p>2D matrix code as per [redacted-co]01064 (issue [redacted-phone])</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Retractor spool cover</p>
+</blockquote></td>
+<td><blockquote>
+<p>- Yes, over the entire seat belt spool</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt guide on retractor</p>
+</blockquote></td>
+<td><ul>
+<li><p>At the webbing passage: radii &gt; R 20</p></li>
+<li><p>No edges or burrs</p></li>
+<li><p>Otherwise as per [redacted-person] Specification</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Miscellaneous</p>
+</blockquote></td>
+<td><ul>
+<li><p>It must be possible to bolt on the retractor without pulling out
+the webbing (sufficient screw/nut driver clearance to the webbing spool
+must be ensured).</p></li>
+<li><p>The retractor must not exhibit any damage after the AZT crash
+test.</p></li>
+<li><p>Retractors must not rattle; see LAH.DUM.857.D.</p></li>
+<li><p>Steps for insulating the sound of the retractor must be
+implemented at no additional cost if the specifications are not
+met.</p></li>
+<li><p>Compression stress-strain characteristics for extraction and
+retraction of the webbing adjusted for</p></li>
+</ul>
+<blockquote>
+<p>wearing comfort</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="scope-of-quotation-for-seat-belt-assy-rear-center">Scope of
+quotation for seat belt ASSY, rear center</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Housing</p>
+</blockquote></th>
+<th><ul>
+<li><p>Through hole: 11.2 mm +0.1 mm</p></li>
+<li><p>Rotary stop matched to backrest frame</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Retractor</p>
+</blockquote></td>
+<td><blockquote>
+<p>Without seat belt pretensioner, installed in the rear seat
+backrest</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Force limiter</p>
+</blockquote></td>
+<td><blockquote>
+<p>No</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Webbing/colors</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rukaflex as per color combination table</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Marking</p>
+</blockquote></td>
+<td><ul>
+<li><p>As per section 8.6, [redacted-person] Specification, and
+drawing</p></li>
+<li><p>2D matrix code as per [redacted-co]01064 (issue [redacted-phone])</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Retractor spool cover</p>
+</blockquote></td>
+<td><blockquote>
+<p>Yes, over the entire seat belt spool</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt guide on retractor</p>
+</blockquote></td>
+<td><ul>
+<li><p>Coordinated with course of webbing in folding backrest</p></li>
+<li><p>At the webbing passage: radii &gt; R 20; no edges</p></li>
+<li><p>With stop for small knob (safeguard)</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Miscellaneous</p>
+</blockquote></td>
+<td><ul>
+<li><p>It must be possible to bolt on the retractor without pulling out
+the webbing (sufficient screw/nut driver clearance to the webbing spool
+must be ensured).</p></li>
+<li><p>The retractor must not exhibit any damage after the AZT crash
+test.</p></li>
+<li><p>Retractors must not rattle; see LAH.DUM.857.D.</p></li>
+<li><p>Steps for insulating the sound of the retractor must be
+implemented at no additional cost if the specifications are not
+met.</p></li>
+<li><p>Compression stress-strain characteristics for</p></li>
+</ul>
+<blockquote>
+<p>extraction and retraction of the webbing adjusted for wearing
+comfort</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="scope-of-quotation-for-seat-belt-height-adjustment-assy-front">Scope
+of quotation for seat belt height adjustment ASSY, front</h2>
+<blockquote>
+<p>The seat belt height adjustment is supplied separately and does not
+form part of the scope of supply for the front seat belt.</p>
+<p>A separate RFQ will be issued for this.</p>
+</blockquote>
+<h2 id="scope-of-quotation-for-lap-belt-pretensioner-assy">Scope of
+quotation for lap belt pretensioner ASSY</h2>
+<blockquote>
+<p>The lap belt pretensioner is part of the scope of supply for the
+front seat belt.</p>
+</blockquote>
+<h2 id="scope-of-quotation-for-front-seat-belt-buckle-assys-left-and-right">Scope
+of quotation for front seat belt buckle ASSYs, left and right</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Brackets</p>
+</blockquote></th>
+<th><ul>
+<li><p>Design as per RFQ matrix</p></li>
+<li><p>With anti-twist protection for installation</p></li>
+<li><p>Lateral threaded connection on seat-mounted belt end
+fitting</p></li>
+<li><p>The holder geometry must be adapted to the vehicle/seat geometry
+in terms of optimum buckle head position relative to the occupant. This
+geometry</p></li>
+</ul>
+<blockquote>
+<p>must be agreed upon with the appropriate [redacted-co] departments.</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Cabling</p>
+</blockquote></td>
+<td><blockquote>
+<p>Cable lengths and the type and position of attachments</p>
+<p>must be agreed upon with the appropriate [redacted-co] departments.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Colors</p>
+</blockquote></td>
+<td><ul>
+<li><p>Buckle shells: as per color combination table</p></li>
+<li><p>Release button: RAL 3020</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Marking</p>
+</blockquote></td>
+<td><ul>
+<li><p>As per [redacted-person] Specification and drawing</p></li>
+<li><p>2D matrix code as per [redacted-co]01064 (issue [redacted-phone])</p></li>
+<li><p>The type and position of the marking must be agreed</p></li>
+</ul>
+<blockquote>
+<p>upon with the appropriate [redacted-co] department, as applicable.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Indian market (if necessary)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Release button with "PRESS" inscription</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Miscellaneous</p>
+</blockquote></td>
+<td><blockquote>
+<p>Felt on the seat belt buckle upper shell, without cutouts</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="scope-of-quotation-for-rear-outer-and-center-seat-belt-buckle-assys">Scope
+of quotation for rear outer and center seat belt buckle ASSYs</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Brackets</p>
+</blockquote></th>
+<th><ul>
+<li><p>Design as per RFQ matrix</p></li>
+<li><p>With anti-twist protection for installation</p></li>
+<li><p>Threaded connection on vehicle floor</p></li>
+<li><p>The holder geometry must be adapted to the vehicle/seat geometry
+in terms of optimum buckle head position relative to the occupant. This
+geometry</p></li>
+</ul>
+<blockquote>
+<p>must be agreed upon with the appropriate [redacted-co] departments.</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Cabling</p>
+</blockquote></td>
+<td><blockquote>
+<p>Cable lengths and the type and position of attachments must be agreed
+upon with the appropriate [redacted-co] departments.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Colors</p>
+</blockquote></td>
+<td><ul>
+<li><p>Buckle shells: as per color combination table</p></li>
+<li><p>Release button: RAL 3020</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Marking</p>
+</blockquote></td>
+<td><ul>
+<li><p>As per [redacted-person] Specification and drawing</p></li>
+<li><p>2D matrix code as per [redacted-co]01064 (issue [redacted-phone])</p></li>
+<li><p>The type and position of the marking must be agreed upon with the
+appropriate [redacted-co] department.</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Indian market (if necessary)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Release button with "PRESS" inscription</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Miscellaneous</p>
+</blockquote></td>
+<td><blockquote>
+<p>---</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="engineering-process">Engineering process</h2>
+<h2 id="schedule-and-milestones">Schedule and milestones</h2>
+<blockquote>
+<p><em>[I: BT-LAH-59]</em></p>
+<p>The purchaser's Procurement department will enclose the current
+schedule with the RFQ documents.</p>
+</blockquote>
+<p><em>[A: BT-LAH-60]</em></p>
+<blockquote>
+<p>As per [redacted-co]99000, the contractor must include in the project schedule
+the following deadlines that have been specified by the purchaser.</p>
+</blockquote>
+<ul>
+<li><p>Week <strong>x</strong>: A-sample available</p></li>
+<li><p>Week <strong>x</strong>: 3D CAD data set</p></li>
+<li><p>Week <strong>x</strong>: Virtual prototype</p></li>
+<li><p>Week <strong>x</strong>: Digital data control model
+(DDKM)</p></li>
+<li><p>Week <strong>x</strong>: B-sample available</p></li>
+<li><p>Week <strong>x</strong>: C-sample available</p></li>
+<li><p>Week <strong>x</strong>: Initial sample</p></li>
+<li><p>Week <strong>x</strong>: Initial sample inspection
+report</p></li>
+</ul>
+<p><em>[A: BT-LAH-62]</em></p>
+<p><em>[A: BT-LAH-63]</em></p>
+<p><em>[A: BT-LAH-917]</em></p>
+<p><em>[A: BT-LAH-918]</em></p>
+<p><em>[A: BT-LAH-64]</em></p>
+<p><em>[A: BT-LAH-65]</em></p>
+<p><em>[A: BT-LAH-66]</em></p>
+<p><em>[A: BT-LAH-67]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p>Week <strong>x</strong>: Type-approval testing documents
+(component type approvals, CCC, etc.)</p></li>
+</ul>
+<p><em>[A: BT-LAH-68]</em></p>
+<ul>
+<li><p>Week <strong>x</strong>: Build sample approval (BMG)</p></li>
+<li><p>Week <strong>x</strong>: P-release</p></li>
+<li><p>Week <strong>x</strong>: B-release</p></li>
+<li><p>Week <strong>x</strong>: Run at rate</p></li>
+<li><p>Week <strong>x</strong>: Start of Production (SOP)</p></li>
+</ul>
+<p><em>[A: BT-LAH-919]</em></p>
+<p><em>[A: BT-LAH-920]</em></p>
+<p><em>[A: BT-LAH-69]</em></p>
+<p><em>[A: BT-LAH-70]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>For parts subject to obligatory component type approval, the
+contractor must submit approval documents, including test reports (e.g.,
+for ECE, CCC, Taiwan) to the purchaser's part-owning design engineer,
+who will then forward the documents to the Type-[redacted-person]
+department of the respective brand (see also [redacted-co]01155).</p>
+</blockquote>
+<ul>
+<li><p>Week <strong>x</strong>: Submission of component type approval
+for ECE</p></li>
+<li><p>Week <strong>x</strong>: Submission of component type approval
+for Taiwan</p></li>
+<li><p>Week <strong>x</strong>: Submission of the component type
+approval application number for China (CCC)</p></li>
+<li><p>Week <strong>x</strong>: Submission of component type approval
+for China (CCC)</p></li>
+<li><p>Week <strong>x</strong>: Submission of component type approval
+for India</p></li>
+<li><p>Week <strong>x</strong>: Submission of component type approval
+for Brazil</p></li>
+<li><p>Week <strong>x</strong>: Submission of component type approval
+for Japan</p></li>
+</ul>
+<h2 id="project-tracking-metrics">Project-tracking metrics</h2>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH-73]</em></p>
+<blockquote>
+<p>The contractor must supply the necessary data for the following
+metrics as part of the progress reports:</p>
+</blockquote>
+<ul>
+<li><p>Milestone trend analysis based on the agreed milestones</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-74]</em></p>
+<p><em>[A: BT-LAH-75]</em></p>
+</blockquote>
+<ul>
+<li><p>Comparison of the scheduled and actual duration of activities and
+work packages based on the project schedule</p></li>
+<li><p>Fault tracking including prioritization and processing
+status</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-76]</em></p>
+<p><em>[A: BT-LAH-77]</em></p>
+<p>All additional project-specific technical metrics that measure
+critical aspects must be agreed upon by the contractor's and purchaser's
+project coordinators.</p>
+</blockquote>
+<h2 id="sample-versions-and-numbers-of-samples">Sample versions and
+numbers of samples</h2>
+<blockquote>
+<p><em>[A: BT-LAH-83]</em></p>
+<p>Throughout the course of the project, the contractor must provide the
+samples listed in TAB.[redacted-phone]BC for special testing by Development
+(function checks, fitment trials, test setups, design check, etc.) free
+of charge.</p>
+<p>The delivery dates and precise designs of the parts will be defined
+together with the appropriate [redacted-co] department.</p>
+</blockquote>
+<p><em>[A: BT-LAH-93]</em></p>
+<blockquote>
+<p>Before delivering samples, the sample versions for ASSYs or systems,
+individual components, and parts must be agreed upon with the
+purchaser.</p>
+</blockquote>
+<p><em>[A: BT-LAH-94]</em></p>
+<blockquote>
+<p>Each sample part must be labeled to show which version (hardware,
+software, EEPROM, and mechanical components) it contains.</p>
+</blockquote>
+<p><em>[A: BT-LAH-838]</em></p>
+<blockquote>
+<p>The 3D CAD data (digital prototype) must be supplied by a defined
+date prior to delivery of the sample parts.</p>
+<p><em>[A: BT-LAH-80]</em></p>
+<p>One set of sample parts must be delivered for, at least, each planned
+model phase and test vehicle.</p>
+<p><em>[I: BT-LAH-839]</em></p>
+<p>Precise specifications concerning the number of vehicles and the
+assembly date (virtual and physical) are defined in the "Schedule and
+milestones" section or must be taken from the prototype construction
+plan.</p>
+</blockquote>
+<p><em>[A: BT-LAH-924]</em></p>
+<blockquote>
+<p>If package-relevant changes (as per [redacted-co]99000, "Change management"
+section) have been made to parts installed in the front end and in
+underfloor models, then the contractor must also provide the purchaser
+with sample parts for the front end and for underfloor models.</p>
+<p>Package-relevant changes may include:</p>
+</blockquote>
+<ul>
+<li><p>Modifications to geometry</p></li>
+<li><p>Hose markings</p></li>
+<li><p>Change of tool state of development (prototype tool, production
+tool)</p></li>
+</ul>
+<blockquote>
+<p><em>[I: BT-LAH-925]</em></p>
+<p><em>[A: BT-LAH-91]</em></p>
+<p>The specified number of parts is included in the scope and cost of
+development. Sample parts must be delivered to the purchaser carriage
+paid.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>For identification purposes, the parts must have a [redacted-person]
+Identification (RFID) tag as per [redacted-co]01067, "Use of Auto ID for [redacted-person] Marking."</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>The contractor is responsible for procuring, writing data into, and
+fitting the tags, as well as for providing the required documentation in
+electronic form.</p>
+</blockquote>
+<h2 id="type-approval-testing-and-certification">Type-approval testing
+and certification</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>The contractor must certify vehicle parts and genuine parts (e.g.,
+spare parts, after-sales service parts) that are subject to component
+type approval and/or that require a conformity certificate (for radio
+transmission systems) as per international legislation, e.g., ECE, EC,
+INMETRO (Brazil), and CCC, regardless of the location of use/target
+market and vehicle model, and mark them with the corresponding
+identification as per the pertinent laws.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>For markets subject to obligatory type-approval name assignment and
+component type approval, the parts must be certified and marked using a
+type-approval name. The legal requirements for the Chinese market
+(CNCA-C11-01:2014) are specified in the Group standard [redacted-co]10511. If the
+area of application of a part ("type differentiation") must be indicated
+in the component type approval documents, this must be done exclusively
+using the "official type" and/or the shortened Group project code.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>The contractor must update the certificates before they expire or
+when pertinent laws are changed. The contractor must then submit the
+updated certificates to the purchaser in due time without the purchaser
+having to request them. This requirement applies over the entire product
+life cycle, including the period in which the legal obligation of
+supplying genuine parts applies.</p>
+<p>Is the part subject to obligatory type-approval testing:
+<strong>Yes</strong></p>
+<p><em>[A: BT-LAH-98]</em></p>
+<p><em>[A: BT-LAH-99]</em></p>
+<p>For parts subject to obligatory type-approval testing, the contractor
+must demonstrate that all legal requirements have been met by conducting
+and documenting tests on the parts in consultation with the purchaser's
+appropriate Type-[redacted-person] department, if necessary in the
+presence of a technical service or the appropriate authority.</p>
+<p>Is the part relevant to self-certification: <strong>Yes</strong></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>For parts relevant to self-certification, the contractor must prepare
+legally compliant documentation that provides evidence – usually
+collected by means of testing – that the parts comply with the law.</p>
+</blockquote>
+<h2 id="quality-and-reliability">Quality and reliability</h2>
+<h2 id="quality-strategies">Quality strategies</h2>
+<blockquote>
+<p><em>[A: BT-LAH-103]</em></p>
+<p>The contractor must demonstrate the part's reliability by performing
+a design validation on the B- sample version and a product validation on
+the C-sample version.</p>
+<p>Number of failures: 0</p>
+<p>0-km failures: 0 ppm (target) <sup>*)</sup></p>
+<p><em>[A: BT-LAH-104]</em></p>
+<p><em>[A: BT-LAH-105]</em></p>
+<p><em>[A: BT-LAH-108]</em></p>
+<p><sup>*)</sup> When the contractor submits its quotation, it must also
+provide details of the measures it will take to achieve the objectives
+(e.g., strategy paper).</p>
+</blockquote>
+<p><em>[A: BT-LAH-109]</em></p>
+<blockquote>
+<p>Any changes the contractor wants to make to the ppm target must be
+approved by the [redacted-person] department of the purchaser's
+[redacted-person] division as part of a separate quality agreement (ppm
+target agreement).</p>
+</blockquote>
+<p><em>[A: BT-LAH-110]</em></p>
+<blockquote>
+<p>Any targets specified in the contractor's quotation that differ from
+those in the [redacted-person] are considered invalid.</p>
+</blockquote>
+<p><em>[A: BT-LAH-111]</em></p>
+<blockquote>
+<p>At the start of the production-delivery phase, the contractor and
+[redacted-person] must agree on a ppm program (for failures before use)
+that makes sure that the quality in production is continuously
+improved.</p>
+</blockquote>
+<p><em>[A: BT-LAH-112]</em></p>
+<blockquote>
+<p>In accordance with the stipulations of Formula Q – Concrete, the
+contractor must demonstrate consistent quality under production
+conditions in a run at rate.</p>
+<p>The following applies to [redacted-co]:</p>
+<p><em>[A: BT-LAH-927]</em></p>
+<p>The requirements of the [redacted-co] [redacted-person] Specification
+(LAH.[redacted-phone]) apply.</p>
+</blockquote>
+<p><em>[A: BT-LAH-928]</em></p>
+<blockquote>
+<p>The following applies to [redacted-co]:</p>
+<p>The testing technologies and strategies specified by the purchaser
+must be considered for the development and planning phases.</p>
+</blockquote>
+<h2 id="risk-management-fmea-and-fta">Risk management (FMEA and
+FTA)</h2>
+<h2 id="department-specific-and-project-specific-dmu-guidelines">Department-specific
+and project-specific DMU guidelines</h2>
+<blockquote>
+<p>A right-handed coordinate system as per [redacted-co]01052 must be used.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<h2 id="the-following-applies-to-audi-required-knowledge-of-product-data-management">The
+following applies to [redacted-co]: Required knowledge of product data
+management</h2>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>The following applies to [redacted-co]:</p>
+<p>The contractor will be required to enter development results into
+Volkswagen's product data management systems ([redacted-person] for
+Engineering (MBT) and technical bills of materials). To ensure process
+reliability, the contractor must therefore have basic knowledge of
+product data management.</p>
+<p>The following applies to [redacted-co]:</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>The requirements of LAH.[redacted-phone]AF, "[redacted-person] for
+Applying for [redacted-person] to Be Incorporated into MBT," must be
+met.</p>
+</blockquote>
+<h1 id="project-management-and-organization">Project management and
+organization</h1>
+<h2 id="responsibilities-in-the-project-and-work-breakdown-structure">Responsibilities
+in the project and work breakdown structure</h2>
+<blockquote>
+<p>See also: [redacted]</p>
+<p><em>[A: BT-LAH-122]</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Name</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Department</strong></p>
+</blockquote></th>
+<th style="text-align: right;"><blockquote>
+<p><strong>Phone (direct line)</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>E-mail</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Role</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person] Development</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted]Development</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="documentation">Documentation</h2>
+<blockquote>
+<p>The contractor must prepare all documentation in German.</p>
+<p><em>[A: BT-LAH-126]</em></p>
+<p><em>[A: BT-LAH-127]</em></p>
+</blockquote>
+<h2 id="sample-documentation">Sample documentation</h2>
+<blockquote>
+<p><em>[A: BT-LAH-166]</em></p>
+<p>Each time the contractor delivers a new component version (hardware,
+software, and mechanical components), it must submit to the purchaser's
+appropriate departments sample documentation containing the following at
+a minimum:</p>
+</blockquote>
+<ul>
+<li><p>A cover sheet containing:</p>
+<ul>
+<li><p>The sample documentation's heading</p></li>
+<li><p>Part designation</p></li>
+<li><p>The purchaser's part number</p></li>
+<li><p>The contractor's part number</p></li>
+<li><p>Mechanical components version (e.g., housing)</p></li>
+<li><p>Name of the contractor's project manager</p></li>
+<li><p>Document table of contents</p></li>
+<li><p>Version of the [redacted-person]</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-167]</em></p>
+<p><em>[A: BT-LAH-870]</em></p>
+<p><em>[A: BT-LAH-871]</em></p>
+<p><em>[A: BT-LAH-872]</em></p>
+<p><em>[A: BT-LAH-873]</em></p>
+<p><em>[A: BT-LAH-878]</em></p>
+<p><em>[A: BT-LAH-879]</em></p>
+<p><em>[A: BT-LAH-881]</em></p>
+<p><em>[A: BT-LAH-882]</em></p>
+</blockquote>
+<ul>
+<li><p>Version of the [redacted-person] Specification</p></li>
+</ul>
+<ul>
+<li><p>Short description/information including the following:</p>
+<ul>
+<li><p>All changes to the previous version</p></li>
+<li><p>The reason for the change</p></li>
+<li><p>The effect(s) of the change</p></li>
+</ul></li>
+<li><p>Part history</p></li>
+<li><p>[redacted-person] Specification</p></li>
+<li><p>Measurement and test reports (including tolerance
+analysis)</p></li>
+<li><p>Simulation result</p></li>
+<li><p>Test report on the materials requirements</p></li>
+<li><p>Manufacturing methods</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-883]</em></p>
+<p><em>[A: BT-LAH-168]</em></p>
+<p><em>[A: BT-LAH-884]</em></p>
+<p><em>[A: BT-LAH-885]</em></p>
+<p><em>[A: BT-LAH-886]</em></p>
+<p><em>[A: BT-LAH-171]</em></p>
+<p><em>[A: BT-LAH-172]</em></p>
+<p><em>[A: BT-LAH-174]</em></p>
+<p><em>[A: BT-LAH-175]</em></p>
+<p><em>[A: BT-LAH-176]</em></p>
+<p><em>[A: BT-LAH-177]</em></p>
+<p><em>[A: BT-LAH-178]</em></p>
+<p>The contractor must also submit a completed checklist that shows the
+contents of the sample documentation.</p>
+<p>Any missing information must be submitted within 5 workdays.</p>
+</blockquote>
+<h2 id="data-exchange">Data exchange</h2>
+<blockquote>
+<p>See also [redacted]and guideline
+A00664.</p>
+<p>The following applies to [redacted-co]:</p>
+<p><em>[A: BT-LAH-179]</em></p>
+<p><em>[A: BT-LAH-932]</em></p>
+<p>The requirements of the [redacted]Specifications "Development DMU" LAH.DUM.000.A and "Development CATIA
+V5" LAH.DUM.000 apply.</p>
+</blockquote>
+<h1 id="system-environment">System environment</h1>
+<h2 id="functional-system-environment">Functional system
+environment</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="physical-system-environment">Physical system environment</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="system-circuit-diagram">System circuit diagram</h2>
+<blockquote>
+<p>Section does not apply to mechanical assemblies.</p>
+<p><em>[I: BT-LAH-846]</em></p>
+</blockquote>
+<h1 id="technical-requirements">Technical requirements</h1>
+<h2 id="designation-and-part-number">Designation and part number</h2>
+<blockquote>
+<p>Designation: [redacted-person] RFQ matrix TAB.[redacted-phone]BC Part number: [redacted-person] RFQ matrix TAB.[redacted-phone]BC</p>
+</blockquote>
+<h2 id="block-and-schematic-circuit-diagram">Block and schematic circuit
+diagram</h2>
+<blockquote>
+<p>Section does not apply.</p>
+</blockquote>
+<h2 id="functions">Functions</h2>
+<h2 id="description-of-the-functions">Description of the
+function(s)</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="misuse">Misuse</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="emergency-operation">Emergency operation</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="architecture">Architecture</h2>
+<blockquote>
+<p>Section does not apply to mechanical assemblies.</p>
+</blockquote>
+<h2 id="ecu-strategy">ECU strategy</h2>
+<blockquote>
+<p>Section does not apply to mechanical assemblies.</p>
+<p><em>[A: BT-LAH-192]</em></p>
+<p><em>[A: BT-LAH-193]</em></p>
+<p><em>[I: BT-LAH-847]</em></p>
+<p><em>[I: BT-LAH-848]</em></p>
+</blockquote>
+<h2 id="electrical-interfaces">Electrical interfaces</h2>
+<blockquote>
+<p>[redacted-person] RFQ matrix TAB.[redacted-phone]BC and [redacted]</p>
+</blockquote>
+<h2 id="specific-characteristic-data">Specific characteristic data</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="safety-requirements">Safety requirements</h2>
+<h2 id="safety-of-road-users-and-vehicle-occupants">Safety of road users
+and vehicle occupants</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="vehicle-safety">Vehicle safety</h2>
+<blockquote>
+<p>[redacted]Specification and Whole-[redacted-person] Specification.</p>
+</blockquote>
+<h2 id="alternatives-and-future-variants">Alternatives and future
+variants</h2>
+<blockquote>
+<p>Additional alternatives and variants may arise during the course of
+development. These will be requested and evaluated separately.</p>
+</blockquote>
+<h2 id="weight-targets">Weight targets</h2>
+<blockquote>
+<p>The part must be as light as possible.</p>
+<p>Target weight: [redacted]Specification.</p>
+</blockquote>
+<h2 id="installation">Installation</h2>
+<blockquote>
+<p><em>[A: BT-LAH-468]</em></p>
+<p><em>[A: BT-LAH-469]</em></p>
+</blockquote>
+<h2 id="points-of-use-and-installation-position">Points of use and
+installation position</h2>
+<blockquote>
+<p>The following layout drawings must be used as a basis when preparing
+the quotation:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>ENT no.</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Designation</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>Front seat belts</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rear seat belts</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>Front and rear seat belt buckles</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Additional details, and any deviations, must be taken from the Group
+RFQ matrix.</p>
+<p>The relevant points of use, installation positions, and fasteners for
+the parts must be agreed upon with the appropriate [redacted-co] department
+during the development phase.</p>
+</blockquote>
+<h2 id="installation-solution">Installation solution</h2>
+<blockquote>
+<p><em>[A: BT-LAH-475]</em></p>
+<p>All parts must be designed in such a way that they cannot be
+installed incorrectly (e.g., inverted or on the wrong side; malfunction
+due to incorrect installation).</p>
+<p>The parts must be marked with a 2D matrix code in consultation with
+the appropriate [redacted-co] department.</p>
+</blockquote>
+<p><em>[A: BT-LAH-476]</em></p>
+<blockquote>
+<p>Parts for which preventing incorrect installation is absolutely
+necessary must be mechanically keyed or designed to support diagnostics
+when installed in the vehicle.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>The intended sequence and alignment of the parts during installation,
+as well as the fixtures to be used, must be clearly specified in all 6
+degrees of freedom.</p>
+<p>The nominal tightening torque of the seat belt component fasteners is
+generally 40 Nm. Deviations from this specification must be defined in
+consultation with the appropriate [redacted-co] departments and managed via
+associated [redacted-person] Manual sheets.</p>
+</blockquote>
+<h2 id="geometry">Geometry</h2>
+<blockquote>
+<p>The following packaging space is available for the part:</p>
+<p><em>[A: BT-LAH-479]</em></p>
+<p>See pertinent specifications in the [redacted]and the envelopes defined for the modules.</p>
+</blockquote>
+<p><em>[A: BT-LAH-480]</em></p>
+<blockquote>
+<p>The contractor must agree upon the external geometry of the assembly
+and, in particular, the position and design of the fastening points (if
+present) with the purchaser's appropriate departments, using the
+packaging space defined by the purchaser as a basis.</p>
+</blockquote>
+<h2 id="tolerances">Tolerances</h2>
+<blockquote>
+<p>Including all manufacturing tolerances, the parts/modules supplied by
+the contractor must fall within the specified envelopes agreed upon with
+the appropriate [redacted-co] department.</p>
+</blockquote>
+<h2 id="shaping-and-styling">Shaping and styling</h2>
+<blockquote>
+<p><em>[A: BT-LAH-484]</em></p>
+<p>The class-A-surface data supplied by the purchaser is binding for all
+class-A-surface parts.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Changes to class-A surfaces are only permissible if they are approved
+in the class-A surfacing process in consultation with the purchaser's
+Design.</p>
+</blockquote>
+<h2 id="ergonomics">Ergonomics</h2>
+<h2 id="appearance-and-tactile-properties">Appearance and tactile
+properties</h2>
+<blockquote>
+<p>See also: [redacted]</p>
+</blockquote>
+<p><em>[A: BT-LAH-491]</em></p>
+<blockquote>
+<p>Parts with external visual functional elements must be designed in
+such a way that no functional impairment occurs during operation, even
+in extreme conditions.</p>
+</blockquote>
+<p><em>[A: BT-LAH-492]</em></p>
+<blockquote>
+<p>The gap contour must be designed in accordance with the purchaser's
+specifications and be uniform all around.</p>
+</blockquote>
+<h2 id="acoustics">Acoustics</h2>
+<blockquote>
+<p>See also: [redacted]</p>
+</blockquote>
+<p><em>[A: BT-LAH-498]</em></p>
+<blockquote>
+<p>Noise must be inaudible inside the passenger compartment or below the
+annoyance threshold. The purchaser's appropriate department will
+evaluate the noise levels in the vehicle.</p>
+</blockquote>
+<h2 id="handling">Handling</h2>
+<blockquote>
+<p>Section does not apply.</p>
+</blockquote>
+<h2 id="technical-materials-specifications">Technical materials
+specifications</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Hot-melt adhesives must not be used for parts installed on the
+vehicle exterior or in areas subject to increased environmental load
+(e.g., spray and splash water, salt spray, or submersion in water).</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Hot-melt adhesives must not be used for encasing populated PCBs.</p>
+<p>Hot-melt adhesives must not be used for sealing or protecting against
+moisture.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Deviations from the described principle require proof of suitability
+in all pertinent vehicle operating conditions.</p>
+</blockquote>
+<h2 id="resistance-to-chemicals-and-chemical-requirements">Resistance to
+chemicals and chemical requirements</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Parts that come into contact with fuel or fuel vapors/condensates
+must be compatible with ethanol and methanol.</p>
+</blockquote>
+<h2 id="cleanliness-requirements">Cleanliness requirements</h2>
+<blockquote>
+<p>The part must be odorless.</p>
+</blockquote>
+<h2 id="cleaning">Cleaning</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="corrosion-protection">Corrosion protection</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="degrees-of-protection">Degrees of protection</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+<p><em>[A: BT-LAH-508]</em></p>
+</blockquote>
+<h2 id="environmental-compatibility">Environmental compatibility</h2>
+<h2 id="selection-of-materials">Selection of materials</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="recycling-strategy">Recycling strategy</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="life-cycle-assessment">Life cycle assessment</h2>
+<blockquote>
+<p>Section does not apply.</p>
+</blockquote>
+<h2 id="mechanical-requirements">Mechanical requirements</h2>
+<h2 id="load">Load</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="vibration-behavior">Vibration behavior</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="stiffness-and-spring-characteristics">Stiffness and spring
+characteristics</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="plastic-and-elastic-deformation">Plastic and elastic
+deformation</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="pressure">Pressure</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="service-life">Service life</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+<p>Parts must be statistically designed for a service life mileage of
+[redacted-phone]km.</p>
+<p><em>[A: BT-LAH-933]</em></p>
+<p><em>[A: BT-LAH-935]</em></p>
+<p>To comply with the legal regulations for parts that affect emissions
+and carry fuels, the contractor must ensure, when implementing the
+requirement, that the part has a service life of 15 years or [redacted-phone]miles.</p>
+</blockquote>
+<p><em>[A: BT-LAH-542]</em></p>
+<blockquote>
+<p>The contractor must demonstrate compliance with these requirements
+prior to B-release.</p>
+</blockquote>
+<h2 id="electrical-requirements">Electrical requirements</h2>
+<h2 id="description-of-general-requirements">Description of general
+requirements</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<p><em>[A: BT-LAH-983]</em></p>
+<blockquote>
+<p>The requirements of [redacted]Specification LAH.5Q0.971 "[redacted]Requirements" apply to components with vehicle electrical system
+interfaces (i.e., to pre-wiring and adapter cables, components with
+connecting cables, and cables in components that are supplied as an
+ASSY).</p>
+</blockquote>
+<h2 id="climatic-requirements">Climatic requirements</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="after-sales-service-requirements">After-sales service
+requirements</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<p><em>[A: BT-LAH-851]</em></p>
+<blockquote>
+<p>The minimum storage life must be defined and documented in
+consultation with the purchaser when the contract is awarded.</p>
+</blockquote>
+<p><em>[A: BT-LAH-853]</em></p>
+<blockquote>
+<p>All requirements, including service life requirements, must still be
+met after the storage period.</p>
+</blockquote>
+<h2 id="transport-protection">Transport protection</h2>
+<blockquote>
+<p>The transport packaging for the parts must be agreed upon with
+Logistics.</p>
+</blockquote>
+<h2 id="logistics-requirements">Logistics requirements</h2>
+<blockquote>
+<p>The requirements for logistics must be agreed upon with the
+appropriate [redacted-co] department.</p>
+</blockquote>
+<h2 id="quality-assurance-requirements">Quality assurance
+requirements</h2>
+<blockquote>
+<p><em>[A: BT-LAH-634]</em></p>
+<p>The supplier and its subcontractors are responsible for ensuring that
+the requirements of [redacted-co]99000 and Formula Q – Concrete (section "Product
+safety, product liability" and "Requirement for internal field testing
+with obligation to report") are met for installed purchase parts.</p>
+<p>The purchaser reserves the right to conduct quality checks of random
+samples.</p>
+</blockquote>
+<p><em>[A: BT-LAH-900]</em></p>
+<blockquote>
+<p>The contractor must present the testing strategy for faulty parts to
+the part owner and agree upon it with the part owner by the start of
+[redacted-person] (PVS).</p>
+</blockquote>
+<h1 id="requirements-for-testing">Requirements for testing</h1>
+<h2 id="test-equipmenttest-mules">Test equipment/test mules</h2>
+<blockquote>
+<p>Test equipment must be agreed upon with the appropriate [redacted-co]
+department.</p>
+</blockquote>
+<p><em>[A: BT-LAH-694]</em></p>
+<blockquote>
+<p>The contractor agrees with the purchaser on how many, if any,
+vehicles the contractor must equip with measurement and calibration
+equipment and must make available for the duration of the development
+process (until 3 months after SOP).</p>
+</blockquote>
+<h2 id="proof-of-fulfillment">Proof of fulfillment</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<p><em>[A: BT-LAH-697]</em></p>
+<blockquote>
+<p>All tests listed below must be conducted in accordance with the cited
+specifications/regulations.</p>
+</blockquote>
+<h2 id="test-plan">Test plan</h2>
+<blockquote>
+<p>[redacted]Specification, or to be defined in
+consultation with the appropriate [redacted-co] department.</p>
+</blockquote>
+<h2 id="tests">Tests</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="durability-testing">Durability testing</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="test-parameters-and-cycles">Test parameters and cycles</h2>
+<blockquote>
+<p>[redacted]Specification.</p>
+</blockquote>
+<h2 id="properties-of-the-sample-version-that-is-to-be-tested">Properties of
+the sample version that is to be tested</h2>
+<blockquote>
+<p>[redacted]Specification, or to be defined in
+consultation with the appropriate [redacted-co] department.</p>
+</blockquote>
+<h2 id="operating-states">Operating states</h2>
+<blockquote>
+<p>Section does not apply.</p>
+</blockquote>
+<h2 id="virtual-testing-and-simulation">Virtual testing and
+simulation</h2>
+<blockquote>
+<p>The scope of virtual testing must be defined in consultation with the
+appropriate [redacted-co] department.</p>
+</blockquote>
+<p><em>[A: BT-LAH-698]</em></p>
+<blockquote>
+<p>When carrying out numerical simulations, the contractor must use the
+specified processes and systems. Data must be exchanged as per the
+requirements of [redacted-co]99000, "Product data management" section.</p>
+</blockquote>
+<h2 id="in-vehicleroad-testing">In-vehicle/road testing</h2>
+<blockquote>
+<p><em>[A: BT-LAH-713]</em></p>
+<p>To demonstrate the product’s functionality, the contractor must carry
+out the necessary tests on the vehicle in which the product is
+installed. The contractor must submit the results of these tests to the
+purchaser.</p>
+<p>If requested to do so, the contractor must analyze parts from
+durability road tests.</p>
+</blockquote>
+<p><em>[A: BT-LAH-715]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>If the purchaser's vehicles must be driven for testing activities,
+then the purchaser will provide the vehicles, for example, by means of a
+rental agreement. Drivers of test vehicles must have the required
+driving license and must have completed an advanced driver training
+course that is recognized by the purchaser.</p>
+</blockquote>
+<h1 id="definitions-terms-and-abbreviations">Definitions, terms, and
+abbreviations</h1>
+<h2 id="terms">Terms</h2>
+<blockquote>
+<p><strong>Run at rate</strong></p>
+<p>[redacted-person] Q - Concrete.</p>
+<p><strong>A-sample:</strong></p>
+<p><em>[I: BT-LAH-899]</em></p>
+<p><em>[I: BT-LAH-719]</em></p>
+<p>Presentation of the basic functions to agree upon the contents of the
+[redacted-person] Specification:</p>
+</blockquote>
+<ul>
+<li><p>Completion of the [redacted-person] Specification</p></li>
+<li><p>Testing of alternative functions</p></li>
+<li><p>Improvised model phase Objectives:</p></li>
+<li><p>Completion and confirmation of solution</p></li>
+<li><p>BT-LAH finalization</p></li>
+</ul>
+<blockquote>
+<p><strong>Build sample approval (BMG):</strong></p>
+<p>See [redacted-co]99000-4</p>
+<p><strong>B-sample (basic sample):</strong></p>
+<p><em>[I: BT-LAH-722]</em></p>
+<p><em>[I: BT-LAH-723]</em></p>
+<p>Implementation of the [redacted-person] Specification producing a
+part whose degree of maturity is close to production:</p>
+</blockquote>
+<ul>
+<li><p>Drawings, circuit/component location drawing, layout, and
+software description are provided as per the presented model
+phase.</p></li>
+<li><p>Mechanical design, layout, component mounting, and software are
+close to production (using auxiliary tools)</p></li>
+<li><p>Fulfillment of all functional requirements</p></li>
+<li><p>Correction of faults, modifications possible to a limited
+extent</p></li>
+<li><p>The contractor must perform laboratory tests Objectives:</p></li>
+<li><p>Confirmation of general suitability by means of laboratory
+testing and road tests</p></li>
+<li><p>Procurement commissions the tools for the production of the
+individual parts.</p></li>
+</ul>
+<p><em>[I: BT-LAH-725]</em></p>
+<blockquote>
+<p><strong>C-sample (sample ready for production):</strong></p>
+<p>Components manufactured on pilot or production plant:</p>
+</blockquote>
+<ul>
+<li><p>All individual parts are production parts</p></li>
+<li><p>Production software</p></li>
+<li><p>No restrictions with respect to specifications</p></li>
+<li><p>All documentation (drawings, circuitry documents, etc.) and test
+reports are available and complete.</p></li>
+</ul>
+<blockquote>
+<p>Objectives:</p>
+</blockquote>
+<ul>
+<li><p>Confirmation of suitability for production</p></li>
+<li><p>Build sample approval by purchaser's Development</p></li>
+</ul>
+<blockquote>
+<p><strong>Testing:</strong></p>
+<p>Total scope of all tests</p>
+<p><strong>Initial sample:</strong></p>
+<p>[redacted-person] Q – Concrete</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>Abbreviations 3D</strong></p></li>
+</ol>
+<blockquote>
+<p>Three-dimensional</p>
+<p><strong>ABG parts</strong></p>
+<p>Parts subject to obligatory component type approval</p>
+<p><strong>BT-LAH</strong></p>
+<p>[redacted-person] Specification</p>
+<p><strong>CAD</strong></p>
+<p>Computer-aided design</p>
+<p><strong>CCC</strong></p>
+<p>[redacted-person] Certification</p>
+<p><strong>DMU</strong></p>
+<p>[redacted-person]-Up</p>
+<p><strong>ECE</strong></p>
+<p>[redacted-person] for Europe</p>
+<p><strong>EEPROM</strong></p>
+<p>[redacted]</p>
+<p><strong>EC</strong></p>
+<p>[redacted-person]</p>
+<p><strong>FMEA</strong></p>
+<p>Failure modes and effects analysis</p>
+<p><strong>FTA</strong></p>
+<p>Fault tree analysis</p>
+<p><strong>HiL</strong></p>
+<p>Hardware-in-the-loop</p>
+</blockquote>
+<p><em>[I: BT-LAH-726]</em></p>
+<p><em>[I: BT-LAH-898]</em></p>
+<p><em>[I: BT-LAH-729]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-731]</em></p>
+<p><em>[I: BT-LAH-732]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-734]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-735]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-738]</em></p>
+<p><em>[I: BT-LAH-740]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p><strong>HW</strong></p>
+<p>Hardware</p>
+<p><strong>Wk</strong></p>
+<p>Week</p>
+<p><strong>MBT</strong></p>
+<p>[redacted-person] for Engineering</p>
+<p><strong>ppm</strong></p>
+<p>Parts per million</p>
+<p><strong>PDM</strong></p>
+<p>Product data management</p>
+<p><strong>PVS</strong></p>
+<p>[redacted-person]</p>
+<p><strong>QM</strong></p>
+<p>Quality management</p>
+<p><strong>RFID</strong></p>
+<p>Radio-frequency identification</p>
+<p><strong>SE</strong></p>
+<p>Simultaneous engineering</p>
+<p><strong>SOP</strong></p>
+<p>Start of production</p>
+<p><strong>SW</strong></p>
+<p>Software</p>
+<p><strong>TL</strong></p>
+<p>[redacted-person] Specification</p>
+<p><strong>VDA</strong></p>
+<p>[redacted-person] of the [redacted-person]</p>
+<p><strong>ASSY</strong></p>
+<p>Assembly</p>
+</blockquote>
+<p><em>[I: BT-LAH-741]</em></p>
+<p><em>[I: BT-LAH-746]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-751]</em></p>
+<p><em>[I: BT-LAH-752]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-756]</em></p>
+<p><em>[I: BT-LAH-758]</em></p>
+<p><em>[I: BT-LAH-759]</em></p>
+<p><em>[I: BT-LAH-760]</em></p>
+<p><em>[I: BT-LAH-762]</em></p>
+<p><em>[I: BT-LAH-763]</em></p>
+<ol start="8" type="1">
+<li><p><strong>Applicable
+documents<sup>1</sup></strong></p></li>
+</ol>
+<p><em>[A: BT-LAH-766]</em></p>
+<blockquote>
+<p>The applicable documents in effect on the issue date of the BT-LAH
+apply, as well as the documents specified therein.</p>
+</blockquote>
+<p><em>[A: BT-LAH-767]</em></p>
+<blockquote>
+<p>The contractor must ensure that only the applicable documents
+currently in effect for this BT-LAH are used.</p>
+<p><strong>To be obtained from:</strong></p>
+<p><em>[I: BT-LAH-769]</em></p>
+<p>Authorized contractors can access documents from the [redacted-person]
+B2B supplier platform on the internet at: <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>.
+(Or contact the German hotline on: [redacted-phone], or the international
+hotline on: +49 5361 9 33099, or e-mail: <a href="mailto:supplierintegration@vwgroupsupply.com"><u>[redacted-email]</u></a>)</p>
+</blockquote>
+<h2 id="drawings-plans-and-drafts-variant-tree">Drawings, plans, and
+drafts; variant tree</h2>
+<h2 id="technical-specifications">Technical specifications</h2>
+<blockquote>
+<p><strong>Formula Q</strong></p>
+<p><em>[A: BT-LAH-869]</em></p>
+<p>[redacted-person] for [redacted-person] and Procurement: Formula Q –
+Concrete, – [redacted-person] Integral, – Capability</p>
+<p><strong>[redacted-co]01067</strong></p>
+<p>Use of Auto IDs for [redacted-person] Objects</p>
+<p><strong>[redacted-co]01155</strong></p>
+<p>[redacted-person] Parts; Approval of [redacted-person] and Changes</p>
+<p><strong>[redacted-co]91102</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH-780]</em></p>
+<blockquote>
+<p>[redacted-person] for Vehicles; [redacted-person], Materials, Fuels,
+Coolants, Fluids, and Lubricants; [redacted-person], Use of
+[redacted-person]</p>
+<p><strong>[redacted-co]99000</strong></p>
+<p>[redacted-person] for the Performance of [redacted-person]
+Contracts</p>
+<p><strong>[redacted-co]99000-1</strong></p>
+<p><em>[A: BT-LAH-781]</em></p>
+<p><em>[A: BT-LAH-782]</em></p>
+<p>[redacted-person] for the Performance of [redacted-person]
+Contracts; Subpart 1: P-Release</p>
+</blockquote>
+<p><em>[A: BT-LAH-783]</em></p>
+<blockquote>
+<p><strong>[redacted-co]99000-2</strong></p>
+<p>[redacted-person] for the Performance of [redacted-person]
+Contracts; Subpart 2: B-Release</p>
+<p>1 Please only refer to standard/document numbers since the document
+titles may vary.</p>
+<p><strong>[redacted-co]99000-3</strong></p>
+<p><em>[A: BT-LAH-784]</em></p>
+<p>[redacted-person] for the Performance of [redacted-person]
+Contracts; Subpart 3: K-Release</p>
+</blockquote>
+<p><em>[A: BT-LAH-785]</em></p>
+<blockquote>
+<p><strong>[redacted-co]99000-4</strong></p>
+<p>[redacted-person] for the Performance of [redacted-person]
+Contracts; Subpart 4: [redacted-person] Approval (BMG)</p>
+</blockquote>
+<h2 id="type-approval-testing-documents-regulations-legislation">Type-approval
+testing documents, regulations, legislation</h2>
+<blockquote>
+<p>The latest versions of the regulations pertaining to seat belts for
+the planned target markets at the time of the respective vehicle SOP
+apply.</p>
+</blockquote>
+<h2 id="general-project-independent-performance-specifications">[redacted]Specifications</h2>
+<blockquote>
+<p><strong>LAH.DUM.857.D</strong></p>
+<p>[redacted]for [redacted-person] and [redacted-person]
+Buckles</p>
+<p><strong>LAH.DUM.857.T</strong></p>
+<p>[redacted]for [redacted-person]
+Pretensioner</p>
+<p><strong>LAH.5Q0.971</strong></p>
+<p>[redacted]Requirements</p>
+<p>The following applies to [redacted-co]:</p>
+<p><strong>LAH.[redacted-phone]</strong></p>
+<p>[redacted-person] Specification</p>
+<p>The following applies to [redacted-co]:</p>
+<p><strong>LAH.DUM.000.A</strong></p>
+<p>Development DMU</p>
+<p>The following applies to [redacted-co]:</p>
+<p><strong>LAH.DUM.000</strong></p>
+<p>Development CATIA V5</p>
+<p><strong>LAH.[redacted-phone]AF</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH-938]</em></p>
+<p><em>[A: BT-LAH-939]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] for Applying for [redacted-person] to Be
+Incorporated into MBT</p>
+</blockquote>
+<h2 id="intellectual-property-rights-and-licenses-to-be-observed">Intellectual
+property rights and licenses to be observed</h2>
+<blockquote>
+<p>Section does not apply.</p>
+</blockquote>
+<h2 id="other-documents">Other documents</h2>
+<h2 id="guideline-a00664">Guideline A00664</h2>
+<blockquote>
+<p>Guideline for archiving CAD data and technical documentation for the
+development of seat belt systems</p>
+<p><strong>TAB.[redacted-phone]BC</strong></p>
+<p>Group RFQ matrix for tranche-6 seat belts</p>
+<p><strong>TAB.[redacted-phone]DK</strong></p>
+<p>Requirement for seat belt laser mark</p>
+</blockquote>
+</body>
+</html>

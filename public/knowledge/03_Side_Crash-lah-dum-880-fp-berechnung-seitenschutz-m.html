@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>[redacted-person] Funktions-Lastenheft</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<header id="title-block-header">
+<h1 class="title">[redacted-person]
+Funktions-Lastenheft</h1>
+</header>
+<p>[redacted-person]</p>
+<blockquote>
+<p>[redacted]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-person] / OE</p>
+<p>Hausruf [redacted-phone]</p>
+<p>Telefax [redacted]</p>
+<p>[redacted-co]</p>
+<p><img src="./03_Side_Crash-lah-dum-880-fp-berechnung-seitenschutz-m-media/media/image2.png" style="width:5.94005in;height:4.98656in"/>D[redacted]</p>
+<p><strong>[redacted]Modellierung
+und Prozesse LAH.DUM.880.FP</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Verteiler</strong></p>
+</blockquote>
+<table>
+
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<p><img src="./03_Side_Crash-lah-dum-880-fp-berechnung-seitenschutz-m-media/media/image3.jpeg" style="width:6.4102in;height:2.45875in"/></p>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Änderungs- stand</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung der Änderung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Ersteller</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Erstfassung</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted]4.1 &amp; 4.2</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Aktualisierung 4.2 Pamcrash-Version</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#vorwort">Vorwort 5</a><a href="#entwicklungs--und-lieferumfang">Entwicklungs- und Lieferumfang
+6</a><a href="#prozessbeschreibung">Prozessbeschreibung 7</a><a href="#übersicht-prozessverlauf">[redacted-person] 7</a><a href="#loco">LoCo 7</a><a href="#cae-bench2">CAE-Bench2 7</a><a href="#cavit">CAViT 8</a><a href="#richtlinien-modellerstellung">[redacted-person]
+9</a><a href="#qualitätsanforderungen">Qualitätsanforderungen 9</a><a href="#pamcrash-version">PamCrash-Version 9</a><a href="#modellierungsrichtlinien">Modellierungsrichtlinien 10</a><a href="#anforderungen-an-die-pam-crash-modelle">Anforderungen an die
+PAM-CRASH Modelle 11</a><a href="#besonderheiten">Besonderheiten
+12</a><a href="#anbindungen">Anbindungen 12</a><a href="#dichtungen">Dichtungen 13</a><a href="#kabel">Kabel 14</a><a href="#mitgeltende-unterlagen">[redacted-person] 15</a><a href="#lastenhefte-zur-info">Lastenhefte zur Info 15</a><a href="#technische-spezifikationen-normen">[redacted-person] /
+Normen 15</a><a href="#anhang-1-checkliste">Anhang 1: Checkliste
+16</a></p>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>[redacted-person] beschreibt vom Entwicklungspartner geforderte
+Leistungen bzgl. FE-Modellen im [redacted-person].</p>
+<p>In diesem Lastenheft wird die anzuwendende Methodik detailliert
+beschrieben. [redacted-person] resultiert aus der Entwicklungserfahrung der
+[redacted-co] und ist deshalb für den Entwicklungsprozess bindend. [redacted-person] der Simulationsergebnisse auf hohem Niveau soll damit
+sichergestellt werden. [redacted-person] sind nur dann
+zulässig, wenn sie in [redacted-person] besser oder effektiver sind
+und dies der [redacted-co]-Fachabteilung eindeutig nachgewiesen wird und von
+dieser akzeptiert wurde.</p>
+<p>Abweichungen von diesem Lastenheft sind während der Angebotsphase mit
+der [redacted-person] Insassenschutzsysteme abzustimmen und
+schriftlich (mit Unterschrift [redacted-co]) festzuhalten. Dieses gilt
+insbesondere für vom Entwicklungspartner ausgeschlossene Teilumfänge,
+und für – aus Sicht des Entwicklungspartners – zusätzliche erforderliche
+Umfänge.</p>
+<p>Inhalte dieses Lastenheftes dürfen Dritten ohne ausdrückliche
+Genehmigung durch die [redacted-co] nicht zugänglich gemacht werden. Sollte
+durch Nichtbeachtung des [redacted-person] entstehen, behält sich
+die [redacted-co] das Recht vor, einen Dritten zu beauftragen, um dies
+auszugleichen.</p>
+</blockquote>
+<h1 id="entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang</h1>
+<blockquote>
+<p>Ziel ist es, durch die im vorliegenden LAH festgelegte
+Modellierungsmethode die Entwicklung von Seitenschutzsystemen durch eine
+in den Gesamtprojektablauf integrierte Simulation zu unterstützen.</p>
+<p>[redacted-person] müssen in der Lage sein, zu einem frühen
+[redacted-person] hinsichtlich der Insassenbelastungen in
+den Crashlastfällen zu liefern und dienen der Systemauslegung und der
+Entscheidungsfindung der betroffenen [redacted-co]-Fachabteilung bzgl.
+sicherheitsrelevanter Themen im Fahrzeugprojekt.</p>
+<p>[redacted-person] der eingesetzten Komponenten ist durch eine aktuell zu
+haltende Dokumentation im Include sowie in <em>LoCo</em> zu
+dokumentieren. Hierin sind neben der Bauteilbenennung auch der
+Entwicklungsstand, das Erstellungsdatum, der Bearbeiter sowie die
+zugrundeliegenden Teilenummern und Stände aufzuführen. Ferner sind die
+im Rahmen der Entwicklung erarbeiteten Modelle jederzeit dem
+Auftraggeber zur Verfügung zu stellen.</p>
+</blockquote>
+<h1 id="prozessbeschreibung">Prozessbeschreibung</h1>
+<h2 id="übersicht-prozessverlauf">[redacted-person]</h2>
+<h5 id="abbildung-1-prinzipdarstellung-prozessverlauf">Abbildung 1:
+[redacted-person]</h5>
+<h2 id="loco">LoCo</h2>
+<blockquote>
+<p>[redacted-person], um die Fehlerquote zu reduzieren sowie den
+Datenaustausch mit anderen [redacted-co]- Fachabteilungen zu erleichtern, hat der
+Zusammenbau der einzelnen Bauteile und der verschiedenen Lastfälle mit
+der Software <em>LoCo</em> (LoadCaseComposer) zu erfolgen. <em>LoCo</em>
+inklusive Anleitung und der hierfür notwendigen Konventionen wird von
+der [redacted-co]–Fachabteilung bereitgestellt. Eventuell notwendige Schulungen
+sind beim Hersteller der Software <em>LoCo</em> anzufragen.</p>
+</blockquote>
+<h2 id="cae-bench2">CAE-Bench2</h2>
+<blockquote>
+<p>[redacted-person], Ergebnis-Files, Dokumentationen und Auswertungen
+durch den Berechnungslieferanten sind im Anschluss an die Berechnung und
+deren Auswertung bei [redacted-co] in eine Datenbank (<em>CAE-Bench2</em>)
+zu importieren und dort auszuwerten. Insbesondere ist daher beim
+Modellaufbau darauf zu achten, dass alle benötigten
+<em>CAE-Bench2-</em>Aliase definiert sind.</p>
+</blockquote>
+<h2 id="cavit">CAViT</h2>
+<blockquote>
+<p>Zur zentralen Auswertung von Versuchs- und Berechnungsergebnissen
+wird die Software CAViT (CAViewingTool) verwendet. CAViT inklusive
+Anleitung und der hierfür notwendigen Konventionen (z.[redacted-person] von
+Metainformationen mit LoCo) werden von der [redacted-co]–Fachabteilung
+bereitgestellt. Eventuell notwendige Schulungen sind beim Hersteller der
+Software CAViT anzufragen.</p>
+</blockquote>
+<h1 id="richtlinien-modellerstellung">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] sind im PAM-CRASH Format zu erstellen.</p>
+<p>Um eine reibungslose Zusammenarbeit bzw. Datenaustausch zwischen den
+verschiedenen Berechnungsdisziplinen zu gewährleisten, gibt es
+festgelegte Konventionen, die beim Modellaufbau zu beachten und
+einzuhalten sind. Diese betreffen u.a.:</p>
+</blockquote>
+<ul>
+<li><p>die Modellierungsrichtlinien für Crashmodelle</p></li>
+<li><p>die Namensgebung von Includes und Varianten -&gt; siehe
+LoCo-Dokumentation</p></li>
+<li><p>den Modellzusammenbau</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] ist Rücksprache mit dem Auftraggeber zu halten und
+die gemeinsame Entscheidung über das weitere Vorgehen ist zu
+protokollieren. [redacted-person] ist an alle Beteiligten zu verteilen.</p>
+</blockquote>
+<h2 id="qualitätsanforderungen">Qualitätsanforderungen</h2>
+<blockquote>
+<p>Alle vom Auftragnehmer erzeugten Includes müssen den allgemeinen
+[redacted-co]-Qualitätsanforderungen entsprechenden. Diese werden durch Skripte
+innerhalb von des LoCo‘s überprüft. Auf [redacted-co]-Workstations stehen lokale
+Versionen der Skripte zur Verfügung, deren Aufruf und Handhabung ist mit
+dem Auftraggeber abzustimmen.</p>
+<p>Weiterhin ist darauf zu achten, dass auch zukünftige Konfigurationen
+- sobald bekannt - abzuprüfen sind und möglichst frühzeitig deren
+Einhaltung sicherzustellen ist.</p>
+<p>Über die Anforderungen der allgemeinen [redacted-co]-Qualitätsanforderungen im
+LoCo hinaus sind alle vom Auftraggeber erzeugenden Includes mit dem
+Inputchecker von ESI mit einem [redacted-co]-Konfigurationsfile zu überprüfen.
+Alle ERROR-Meldungen sind vor Verwendung des Includes abzustellen.</p>
+<p>[redacted-person] der Anforderungen sind alle noch in Verwendung
+befindlichen Includeversionen entsprechend zu aktualisieren.</p>
+<p>[redacted-person], die von Schnittstellenpartnern kommen, sind bei
+Übernahme die Erfüllung der Anforderungen zu überprüfen und falls
+erforderlich Dokumentationen über Abweichungen für den Auftraggeber und
+Schnittstellenpartner zu erzeugen. [redacted-person] ihre
+Includes nicht rechtzeitig zur Einhaltung von Terminschienen
+aktualisieren, so sind diese vom Auftragnehmer ohne Mehrkosten für den
+Auftraggeber durchzuführen.</p>
+</blockquote>
+<h2 id="pamcrash-version">PamCrash-Version</h2>
+<blockquote>
+<p>Die zu verwendende Version des [redacted-person] Crash wird von der [redacted-co]
+Fachabteilung vorgegeben. Die [redacted-co]-internen Arbeitsabläufe erfordern
+eine regelmäßige Aktualisierung der Includes auf eine neuere [redacted]wird von der [redacted-co] Fachabteilung mit
+ausreichend Vorlauf zusammen mit der neu zu verwendenden [redacted-person]
+Version und einem verbindlichen Termin beim Auftragnehmer angezeigt. Zu
+diesem Termin hat der Auftragnehmer an die [redacted-co] Fachabteilung zu
+übergeben:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person], die vom Auftragnehmer hauptverantwortlich erstellt
+und gepflegt werden in neuer [redacted-person] Version.</p></li>
+</ul>
+<ul>
+<li><p>Dokumentation einer oder mehrerer repräsentativer
+Vergleichsrechnungen, die aufzeigen, dass durch die Umstellung keine der
+relevanten Ergebnisgrößen nennenswert verändert wird.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] sind in jedem Fall durchzuführen. [redacted-person] der Syntax zwischen der neuen und alten Version ist nicht
+ausreichend. Sollten die Vergleichsrechnungen zeigen, dass die
+Ergebnisse der angepassten Includes von der Referenzrechnung abweichen,
+so sind die Ursachen für die Abweichung zu untersuchen und zu
+korrigieren. Ggf. sind Validationen auf bestehende Komponentenversuche
+oder ähnliches erneut durchzuführen.</p>
+<p>[redacted-person] des Aufwands während der Angebotserstellung kann von
+max. einer Umstellung pro Kalenderjahr ausgegangen werden</p>
+</blockquote>
+<h2 id="modellierungsrichtlinien">Modellierungsrichtlinien</h2>
+<blockquote>
+<p>[redacted-person] sind nach</p>
+<p>zu nummerieren.</p>
+</blockquote>
+<h4 id="lah.dum.880.dl-nummerierungskonvention"><em>LAH.DUM.880.DL
+Nummerierungskonvention</em></h4>
+<blockquote>
+<p>[redacted-person] dürfen ausschließlich Materialkarten aus der
+[redacted-co]-Materialdatenbank verwendet werden. [redacted-person] werden von
+der [redacted-co]-Fachabteilung zu Projektbeginn zur Verfügung gestellt bzw.
+müssen vom Auftragnehmer bei der [redacted-co]-Fachabteilung angefragt
+werden.</p>
+<p>[redacted-person] werden durch eine Mittelflächenmodellierung abgebildet.
+Für die Modellierung der FEM-Bauteile gelten folgende Anforderungen:</p>
+</blockquote>
+<ul>
+<li><p>Einheitensystem: mm-kg-ms</p></li>
+<li><p>[redacted-person] Step : 0.5x10<sup>-3</sup> ms</p></li>
+<li><p>warp angle: &lt; 15.0 degrees</p></li>
+<li><p>aspect ratio: &lt; 4.0</p></li>
+<li><p>Taper: &gt; 0,15</p></li>
+<li><p>Skewing: Dreieckselemente: &lt; 90°</p></li>
+</ul>
+<blockquote>
+<p>Viereckselemente: &lt; 120°</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]: Dreieckselemente: 30° &lt; ang &lt; 100°</p></li>
+</ul>
+<blockquote>
+<p>Viereckslemente: 40° &lt; ang &lt; 130°</p>
+<p>Elemente, die diese Kriterien nicht erfüllen (maximal 3% aller
+Elemente), dürfen das Berechnungsergebnis nicht verfälschen oder sonst
+einen negativen Einfluss haben. Weiterhin sollen mindestens 90% mit
+Vierecken vernetzt sein. Insbesondere müssen Dreiecksnester vermieden
+werden.</p>
+<p>Neben den beschriebenen grundlegenden Elementqualitäten bestehen noch
+folgende Anforderungen an den Modellaufbau:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+</ul>
+<ul>
+<li><p>Keine doppelten Elemente</p></li>
+<li><p>Keine unnötigen freien Knoten</p></li>
+<li><p>Keine langen PLINKs (über 10mm) verwenden</p></li>
+<li><p>Material-Typen: 17 statt 11, 24 statt 20, 45 statt 21, 103 statt
+102, 106 statt 105, 204 statt</p></li>
+</ul>
+<blockquote>
+<p>203 und 212 statt 202</p>
+</blockquote>
+<ul>
+<li><p>Part- bzw. Materialkarten müssen folgende Informationen
+beinhalten:</p>
+<ul>
+<li><p>Teil- und Materialbezeichnung</p></li>
+</ul></li>
+<li><p>Bauteile müssen folgende Informationen beinhalten:</p>
+<ul>
+<li><p>Teilenummer sowie Teilestand</p></li>
+<li><p>Abweichung vom CAD-Stand</p></li>
+</ul></li>
+<li><p>Bauteile dürfen grundsätzlich keine „initial penetrations“
+aufweisen</p></li>
+<li><p>Bauteile dürfen keine Intersections und Penetrations zu
+angrenzenden Bauteile haben</p></li>
+<li><p>Simulationen grundsätzlich ohne „initial penetration removal“
+starten</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] von Modellen unterschiedlicher
+Berechnungsdisziplinen ist die korrekte Platzierung im fahrzeugeigenen
+Koordinatensystem zu prüfen und Mängel sind gegebenenfalls umgehend
+anzuzeigen. [redacted-person] der Richtlinien zur Modellerstellung ist vor
+jedem Ergebnisimport in <em>CAE-Bench2</em> zu kontrollieren und in
+einer Checkliste zu dokumentieren (siehe Anhang).</p>
+</blockquote>
+<h2 id="anforderungen-an-die-pam-crash-modelle">Anforderungen an die
+PAM-CRASH Modelle</h2>
+<blockquote>
+<p>Grundsätzlich sind die PamCrash-Modelle nach gültiger
+[redacted-co]-Modellstruktur aufzubauen.</p>
+<p>[redacted-person] von Modellen ist die Checkliste (siehe Anhang am Ende
+dieses Dokumentes) zur Kontrolle zu bearbeiten.</p>
+<p>Prinzipiell sind die folgenden Anforderungen an die PAM-CRASH Modelle
+zu erfüllen:</p>
+</blockquote>
+<ul>
+<li><p>Im pc-File sind nur [redacted-person] Cards, [redacted-person] sowie
+für den [redacted-co]-Prozess benötigte Kommentare enthalten</p></li>
+<li><p>PAM-CRASH-Datensatz im Einheitensystem „mm-kg-ms“ mit UNIT
+[redacted-person]</p></li>
+<li><p>[redacted-person] ist 0.5x10<sup>-3</sup>
+ms</p></li>
+<li><p>NODAL YES verwenden</p></li>
+<li><p>Skalierungen zur Zeitschrittmanipulation (dtmin, dtmass, dtscal)
+sind, wenn möglich, zu vermeiden. [redacted-person] verwendet werden,
+muss Rücksprache mit der [redacted-co]/GE- Fachabteilung erfolgen. In diesem Fall
+sind Vergleichsrechnungen mit/ohne Manipulation sowie ein Massenreport
+zu erstellen und der Einfluss der Skalierungen zu bewerten. Dies ist bei
+wesentlichen Modelländerungen zu wiederholen</p></li>
+<li><p>In NAME dürfen keine Leer- oder Sonderzeichen verwendet
+werden</p></li>
+<li><p>[redacted-person] sind mit single precision zu rechnen</p></li>
+<li><p>[redacted-person] des [redacted-person] ist Bauteil- bzw.
+Baugruppen-orientiert in Include-Files zu gestalten</p></li>
+</ul>
+<ul>
+<li><p>Falls es verschiedene Ausstattungsvarianten gibt, so sind die
+entsprechenden Baugruppen so in Teil-Includes zu zerlegen, dass
+identische Bauteile in ein Include und die ausstattungsgesteuerten
+Bauteile in anderen Includes aufgeteilt sind. Beispiele:</p>
+<ul>
+<li><p>Türpackage wird zerlegt in: Serien-Package (Türsteuergerät,
+Fensterhebemotor, …),</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>[redacted-person] low, [redacted-person] high</p>
+</blockquote>
+<ul>
+<li><p>B-Säulenverkleidung wird zerlegt in: Serien-Verkleidung ohne
+Soundsystem und Luftkanal, [redacted]</p></li>
+<li><p>Mittelkonsole wird zerlegt in: [redacted-person] Mittelkonsole,
+[redacted-person]</p></li>
+</ul>
+<ul>
+<li><p>Keine bauteilzugehörigen Elemente/Knoten/… außerhalb des
+Include-Files (außer Materialkarten)</p></li>
+<li><p>Include-Files müssen so aufgebaut sein, dass sie - evtl. zusammen
+mit dem Material-Include- File - ohne Aufwand an andere Projekte
+übergeben werden können</p></li>
+<li><p>Anbindungen und Kontakte zwischen Includes sind über Groups zu
+definieren. Siehe dazu [redacted-co]-Modellstruktur</p></li>
+<li><p>[redacted-person] von Kontakten ist möglichst gering zu halten. Dazu ist
+es erforderlich, regelmäßig die vorhandenen Kontakte auf ihre
+Notwendigkeit zu überprüfen.</p></li>
+</ul>
+<blockquote>
+<p>Die numerische Stabilität und die Aussagequalität der Modelle sind
+sicherzustellen. [redacted-person] von Instabilitäten sind diese zu
+untersuchen und zu beheben. [redacted-person] ausgewählter Modellparameter
+ist die Stabilität nachzuweisen.</p>
+</blockquote>
+<h2 id="besonderheiten">Besonderheiten</h2>
+<h3 id="anbindungen">Anbindungen</h3>
+<blockquote>
+<p>[redacted-person] sind daraufhin zu kontrollieren, dass die zu
+verbindenden Bauteile wirklich miteinander verbunden sind (PLINKs,
+TIEDs, etc.). Dies hat auch durch eine optische Kontrolle nach der
+Berechnung zu geschehen.</p>
+<p>[redacted-person] zwischen Bauteilen ist darauf zu achten, dass die
+Verbindungsstellen in der Simulation nur den physikalische vorhandenen
+Verbindungsstellen entsprechen. Falls es in Versuchen zu Versagen dieser
+Verbindungsstellen kommt, so sind diese Verbindungen in der Simulation
+optional mit der Möglichkeit des Versagens zu modellieren.</p>
+<p>Schraubverbindungen in hoch belasteten Regionen (zum [redacted-person] Sitz an Rohbau, Gurtretraktor an Rohbau, Türverkleidung an
+Türinnenblech) sind per Vorspannkraft (mittels CONLO) und CNTAC zu
+modellieren (siehe dazu <a href="#abbildung-2-prinzipdarstellung-abbildung-3-schnitt-durch-modellierung">Abbildung
+2</a>, <a href="#abbildung-2-prinzipdarstellung-abbildung-3-schnitt-durch-modellierung">Abbildung
+2</a>3 und <a href="#abbildung-4-beispiel-modellierung-schraube">Abbildung 4</a>).</p>
+</blockquote>
+<p><img src="./03_Side_Crash-lah-dum-880-fp-berechnung-seitenschutz-m-media/media/image11.jpeg"/></p>
+<h5 id="abbildung-2-prinzipdarstellung-abbildung-3-schnitt-durch-modellierung">Abbildung
+2: [redacted-person] 3: Schnitt durch Modellierung</h5>
+<p><img src="./03_Side_Crash-lah-dum-880-fp-berechnung-seitenschutz-m-media/media/image13.jpeg" style="width:4.75096in;height:3.99479in"/></p>
+<h5 id="abbildung-4-beispiel-modellierung-schraube">Abbildung 4:
+[redacted-person] Schraube</h5>
+<h3 id="dichtungen">Dichtungen</h3>
+<blockquote>
+<p>Dichtungen sind als SOLID (orange) und Shell (rot) zu modellieren und
+mit TIED anzubinden (siehe <a href="#abbildung-5-beispiel-modellierung-dichtung">Abbildung 5</a>). [redacted-person] ist bei der [redacted-co]-Fachabteilung zu erfragen.</p>
+</blockquote>
+<p><img src="./03_Side_Crash-lah-dum-880-fp-berechnung-seitenschutz-m-media/media/image14.jpeg" style="width:4.71984in;height:2.79in"/></p>
+<h5 id="abbildung-5-beispiel-modellierung-dichtung">Abbildung 5:
+[redacted-person] Dichtung</h5>
+<h3 id="kabel">Kabel</h3>
+<blockquote>
+<p>Kabel sind als SOLID mit einer NULLSHELL als Kontaktfläche zu
+modellieren. Eine spezielle Materialkarte ist bei der [redacted-co]-Fachabteilung
+zu erfragen.</p>
+<p>Zu beachten ist weiterhin, dass in CAD-Daten meist nur das Package
+der max. Kabeldicke einschließlich Montagetoleranzen dargestellt sind.
+Daher sind standardmäßig die Abmessung um 10% zu verkleinern.</p>
+</blockquote>
+<p><img src="./03_Side_Crash-lah-dum-880-fp-berechnung-seitenschutz-m-media/media/image15.jpeg" style="width:4.75122in;height:2.86562in"/></p>
+<h5 id="abbildung-6-beispiel-modellierung-kabel">Abbildung 6: [redacted-person] Kabel</h5>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den aktuellen Unterlagen
+zu arbeiten.</p>
+<p>Es gelten die am Ausgabedatum des Lastenheftes gültigen, mitgeltenden
+Unterlagen. Abweichungen sind mit der [redacted-co]/GE-Fachabteilung abzustimmen
+und im Lastenheft zu dokumentieren.</p>
+<p>[redacted-person] sind selbständig zu besorgen.</p>
+</blockquote>
+<h2 id="lastenhefte-zur-info">Lastenhefte zur Info</h2>
+<ul>
+<li><p>LAH.DUM.880.DL Nummerierungskonvention</p></li>
+</ul>
+<h2 id="technische-spezifikationen-normen">[redacted-person] /
+Normen</h2>
+<ul>
+<li><p><u>[redacted]</u> Entwicklungsbedingungen</p></li>
+<li><p><u>[redacted]</u> Fahrzeugzulieferteile allgemein sowie die darin
+genannten Dokumente.</p></li>
+</ul>
+<h5 id="anmerkung">ANMERKUNG</h5>
+<blockquote>
+<p>Bezugsquellen für Normen und Dokumente: [redacted-person] können über die
+B2B Lieferantenplattform [redacted-co] unter der
+Internetadresse: <a href="http://www.vwgroupsupply.com/"><u>http://www.vwgroupsupply.com</u></a>
+mit einer Zugangsberechtigung abgerufen werden.</p>
+</blockquote>
+<h1 id="anhang-1-checkliste">Anhang 1: Checkliste</h1>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Projekt / Lastfall:</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Variantenname:</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Name/Firma</strong></p>
+</blockquote>
+<p><strong><u>Bearbeiter:</u></strong></p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Position</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Prozess</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Inhalt</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Erledigt</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Pre</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Warping , Skew, Angles, Length, Topology usw. laut Lastenheft</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pre</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Prozentzahl der Trias auf Plausibilität prüfen bei Neuvernetzung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pre</p>
+</blockquote></td>
+<td><blockquote>
+<p>Connectivity</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]Freie 1d Elemente</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pre</p>
+</blockquote></td>
+<td><blockquote>
+<p>Connectivity</p>
+</blockquote></td>
+<td><blockquote>
+<p>Verbindungen zu angrenzenden Bauteilen checken</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pre</p>
+</blockquote></td>
+<td><blockquote>
+<p>Penetration</p>
+</blockquote></td>
+<td><blockquote>
+<p>Intersection- und Penetrationchecks durchführen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pre</p>
+</blockquote></td>
+<td><blockquote>
+<p>Renumber</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nummerierungskonvention eingehalten?</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pre</p>
+</blockquote></td>
+<td><blockquote>
+<p>Kontakte</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] checken</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pre</p>
+</blockquote></td>
+<td><blockquote>
+<p>LoCo</p>
+</blockquote></td>
+<td><blockquote>
+<p>Lastfall im LoCo einschließlich Dokumentation und Synchronisation
+abgelegt.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Anrechnen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Penetration</p>
+</blockquote></td>
+<td><blockquote>
+<p>Penetrationchecks durchführen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Anrechnen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Includes</p>
+</blockquote></td>
+<td><blockquote>
+<p>Includes müssen alleine bzw. mit Materialinclude lauffähig sein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Anrechnen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Masse</p>
+</blockquote></td>
+<td><blockquote>
+<p>Massen prüfen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Post</p>
+</blockquote></td>
+<td><blockquote>
+<p>Timestep</p>
+</blockquote></td>
+<td><blockquote>
+<p>Smallest timesteps kontrollieren</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Post</p>
+</blockquote></td>
+<td><blockquote>
+<p>Verbindungen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Verbindungen überprüfen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Post</p>
+</blockquote></td>
+<td><blockquote>
+<p>Masse, E-Modul</p>
+</blockquote></td>
+<td><blockquote>
+<p>Massenzuwachs und dyn. [redacted-person] kontrollieren</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Post</p>
+</blockquote></td>
+<td><blockquote>
+<p>Energie</p>
+</blockquote></td>
+<td><blockquote>
+<p>Energiebilanz checken</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Post</p>
+</blockquote></td>
+<td><blockquote>
+<p>Kinematik</p>
+</blockquote></td>
+<td><blockquote>
+<p>Neu eingebaute Teile visuell überprüfen (Anbindung, Verhalten)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Post</p>
+</blockquote></td>
+<td><blockquote>
+<p>Plausibilität</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] in den Zielwerten auf Plausibilität checken</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Allgemein</p>
+</blockquote></td>
+<td><blockquote>
+<p>Modellaufbau</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-co] Modellierungsrichtlinien (Kapitel 2) müssen erfüllt sein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Allgemein</p>
+</blockquote></td>
+<td><blockquote>
+<p>Freigabe</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Abstimmung mit [redacted-co]/GE-Fachabteilung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Allgemein</p>
+</blockquote></td>
+<td><blockquote>
+<p>Freigabe</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rechnungen einschließlich Report freigeben in <em>CAE-Bench2</em></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Checkliste abgearbeitet:</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Datum / Unterschrift</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

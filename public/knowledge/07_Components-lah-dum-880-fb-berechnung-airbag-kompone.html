@@ -1,0 +1,1637 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_DUM_880_FB_Berechnung_Airbag_Komponente_20180315</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>[redacted-person]
+Lastenheft LAH.DUM.880.FB</p>
+<p><img src="./07_Components-lah-dum-880-fb-berechnung-airbag-kompone-media/media/image2.png" style="width:3.30663in;height:2.775in"/></p>
+</blockquote>
+<p>[redacted]Komponente
+LAH.DUM.880.FB</p>
+<blockquote>
+<p>[redacted]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-person] / OE</p>
+<p>Hausruf [redacted-phone]</p>
+<p>Telefax [redacted]</p>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+<p><strong>Verteiler</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#ergänzungen-modellierungsrichtlinien">[redacted-person] 6</a><a href="#dateiname">Dateiname 6</a><a href="#nummerierungskonvention">Nummerierungskonvention 6</a><a href="#parametrisierung">Parametrisierung 6</a><a href="#namenskonvention-gruppen">[redacted-person] 8</a><a href="#positionierung-mit-transformkarte">Positionierung mit
+Transformkarte 8</a><a href="#gasgeneratoren">Gasgeneratoren 8</a><a href="#kunststoffmaterial">Kunststoffmaterial 9</a><a href="#lenkrad">Lenkrad 9</a><a href="#kopfairbag-halter">Kopfairbag-Halter 9</a><a href="#sleeve">Sleeve 9</a><a href="#validation">Validation 9</a><a href="#lebenslauf-simulation">[redacted-person] 10</a><a href="#insassenschutzfähigkeit">Insassenschutzfähigkeit 10</a><a href="#unterschiedliche-modelle-im-entwicklungsfortschritt-für-rhs-simulation-front">[redacted-person] im Entwicklungsfortschritt für RHS-[redacted-person] 10</a><a href="#out-of-position">Out of Position 11</a><a href="#beifahrerairbag">Beifahrerairbag 11</a><a href="#validation-1">Validation 11</a><a href="#integrität">Integrität
+13</a><a href="#spritzguss-simulationsmodell">Spritzguss-Simulationsmodell
+13</a><a href="#auslegung-gehäuse">[redacted-person] 13</a><a href="#auslegung-klipse-und-halter">[redacted-person] und Halter 13</a><a href="#auslegung-kappe">[redacted-person] 13</a><a href="#auslegung-luftsack">[redacted-person] 14</a><a href="#auslegung-modul">[redacted-person] 14</a><a href="#anbindungen">Anbindungen 14</a><a href="#unterstützung-integration-modul-in-fahrzeugumgebung">[redacted-person] Modul in Fahrzeugumgebung 15</a><a href="#lenkrad-1">Lenkrad
+15</a><a href="#validierung-im-6-uhr-bereich">Validierung im 6 [redacted-person] 15</a><a href="#validierung-9-uhr-und-12-uhr">Validierung 9 Uhr
+und 12 Uhr 16</a><a href="#cockpitauslegung-beifahrerairbag">[redacted-person] 17</a><a href="#cockpitauslegung-knieairbag">[redacted-person] 17</a><a href="#dachhimmel-und-säulen">Dachhimmel und Säulen 17</a><a href="#sitz">Sitz 18</a><a href="#sonstige-fahrzeugbauteile">[redacted-person] 18</a><a href="#lastenhefte">Lastenhefte 19</a></p>
+<blockquote>
+<p><strong>Vorwort</strong></p>
+<p>[redacted-person] beinhaltet die folgenden Themengebiete
+<em>[BAK-LAH-001]</em>:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>Out of Position (OoP)</p></li>
+<li><p>Integrität</p></li>
+<li><p>[redacted-person] Modul in Fahrzeugumgebung</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] ist Fahrzeug unabhängig formuliert
+<em>[BAK-LAH-002]</em>. Fahrzeug spezifische Anforderungen sind im
+Bauteillastenheft enthalten <em>[BAK-LAH-003]</em>.</p>
+<p>[redacted-person] (BT-LAH) verweist auf das [redacted-person] Komponente (BAK-LAH) und legt den geltenden Umfang fest
+(Beispiel: [redacted-person] nutzt nur die [redacted-person]-
+rerairbag im Berechnungslastenheft) <em>[BAK-LAH-004]</em>.</p>
+<p>Das vorliegende Berechnungs-Lastenheft (BAK-LAH) ist angelehnt an die
+Struktur des VDA- [redacted-person] 2 (www.vda-qmc.de) und
+beschreibt komponentenspezifische Anforde- rungen. Das VDA-Modul 1 wird
+durch die [redacted-co]99000 abgebildet und beschreibt komponentenübergreifende
+allgemeine Anforderungen zur Leistungsbringung im Rahmen der
+Bauteilentwicklung <em>[BAK-LAH-005]</em>.</p>
+<p>Anforderungen und Informationen sind im [redacted-person]
+Komponente BAK-LAH zum bes- seren Verständnis mit einer
+Identifikationsnummer gekennzeichnet. [redacted-person] in
+diesem BAK-LAH lauten BAK-LAH-001 bis BAK-LAH-999
+<em>[BAK-LAH-006]</em>.</p>
+<p>[redacted-person] stellt die [redacted-co] Tools zur Verfügung, die bei der
+Einhaltung der Richtlinien und beim Durch- führen der
+Berechnungsprozesse helfen. [redacted-person] dürfen nur für Projekte im
+VW-Konzern angewendet werden <em>[BAK-LAH-007]</em>.</p>
+<p>Mit der Vergabe dieses Lastenheftes verpflichtet sich der
+Auftragnehmer, alle beschriebenen Konventionen und Arbeitsabläufe inkl.
+der mitgelieferten Präsentationen einzuhalten. Sollten sich im
+[redacted-person]- rungen bzgl. Prozess und Methode ergeben, wird der
+Auftragnehmer durch die Fachabteilung informiert
+<em>[BAK-LAH-008]</em>.</p>
+<p>Sollte durch Nichtbeachtung des [redacted-person] entstehen,
+behält sich der Auftraggeber das Recht vor, einen Dritten zu
+beauftragen, um diesen Mehraufwand zu Lasten des Auftragnehmers
+auszuglei- chen. Inhalte dieses Lastenheftes und der zugehörigen
+Dokumente dürfen Dritten ohne ausdrückliche Ge- nehmigung durch den
+Auftraggeber nicht zugänglich gemacht werden <em>[BAK-LAH-009]</em>.</p>
+<p>[redacted-person] muss dieses Lastenheft in vollem Umfang bei seiner
+Angebotsgestaltung berücksichtigen. In seinem Angebot hat er sämtliche
+Leistungen zu berücksichtigen, die zur Erfüllung der Forderungen aus dem
+Lastenheft erforderlich sind <em>[BAK-LAH-010]</em>.</p>
+<p>[redacted-person] behält sich vor, den Entwicklungsvertrag/-auftrag
+jederzeit ganz oder teilweise zu kündi- gen, wobei der [redacted-person] für die bis zur Kündigung erbrachten Leistungen bleibt. Es
+werden nur die bis zum Zeitpunkt der Kündigung tatsächlich angefallenen
+und nachgewiesenen Kosten ersetzt, weitere Ansprüche gegenüber dem
+Auftraggeber bestehen im Fall der Kündigung nicht. Maximal werden jedoch
+die als Vergütung verhandelten Beträge ersetzt
+<em>[BAK-LAH-011]</em>.</p>
+</blockquote>
+<h1 id="ergänzungen-modellierungsrichtlinien">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] ist eine Ergänzung zum [redacted]Insassenschutz. Es beschreibt die zusätzlichen
+Anforderungen, welche es ermöglichen, das Modell ohne weitere
+Anpassungen im Prozess innerhalb der [redacted-co] zu nutzen.</p>
+<p>Im Weiteren sind unter dem [redacted-person]
+Modelle für Out of [redacted-person] und Integritätssimulationen,
+sowie Detailuntersuchungen zur Entfaltungsthematiken
+zusammengefasst.</p>
+</blockquote>
+<h2 id="dateiname">Dateiname</h2>
+<blockquote>
+<p>Includes sind nach der unten beschriebenen Namenskonvention zu
+benennen <em>[BAK-LAH-012].</em> [redacted-person]- Includenamen setzen sich
+dabei aus Airbagtyp, Region, Position, Teilenummer, [redacted-person], Validierungsstand, [redacted-person] und [redacted-co]
+zusammen. Insgesamt sind maximal 67 Zeichen zu vergeben, um inklusive
+Dateiendung .inc und INCLU / - Karte die maximal möglichen 80 Zeichen
+von PamCrash abzudecken <em>[BAK-LAH-013].</em></p>
+<p>$ + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8</p>
+<p>airbag_dab US_1_1K0_880_241_BC_03S_001_vF00_v00 .inc</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>|</p>
+</blockquote></th>
+<th style="text-align: right;">|</th>
+<th><blockquote>
+<p>| |</p>
+</blockquote></th>
+<th style="text-align: right;">|</th>
+<th style="text-align: right;">|</th>
+<th><blockquote>
+<p>| |-&gt; Spalte 54-68: optional</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td><blockquote>
+<p>| |</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td style="text-align: right;">|</td>
+<td><blockquote>
+<p>|-&gt; Spalte 50-52: Variante [redacted-co]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td><blockquote>
+<p>| |</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td colspan="2" style="text-align: right;"><blockquote>
+<p>|-&gt; Spalte 45-48: val./unval. (v, u)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td><blockquote>
+<p>| |</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td colspan="2" style="text-align: right;"><blockquote>
+<p>+ FPM (F)/UPM(U) + [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;"><p>|</p>
+<p>|</p>
+<p>|</p></td>
+<td><blockquote>
+<p>| |</p>
+<p>| |</p>
+<p>| |-&gt; Spalte</p>
+</blockquote></td>
+<td style="text-align: right;"><p>|-&gt;</p>
+<p>22-35:</p></td>
+<td colspan="2" style="text-align: right;"><blockquote>
+<p>Spalte 37-43: analog Teilelebenslauf</p>
+<p>(WZ Stand und laufende Nummer)</p>
+<p>analog KVS (Teilenummer und Index)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>| | |-&gt; Spalte 20: Position (1-9)</p>
+<p>| |-&gt; Spalte 17-18: Region (EU, US)</p>
+<p>|-&gt; Spalte 1-11: Includename (dab, pab, knab, sab, hab)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Airbagtyp</p>
+</blockquote></th>
+<th><blockquote>
+<p>dab = Fahrer, pab = Beifahrer, knab = Knie</p>
+<p>sab = Seite, hab = Kopf, sab oder hab = Kopf-Thorax</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Region</p>
+</blockquote></td>
+<td><blockquote>
+<p>EU = Europa, US = NAR, CN = China, JP = Japan</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Position</p>
+</blockquote></td>
+<td><blockquote>
+<p>1-9, Sitzposition von links vorn nach rechts hinten
+durchnummeriert</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Teilenummer und Index</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-co] Teilenummer analog KVS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] (Werkzeugstand und laufende Nummer)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>v, u – validiert bzw. unvalidiert F, U – FPM bzw. UPM</p>
+<p>00 – Variantennummer wird von Zulieferer hochgezählt</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Variante [redacted-co]</p>
+</blockquote></td>
+<td><blockquote>
+<p>v00 – Variantennummer wird von der [redacted-co] hochgezählt</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="nummerierungskonvention">Nummerierungskonvention</h2>
+<blockquote>
+<p>Es gilt die Konzern-Nummerierungskonvention LAH.DUM.880.DL
+<em>[BAK-LAH-014].</em> Ergänzend zu dieser Nummerierungskonvention gilt
+für Komponentensimulationsmodelle für die Part-ID, Node-ID und
+Element-ID eine erweiterte Nummerierungskonvention, welche im Anhang 1
+zu finden ist <em>[BAK-LAH-015].</em></p>
+</blockquote>
+<h2 id="parametrisierung">Parametrisierung</h2>
+<blockquote>
+<p>In einem Airbagsimulationsmodell sind für den Insassenschutz folgende
+Parameter zwingend erforderlich</p>
+<p><em>[BAK-LAH-016]</em>:</p>
+</blockquote>
+<ul>
+<li><p>Zündzeit (TTF)</p></li>
+<li><p>Ventgröße</p></li>
+<li><p>Gasgenerator-Auswahl</p></li>
+</ul>
+<blockquote>
+<p>Falls eine Adaptivität vorhanden ist, muss noch das Delta zwischen
+[redacted-person] und Zündung der Adaptivität parametrisiert werden
+<em>[BAK-LAH-017]</em>. Falls möglich muss auch die Fläche der
+Adaptivität para- metrisiert werden <em>[BAK-LAH-018]</em>.</p>
+<p>[redacted-person] müssen durch einzelne PYVARs für die Nutzung in der
+Datenbank der [redacted]wie im Beispiel beschrieben werden
+<em>[BAK-LAH-019]</em>. [redacted-person] bestehen aus 6 Buchstaben
+<em>[BAK-LAH-020]</em>:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>1</p>
+</blockquote></th>
+<th><blockquote>
+<p>2</p>
+</blockquote></th>
+<th><blockquote>
+<p>3-6</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Fahrerairbag = D</p>
+</blockquote></td>
+<td><blockquote>
+<p>Position im Fahrzeug = 1-9</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] = _TTF</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Beifahrerairbag = P</p>
+</blockquote></td>
+<td><blockquote>
+<p>Gilt für alle Positionen = x</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ventdurchmesser = DPV1, DPV2, …</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knieairbag = K</p>
+</blockquote></td>
+<td><blockquote>
+<p>Gasgenerator = GG</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seitenairbag = S</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Adaptivität = _TAD</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kopfairbag = H</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] = _FAD</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Head-Thorax-Airbag = S oder H</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Beispiel PYVAR:</p>
+<p>$ ID</p>
+<p>PYVAR / 7000001</p>
+<p>NAME [redacted-person] Dx_TTF = 12.</p>
+<p>END_PYVAR</p>
+<p>$</p>
+<p>$ ID</p>
+<p>PYVAR / 7000002</p>
+<p>NAME [redacted-person] DxDPV1 = 30</p>
+<p>END_PYVAR</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Parameter</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>PC-Variable</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>Dx_TTF</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Durchmesser permanentes Vent</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>DxDPV1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Gasgeneratorfunktion</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Dx GG</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person] Adaptivität</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Dx_TAD</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Fläche adaptives Vent</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Dx_FAD</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Für unterschiedliche Durchmesser des permanenten Vents sind diese
+durchzunummerieren (z.[redacted-person]1, DxDPV2, …) <em>[BAK-LAH-021]</em>.</p>
+</blockquote>
+<h2 id="namenskonvention-gruppen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] müssen im Airbagmodell für die Nutzung in der
+Datenbank der [redacted-co] definiert sein</p>
+<p><em>[BAK-LAH-022]</em>:</p>
+</blockquote>
+<h4 id="tslincludename.position">Tsl:Includename.Position</h4>
+<blockquote>
+<p>In dieser Gruppe müssen die Part-IDs stehen, über welche der Airbag
+an das Fahrzeug angebunden werden soll. Dies sollen Nullshell/bar
+Part-IDs sein, die nur die anzubindenden Knoten enthalten.</p>
+</blockquote>
+<h4 id="c34includename.position">C34:Includename.Position</h4>
+<blockquote>
+<p>In dieser Gruppe müssen die Part-ID des Airbags stehen, mit denen er
+mit der Fahrzeugumgebung in Kontakt (PamCrash Kontakt 34) kommen
+kann.</p>
+</blockquote>
+<h4 id="cxxincludename.position">Cxx:Includename.Position</h4>
+<blockquote>
+<p>[redacted-person] kann optional definiert werden, falls es notwendig ist
+für eine bessere Entfaltung einen PamCrash Kontakt 43 zwischen Airbag
+und Fahrzeugumgebung zu definieren.</p>
+<p>Der <strong>Includename.Position</strong> besteht aus den ersten 15
+Buchstaben des Includenamens und der Position im Fahrzeug (1-9,
+Sitzposition im Fahrzeug nummeriert von vorne rechts nach hinten
+links).</p>
+<p>[redacted-person]</p>
+<p>$</p>
+<p>GROUP / 'Tsl:airbag_dab .1' PART [redacted-phone] END</p>
+</blockquote>
+<h2 id="positionierung-mit-transformkarte">Positionierung mit
+Transformkarte</h2>
+<blockquote>
+<p>Airbagsimulationsmodelle werden mittels affiner Abbildung in den
+jeweiligen Fahrzeugbauraum transformiert. Dadurch wird eine einfache
+Positionierung der Airbagmodule in verschiedenen Fahrzeugen ermöglicht
+<em>[BAK- LAH-023]</em>.</p>
+<p>Die affine Abbildung muss über eine Transformkarte (TRSFM-Karte)
+definiert werden, indem 3 Ursprungs- knoten des Airbagmoduls und 3
+parametrisierte Zielknoten (z.[redacted-person] Cockpit) angegeben werden. Die
+detail- lierte Definition der Ursprungs- und Zielknoten für alle
+Airbagmodule ist im Anhang 2 beschrieben <em>[BAK-LAH- 024]</em>.</p>
+</blockquote>
+<h2 id="gasgeneratoren">Gasgeneratoren</h2>
+<blockquote>
+<p>[redacted-person] muss nach Absprache mit der
+Fachabteilung mit der FPM Option 11 rechenfähig sein. Hierzu sind
+folgende Angaben qualifiziert zu hinterlegen <em>[BAK-LAH-025]:</em></p>
+</blockquote>
+<ul>
+<li><p>Ausströmfläche am Gasgenerator-Umfang, die mit Überschall
+durchströmt wird</p></li>
+<li><p>Ausströmfläche am Gasgenerator-Umfang, die mit Unterschall
+durchströmt wird</p></li>
+<li><p>Massenstrom über der Ausströmfläche, die mit Überschall
+durchströmt wird</p></li>
+<li><p>Massenstrom über der Ausströmfläche, die mit Unterschall
+durchströmt wird</p></li>
+<li><p>Totaltemperatur des Gases, getrennt für die beiden
+Ausströmgebiete</p></li>
+<li><p>Zusammensetzung des Gases, getrennt für die beiden
+Ausströmgebiete</p></li>
+<li><p>Machzahl des Gases, getrennt für die beiden
+Ausströmgebiete</p></li>
+<li><p>Quergeschwindigkeitskomponenten des Gases in den
+Ausströmelementen, definiert in einem Ele-
+mentkoordinatensystem</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] der Input-Daten sind vorgeschaltete, entkoppelte
+Strömungssimulation durchzuführen. [redacted-person] des Rechenmodells sowie
+die gesetzten Randbedingungen sind im Vorfeld der Simulation mit der
+Fachabteilung abzustimmen <em>[BAK-LAH-026].</em></p>
+</blockquote>
+<h2 id="kunststoffmaterial">Kunststoffmaterial</h2>
+<blockquote>
+<p>[redacted-person], welche für die OoP- und Integritätssimulation
+in der Front verwendet werden, sind in Vorversuchen bei -35 Grad,
+Raumtemperatur und +85 [redacted-person] zu ermitteln und zu validieren
+Dynami- sche Zugversuche bei unterschiedlichen Dehnraten bilden hierbei
+die Basis <em>[BAK-LAH-027].</em></p>
+<p>[redacted-person] muss für die Integritätsberechnungen das
+Materialversagen mit abbilden, dabei muss der Einfluss der Lackschicht
+ebenfalls berücksichtigt werden <em>[BAK-LAH-028].</em></p>
+</blockquote>
+<h2 id="lenkrad">Lenkrad</h2>
+<blockquote>
+<p>Für die Insassenschutz und OoP Simulation muss ein verformbares
+Lenkradmodell geliefert werden <em>[BAK- LAH-029].</em> Hierbei muss das
+Skelett und die Blende durch Shell-Elemente und der Schaum durch Solid-
+Elemente abgebildet werden <em>[BAK-LAH-030].</em> [redacted-person] muss die
+Zeitschrittvorgaben der Insassenschutz und der OoP Simulation erfüllen
+<em>[BAK-LAH-031].</em></p>
+<p>[redacted-person] muss anhand von Impaktorversuchen im Bereich 6 Uhr, 9 Uhr
+und 12 Uhr validiert sein <em>[BAK- LAH-032]</em>. Dabei ist für den
+Bereich 6 Uhr die in Abschnitt „<a href="#validierung-im-6-uhr-bereich"><u>Validierung im 6 [redacted-person]</u></a>“ definierte Konfigu- ration zu verwenden und für 9 Uhr
+und 12 Uhr die in Abschnitt „<a href="#validierung-9-uhr-und-12-uhr"><u>Validierung 9 Uhr und 12
+Uhr</u></a>“ definierte Kon- figuration. [redacted-person] der
+Impaktorversuche müssen dem Belastungsspektrum der Insassenschutz und
+den Out of [redacted-person] entsprechen <em>[BAK-LAH-033].</em></p>
+</blockquote>
+<h2 id="kopfairbag-halter">Kopfairbag-Halter</h2>
+<blockquote>
+<p>Bei den Kopfairbag-Haltern handelt es sich um ein funktionelles
+Bauelement. Diese müssen im Modell grundsätzlich mit enthalten sein. [redacted-person] des Versagens der Halter während des Entfaltungsvorgan- ges
+erfolgt durch eine Validation auf ein Kraftniveau
+<em>[BAK-LAH-034].</em></p>
+</blockquote>
+<h2 id="sleeve">Sleeve</h2>
+<blockquote>
+<p>[redacted-person] (die den Airbag umgebende Gewebehülle) handelt es sich um
+ein funktionelles Bauelement. Dieses muss, insofern in Hardware
+vorhanden, auch im Modell existent sein. [redacted-person] des Versagens der
+Sleeve-Reissnaht während des Entfaltungsvorganges erfolgt durch eine
+Validation auf ein Kraftniveau. [redacted-person] des funktionellen
+Verhaltens unter Zuhilfenahme eines zeitgesteuerten Kontaktes ist nicht
+zulässig <em>[BAK-LAH-035].</em></p>
+</blockquote>
+<h2 id="validation">Validation</h2>
+<blockquote>
+<p>Wird die Entfaltungskinematik unzureichend wiedergegeben, sind
+tiefergreifende Verfahren anzuwenden, wie z.[redacted-person] Hilfe eines
+Entfaltungsversuchs des Airbags, wobei der Luftsack durch einen
+vorgeschalteten Printprozess ein definiertes, zufälliges Punktemuster
+aufgedruckt bekommt, sind die Luftsackausbreitungs- geschwindigkeiten
+räumlich und zeitlich aufgelöst zu messen (z.[redacted-person] dem IPCT-Verfahren
+des DLR Göt- tingen) und die Simulationsergebnisse zur Entfaltung des
+Luftsacks darauf abzugleichen. Für die Messung sind drei
+Hochgeschwindigkeitskameras mit 10.000 Bildern pro Sekunde und einer
+Belichtungszeit von klei- ner 10 µs auf den Luftsack auszurichten oder
+ein FMCW-Radarscan <em>[BAK-LAH-036].</em></p>
+<p>[redacted-person] muss vor und nach der Narbung in einer CT-Untersuchung
+vermessen und der Splitline- Dickenverlauf gegenüber den Daten des
+Simulationsmodells abgeglichen werden <em>[BAK-LAH-037].</em></p>
+</blockquote>
+<h2 id="lebenslauf-simulation">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] eines Simulationsmodells stellt eine Übersicht über
+die Modellhistorie dar. Zu Projektbeginn wird vom Auftraggeber der
+Lebenslauf im Excel-Format übergeben. Er ist vom Lieferanten bei jeder
+Modell- übergabe ausgefüllt in Excel-Format mitzuschicken
+<em>[BAK-LAH-038].</em></p>
+</blockquote>
+<h2 id="insassenschutzfähigkeit">Insassenschutzfähigkeit</h2>
+<blockquote>
+<p>[redacted-person] des Airbag-Simulationsmodells muss durch Einbau in
+ein Beispiel- oder Fahrzeugmodell nachgewiesen werden. [redacted-person]-
+oder Fahrzeugmodell wird von der Fachabteilung zu Beginn des Pro- jektes
+zur Verfügung gestellt <em>[BAK-LAH-039].</em></p>
+<p>[redacted-person] der Parametrisierung muss durch Simulationen bei
+Zündzeiten von 0 ms, 20 [redacted-person] 40 [redacted-person] <em>[BAK-LAH-040].</em></p>
+</blockquote>
+<h2 id="unterschiedliche-modelle-im-entwicklungsfortschritt-für-rhs-simulation-front">[redacted-person] im Entwicklungsfortschritt für RHS-[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] gilt für die Modelle von Fahrerairbag,
+Beifahrerairbag und Knieairbag.</p>
+<p>Am Anfang der RHS-Entwicklung ist die Änderungsrate im
+Simulationsmodell noch sehr groß. Bis das Shape gefunden ist und die
+Fangbänder und Vents an der richtigen Position sind, müssen meist einige
+Schleifen durchlaufen werden. In dieser Zeit ist es sinnvoll, ein
+schnell rechnendes und leicht modifizierbares Modell für die
+Insassensimulation zu verwenden. Ab einem im Projekt zu definierendem
+Zeitpunkt wird das „normale vollwertige“ Modell eingesetzt.</p>
+<p>Anforderungen an das schnell rechnende und leicht modifizierbare
+Modell:</p>
+<p>In diesem Modell soll auf FPM verzichtet werden. Es soll
+grundsätzlich ein vollwertiges Modell entsprechend [redacted-co]82036 und
+[redacted-prj] LAH.DUM.880.FB aufgebaut werden, jedoch soll in
+Absprache mit der Fachabteilung auf rechenzeitkritsche und sehr
+modellierungsaufwendige Optionen verzichtet werden. [redacted-person] für
+ein entsprechendes Modell ohne Umgebung darf 2 h nicht überschreiten
+(120ms auf 24 Pro- zessoren, sp). Ab einer im Projekt beschlossenen
+Änderung am Airbag, darf die Aktualisierungsschleife
+(Modellaktualisierung, Hardwareaufbau, Impaktorversuche, Validierung) 3
+Wochen benötigen. Versuch und Simulation beim Airbaglieferanten müssen
+sich abstimmen, um den Zeitplan einhalten zu können.</p>
+</blockquote>
+<h1 id="out-of-position">Out of Position</h1>
+<blockquote>
+<p>Die im Folgenden beschriebenen Umfänge sind nur für
+Front-Airbagkomponenten innerhalb von NAR- Projekten zu berücksichtigen
+<em>[BAK-LAH-041].</em></p>
+<p>[redacted-person] sind Prognose-Simulationen durchzuführen, anhand
+derer geprüft wird, ob die angege- benen Grenzwerte erfüllt werden
+<em>[BAK-LAH-042].</em> Ggf. sind in Absprache mit der [redacted-person]- rungsmaßnahmen an Airbag und Umgebung vorzuschlagen und anhand
+weiterer Simulationen zu untersuchen <em>[BAK-LAH-043].</em> [redacted-person] sind zur B-Freigabe, zur Baumusterfreigabe und bei späte-
+ren Änderungen zu erbringen <em>[BAK-LAH-044].</em></p>
+<p>[redacted-person] der Hardwareversuche sind für jeden Lastfall die
+Worst-[redacted-person] durch Variati- on von Dummy- und Sitzpositionen
+zu identifizieren und dem Auftraggeber zu melden <em>[BAK-LAH-045].</em>
+[redacted-person] der Parametervariation sind zu dokumentieren und die
+Identifikation der Worst-[redacted-person]- on grafisch zu belegen
+<em>[BAK-LAH-046].</em></p>
+<p>Sollten keine Versuche vorliegen, muss der Dummy nach der Einsitz-
+und Positionierungsrichtlinie der FMVSS 208 positioniert werden
+<em>[BAK-LAH-047].</em></p>
+</blockquote>
+<h2 id="beifahrerairbag">Beifahrerairbag</h2>
+<blockquote>
+<p>Die OoP-Simulationen beinhalten ein vollständiges [redacted-person] mit
+Aufreißfunktion, das vom Cockpitliefe- ranten bzw. der [redacted-co] zur
+Verfügung gestellt wird <em>[BAK-LAH-048].</em></p>
+<p>In der folgenden Tabelle werden die Verantwortlichkeiten
+zusammengefasst <em>[BAK-LAH-049]:</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Airbaglieferant</p>
+</blockquote></th>
+<th><blockquote>
+<p>Schalttafellieferant</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Gefaltete, FPM-taugliche, validierte Airbagmodelle</p>
+</blockquote></td>
+<td><blockquote>
+<p>Verantwortlich</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Mitarbeit (Versuche zur Defini- tion der Aufreißkräfte, Rück-
+stosskräfte …)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Verantwortlich</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>OoP-Simulationen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Verantwortlich</p>
+</blockquote></td>
+<td><blockquote>
+<p>Mitarbeit (durch validiertes Schaltafelmodell)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="validation-1">Validation</h2>
+<blockquote>
+<p>Das genaue Vorgehen der Validation des Airbagmodells für OoP wird in
+Absprache mit der Fachabteilung definiert. [redacted-person] müssen an die
+Fachabteilung übergeben werden <em>[BAK-LAH-050].</em></p>
+<p>Das OoP-Gesamtmodell gilt als validiert, wenn die zeitliche
+Entfaltung des Airbags, das Öffnungsverhalten der Lenkradkappe bzw. der
+Instrumententafel, die Kinematik des Dummys und der relevanten
+Umgebungs- bauteile, sowie der zeitliche Verlauf der maßgeblichen
+Dummywerte übereinstimmen <em>[BAK-LAH-051].</em></p>
+<p>[redacted-person] der Positionierung der Dummys in den OoP-Lastfällen
+ist mit Hilfe von Abtastdaten zu über- prüfen. [redacted-person] sind dem
+Auftraggeber in digitaler Form im Fahrzeugkoordinatensystem zur Verfü-
+gung zu stellen. [redacted-person] ist mit dem Auftraggeber abzustimmen
+<em>[BAK-LAH-052].</em></p>
+<p>Hierbei müssen mindestens folgende Positionen auf der Beifahrerseite
+aufgenommen werden <em>[BAK-LAH- 053]:</em></p>
+</blockquote>
+<ul>
+<li><p>COG des Dummmy-Kopfes</p></li>
+<li><p>Kopfwinkel</p></li>
+<li><p>H-Punkt (6yr Dummy) bzw. Hüftdrehgelenk (3yr Dummy)</p></li>
+<li><p>Kniegelenk</p></li>
+<li><p>Rückenwinkel</p></li>
+<li><p>Sitzanschraubpunkte</p></li>
+<li><p>Sitzflächenneigung</p></li>
+<li><p>I-[redacted-person]</p></li>
+<li><p>Dummy-Steh-Stütze</p></li>
+</ul>
+<blockquote>
+<p>Auf der Fahrerseite sind folgende Positionen abzuprüfen:</p>
+</blockquote>
+<ul>
+<li><p>COG des Dummy-Kopfes</p></li>
+<li><p>H-[redacted-person]</p></li>
+<li><p>Kopfwinkel</p></li>
+<li><p>Rückenwinkel</p></li>
+<li><p>Lenksäulenwinkel</p></li>
+<li><p>Lenkradwinkel</p></li>
+<li><p>Lenkradposition</p></li>
+<li><p>[redacted-person] Lenkradkranz unten (waagrecht)</p></li>
+<li><p>[redacted-person] Durchtrittspunkt (waagrecht)</p></li>
+</ul>
+<h1 id="integrität">Integrität</h1>
+<blockquote>
+<p>[redacted-person] betrifft die Airbagkomponenten der Front
+<em>[BAK-LAH-054].</em></p>
+<p>[redacted-person] muss während der Entwicklung des [redacted-person] im Temperaturbereich - 35 Grad, Raumtemperatur und +85 [redacted-person] treffen und damit die Entwicklung aktiv unterstützen <em>[BAK-
+LAH-055].</em></p>
+<p>[redacted-person] sind den Komponentenentwicklern des Konzerns
+projektbegleitend vorzustellen. Zur B- Freigabe muss eine vollständige
+Dokumentation der durchgeführten Simulationen an die [redacted-person]-
+lung übergeben werden <em>[BAK-LAH-056].</em></p>
+<p>Änderungen in der Hardware, welche nach der B-Freigabe eingebracht
+werden, müssen im Simulationsmo- dell aktualisiert werden
+<em>[BAK-LAH-057].</em></p>
+<p>Die für diese Prognosen verwendete Methodik ist zu Beginn des
+Projekts der Fachabteilung vorzustellen und abzustimmen. [redacted-person]
+müssen alle Komponentenmodelle an die Fachabteilung übergeben werden
+<em>[BAK-LAH-058].</em></p>
+<p>In den folgenden Unterkapiteln dieses Abschnitts werden
+Komponentensimulationen zu unterschiedlichen Bauteilen gefordert. Diese
+sind gültig, wenn die Bauteile im Airbag-Modul vorhanden sind
+<em>[BAK-LAH-059].</em></p>
+</blockquote>
+<h2 id="spritzguss-simulationsmodell">Spritzguss-Simulationsmodell</h2>
+<blockquote>
+<p>[redacted-person] der Modulintegrität muss den Fertigungseinfluss über
+eine Simulation des Spritzgusspro- zesses berücksichtigen. Hierzu ist
+der Herstellprozesses mit allen notwendigen Randbedingungen abzubil-
+den. [redacted-person] des Rechenmodells sowie die eingesetzte Methodik ist zu
+Projektbeginn mit der Fachabteilung abzustimmen
+<em>[BAK-LAH-060].</em></p>
+<p>[redacted-person] einer Spritzguss-Simulation an Modulgehäusen bzw.
+Kappen aus Kunststoff ist durch Ab- gleich der Position von Bindenähten,
+Zusammenflussstellen sowie sonstigen, fertigungstechnisch bedingten
+Schwachstellen durch Aussetzen des Bauteils in einem Glykolbad zu
+erbringen <em>[BAK-LAH-061].</em></p>
+<p>Bei glasfaserverstärkten Materialien ist zusätzlich die
+Faserausrichtung zu berechnen und darzustellen</p>
+<p><em>[BAK-LAH-062].</em></p>
+</blockquote>
+<h2 id="auslegung-gehäuse">[redacted-person]</h2>
+<blockquote>
+<p>Für das Gehäuse muss mittels geeigneter Simulation eine Bewertung der
+Festigkeit und der Materialeignung getroffen werden
+<em>[BAK-LAH-063].</em> Desweiteren muss das Gehäuse bezüglich der
+Aufweitung bei Airbagaus- lösung, wie im Bauteillastenheft beschrieben,
+optimiert werden <em>[BAK-LAH-064].</em></p>
+</blockquote>
+<h2 id="auslegung-klipse-und-halter">[redacted-person] und Halter</h2>
+<blockquote>
+<p>[redacted-person] und Halter, welche zum Airbagmodul gehören, müssen
+mittels geeigneter Simulation vorausge- legt werden. Hierbei muss eine
+Aussage über die Materialeignung und die Festigkeit getroffen werden
+<em>[BAK- LAH-065].</em> Dies beinhaltet auch das Versagen der Klipse
+und Halter <em>[BAK-LAH-066].</em></p>
+</blockquote>
+<h2 id="auslegung-kappe">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] der Öffnungsfunktion der Airbagkappe bei
+Airbagauslösung ist eine Simulation der Öff- nungsfunktion über dem
+geforderten Temperaturbereich erforderlich <em>[BAK-LAH-067].</em> [redacted-person]</p>
+<p>erfordern dehnratenabhängige Materialdaten mit Versagen, wie in
+Kapitel <a href="#kunststoffmaterial">1.7</a> beschrieben, um eine
+Aussage über die Materialeignung und Design zu treffen
+<em>[BAK-LAH-068].</em></p>
+<p>Mit diesem Modell muss die Aufreißlinie ausgelegt und die optimale
+Kappen-Teilung ermittelt werden <em>[BAK- LAH-069].</em> Weiterhin
+sollen eine Aussage zur Festigkeit und Steifigkeit der Airbagkappe
+(Fingerpoke) getrof- fen werden <em>[BAK-LAH-070].</em></p>
+</blockquote>
+<h2 id="auslegung-luftsack">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] der Entfaltung des Luftsack muss eine Aussage über
+die Festigkeit getroffen und Span- nungs- bzw. Dehnungsspitzen im
+Luftsack vermieden werden <em>[BAK-LAH-071].</em></p>
+</blockquote>
+<h2 id="auslegung-modul">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] des Moduls muss dazu genutzt werden, um Aussagen zu
+den folgenden Punkten zu erzeugen <em>[BAK-LAH-072]</em>:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] bei -35 Grad, womit die Anforderungen
+an Aufblaszeiten noch erfüllt werden</p></li>
+<li><p>[redacted-person] bei +85 Grad, womit das System nicht
+versagt</p></li>
+<li><p>[redacted-person], Airbaggehäuse,
+Airbagkappe und Faltung</p></li>
+<li><p>[redacted-person] ([redacted-person], Vent,
+Luftsackshape)</p></li>
+</ul>
+<h2 id="anbindungen">Anbindungen</h2>
+<blockquote>
+<p>[redacted-person] zwischen Kappe und Gehäuse sowie anderer Anbauteile
+ist mittels geeigneter Simulationen,</p>
+<p>z. [redacted-person], zu optimieren <em>[BAK-LAH-073].</em></p>
+<p>[redacted-person] des Fahrer-Airbagmoduls zum Lenkrad muss bezüglich
+Montage, Schock und Vibration optimiert werden
+<em>[BAK-LAH-074].</em></p>
+</blockquote>
+<h1 id="unterstützung-integration-modul-in-fahrzeugumgebung">[redacted-person] Modul in Fahrzeugumgebung</h1>
+<blockquote>
+<p>[redacted-person] des Moduls muss die Integration seiner Komponente in
+die Fahrzeugumgebung aktiv unter- stützen und hierfür geeignete Modelle
+zur Verfügung stellen. [redacted-person] an diese Modelle sind in den
+folgenden Abschnitten beschrieben <em>[BAK-LAH-075]</em>.</p>
+</blockquote>
+<h2 id="lenkrad-1">Lenkrad</h2>
+<blockquote>
+<p>[redacted-person] des Lenkrads ist so auszulegen, dass alle
+gesetzlichen und Verbraucherschutz- Anforderungen erfüllt werden
+<em>[BAK-LAH-076].</em></p>
+<p>Für die Simulation ist ein detailliertes Modell des Skeletts zu
+erstellen. [redacted-person] des Modells richtet sich nach der Dicke der
+Speichen. Die minimale Elementgröße ist so zu wählen, dass über die
+Speichendicke mindestens 3 Hexa-Elemente angeordnet sind. Die restlichen
+Bereiche sind entsprechend dieser kleinsten charakteristischen
+Kantenlänge zu diskretisieren <em>[BAK-LAH-077].</em></p>
+<p>[redacted-person] bis zum Erreichen eines i.[redacted-person] sind vorzuse- hen. Zeitgleich sind für den
+gefundenen Designstand die Festigkeits-, Steifigkeits- und
+Schwingungskomfort- anforderungen einzuhalten
+<em>[BAK-LAH-078].</em></p>
+<p>Zusätzlich zu den Festigkeits- / Steifigkeitsanforderungen und den
+Anforderungen der Insassenschutz- systementwicklung sind bei o.[redacted-person] folgende Punkte zu beachten:</p>
+<p>[redacted-person] anderer Abteilungen bzgl. Bodyblock,
+Kopfaufschlag etc. ([redacted-person]</p>
+<p>LAH.DUM.419.A) sind zu prüfen <em>[BAK-LAH-079].</em></p>
+<p>Über eine geeignete Prüfung (Druckversuch quasistatisch bzw.
+dynamisch, etc.) und Simulation ist der Nachweis zu führen, dass das
+Deformationsverhalten der Lenkradvarianten dem des Standardlenkrads ent-
+spricht bzw. die Rückhaltewirkung nicht negativ beeinflusst wird
+<em>[BAK-LAH-080].</em></p>
+</blockquote>
+<h3 id="validierung-im-6-uhr-bereich">Validierung im 6 [redacted-person]</h3>
+<blockquote>
+<p>[redacted-person] in dem Bereich 6 Uhr ist über Simulation und
+entsprechende Impaktorversuche zu führen <em>[BAK-LAH-081].</em> [redacted-person] vom Versuchsaufbau wird dabei von [redacted-co] zur Verfügung
+gestellt.</p>
+<p>[redacted-person]-Simulationsmodell muss anhand des unten beschriebenen
+Impaktor-Versuchs validiert werden</p>
+<p><em>[BAK-LAH-082].</em> Für die Validierung gilt dabei:</p>
+</blockquote>
+<ul>
+<li><p>Beschleunigung-Zeit vom Impaktor (gemessen mit
+Beschleunigungsaufnehmer und gefiltert mit CFC60) muss nach der CORA361
+Standard-Methode mindestens mit 0,9 bewertet werden</p></li>
+<li><p>[redacted-person]-File für die Cora-Bewertung wird von der [redacted-co]
+Fachabteilung zur Verfügung gestellt [redacted-person] für den
+Impaktor-Versuch werden nachfolgend beschrieben.</p></li>
+</ul>
+<blockquote>
+<p><img src="./07_Components-lah-dum-880-fb-berechnung-airbag-kompone-media/media/image4.jpeg"/></p>
+</blockquote>
+<h3 id="validierung-9-uhr-und-12-uhr">Validierung 9 Uhr und 12 Uhr</h3>
+<blockquote>
+<p><img src="./07_Components-lah-dum-880-fb-berechnung-airbag-kompone-media/media/image5.jpeg" style="width:5.9814in;height:4.465in"/>[redacted-person] in dem
+Bereich 9 Uhr und 12 Uhr ist über Simulation und entsprechende Kopfpen-
+delversuche zu führen. [redacted-person] werden nachfolgend
+beschrieben <em>[BAK-LAH-083]:</em></p>
+</blockquote>
+<h2 id="cockpitauslegung-beifahrerairbag">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] des Aufreißverhaltens des Beifahrerairbags ist der
+Airbag in ein [redacted-person] einzubauen. [redacted-person] Modell wird von der
+Fachabteilung zur Verfügung gestellt <em>[BAK-LAH-084].</em></p>
+<p>[redacted-person] des Airbagschusses wird mit FPM durchgeführt. [redacted-person] kann identisch zum OoP Mo- dell sein. [redacted-person] ist jedoch
+durch ein Mittelflächenmodell darzustellen, welches die Aufweitung wäh-
+rend des Öffnungsverhaltens abbildet. [redacted-person] ist anhand von
+detaillierten Simulationen (Komponentensimulation) oder Versuchen zu
+validieren. [redacted-person] und die Validation sind zu dokumentie- ren und
+der Fachabteilung zu übergeben <em>[BAK-LAH-085].</em></p>
+<p>[redacted-person] von Standversuchen müssen die zeitliche Entfaltung des
+Airbags, die Coveröffnung, der Druckver- lauf und die Rückstosskräfte an
+den Aufnahmen des Airbags bestimmt werden. [redacted-person] dieser Ergebnisse
+muss das Simulationsmodell validiert werden <em>[BAK-LAH-086].</em></p>
+<p>[redacted-person] muss Gasgeneratordaten UGL, nominal und OGL, sowie für
+[redacted-person] bei -35 Grad, Raumtemperatur und +85 [redacted-person] beinhalten <em>[BAK-LAH-087].</em></p>
+<p>Mit diesem validierten Modell sind Gasgeneratorcharakteristik,
+Airbaggehäuse und Faltung im Temperatur- band -35 Grad, Raumtemperatur
+und +85 [redacted-person] zu optimieren <em>[BAK-LAH-088].</em></p>
+</blockquote>
+<h2 id="cockpitauslegung-knieairbag">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] der Halterung des Knieairbags muss ein Modell vom
+Komponentenlieferant bereitgestellt werden <em>[BAK-LAH-089].</em></p>
+<p>[redacted-person] des Airbagschusses wird mit FPM durchgeführt. [redacted-person] kann identisch zum Insassen- schutz Modell sein. [redacted-person] ist
+jedoch durch ein [redacted-person] darzustellen, welches die Aufwei-
+tung während des Öffnungsverhaltens abbildet. [redacted-person] ist anhand
+von detaillierten Simulationen (Komponentensimulation) oder Versuchen zu
+validieren. [redacted-person] und die Validation sind zu dokumentie- ren und
+der Fachabteilung zu übergeben <em>[BAK-LAH-090]</em>.</p>
+<p>[redacted-person] von Standversuchen müssen die zeitliche Entfaltung des
+Airbags, die Coveröffnung, der Druckver- lauf und die Rückstosskräfte an
+den Aufnahmen des Airbags bestimmt werden. [redacted-person] dieser Ergebnisse
+müssen die Simulationsmodelle validiert werden
+<em>[BAK-LAH-091]</em>.</p>
+<p>[redacted-person] muss OGL Gasgeneratordaten beinhalten
+<em>[BAK-LAH-092]</em>.</p>
+</blockquote>
+<h2 id="dachhimmel-und-säulen">Dachhimmel und Säulen</h2>
+<blockquote>
+<p>Säulenverkleidungen, Dachrahmenverkleidungen, Himmel und Haltegriffe
+beeinflussen die Entfaltung des Kopfairbags. Dies schließt auch
+Kabelkanäle und Türkeder ein. [redacted-person] dieser Bauteile, im folgenden
+Greenhouse genannt, werden von der Fachabteilung zur Verfügung gestellt
+<em>[BAK-LAH-093]</em>.</p>
+<p>Sobald ein entsprechendes Greenhousemodell zur Verfügung steht, ist
+vom Auftragnehmer der Entfaltungs- prozess in der Simulation
+darzustellen und auf Standversuche zu validieren
+<em>[BAK-LAH-094]</em>.</p>
+<p>Dabei ist unter anderem das Öffnen des Greenhouses in Zusammenarbeit
+mit dem Auftraggeber und dem Systementwicklungspartner darzustellen
+<em>[BAK-LAH-095]</em>. Dies hat vorzugsweise mit FPM-Modellen zu ge-
+schehen, in Ausnahmefällen sind in Absprache mit der Fachabteilung auch
+UP-Modelle möglich <em>[BAK-LAH- 096]</em>. Sollte die
+Entfaltungskinematik in der Simulation den Stand der Hardware-Versuche
+unzureichend widerspiegeln, sind entsprechende Maßnahme vorzunehmen
+<em>[BAK-LAH-097]</em>.</p>
+<p>[redacted-person] trägt die Gesamtverantwortung für die
+Positionierung des Airbags in der Simulation <em>[BAK-
+LAH-098]</em>.</p>
+</blockquote>
+<h2 id="sitz">Sitz</h2>
+<blockquote>
+<p>[redacted-person] und alle dazu gehörenden Teile wie Innensack, Bezug,
+Polsterung usw. beeinflussen die Entfaltung des Seitenairbags. [redacted-person] dieser Bauteile, im folgenden Sitz genannt, werden von der
+Fachabteilung zur Verfügung gestellt <em>[BAK-LAH-099]</em>.</p>
+<p>Sobald ein entsprechendes Sitzmodell zur Verfügung steht (dies wird
+vom Auftraggeber bzw. dem Kompo- nentenlieferant Sitz zur Verfügung
+gestellt), ist vom Auftragsnehmer der Entfaltungsprozess in der
+Simulati- on darzustellen und auf vom [redacted-person]
+durchgeführte Standversuche zu validieren <em>[BAK- LAH-100]</em>.</p>
+<p>Dabei ist unter anderem das Aufreißen des Sitzes ([redacted-person]-Airbag, Reißnaht, einreißen der Schäume usw.) in Zusammenarbeit
+mit dem Auftraggeber und dem Systementwicklungspartner darzustellen
+<em>[BAK-LAH-101]</em>. Dies hat vorzugsweise mit FPM-Modellen zu
+geschehen, in Ausnahmefällen sind in Ab- sprache mit der Fachabteilung
+auch UP-Modelle möglich <em>[BAK-LAH-102]</em>. Sollte die
+Entfaltungskinematik in der Simulation den Stand der Hardware-Versuche
+unzureichend widerspiegeln, sind entsprechende Maß- nahme vorzunehmen
+<em>[BAK-LAH-103]</em>.</p>
+<p>[redacted-person] trägt die Gesamtverantwortung für die
+Positionierung in der Simulation <em>[BR-LAH-055].</em> Sobald
+aktualisierte Sitzmodelle bzw. grundlegende Änderung in der Hardware
+vorliegen, sind die Validie- rungen mit dem entsprechenden Stand zu
+wiederholen <em>[BAK-LAH-104]</em>.</p>
+</blockquote>
+<h2 id="sonstige-fahrzeugbauteile">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] muss ein geeignetes Modell zur Auslegung
+sonstiger Fahrzeugbauteile zur Ver- fügung gestellt werden, wenn das
+Modul dieses Fahrzeugbauteil während seiner Entfaltung beeinflusst
+<em>[BAK-LAH-105]</em>. Hierbei ist sicherzustellen, dass alle
+relevanten Fahrzeugbauteile, wie z.[redacted-person], Kabel- kanäle, im Modell
+enthalten sind <em>[BAK-LAH-106]</em>.</p>
+<p>[redacted-person] des zu liefernden Modells, sowie der Liefertermin, ist mit
+der Konzernfachabteilung zu Beginn des Projekts abzustimmen
+<em>[BAK-LAH-107]</em>.</p>
+</blockquote>
+<h1 id="lastenhefte">Lastenhefte</h1>
+<blockquote>
+<p>Bei den im Folgenden aufgeführten Lastenheften gilt als aktueller
+Stand derjenige Änderungsstand, mit dem die Lastenhefte zum Zeitpunkt
+der Angebotsabgabe in KVS archiviert sind. Sofern ein Angebot
+überarbeitet und nachgereicht wird, sind wiederum die dann archivierten
+Lastenheftstände zu berücksichtigen.</p>
+</blockquote>
+<h4 id="mitgeltende-lastenhefte">[redacted-person]</h4>
+<blockquote>
+<p>Die folgenden Lastenhefte sind zusätzlich zu berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>[redacted]Insassenschutz
+LAH.DUM.880.EM</p></li>
+<li><p>[redacted-prj] Nummerierungskonvention LAH.DUM.880.DL</p></li>
+<li><p>Modellierungsrichtlinien für Airbagmodelle, [redacted]82036</p></li>
+</ul>
+<blockquote>
+<p><strong>Abkürzungsverzeichnis</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>FMVSS</strong></p>
+<p><strong>KVS</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted]Standards</p>
+<p>Konstruktionsdaten-Verwaltungs-System im [redacted-co]Konzern</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>OGL</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] bei Gasgeneratoren</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>OOP</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Out of Position</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>UGL</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] bei Gasgeneratoren</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anhang 1 – [redacted-person]</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="5" style="text-align: center;"><blockquote>
+<p><strong>Nummerierungskonvention</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Disziplinen:</strong></p>
+</blockquote></td>
+<td colspan="3"><blockquote>
+<p><strong>Komponentensimulation</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><strong>Stand:</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: center;"><blockquote>
+<p><strong>Part-ID</strong></p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p><strong>Node-ID und Element-ID</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>von</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>bis</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>von</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>bis</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Schutzsysteme</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Fahrerairbag</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Luftsack</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Kappe/Cover</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Container</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Gasgenerator/Sonstige</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Lenkrad</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Beifahrerairbag</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Luftsack</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Kappe/Cover</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Container</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Gasgenerator/Sonstige</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knieairbag vorne links</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Luftsack</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Kappe/Cover</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Container</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Gasgenerator/Sonstige</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knieairbag vorne rechts</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Luftsack</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Kappe/Cover</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Container</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Gasgenerator/Sonstige</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anhang 2 – [redacted-person]</strong></p>
+<p>[redacted-person] werden über eine affine Abbildung im Bauraum
+positioniert, um die Positionierungspro- zess zu automatisieren und
+somit eine einfache Verwendung in verschiedenen Projekten zu
+gewährleisten. [redacted-person] des Airbagmodells wird im
+Airbaginclude eine Transformationskarte definiert.</p>
+<p>Innerhalb der Transformationskarte werden drei Ursprungsknoten
+innerhalb der zu positionierenden Gruppe (=ges. Airbag) und drei
+Zielknoten (z.[redacted-person]) definiert. Die zu positionierende Gruppe
+wird so ver- schoben, dass der erste Ursprungsknoten genau auf den
+ersten Zielknoten zu liegen kommt. Die zu positio- nierende Gruppe wird
+um den ersten Zielknoten so gedreht, dass der zweite Ursprungsknoten auf
+der Verbindungsgeraden zwischen erstem und zweitem Zielknoten zu liegen
+kommt. Danach wird die zu positio- nierende Gruppe um die Verbindung
+zwischen erstem und zweitem Zielknoten so gedreht, dass der dritte
+Ursprungsknoten in der Ebene der 3 Zielknoten zu liegen kommt. [redacted-person] der drei Ursprungs- und Zielknoten ist entscheidend und wird
+im Folgenden für Front- und Seitenairbags festgelegt.</p>
+<p><strong>[redacted-person]</strong></p>
+<p>[redacted-person] (DAB) wird über den D-Punkt als eindeutige Referenz
+positioniert. In der Lenksäule müs- sen folgende drei Punkte als PYVARs
+definiert sein, mit denen der DAB in Position gebracht wird:
+<strong>Knoten 1</strong>, <strong>Knoten 2</strong> und <strong>Knoten
+3</strong>. LSD_K1 steht für: LenkSäule Driverairbag Knoten1.</p>
+</blockquote>
+<ul>
+<li><p><strong>Knoten 1</strong>: D-Punkt</p></li>
+<li><p><strong>Knoten 2</strong>: Koordinaten von D-Punkt nur in
+positiver Y-Richtung verschoben</p></li>
+<li><p><strong>Knoten 3</strong>: Vom D-Punkt senkrecht zur LS-Achse
+nach oben</p></li>
+</ul>
+<blockquote>
+<p><strong>PYVAR /</strong> 3601001</p>
+<p>NAME erster Knoten zur Positionierung des DAB (D-Punkt) LSD_K1 =
+Knoten1_Lenksaeule</p>
+<p><strong>PYVAR /</strong> 3601002</p>
+<p>NAME zweiter Knoten zur Positionierung des DAB (D-Punkt + Y) LSD_K2 =
+Knoten2_Lenksaeule</p>
+<p><strong>PYVAR /</strong> 3601003</p>
+<p>NAME dritter Knoten zur Positionierung des DAB (D-Punkt + Z) LSD_K3 =
+Knoten3_Lenksaeule</p>
+</blockquote>
+<h4 id="end_pyvar">END_PYVAR</h4>
+<blockquote>
+<p>Im DAB-Include steht die TRSFM-Karte, die den DAB entsprechend der
+Knoten <strong>Knoten 1</strong>, <strong>Knoten 2</strong> und</p>
+<p><strong>Knoten 3</strong> positioniert<strong>.</strong></p>
+</blockquote>
+<h4 id="trsfm">TRSFM /</h4>
+<blockquote>
+<p>NAME Positionierung gesamter DAB ueber 3 Knoten</p>
+<p><strong>GRP</strong> ‘gesamter_DAB.1'</p>
+</blockquote>
+<h4 id="end">END</h4>
+<blockquote>
+<p><strong>NPOS Knoten1 Knoten2 Knoten3</strong> &lt;LSD_K1&gt;
+&lt;LSD_K2&gt; &lt;LSD_K3&gt; 1.0</p>
+</blockquote>
+<h4 id="end-1">END</h4>
+<blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p>[redacted-person] (PAB) wird über drei Schraubpunkte
+positioniert: <strong>Knoten 1</strong>, <strong>Knoten 2</strong> und
+<strong>Kno- ten 3.</strong> Diese müssen als PYVARs im Cockpitinclude
+definiert sein. CPA_K1 steht für: <u>C</u>ockpit
+<u>P</u>assenger<u>A</u>ir- bag <u>K</u>noten<u>1</u>.</p>
+</blockquote>
+<ul>
+<li><p><strong>Knoten 1</strong>: Schraubpunkt links Insasse</p></li>
+<li><p><strong>Knoten 2</strong>: Schraubpunkt links Stirnwand</p></li>
+<li><p><strong>Knoten 3</strong>: Schraubpunkt rechts Insasse</p></li>
+</ul>
+<blockquote>
+<p><strong>PYVAR /</strong> 4001001</p>
+<p>NAME erster Knoten zur Positionierung des PAB CPA_K1 =
+Knoten1_Cockpit</p>
+<p><strong>PYVAR /</strong> 4001002</p>
+<p>NAME zweiter Knoten zur Positionierung des PAB CPA_K2 =
+Knoten2_Cockpit</p>
+<p><strong>PYVAR /</strong> 4001003</p>
+<p>NAME dritter Knoten zur Positionierung des PAB CPA_K3 =
+Knoten3_Cockpit</p>
+</blockquote>
+<h4 id="end_pyvar-1">END_PYVAR</h4>
+<blockquote>
+<p>Im PAB-Include steht die TRSFM-Karte, die den PAB entsprechend den
+Anschraubpunkten <strong>Knoten 1</strong>, <strong>Kno- ten 2</strong>
+und <strong>Knoten 3</strong> positioniert. [redacted-person] müssen in der
+Berührebene zwischen Cockpit und PAB definiert sein.</p>
+</blockquote>
+<h4 id="trsfm-1">TRSFM /</h4>
+<blockquote>
+<p>NAME Positionierung gesamter PAB ueber 3 Knoten</p>
+<p><strong>GRP</strong> ‘gesamter_PAB.3'</p>
+</blockquote>
+<h4 id="end-2">END</h4>
+<blockquote>
+<p><strong>NPOS Knoten1 Knoten2 Knoten3</strong> &lt;CPA_K1&gt;
+&lt;CPA_K2&gt; &lt;CPA_K3&gt; 1.0</p>
+</blockquote>
+<h4 id="end-3">END</h4>
+<blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p>[redacted-person] (KNAB) wird über seine Hauptanbindungspunkte (2
+[redacted-person] Stirnwand) positio- niert.</p>
+<p>Im Cockpit sind drei Punkte definiert, mit Hilfe deren der Knieairbag
+in Position gebracht wird: <strong>Knoten 1</strong>, <strong>Knoten
+2</strong>, <strong>Knoten 3</strong>. Die drei Knoten bilden die
+Anbindungsebene und werden als PYVARs im Cockpitin- clude definiert.
+CK1_K1 steht für: <u>C</u>ockpit <u>K</u>nieairbag Position<u>1</u>
+<u>K</u>noten<u>1</u>. CK3_K1 steht für: <u>C</u>ockpit <u>K</u>nieair-
+bag Position<u>3 K</u>noten<u>1</u>.</p>
+<p><strong>PYVAR /</strong> 4001001</p>
+<p>NAME erster Knoten zur Positionierung des KAB Pos1 CK1_K1 =
+Knoten1_Cockpit</p>
+<p><strong>PYVAR /</strong> 4001002</p>
+<p>NAME zweiter Knoten zur Positionierung des KAB Pos1 CK1_K2 =
+Knoten2_Cockpit</p>
+<p><strong>PYVAR /</strong> 4001003</p>
+<p>NAME dritter Knoten zur Positionierung des KAB Pos1 CK1_K3 =
+Knoten3_Cockpit</p>
+</blockquote>
+<h4 id="end_pyvar-2">END_PYVAR</h4>
+<blockquote>
+<p>Im KNAB-Include steht die TRSFM-Karte, die den KNAB entsprechend der
+Anschraubpunkte <strong>Knoten 1</strong>, <strong>Knoten 2</strong> und
+<strong>Knoten 3</strong> positioniert.</p>
+</blockquote>
+<h4 id="trsfm-2">TRSFM /</h4>
+<blockquote>
+<p>NAME Positionierung gesamter KNAB Pos1 ueber 3 Knoten</p>
+<p><strong>GRP</strong> ‘gesamter_KNAB.1'</p>
+</blockquote>
+<h4 id="end-4">END</h4>
+<blockquote>
+<p><strong>NPOS</strong> Knoten1 Knoten2 Knoten3 &lt;CK1_K1&gt;
+&lt;CK1_K2&gt; &lt;CK1_K3&gt; 1.0</p>
+</blockquote>
+<h4 id="end-5">END</h4>
+<blockquote>
+<p><img src="./07_Components-lah-dum-880-fb-berechnung-airbag-kompone-media/media/image10.jpeg"/></p>
+<p><strong>[redacted-person]</strong></p>
+<p>[redacted-person] (SAB) wird über eine Einstecklasche und einen
+Schraubpunkt am Sitz positioniert.</p>
+<p>Im Sitz sind 3 Punkte definiert, mit Hilfe derer der Seitenairbag in
+Position gebracht wird: <strong>Knoten 1, Knoten 2, Knoten 3</strong>
+müssen im Sitzinclude als PYVARs definiert sein. Die drei Knoten bilden
+die Anbindungsebene. SS1_K1 steht für: <u>S</u>itz <u>S</u>eitenairbag
+Position<u>1 K</u>noten<u>1</u>.</p>
+<p><strong>PYVAR /</strong> 5701001</p>
+<p>NAME erster Knoten zur Positionierung des Seitenairbag Pos1 SS1_K1 =
+Knoten1_Sitz</p>
+<p><strong>PYVAR /</strong> 5701002</p>
+<p>NAME zweiter Knoten zur Positionierung des Seitenairbag Pos1 SS1_K2 =
+Knoten2_Sitz</p>
+<p><strong>PYVAR /</strong> 5701003</p>
+<p>NAME dritter Knoten zur Positionierung des Seitenairbag Pos1 SS1_K3 =
+Knoten3_Sitz</p>
+</blockquote>
+<h4 id="end_pyvar-3">END_PYVAR</h4>
+<blockquote>
+<p>Im SAB-Include steht die TRSFM-Karte, die den SAB entsprechend der
+Anschraubpunkte <strong>Knoten 1</strong>, <strong>Kno- ten 2</strong>
+und <strong>Knoten 3</strong> positioniert.</p>
+</blockquote>
+<h4 id="trsfm-3">TRSFM /</h4>
+<blockquote>
+<p>NAME Positionierung gesamter SAB ueber 3 Knoten</p>
+<p><strong>GRP</strong> ‘gesamter_SAB.1'</p>
+</blockquote>
+<h4 id="end-6">END</h4>
+<blockquote>
+<p><strong>NPOS</strong> Knoten1 Knoten2 Knoten3 &lt;SS1_K1&gt;
+&lt;SS1_K2&gt; &lt;SS1_K3&gt; 1.0</p>
+</blockquote>
+<h4 id="end-7">END</h4>
+<p><img src="./07_Components-lah-dum-880-fb-berechnung-airbag-kompone-media/media/image12.jpeg" style="width:3.97126in;height:1.80833in"/><img src="./07_Components-lah-dum-880-fb-berechnung-airbag-kompone-media/media/image13.jpeg" style="width:2.54291in;height:2.04in"/></p>
+</body>
+</html>

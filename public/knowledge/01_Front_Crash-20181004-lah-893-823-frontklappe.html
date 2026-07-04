@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>20181004_LAH [redacted-phone]Frontklappe</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><img alt="Audi-Bild" src="./01_Front_Crash-20181004-lah-893-823-frontklappe-media/media/image2.png" style="width:3.17221in;height:2.70917in"/>[redacted-co]</p>
+<p>D[redacted]</p>
+</blockquote>
+<p>Funktionsabsicherung der Frontklappe im Frontcrash LAH [redacted-phone]</p>
+<blockquote>
+<p>KSU 5.2</p>
+<p>Verteiler:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Abt./OE</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Name</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#zielsetzung">Zielsetzung 5</a><a href="#technische-anforderungen-fahrzeugsicherheit">[redacted-person] Fahrzeugsicherheit 5</a><a href="#allgemeines">Allgemeines
+5</a><a href="#funktionsanforderungen">Funktionsanforderungen 5</a><a href="#erprobung">Erprobung 6</a><a href="#komponentenerprobung">Komponentenerprobung 6</a><a href="#fahrzeugerprobung">Fahrzeugerprobung 6</a><a href="#absicherung-aktives-scharnier-im-gesamtfahrzeugversuch">Absicherung
+aktives Scharnier im Gesamtfahrzeugversuch 6</a><a href="#mitgeltende-unterlagen">[redacted-person] 6</a></p>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Vorwort</strong></p>
+<p>Das vorliegende LAH dient zur Ergänzung des Bauteil-Lastenheftes der
+Konstruktion und legt die technischen Daten und Randbedingungen für das
+Frontklappensystem bezüglich den Anforderungen der Fahrzeugsicherheit
+(Crashverhalten) fest.</p>
+</blockquote>
+<h1 id="zielsetzung"><u>Zielsetzung</u></h1>
+<blockquote>
+<p>[redacted-person] der Entwicklung ist der Schutz der Insassen im Falle eines
+Frontalcrashs. [redacted-person]- wicklungsprodukt muss dazu beitragen, dass
+sämtliche internen Anforderungen und alle ge- setzlichen Vorschriften
+vom Gesamtfahrzeug erfüllt werden. [redacted-person] ist das Bestehen von
+Verbrauchertests entsprechend der Projektziele, sowie Vergleiche während
+des gesamten Herstellzeitraumes des Fahrzeuges mit dem Stand der
+Technik.</p>
+</blockquote>
+<h1 id="technische-anforderungen-fahrzeugsicherheit"><u>[redacted-person] Fahrzeugsicherheit</u></h1>
+<h2 id="allgemeines"><u>Allgemeines</u></h2>
+<blockquote>
+<p>[redacted-person] für dieses Lastenheft sind Frontklappe,
+deren Scharniere so- wie die Aktuatoren bei crashaktivem
+Frontklappensystemen.</p>
+<p>Sowohl im Sinne der Kompatibilität als auch des Fußgängerschutzes
+übernimmt das Front- klappensystem eine wesentliche Funktion. Dabei
+sollen Funktionen für den Selbst- und Partnerschutz übernommen
+werden.</p>
+</blockquote>
+<h2 id="funktionsanforderungen"><u>Funktionsanforderungen</u></h2>
+<blockquote>
+<p>[redacted-person] sind hinsichtlich der Crashfunktionen (Deformation,
+Freigang, Blockbildung) im Gesamtfahrzeug zu entwickeln. Es gelten die
+Anforderungen gemäß [redacted-person] und TPB.</p>
+<p>Dabei müssen insbesondere nachfolgende Punkte im [redacted-person] (wie in Punkt 2.1 beschrieben) berücksichtigt
+werden:</p>
+</blockquote>
+<ul>
+<li><p>Auslegungsziel ist, dass die Frontklappe über beide Scharniere
+mit dem Fahrzeug verbunden bleibt. Falls das nicht eintritt, darf
+dadurch keine zusätzliche Gefahr für den Insassen ausge- hen und die
+Frontklappe muss am Verbauort (oberhalb des Vorderwagens) am Fahrzeug
+verbleiben.</p></li>
+<li><p>Auslegungsziel ist, dass die Frontklappe nicht in die
+Frontscheibe eindringt. Falls das doch eintritt, darf dadurch keine
+zusätzliche Gefahr für den Insassen ausgehen und es darf durch die
+Frontklappe zu keiner Beschädigung bzw. Gefahr einer Beschädigung der
+Airbags kommen. Unabhängig davon gelten die Anforderungen der
+FMVSS219.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] gelten auch für crashaktive Frontklappensysteme
+im ausgelösten und nichtausgelöstem Zustand.</p>
+</blockquote>
+<h1 id="erprobung"><u>Erprobung</u></h1>
+<h2 id="komponentenerprobung"><u>Komponentenerprobung</u></h2>
+<blockquote>
+<p>[redacted-person] aus Kapitel 2.2 für das [redacted-person] können durch Komponentenversuche vorausgelegt werden.
+Empfehlungen als Unterstützung für die Entwicklung sind in der
+beigefügten Auslegungshilfe zusammengestellt.</p>
+</blockquote>
+<h2 id="fahrzeugerprobung"><u>Fahrzeugerprobung</u></h2>
+<blockquote>
+<p>[redacted-person] des Frontklappensystems im Gesamtfahrzeug wird bei
+[redacted-co] anhand durch Gesamtfahrzeug-Crashversuche beurteilt. Zeigt sich,
+dass die Ziele nicht erreicht werden, sind Optimierungen am
+Frontklappensys- tem in Zusammenarbeit mit den Fachabteilungen
+durchzuführen.</p>
+</blockquote>
+<h1 id="absicherung-aktives-scharnier-im-gesamtfahrzeugversuch"><u>Absicherung
+aktives Scharnier im Gesamtfahrzeugversuch</u></h1>
+<blockquote>
+<p>[redacted-person] durch den Versuch erfolgt durch folgende
+Konfigurationen:</p>
+<p><strong>[redacted-person]:</strong></p>
+</blockquote>
+<ul>
+<li><p>marktspezifische Lastfälle analog passivem Scharnier</p></li>
+<li><p>[redacted-person] bis inklusive Datenaufnahme gilt:
+Aktiviert oder deaktiviert nach worst case bezüglich der Anforderungen
+(s.o). [redacted-person] sollten beide Hau- benstellungen auch im Crash
+erprobt werden.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] erfolgt mit den Versuchen ab Datenbestätigung (in der
+Regel 0-Serie), bei denen das aktive Scharnier über die Sensorik
+angesteuert werden sollte, sofern der Fuß- gängerschutz- Parametersatz
+vorliegt.</p>
+</blockquote>
+<h1 id="mitgeltende-unterlagen"><u>[redacted-person]</u></h1>
+<ul>
+<li><p>[redacted-person] für das jeweilige
+Fahrzeugprojekt</p></li>
+<li><p>LAH XXX 880 [redacted-person]
+Fahrzeugsicherheit, projektspe- zifisches Lastenheft</p></li>
+<li><p>LAH XXX 880 Fußgängerschutz für das jeweilige
+Fahrzeugprojekt</p></li>
+<li><p>Auslegungshilfe</p></li>
+</ul>
+</body>
+</html>

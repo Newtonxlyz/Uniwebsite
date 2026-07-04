@@ -1,0 +1,1333 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_85D_863_F_KST_HECKABSCHLUSS_11052021</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><strong>[redacted-person] Bauteil-Lastenheft</strong></p>
+</blockquote>
+<blockquote>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+<p><strong>[redacted-prj]/2CX_BL/ [redacted-prj]/3CX_BL [redacted-prj]/4CN_BL</strong></p>
+<p><strong>Bauteil-Lastenheft</strong></p>
+<p><strong>[redacted-person]</strong></p>
+<p><strong>Teile-Nr.</strong></p>
+<p><strong>85D.[redacted-phone]</strong></p>
+<p><strong>85K.[redacted-phone]</strong></p>
+</blockquote>
+<p>LAH.85D.863.F</p>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches [redacted-co] verboten. Vertragspartner erhalten dieses
+Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> [redacted-co]</p>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#vorwort">Vorwort 4</a></p></li>
+<li><p><a href="#allgemeine-projektvorgaben">[redacted-person]
+5</a></p>
+<ol type="1">
+<li><p><a href="#entwicklungsstandort">Entwicklungsstandort
+5</a></p></li>
+<li><p><a href="#absicherung-konzept-serienwerkzeug">[redacted-person]
+Serienwerkzeug 5</a></p></li>
+<li><p><a href="#zusammenbau-des-lieferumfanges">Zusammenbau des
+Lieferumfanges 5</a></p></li>
+<li><p><a href="#musterstände-und-musterstückzahlen">Musterstände und
+Musterstückzahlen 5</a></p></li>
+<li><p><a href="#typprüfung-und-zertifizierung">Typprüfung und
+Zertifizierung 5</a></p></li>
+</ol></li>
+<li><p><a href="#systemumgebung">Systemumgebung 6</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark8">[redacted-person] 6</a></p></li>
+</ol></li>
+<li><p><a href="#technische-anforderungen">[redacted-person]
+7</a></p>
+<ol type="1">
+<li><p><a href="#funktionsbeschreibung">Funktionsbeschreibung
+7</a></p></li>
+<li><p><a href="#funktionsanforderungen">Funktionsanforderungen
+7</a></p></li>
+<li><p><a href="#fahrzeugsicherheit">Fahrzeugsicherheit 8</a></p></li>
+<li><p><a href="#montagekonzept-und-anforderungen-aus-der-produktion">Montagekonzept
+und Anforderungen aus der Produktion 8</a></p></li>
+<li><p><a href="#ergonomie">Ergonomie 8</a></p></li>
+<li><p><a href="#optik-haptik-und-design">Optik, Haptik und Design
+8</a></p></li>
+<li><p><a href="#werkstoffe-oberflächen-verschmutzung-und-reinigung">Werkstoffe,
+Oberflächen, Verschmutzung und Reinigung 8</a></p></li>
+</ol></li>
+<li><p><a href="#anforderungen-an-erprobung">Anforderungen an Erprobung
+9</a></p>
+<ol type="1">
+<li><p><a href="#prüfmittelerprobungsträger">Prüfmittel/Erprobungsträger
+9</a></p></li>
+<li><p><a href="#erfüllungsnachweise">Erfüllungsnachweise 9</a></p></li>
+<li><p><a href="#erprobungsplan">Erprobungsplan 9</a></p></li>
+<li><p><a href="#prüfungen">Prüfungen 9</a></p>
+<ol type="1">
+<li><p><a href="#dauerversuch">Dauerversuch 11</a></p></li>
+</ol></li>
+<li><p><a href="#testparameter-und-zyklen">Testparameter und Zyklen
+11</a></p></li>
+<li><p><a href="#beschaffenheit-des-zu-testenden-musterstandes">Beschaffenheit des
+zu testenden Musterstandes 12</a></p></li>
+<li><p><a href="#betriebszustände">Betriebszustände 12</a></p></li>
+<li><p><a href="#virtuelle-erprobung-simulation">[redacted-person] /
+Simulation 12</a></p></li>
+<li><p><a href="#gesamtfahrzeugerprobung">Gesamtfahrzeugerprobung
+12</a></p></li>
+</ol></li>
+<li><p><a href="#mitgeltende-unterlagen">[redacted-person]
+13</a></p>
+<ol type="1">
+<li><p><a href="#zeichnungen-pläne-skizzen-variantenbaum">Zeichnungen,
+Pläne, Skizzen, Variantenbaum 13</a></p></li>
+<li><p><a href="#technische-spezifikationen">[redacted-person]
+13</a></p></li>
+<li><p><a href="#typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen,
+Vorschriften, Gesetze 13</a></p></li>
+<li><p><a href="#lastenhefte">Lastenhefte 13</a></p></li>
+<li><p><a href="#zu-beachtende-schutzrechte-und-lizenzen">Zu beachtende
+Schutzrechte und Lizenzen 13</a></p></li>
+<li><p><a href="#sonstige-unterlagen">[redacted-person]
+13</a></p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>[redacted-person] beschreibt Anforderungen sowie Prüfungen und
+Erprobungen, die das Produkt bestehen muss.</p>
+<p>Für das Bauteil gilt außerdem das allgemeine Lastenheft von [redacted-person], LAH
+85D 800 [redacted-person] Prüfungen aus dem allgemeinen Lastenheft
+bauteilspezifisch abgeändert, so ist dies in diesem Lastenheft
+dokumentiert und diese, die für das Bauteil gültige Prüfung. Im Zweifel
+bezüglich der Gültigkeit (z. [redacted-person] Anforderungen) hat das
+hier vorliegende [redacted-person].</p>
+<p>Übergreifend zu diesem Lastenheft gelten die Anforderungen zur
+Leistungserbringung im Rahmen der Bauteilentwicklung nach [redacted-co]99000
+ff.</p>
+<p>Inhalte dieses Bauteilelastenheftes dürfen Dritten ohne ausdrückliche
+Genehmigung durch [redacted-co] nicht zugänglich gemacht werden.</p>
+</blockquote>
+<h1 id="allgemeine-projektvorgaben">[redacted-person]</h1>
+<h2 id="entwicklungsstandort">Entwicklungsstandort</h2>
+<blockquote>
+<p>[redacted-person] ist [redacted-addr].</p>
+</blockquote>
+<h2 id="absicherung-konzept-serienwerkzeug">[redacted-person]
+Serienwerkzeug</h2>
+<blockquote>
+<p>Vor der B-Freigabe und dem Fertigungsstart der Serienwerkzeuge ist
+eine Mold-Flow-Analyse durchzuführen, die im Vorfeld zur Freigabe der
+Fachabteilung vorzulegen ist.</p>
+</blockquote>
+<h2 id="zusammenbau-des-lieferumfanges">Zusammenbau des
+Lieferumfanges</h2>
+<blockquote>
+<p>[redacted-person] ist verantwortlich für den Zusammenbau. Und somit auch
+für die Abstimmung für den ZSB erforderlicher Bauteile von anderen
+Lieferanten. Dies gilt auch, wenn die für den Zusammenbau erforderliche
+reine Montagetätigkeit, durch einen Dritten ausgeführt wird.</p>
+</blockquote>
+<h2 id="musterstände-und-musterstückzahlen">Musterstände und
+Musterstückzahlen</h2>
+<blockquote>
+<p>Durch den Lieferanten sind vor der B-Freigabe funktionsfähige Muster
+vorzustellen, die mit den angrenzenden Bauteilen abgestimmt sind.</p>
+<p>[redacted-person] muss kostenlose Musterteile des jeweils aktuellen
+Werkzeugstandes für Sommerfahrten, Winterfahrten, Erprobungsfahrten,
+Vorstellungen im Design-Check, Versuche, und sonstige Präsentationen zur
+Verfügung stellen.</p>
+<p>[redacted-person] für die Prototypenaufbauten werden durch die Beschaffung
+der Prototypen separat bestellt.</p>
+<p>Bei erprobungs- und freigaberelevanten Änderungen müssen nochmals
+alle relevanten Freigabeversuche durchgeführt werden. Die dafür
+benötigten Teile sind vom Lieferanten kostenfrei bereitzustellen.</p>
+</blockquote>
+<h2 id="typprüfung-und-zertifizierung">Typprüfung und
+Zertifizierung</h2>
+<blockquote>
+<p>[redacted-person] ist typprüfpflichtig: <strong>Ja</strong></p>
+<p>[redacted-person] ist selbstzertifizierungsrelevant:
+<strong>Ja</strong></p>
+<p>Fahrzeugteile und [redacted-person] (z.[redacted-person], After-[redacted-person]), welche nach weltweiten Gesetzen, z.[redacted-person], EG, Inmetro
+(Brasilien) und freiwillige [redacted-person], eine Bauartgeneh-
+migung benötigen, sind unabhängig vom Einsatzort/Zielmarkt und
+Fahrzeugmodell zu zertifizieren und mit der entsprechenden
+Identifizierung nach Gesetzesvorgabe zu kennzeichnen.</p>
+<p>[redacted-person] muss die Zertifikate vor Ablauf ihrer jeweiligen
+Gültigkeit sowie bei Gesetzes- änderungen aktualisieren und rechtzeitig
+unaufgefordert an den Auftraggeber liefern. Dies gilt über den gesamten
+Produktlebenszyklus, der auch den Zeitraum der Versorgungsverpflichtung
+von [redacted-person] beinhaltet.</p>
+</blockquote>
+<h1 id="systemumgebung">Systemumgebung</h1>
+<ol type="1">
+<li><p><strong>[redacted-person] Umfeldbeschreibung/Systemaufbau</strong></p></li>
+</ol>
+<blockquote>
+<p>Die nachfolgend aufgeführten Teileumfänge und deren Lastenhefte
+müssen bei der Entwicklung beachtet werden:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>Karosserieseitenteil (links/rechts)</p></li>
+<li><p>Akustikbauteile</p></li>
+<li><p>[redacted-person] (Verkabelungen, Steuergeräte,
+...)</p></li>
+<li><p>Package-Umfang</p></li>
+<li><p>Kofferbodenmatte/Ladeboden</p></li>
+<li><p>Heckklappe und Verkleidung</p></li>
+<li><p>Kofferraumverkleidungen</p></li>
+</ul>
+<h1 id="technische-anforderungen">[redacted-person]</h1>
+<h2 id="funktionsbeschreibung">Funktionsbeschreibung</h2>
+<blockquote>
+<p>[redacted-person] Heckabschluss deckt das Heckabschlussblech und den
+[redacted-person]/Schliessbolzen ab. Sie dient als
+Abstellhilfe beim Beladen des Kofferraumes.</p>
+<p>Da bei geöffneter [redacted-person]- oder Spritzwasser eindringen
+kann, müssen verwendete Metallteile oberflächen- bzw.
+korrosionsgeschützt sein. [redacted-person] ist nicht zulässig. Die
+meisten Anforderungen ergeben sich aus den zu erfüllenden Prüfungen.
+[redacted-person] werden daher nicht erneut aufgeführt.</p>
+</blockquote>
+<h2 id="funktionsanforderungen">Funktionsanforderungen</h2>
+<ul>
+<li><p>[redacted-person] sollten möglichst nicht sichtbar,
+ansonsten farblich (Vorgaben von Design und GQ-Labor beachten!)
+angepasst sein.</p></li>
+<li><p>[redacted-person] wie z.[redacted-person], Klammern usw.
+gehören zum Lieferumfang. Es sind Normteile des Konzerns zu
+bevorzugen.</p></li>
+<li><p>[redacted-person] zu allen benachbarten Bauteilen ist durch
+konstruktive Maßnahmen sicherzustellen, auch nach Alterung in allen
+Temperatur-Bereichen.</p></li>
+<li><p>[redacted-person] ist so zu wählen, dass Geräusche wie Quietschen,
+Knistern oder Knarren usw. vermieden werden. Auch durch Schwingungen
+verursachte Geräuschentwicklung muss vermieden werden.</p></li>
+<li><p>Erfüllung der Vorschriften im Crashverhalten (Angaben von der
+[redacted-person]).</p></li>
+<li><p>Keine scharfen Kanten und Einhaltung der Mindestradien
+(Verletzungsgefahr bei der Montage und Beschädigung angrenzender
+Bauteile).</p></li>
+<li><p>[redacted-person] ist zu achten.</p></li>
+<li><p>Anlageflächen von Bauteilen sind mit Antiquietschsegmenten (z. [redacted-person]) zu versehen.</p></li>
+<li><p>Für den Zusammenbau erforderliche Stahlteile sind vor Korrosion,
+durch Oberflächenbehandlung oder den Einsatz rostfreier Stähle, zu
+schützen.</p></li>
+<li><p>Alle funktionsrelevanten Bereiche bzw. Teile des Bauteils müssen
+in der Zeichnung dargestellt und in ihrer Funktion ersichtlich
+sein.</p></li>
+<li><p>Bereich der Schlossklappe und an der Klappe <u>ohne</u> Grat
+(Verletzungsgefahr bei der Montage und Beschädigung angrenzender
+Bauteile). <u>Außenkante ohne Grat siehe VW</u> <u>01088 -
+4.7</u>.</p></li>
+<li><p>Es ist eine Abdeckfolie über das komplette Teil erforderlich.
+Diese muss rückstandsfrei und mit einer Abziehhilfe (im Fahrzeug
+verbaut) lösbar sein. [redacted-person] erfordert eine eigene
+Folie.</p></li>
+</ul>
+<h2 id="fahrzeugsicherheit">Fahrzeugsicherheit</h2>
+<blockquote>
+<p>Zu erfüllen sind die Anforderungen des [redacted-person]-Crash für die in der Fahrzeug-TPB aufgeführten
+Gesetzes- und Consumercrashs ( geltend für Frontalcrash, Heckcrash,
+Seitencrash, Rollover):</p>
+<p>„Einbauten, die vom Fahrzeughersteller vorgesehen sind (z.[redacted-person], Gepäck-, Laderaumabdeckung, u.s.w.) dürfen sich beim
+Aufprall weder lösen noch in den Fahrgastraum</p>
+<p>eindringen.“</p>
+</blockquote>
+<h2 id="montagekonzept-und-anforderungen-aus-der-produktion">Montagekonzept
+und Anforderungen aus der Produktion</h2>
+<blockquote>
+<p>Für die Montage der Teile sind Toleranzlagen und die Wärmeausdehnung
+zu berücksichtigen. Es muss eine automatische Positionierung der Teile
+zueinander ermöglicht werden. [redacted-person] am Band hat einfach ohne
+Zuhilfenahme besonderer Werkzeuge zu erfolgen. Eine einfache Demontage
+im Kundendienstfall ist vorzusehen. [redacted-person] darf das Teil
+nicht verspannen, muss es vorpositionieren und gegen verschieben oder
+Verlust sichern. [redacted-person] sind ohne Beschädigung oder
+Funktionsbeeinträchtigung aufzunehmen.</p>
+<p>Überprüfung der Montagevorgänge unter serientauglichen Bedingungen.
+[redacted-person] muss bei Raumtemperatur mindestens 5 mal montier- bzw.
+demontierbar sein. [redacted-person] 8L[redacted-phone]* sind nach
+jeder Demontage komplett auszutauschen. An den Anschraubpunkten muss ein
+Drehmoment von 5-Nm erreichbar sein.</p>
+</blockquote>
+<h2 id="ergonomie">Ergonomie</h2>
+<blockquote>
+<p>Es ist auf die Einhaltung der seitens der [redacted-person]
+definierten Ergonomievorgaben zu achten. Abweichungen werden nur in
+Absprache mit der FA Ergonomie genehmigt.</p>
+</blockquote>
+<h2 id="optik-haptik-und-design">Optik, Haptik und Design</h2>
+<blockquote>
+<p>[redacted-person] (d.[redacted-person] dem Kunden zugänglichen Bereiche)
+müssen mit dem Design abgestimmt werden. Keine sichtbaren Einfallstellen
+und Welligkeit im Sichtbereich. [redacted]Grate sind nicht erlaubt! → „Weiche“ Abschlüsse.</p>
+<p>[redacted-person] erfordert das Aufbringen einer Narbung. [redacted-person] und die
+erforderlichen Stellen werden durch das Design vorgegeben bzw. sind mit
+dem Design abzustimmen. Hinweis: Für eine Narbung ist im Werkzeug eine
+Entformschräge von 7° vorzuhalten!</p>
+<p>Kratzfestigkeit wird von GQ freigegeben (nach PV [redacted-phone]KN, DE &lt;
+1,5).</p>
+</blockquote>
+<h2 id="werkstoffe-oberflächen-verschmutzung-und-reinigung">Werkstoffe,
+Oberflächen, Verschmutzung und Reinigung</h2>
+<blockquote>
+<p>Die eingesetzten Materialien müssen unempfindlich gegenüber
+handelsüblicher Reinigungsmittel (Spülmittel, Seife, Waschbenzin,
+Trockenschäume für Teppichböden, etc.) sein. Sie müssen mit harten
+Bürsten oder einem Staubsauger ohne Beschädigungen gereinigt werden
+können.</p>
+</blockquote>
+<h1 id="anforderungen-an-erprobung">Anforderungen an Erprobung</h1>
+<blockquote>
+<p>Erprobungsmanagement siehe VW99000, Kapitel 2.8.</p>
+<p>[redacted-co]Normen sind über die Lieferanten-Plattform des VW-Netzes mit dem
+System „NOLIS“ abrufbar.</p>
+</blockquote>
+<h2 id="prüfmittelerprobungsträger">Prüfmittel/Erprobungsträger</h2>
+<h2 id="erfüllungsnachweise">Erfüllungsnachweise</h2>
+<blockquote>
+<p>[redacted-person] zur Erfüllung aller Länder- bzw. Markt spezifischen
+Gesetzesanforderungen ist vom Lieferanten selbsttätig zu erbringen.</p>
+<p>[redacted-person] sind gemäß den Prüfvorschrift-Vorgaben
+zu dokumentieren. [redacted-person] ist in deutscher und oder englischer
+Sprache vorzulegen. Es gelten die zum Zeitpunkt der Vergabe aktuellen
+Prüfvorschrift-Stände.</p>
+</blockquote>
+<h2 id="erprobungsplan">Erprobungsplan</h2>
+<blockquote>
+<p>[redacted-person] ist bis zur Prototypfreigabe durch den
+Auftragnehmer zu erstellen und mit der Fachabteilung abzustimmen. [redacted-person] welche sich auf die Zeitschiene des Erprobungsplans
+auswirkt, ist dem Bauteilverantwortlichen unverzüglich mitzuteilen.</p>
+</blockquote>
+<h2 id="prüfungen">Prüfungen</h2>
+<blockquote>
+<p>Die zur Auftragsvergabe gültigen Prüfvorschrift-Versionen sind Inhalt
+der Anfrageunterlagen. [redacted-person] verantwortet die
+meilensteingerechte Erprobung und führt diese für die PWZ-und die
+SWZ-Phase gemäß nachfolgender Tabelle durch. Für die Erprobungsumfänge,
+die der Systemlieferant durchzuführen hat, trägt dieser die gesamten
+Prüfkosten.</p>
+<p>Der in der Tabelle genannte Teilebedarf dient als Kalkulationshilfe
+und kann von den tatsächlich benötigten Stückzahlen abweichen. Für die
+Versuchsdurchführung notwendige Karosserieteile aus der
+[redacted-co]-Hausfertigung werden seitens [redacted-co] kostenfrei gestellt. Für die
+Prüfung erforderliche Bauteile anderer Lieferanten beschafft sich der
+Systemlieferant selbsttätig.</p>
+<p>[redacted-person] und –koordination für den kompletten
+Erprobungsumfang (PWZ und SWZ) hat der Systemlieferant sicherzustellen.
+Ist er nicht Prototyplieferant, so hat er die Prüfteile über den
+Prototyplieferanten zu beschaffen. PWZ-Teilepreise sind ggf. über den
+zuständigen Einkäufer zu erfragen.</p>
+<p>[redacted-person] für die Teilebereitstellung sowie die Prüfkosten
+sind im Angebot des Auftragnehmers enthalten.</p>
+<p>Die hier aufgeführten Gesamtstückzahlen beziehen sich auf nur eine
+Fahrzeug- bzw. Ausstat- tungsvariante und sind kostenlos zur Verfügung
+zu stellen (inkl. Transport zum Versuchsort). [redacted-person] der
+durchzuführenden Varianten (je Teilenummer, Farbe und Baustand) werden
+in Abstim- mung mit und durch die Fachabteilung festgelegt.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="3" rowspan="3"><blockquote>
+<p>[redacted-person]</p>
+</blockquote></th>
+<th colspan="4" style="text-align: center;"><blockquote>
+<p><strong>Menge</strong></p>
+</blockquote></th>
+<th colspan="2"><blockquote>
+<p><strong>Menge</strong></p>
+</blockquote></th>
+</tr>
+<tr>
+<th colspan="2"><blockquote>
+<p><strong>[redacted-prj]/2CX</strong></p>
+</blockquote></th>
+<th colspan="2"><blockquote>
+<p><strong>[redacted-prj]/3CX (COP)</strong></p>
+</blockquote></th>
+<th colspan="2"><blockquote>
+<p><strong>[redacted-prj]/4CN</strong></p>
+</blockquote></th>
+</tr>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>PWZ</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>SWZ</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>PWZ</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>SWZ</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>PWZ</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>SZW</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Fahrzeugerprobung</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Prüfvorschrift</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Durchführung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Klimawechseltest</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.001</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Wärmelagerung</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.002</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kältelagerung</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.003</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sonnenlichtsimulation/ Bewitterung</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>DIN 75220</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Freibewitterung</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>VW50185</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Lichtechtheit</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>PV1303</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Akustik</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>LAH EG</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Dauerlauf</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-phone]km</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EWP-Dauerlauf</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>EP[redacted-phone]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EVP-Dauerlauf</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>EP[redacted-phone]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Südafrika-Dauerlauf</p>
+</blockquote></td>
+<td><blockquote>
+<p>5.000 km</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knister-Knaster</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>LAH …</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Bauteilerprobung</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Klima-Rüttel-Dauerlauf</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.005</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.101</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Retainerfestigkeit</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.102</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Steifigkeit</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.301</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.201</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitztest</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.304</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kugelfalltest</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.403</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person].04F.405</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Fahrzeugsicherheit</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Crashversuche</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>15</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>20</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>15</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Schlittenversuche</p>
+<p>Laderaumabdeckung [redacted-id]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sofa/Wifa/KAF/DCM</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>EKA</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>40</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Prüfumfangsliste</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Labor</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lieferant</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Gesamtstückzahl</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>36</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>86</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>122</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>36</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>86</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Die genannte Anzahl bezieht sich auf Bauteile, die den Anforderungen
+genügen. Bauteile, die den Anforderungen nicht genügen (z. [redacted-person],
+Funktion, usw.), sind unabhängig von der genannten Stückzahl umgehend
+kostenlos zu ersetzen.</p>
+<p>Es sind solange kostenneutrale Bauteile anzuliefern, bis die Versuche
+erfolgreich abgeschlossen sind und die Baumustergenehmigung erteilt
+wurde.</p>
+<p>[redacted-person] werden am Einzelteil in Einbaulage, in einer
+geeigneten Vorrichtung bzw. im Fahrzeug durchgeführt (Abstimmung mit der
+Fachabteilung).</p>
+<p>Neben der eigentlichen Versuchsdurchführung hat der Auftragnehmer die
+vom Auftraggeber durchgeführten Prüfungen (z. [redacted-person] oder
+KAB-Versuche) unterstützend zu begleiten.</p>
+<p>Die durch die Versuchsergebnisse erforderlichen Optimierungen zur
+Erreichung der BMG</p>
+<p>sind kostenneutral und umgehend vom Entwicklungslieferanten
+umzusetzen (z. [redacted-person] von zusätzlichen Versteifungsrippen,
+Beschnitt, Umbug, etc.).</p>
+<p>Bei erprobungs- und freigaberelevanten Bauteiländerungen (Änderung
+des Baustandes, z. [redacted-person] 03X auf 04X) sind grundsätzlich alle
+relevanten Prüfungen, die von der Änderung betroffen sind, zu
+wiederholen. Die dafür benötigten Teile sind vom Lieferanten
+<u>kostenfrei</u> bereitzustellen.</p>
+<p>Abweichungen hiervon sind mit der Fachabteilung abzustimmen.</p>
+<p>[redacted-person] sind erneute Serienfreigabeprüfungen bei folgenden
+Veränderungen notwendig:</p>
+</blockquote>
+<ul>
+<li><p>neuem Fertigungsstandort oder Werkzeugverlagerung</p></li>
+<li><p>Linienverlagerung</p></li>
+<li><p>Einsatz neuer Werkzeuge</p></li>
+<li><p>Bauteilmodifikationen</p></li>
+</ul>
+<blockquote>
+<p><strong>Laborprüfungen</strong></p>
+<p>[redacted-person] legt den Umfang der Prüfungen zur Erreichung der
+Freigabe (Note 1) in der</p>
+<p>„Prüfumfangsliste für die werkstoffliche Bemusterung“ und im LAH GQ
+fest. [redacted-person] ist Bestandteil der Anfrageunterlage und ist
+durch den Lieferanten nach der Beauftragung, spätestens vor der
+B-Freigabe mit der jeweils zuständigen Werkstofftechnik, TE und
+Produkttechnik erneut abzustimmen.</p>
+</blockquote>
+<h2 id="dauerversuch">Dauerversuch</h2>
+<h2 id="testparameter-und-zyklen">Testparameter und Zyklen</h2>
+<blockquote>
+<p>[redacted-person] und Zyklen, welche von der jeweiligen
+Vorschrift abweichen, sind der Tabelle unter Kap. 6.4. zu entnehmen.</p>
+</blockquote>
+<h2 id="beschaffenheit-des-zu-testenden-musterstandes">Beschaffenheit
+des zu testenden Musterstandes</h2>
+<blockquote>
+<p>[redacted-person] zu den Themen: Lieferschein, Prüfbericht,
+Teilekennzeichnung, ZSB, Einzelteilübersicht, Q-Status sowie weitere
+wichtige Informationen zu Prototypenteilen sind im Lieferantenhandbuch
+für Prototypenteile vermerkt und entsprechend den dort festgelegten
+Anweisungen anzuwenden. [redacted-person] und sämtliche o.[redacted-person] betreffende Formulare können unter <a href="http://www.vwgroupsupply.com/">http://www.vwgroupsupply.com</a>
+abgerufen werden.</p>
+</blockquote>
+<h2 id="betriebszustände">Betriebszustände</h2>
+<h2 id="virtuelle-erprobung-simulation">[redacted-person] /
+Simulation</h2>
+<h2 id="gesamtfahrzeugerprobung">Gesamtfahrzeugerprobung</h2>
+<blockquote>
+<p>Die folgend genannten Prüfungen werden von [redacted-co] durchgeführt und sind
+im LAH.85D.800.A beschrieben:</p>
+</blockquote>
+<ul>
+<li><p>Dauerlauf</p></li>
+<li><p>EWP-Dauerlauf</p></li>
+<li><p>EVP-Dauerlauf</p></li>
+<li><p>Konzernabnahmefahrten (KAF)</p></li>
+<li><p>Sommer- und Winterfahrten</p></li>
+<li><p>Südafrika-Dauerlauf</p></li>
+<li><p>Funktionsdauerlauf</p></li>
+<li><p>Dauerlaufprüfungen</p></li>
+<li><p>Knister-Knaster</p></li>
+<li><p>Funktionserprobungen</p></li>
+</ul>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>Es gelten die am Ausgabedatum des BT-LAH gültigen mitgeltenden
+Unterlagen, sowie die</p>
+<p>darin genannten Dokumente. [redacted-person] stellt sicher, jeweils
+mit den für dieses BT-LAH gültigen mitgeltenden Unterlagen zu
+arbeiten.</p>
+<p>Dokumente können über die B2B-Lieferantenplattform des [redacted-person] unter der Internetadresse: <a href="http://www.vwgroupsupply.com/">www.vwgroupsupply.com</a> mit einer
+Zugangsberechtigung abgerufen werden (Kontakt auch über [redacted]99 bzw. International: [redacted-phone] oder
+e-Mail: [redacted-email]).</p>
+</blockquote>
+<h2 id="zeichnungen-pläne-skizzen-variantenbaum">Zeichnungen, Pläne,
+Skizzen, Variantenbaum</h2>
+<h2 id="technische-spezifikationen">[redacted-person]</h2>
+<h2 id="typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen,
+Vorschriften, Gesetze</h2>
+<blockquote>
+<p>Es sind alle relevanten Gesetzesauflagen zu erfüllen, wie zum
+Beispiel.:</p>
+</blockquote>
+<ul>
+<li><p>TL1010 <strong>Schwerentflammbarkeit</strong></p></li>
+<li><p>VW50180 <strong>Emission</strong></p></li>
+<li><p>FMVSS 201</p></li>
+</ul>
+<h2 id="lastenhefte">Lastenhefte</h2>
+<ul>
+<li><p>Lastenhefte nach Kap. 4.2</p></li>
+<li><p>[redacted-person] Aufbau</p></li>
+<li><p>Anfrageunterlagen</p></li>
+<li><p>Referenzdatenblätter</p></li>
+<li><p>Prüfumfangsliste GQ-Labor</p></li>
+</ul>
+<h2 id="zu-beachtende-schutzrechte-und-lizenzen">Zu beachtende
+Schutzrechte und Lizenzen</h2>
+<h2 id="sonstige-unterlagen">[redacted-person]</h2>
+</body>
+</html>

@@ -136,7 +136,17 @@ export default function CardsPage() {
   useEffect(() => {
     const loadData = async () => {
       const res = await fetch("/api/crashai/cards");
-      const allCards = res.ok ? await res.json() : [];
+      let allCards: any[] = res.ok ? await res.json() : [];
+
+      // 支持 ?topic=xxx 过滤（safety-training 路径跳转）
+      if (typeof window !== "undefined") {
+        const params = new URLSearchParams(window.location.search);
+        const topic = params.get("topic");
+        if (topic) {
+          allCards = allCards.filter((c) => c.lessonSlug === topic || c.lessonId === topic);
+        }
+      }
+
       setCards(allCards);
 
       const savedReviews = JSON.parse(localStorage.getItem("crashai_card_reviews") || "{}");

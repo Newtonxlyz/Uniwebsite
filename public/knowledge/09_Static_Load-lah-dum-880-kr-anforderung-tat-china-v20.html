@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_DUM_880_KR_Anforderung_TAT_China_v20210108</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><img alt="Audi-Bild" src="./09_Static_Load-lah-dum-880-kr-anforderung-tat-china-v20-media/media/image2.jpeg" style="width:2.91667in;height:2.4375in"/>[redacted-co]</p>
+<p>D[redacted]</p>
+</blockquote>
+<p>Anforderung der Fahrzeugsicherheit an den Türaufprallträger</p>
+<blockquote>
+<p>LAH.DUM.880.KR</p>
+<p>Version 20210108</p>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<h1 id="inhaltsverzeichnis">Inhaltsverzeichnis</h1>
+<p><a href="#inhaltsverzeichnis">Inhaltsverzeichnis 3</a></p>
+<p><a href="#änderungsdokumentation">Änderungsdokumentation 4</a></p>
+<p><a href="#vorwort">Vorwort 5</a><a href="#gesetzliche-grundlagen-und-verbraucherschutzanforderungen">[redacted-person] und Verbraucherschutzanforderungen 6</a><a href="#versuche">Versuche 6</a><a href="#türeindrückung">Türeindrückung
+6</a><a href="#türeindrückung-nach-gb-15743-1995">Türeindrückung nach GB
+[redacted-phone]</a><a href="#einzelteilbiegeversuche-drei-punkt-biegeversuch">Einzelteilbiegeversuche
+/ Drei-Punkt-Biegeversuch 8</a><a href="#gesamtfahrzeugversuche">Gesamtfahrzeugversuche 10</a><a href="#anhang">Anhang 11</a><a href="#übersicht-gesetzliche-anforderungen-weltweit">Übersicht
+gesetzliche Anforderungen weltweit 11</a><a href="#übersicht-berechnung-eindrückwiderstände">[redacted-person]
+Eindrückwiderstände 12</a><a href="#übersicht-testaufbau-türeindrückung">[redacted-person]
+Türeindrückung 13</a></p>
+<h1 id="änderungsdokumentation">Änderungsdokumentation</h1>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>[redacted-person] beschreibt Leistungen, Anforderungen sowie Prüf-
+und Erprobungsbedin- gungen an den Türaufprallträger und an das
+Gesamtfahrzeug, die das Produkt bei Abschluss der Entwicklung erfüllen
+muss und ist eine Ergänzung der bestehenden Lastenhefte (s.[redacted-person]
+samtlastenheft Fahrzeugsicherheit).</p>
+<p>Inhalte der Lastenhefte dürfen Dritten ohne ausdrückliche Genehmigung
+durch die [redacted-co] nicht zugänglich gemacht werden.</p>
+<p><strong>Grundsätzlich sind als Entwicklungsziel alle gesetzlichen
+Grenzwerte sowie alle Anfor- derungen bzgl. Selbstverpflichtung mit
+einer 20%-igen Sicherheit zu erfüllen.</strong></p>
+<p>Dies dient der Absicherung von Produktionsschwankungen (bzgl.
+Verbindungstechnik, Materi- algüte, Materialstärke) sowie
+Versuchsstreuungen und gewährleistet eine sichere Erfüllung aller
+Anforderungen (Gesetz, Selbstverpflichtung, Verbraucherschutz) in der
+Serienfertigung über die gesamte Laufzeit.</p>
+<p><strong>Abweichungen vom Entwicklungsziel sind im Einzelfall bei
+Nachweis einer entsprechend notwendigen Prozessgüte und
+serienbegleitender Qualitätsprüfungen im Herstellungs- prozess möglich,
+erfordern jedoch zwingend die Genehmigung durch die Fahrzeugsi- cherheit
+unter Einbeziehung der zuständigen
+Qualitätssicherungsabteilungen.</strong></p>
+<p>[redacted-person] gilt sowohl für den vorderen als auch den hinteren
+Türaufprallträger.</p>
+</blockquote>
+<h1 id="gesetzliche-grundlagen-und-verbraucherschutzanforderungen">[redacted-person] und Verbraucherschutzanforderungen</h1>
+<blockquote>
+<p>Die gesetzlichen Grundlagen bzw. die Verbraucherschutzanforderungen
+können aus dem Ge- samtfahrzeuglastenheft entnommen werden.</p>
+</blockquote>
+<h1 id="versuche">Versuche</h1>
+<blockquote>
+<p><strong>Der TAT muss alle unter Kapitel 3 genannten Anforderungen in
+den Versuchen (Türein- drückung, 3-Punkt-Biegeversuch und
+Gesamtfahrzeug-Crash) erfüllen.</strong></p>
+<p><strong>Entwicklungsziel: Ein komplettes Versagen des Türlastpfades
+soll vermieden werden. Freigabe des Bauteils erfolgt nur bei Erfüllung
+aller Anforderungen.</strong></p>
+</blockquote>
+<h2 id="türeindrückung">Türeindrückung</h2>
+<blockquote>
+<p>Basis für erforderliche Mindestanforderungen des TAT ist das Erfüllen
+der gesetzlichen Anfor- derungen W1, W2 und W3 (anfänglicher-,
+mittlerer- und Spitzen-Eindrückwiderstand, vgl. auch <a href="#übersicht-berechnung-eindrückwiderstände">4.2</a>) für die
+schwerste Variante dieses Fahrzeugtyps.</p>
+<p>[redacted-person] der Eindrückwiderstände müssen länderspezifisch sicher
+erreicht werden.</p>
+<p>Türeindrückversuche sind grundsätzlich ohne Sitze durchzuführen.
+Abweichungen benötigen der Bestätigung der bearbeitenden Fachabteilung
+[redacted-co].</p>
+<p>[redacted-person] müssen simulativ mit einer
+Stempelverschiebung um +2 mm in z-Rich- tung bestätigt werden.</p>
+<p>Eindrückgeschwindigkeit – soweit nicht anders vereinbart – beträgt v
+= 5 mm/s.</p>
+<p>[redacted-person]- und Vorversuche ist das Türschloss im
+unverriegelten Zustand, für Freigabe- versuche sind die Seitentüren zu
+verriegeln.</p>
+</blockquote>
+<h2 id="türeindrückung-nach-gb-15743-1995">Türeindrückung nach GB
+[redacted-phone]</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p><strong>W1</strong></p>
+<p>(6 ’’ bzw. 152 mm)</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p><strong>W2</strong></p>
+<p>(12 ’’ bzw. 305 mm)</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p><strong>Spitzeneindrückwiderstand</strong></p>
+<p><strong>W3</strong></p>
+<p>(≤ 13 ’’ bzw. 330 mm oder* x-fa- ches Fahrzeuggewicht mFZG)</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>≥ 12,00 kN</strong></p>
+<p>(10,00 kN + 20% Sicherheit)</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>≥ 18,72 kN</strong></p>
+<p>(15,60 kN + 20% Sicherheit)</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>≥ 37,37 kN</strong></p>
+<p>(31,14 kN + 20% Sicherheit) oder*</p>
+<p><strong>≥</strong> Faktor <strong>2,40</strong> x mFZG x g</p>
+<p>(Faktor 2,00 + 20% Sicherheit)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>* jeweils der geringere Wert ist für die Erfüllung relevant.</p>
+</blockquote>
+<p><strong>Prinzipskizze, 3-Punkt-Biegeversuch</strong></p>
+<blockquote>
+<p>l/4</p>
+</blockquote>
+<h2 id="einzelteilbiegeversuche-drei-punkt-biegeversuch">Einzelteilbiegeversuche
+/ Drei-Punkt-Biegeversuch</h2>
+<blockquote>
+<p><u>Durchzuführen beim Lieferanten/Entwickler</u></p>
+<p>Abgeleitet aus dem Türeindrückversuch nach GB 15743 werden Grenzwerte
+des Kraft- Weg-Verlaufs für den TAT von [redacted-co] vorgegeben, und deren
+Einhaltung ist in nachfolgend aufgezeigtem Biegeversuch einzuhalten.</p>
+<p><u>Randbedingungen:</u></p>
+</blockquote>
+<ul>
+<li><p>Prüfkörper: Stempel oder Halbzylinder mit Durchmesser D = 305
+mm.</p></li>
+<li><p>Stempelgeschwindigkeit: 4 mm/s &lt; v &lt; 12 mm/s.</p></li>
+<li><p>die Stützweite wird anhand der Türeinbausituation
+festgelegt.</p></li>
+</ul>
+<p><strong>schematische Darstellung TAT</strong></p>
+<blockquote>
+<p><u>Kriterien:</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] oder Reißen des TAT bis zu dem Intrusionsweg sI =
+l/4.</p></li>
+<li><p>Für l/30 ≤ sI ≤ l/15 gilt: FR ≥ 5 kN (FR: Reaktionskraft:=
+Stempelkraft).</p></li>
+<li><p>Versuchsdurchführung und –dokumentation bis Bauteilversagen,
+[redacted-person] zu Lagerpunkten oder dem vorgegebenem Intrusionsweg +
+20% Sicherheit.</p></li>
+</ul>
+<blockquote>
+<p><strong>[redacted-person] dienen zur Auslegung in frühen Projektphasen.
+[redacted-person] und Anforderungen sind im fortgeschrittenen
+Projektverlauf auf Basis validierter Simulatio- nen mit der zuständigen
+Fachabteilung ([redacted-id]) abzustimmen.</strong></p>
+<p><u>[redacted-person]:</u></p>
+<p>Versuchsaufbau:</p>
+<p>[redacted-person] müssen mit Aufnahmeklötzen verschraubt und
+entsprechend der Prinzips- kizze auf dem Führungsschlitten gelagert
+werden.</p>
+<p>[redacted-person] muss nach Prinzipskizze durch den nach GB 15743
+genormten Druckkörper auf Biegung belastet werden.</p>
+<p>Während des Biegeversuchs darf der Aufprallträger mit den
+verschraubten Aufnahmeklötzen die Führungsschlitten nur an den
+definierten Auflagestellen berühren.</p>
+<p><strong>Abmessungen und Material der Aufnahmeklötze sind den
+Randbedingungen des Ge- samtfahrzeuges anzupassen, und müssen mit der
+Fachabteilung abgestimmt werden.</strong></p>
+<p>[redacted-person] ermittelt in eigenen Versuchsreihen mit hoher
+Stückzahl das Toleranzband für F = f(s). [redacted-person] ist möglichst
+gering zu halten, um sicherzustellen, dass auch TAT der Unter- und
+Obergrenze die Anforderungen - OHNE separate Untersuchungen -
+erfüllen.</p>
+<p>[redacted-person] ist für jede neue Baustufe im Projekt erneut und
+frühzeitig abzuarbei- ten.</p>
+</blockquote>
+<h2 id="gesamtfahrzeugversuche">Gesamtfahrzeugversuche</h2>
+<blockquote>
+<p><u>Anforderungen an die durchzuführenden Versuche bei [redacted-co]:</u></p>
+<p>Für die Auslösung der Rückhaltesysteme für Seitenschutz ist ein
+frühzeitiges Plausibilisierungssignal notwendig. Dazu muss die
+TAT-Auslegung (Überlappung zu Lastpfaden, [redacted-person]…)
+ggf. mit der Abteilung für Crashsensorik abgestimmt werden.</p>
+</blockquote>
+<h1 id="anhang">Anhang</h1>
+<h2 id="übersicht-gesetzliche-anforderungen-weltweit">Übersicht
+gesetzliche Anforderungen weltweit</h2>
+<table>
+<thead>
+<tr>
+<th colspan="3" style="text-align: left;"><blockquote>
+<p><strong>[redacted-person] W1</strong></p>
+</blockquote></th>
+<th colspan="3" style="text-align: left;"><blockquote>
+<p><strong>[redacted-person] W2</strong></p>
+</blockquote></th>
+<th colspan="3" style="text-align: left;"><blockquote>
+<p><strong>Spitzen-Eindrückwiderstand W3</strong></p>
+</blockquote></th>
+</tr>
+<tr>
+<th><p>Widerstandskraft</p>
+<p>[kN]</p></th>
+<th><p>Faktor</p>
+<p>[Faktor x m x g]</p></th>
+<th style="text-align: left;"><blockquote>
+<p>Weg</p>
+<p>[mm]</p>
+</blockquote></th>
+<th><p>Widerstandskraft</p>
+<p>[kN]</p></th>
+<th><p>Faktor</p>
+<p>[Faktor x m x g]</p></th>
+<th style="text-align: left;"><blockquote>
+<p>Weg</p>
+<p>[mm]</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Kraft</p>
+<p>[kN]</p>
+</blockquote></th>
+<th><p>Faktor</p>
+<p>[Faktor x m x g]</p></th>
+<th style="text-align: left;"><blockquote>
+<p>Weg</p>
+<p>[mm]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>FMVSS 214S</strong></td>
+<td>ohne Sitze</td>
+<td><strong>10,000</strong></td>
+<td><strong>-</strong></td>
+<td><strong>152</strong></td>
+<td><strong>15,569</strong></td>
+<td><strong>-</strong></td>
+<td><strong>305</strong></td>
+<td><strong>31,138</strong></td>
+<td><strong>2,00</strong></td>
+<td><strong>457</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">FMVSS 214S</td>
+<td>mit Sitze</td>
+<td>10,000</td>
+<td>-</td>
+<td>152</td>
+<td>19,460</td>
+<td>-</td>
+<td>305</td>
+<td>53,378</td>
+<td>3,50</td>
+<td>457</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>CMVSS 214</strong></td>
+<td>ohne Sitze</td>
+<td><strong>10,000</strong></td>
+<td><strong>-</strong></td>
+<td><strong>152</strong></td>
+<td><strong>15,569</strong></td>
+<td><strong>-</strong></td>
+<td><strong>305</strong></td>
+<td><strong>31,138</strong></td>
+<td><strong>2,00</strong></td>
+<td><strong>457</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">CMVSS 214</td>
+<td>mit Sitze</td>
+<td>10,000</td>
+<td>-</td>
+<td>152</td>
+<td>19,460</td>
+<td>-</td>
+<td>305</td>
+<td>53,378</td>
+<td>3,50</td>
+<td>457</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>KMVSS Art. 104</strong></td>
+<td>ohne Sitze</td>
+<td><strong>10,006</strong></td>
+<td><strong>0,83</strong></td>
+<td><strong>155</strong></td>
+<td><strong>15,000</strong></td>
+<td><strong>1,30</strong></td>
+<td><strong>310</strong></td>
+<td><strong>30,400</strong></td>
+<td><strong>2,00</strong></td>
+<td><strong>460</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">KMVSS Art. 104</td>
+<td>mit Sitze</td>
+<td>10,006</td>
+<td>0,83</td>
+<td>155</td>
+<td>19,424</td>
+<td>1,63</td>
+<td>310</td>
+<td>55,378</td>
+<td>3,50</td>
+<td>460</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>ADR29/00</strong></td>
+<td>ohne Sitze</td>
+<td><strong>10,000</strong></td>
+<td><strong>0,83</strong></td>
+<td><strong>155</strong></td>
+<td><strong>15,500</strong></td>
+<td><strong>1,30</strong></td>
+<td><strong>310</strong></td>
+<td><strong>31,000</strong></td>
+<td><strong>2,00</strong></td>
+<td><strong>460</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">ADR29/00</td>
+<td>mit Sitze</td>
+<td>10,000</td>
+<td>0,83</td>
+<td>155</td>
+<td>19,440</td>
+<td>1,63</td>
+<td>310</td>
+<td>55,330</td>
+<td>3,50</td>
+<td>460</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GB [redacted-phone]</strong></td>
+<td>ohne Sitze</td>
+<td><strong>10,000</strong></td>
+<td><strong>-</strong></td>
+<td><strong>152</strong></td>
+<td><strong>15,560</strong></td>
+<td><strong>-</strong></td>
+<td><strong>305</strong></td>
+<td><strong>31,120</strong></td>
+<td><strong>2,00</strong></td>
+<td><strong>457</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">GB [redacted-phone]</td>
+<td>mit Sitze</td>
+<td>10,000</td>
+<td>-</td>
+<td>152</td>
+<td>19,450</td>
+<td>-</td>
+<td>305</td>
+<td>53,340</td>
+<td>3,50</td>
+<td>457</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>GS 38A</strong></td>
+<td>ohne Sitze</td>
+<td><strong>10,006</strong></td>
+<td><strong>-</strong></td>
+<td><strong>150 ± 5</strong></td>
+<td><strong>15,598</strong></td>
+<td><strong>-</strong></td>
+<td><strong>300 ± 5</strong></td>
+<td><strong>31,147</strong></td>
+<td><strong>2,00</strong></td>
+<td><strong>460 ± 5</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;">GS 38A</td>
+<td>mit Sitze</td>
+<td>10,006</td>
+<td>-</td>
+<td>150 ± 5</td>
+<td>19,473</td>
+<td>-</td>
+<td>300 ± 5</td>
+<td>53,416</td>
+<td>3,50</td>
+<td>460 ± 5</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>IS 12009:1995</strong></td>
+<td>mit Sitze</td>
+<td>10,000</td>
+<td>0,60</td>
+<td>150</td>
+<td>20,000</td>
+<td>1,20</td>
+<td>300</td>
+<td>55,000</td>
+<td>2,00</td>
+<td>450</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>FMVSS 214S [redacted-person] CMVSS 214 Kanada</p>
+<p>KMVSS Art. 104 Korea ADR 29/00 Australien</p>
+<p>GB 15743 China</p>
+<p>GS 38A Golfstaaten</p>
+<p>IS 12009 Indien</p>
+</blockquote>
+<h2 id="übersicht-berechnung-eindrückwiderstände">[redacted-person]
+Eindrückwiderstände</h2>
+<blockquote>
+<p><u>[redacted-person] anhand Beispiel:</u></p>
+<p><strong>[redacted-person] W1</strong>:
+𝑊<sub>1</sub></p>
+<p>= 1/𝑠1</p>
+<p>∙ ∫𝑠1 𝐹 ∙ d𝑠</p>
+</blockquote>
+<p>0</p>
+<blockquote>
+<p><strong>[redacted-person] W2</strong>: 𝑊<sub>2</sub></p>
+<p>= 1/𝑠2</p>
+<p>∙ ∫𝑠2 𝐹 ∙ d𝑠</p>
+</blockquote>
+<p>0</p>
+<blockquote>
+<p><strong>Spitzeneindrückwiderstand W3</strong>: 𝑊<sub>3</sub>(0 &lt; 𝑠
+&lt; 𝑠<sub>max</sub>) = 𝐹<sub>max</sub></p>
+<p>(engl. <em>minimum peak crush resistance</em>)</p>
+</blockquote>
+<p><img src="./09_Static_Load-lah-dum-880-kr-anforderung-tat-china-v20-media/media/image14.png"/></p>
+<blockquote>
+<p>[redacted-person]-Weg-Kurve mit Eindrückwiderständen W1, W2 und W3
+anhand der der gesetz- lichen Vorgaben FMVSS 214S mit den Stempelwegen
+s1 = 6‘‘, s2 = 12‘‘ und smax ≤ 18‘‘.</p>
+</blockquote>
+<h2 id="übersicht-testaufbau-türeindrückung">[redacted-person]
+Türeindrückung</h2>
+<blockquote>
+<p><u>[redacted-person] anhand FMVSS 214S:</u></p>
+</blockquote>
+<p><img src="./09_Static_Load-lah-dum-880-kr-anforderung-tat-china-v20-media/media/image15.png"/></p>
+<blockquote>
+<p>[redacted-person] in [mm].</p>
+</blockquote>
+</body>
+</html>

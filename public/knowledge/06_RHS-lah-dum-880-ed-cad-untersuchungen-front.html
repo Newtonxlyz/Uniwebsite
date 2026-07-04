@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH.DUM.880.ED_CAD-Untersuchungen_Front-Heckschutz</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote>
+<blockquote>
+<p>[redacted]</p>
+<p>D[redacted]</p>
+</blockquote>
+<p>CAD/DMU [redacted-person] Front- und Heckschutz</p>
+<blockquote>
+<p><strong>Lastenheft</strong></p>
+<p>LAH.DUM.880.ED</p>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#zielsetzung">Zielsetzung 4</a></p></li>
+<li><p><a href="#aufgabenbeschreibung-und-auftragsinhalte">Aufgabenbeschreibung
+und Auftragsinhalte 4</a></p>
+<ol type="1">
+<li><p><a href="#aufgabenbeschreibung">Aufgabenbeschreibung 4</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark3">CAD/DMU Front- [redacted-person]
+4</a></p></li>
+<li><p><a href="#_bookmark4">CAD/DMU [redacted-person] –
+Designguidelines 5</a></p></li>
+<li><p><a href="#_bookmark5">CAD/DMU [redacted-person] –
+Sitzverstellfeld 5</a></p></li>
+<li><p><a href="#_bookmark6">CAD/DMU Sonstige notwendige Konstruktionen
+und Analysen 5</a></p></li>
+</ol></li>
+<li><p><a href="#erwartete-arbeitsergebnisse">[redacted-person] 6</a></p></li>
+<li><p><a href="#erforderliche-fachkenntnisse">[redacted-person] 6</a></p></li>
+</ol></li>
+<li><p><a href="#leistungszeitraum">Leistungszeitraum 6</a></p></li>
+<li><p><a href="#leistungsort-mitwirkung-und-beistellungen">Leistungsort,
+Mitwirkung und Beistellungen 6</a></p></li>
+</ol>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<h1 id="zielsetzung">Zielsetzung</h1>
+<blockquote>
+<p>Mit dem vorliegenden Lastenheft werden die technischen Vorgaben und
+Auftragsinhalte der CAD/DMU Untersuchungen der
+Frontal-Rückhaltesystemauslegung 1. Sitzreihe und der Front- und
+[redacted-person] beschrieben.</p>
+<p>[redacted-person] ist allgemeingültig und fahrzeugunabhängig
+formuliert.</p>
+<p>Die kaufmännischen und rechtlichen Rahmenbedingungen sind im
+Anfragelastenheft enthalten.</p>
+<p>Die fahrzeugspezifischen Anforderungen und Randbedingungen sind dem
+Anfragelastenheft und dem [redacted-person] (inkl.
+Anlagen) zu entnehmen.</p>
+<p>[redacted-person] des Lastenheftes unterliegen der Geheimhaltung und dürfen
+Dritten nur mit ausdrückli- cher Genehmigung des zuständigen
+Fachbereiches [redacted-co] zugänglich gemacht werden.</p>
+</blockquote>
+<h1 id="aufgabenbeschreibung-und-auftragsinhalte">Aufgabenbeschreibung
+und Auftragsinhalte</h1>
+<h2 id="aufgabenbeschreibung">Aufgabenbeschreibung</h2>
+<blockquote>
+<p>Für die Frontal-Rückhaltesystemauslegung 1. Sitzreihe und der Front-
+und [redacted-person] sind im Rahmen der Vergabe selbstständig und
+eigenverantwortlich CAD/DMU Untersuchungen durch zu führen.</p>
+<p>[redacted-person] aus den [redacted-co] System und die Archivierung der
+Ergebnisse ist selbstständig durch zu führen.</p>
+<p>[redacted-person] sind zu den jeweils aktuellen Ständen durch zu
+führen.</p>
+</blockquote>
+<ol type="1">
+<li><p>CAD/DMU Front-
+[redacted-person]</p></li>
+</ol>
+<blockquote>
+<p>Es sind für die Front-Heckcrashentwicklung notwendige CAD/DMU
+Untersuchungen durchzuführen. Bei (Ziel-)Konflikten sind
+Lösungsmöglichkeiten darzustellen.</p>
+</blockquote>
+<ul>
+<li><p>Package im Vorderwagen</p></li>
+<li><p>Package im Hinterwagen</p></li>
+<li><p>Package im Innneraum</p></li>
+<li><p>[redacted-person]- und Antriebsstrang</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>Kraftstoff- und Kühlmittelleitungsverlegung</p></li>
+<li><p>Kraftstofftank</p></li>
+<li><p>Bordnetz-Leitungsverlegung</p></li>
+<li><p>HV-Leitungsverlegung</p></li>
+<li><p>Packageuntersuchungen von HV-Komponenten</p></li>
+</ul>
+<blockquote>
+<p>Details sind mit der [redacted-person]-Heckcrash abzustimmen.</p>
+<p>Sind für die Front-[redacted-person] sonstige Konstruktionen oder
+CAD/DMU Analysen not- wendig, so sind diese Bestandteil des
+Vergabeumfangs.</p>
+<p>Beispiele:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] an Crashfahrzeugen</p></li>
+<li><p>Vergleiche mit Benchmarkfahrzeugen ([redacted-co], Konzern und verfügbare
+Mitbewerber)</p></li>
+</ul>
+<ol start="2" type="1">
+<li><p>CAD/DMU
+[redacted-person] – Designguidelines</p></li>
+</ol>
+<blockquote>
+<p>Für die Frontal-Rückhaltesystemauslegung 1. Sitzreihe sind die von
+der Fachabteilung zur Verfü- gung gestellten Designguidelines zu
+analysieren, Bewertungen durch zu führen und Empfehlungen zu
+erarbeiten.</p>
+<p>[redacted-person] sind in einer [redacted-person] „Schnittemappe“
+zusammen zu stellen. [redacted-person] sind Lösungsmöglichkeiten dar zu
+stellen.</p>
+<p>In der Konzeptphase ist die Schnittemappe monatlich, von der
+Konzeptentscheidung bis zur B- Freigabe zu jedem [redacted-person] Status, später zu
+jedem [redacted-person] zu aktualisieren.</p>
+<p>[redacted-person] an den Designguidelines auf Grund neuer Technologien
+oder Anforderungsände- rungen notwendig, so ist die Anpassung der
+[redacted-person] der Beauftragung.</p>
+<p>[redacted-person] sind zu analysieren:</p>
+</blockquote>
+<ul>
+<li><p>DGL Ablagenkontur</p></li>
+<li><p>DGL A-Säulenverkleidung</p></li>
+<li><p>DGL [redacted-person]</p></li>
+<li><p>DGL Fußraum / Crashpad</p></li>
+<li><p>DGL Innenspiegel</p></li>
+<li><p>DGL Inspektionszone</p></li>
+<li><p>DGL Klappenfreigang</p></li>
+<li><p>DGL Knieabstand</p></li>
+<li><p>DGL Knieeinweisung</p></li>
+<li><p>DGL Knieintrusion</p></li>
+<li><p>DGL Lenkradabstand</p></li>
+<li><p>DGL Lenksäule</p></li>
+<li><p>DGL freies [redacted-person]</p></li>
+<li><p>DGL LSSV</p></li>
+<li><p>DGL Sitzüberdeckung</p></li>
+<li><p>DGL Sitz (z.[redacted-person] über Sitz)</p></li>
+<li><p>DGL Türverkleidung</p></li>
+<li><p>DGL [redacted-person]</p></li>
+<li><p>DGL z-Package</p>
+<ol type="1">
+<li><p>CAD/DMU
+[redacted-person] – Sitzverstellfeld</p></li>
+</ol></li>
+</ul>
+<blockquote>
+<p>Es ist eine Präsentation zu erzeugen aus der alle Gesetzes- und
+[redacted-person] hervorgehen.</p>
+<p>[redacted-person] ist laufend auf aktuellem Stand zu halten.</p>
+<p>[redacted-person] dafür dient die Arbeitsanweisung AA.99.33 + deren Anlagen.
+Es sind alle Sitzvarianten zu berücksichtigen.</p>
+<p>Eine entsprechende Vorlage/Beispiel ist bei der Fachabteilung
+erhältlich.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>CAD/DMU Sonstige
+notwendige Konstruktionen und Analysen</p></li>
+</ol>
+<blockquote>
+<p>Sind für die Frontal-Rückhaltesystemauslegung 1. Sitzreihe sonstige
+Konstruktionen oder CAD/DMU Analysen notwendig, so sind diese
+Bestandteil des Vergabeumfangs.</p>
+<p>Beispiele:</p>
+</blockquote>
+<ul>
+<li><p>Analysen und Vorgabezeichnungen für den Aufbau von
+Schlittenkarosserien</p></li>
+<li><p>Vergleiche mit Benchmarkfahrzeugen ([redacted-co], Konzern und verfügbare
+Mitbewerber)</p></li>
+</ul>
+<h2 id="erwartete-arbeitsergebnisse">[redacted-person]</h2>
+<blockquote>
+<p>Untersuchungsergebnisse der jeweiligen Änderungsstände:</p>
+</blockquote>
+<ul>
+<li><p>in [redacted-person] (z.[redacted-person],
+Statuspräsentationen,…) auf dem S-Laufwerk [redacted-co] ablegen.</p></li>
+<li><p>in CATIA ab CATIA V5 Format (z.[redacted-person],…) in
+Connect und/oder auf dem S-Laufwerk [redacted-co] ablegen.</p></li>
+</ul>
+<blockquote>
+<p>CAD-Zeichnungen und Vergleichsuntersuchungen in CATIA ab CATIA V5
+Format (z.[redacted-person] Komponentenzeichnungen,…) auf dem S-Laufwerk der [redacted-co] ablegen.</p>
+</blockquote>
+<h2 id="erforderliche-fachkenntnisse">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] gewährleistet, dass er die zur Abarbeitung des
+Umfangs erforderlichen Fachkenntnisse hat. Hierzu zählen aus Sicht der
+[redacted-co] insbesondere:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] und Erfahrungen mit CATIA V5, insbesondere
+in den Bereichen GSD (Flä- chenbelegung ), Part-Design,
+Mechanical-Design und DMU-Workbenches</p></li>
+<li><p>gute Kenntnisse in CONNECT</p></li>
+<li><p>sichere Beherrschung von Hyper-KVS und VPM/LCS</p></li>
+<li><p>[redacted-person] (Word, Excel, Project, PowerPoint)</p></li>
+<li><p>Kenntnisse in Projektabwicklung</p></li>
+</ul>
+<h1 id="leistungszeitraum">Leistungszeitraum</h1>
+<blockquote>
+<p>Projektstart, Projektende sowie die Meilensteine sind dem
+Vergabelastenheft zu entnehmen.</p>
+</blockquote>
+<h1 id="leistungsort-mitwirkung-und-beistellungen">Leistungsort,
+Mitwirkung und Beistellungen</h1>
+<blockquote>
+<p>Leistungsort, Beistellungen und fachliche Ansprechpartner werden
+durch das Anfragelastenheft geregelt.</p>
+</blockquote>
+</body>
+</html>

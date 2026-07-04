@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_DUM_880_KK__RHS-Anforderungen_an_das_Cockpit_20190919</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p><img src="./00_Overall-lah-dum-880-kk-rhs-anforderungen-an-das-media/media/image1.jpeg" style="width:3.31204in;height:2.76562in"/></p>
+<blockquote>
+<p><strong>Rückhaltesystemanforderungen an das Cockpit
+CHINA</strong></p>
+<p>LAH DUM 880 KK</p>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+</blockquote>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#zielsetzung">Zielsetzung 5</a><a href="#definitionen">Definitionen 5</a><a href="#allgemeine-festlegungen">[redacted-person] 6</a><a href="#definition-entwicklungs--und-lieferumfang">[redacted-person]- und Lieferumfang 6</a><a href="#angebotsumfang">Angebotsumfang 6</a><a href="#änderungen">Änderungen 6</a><a href="#dokumentation">Dokumentation 7</a><a href="#freigabebericht">Freigabebericht 7</a><a href="#teilelebenslauf">Teilelebenslauf 7</a><a href="#rechtliche-anforderungen">[redacted-person] 7</a><a href="#prioritäten-der-dokumente">Prioritäten der Dokumente 7</a><a href="#projektvorgaben">Projektvorgaben 7</a><a href="#erprobungsplan-und-erprobungsterminplan">Erprobungsplan und
+Erprobungsterminplan 7</a><a href="#teilebereitstellung">Teilebereitstellung 8</a><a href="#systemverantwortung-sicherheitsumfänge">[redacted-person] 8</a><a href="#technische-anforderungen">[redacted-person] 8</a><a href="#funktionsanforderungen-der-fahrzeugsicherheit">Funktionsanforderungen
+der Fahrzeugsicherheit 8</a><a href="#allgemeine-anforderungen">[redacted-person] 8</a><a href="#ablage-handschuhkasten-und-klappen-rdw">Ablage, Handschuhkasten
+und Klappen (RdW) 10</a><a href="#beifahrerairbagabdeckung-und-schalttafelkontur">Beifahrerairbagabdeckung
+und Schalttafelkontur 11</a><a href="#kneebag">Kneebag 11</a><a href="#lenkstockschalter--verkleidung-und-bauteile-im-umfeld">Lenkstockschalter,
+-verkleidung und Bauteile im Umfeld 12</a><a href="#lichtdrehschalter">Lichtdrehschalter 12</a><a href="#zündanlassschloss">Zündanlassschloss 12</a><a href="#sonstige-einbauten-bzw.-stellelemente">[redacted-person] bzw.
+Stellelemente 13</a><a href="#mittelkonsole">Mittelkonsole 13</a><a href="#übergang-türverkleidung-und-anbindung-i-tafel">[redacted-person] und Anbindung I-Tafel 13</a><a href="#mitgeltende-unterlagen">[redacted-person] 13</a></p>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Vorwort</strong></p>
+<p>[redacted-person] (LAH) beschreibt Mindestanforderungen aus [redacted-person] an das zu entwickelnde Cockpit und ist Teil des
+[redacted-person], siehe [redacted-person]
+Unterlagen.</p>
+<p>[redacted-person] dieser Mindestanforderungen ist vom Auftragnehmer in
+einem Pflichten- heft zu dokumentieren. [redacted-person] ist vom
+Auftragnehmer auf dem aktuellen Stand zu halten.</p>
+<p>Alle hier nicht ausreichend beschriebene Punkte müssen in Absprache
+mit den Fachberei- chen des Auftraggebers geklärt werden und bedürfen
+der schriftlichen Festlegung in einem Lastenheft. Dies gilt insbesondere
+für Abweichungen von Standardforderungen.</p>
+<p>Inhalte dieses Lastenheftes dürfen Dritten ohne ausdrückliche
+Genehmigung des zustän- digen Fachbereiches des Auftraggebers nicht
+zugänglich gemacht werden.</p>
+</blockquote>
+<h1 id="zielsetzung">Zielsetzung</h1>
+<blockquote>
+<p>Das vorliegende Lastenheft verfolgt das Ziel, relevante Anforderungen
+an die Schalttafel, die nicht an nur einer Komponente festgemacht werden
+können, sondern Bauteilübergrei- fend gelten, zu definieren.</p>
+<p>[redacted-person] und alle aufgeführten mitgeltenden Unterlagen
+dienen zur Festlegung der technischen Daten und Randbedingungen für die
+Auslegung der I-Tafel für die darge- stellten Lastfälle.</p>
+<p>[redacted-person] werden Vorschläge zur Produktverbesserung
+erwartet. Insbeson- dere sind die Einsatzmöglichkeiten neuer Werkstoffe
+und Methoden zur Verbesserung der Fahrzeugsicherheit und zur Reduzierung
+des Gewichts vom Serienlieferanten mit den Fachabteilungen bei [redacted-co] zu
+diskutieren.</p>
+</blockquote>
+<h1 id="definitionen">Definitionen</h1>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Begriff</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Definition</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Auftraggeber</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Auftragnehmer</p>
+</blockquote></td>
+<td><blockquote>
+<p>Systementwickler, Systemlieferant, Komponentenentwickler oder
+Komponentenlieferant</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Bearbeiter</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Mitarbeiter/in der [redacted-person] des Auftraggebers, der die
+Verantwortung für das LAH trägt und das LAH durch Änderung auf dem
+aktuellen Stand hält</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Ersteller</p>
+</blockquote></td>
+<td><blockquote>
+<p>Bearbeiter/in der ersten Ausgabe des LAH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Komponenten- entwickler/</p>
+<p>-lieferant</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Gesellschaft, vom Auftraggeber dahingehend verpflichtet, dass sie
+gemeinsam mit dem Systementwickler/ -lieferant und dem Auftrag- geber
+nach Bauteile-Lastenheft und weiteren Vorgaben die Kompo- nente bis zur
+Serienreife bzw. Freigabe entwickelt. Funktion und Schnittstellen des
+jeweiligen Bauteils wird der Komponentenent-</p>
+<p>wickler/-lieferant in enger Abstimmung mit der Entwicklung des
+Auf-</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Begriff</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Definition</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>traggebers und dem Systementwickler/-lieferanten erarbeiten.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>RHS-Entwickler</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Gesellschaft, die durch die [redacted-person], Einkauf,
+Qualitätssicherung oder Logistik vorgeschlagen bzw. ausgewählt wird, die
+Entwicklung des Rückhaltesystems durchzuführen. Sie ist ein enger
+Kooperationspartner des Komponentenentwicklers.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>Gesellschaft, die durch die [redacted-person], Einkauf,
+Qualitätssicherung oder Logistik vorgeschlagen bzw. ausgewählt wird, die
+Entwicklung der Cockpitumfänge und Anbauteile durchzu- führen. Sie ist
+ein enger Kooperationspartner und Integrator der Komponentenentwickler.
+[redacted-person] kann durch einen EDL Cockpit übernommen werden.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Wenn nicht anders explizit festgelegt übernimmt der Schalttafelliefe-
+rant die Aufgaben des [redacted-person].</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="allgemeine-festlegungen">[redacted-person]</h1>
+<h2 id="definition-entwicklungs--und-lieferumfang">[redacted-person]- und Lieferumfang</h2>
+<blockquote>
+<p>[redacted-person] hinsichtlich der Erfüllung aller
+Lastenheftforderungen liegt beim Auftragnehmer bzw. EDL.</p>
+<p>[redacted-person] verpflichtet sich, alle beschriebenen Anforderungen
+dem Angebot zu- grunde zu legen. Er haftet für die vertragsgemäße
+Beschaffenheit des Liefergegenstandes, insbesondere für die Einhaltung
+von Beschaffenheits- und Haltbarkeitsgarantien, welche ausdrücklich als
+solche bezeichnet sind.</p>
+</blockquote>
+<h2 id="angebotsumfang">Angebotsumfang</h2>
+<blockquote>
+<p>Mit dem Angebot sind vom Auftragnehmer folgende Unterlagen den
+zuständigen Fachab- teilungen des Auftraggebers zur Prüfung
+vorzulegen:</p>
+</blockquote>
+<ul>
+<li><p>Pflichtenheft</p></li>
+<li><p>Bauteileverfügbarkeit</p></li>
+</ul>
+<blockquote>
+<p>Im Verlauf der Entwicklung schriftlich vom Auftraggeber festgelegte
+oder akzeptierte Ter- mine werden Bestandteil dieses Lastenheftes.
+Termine können nur im Einvernehmen mit dem Auftraggeber geändert
+werden.</p>
+</blockquote>
+<h2 id="änderungen">Änderungen</h2>
+<blockquote>
+<p>[redacted-person], welche Änderungsumfänge innerhalb des Lastenheftes zu
+berücksichti- gen bzw. welche Umfänge separat zu vereinbaren sind, ist
+in der [redacted]festgelegt.</p>
+<p>[redacted-person] (z. [redacted-person] Bauteilen und Prozessen) - auch nach
+Serieneinsatz - müssen mit dem Auftraggeber abgestimmt werden. Sie
+werden vom Auftragnehmer anhand von 3D-Datenmodellen und Musterteilen
+dargestellt und ggf. vom Auftraggeber schriftlich ge- nehmigt.</p>
+<p>[redacted-person] nach der Lieferung der Erstmuster auf, ist
+ebenfalls in Absprache mit den Fachabteilungen des Auftraggebers eine
+kostenlose Neubemusterung vorzunehmen.</p>
+<p>Die erforderlichen Freigabeformulare für die Änderungen sind in
+Absprache dem Auftrag- geber mitzuliefern.</p>
+</blockquote>
+<h2 id="dokumentation">Dokumentation</h2>
+<blockquote>
+<p>Zu jedem Musterstand von Bauteilen muss der zuständigen Fachabteilung
+des Auftragge- bers in Versuch und Konstruktion eine Mustermappe mit
+folgenden Inhalten vorgelegt wer- den:</p>
+</blockquote>
+<h2 id="freigabebericht">Freigabebericht</h2>
+<blockquote>
+<p>Freigabebericht nach [redacted-co]-Vorgabe</p>
+</blockquote>
+<h2 id="teilelebenslauf">Teilelebenslauf</h2>
+<blockquote>
+<p>Ab Projektstart ist vom Auftragnehmer ein Teilelebenslauf zu führen,
+in dem sämtliche Ver- änderungen dokumentiert sind (siehe Anhang A zur
+[redacted]).</p>
+<p>Alle an den Auftraggeber gelieferten Teile müssen durch eine
+geeignete Kennzeichnung eindeutig rückverfolgbar sein.</p>
+<p>Ab Baumuster- bzw. Erstmustergenehmigung darf keine Änderung am
+Bauteil ohne aus- drückliche Genehmigung des Auftraggebers vorgenommen
+werden. [redacted-person] ohne ausdrückliche Genehmigung des
+Auftraggebers erlischt die Freigabe. Es erfolgt ein erneuter
+Freigabeprozess.</p>
+</blockquote>
+<h2 id="rechtliche-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person]- und Urheberrechte sowie Geheimhaltungsvorschriften gelten
+die Regelungen der [redacted]</p>
+</blockquote>
+<h2 id="prioritäten-der-dokumente">Prioritäten der Dokumente</h2>
+<blockquote>
+<p>Bei abweichenden Forderungen gilt die folgende Prioritätenliste:</p>
+</blockquote>
+<ol type="1">
+<li><p>Gesetzesanforderungen</p></li>
+<li><p>Zeichnung und 3D-Datenmodelle</p></li>
+<li><p>Lastenheft</p></li>
+<li><p>allgemeine Lastenhefte</p></li>
+<li><p>[redacted-person] Regeln (TL, PV, [redacted-co] KR, QP) und Formel
+Q-Konkret</p></li>
+<li><p>unverbindliche nationale und internationale Normen (DIN, EN,
+ISO)</p></li>
+</ol>
+<h1 id="projektvorgaben">Projektvorgaben</h1>
+<blockquote>
+<p>Es gelten die Projektvorgaben der [redacted]sowie die nachfolgend
+beschriebenen.</p>
+</blockquote>
+<h2 id="erprobungsplan-und-erprobungsterminplan">Erprobungsplan und
+Erprobungsterminplan</h2>
+<blockquote>
+<p>[redacted-person] und ein Erprobungsterminplan sind vom
+Auftragnehmer zu erstellen, mit dem Auftraggeber abzustimmen und als
+MS-Projekt-File, in Übereinstimmung mit dem Gesamtterminplan,
+vorzulegen. In diesem Zusammenhang ist auch eine Planung der zur</p>
+<p>Systemerprobung benötigten Fahrzeugkomponenten abzugeben (z. [redacted-person], Ag- gregat).</p>
+</blockquote>
+<h2 id="teilebereitstellung">Teilebereitstellung</h2>
+<blockquote>
+<p>[redacted-person]- und Versuchsteile müssen immer auf dem Baustand
+gehalten werden, der dem aktuellen Entwicklungsstand entspricht. [redacted-person] ist jeweils eine Abstimmung über den zu liefernden
+Musterteilestand durchzuführen. [redacted-person] über Versuchs- Anzahl und
+Aufbautermin (virtuell und physikalisch) sind im Erprobungsterminplan
+festzu- legen.</p>
+</blockquote>
+<h2 id="systemverantwortung-sicherheitsumfänge">[redacted-person]</h2>
+<blockquote>
+<p>In der Verantwortung des [redacted-person] liegt die
+Auslegung aller sicherheits- relevanten Teile im Cockpit wie z.[redacted-person], Zündschloss, Kniefängerstützen, Scharniermechanik HSK
+usw.</p>
+<p>[redacted-person] Cockpit obliegt es, für die Gesamtintegration
+des Beifahrer- und Knieairbags in die Schalttafel zu sorgen. Dies trifft
+auch in dem Fall zu, wenn einzelne Auf- gaben/ Bauteile an einen
+Unterlieferanten vergeben werden. Im Einzelnen ist dafür Sorge zu
+tragen, dass die Funktion der Airbags sowohl in den Ablagen/ Kniefängern
+als auch in der Schalttafel gegeben ist. Ferner ist der Systementwickler
+der zentrale Ansprechpartner für den RHS-Entwickler und zu einer aktiven
+Mitarbeit bei der Auslegung des Rückhalte- systems sowie der
+Systemauslegung verpflichtet.</p>
+<p>In der Verantwortung des RHS-Entwicklers liegt die Vorgabe für die
+Auslegung aller si- cherheitsrelevanten Cockpitbauteile wie z. [redacted-person] etc.</p>
+</blockquote>
+<h1 id="technische-anforderungen">[redacted-person]</h1>
+<h2 id="funktionsanforderungen-der-fahrzeugsicherheit">Funktionsanforderungen
+der Fahrzeugsicherheit</h2>
+<h2 id="allgemeine-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] des Fahrzeugcockpits im Package erfolgt u.[redacted-person] Basis
+der Lastenheft- vorgaben und Auslegungshilfen der Fahrzeugsicherheit.
+[redacted-person]-Freeze bzw. nach erfolgter Lieferantennominierung folgt die
+Auskonstruktion und Detaillierung der Instru- mententafel und aller sich
+im Cockpit befindenden Elemente. Ziel ist es, das Cockpit und seine
+Anbauteile so auszulegen, dass alle [redacted-person] sowie die
+Anforde- rungen aus dem Verbraucherschutzerfüllt werden.</p>
+<p>[redacted-person] der im Fahrzeugprojekt verankerten Funktionsziele der
+Fahrzeugsicher- heit sind die nachfolgend beschriebenen Anforderungen
+einzuhalten:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] ist so auszulegen, dass die Anforderungen von
+chinesischen Verbrau- cherschutzlastfall CN NCAP erfüllt werden. [redacted-person] der Funktion ist über ent- sprechende (Ersatz-)Versuche zu
+erbringen.</p></li>
+<li><p>[redacted-person] und der Nachweis der Gesamtfunktion aller Bauteile
+im Schalttafelum- feld müssen über Simulation erfolgen.</p></li>
+<li><p>An- oder eingeklipste Bauteile im Fahrgastraum dürfen sich bei
+den Fahrzeug- Crashtests nicht lösen.</p></li>
+<li><p>Verkleidungsteile und Schalter dürfen sich bei Airbag-Auslösung
+bzw. im Crash (Front, Heck und Seite) nicht lösen. Sogenannte 3-D
+Blenden, insbesondere im Be- reich BFS Beifahrerairbag, erfordern eine
+zusätzliche Verschraubung, damit ein Ablö- sen bzw. Anstellen bei
+BF-Airbag- bzw. Knieairbag-Auslösung sicher ausgeschlossen werden
+kann.</p></li>
+<li><p>Die gesamte I-Tafelstruktur und alle An- und Einbauteile sind so
+auszuführen, dass die Anforderungen gemäß [redacted-person]
+zu den Zielwerten in gesetz- lichen und Verbrauchertests erfüllt
+werden.</p></li>
+<li><p>[redacted-person], die an allen Bauteilen vorgesehen werden, müssen den
+Anforderungen der ECE-R21 entsprechen. Ferner muss auch der
+Kopfaufschlag nach ECE-R21 er- füllt werden. Darüber hinaus sind
+landesspezifische Normen und Vorschriften zu be- achten.</p></li>
+<li><p>[redacted-person] bezüglich des Vorgehens zur dynamischen
+Bereichsermittlung bzw. Kopfaufprallversuchen erfolgt mit [redacted-co].</p></li>
+<li><p><strong>S</strong>mall <strong>O</strong>verlap
+Lastfall:</p></li>
+</ul>
+<blockquote>
+<p><img src="./00_Overall-lah-dum-880-kk-rhs-anforderungen-an-das-media/media/image4.jpeg"/>
+<img src="./00_Overall-lah-dum-880-kk-rhs-anforderungen-an-das-media/media/image5.jpeg"/></p>
+<p><strong>Bild 1:</strong> [redacted-person] am Beispiel AU426,
+Packagesituation während der Beaufschlagung</p>
+</blockquote>
+<ul>
+<li><p>im [redacted-person] Overlap kann es zu einer starken Beaufschlagung
+der A-Säule und der Stirnwand kommen</p></li>
+<li><p>es ist darauf zu achten, dass die im Cockpit befindlichen
+Bauteile so positioniert wer- den, dass eine Verschiebung zueinander
+möglich ist</p></li>
+<li><p>massive Blockbildner in Lastrichtung sind zu vermeiden</p></li>
+<li><p>in der frühen Phase muss dieser Bereich mit Hilfe der
+Insassensimulation bewertet und gegebenenfalls optimiert werden</p></li>
+</ul>
+<blockquote>
+<p><img src="./00_Overall-lah-dum-880-kk-rhs-anforderungen-an-das-media/media/image6.jpeg" style="width:6.48628in;height:5.12823in"/></p>
+</blockquote>
+<ul>
+<li><p><strong>Bild 2:</strong> Anforderung an den Knieaufschlagbereich
+links (SO)</p></li>
+</ul>
+<h2 id="ablage-handschuhkasten-und-klappen-rdw">Ablage, Handschuhkasten
+und Klappen (RdW)</h2>
+<ul>
+<li><p>Im Knieaufschlagsbereich ist grundsätzlich eine Defozone von 50
+mm gemäß DGL – ausgehend von der A-Seite der Ablagen – in Richtung auf
+die Stirnwand vorzuhalten, der nicht für die Unterbringung
+unnachgiebiger bzw. blockbildender Elemente genutzt werden
+darf.</p></li>
+<li><p>Kommt ein Kneebag zum Einsatz, reduziert sich die
+Defozonen-Anforderung auf 15mm, in Abstimmung mit den [redacted-co]
+Fachabteilungen.</p></li>
+<li><p>Im Knieaufschlagsbereich ist eine Eindrückkraft von ≤ 3,0 kN zu
+realisieren. Werkstof- fe und Geometrien sind gestalterisch so zu
+wählen, dass eine lokale Anhebung der Flächenpressung vermieden wird
+(ggfls. 12mm Padding, insbes. ohne Kneebag).</p></li>
+<li><p>steife Umrandungen sowie eine steife Verrippung der Ablagen sind
+zu vermeiden. Vor allem sind auch mit Hinblick auf die
+Kneeslidergrenzwerte keine steifen Kanten bei Ablagen vorzusehen. [redacted-person] des Handschuhkastens muss so erfolgen, daß eine Struktur
+geschaffen wird, die im Fall des Aufpralls eines Insassen nachge- ben
+kann. Dies kann beispielsweise durch eine versetzte Anordnung der
+Seitenwände bzw. durch Deformationselemente erfolgen.</p></li>
+<li><p>Für die [redacted-person] sind wichtige Einflüsse des Umfeldes (z.
+[redacted-person], be- nachbarte Komponenten, ...) ebenfalls mit
+einzubeziehen. [redacted-person] der Ablagen hat im [redacted-person] und
+Pedale so zu erfolgen, dass Intrusionen in diesem Be- reich von der
+Ablage kompensiert werden.</p></li>
+<li><p>Bei der Auslösung des Beifahrerairbags, Kneebags bzw. bestimmten
+Beschleunigun- gen oder im Crash darf sich der Deckel des
+Handschuhkastens nicht öffnen. Das gilt ebenso für andere im
+Fahrgastraum befindliche Klappen.</p></li>
+<li><p>Durch die Verformung von Ablagen bzw. Kniefängern darf das
+Teleskopieren der Lenksäule, z.[redacted-person] Interkation mit der
+Lenkstockschalteverkleidung, nicht beein- trächtigt werden.</p></li>
+</ul>
+<h2 id="beifahrerairbagabdeckung-und-schalttafelkontur">Beifahrerairbagabdeckung
+und Schalttafelkontur</h2>
+<blockquote>
+<p>Bei der Entwicklung der Beifahrerairbagabdeckung sind die
+Anforderungen des Beifahrer- airbaglastenheftes sowie nachfolgende
+Punkte zu berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>Ein konstruktiver Freigang von 10 mm zur Frontscheibe ist
+einzuhalten.</p></li>
+<li><p>[redacted-person] ist derart zu gestalten, dass durch
+die Beifahrerairba- gauslösung keine scharfen Kanten entstehen oder sich
+Fragmente lösen (gilt für Air- bag, Verkleidungsteile, Scheiben und
+sämtliche Anbauteile über den gesamten Tem- peraturbereich), die den
+Insassen verletzen oder den Luftsack beschädigen können.</p></li>
+<li><p>[redacted-person] der Beifahrerairbagabdeckung und die
+Ausschussrichtung des Beifah- rerairbags sind so zu wählen, dass kein
+Anschuss der Frontscheibe erfolgt, welcher ein Brechen dieser zur Folge
+hätte.</p></li>
+</ul>
+<h2 id="kneebag">Kneebag</h2>
+<blockquote>
+<p>Bei der Entwicklung sind die Anforderungen des Knieairbaglastenheftes
+sowie nachfolgen- de Punkte zu berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>Grundsätzlich ist ein Entfaltungsfreigang von 60mm zum normal
+positionierten Insas- sen-Knie / -Unterschenkel im Package umzusetzen
+(gilt sowohl für 50%-, 95% als auch 5%-Insassen auf F- und BF-Seite);
+dies ist bei der Positionierung des Kneebag- Moduls zu beachten</p></li>
+<li><p>[redacted-person] des Luftsackes mit anderen Fahrzeugbauteilen
+während der Entfal- tung, welche zu Insassenverletzungen,
+Luftsackschädigungen bzw. fehlerhafter Luft-
+sackentfaltung/Beaufschlagung von Komponenten im Umfeld führen kann,
+muss nachweislich ausgeschlossen sein. [redacted-person] ist dabei
+auf die Ausfüh- rung der Lenkstockschalterverkleidung zu
+richten.</p></li>
+<li><p>Bauteile im Fahrgastraum dürfen sich bei Airbagauslösung sowie im
+Fahrzeug- Crashtest im gesamten Temperaturbereich nicht aufstellen bzw.
+ablösen.</p></li>
+<li><p>Abdeckung des gesamten Knieaufschlagbereichs zwischen
+Mittelkonsole und Türver- kleidung so, dass ein direktes Aufschlagen auf
+die I-Tafel in allen relevanten Prüfposi- tionen ausgeschlossen wird.
+Potentiell harte Teile, wie z. [redacted-person], Lenksäu- lenverstellhebel
+etc., müssen durch den Airbag vollständig abgedeckt werden, wenn sie im
+Aufschlagbereich liegen. [redacted-person] müssen beim Auftreffen auf
+die- se Teile unterhalb der Grenzwerte liegen.</p></li>
+<li><p>Im Knieaufschlagsbereich ist ein Deforaum von 15 mm in Richtung
+auf die Stirnwand vorzuhalten, der nicht für die Unterbringung
+unnachgiebiger bzw. blockbildender Ele- mente (wie z. [redacted-person],
+Airbagmodul, Steuergeräte, Zündschloß, [redacted-person], etc.)
+genutzt werden darf. Ist die Unterbringung solcher Teile nicht zu
+vermeiden, so müssen diese nachgiebig gestaltet sein, sowie eine
+Blockbildung zwi- schen intrudierenden und dazwischenliegenden Bauteilen
+konzeptionell vermieden werden.</p></li>
+<li><p>Eine schädliche Interaktion, z.[redacted-person] Schlüsselanhängers oder
+sonstigen Einbauten, mit dem sich öffnenden Kneebag, ist zu
+vermeiden.</p></li>
+<li><p>Es darf durch die Kneebag-Auslösung oder durch das Umschlagen der
+Airbagklappe keine sicherheitsrelevante Beschädigung der Ablage
+erfolgen.</p></li>
+<li><p>Gestaltung des Austrittsbereichs so, dass keine
+sicherheitsrelevante Interaktion mit dem Luftsack oder eine Behinderung
+der Entfaltung erfolgt.</p></li>
+<li><p>Keine sicherheitsrelevante Interaktion mit der
+Lenksäulenverriegelung oder der Mittel- konsole.</p></li>
+</ul>
+<h2 id="lenkstockschalter--verkleidung-und-bauteile-im-umfeld">Lenkstockschalter,
+-verkleidung und Bauteile im Umfeld</h2>
+<blockquote>
+<p>Bei der Entwicklung der Lenkstockschalter, -verkleidung und weiterer
+Bauteile im Umfeld sind nachfolgende Punkte zu berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>Im Umfeld der Lenksäule im Knieaufschlagsbereich ist mindestens
+40 mm Freiraum zu berücksichtigen, der bei Bedarf mit Polster sowie
+Lastverteiler gefüllt werden kann.</p></li>
+<li><p>Halter und Einbauten unterhalb der Lenksäule im Knieauftreff-
+sind zu vermeiden.</p></li>
+<li><p>Um ein Verschieben der Lenksäule über 80 mm im Crashfall zu
+ermöglichen, ist kon- struktiv in [redacted-person] ein Freiraum von
+mindestens 60 mm zwischen Lenkstock- schalterwurzel (siehe DGL) und
+Schalttafel vorzusehen (Basis: Lenksäuleneinstellung in der Mitte des
+Höhen- und Längsverstellbereiches).</p></li>
+<li><p>Um den Restlaufweg der Lenksäule von 20 mm zu gewährleisten, sind
+die Lenkstock- schalterhebel so auszulegen, dass sie bei Blockbildung
+mit der Schalttafel brechen oder wegklappen – zusätzlich sind ggfls.
+sogenannte Einlaufschrägen erforderlich.</p></li>
+<li><p>Lenkstockschalter, Lenkstockschalterverkleidung,
+Verriegelungshebel, Blenden und Bauteile im Umfeld sind so auszuführen,
+dass ein Verschieben der Lenksäule im Crash auch bei Aufstellen der
+Lenksäule um 3° nicht behindert wird. (d.h. z. [redacted-person] formationen der
+Ablage/des Kniefängers bei Eintauchen der Knie oder einer Interakti- on
+mit dem Kneebag-Modul während des Crashes sind zu beachten).</p></li>
+<li><p>[redacted-person] der Lenkstockschalterverkleidung an der Lenksäule
+ist so zu gestal- ten, dass keine harten Strukturen entstehen (Lastpfade
+🡪 keine Schraubdome vorse- hen) und eine robuste Führung während des
+Lenksäulenlaufens gewährleistet ist.</p></li>
+<li><p>[redacted-person] ist so anzuordnen, dass eine
+sicherheitsrelevante Interaktion mit dem sich entfaltenden Knieairbag
+verhindert wird.</p></li>
+</ul>
+<h2 id="lichtdrehschalter">Lichtdrehschalter</h2>
+<blockquote>
+<p>Bei der Entwicklung sind nachfolgende Punkte zu berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>Wenn der Lichtdrehschalter im Knieaufschlagsbereich liegt, dann
+muss er sich bei ei- ner Krafteinleitung von max. 2 kN mindestens 50 mm
+in die Schalttafel bewegen.</p></li>
+<li><p>Kanten und kontaktaggressive Flächen sind durch Abpolsterungen
+und geeignete An- formungen zu entschärfen.</p></li>
+</ul>
+<h2 id="zündanlassschloss">Zündanlassschloss</h2>
+<blockquote>
+<p>Bei der Entwicklung sind nachfolgende Punkte zu berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] ist außerhalb des Knieaufchlagsbereiches
+anzubringen.</p></li>
+<li><p>Eine schalttafelseitige Unterbringung mit teilweise
+Knieinteraktion ist nur möglich, wenn eine Verschiebbarkeit (50 mm)
+gewährleistet ist</p></li>
+<li><p>Bei der Anordnung des Zündanlassschlosses ist eine schädliche
+Interaktion eines Schlüsselanhängers mit dem sich öffnenden Kneebag zu
+vermeiden</p></li>
+</ul>
+<h2 id="sonstige-einbauten-bzw.-stellelemente">[redacted-person] bzw.
+Stellelemente</h2>
+<blockquote>
+<p>siehe <a href="#lichtdrehschalter">5.1.6</a> bis <a href="#zündanlassschloss">5.1.7</a></p>
+</blockquote>
+<h2 id="mittelkonsole">Mittelkonsole</h2>
+<blockquote>
+<p>Bei der Entwicklung sind nachfolgende Punkte zu berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] eines seitlichen Anstoßes des Unterschenkels
+durch die Mittelkon- sole ist deren Anbindung so zu wählen, dass eine
+Deformation von 80 mm der Stirn- wand im Übergangsbereich zum Tunnel
+nicht zu einem seitlichen Ausbeulen der Mit- telkonsole führt.</p></li>
+<li><p>Konstruktion von Zierleisten und Applikationen so, dass keine
+schädliche Interaktion mit dem Knieairbag stattfindet (siehe auch
+5.1.1)</p></li>
+<li><p>Bei der Auskonstruktion des Übergangs von Mittelkonsole zur
+Schalttafel ist Modifier- freiheit sicherzustellen, d. h. :</p>
+<ul>
+<li><p>Halter der Mittelkonsole sind außerhalb des
+Knieaufschlagbereiches anzu- bringen</p></li>
+<li><p>eine Knieeinweisung ist sicherzustellen</p></li>
+<li><p>liegt die Mittelkonsole bzw. deren Übergang in die Schalttafel im
+Knieauf- schlagbereich, so gilt für diese Zone die gleiche
+Auslegungsvorschrift wie für den normalen
+Schalttafel-Knieauftreffbereich (🡪 gegebenenfalls ge- meinsame
+Konzeptbewertung erforderlich bzw. Bewertung über CAD-
+Prüfkörper)</p></li>
+<li><p>Vermeidung von Steifigkeitssprüngen</p></li>
+<li><p>Fugenlage in Abstimmung mit Design und
+Fahrzeugsicherheit</p></li>
+</ul></li>
+</ul>
+<h2 id="übergang-türverkleidung-und-anbindung-i-tafel">[redacted-person] und Anbindung I-Tafel</h2>
+<ul>
+<li><p>[redacted-person] an der Türverkleidung sind so auszuführen, dass
+eine stabile Knie- einweisefunktion gewährleistet ist (kein Ausbeulen,
+kein Wegbrechen, …)</p></li>
+<li><p>🡪 gemeinsame Konzeptbewertung erforderlich bzw. Bewertung über
+CAD-Prüfkörper</p></li>
+<li><p>[redacted-person] der I-Tafel außen, türseitig an den Modulquerträger
+ist so zu gestalten, dass sich diese außerhalb des
+Knieaufschlagbereiches befindet (Freigang oder Knie-
+einweisung).</p></li>
+</ul>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>LAH (des jeweiligen Fahrzeuges) [redacted-person]
+LAH (des jeweiligen Fahrzeuges)</p>
+<p>🡪 LAH xxx.857.xx Entwicklungslastenheft LU Instrumententafel</p>
+<p>LAH LAH.DUM.880.BA Beifahrerairbag LAH (des jeweiligen Fahrzeuges)
+Knieairbag</p>
+<p>LAH (des jeweiligen Fahrzeuges) [redacted-person]</p>
+<p>LAH [redacted-phone]AD [redacted-person] zur
+ECE-R21 und FMVSS201 lower</p>
+<p>LAH [redacted-phone]J [redacted-person] Fahrzeugsi-
+cherheit</p>
+<p>[redacted]Entwicklungsbedingungen - [redacted-person]- gen</p>
+</blockquote>
+</body>
+</html>

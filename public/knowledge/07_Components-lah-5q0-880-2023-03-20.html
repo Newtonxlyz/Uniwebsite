@@ -1,0 +1,3954 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_5Q0_880_2023_03_20</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Verteiler</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Über KVS</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Konzernlastenhaft</p>
+<p>Seitenairbag</p>
+<p>V36.01_BT-LAH_Final_Basismodul-TE-V36_Nov. 2022</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Autor</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p>Friese, Oliver / [redacted-person], Daniel</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Abt./OE</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>EKSR / 1565</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Telefon</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>+49 5361 9 32551</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Mobil</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>+49 152 [redacted-phone]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Telefax</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>E-Mail</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+<p><em>[I: BT-LAH-941]</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Stand</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung der Änderung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Ersteller / Bearbeiter (Name, OE)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Neufassung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Aktualisierung 7. Tranche</p>
+</blockquote></td>
+<td><blockquote>
+<p>Friese / EKSR/4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Aktualisierung 5. [redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>Deppe / EKSR/4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Aktualisierung 8. Tranche</p>
+</blockquote></td>
+<td><blockquote>
+<p>Navarro / EKSR/4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Versionierung 8. Tranche</p>
+</blockquote></td>
+<td><blockquote>
+<p>Navarro / EKSR/4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>LAH Vorlage 36</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Perez / EKSR</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>2.6.3 Beschreibung der Muster</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>5.24 Qualitätssicherungsanforderungen</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>6.4.2 [redacted-person] Only</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>6.4.8 Gebrauchssicherheitsversuche</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>6.4.9 Versuche in der Umgebung</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Perez / EKSR</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#vorwort">Vorwort 6</a></p>
+<ol type="1">
+<li><p><a href="#allgemeine-anforderungen">[redacted-person]
+6</a></p></li>
+<li><p><a href="#_bookmark2">Vertraulichkeitshinweis 6</a></p></li>
+<li><p><a href="#_bookmark3">Informationsschutzanforderung
+6</a></p></li>
+</ol></li>
+<li><p><a href="#allgemeine-projektvorgaben">[redacted-person]
+7</a></p>
+<ol type="1">
+<li><p><a href="#kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges 7</a></p></li>
+<li><p><a href="#zielsetzung">Zielsetzung 7</a></p></li>
+<li><p><a href="#zuordnung-der-komponente">Zuordnung der Komponente
+7</a></p>
+<ol type="1">
+<li><p><a href="#zielfahrzeuge">Zielfahrzeug(e) 7</a></p></li>
+<li><p><a href="#_bookmark9">Einsatzort und Zielmarkt 7</a></p></li>
+<li><p><a href="#variantenmanagement">Variantenmanagement 7</a></p></li>
+</ol></li>
+<li><p><a href="#entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang 8</a></p></li>
+<li><p><a href="#angebotsumfang">Angebotsumfang 9</a></p></li>
+<li><p><a href="#entwicklungsablauf">Entwicklungsablauf 10</a></p>
+<ol type="1">
+<li><p><a href="#terminplan-und-meilensteine">Terminplan und
+Meilensteine 10</a></p></li>
+<li><p><a href="#_bookmark15">Metriken zur Projektverfolgung
+11</a></p></li>
+<li><p><a href="#_bookmark16">Musterstände und Musterstückzahlen
+12</a></p></li>
+<li><p><a href="#_bookmark17">Typprüfung und Zertifizierung
+14</a></p></li>
+</ol></li>
+<li><p><a href="#qualität-und-zuverlässigkeit">Qualität und
+Zuverlässigkeit 16</a></p>
+<ol type="1">
+<li><p><a href="#qualitätskonzepte">Qualitätskonzepte 16</a></p></li>
+<li><p><a href="#_bookmark20">Risikomanagement (FMEA und FTA)
+16</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark21">Fachbereichs- bzw. projektspezifische
+DMU-Richtlinien 17</a></p></li>
+<li><p><a href="#_bookmark22">Für [redacted-co] gilt: Anforderungen an Kenntnisse
+im Produktdaten-Management 17</a></p></li>
+<li><p><a href="#prioritäten-der-dokumente">Prioritäten der Dokumente
+17</a></p></li>
+</ol></li>
+<li><p><a href="#projektmanagement-und--organisation">Projektmanagement
+und -organisation 19</a></p>
+<ol type="1">
+<li><p><a href="#verantwortlichkeiten-im-projekt-und-projektstrukturplan">Verantwortlichkeiten
+im Projekt und Projektstrukturplan 19</a></p></li>
+<li><p><a href="#_bookmark26">Dokumentation 20</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark27">Mustermappe 20</a></p></li>
+<li><p><a href="#_bookmark28">Datenaustausch 21</a></p></li>
+<li><p><a href="#checklisten">Checklisten 21</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#systemumgebung">Systemumgebung 22</a></p>
+<ol type="1">
+<li><p><a href="#funktionale-systemumgebung">[redacted-person]
+22</a></p></li>
+<li><p><a href="#_bookmark32">[redacted-person] 22</a></p></li>
+<li><p><a href="#systemschaltbild">Systemschaltbild 22</a></p></li>
+</ol></li>
+<li><p><a href="#technische-anforderungen">[redacted-person]
+23</a></p>
+<ol type="1">
+<li><p><a href="#benennung-und-teilnummer">Benennung und Teilnummer
+23</a></p></li>
+<li><p><a href="#block--und-prinzipschaltbild">Block- und
+Prinzipschaltbild 23</a></p></li>
+<li><p><a href="#funktionen">Funktionen 23</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark38">Funktionsbeschreibung 23</a></p></li>
+<li><p><a href="#fehlbedienung">Fehlbedienung 23</a></p></li>
+<li><p><a href="#_bookmark40">Notbetrieb 24</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark41">Architektur 24</a></p></li>
+<li><p><a href="#steuergerätekonzept">Steuergerätekonzept
+24</a></p></li>
+<li><p><a href="#elektrische-schnittstellen">[redacted-person]
+24</a></p></li>
+<li><p><a href="#spezifische-kenndaten">[redacted-person]
+24</a></p></li>
+<li><p><a href="#sicherheitsanforderungen">Sicherheitsanforderungen
+24</a></p>
+<ol type="1">
+<li><p><a href="#personen--und-insassensicherheit">Personen- und
+Insassensicherheit 24</a></p></li>
+<li><p><a href="#fahrzeugsicherheit">Fahrzeugsicherheit 25</a></p></li>
+</ol></li>
+<li><p><a href="#alternativen-und-künftige-varianten">Alternativen und
+künftige Varianten 25</a></p></li>
+<li><p><a href="#gewichtsziele">Gewichtsziele 25</a></p></li>
+<li><p><a href="#_bookmark50">Einbau 25</a></p>
+<ol type="1">
+<li><p><a href="#einbauorte-und-einbaulage">Einbauorte und Einbaulage
+25</a></p></li>
+<li><p><a href="#_bookmark52">Montagekonzept 25</a></p></li>
+<li><p><a href="#geometrie">Geometrie 26</a></p></li>
+<li><p><a href="#_bookmark54">Toleranzen 27</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark55">Formgestaltung und Design 27</a></p></li>
+<li><p><a href="#ergonomie">Ergonomie 27</a></p>
+<ol type="1">
+<li><p><a href="#optik-und-haptik">Optik und Haptik 27</a></p></li>
+<li><p><a href="#_bookmark58">Akustik 27</a></p></li>
+<li><p><a href="#_bookmark59">Handling 28</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark60">[redacted-person]
+28</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark61">Polymere 28</a></p></li>
+<li><p><a href="#schmelzwerkstoffe-hotmelts">Schmelzwerkstoffe
+(Hotmelts) 29</a></p></li>
+<li><p><a href="#betriebsstoffe-im-zusammenbau">Betriebsstoffe im
+Zusammenbau 29</a></p></li>
+<li><p><a href="#_bookmark64">Materialverbot 29</a></p></li>
+</ol></li>
+<li><p><a href="#medienbeständigkeit-und-chemische-anforderungen">Medienbeständigkeit
+und chemische Anforderungen 29</a></p>
+<ol type="1">
+<li><p><a href="#sauberkeitsanforderungen">Sauberkeitsanforderungen
+29</a></p></li>
+<li><p><a href="#reinigung">Reinigung 30</a></p></li>
+<li><p><a href="#_bookmark68">Korrosionsschutz 30</a></p></li>
+<li><p><a href="#_bookmark69">Schutzklassen 30</a></p></li>
+<li><p><a href="#kühlmittelführend">Kühlmittelführend 30</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark71">Umweltverträglichkeit 30</a></p>
+<ol type="1">
+<li><p><a href="#werkstoffauswahl">Werkstoffauswahl 30</a></p></li>
+<li><p><a href="#recyclingkonzept">Recyclingkonzept 30</a></p></li>
+<li><p><a href="#_bookmark74">Ökobilanz 33</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark75">[redacted-person] 33</a></p>
+<ol type="1">
+<li><p><a href="#last">Last 33</a></p></li>
+<li><p><a href="#schwingungsverhalten">Schwingungsverhalten
+33</a></p></li>
+<li><p><a href="#steifigkeit-und-federeigenschaften">Steifigkeit und
+Federeigenschaften 33</a></p></li>
+<li><p><a href="#verformung-und-deformation">Verformung und Deformation
+34</a></p></li>
+<li><p><a href="#_bookmark80">Druck 34</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark81">Lebensdauer 34</a></p></li>
+<li><p><a href="#elektrische-anforderungen">[redacted-person]
+34</a></p>
+<ol type="1">
+<li><p><a href="#beschreibung-der-allgemeinen-anforderungen">Beschreibung der
+allgemeinen Anforderungen 34</a></p></li>
+<li><p><a href="#elektrische-komponenten-von-pyrotechnischen-einheiten">[redacted-person] von pyrotechnischen Einheiten 34</a></p></li>
+<li><p><a href="#_bookmark85">[redacted-person] für pyrotechnische
+Systeme 34</a></p></li>
+</ol></li>
+<li><p><a href="#klimatische-anforderungen">[redacted-person]
+35</a></p></li>
+<li><p><a href="#kundendienst--und-after-sales-anforderungen">Kundendienst- und
+After-Sales-Anforderungen 35</a></p>
+<ol type="1">
+<li><p><a href="#kundendienstanforderung">Kundendienstanforderung
+35</a></p></li>
+<li><p><a href="#after-sales-anforderungen">After-Sales-Anforderungen
+35</a></p></li>
+</ol></li>
+<li><p><a href="#transportschutz">Transportschutz 35</a></p></li>
+<li><p><a href="#logistikanforderungen">Logistikanforderungen 35</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark92">Verpackung 36</a></p></li>
+<li><p><a href="#_bookmark93">Teileschutz 36</a></p></li>
+<li><p><a href="#_bookmark94">Gefahrgut 36</a></p></li>
+</ol></li>
+<li><p><a href="#qualitätssicherungsanforderungen">Qualitätssicherungsanforderungen
+37</a></p></li>
+<li><p><a href="#_bookmark96">Anforderungen an das ZSB Seitenairbagmodul
+37</a></p></li>
+<li><p><a href="#_bookmark97">Anforderungen an den Luftsack
+38</a></p></li>
+<li><p><a href="#anforderungen-an-den-gasgenerator">Anforderungen an den
+Gasgenerator 38</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark99">Treibstoff / Pyrotechnik 39</a></p></li>
+<li><p><a href="#prüfmethoden">Prüfmethoden 40</a></p></li>
+</ol></li>
+<li><p><a href="#zündzeiten">Zündzeiten 40</a></p></li>
+</ol></li>
+<li><p><a href="#anforderungen-an-erprobung">Anforderungen an Erprobung
+42</a></p>
+<ol type="1">
+<li><p><a href="#prüfmittel-erprobungsträger">Prüfmittel /
+Erprobungsträger 42</a></p></li>
+<li><p><a href="#erfüllungsnachweise">Erfüllungsnachweise
+43</a></p></li>
+<li><p><a href="#_bookmark105">Erprobungsplan 43</a></p>
+<ol type="1">
+<li><p><a href="#p-freigabe">P-Freigabe 44</a></p></li>
+<li><p><a href="#_bookmark107">B-Freigabe 44</a></p></li>
+<li><p><a href="#bmg--und-k-freigabe">BMG- und K-Freigabe
+45</a></p></li>
+</ol></li>
+<li><p><a href="#prüfungen">Prüfungen 45</a></p>
+<ol type="1">
+<li><p><a href="#dauerversuch">Dauerversuch 46</a></p></li>
+<li><p><a href="#standversuche-modul-only">[redacted-person] only
+46</a></p></li>
+<li><p><a href="#_bookmark112">[redacted-person] 46</a></p></li>
+<li><p><a href="#_bookmark113">Out of Position 46</a></p></li>
+<li><p><a href="#komponentenversuche-beengter-raum">Komponentenversuche
+(beengter Raum) 46</a></p></li>
+<li><p><a href="#_bookmark115">Schlittenversuche 47</a></p></li>
+<li><p><a href="#umweltsimulation">Umweltsimulation 47</a></p></li>
+<li><p><a href="#_bookmark117">Fallturm-/Linearimpaktor-/Pendelversuche
+47</a></p></li>
+<li><p><a href="#_bookmark118">Gebrauchssicherheitsversuche
+47</a></p></li>
+<li><p><a href="#versuche-in-der-umgebung">Versuche in der Umgebung
+49</a></p></li>
+<li><p><a href="#_bookmark120">Crashversuche 49</a></p></li>
+</ol></li>
+<li><p><a href="#testparameter-und-zyklen">Testparameter und Zyklen
+50</a></p></li>
+<li><p><a href="#_bookmark122">Beschaffenheit des zu testenden
+Musterstandes 50</a></p></li>
+<li><p><a href="#_bookmark123">Betriebszustände 50</a></p></li>
+<li><p><a href="#_bookmark124">[redacted-person] und Simulation
+50</a></p></li>
+<li><p><a href="#fahrzeugerprobung">Fahrzeugerprobung 51</a></p></li>
+</ol></li>
+<li><p><a href="#definitionen-begriffe-abkürzungen">Definitionen,
+Begriffe, Abkürzungen 52</a></p>
+<ol type="1">
+<li><p><a href="#begriffe">Begriffe 52</a></p></li>
+<li><p><a href="#_bookmark128">Abkürzungen 52</a></p></li>
+</ol></li>
+<li><p><a href="#mitgeltende-unterlagen">[redacted-person]
+55</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark130">Zeichnungen, Pläne, Skizzen;
+Variantenbaum 55</a></p></li>
+<li><p><a href="#_bookmark131">[redacted-person]
+56</a></p></li>
+<li><p><a href="#typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen,
+Vorschriften, Gesetze 58</a></p></li>
+<li><p><a href="#_bookmark133">Querschnittslastenhefte 58</a></p></li>
+<li><p><a href="#zu-beachtende-schutzrechte-und-lizenzen">Zu beachtende
+Schutzrechte und Lizenzen 59</a></p></li>
+<li><p><a href="#sonstige-unterlagen">[redacted-person]
+59</a></p></li>
+</ol></li>
+</ol>
+<h1 id="vorwort">Vorwort</h1>
+<p><em>[I: BT-LAH-4]</em></p>
+<blockquote>
+<p>Das vorliegende Bauteil-Lastenheft (BT-LAH) ist angelehnt an die
+Struktur des VDA-Komponen- tenlastenheftes Modul 2 (<a href="http://www.vda-qmc.de/"><u>www.vda-qmc.de</u></a>) und beschreibt
+komponentenspezifische Anforderun- gen. Das VDA-Modul 1 wird durch die
+[redacted-co]99000 abgebildet und beschreibt komponentenüber- greifende allgemeine
+Anforderungen zur Leistungsbringung im Rahmen der
+Bauteilentwicklung.</p>
+</blockquote>
+<p><em>[I: BT-LAH-13]</em></p>
+<blockquote>
+<p>Die vom Auftragnehmer zu erfüllenden Anforderungen sind in der
+Identifikationsnummer (z. B: [A: BT-LAH-1]) grundsätzlich durch ein "A"
+gekennzeichnet. Textteile, die durch ein "I" gekennzeichnet sind, sind
+Informationen zum besseren Verständnis des BT-LAH. Gibt es keine
+Identifikationsnum- mer oder keine Kennzeichnung mit "A" bzw. "I", so
+handelt es sich ebenfalls um eine Anforderung.</p>
+</blockquote>
+<h2 id="allgemeine-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p><em>[A: BT-LAH-5]</em></p>
+<p><strong>Das vorliegende Bauteil-Lastenheft und die Norm [redacted-co]99000
+inkl. Teil 1 bis Teil 4 sind zu- sammen Grundlage des zu erbringenden
+Leistungsumfanges des Auftragnehmers.</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH-6]</em></p>
+<blockquote>
+<p>Dieses BT-LAH beschreibt Leistungen, Anforderungen, Prüf- und
+Erprobungsbedingungen, die das zu entwickelnde Produkt und der
+Auftragnehmer erfüllen müssen.</p>
+<p>Der fahrzeugspezifische Anhang und die jeweiligen Anfragezeichnungen
+bzw. Anfrageblätter sind Bestandteil des Lastenhefts.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><strong>[redacted-person]</strong>: vertraulich</p></li>
+</ol>
+<blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] vorbehalten. Weitergabe oder Vervielfältigung ohne
+vorherige schriftliche Zustimmung des Fachbereiches der [redacted-person] verboten. Vertragspartner erhalten dieses Dokument
+nur über die zuständige Beschaffungsabteilung.</p>
+<p>© [redacted-person]</p>
+</blockquote>
+<h2 id="informationsschutzanforderung">Informationsschutzanforderung</h2>
+<blockquote>
+<p><strong>Projektkategorie</strong>: 25</p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Informationen ab der Klassifizierung „vertraulich“ stellen
+Geschäftsgeheimnisse im Sinne des Ge- setzes zum Schutz von
+Geschäftsgeheimnissen dar.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] ist verpflichtet, bei Informationen ab der
+Klassifizierung „vertraulich“ dem Auftrag- geber einen Nachweis des
+Informationsschutzes gemäß VDA ISA mit einem entsprechenden TISAX-
+Zertifikat vorzulegen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] hat dem Auftraggeber folgende TISAX-Zertifikate
+vorzulegen/nachzuweisen: info high, proto parts, proto vehicles</p>
+</blockquote>
+<h1 id="allgemeine-projektvorgaben">[redacted-person]</h1>
+<h2 id="kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges</h2>
+<blockquote>
+<p>[redacted-person] beschreibt die Entwicklung des ZSB Seitenairbag auf
+Modulebene, sowie die In- tegration in ZSB Sitz und Fahrzeugumgebung.
+Die in diesem Lastenheft und in den [redacted-person]
+beschriebenen Spezifikationen und Anforderungen sind zu den jeweiligen
+Freigaben nachzuweisen. [redacted-person] hierzu liegt beim
+Auftragnehmer.</p>
+<p>Bei der Entwicklung des Seitenairbags sind sämtliche relevanten
+Gesetzesanforderungen, Consu- mertest, siehe fahrzeugspezifischen Anhang
+„Typprüfunterlagen, Vorschriften, Gesetze“, und An- forderungen der
+Fachabteilung einzuhalten.</p>
+<p>Falls der Auftragnehmer ebenfalls für die Entwicklung des ZSB
+Kopfairbag und/ oder ZSB- Cen- terairbag nominiert ist, ist er
+verpflichtet die Airbags auf eine optimale biomechanische Belastung des
+Dummys abzustimmen.</p>
+<p>Für [redacted-co] gilt: Sitzintegration werden nicht an den SAB-Lieferanten
+mitvergeben.</p>
+</blockquote>
+<h2 id="zielsetzung">Zielsetzung</h2>
+<blockquote>
+<p>[redacted-person] ist ein ZSB Seitenairbag der bei einer robusten
+und reproduzierbaren Entfal- tung die geforderten Spezifikationen
+erfüllt. Die vereinbarten Projekttermine wie z. [redacted-person] Freigabe, B-
+Freigabe, BMG sind durch den Auftragnehmer sicherzustellen.</p>
+</blockquote>
+<h2 id="zuordnung-der-komponente">Zuordnung der Komponente</h2>
+<h2 id="zielfahrzeuge">Zielfahrzeug(e)</h2>
+<blockquote>
+<p>Bezeichnung des Zielfahrzeuges: Siehe fahrzeugspezifischer [redacted-person]:
+Siehe fahrzeugspezifischer Anhang</p>
+</blockquote>
+<h2 id="einsatzort-und-zielmarkt">Einsatzort und Zielmarkt</h2>
+<blockquote>
+<p>Zielmarkt: [redacted-person] Anhang</p>
+</blockquote>
+<h2 id="variantenmanagement">Variantenmanagement</h2>
+<blockquote>
+<p><em>[A: BT-LAH-21]</em></p>
+<p><em>[A: BT-LAH-22]</em></p>
+<p><em>[A: BT-LAH-25]</em></p>
+<p><em>[A: BT-LAH-916]</em></p>
+<p>[redacted-person] sind dem [redacted-person] bzw. dem
+Variantenbaum der Anfrage zu entnehmen. Varianten dürfen nach Absprache
+mit der Fachabteilung der technischen Entwicklung zusammengefasst
+werden. [redacted-person] hat schriftlich zu erfolgen.</p>
+</blockquote>
+<h2 id="entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang</h2>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-936]</em></p>
+<p>Es gelten die Anforderungen der Konzeptverantwortungsvereinbarung.
+Für das / die Bauteil(e) gilt folgende Konzept-Verantwortungs-Quote:
+90%</p>
+<p>[redacted-person] des ZSB Seitenairbag erfolgt auf Grundlage der [redacted-co]99000 „Übergreifen-de An- forderungen zur Leistungserbringung im Rahmen
+der Bauteilentwicklung“</p>
+<p>[redacted-person]- und Lieferumfang des ZSB Seitenairbag gehören alle
+Elementen, die zur Er- füllung der Anforderungen aus diesem Lastenheft,
+den mitgeltenden Unterlagen und Anfragezeich- nungen benötigt
+werden.</p>
+<p>[redacted-person] des ZSB Seitenairbag endet mit der Erteilung der BMG
+und K-Freigabe der letzten Anlaufstufe durch den Auftraggeber. Bis zu
+diesem Zeitpunkt sind sämtliche Änderungen, die zur Erfüllung der
+Anforderungen aus Lastenheften, mitgeltenden Unterlagen,
+Anfragezeichnungen und 3D- Modellen benötigt werden, für den
+Auftraggeber voll-ständig kostenneutral.</p>
+<p>[redacted-person] des ZSB Seitenairbag erfolgt in enger Zusammenarbeit
+und Abstimmung mit an- deren Systemlieferanten. Alle hierzu notwendigen
+Arbeiten, der Informationsaustausch und das Einberufen von Besprechungen
+sind durch den Auftragnehmer selbstständig durchzuführen.</p>
+<p>Alle für die Entwicklung benötigten TL‘s und Normen sind
+selbstständig einzuholen. [redacted-person] sind vom Auftragnehmer
+zu erstellen und ggf. zu modifizieren.</p>
+<p>Bis zum Abschluss der Entwicklung sind vom Auftragnehmer regelmäßige
+Technikrunden einzu- berufen. [redacted-person] und Teilnehmerkreis ist mit dem
+Auftraggeber abzustimmen. [redacted-person]- und Nachbearbeitung dieser Termine
+erfolgt durch den Auftragnehmer. Präsentationen, Terminpläne und
+Protokolle sind dem Auftraggeber unmittelbar nach der Technikrunde zur
+Verfügung zu stellen.</p>
+<p>Nach negativen Versuchsergebnissen sind Lösungsansätze zur Erfüllung
+sämtlicher Anforderun- gen eigenverantwortlich am ZSB- Seitenairbag
+aufzuzeigen und auf Wunsch des Auftraggebers vor Wiederholversuch durch
+Simulationen zu überprüfen. [redacted-person] sind innerhalb von 3
+Wochen nach Auftreten eines negativen Ergebnisses durchzuführen.</p>
+<p>Versuchsdaten wie Filme, Videos und Diagramme sind am nächsten
+Arbeitstag dem Auftraggeber zur Verfügung zu stellen. Am Tag der
+Versuchsdurchführung ist das Ergebnis in Kurzform dem Auftraggeber
+schriftlich mitzuteilen.</p>
+<p>Für die Entwicklung benötigte Umgebungsdaten sind durch den
+Auftragnehmer über KVS und/oder Connect zu beschaffen.</p>
+<p>[redacted-person] ist der Treiber für das „[redacted-person]“.
+Vorgaben für den Sitz werden vom Auftragnehmer erstellt. [redacted-person] unterstützt bei der Abstimmung dieser Vorgaben mit den
+entsprechenden Fachabteilungen.</p>
+</blockquote>
+<h2 id="angebotsumfang">Angebotsumfang</h2>
+<blockquote>
+<p><em>[A: BT-LAH-33]</em></p>
+<p>[redacted-person] verpflichtet sich, alle Anforderungen dem Angebot
+als vereinbarte Beschaffen- heit zugrunde zu legen. Abweichungen vom
+BT-LAH sind dem Angebot beizufügen und zu doku- mentieren.</p>
+</blockquote>
+<p><em>[I: BT-LAH-837]</em></p>
+<blockquote>
+<p>[redacted-person] eines Auftragnehmers muss dieser nach den konzernweit
+abgestimmten Bewer- tungskriterien des Auftraggebers (bauteilbezogene
+Beurteilung von Entwicklungspartnern) audi- tiert und zugelassen
+sein.</p>
+</blockquote>
+<p><em>[A: BT-LAH-34]</em></p>
+<blockquote>
+<p>Mit dem Angebot sind vom Auftragnehmer folgende Unterlagen den
+technischen oder zuständigen Fachabteilungen des Auftraggebers zur
+Prüfung vorzulegen:</p>
+</blockquote>
+<p><em>[A: BT-LAH-35]</em></p>
+<ul>
+<li><p>[redacted-person] muss die Liste der offenen Punkte und
+Abweichungen vom BT-LAH (analog zur Struktur des BT-LAH) mit den
+Angebotsunterlagen dem Auftraggeber zur Verfügung stellen.</p></li>
+</ul>
+<p><em>[A: BT-LAH-36]</em></p>
+<ul>
+<li><p>[redacted-person] muss das Pflichtenheft mit den
+Angebotsunterlagen dem Auftragge- ber zur Verfügung stellen.</p></li>
+</ul>
+<p><em>[A: BT-LAH-930]</em></p>
+<blockquote>
+<p>[redacted-person] muss das Pflichtenheft in folgendem Dateiformat
+aushändigen: PDF</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p>[redacted-person] muss den Erfahrungsnachweis aus ähnlichen
+Projekten mit den An- gebotsunterlagen dem Auftraggeber zur Verfügung
+stellen.</p></li>
+</ul>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p>[redacted-person] muss den Nachweis über ausreichende
+Entwicklungskompetenz bzw. Entwicklungskapazitäten mit den
+Angebotsunterlagen dem Auftraggeber zur Verfü- gung stellen.</p></li>
+</ul>
+<p><em>[I: BT-LAH-38]</em></p>
+<ul>
+<li><p>Die ausreichende Entwicklungskapazität ist durch den Bericht des
+letzten TE-[redacted-co]ts und eine Entwicklungs-Kapazitätsplanung über
+Projektlaufzeit, die auch Engpässe bei ande- ren Aufträgen des
+Auftragnehmers berücksichtigt, aufzuzeigen.</p></li>
+</ul>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p>[redacted-person] muss den Nachweis über die geforderte
+Ausrüstung im Versuch, La- bor, CAD-Bereich mit den Angebotsunterlagen
+dem Auftraggeber zur Verfügung stellen.</p></li>
+</ul>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p>[redacted-person] muss den Erfahrungsnachweis im Prototypenbau
+(insbesondere bei sicherheitskritischen Bauteilen) mit den
+Angebotsunterlagen dem Auftraggeber zur Ver- fügung stellen.</p></li>
+</ul>
+<p><em>[A: BT-LAH-41]</em></p>
+<ul>
+<li><p>[redacted-person] muss den Projektstrukturplan gemäß [redacted-co]99000 mit
+den Angebots- unterlagen dem Auftraggeber zur Verfügung
+stellen.</p></li>
+</ul>
+<p><em>[A: BT-LAH-42]</em></p>
+<ul>
+<li><p>[redacted-person] muss den Projektterminplan gemäß [redacted-co]99000 mit
+den Angebotsun- terlagen dem Auftraggeber zur Verfügung
+stellen.</p></li>
+</ul>
+<p><em>[A: BT-LAH-43]</em></p>
+<ul>
+<li><p>[redacted-person] muss das Montage- und Befestigungskonzept mit
+den Angebotsun- terlagen dem Auftraggeber zur Verfügung
+stellen.</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-44]</em></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] muss die Angaben zum Eigen- und Fremdanteil der
+Entwicklungsak- tivitäten mit den Angebotsunterlagen dem Auftraggeber
+zur Verfügung stellen.</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] muss die Angaben zum Eigen- und Fremdanteil der
+Produktionsaktivitäten mit den Angebotsunterlagen dem Auftraggeber zur
+Verfügung stellen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-45]</em></p>
+<ul>
+<li><p>[redacted-person] muss den Erprobungsplan/Testmanagement mit den
+Angebotsunter- lagen dem Auftraggeber zur Verfügung stellen.</p></li>
+</ul>
+<p><em>[A: BT-LAH-46]</em></p>
+<ul>
+<li><p>Werkstoffkonzept aller Einzelbauteile (nur Werkstoffe, keine
+Reinstoffangaben erforder- lich)</p></li>
+</ul>
+<p><em>[A: BT-LAH-49]</em></p>
+<ul>
+<li><p>[redacted-person] durchzuführende Simulationen</p></li>
+<li><p>15 zündfähige [redacted-person]</p></li>
+<li><p>Simulationsmodell des ZSB Seitenairbag nach LAH.DUM.880.EM
+validiert.</p></li>
+<li><p>[redacted-person] der Unterlieferanten mit
+Fertigungsstätte</p></li>
+<li><p>Bauteileverfügbarkeit</p></li>
+</ul>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Es ist der Nachweis zu erbringen, dass das in Kapitel "2.9
+Anforderungen an Kenntnisse im Pro- duktdaten-Management" geforderte
+Anforderungsprofil bereits erfüllt ist oder zum Zeitpunkt der
+Beauftragung erfüllt sein wird, z. [redacted-person] entsprechende
+Qualifizierungsnachweise.</p>
+<p>Der zu erbringende Leistungsumfang des Auftragnehmers nach <a href="#allgemeine-anforderungen">1.1</a> <a href="#allgemeine-anforderungen">[redacted-person]</a> auf den
+Teilepreis umgelegten Kosten sind im Angebot detailliert
+auszuweisen.</p>
+</blockquote>
+<h2 id="entwicklungsablauf">Entwicklungsablauf</h2>
+<h2 id="terminplan-und-meilensteine">Terminplan und Meilensteine</h2>
+<p><em>[I: BT-LAH-59]</em></p>
+<blockquote>
+<p>Der aktuelle Terminplan wird von der Beschaffung des Auftraggebers
+den Anfrageunterlagen bei- gefügt.</p>
+</blockquote>
+<p><em>[A: BT-LAH-60]</em></p>
+<blockquote>
+<p>Folgende vom Auftraggeber vorgegebenen Termine sind vom Auftragnehmer
+nach [redacted-co]99000 im Projektterminplan zu berücksichtigen.</p>
+</blockquote>
+<ul>
+<li><p>KW x : Verfügbarkeit A-Muster</p></li>
+<li><p>KW x : 3D-CAD-Datensatz</p></li>
+<li><p>KW x : [redacted-person]</p></li>
+<li><p>KW <strong>x</strong> : DDKM ([redacted-person]-Kontroll-Modell)</p></li>
+<li><p>KW <strong>x</strong> : Verfügbarkeit B-Muster</p></li>
+<li><p>KW <strong>x</strong> : Verfügbarkeit C-Muster</p></li>
+<li><p>KW <strong>x</strong> : Erstmuster</p></li>
+<li><p>KW <strong>x</strong> : Erstmuster-Prüfbericht</p></li>
+<li><p>KW <strong>x</strong> : Typprüfungsunterlagen (z. [redacted-person]'s,
+CCC,...)</p></li>
+<li><p>KW <strong>x</strong> : Baumustergenehmigung</p></li>
+<li><p>KW <strong>x</strong> : P-Freigabetermin</p></li>
+<li><p>KW <strong>x</strong> : B-Freigabetermin</p></li>
+<li><p>KW <strong>x</strong> : 2-Tagesproduktion</p></li>
+<li><p>KW <strong>x</strong> : SOP</p></li>
+</ul>
+<p><em>[A: BT-LAH-62]</em></p>
+<p><em>[A: BT-LAH-63]</em></p>
+<p><em>[A: BT-LAH-917]</em></p>
+<p><em>[A: BT-LAH-918]</em></p>
+<p><em>[A: BT-LAH-64]</em></p>
+<p><em>[A: BT-LAH-65]</em></p>
+<p><em>[A: BT-LAH-66]</em></p>
+<p><em>[A: BT-LAH-67]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH-68]</em></p>
+<p><em>[A: BT-LAH-919]</em></p>
+<p><em>[A: BT-LAH-920]</em></p>
+<p><em>[A: BT-LAH-69]</em></p>
+<p><em>[A: BT-LAH-70]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Für allgemein bauartgenehmigungspflichtige Bauteile (ABG) sind vom
+[redacted-person]- gungsdokumente inkl. Testreport (z. [redacted-person] ECE,
+CCC, Taiwan) an den jeweiligen bauteileverant- wortlichen Konstrukteur
+zu liefern, der es an die Typprüfabteilung der Marke (siehe auch [redacted-co]01155) weiterleitet.</p>
+</blockquote>
+<h2 id="metriken-zur-projektverfolgung">Metriken zur
+Projektverfolgung</h2>
+<blockquote>
+<p><em>[A: BT-LAH-73]</em></p>
+<p>[redacted-person] liefert im Rahmen der Fortschrittsberichte die
+erforderlichen Daten für folgende Metriken:</p>
+</blockquote>
+<ul>
+<li><p>Meilensteintrendanalyse basierend auf den vereinbarten
+Meilensteinen</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-74]</em></p>
+<p><em>[A: BT-LAH-75]</em></p>
+</blockquote>
+<ul>
+<li><p>Vergleich der geplanten und der tatsächlichen Dauer der
+Aktivitäten und Arbeitspakete basierend auf dem
+Projektterminplan</p></li>
+</ul>
+<p><em>[A: BT-LAH-76]</em></p>
+<ul>
+<li><p>Fehlerverfolgung inkl. Priorisierung und
+Bearbeitungsstatus</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-77]</em></p>
+<p>Weitere projektspezifische technische Metriken, die kritische Aspekte
+messen, werden zwischen den
+Projektverantwortlichen des Auftragnehmers und des Auftraggebers
+abgestimmt.</p>
+</blockquote>
+<h2 id="musterstände-und-musterstückzahlen">Musterstände und
+Musterstückzahlen</h2>
+<ul>
+<li><p><strong>x -</strong> Teile für Funktionsprüfungen</p></li>
+</ul>
+<p><em>[A: BT-LAH-83]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p><strong>x</strong> - Teile für Gesamtintegrationstest (inklusive
+der Teile für Verbauvorschrift, HILs, Refe- renzfahrzeug und weitere
+Prüforte)</p></li>
+<li><p><strong>x</strong> - Teile für Einbauuntersuchungen</p></li>
+<li><p><strong>x</strong> - Teile für Kundendienstlösungen</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-84]</em></p>
+<p><em>[A: BT-LAH-85]</em></p>
+<p><em>[A: BT-LAH-86]</em></p>
+</blockquote>
+<ul>
+<li><p><strong>x -</strong> Teile für Erprobungen (z. [redacted-person], Korrosion, Festigkeit, Akustik)</p></li>
+</ul>
+<p><em>[A: BT-LAH-87]</em></p>
+<ul>
+<li><p><strong>x -</strong> Teile für Fahrversuch</p></li>
+<li><p><strong>x</strong> - Teile für Dauererprobungen</p></li>
+<li><p><strong>x -</strong> Teile für Fahrzeugdauerlauf</p></li>
+<li><p><strong>x</strong> - Teile für Laboranalyse</p></li>
+<li><p><strong>x</strong> - Teile für Vorbau/Vorderwagen</p></li>
+<li><p><strong>x</strong> - Teile für Unterflurmodelle</p></li>
+</ul>
+<p><em>[A: BT-LAH-88]</em></p>
+<p><em>[A: BT-LAH-89]</em></p>
+<p><em>[A: BT-LAH-90]</em></p>
+<p><em>[A: BT-LAH-922]</em></p>
+<p><em>[A: BT-LAH-923]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p><strong>x</strong> - Teile für [redacted-person]-Matrix-Code (die
+Lesbarkeit und der Inhalt des Codes müssen verifi- ziert werden; die
+Musterteile sind der Qualitätssicherung des Auftraggebers kostenlos zur
+Verfü- gung zu stellen.)</p>
+</blockquote>
+<p><em>[A: BT-LAH-93]</em></p>
+<blockquote>
+<p>[redacted-person] von Mustern sind die Musterstände für ZSB bzw. Systeme,
+Einzelteile, Komponenten mit dem Auftraggeber abzustimmen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-94]</em></p>
+<blockquote>
+<p>[redacted-person] muss mit dem aktuellen Stand (HW, SW, EEPROM,
+Mechanik) gekennzeichnet werden.</p>
+</blockquote>
+<p><em>[A: BT-LAH-838]</em></p>
+<blockquote>
+<p>[redacted-person] von 3D-CAD-Daten (digitaler Prototyp) hat zu einem
+definierten Zeitpunkt vor Liefe- rung der Musterteile zu erfolgen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-80]</em></p>
+<blockquote>
+<p>Mindestens für alle geplanten Baustufen und Erprobungsfahrzeuge ist
+jeweils ein [redacted-person] anzuliefern.</p>
+<p><em>[I: BT-LAH-839]</em></p>
+<p>[redacted-person] über Fahrzeug-Anzahl und Aufbautermin (virtuell und
+physisch) sind unter Ab- schnitt "Terminplan und Meilensteine"
+festgelegt bzw. dem Prototypenbauplan zu entnehmen.</p>
+<p><em>[A: BT-LAH-924]</em></p>
+<p>Zu berücksichtigen sind auch Musterteile für Vorbau/Vorderwagen und
+Unterflurmodelle, falls packagerelevante Änderungen (laut [redacted-co]99000
+Kapitel "Änderungsmanagement") an dort verbau- ten Bauteilen vorgenommen
+werden.</p>
+</blockquote>
+<p><em>[I: BT-LAH-925]</em></p>
+<blockquote>
+<p>[redacted-person] können sein:</p>
+</blockquote>
+<ul>
+<li><p>Geometrieänderungen</p></li>
+<li><p>Schlauchmarkierungen</p></li>
+<li><p>Wechsel des Werkzeugentwicklungsstandes (Prototypen-Werkzeug,
+Serien-Werkzeug)</p></li>
+</ul>
+<p><em>[A: BT-LAH-91]</em></p>
+<blockquote>
+<p>Die genannte Anzahl an Musterteilen ist Bestandteil des
+Entwicklungsumfangs und muss vom Auf- tragnehmer in den
+Entwicklungskosten berücksichtigt werden. Die genannten Musterteile sind
+dem Auftraggeber ohne zusätzliche Berechnung und frei Haus
+anzuliefern.</p>
+<p>Für die Entwicklung des ZSB Seitenairbag sind je angefragter Projekt
+mindestens Musterteile nach folgender Tabelle an die zuständige
+Fachabteilung kostenlos zu liefern:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Baustufe</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>[redacted-person] SAB</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>[redacted-person] KTAB</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>[redacted-person] SAB hinten</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>A-Muster</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>B-Muster</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>200</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>200</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>100</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-Muster</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>300</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>300</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>150</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[redacted-person] der bestellten Musterteile erfolgt frei Haus innerhalb
+einer Woche an die bei der Bestellung angegebene Adresse. Musterteile
+können mit inerten, nominalen oder Grenzlastmo- dule (Gasgeneratoren,
+Luftsackgroße, Nähte, Faltung, Package, usw.) bestellt werden. [redacted-person] des Auftraggebers sind die Module mit einem Anschluss zur
+Druckmessung und / oder eine Markierung auf dem Luftsack (z.[redacted-person])
+kostenfrei auszustatten.</p>
+<p>Über die o. [redacted-person] hinaus können ZSB Seitenairbagairbag von
+Versuchsbau oder Vorserienlo- gistik bestellt werden. [redacted-person] sind
+bis zur Erteilung einer Freigabe durch die Fachabteilung inert zu
+liefern.</p>
+<p>[redacted-person] werden mit einem Barcode für Bauzustandsdokumentation
+gekennzeichnet. [redacted-person] liegt der gleiche Prozess zugrunde,
+wie bei Serienteile. Vorgabe für den Barcode ist die VW-Norm 01064 mit
+dem Dateninhalt:</p>
+</blockquote>
+<blockquote>
+<p>[redacted-person] zur Bauzustandsdokumentation bei Serienteilen
+ist, dass die 7-stelige Serien- nummer mit 7 mal X ausgefüllt wird.
+Beispiel: HHHXXXXXXXP.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Für die Prototypenbauteile wird zusätzlich zum Barcode eine
+Kennzeichnung mit einem RFID- Transponder nach [redacted-co]01067 „Einsatz von
+Auto-ID zur eindeutigen Objektkennzeichnung“ gefor- dert.</p>
+<p>[redacted-person] ist mit der Fachabteilung abzustimmen (Luftsackstand,
+Gasgeneratorcharge, Kompo- nenten OGL/UGL, usw.)</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] übernimmt das Beschaffen, Beschreiben und Montieren
+der Transponder, so- wie die elektronische Bereitstellung des
+geforderten Dokumentationsumfangs.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] überträgt dem Auftragnehmer die Pflicht, die
+Musterteile/ -stände vollständig und korrekt nach dem Abschluss der
+notwendigen Tätigkeiten zu entsorgen. Dabei muss durch den Auftragnehmer
+sichergestellt werden, dass die Teile dokumentiert sortenrein
+geschreddert wer- den.</p>
+</blockquote>
+<h2 id="typprüfung-und-zertifizierung">Typprüfung und
+Zertifizierung</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] muss Fahrzeugteile und [redacted-person] (z. [redacted-person], After-[redacted-person], Zubehörteile), welche nach weltweiten
+Gesetzen, z. [redacted-person], ECE, UKCA, EG, Inmetro, eine
+Bauartgenehmigung und/oder einen Konformitätsnachweis benötigen,
+abhängig vom Ein- satzort/Zielmarkt und Fahrzeugmodell zertifizieren (z.
+[redacted-person]) und/oder die Konfor- mität erklären (z. [redacted-person] für das CE-Kennzeichen oder UKCA-Kennzeichen)
+und mit der entsprechenden Identifizierung nach Gesetzesvorgabe
+kennzeichnen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] und vom Auftragnehmer selbst aufgeführten bzw.
+angewandten Normen sind konti- nuierlich auf Aktualität zu prüfen und
+bei Bedarf/Notwendigkeit in den Dokumenten zu aktualisie- ren.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person], z. [redacted-person] ([redacted-person]
+Certification) und wei- tere, sind unabhängig vom Einsatzort/Zielmarkt
+und Fahrzeugmodell durchzuführen.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person], die nur im Markt NAR (Nordamerika) oder in
+Rechtslenker-Märkten eingesetzt wer- den, sind von der Pflicht der
+China-Zertifizierung ausgenommen.</p>
+</blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Für kennzeichnungs- und bauartgenehmigungspflichtige Märkte erfolgt
+die Zertifizierung und Kennzeichnung unter Verwendung eines
+Typisierungsnamens.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] hinsichtlich der Kennzeichnungspflicht für den
+[redacted-person] sind in der Kon- zernnorm VW10511 beschrieben. Falls eine
+Nennung des Bauteilverwendungsbereichs („Typab- grenzung“) in den
+Bauartgenehmigungsdokumenten erforderlich ist, erfolgt diese
+ausschließlich durch den „[redacted-person]“ und/oder die verkürzte
+Konzernprojektbezeichnung.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] muss die Zertifikate vor Ablauf ihrer jeweiligen
+Gültigkeit sowie bei Gesetzes- änderungen aktualisieren und rechtzeitig
+unaufgefordert an den Auftraggeber liefern. Dies gilt über den gesamten
+Produktlebenszyklus, der auch den Zeitraum der Versorgungsverpflichtung
+von Ori- ginal Teilen beinhaltet.</p>
+<p>[redacted-person] ist zertifikatspflichtig: <strong>Nein</strong></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] ist typprüfpflichtig: <strong>Ja</strong></p>
+<p><em>[I: BT-LAH-98]</em></p>
+<p><em>[A: BT-LAH-99]</em></p>
+<p>Bei typprüfpflichtigen Bauteilen sind zum Erfüllungsnachweis der
+gesetzlichen [redacted-person]- fungen in Absprache mit der zuständigen
+Typprüfabteilung des Auftraggebers, ggf. in Anwesenheit des [redacted-person] bzw. der Behörde, durchzuführen und zu dokumentieren.</p>
+</blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] ist selbstzertifizierungsrelevant (z. [redacted-person], Korea,
+etc): <strong>Ja</strong></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Für selbstzertifizierungsrelevante Teile muss eine gesetzeskonforme
+Dokumentation der geforder- ten meist experimentellen Nachweise der
+Gesetzeserfüllung durchgeführt werden.</p>
+<p>Für folgende Gesetze ist eine entsprechende Dokumentation
+anzufertigen, unabhängig vom Ziel- markt des Projektes.</p>
+</blockquote>
+<ul>
+<li><p>FMVSS 208 S9 Druckbehälter und explosive Einrichtungen in
+Airbags</p></li>
+<li><p>FMVSS 302 Brennbarkeit von Innenmaterialien</p></li>
+<li><p>GSO 42/4215 Art. 22 Sicherheitsdatenblatt</p></li>
+<li><p>GSO 98/1988 Brennbarkeit von Innenmaterialien</p></li>
+<li><p>Art. 95, [redacted-person]. 38 Brennbarkeit von Innenmaterialien</p></li>
+<li><p>KMVSS 95</p></li>
+<li><p>TRIAS 20 J027 / MLIT Announcement 619</p></li>
+</ul>
+<blockquote>
+<p>Enthält die Dokumentation allgemeine Berichte, die keinen Bezug zu
+der Teilenummer des ZSB Seitenairbag beinhaltet, wie z. [redacted-person]
+zur Gewebeprüfungen, ist der Dokumentation ein Anschreiben beizulegen,
+das diesen Bezug herstellt.</p>
+<p>[redacted-person] ist ERC-relevant: <strong>Nein</strong></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] ist ein Zusammenbau und enthält als Unterkomponente ein
+ERC-relevantes Bauteil: <strong>Nein</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] hat für homologationsrelevante Bauteile im
+Zusammenbau eine Teileverbau- prüfung und Bauzustandsdokumentation nach
+[redacted-co]01064 pro geliefertem ZSB inkl. der geforderten Zusatzattribute für
+jedes einzelne homologationsrelevante Bauteil für Vorserienfahrzeuge
+durch- zuführen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] muss sicherstellen, dass der Zusammenbau als Ganzes
+einen [redacted-person] Code inkl. vollständiger Abbildung der Teilenummer und
+ggf. zusätzlich die vollständige Aufnahme der
+Typprüfnummer/Typisierungsname/Genehmigungsnummer nach [redacted-co]01064 enthält,
+über wel- chen die Daten der Teileverbauprüfung und
+Bauzustandsdokumentation der Unterkomponenten zurückverfolgt werden
+können.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] hat die Daten der Teileverbauprüfung und
+Bauzustandsdokumentation der Un- terkomponenten dem Auftraggeber zur
+Verfügung zu stellen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] muss die Dokumentationspflicht an seine
+[redacted-person] weitergeben (z. [redacted-person]
+Setzteile).</p>
+</blockquote>
+<h2 id="qualität-und-zuverlässigkeit">Qualität und Zuverlässigkeit</h2>
+<h2 id="qualitätskonzepte">Qualitätskonzepte</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Es gelten die Formel-Q Dokumente mit ihren Unterdokumenten. [redacted-person] muss sich der Auftragnehmer mit dem zuständigen QS-BTV oder
+QS-Produkttechniker abstimmen.</p>
+<p><em>[A: BT-LAH-104]</em></p>
+<p>[redacted-person]: 0 Liegenbleiber (LB) und 0 Schadensfälle (SF)
+sowie 0-km-Ausfälle mit 0 ppm</p>
+<p>Es gelten die Anforderungen des [redacted-person]
+LAH.DUM.880.EP</p>
+<p><em>[A: BT-LAH-927]</em></p>
+<p>Für [redacted-co] gilt:</p>
+<p>Es gelten die Anforderungen des Qualitätslastenheftes [redacted-co]
+(LAH [redacted-phone]).</p>
+</blockquote>
+<p><em>[A: BT-LAH-928]</em></p>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p>[redacted-person] und Planung muss vom Auftraggeber vorgegebene
+Prüftechnologien und –kon- zepte berücksichtigen.</p>
+<p>[redacted-person] einer robusten und reproduzierbaren Entfaltung
+muss die Faltung des Luft- sack ab P- Freigabe seriennah erfolgen. [redacted-person] für Prototypen ist durch den Auftragge- ber abzunehmen.</p>
+<p>[redacted-person] müssen über das gleiche Material-, Toleranz- und
+Fertigungskonzept verfü- gen, wie die geplanten Serienteile.
+Abweichungen sind nur mit schriftlicher Zustimmung des zu- ständigen
+Konstrukteurs beim Auftraggeber zulässig.</p>
+<p>[redacted-person] und Merkmale, die zu einer
+Fehlfunktion des ZSB Seitenair- bag führen können, sind zu dokumentieren
+und es sind Prüfmethoden zur Serienüberwachung zu entwickeln und
+durchzuführen, die der Dokumentationspflicht genügen.</p>
+<p>[redacted-person] und Frequenzen müssen mit dem Auftraggeber
+abgestimmt werden (Quali- tätssicherung). [redacted-person] der
+Serienüberwachung beginnt mit der ersten Serienliefe- rung von aktive
+Module und muss bis Ende der Kundendienstteileversorgung durchgeführt
+wer- den.</p>
+<p>Bei neuen Materialien sind diese in der Prototypenphase im
+Zentrallabor anzuzeigen. Eine 100% Packageprüfung im Serienprozess ist
+erforderlich.</p>
+</blockquote>
+<h2 id="risikomanagement-fmea-und-fta">Risikomanagement (FMEA und
+FTA)</h2>
+<blockquote>
+<p>Es sind eigenständig Prozess-, Konstruktions- und
+Schnittstellen-FMEA´s zu erstellen und dem Auftraggeber (Qualität und
+[redacted-person]) in einer Besprechung zur Abnahme vorzu-
+stellen.</p>
+<p>[redacted-person] ist verantwortlich für die Erstellung und Pflege
+der fahrzeugspezifischen Merkmalsliste, auf Basis FMEA und
+„Q-Merkmalsliste“.</p>
+<p>[redacted-person] von Bauteil- und Fertigungsschwankung muss über die FMEA
+bewertet und über ent- sprechendes [redacted-person]/Testing abgesichert
+werden.</p>
+<p>Maximal werden 8
+Versuche pro Freigabe gemäß <a href="#_bookmark105">6.3</a> <a href="#_bookmark105">Erprobungsplan</a> durchgeführt.</p>
+</blockquote>
+<h2 id="fachbereichs--bzw.-projektspezifische-dmu-richtlinien">Fachbereichs-
+bzw. projektspezifische DMU-Richtlinien</h2>
+<blockquote>
+<p>Es wird ein rechtsdrehendes Koordinatensystem gemäß [redacted-co]01052
+verwendet.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Verbindungselemente, die nicht Bestandteil eines TM auf ZSB-Basis
+sind, sind in 3D darzustellen und zu positionieren (z. [redacted-person]).</p>
+<p>In Abstimmung zwischen der Konstruktion des Auftraggebers und
+Auftragnehmers sind Baugrup- pen</p>
+</blockquote>
+<ul>
+<li><p>unter Beachtung der Fügefolge zusammenzufassen,</p></li>
+<li><p>unter der [redacted-person] in Bauteil ZSB´s
+(keine Entwurfszeichnung) als Details abzulegen.</p></li>
+</ul>
+<blockquote>
+<p>Sind ZSB´s Übernahmeteile, sind die Modelle mit der [redacted-person] unter der Alternative des Fahrzeugs abzulegen.</p>
+<p>Schnappmuttern und
+Klammern sind im verbauten Zustand darzustellen.</p>
+</blockquote>
+<h2 id="für-audi-gilt-anforderungen-an-kenntnisse-im-produktdaten-management">Für
+[redacted-co] gilt: Anforderungen an Kenntnisse im Produktdaten-Management</h2>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p>Zur prozesssicheren Einsteuerung von Entwicklungsergebnissen in die
+Systeme des Auftragge- bers sind Grundkenntnisse über das
+Produktdaten-Management ([redacted]) unerlässlich.</p>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] des LAH.[redacted-phone]AF „Anforderungsprofil für die
+Beauftragung von technischen Regeln zur Aufnahme im System MBT“ sind zu
+erfüllen.</p>
+</blockquote>
+<h2 id="prioritäten-der-dokumente">Prioritäten der Dokumente</h2>
+<blockquote>
+<p>Bei abweichenden Forderungen gilt die folgende Prioritätenliste:</p>
+</blockquote>
+<ol type="1">
+<li><p>Gesetzesanforderungen</p></li>
+<li><p>Zeichnung und 3D-Datenmodelle</p></li>
+<li><p>Bauteil-Lastenheft</p></li>
+<li><p>[redacted-person], die bei den mitgeltenden Unterlagen
+referenziert werden</p></li>
+<li><p>Norm-Reihe [redacted-co]99000</p></li>
+<li><p>[redacted-person] Regeln (TL, PV, [redacted-co] KR, QP) und Formel
+Q-Konkret</p></li>
+<li><p>nationale und internationale Normen (DIN, EN, ISO)</p></li>
+</ol>
+<blockquote>
+<p>Das unter <a href="#angebotsumfang">2.5</a> <a href="#angebotsumfang">Angebotsumfang</a> erwähnte Pflichtenheft hat
+lediglich informellen Charakter und steht stets am Ende der
+Prioritätenliste.</p>
+</blockquote>
+<h1 id="projektmanagement-und--organisation">Projektmanagement und
+-organisation</h1>
+<h2 id="verantwortlichkeiten-im-projekt-und-projektstrukturplan">Verantwortlichkeiten
+im Projekt und Projektstrukturplan</h2>
+<blockquote>
+<p>Die gesamte Entwicklungssteuerung erfolgt von dem deutschen Standort
+des Auftragnehmers.</p>
+<p>Alle bis zur BMG erforderlichen Erprobungen sind in einem deutschen
+Standort des Auftragneh- mers oder in unmittelbarer Nähe des
+Entwicklungsstandortes des Auftraggebers (&lt;50 km) durch- zuführen.
+Abweichungen für einzelne Projekte sind nur nach schriftlicher
+Zustimmung der Fachab- teilung für das betreffende Projekt zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH-122]</em></p>
+<blockquote>
+<p>[redacted-person] muss Applikationsingenieure, die im eigenen Hause
+ausschließlich für das be- schriebene Einzelprojekt aktiv sind,
+vorsehen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] muss Resident-Ingenieure, die am
+Entwicklungsstandort des Auftraggebers ausschließlich für das
+beschriebene Einzelprojekt aktiv sind, vorsehen.</p>
+<p>Während der Entwicklung und bei Serienmaßnahmen ist nach Anforderung
+durch den Auftragge- ber ein Resident-Ingenieur des Auftragnehmers beim
+Auftraggeber dauerhaft vor Ort zu platzieren.</p>
+<p>[redacted-person] muss jeweils mindestens 3 Monate nach BMG, K-
+Freigabe bzw. SOP der letzten Anlaufstufe durch die
+Entwicklungsabteilung des Auftragnehmers gewährleistet sein. Im
+Anschluss erfolgt die Übergaben von der Entwicklung an die
+verantwortliche Serienbetreuung.</p>
+</blockquote>
+<p><em>[A: BT-LAH-123]</em></p>
+<blockquote>
+<p>[redacted-person] muss für die Applikations- und die
+Residentingenieure die notwendigen Mess- und Applikationssysteme
+stellen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] muss bei Erprobungsfahrten des Auftraggebers eine
+Unterstützung vor Ort sicherstellen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-124]</em></p>
+<blockquote>
+<p>[redacted-person] muss die Teilnahme der Applikationsingenieure an
+den Erprobungsfahrten mit dem Auftraggeber abstimmen.</p>
+<p>Vertreterregelung (Urlaub, Krankheit) muss gewährleistet sein und
+mitgeteilt werden.</p>
+<p>[redacted-person] der Fahrzeugprojekte sind im
+fahrzeugspezifischen Anhang aufgeführt.</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>[redacted-person] an den
+Auftragnehmer</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] des Entwicklerteams ist offen zu legen
+(Organigramm).</p>
+<p>[redacted-person] des Auftragnehmers muss für Prototypen
+regelmäßig von der Konzern- sicherheit zertifiziert sein (Orga 25 und
+27).</p>
+<p>Bei der Vergabe mehrerer ZSB Seitenairbag an einen
+Entwicklungslieferanten ist ein projektüber- greifender
+Erfahrungsaustausch innerhalb des Lieferanten sicherzustellen.
+Markenübergreifende ([redacted-co]Group) Austauschtermin zur Entwicklung werden
+vom Auftraggeber einberufen und sind durch den Auftragnehmer zu
+unterstützen.</p>
+<p>[redacted-person] steht für regelmäßige sowie kurzfristig
+erforderliche Präsenztermine am Ent- wicklungsstandort des Auftraggebers zur
+Verfügung.</p>
+</blockquote>
+<h2 id="dokumentation">Dokumentation</h2>
+<blockquote>
+<p><em>[A: BT-LAH-126]</em></p>
+<p>Die gesamte Dokumentation ist vom Auftragnehmer in deutscher Sprache
+auf muttersprachlichem Niveau (korrekte Rechtschreibung, Grammatik und
+Verständlichkeit) zu erstellen (auf Wunsch in englischer Sprache).</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] von im Internet verfügbaren maschinellen
+Übersetzungsdiensten ist aus Gründen der Geheimhaltung, des
+Datenschutzes und Schutz des geistigen Eigentums untersagt.</p>
+</blockquote>
+<p><em>[A: BT-LAH-127]</em></p>
+<blockquote>
+<p>[redacted-person] muss die jeweils aktuelle Dokumentation des
+Entwicklungsstandes spätestens alle 2 Wochen dem Auftraggeber zur
+Verfügung stellen.</p>
+<p>Falls vom Auftraggeber gefordert wird, ist die gesamte
+Projektdokumentation auf eine weitere Sprache zu übersetzen.</p>
+</blockquote>
+<h2 id="mustermappe">Mustermappe</h2>
+<blockquote>
+<p><em>[A: BT-LAH-166]</em></p>
+<p>Zu jeder Lieferung eines neuen Standes des Bauteiles (Hardware,
+Software und/oder Mechanik) muss den zuständigen Fachabteilungen des
+Auftraggebers eine Mustermappe in einem vom Auf- traggeber vorgegebenen
+Format und Übertragungsweg übergeben werden.</p>
+<p>Mit mindestens folgendem Inhalt:</p>
+<p><em>[A: BT-LAH-167]</em></p>
+</blockquote>
+<ul>
+<li><p>Deckblatt mit folgendem Inhalt: [redacted-person],
+Teilebezeichnung, Teilnum- mer Auftraggeber, [redacted-person],
+Mechanik-Stand (z. [redacted-person]), Pro- jektleitername des Auftragnehmers,
+Unterlageninhaltsverzeichnis, Stand des Lastenhef- tes, Stand des
+Pflichtenheftes</p></li>
+</ul>
+<p><em>[A: BT-LAH-168]</em></p>
+<ul>
+<li><p>Kurzbeschreibung bzw. Informationen mit folgenden Angaben: alle
+Änderungen gegenüber vorherigem Stand, die Notwendigkeit der Änderung,
+die Aus- wirkung der Änderung</p></li>
+</ul>
+<p><em>[A: BT-LAH-171]</em></p>
+<ul>
+<li><p>Teilelebenslauf, Pflichtenheft, Mess- und Prüfberichte (inkl.
+Toleranzanalyse, Simulati- onsergebnis, Prüfbericht über
+Werkstoffanforderungen, Herstellungsverfahren</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] sind innerhalb von 5 Arbeitstagen nach zu
+reichen.</p>
+<p><em>[A: BT-LAH-179]</em></p>
+<p>Entwicklungsteilelebenslauf der alle Entwicklungsstände in Soft- und
+Hardware dokumentiert und diese in einer eindeutigen Variantennummer
+zusammenführt (z. B. V01). Ergänzt durch die Be- nennung der Include-
+und Metrikdatei des Simulationsmodells (Benennung gemäß Berechnungs-
+lastenheft).</p>
+<p>[redacted-person] muss bei jeder Modulübergabe (SW/HW)
+aktualisiert mitgeliefert werden.</p>
+</blockquote>
+<h2 id="datenaustausch">Datenaustausch</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] muss sicherstellen, dass Daten nicht, ohne
+vorherige Zustimmung des Auf- traggebers, an andere Standorte des
+Auftragnehmers weitergegeben werden.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] an andere Standorte des Auftragnehmers weitergegeben
+werden müssen, muss der Auftragnehmer zuvor die schriftliche Zustimmung
+des Auftraggebers einholen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] muss die Weitergabe der Daten an andere Standorte
+auf solche Daten be- schränken welche für die reine Fertigung notwendig
+sind</p>
+</blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Im Falle von Zuwiderhandlungen erhebt der Auftraggeber eine
+Vertragsstrafe in Höhe von EUR 50.000,--. [redacted-person] wird auf
+eine eventuelle Schadenersatzverpflichtung angerechnet.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Sollte ein Datenaustausch mit anderen Standorten notwendig werden,
+muss der Auftragnehmer einen Ansprechpartner benennen, der einen
+Datenaustausch mit dem Bauteilverantwortlichen des Auftraggebers
+abstimmt.</p>
+<p><strong>Datenablage in CONNECT</strong></p>
+<p>Grundlage der Zusammenarbeit mit der beauftragten Partnerfirma ist
+die Anbindung an CONNECT.</p>
+<p>[redacted-person] und das 3D-Datenmodell sind nach Absprache mit
+dem Auftraggeber im jeweils aktuellen Stand und in der aktuellen
+Struktur im CONNECT abzulegen.</p>
+<p>Übergangsweise ist weiterhin der Datenaustausch über KVS
+sicherzustellen. Für [redacted-co] gilt:</p>
+<p>[redacted-person] bezüglich PDMU sind unter</p>
+<p>(<a href="https://content2.euporsche.com/prod/supplierweb/supplier.nsf/web/german-home"><u>https://content2.euporsche.com/prod/supplierweb/supplier.nsf/web/german-home</u></a>)
+und</p>
+<p>(<a href="http://www.q-checker.de/"><u>http://www.q-checker.de</u></a>)
+geregelt.</p>
+</blockquote>
+<h2 id="checklisten">Checklisten</h2>
+<blockquote>
+<p>[redacted-person] der Freigaben nach <a href="#_bookmark105">6.3</a>
+<a href="#_bookmark105">Erprobungsplan</a> werden vom [redacted-person] verteilt, die vom Auftragnehmer zu füllen sind.
+[redacted-person] und Dokumente sind in einer Ordnerstruktur nach der
+entsprechenden Checkliste abzulegen.</p>
+</blockquote>
+<h1 id="systemumgebung">Systemumgebung</h1>
+<h2 id="funktionale-systemumgebung">[redacted-person]</h2>
+<blockquote>
+<p>Zur funktionalen Systemumgebung des ZSB Seitenairbag gehört der ZSB
+Sitz, insbesondere die [redacted-person], Schaum, Bezug, und / oder
+Leitblech, und / oder Innensack sowie die umliegenden Verkleidungsteile
+wie z. [redacted-person] Säulenverkleidung und Türverkleidung. [redacted-person] des ZSB
+Seitenairbag erfolgt durch das Airbagsteuergerät über den Kabelstrang
+und die Steck- verbindung.</p>
+<p>Der ZSB Seitenairbag entfaltet in den Raum zwischen Türverkleidung
+und Insasse und bildet dort ein Schutzpolster das zur Minimierung von
+Unfallfolgen in Seitenkollisionen beiträgt.</p>
+<p>[redacted-person] für den SAB
+in der 2. Sitzreihe ist der Anfragezeichnung zu entnehmen.</p>
+</blockquote>
+<h2 id="physische-systemumgebung">[redacted-person]</h2>
+<blockquote>
+<p>Die unmittelbare physische Systemumgebung wird durch den ZSB Sitz und
+dessen Einzelbauteile gebildet. [redacted-person] des ZSB Seitenairbag am
+Lehnenrahmen erfolgt mittels Schraubverbin- dung. [redacted-person] bzw.
+Mutter gehört nicht zum Lieferumfang des ZSB Seitenairbag. Während der
+Entwicklung ist auf einen ausreichenden Abstand des ZSB Seitenairbag zu
+den Umgebungs- teilen (max. Ausstattungsumfang) zu achten. [redacted-person] sind unzulässig.</p>
+<p>[redacted-person] des SAB in der 2. Sitzreihe ist der Anfragezeichnung
+zu entnehmen.</p>
+</blockquote>
+<h2 id="systemschaltbild">Systemschaltbild</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+<p><em>[I: BT-LAH-846]</em></p>
+</blockquote>
+<h1 id="technische-anforderungen">[redacted-person]</h1>
+<h2 id="benennung-und-teilnummer">Benennung und Teilnummer</h2>
+<blockquote>
+<p>Benennung: ZSB Seitenairbag</p>
+<p>Teilnummer: siehe [redacted-person]</p>
+</blockquote>
+<h2 id="block--und-prinzipschaltbild">Block- und Prinzipschaltbild</h2>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h2 id="funktionen">Funktionen</h2>
+<blockquote>
+<p><em>[A: BT-LAH-192]</em></p>
+<p><em>[A: BT-LAH-193]</em></p>
+<p>[redacted-person] besteht aus dem Seitenairbagmodul und den
+angrenzenden Bauteilen, die auf die SAB-Entfaltung und [redacted-person] haben.</p>
+<p>Nach erfolgter Airbagauslösung darf der Insasse beim Berühren des
+Moduls nicht verletzt werden. Designänderungen am Fahrzeug im Laufe der
+Entwicklung sind zu berücksichtigen.</p>
+</blockquote>
+<h2 id="funktionsbeschreibung">Funktionsbeschreibung</h2>
+<blockquote>
+<p>[redacted-person] des Seitenairbag ist es bei einer robusten und
+reproduzierbaren Entfaltung die gefor- derten Insassengrenzwerte
+sicherzustellen. Robust bedeutet in diesem Fall, dass insbesondere die
+folgenden Größen und deren Einfluss auf die Entfaltung zu
+berücksichtigen sind:</p>
+</blockquote>
+<ol type="1">
+<li><p>Zündzeiten nach <a href="#zündzeiten">5.28</a></p></li>
+<li><p>Zündverzugzeit von 0,7ms- 2,2ms nach [redacted-co]80152</p></li>
+<li><p>Streuung der Dummyposition innerhalb eines Testverfahren durch z.
+[redacted-person] Sitze.</p></li>
+<li><p>Obere und unter Kannendruckkurve des Gasgenerators nach der
+Prozessschwankung ge- mäß <a href="#anforderungen-an-den-gasgenerator">5.27</a></p></li>
+<li><p>Stärkste und schwächste Naht der Sitzbezüge nach <a href="#_bookmark112">6.4.3</a>.</p></li>
+<li><p>Toleranzen des Faltprozess nach <strong>Fehler! Verweisquelle
+konnte nicht gefunden wer- den.Fehler! Verweisquelle konnte nicht
+gefunden werden.</strong>.</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] zu den Punkten 1- 4 erfolgt durch eine Simulation des
+Auftraggebers.</p>
+<p>[redacted-person] durch Interaktion mit weiteren Airbags
+muss ausgeschlossen sein. [redacted-person] LAH.[redacted-phone]AL zur Integration
+in den Sitz ist zu berücksichtigen.</p>
+</blockquote>
+<h2 id="fehlbedienung">Fehlbedienung</h2>
+<blockquote>
+<p>Um von der empfohlenen Sitzposition abweichend positionierte Insassen
+vor einer Gefährdung durch den ZSB Seitenairbag zu schützen sind die
+Anforderungen aus dem Dokument <em>“Recom- mended Procedures for
+[redacted-person] Revision – July 2003 [redacted-person] Risk from
+[redacted-person] Airbags”</em> der TWG zu berücksichtigen. [redacted-person] ist ausschließlich für den Markt NAR gültig.</p>
+</blockquote>
+<h2 id="notbetrieb">Notbetrieb</h2>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h2 id="architektur">Architektur</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+</blockquote>
+<h2 id="steuergerätekonzept">Steuergerätekonzept</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+</blockquote>
+<h2 id="elektrische-schnittstellen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] ist entsprechend der Anfragezeichnung
+vorzusehen. Die elektrische Auslegung muss nach [redacted-co]80150, neuestem Stand
+erfolgen.</p>
+<p><em>[I: BT-LAH-847]</em></p>
+<p><em>[I: BT-LAH-848]</em></p>
+<p><em>[I: BT-LAH-849]</em></p>
+<p>Die elektrische Schnittstelle muss frei zugänglich sein (z. [redacted-person]
+nicht durch Gewebelagen ver- deckt werden).</p>
+</blockquote>
+<h2 id="spezifische-kenndaten">[redacted-person]</h2>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h2 id="sicherheitsanforderungen">Sicherheitsanforderungen</h2>
+<h2 id="personen--und-insassensicherheit">Personen- und
+Insassensicherheit</h2>
+<blockquote>
+<p>[redacted-person] an die Insassensicherheit sind für die relevanten
+Crashlastfälle im jeweiligen fahrzeugspezifischen Anhang unter
+„Zielwerte für die Insassenbelastung“ definiert.</p>
+<p>Weiterhin gelten (marktspezifisch) die Anforderungen nach:</p>
+<p>− FMVSS 208 [redacted-person] Protection</p>
+<p>− FMVSS 214 [redacted-person] Protection</p>
+<p>− FMVSS 302 Flammability of [redacted-person]</p>
+<p>− TL 1010 Brennbarkeit</p>
+<p>− ECE R17 Sitze und Kopfstützen</p>
+<p>− ECE R21 Innenausstattung</p>
+<p>− ECE R95 Insassenschutz beim Seitenaufprall</p>
+<p>− ECE R135 [redacted-person]</p>
+<p>− EWG 74/60 Innenausstattung</p>
+<p>− EWG 96/27 Schutz der Kraftfahrzeuginsassen beim Seitenaufprall</p>
+<p>− [redacted-co]82517 Seitenairbag- Module</p>
+<p>− [redacted-co]82519 Gasgeneratoren (Einbauort: Sitze)</p>
+<p>− TWG [redacted-person] for [redacted]from
+De- ploying [redacted-person]</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Jegliche vom Lieferanten geplanten Kennzeichnungen (z. [redacted-person]) auf dem Bauteil sind seitens des Lieferanten vorab mit dem
+Auftraggeber abzustimmen.</p>
+</blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] hat zu beachten, dass beim Anbringen von selbst durch
+ihn geplanten Warnhinwei- sen auf dem Bauteil die landesspezifischen
+Sprachanforderungen einzuhalten sind. Alternativ sind Hinweise in
+Piktogrammform auszuführen.</p>
+</blockquote>
+<h2 id="fahrzeugsicherheit">Fahrzeugsicherheit</h2>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h2 id="alternativen-und-künftige-varianten">Alternativen und künftige
+Varianten</h2>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h2 id="gewichtsziele">Gewichtsziele</h2>
+<blockquote>
+<p>[redacted-person] ist gewichtsoptimiert zu entwickeln.</p>
+<p>[redacted-person] ist dem
+[redacted-person] zu entnehmen.</p>
+</blockquote>
+<h2 id="einbau">Einbau</h2>
+<h2 id="einbauorte-und-einbaulage">Einbauorte und Einbaulage</h2>
+<blockquote>
+<p><em>[A: BT-LAH-468]</em></p>
+<p><em>[A: BT-LAH-469]</em></p>
+<p>[redacted-person] des ZSB Seitenairbag erfolgt an den Lehnenrahmen des ZSB
+Sitz bei Seitenairbags der vorderen Sitzreihe. Seitenairbags für weitere
+Sitzreihen können sowohl im Radhaus, ZSB Sitz oder Seitenpolster
+platziert werden.</p>
+<p>[redacted-person] sind der
+Anfrageunterlagen zu entnehmen.</p>
+</blockquote>
+<h2 id="montagekonzept">Montagekonzept</h2>
+<blockquote>
+<p><em>[A: BT-LAH-475]</em></p>
+<p>Teile sind grundsätzlich so zu konstruieren, dass ein Falscheinbau
+(z. [redacted-person], seitenver- kehrt, Fehlfunktion bei Falscheinbau)
+nicht möglich ist.</p>
+</blockquote>
+<p><em>[A: BT-LAH-476]</em></p>
+<blockquote>
+<p>Teile, bei denen ein Falscheinbau verhindert werden muss, müssen
+mechanisch codiert oder mit- tels Diagnose im Fahrzeug überprüfbar
+sein.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Die geplante Reihenfolge und Ausrichtung der Teile beim Verbau sowie
+der zu verwendenden Vorrichtungen muss in allen 6 Freiheitsgraden
+eindeutig beschrieben sein.</p>
+<p>Der ZSB- Seitenairbag wird am Gasgeneratorhalter an den Lehnenrahmen
+eingehakt und ver- schraubt. Um eine prozesssichere Verschraubung nach
+[redacted-co]01110 bei der Montage zu gewähr- leisten ist der Gasgeneratorhalter
+in dem Bereich der Verschraubung aus Metall auszuführen. Um- spritzungen
+aus Kunststoff im Bereich der Verschraubung sind unzulässig.</p>
+<p>[redacted-person] ohne Halter könnte vom Auftraggeber gefördert werden.
+Hier ist eine Isolierung des Gasgenerators zur der Sitzstruktur vom
+Auftragnehmer zu entwickeln und in den Kosten zu be- rücksichtigen.</p>
+<p>Der ZSB- Seitenairbag in der 2. Sitzreihe kann auch ohne Halter
+befestigt werden. [redacted-person]- gungskonzepte sind der Anfragezeichnung
+zu entnehmen. [redacted-person] könnte für Seitenair- bags in der 1.
+Sitzreihe vom Auftraggeber gefördert werden. Hier ist eine Isolierung
+des Gasgene- rators zur der Sitzstruktur vom Auftragnehmer zu entwickeln
+und in den Kosten zu berücksichtigen.</p>
+<p>[redacted-person] befindet sich im Variierungsumfang des
+Moduls. Aus diesem Grund ist die Anzahl der Varianten zu minimieren. Es
+sind nur Varianten des Befestigungskonzeptes über die verschiedene
+Sitzstrukturen zulässig. (z.[redacted-person], MSP, MCC)</p>
+<p>Am ZSB Seitenairbag sind Vorfixierungen vorzusehen, die das Modul in
+der zu montierenden Po- sition halten um die Montage ohne Hilfsmittel
+oder Lehren zu ermöglichen.</p>
+<p>Anforderungen an Montage und Demontage gemäß [redacted-co]99000 Abschnitt
+„Kundendienst- und Serviceanforderungen“.</p>
+<p>Es ist auszuschließen, dass das [redacted-person] während der Montage
+beschädigt oder einge- klemmt werden kann.</p>
+<p>[redacted-person] muss mindestens fünfmal montiert und demontiert werden
+können. Dabei müssen die Montagekräfte aufgenommen werden können, ohne
+dass eine Beschädigung oder eine Beein- trächtigung (Funktion/Optik) der
+Bauteile möglich ist.</p>
+</blockquote>
+<h2 id="geometrie">Geometrie</h2>
+<blockquote>
+<p>[redacted-person] steht folgender Bauraum zur Verfügung:</p>
+<p><em>[A: BT-LAH-479]</em></p>
+<p>Dem ZSB Seitenairbag steht der Bauraum gemäß Anfrage zur Verfügung,
+diese Anfragedaten zeigen das nominalen Bauraum, Anpassungen an den
+Strak des Sitzes müssen vom Auftragneh- mer berücksichtigt und
+kostenneutral umgesetzt werden.</p>
+</blockquote>
+<p><em>[A: BT-LAH-480]</em></p>
+<blockquote>
+<p>[redacted-person] muss die äußere Geometrie der Baugruppe und
+insbesondere die Lage und Ausführung der Befestigungspunkte (falls
+vorhanden) mit den zuständigen Fachabteilungen des Auftraggebers, unter
+Zugrundelegung des vom Auftraggeber definierten Bauraumes,
+abstimmen.</p>
+<p>Ab P-Freigabe ist im eingebauten Zustand die konstruierte Lage und
+Geometrie einzuhalten. [redacted-person] sind dementsprechend
+auszulegen.</p>
+<p>Maßnahmen für die Erfüllung der Gesetze ECE R17 und ECE R21 sowohl
+für das Modul inkl. alle Komponenten als auch für den Stecker sind vom
+Auftragnehmer in der Entwicklung und Kosten zu berücksichtigen. Falls
+die geförderte Radien nicht umsetzbar sind, sind die entsprechenden Ver-
+suche für den Nachweis der
+Gesetzerfüllung vom Auftragnehmer durchzuführen.</p>
+</blockquote>
+<h2 id="toleranzen">Toleranzen</h2>
+<blockquote>
+<p>Für das [redacted-person] sind maximale Toleranzen von +/- 1%
+zulässig.</p>
+<p>[redacted-person] Toleranzanalyse nach [redacted-co]01057 ist zur P- und B-
+Freigabe durchzuführen.</p>
+<p>Bei der Auslegung der Toleranzen des ZSB Seitenairbag ist der
+Produktionsprozess des ZSB Sitz zu berücksichtigen. Hier ist eine
+Abstimmung zwischen Auftragnehmer und Sitzlieferanten erfor-
+derlich.</p>
+<p>[redacted-person] für das
+Hardcover, falls angefragt, sind auf den Anfragedaten zu entnehmen.</p>
+</blockquote>
+<h2 id="formgestaltung-und-design">Formgestaltung und Design</h2>
+<blockquote>
+<p><em>[A: BT-LAH-484]</em></p>
+<p>Für alle Strakbauteile gilt: Die vom Auftraggeber gelieferten
+Strakdaten sind verbindlich.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Änderungen der Strakoberfläche sind ausschließlich über den
+Strakprozess des Auftraggebers zulässig.</p>
+</blockquote>
+<h2 id="ergonomie">Ergonomie</h2>
+<h2 id="optik-und-haptik">Optik und Haptik</h2>
+<blockquote>
+<p><em>[A: BT-LAH-491]</em></p>
+<p>Bauteile mit äußeren optischen Funktionselementen sind so auszulegen,
+dass es im Betrieb auch unter extremen Bedingungen nicht zu einer
+Funktionsbeeinträchtigung kommt.</p>
+</blockquote>
+<p><em>[A: BT-LAH-492]</em></p>
+<blockquote>
+<p>[redacted-person] ist nach Vorgabe des Auftraggebers auszuführen und
+muss umlaufend gleichmä- ßig sein.</p>
+<p>[redacted-person]. Seitenairbag darf weder Beule noch Einfallställen im Sitz
+erzeugen. Hier sind die abge- stimmten Toleranzen einzuhalten.</p>
+</blockquote>
+<h2 id="akustik">Akustik</h2>
+<blockquote>
+<p><em>[A: BT-LAH-498]</em></p>
+<p>Geräusche dürfen im oder am Fahrzeug nicht betriebsuntypisch
+auffallen oder störend wahrnehm- bar sein.</p>
+<p>Für [redacted-co] gilt</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Akustik-Bauteilprüfungen beim Auftragnehmer müssen die kritischen
+späteren Betriebszustände im Fahrzeug vor Kunde abdecken. [redacted-person]-Beurteilung des Bauteils erfolgt durch die Fach- abteilung des Auftraggebers im
+oder am Fahrzeug im Stand- und Fahrbetrieb.</p>
+</blockquote>
+<h2 id="handling">Handling</h2>
+<blockquote>
+<p>Kapitel nicht
+belegt.</p>
+</blockquote>
+<h2 id="technische-materialanforderungen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] gemäß [redacted-co]52000</p>
+</blockquote>
+<h2 id="polymere">Polymere</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Im Sinne von Ressourcenschonung gemäß den Konzerngrundsätzen ist der
+vermehrte Einsatz von Rezyklaten in Kunststoffen gefordert.</p>
+<p>[redacted-person] ist für Rezyklate geeignet: <strong>Nein</strong>.</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>Elastomere</strong></p></li>
+</ol>
+<blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Bei silikonhaltigen Werkstoffen (Dichtungen, Kleber, Vergussmassen,
+Kühlpads, etc…) und sili- konhaltigen Prozesshilfsmitteln, z. [redacted-person], ist zu beachten, dass darin vorhandene nieder- molekulare
+Siloxane (siehe PV 3055) aus dem Material diffundieren (ausgasen) und
+sich auf elekt- rische Kontakte niederschlagen können.</p>
+<p>[redacted-person] elektrischer/thermischer Energie (Kontaktfunken,
+Bürstenfeuer, Nernst-Sonden (Lambda-/NOx-Sensoren) etc…) kann es zum
+Abbau des Siloxans kommen, das daraufhin oxid- bildend den Kontakt
+isoliert.</p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Ausgasungen von Silikon bzw. silikonhaltigen Materialien und
+Prozesshilfsmitteln dürfen elektri- sche oder elektronische Bauteile in
+der unmittelbaren Umgebung nicht schädigen.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] muss den Einsatz von Silikon bzw. silikonhaltigen
+Materialien und Prozess- hilfsmitteln im Bauteil anzeigen und mit dem
+Auftraggeber abstimmen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Der einzuhaltende Grenzwert für die Gesamtmenge an ausgasungsfähigen
+volatilen Siloxanen ist mit dem Auftraggeber abzustimmen und vom
+Auftraggeber freizugeben.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] durch den Auftragnehmer in der
+Entwicklungsphase ist die Gesamtmenge an ausgasungsfähigen volatilen
+Siloxanen ist nach PV 3055 "Gehaltsbestimmung extrahierbarer Siloxane"
+zu messen und mit dem Auftraggeber abzustimmen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] hat eine projektespezifische Bestimmung der
+Gaskonzentration flüchtiger Si- loxane nach PV 3040 zu messen und mit
+dem Auftraggeber abzustimmen.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Falls der einzuhaltende Grenzwert nicht erreicht wird, sind die
+eingesetzten silikonhaltigen Materi- alien nach Herstellervorgaben
+(Temper-Verfahren, -Temperatur, -Zeit, -Druck, etc.) zu tempern,
+mindestens jedoch für vier Stunden bei 200° C und in Abstimmung mit dem
+Auftraggeber.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Nach dem Tempern ist der Anteil der ausgasungsfähigen
+Silikonbestandteile erneut nach PV 3040 zu messen und mit dem
+Auftraggeber zu bewerten.</p>
+</blockquote>
+<h2 id="schmelzwerkstoffe-hotmelts">Schmelzwerkstoffe (Hotmelts)</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person], welche im Außenbereich oder an Stellen mit erhöhter
+Umweltbelastung (z. [redacted-person] und Spritzwasser, Salznebel,
+Tauchbereich) verbaut werden, ist die Verwendung von Schmelzwerkstoffen
+(Hotmelts) nicht zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] von Schmelzwerkstoffen zur Umspritzung von bestückten
+Bauelementeträgern ist nicht zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] von Schmelzwerkstoffen zur Abdichtung und zum Schutz
+gegen Feuchtigkeit ist nicht zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Abweichungen vom dargestellten Grundsatz bedürfen eines
+Eignungsnachweises unter allen re- levanten
+Fahrzeugeinsatzbedingungen.</p>
+</blockquote>
+<h2 id="betriebsstoffe-im-zusammenbau">Betriebsstoffe im
+Zusammenbau</h2>
+<blockquote>
+<p>[redacted-person] ist ein
+ZSB-Bauteil und beinhaltet einen Betriebsstoff:
+<strong>Nein</strong>.</p>
+</blockquote>
+<h2 id="materialverbot">Materialverbot</h2>
+<blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] muss sicherstellen, dass die definierten
+vertragsgegenständlichen Komponen- ten die Umwelt-, Material- und
+Stoffanforderungen gemäß [redacted-co]91101 in vollem Umfang erfüllen.</p>
+</blockquote>
+<h2 id="medienbeständigkeit-und-chemische-anforderungen">Medienbeständigkeit
+und chemische Anforderungen</h2>
+<h2 id="sauberkeitsanforderungen">Sauberkeitsanforderungen</h2>
+<blockquote>
+<p>[redacted-person] muss geruchsneutral sein.</p>
+<p><em>[A: BT-LAH-508]</em></p>
+</blockquote>
+<h2 id="reinigung">Reinigung</h2>
+<blockquote>
+<p>Kapitel nicht
+belegt.</p>
+</blockquote>
+<h2 id="korrosionsschutz">Korrosionsschutz</h2>
+<blockquote>
+<p>Im Anlieferzustand des
+ZSB Seitenairbag ist keine Korrosion zulässig.</p>
+</blockquote>
+<h2 id="schutzklassen">Schutzklassen</h2>
+<h2 id="kühlmittelführend">Kühlmittelführend</h2>
+<blockquote>
+<p>[redacted-person] ist
+kühlmittelbeaufschlagt: <strong>Nein</strong></p>
+</blockquote>
+<h2 id="umweltverträglichkeit">Umweltverträglichkeit</h2>
+<h2 id="werkstoffauswahl">Werkstoffauswahl</h2>
+<blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] in Chromoptik sind vollständig Chrom(VI)-freie
+Beschichtungsverfahren zu ver- wenden</p>
+<p>Es dürfen nur Werkstoffe verwendet werden, die der Norm [redacted]entsprechen.</p>
+<p>[redacted-person] der in der EU-Richtlinie über Altfahrzeuge [redacted-phone]EG
+(Art. 4, Abs. 2) aufgeführ- ten Stoffe</p>
+</blockquote>
+<ul>
+<li><p>Blei</p></li>
+<li><p>Cadmium</p></li>
+<li><p>Quecksilber</p></li>
+<li><p>[redacted-person]</p></li>
+</ul>
+<blockquote>
+<p>ist auf die in der jeweils gültigen Fassung des Anhangs II der
+EU-Richtlinie [redacted-phone]EG genannten Anwendungsfälle unter den dort
+genannten Bedingungen beschränkt.</p>
+<p>ANMERKUNG: Sicherstellung auch bei Übernahmeteilen (COP-Teile).</p>
+<p>Höher und hochfeste Gewindeteile und Schrauben sind zu vermeiden und
+nur in Abstimmung mit dem Auftraggeber einzusetzen.</p>
+<p>Die nach Spezifikation auszuwählenden Werkstoffe sowie auch
+Beschichtungen müssen mit den Fachabteilungen der Konstruktion des
+Auftraggebers und der [redacted-person] vor Vergabe
+abgestimmt werden.</p>
+<p>Alle wahlweise bzw. alternative Werkstoffe müssen durch den
+Auftragnehmer angezeigt, geprüft und erprobt werden sowie durch den
+Auftraggeber freigegeben werden.</p>
+</blockquote>
+<h2 id="recyclingkonzept">Recyclingkonzept</h2>
+<blockquote>
+<p>Zu dem ZSB Seitenairbag ist eine Demontageanweisung nach folgendem
+Muster aufzubauen:</p>
+</blockquote>
+<ul>
+<li><p>Anleitungen zur Zündung der Airbags</p></li>
+<li><p>Demontage- und Zerlegeanleitungen für Airbags</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] ist gemäß untenstehender Vorlage auszuführen.</p>
+<p><strong>Demontageanweisung</strong></p>
+<p>- Muster -</p>
+<p><strong><u>Aufbau der Anweisung:</u></strong></p>
+<p>Die gesamte Anweisung soll in Englisch erstellt werden und vom Format
+her diesem Muster glei- chen.</p>
+</blockquote>
+<ol type="1">
+<li><p>Hinweise zu speziellen Sicherheitsvorkehrungen bzw. -
+Vorschriften (z. [redacted-person] Blindnieten aufgebohrt werden müssen)</p></li>
+<li><p>alle Teilenummern mit Index, die zur jeweiligen [redacted-person]/Fahrzeug gehören</p></li>
+<li><p>Abbildung des nicht zerlegten Moduls mit mindestens zwei
+aussagekräftigen Fotos, bei Fah- rerairbags zusätzlich zu jedem Design
+jeweils ein Foto der Vorderansicht</p></li>
+<li><p>Beschreibung jedes einzelnen Arbeitsschrittes, unterstützt mit
+Fotos und Pfeilen auf den Bil- dern, so dass jeder Arbeitsschritt
+nachvollziehbar ist</p></li>
+</ol>
+<blockquote>
+<p>Hinweise auf besondere Vorschriften bzw. was auf keinen Fall gemacht
+werden darf direkt beim betreffenden Arbeitsschritt</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p>Foto mit allen Teilen im demontierten Zustand sowie ein
+Detailfoto des Gasgenerators am Ende der Anweisung</p></li>
+</ol>
+<blockquote>
+<p>Part
+No: 4F[redacted-phone]AF / AG / P / Q</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><ul>
+<li><p>take off the two squib connectors Don’t cut the cable or
+brake</p></li>
+</ul>
+<blockquote>
+<p>the plug! Otherwise no activation of the short circuit!</p>
+</blockquote></th>
+<th><blockquote>
+<p><img src="./07_Components-lah-5q0-880-2023-03-20-media/media/image13.jpeg" style="width:2.50107in;height:1.91in"/></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ul>
+<li><p>unscrew the three TORX screws with a TORX screwdriver</p></li>
+<li><p>lift off the fixture assy</p></li>
+</ul></td>
+<td><blockquote>
+<p><img src="./07_Components-lah-5q0-880-2023-03-20-media/media/image15.jpeg" style="width:2.50107in;height:1.91in"/></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><ul>
+<li><p>bend up the sheet metal shackles with a screwdriver</p></li>
+<li><p>loosen the lateral clips at the in- flator carrier with a
+screwdriver</p></li>
+</ul></td>
+<td><blockquote>
+<p><img src="./07_Components-lah-5q0-880-2023-03-20-media/media/image17.jpeg" style="width:2.50107in;height:1.91in"/></p>
+</blockquote></td>
+<td><blockquote>
+<p><img alt="PICT0001 " src="./07_Components-lah-5q0-880-2023-03-20-media/media/image18.jpeg" style="width:1.12936in;height:1.65in"/></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><ul>
+<li><p>lift off the inflator carrier</p></li>
+<li><p>cut the air cushion beside the three threads with the scissors
+(dotted lines)</p></li>
+</ul></td>
+<td><blockquote>
+<p><img src="./07_Components-lah-5q0-880-2023-03-20-media/media/image19.jpeg" style="width:2.50107in;height:1.91in"/></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><ul>
+<li><p>detach the inflator from the airbag</p></li>
+<li><p>put the inflator into the inflator pallet immediately</p></li>
+</ul></th>
+<th><blockquote>
+<p><img src="./07_Components-lah-5q0-880-2023-03-20-media/media/image21.jpeg"/></p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p><strong><u>Fotographien:</u></strong></p>
+</blockquote>
+<ul>
+<li><p>Auflösung der Fotos min. 2,0 Megapixel</p></li>
+<li><p>alle Fotos, die in der Anweisung enthalten sind, auch als
+JPEG-Dateien beifügen</p></li>
+<li><p>aussagekräftig, d.[redacted-person] Demontageschritte müssen anhand der
+Fotos nachvollziehbar sein</p></li>
+</ul>
+<blockquote>
+<p><strong><u>[redacted-person]:</u></strong></p>
+<p>Informationen zu den Moduldimensionen (l x b x h), Arbeitszeit und
+erforderliches Werkzeug auf gesonderter Seite.</p>
+</blockquote>
+<h2 id="ökobilanz">Ökobilanz</h2>
+<blockquote>
+<p>Kapitel nicht
+belegt.</p>
+</blockquote>
+<h2 id="mechanische-anforderungen">[redacted-person]</h2>
+<h2 id="last">Last</h2>
+<blockquote>
+<p>Kapitel nicht belegt.</p>
+</blockquote>
+<h2 id="schwingungsverhalten">Schwingungsverhalten</h2>
+<blockquote>
+<p>Kapitel nicht belegt.</p>
+</blockquote>
+<h2 id="steifigkeit-und-federeigenschaften">Steifigkeit und
+Federeigenschaften</h2>
+<blockquote>
+<p>Kapitel nicht belegt.</p>
+</blockquote>
+<h2 id="verformung-und-deformation">Verformung und Deformation</h2>
+<blockquote>
+<p>Kapitel nicht
+belegt.</p>
+</blockquote>
+<h2 id="druck">Druck</h2>
+<blockquote>
+<p>Kapitel nicht
+belegt.</p>
+</blockquote>
+<h2 id="lebensdauer">Lebensdauer</h2>
+<blockquote>
+<p>[redacted-person] ist so auszulegen, dass eine gleichbleibende
+Funktionssicherheit über die Fahrzeuglebensdauer gewährleistet ist.</p>
+<p>[redacted-person] einer neuen Technologie ist über eine 3-fach UWS nach [redacted-co]82517 und/ oder [redacted-co]82519 abzusichern.</p>
+</blockquote>
+<h2 id="elektrische-anforderungen">[redacted-person]</h2>
+<h2 id="beschreibung-der-allgemeinen-anforderungen">Beschreibung der
+allgemeinen Anforderungen</h2>
+<blockquote>
+<p><em>[A: BT-LAH-983]</em></p>
+<p>[redacted-person] mit Bordnetzschnittstellen gelten die Anforderungen des
+Querschnittslastenheftes LAH 5Q0.971 „[redacted-person]-Anforderungen“.</p>
+</blockquote>
+<h2 id="elektrische-komponenten-von-pyrotechnischen-einheiten">[redacted-person] von pyrotechnischen Einheiten</h2>
+<blockquote>
+<p>[redacted-person] an die elektrischen Komponenten von pyrotechnischen
+Einheiten sind in der [redacted-co]80150 definiert.</p>
+<p>[redacted-person] der Generatorschnittstelle WSK [redacted-phone]DC erfolgt der
+ESD Schutz nach „[redacted-co]80150 3.3.1 ESD-Schutz durch mechanische
+Anbindung.</p>
+<p>[redacted-person] der Generatorschnittstelle WSK [redacted-phone]GM erfolgt der
+ESD Schutz nach „[redacted-co]80150 3.3.2 ESD- Schutz durch Masseleitung“.</p>
+<p>[redacted-person] ist zum Lehnenrahmen elektrisch zu isolieren.</p>
+<p>[redacted-person] der
+Generatorschnittstelle ist der Anfragezeichnung zu entnehmen.</p>
+</blockquote>
+<h2 id="elektrische-anzünder-für-pyrotechnische-systeme">[redacted-person] für pyrotechnische Systeme</h2>
+<blockquote>
+<p>[redacted-person] und Prüfungen an elektrische Anzünder für
+pyrotechnische Systeme sind in der [redacted-co]80152 definiert.</p>
+<p>Die elektrischen Kenndaten des Anzünders sind mit den Fachabteilungen
+des Auftraggebers ab- zustimmen.</p>
+</blockquote>
+<h2 id="klimatische-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p>Die klimatischen Anforderungen an das ZSB Seitenairbagmodul sowie
+deren Komponenten sind in den Normen [redacted-co]82517, VW82518 und [redacted-co]82519
+definiert.</p>
+</blockquote>
+<h2 id="kundendienst--und-after-sales-anforderungen">Kundendienst- und
+After-Sales-Anforderungen</h2>
+<h2 id="kundendienstanforderung">Kundendienstanforderung</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] muss Lösungen entwickeln, die eine Inbetriebnahme
+oder Verifikation im Re- paraturfall ohne Probe- oder Adaptionsfahrt
+ermöglicht.</p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Prüf- oder Verifikationsverfahren können beispielweise in Form einer
+Adaption diverser Parameter (z. [redacted-person] der Endanschläge) oder durch
+ein Herbeiführen eines definierten Systemzustan- des/Systemverhaltens
+(z. [redacted-person] DPF, Gemischadaption) umgesetzt werden.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Falls der Auftragnehmer keine Lösungen findet, die eine
+Inbetriebnahme oder Verifikation im Re- paraturfall ohne Probe- oder
+Adaptionsfahrt ermöglicht, ist er verpflichtet, sich die Abweichung
+durch den Auftraggeber genehmigen zu lassen.</p>
+</blockquote>
+<h2 id="after-sales-anforderungen">After-Sales-Anforderungen</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Für alle Bauteile gelten die Anforderungen des
+Querschnittlastenheftes LAH DUM 000 K „Lasten- heft für [redacted-person]“.</p>
+</blockquote>
+<h2 id="transportschutz">Transportschutz</h2>
+<blockquote>
+<p>Transportschutzmaßnahmen sind vom Auftragnehmer mit dem Auftraggeber,
+dem Sitzlieferanten und der zuständigen QS abzustimmen (z.[redacted-person] und
+Lage der Module in den Gefachen).</p>
+</blockquote>
+<h2 id="logistikanforderungen">Logistikanforderungen</h2>
+<blockquote>
+<p>Teile zur Abprüfung der Logistikanforderungen sind kostenfrei zur
+Verfügung zu stellen. [redacted-person] muss die Transporteinstufung 1.4S
+erhalten.</p>
+<p>Bei der Grundkonzeption des Moduls ist zu beachten, dass das Ergebnis
+der transportrechtlichen Klassifizierung die Einstufung in die
+Gefahrgutklasse 9, UN 3268, sein muss (u.[redacted-person] Außenbrandtest
+lt. [redacted-person] Book der UN).</p>
+<p>Für die Airbagmodule sind die Testverfahren laut [redacted-person] Book
+der UN mit der Vorgabe zu machen, eine Einstufung in die Gefahrgutklasse
+9 zu erhalten:</p>
+</blockquote>
+<ul>
+<li><p>4 (b) – Test ist Falltest</p></li>
+<li><p>6 (a) – Test mit einem einzelnen Gegenstand über den
+Regelzünder</p></li>
+<li><p>6 (b) – Test über den Regelzünder mit Gegenstand/Gegenständen im
+mittleren von 3 Packstücken</p></li>
+<li><p>6 (c) – [redacted-person] einiger Packstücke auf einem
+Holzstapel</p></li>
+</ul>
+<blockquote>
+<p>Für folgende Verpackungen:</p>
+</blockquote>
+<ul>
+<li><p>Serienversorgung</p></li>
+<li><p>CKD- Versorgung</p></li>
+<li><p>Ersatzteilversorgung</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] ist von der zuständigen Behörde (z. [redacted-person] D die BAM) in
+einem Zuordnungsbescheid zu dokumentieren. [redacted-person] muss
+ein Prüfbericht beigefügt sein, in dem auch die Ergebnisse des
+Außenbrandtests dokumentiert sind.</p>
+<p>In diesem Prüfbericht ist durch die zuständige Behörde der Hinweis zu
+machen, dass eine Umstu- fung in die Klasse 9 möglich ist.</p>
+<p>Zusätzlich ist von der zuständigen Behörde bzw. vom zuständigen
+Bundesministerium eine CAA ([redacted-person] Approval) auszustellen.
+Zuordnungsbescheid, Prüfbericht und [redacted-person] Approval sind
+der zuständigen Planungsabteilung zur Verfügung zu stellen.</p>
+<p>Weiteranforderungen sind
+mit dem Sitzlieferant abzustimmen.</p>
+</blockquote>
+<h2 id="verpackung">Verpackung</h2>
+<blockquote>
+<p>[redacted-person] sind mit den entsprechenden Abteilungen
+des Auftraggebers und Sitzlieferant abzustimmen.</p>
+</blockquote>
+<h2 id="teileschutz">Teileschutz</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] hat offene Schnittstellen an medienführenden
+Bauteilen (Kühlwasser, Luft, Kraftstoff, Öl) mit einem
+Transportschutzmittel (Kappen, Stöpsel usw.) gemäß [redacted-co]50157 direkt am Verbauteil zu versehen.</p>
+</blockquote>
+<h2 id="gefahrgut">Gefahrgut</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] hat dem Auftraggeber alle notwendigen Informationen
+und Dokumente zur Ab- wicklung von Transporten im Sinne des
+Gefahrgutrechts (nationalen und internationalen Gefahr- gutvorschriften
+und Gefahrgutregelungen) zu übermitteln (ADR, RID, IATA DGR, IMDG Code
+und/oder ADN).</p>
+</blockquote>
+<p><em>A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] hat dem Auftraggeber mitzuteilen, ob ein Bauteil
+den nationalen und internati- onalen Gefahrgutvorschriften und
+Gefahrgutregelungen unterliegt.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] ist verpflichtet, dem Auftraggeber das Formblatt
+„[redacted-person]- vanz“ mit der Übergabe der ersten
+Konstruktionsdaten ausgefüllt einzureichen.</p>
+</blockquote>
+<p><em>[A:BT-LAH-:7419</em>]</p>
+<blockquote>
+<p>[redacted-person] muss entsprechend der Vorgaben in der Anlage
+„[redacted-person] zur Klassifizierung nach Gefahrgutrecht“ die
+benötigten Informationen und Dokumente zur Abwicklung von Transporten
+nach Gefahrgutrecht spätestens zu den jeweiligen Freigabezeitpunkten dem
+Auf- traggeber übergeben.</p>
+</blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] „[redacted-person]“ mit der Anlage
+„[redacted-person] zur Klas- sifizierung nach Gefahrgutrecht“ ist auf
+der One.[redacted-person] Plattform (One.KBP) unter</p>
+<p>„Start &gt;&gt; Informationen &gt;&gt; Geschäftsbereiche &gt;&gt;
+Forschung und Entwicklung &gt;&gt; Produktentwick- lung“ hinterlegt.</p>
+</blockquote>
+<h2 id="qualitätssicherungsanforderungen">Qualitätssicherungsanforderungen</h2>
+<blockquote>
+<p><em>[A: BT-LAH-634]</em></p>
+<p>Es gelten die Vorgaben der [redacted-co]99000 und der Formel Q-Dokumente zur
+Verantwortung des Auf- tragnehmers und dessen Unterauftragnehmer für
+eingebaute Kaufteile.</p>
+</blockquote>
+<p><em>[A: BT-LAH-900]</em></p>
+<blockquote>
+<p>[redacted-person] muss das Prüfkonzept für Schadensteile dem
+Bauteilverantwortlichen vorstel- len und mit ihm bis PVS abstimmen.</p>
+<p>[redacted-person] ist BZD-pflichtig: <strong>Ja</strong></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Bauteile müssen entsprechend der Anforderungen zur
+Dokumentationspflicht der Qualitätssiche- rung und in Abstimmung mit der
+Fertigungsplanung des Auftraggebers für die Bauzustandsdoku- mentation,
+Teileverbauprüfung und Prozessabsicherung bei möglichem Falschverbau und
+even- tueller Varianz mit einem [redacted-person] Code nach [redacted-co]01064 versehen
+sein.</p>
+<p>[redacted-person] und Gestaltung der Etiketten erfolgt projektspezifisch
+nach Vorgabe des Auftrag- gebers.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] mittels [redacted-person] Code muss ab VFF enthalten
+sein.</p>
+<p>Es muss sichergestellt werden, dass fehlerhafte Teile nicht
+ausgeliefert werden.</p>
+<p>Gibt es Toleranzen im Herstellprozess, welche die Funktion
+beeinträchtigen, so sind Grenzmuster herzustellen und zu prüfen. [redacted-person] sind nach <strong>Fehler! Verweisquelle konnte nicht
+gefunden werden. Fehler! Verweisquelle konnte nicht gefunden
+werden.</strong> abzuprüfen.</p>
+<p>Anforderungen an serienbegleitende Qualitätssicherungen sind mit den
+verbauenden Werken ab- zustimmen und im Angebot enthalten.</p>
+<p>[redacted-person] müssen die Einflüsse des COP-Labors des
+Produktionsstandorts (Fahr- zeug/Airbag) berücksichtigen. Dazu müssen
+zusammen mit dem [redacted-person] im Rahmen der Entwicklung
+und Freigabe ([redacted-person] und Systemversuche) festgestellt werden. [redacted-person] müssen vom Auftragnehmer frühzeitig unter den gleichen
+Bedingungen durchge- führt
+werden, wie sie am Prüfstandort der COP-Versuche ([redacted-person] und System)
+herrschen.</p>
+</blockquote>
+<h2 id="anforderungen-an-das-zsb-seitenairbagmodul">Anforderungen an das
+ZSB Seitenairbagmodul</h2>
+<blockquote>
+<p>In allen durchzuführenden Versuchen muss der ZSB Seitenairbag robust
+und reproduzierbar</p>
+<p>in Konstruktionslage entfalten. Beschädigungen an Fahrzeugteilen oder
+dem ZSB Seitenair- bag wie z. [redacted-person] Öffnen von Nähten, Risse,
+Delaminationen, Durchbrände, Schlackeein- brände, Aufschmelzungen usw.
+sind unzulässig. Während und nach dem Versuch dürfen keine scharfen
+Kanten entstehen oder sich Fragmente lösen, die eine Gefahr für den
+Insas- sen darstellen oder geeignet sind den Luftsack zu beschädigen.
+[redacted-person] obliegt dem Auftraggeber.</p>
+<p>[redacted-person]- und Positionierzeiten sind auf die zu erfüllenden
+dynamischen Crashanforderun- gen gemäß fahrzeugspezifischem Anhang
+abzustimmen. [redacted-person] für die Vorauslegung ist von folgenden
+Maximalwerten über das gesamte Temperaturband in jeder Versuchskonfi-
+guration auszugehen:</p>
+</blockquote>
+<ul>
+<li><p>erstes Öffnen &lt; 5 ms</p></li>
+<li><p>Positionierzeit &lt; 15 ms</p></li>
+<li><p>Aufblaszeit &lt; 20 ms</p></li>
+</ul>
+<blockquote>
+<p>Abweichungen sind nur mit schriftlicher Zustimmung der Fachabteilung
+möglich.</p>
+<p>Warnhinweisen in Piktogrammform gemäß ENT.[redacted-phone]A muss auf dem
+Cover eingebracht wer- den.</p>
+<p>An verdeckten [redacted-person] sind Warnhinweise so zu platzieren, dass
+diese auch bei einer teilweisen Demontage der abdeckenden
+Verkleidungsteile lesbar sind. (z.[redacted-person] auf dem Seitenairbag
+unter dem Sitzbezug / Polster).</p>
+<p>[redacted-person] des Gesetzes GB [redacted-phone]“[redacted-person] for
+Power-driven [redacted-person] on Roads” ist sicherzustellen.</p>
+<p>Gratfreiheit ist am gesamten ZSB Seitenairbag sicherzustellen. [redacted-person] sind in der
+[redacted-co]82517 beschrieben.</p>
+</blockquote>
+<h2 id="anforderungen-an-den-luftsack">Anforderungen an den
+Luftsack</h2>
+<blockquote>
+<p>[redacted-person] an den Luftsack sind in der [redacted-co]82518 definiert. [redacted-person] ist bis maximal 20 mm zulässig.</p>
+</blockquote>
+<h2 id="anforderungen-an-den-gasgenerator">Anforderungen an den
+Gasgenerator</h2>
+<blockquote>
+<p>[redacted-person] an den Gasgenerator sind in der [redacted-co]82519
+definiert.</p>
+<p>[redacted-person] Technologie ist mit dem Auftraggeber abzustimmen. Es
+sind nur Treibsätze zu- lässig, die kein PSAN ([redacted]rat) enthalten.</p>
+<p>Es müssen zu Projektbeginn einmalig für jeden verwendeten
+Gasgeneratortyp die Kannendruck- kurven über das Temperaturband - aus
+den COP-Abnahmebeschüssen seit Einführung - nach [redacted-co]82519 - aufgezeigt
+werden.</p>
+<p>Vor jedem Schlitten- / OOP- / Crash- / Airbag-Standversuch mit
+Interieurbauteile sind die Kannen- druckkurven der verwendeten
+Gasgeneratorchargen - nach [redacted-co]82519 - über das Temperaturband
+darzustellen und zur Verfügung zu stellen.</p>
+<p>[redacted-person] darf keinerlei Partikel emittieren, die eine Brand-
+oder Verletzungsgefahr dar- stellen oder den Luftsack beschädigen.</p>
+<p>[redacted-person] sind im Rahmen der K-FMEA mit der
+Qualitätssicherung abzustimmen. [redacted-person] muss ausreichend
+dimensioniert sein, um die Funktions- und Lastenheftanfor- derungen zu
+erfüllen. Dazu muss der Gasgenerator die Anpassung der nominalen
+Generator- kennlinie nach [redacted-co]82519 von p<sub>10%</sub> bis
+p<sub>max</sub> ermöglichen.</p>
+<p>Eine DOE zur Identifikation der leistungsrelevanten
+Haupteinflußparameter ist durchzuführen und dem Auftraggeber
+vorzulegen.</p>
+<p>[redacted-person] sind auf dieser Basis unter Berücksichtigung
+der real auftretenden Prozessschwankungen mit entsprechender Sicherheit
+auszulegen, und mit dem Auftraggeber abzustimmen. [redacted-person] und das
+Herstellverfahren der Grenzlastgeneratoren ist dem Auf- traggeber
+vorzulegen.</p>
+<p>Für alle Haupteinflußparameter ist entsprechend „Formel-Q“ eine
+Prozess- bzw. Maschinenfähig- keit nachzuweisen und den Auftraggeber
+vorzulegen.</p>
+<p>[redacted-person] der Kurzschlussbrücke ist nur mit Zustimmung der
+jeweiligen Fachabteilung erlaubt.</p>
+<p>Eine unterschiedliche Retainerausrichtung im Gasgenerator für links /
+rechts und auch jeweils für unterschiedliche Derivate ist vorzusehen.</p>
+</blockquote>
+<h2 id="treibstoff-pyrotechnik">Treibstoff / Pyrotechnik</h2>
+<blockquote>
+<p>Entwicklungsziel ist ein geruchsneutraler, sauberer und rauchfreier
+Gasgenerator. Die pyrotechni- schen Eigenschaften des Treibstoffs dürfen
+über die Lebensdauer zu keinem kritischen Zustand des Gasgenerators
+führen. Es sind ausschließlich vom Gesetzgeber zugelassene Treibstoffe
+zu verwenden.</p>
+<p>Für die verwendeten Geometrien des Treibstoffs ist die nominale und
+kritische Dichte bzgl. des Berstverhaltens des jeweiligen Generators zu
+ermitteln und anzugeben. Ist die kritische Dichte in der verwendeten
+Geometrie nicht herstellbar, ist die jeweilige herstell-bare Grenzdichte
+anzuwen- den. Die im Serienprozess auftretenden Tablettendichten sind
+darzustellen. Es ist zu plausibilisie- ren, dass der sich ergebende
+Sicherheitsabstand ausreichend ist.</p>
+<p>Außerdem ist der Treibstoff nach Alterung gemäß VW82535 auf
+Veränderungen im Abbrandver- halten (z.[redacted-person] Dichteveränderungen) zu
+bewerten.</p>
+<p>[redacted-person] hat darzustellen mit welchen Vorgaben
+(Methode/Grenzwerte) sichergestellt wird, dass ggf. auftretende
+Veränderungen nicht zu einem Versagen des Gasgenerators führen.</p>
+<p>In Gasgeneratoren mit pyrotechnischen Treibstoffen sind
+Trocknungsmittel vorzusehen. [redacted-person]- serbindung muss in
+betriebsrelevanten Temperaturen erhalten bleiben. [redacted-person] hat
+nachzuweisen, dass ausreichend Trocknungsmittel für die Aufnahme von
+Feuchtigkeit aus der Produktion sowie für die Lebensdauer, unter
+Berücksichtigung des Dichtkonzepts und der Treib- stofftechnologie, im
+Gasgenerator enthalten ist.</p>
+<p>Hiervon ausgenommen sind Hybrid-Gasgeneratoren, bei denen der
+Treibstoff vollständig im Druckgasspeicher gelagert ist.</p>
+</blockquote>
+<h2 id="prüfmethoden">Prüfmethoden</h2>
+<blockquote>
+<p>[redacted-person] sind mit jeder entwicklungsbegleitend ausgelieferten
+[redacted-person]- nendruckkurven mit einer geeigneten Darstellung
+des Onset-Verhaltens zur Verfügung zu stellen. [redacted-person]-Verhalten
+(inkl. Grenzlastgeneratoren) ist mit einer über die Kanne hinausgehenden
+Messeinrichtung zu definieren und nachzuweisen.</p>
+<p>Der experimentelle Nachweis der Berstsicherheit muss über das
+Temperaturband NT bis RT (- 35°C bis +23°C) hydrostatisch erbracht
+werden.</p>
+<p>Dieser ist sowohl im Neuzustand und auch mit gealterten
+Gasgeneratoren zu führen. Alterung gemäß VW82519 sowie zusätzlicher
+Salzsprühnebeltest nach VW82533.</p>
+<p>[redacted-person] 1,7 muss auch hier eingehalten werden. [redacted-person] dient
+zum Nachweis der Gehäu- sefestigkeit, auch nach Alterung.</p>
+<p>Auch hochdynamische „Pyro-Bursts“ können vom Auftraggeber während der
+Entwicklung einge- fordert werden, um eine Vergleichbarkeit zum
+hydrostatischen Test nachzuweisen.</p>
+<p>Es ist sicherzustellen und nachzuweisen, dass die
+Leistungscharakteristik des Gasgenera-tors über Temperaturband und
+Lebensdauer nicht durch mögliche Diffusionsvorgänge oder Leckagen
+beeinträchtigt wird. [redacted-person] durch Temperaturänderungen
+sind im Nachweis zu be- rücksichtigen.</p>
+<p>Schweißaustrieb innerhalb des Gasgenerators, insbesondere bei
+Reibschweißprozessen, ist durch geeignete konstruktive und prozessuale
+Maßnahmen zu vermeiden.</p>
+<p>[redacted-person] von korrektem Aufbau (inkl. Fügeverbindungen) und
+Funktion von Gas-generato- ren sind zerstörungsfreie Prüfmethoden (z.[redacted-person] CT) in Entwicklung, Analyse und Fertigung vorzuhalten
+und bei Bedarf einzusetzen.</p>
+</blockquote>
+<h2 id="zündzeiten">Zündzeiten</h2>
+<blockquote>
+<p>[redacted-person] des ZSB Seitenairbag können im Projekt innerhalb der
+in der Tabelle angegebenen Zeiten variieren. Projektspezifisch kann es
+zu abweichenden Anpassungen durch den Auftragge- ber kommen.</p>
+</blockquote>
+<table style="width:100%;">
+<thead>
+<tr>
+<th colspan="2" style="text-align: center;"><blockquote>
+<p>ECE</p>
+</blockquote></th>
+<th colspan="2"><blockquote>
+<p>EuroNCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>Latin NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>Japan NCAP</p>
+</blockquote></th>
+<th colspan="2"><blockquote>
+<p>KNCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>Intern</p>
+</blockquote></th>
+</tr>
+<tr>
+<th><blockquote>
+<p>R 95</p>
+</blockquote></th>
+<th><blockquote>
+<p>R 135</p>
+</blockquote></th>
+<th><blockquote>
+<p>Barriere</p>
+</blockquote></th>
+<th><blockquote>
+<p>Pfahl</p>
+</blockquote></th>
+<th><blockquote>
+<p>Pfahl</p>
+</blockquote></th>
+<th><blockquote>
+<p>Barriere</p>
+</blockquote></th>
+<th><blockquote>
+<p>Pfahl</p>
+</blockquote></th>
+<th><blockquote>
+<p>Barriere</p>
+</blockquote></th>
+<th><blockquote>
+<p>Pfahl 2+3 SR</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2"><blockquote>
+<p>TTF</p>
+<p>[ms]</p>
+</blockquote></td>
+<td><blockquote>
+<p>min</p>
+</blockquote></td>
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max</p>
+</blockquote></td>
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>17</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<thead>
+<tr>
+<th colspan="2"><blockquote>
+<p>FMVSS 214</p>
+</blockquote></th>
+<th colspan="2"><blockquote>
+<p>US NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>IIHS</p>
+</blockquote></th>
+</tr>
+<tr>
+<th><blockquote>
+<p>Pfahl</p>
+</blockquote></th>
+<th><blockquote>
+<p>Barriere</p>
+</blockquote></th>
+<th><blockquote>
+<p>Pfahl</p>
+</blockquote></th>
+<th><blockquote>
+<p>Barriere</p>
+</blockquote></th>
+<th><blockquote>
+<p>Barriere</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2"><blockquote>
+<p>TTF</p>
+<p>[ms]</p>
+</blockquote></td>
+<td><blockquote>
+<p>min</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max</p>
+</blockquote></td>
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="anforderungen-an-erprobung">Anforderungen an Erprobung</h1>
+<blockquote>
+<p>Bei sämtlichen unten aufgeführten Erprobungen hat der Auftraggeber
+das Recht, während des Versuchsaufbaus, der Durchführung und des
+Versuchsabbaus anwesend zu sein, wobei auch eine kurzfristige Änderung
+der Versuchskonfiguration möglich sein muss.</p>
+</blockquote>
+<h2 id="prüfmittel-erprobungsträger">Prüfmittel / Erprobungsträger</h2>
+<blockquote>
+<p><em>[A: BT-LAH-694]</em></p>
+<p>[redacted-person] spricht mit dem Auftraggeber ab, ob und wie viele
+Fahrzeuge der Auftragneh- mer mit Mess- und Applikationsgeräten
+auszurüsten und für die Dauer der Entwicklung (bis 3 Mo- nate nach SOP)
+bereitzustellen hat.</p>
+<p>[redacted-person] zu Entwicklungszwecke können in Hilfsvorrichtung
+durchgeführt werden (z.[redacted-person] bildung einer Sitzstruktur, verstärkte
+Sitzstruktur, usw.). [redacted-person] der Anbindungspunkte ist es zulässig
+die Hilfsstruktur mit Wechselblechen auszurüsten. [redacted-person]
+müssen in Ma- terialstärke, Güte und dem Nennmaß dem jeweiligen
+Rohbauteil entsprechen.</p>
+<p>[redacted-person] dürfen für Versuche zu Freigabezwecke nicht
+verwendet werden.</p>
+<p>Im Rahmen der Entwicklung benötigt Umgebungsteile wie ZSB Sitze,
+Türverkleidungen, etc… werden dem Auftragnehmer kostenlos zur Verfügung
+gestellt. Werden durch Verschuldung des Auftragnehmers mehr
+Versuchsteile als vorgesehen benötigt, müssen diese Teile vom Auftrag-
+nehmer selbst beschafft werden.</p>
+<p>Weitere für die Entwicklung benötigte Prüfstände, Prüfmittel und
+Erprobungsträger werden von dem Auftragnehmer direkt oder über Dritte
+zur Verfügung gestellt.</p>
+<p>Im Rahmen einer Neuentwicklung sind aufgrund der geringen
+Erprobungsträger- und Erpro- bungsteilkapazitäten (für Prototypen)
+geeignete Ersatzprüfungen zu erarbeiten und im Vorfeld mit den
+Fachabteilungen abzustimmen. Mittels der Ersatzprüfungen sollen die
+Funktion und Rückhaltewirkung des Airbagsystems vor Durchführung der
+Crashversuche über geeignete Er- satzversuche (z. [redacted-person], Pendel-
+oder Simulation) nachgewiesen werden.</p>
+<p>[redacted-person] müssen gemäß ISO 17025 zertifiziert sein.</p>
+<p>Die vom Auftragnehmer benutzten Prüfstände, Prüfmittel und
+Videotechnik sind vom Aufrageber freizugeben.</p>
+<p>Die eingesetzte Videotechnik muss mindesten Aufnahmen mit einer
+Bildwiderholrate von 2000 Bildern/ Sekunde und 1280 x 1024 [redacted-person] oder 4000/ Bildern/ Sekunde bei 800 x 800 [redacted-person] bei
+einer Verschlußzeit ≤ 80µs ermöglichen.</p>
+<p>[redacted-person] und Auftragnehmer sind Kameraperspektiven
+abzustimmen die die Auf- nahme aller relevanten Details mit einer
+Auflösung von min 0,8mm ermöglichen.</p>
+<p>[redacted-person] müssen geeignet sein eine abgestimmte
+Perspektive während der Ent- wicklung jederzeit reproduzieren zu
+können.</p>
+<p>An den Prüfständen ist eine derart geeignete Beleuchtung vorzuhalten,
+die zum einen helle Berei- che (insbesondere der Airbag-Luftsack) nicht
+überbelichtet und zum anderen dunkle Bereiche (Verkleidung etc.) nicht
+unterbelichtet. [redacted-person] gilt ein Film insbesondere dann,
+wenn</p>
+<p>Details der Entfaltung aufgrund der Überbelichtung nicht oder
+wesentlich schlechter zu erkennen sind.</p>
+<p>Messmarken (z.B. 12-bit AICON codierte Marken) sind zu verwenden und
+im Hintergrund (auf Scheibe oder an Stellwand hinter Fahrzeug) in
+gleichmäßigem horizontal und vertikal angeordne- ten Raster anbringen
+oder Schablone verwenden. [redacted-person] (z.[redacted-person]
+band) sind am Fahrzeug anbringen.</p>
+</blockquote>
+<h2 id="erfüllungsnachweise">Erfüllungsnachweise</h2>
+<blockquote>
+<p><em>[A: BT-LAH-697]</em></p>
+<p>Sämtliche unten aufgeführten Erprobungen sind nach den zitierten
+Vorschriften durchzuführen.</p>
+<p>[redacted-person] aller Standversuche ist in der vorgegebenen Tabelle zu
+dokumentieren. Die Ta- belle muss auf aktuellem Stand gehalten werden
+und dem Auftraggeber zur Verfügung gestellt werden.</p>
+<p>[redacted-person] kann eine automatische Auswertung der Füllzeiten
+einfordern, um einzelne Schritte während der Aufblaszeit auszuwerten.
+Dazu werden Markierungen in gitterform mit dem Rastermaß von 10 cm auf
+den Luftsack aufgebracht. [redacted-person] erfolgt mit einer geeigneten
+Software.</p>
+<p>[redacted-person] des Auftraggebers sind Versuchsdaten innerhalb von 1
+Werktag im [redacted-person]- Verdi abzulegen.</p>
+</blockquote>
+<h2 id="erprobungsplan">Erprobungsplan</h2>
+<blockquote>
+<p>[redacted-person] der Meilensteine P, B, BMG, K sind spezifische Versuche
+durchzuführen, auszuwer- ten und zu dokumentieren. Voraussetzung für die
+Erteilung der entsprechenden Freigaben sind vom Auftraggeber akzeptierte
+Ergebnisse.</p>
+<p>Die durchzuführenden Prüfungen sind für den SAB vorne und SAB hinten
+der nachstehenden Ta- belle zu entnehmen.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Lastenheft- nummer</p>
+</blockquote></th>
+<th><blockquote>
+<p>Bezeichnung</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>SAB</p>
+<p>vorne</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>SAB</p>
+<p>hinten</p>
+</blockquote></th>
+<th><blockquote>
+<p>Bemerkung SAB hinten</p>
+</blockquote></th>
+<th><blockquote>
+<p>Bemerkung all- gemein</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>6.3.1</p>
+</blockquote></td>
+<td><blockquote>
+<p>P-Freigabe</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne 6.4.5</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.3.2</p>
+</blockquote></td>
+<td><blockquote>
+<p>B-Freigabe</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne 6.4.5 und</p>
+<p>6.4.6</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.3.3</p>
+</blockquote></td>
+<td><blockquote>
+<p>BMG und K-Freigabe</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne 6.4.5 und</p>
+<p>6.4.6</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Dauerversuch</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.2</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] only</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.3</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-co] 2.1 (Anmer- kung Sitzintegra- tion)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Out of position</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x (NAR)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x (NAR)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nur NAR Markt</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Komponentenversuche (be- engter Raum)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Schlittenversuche</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Umweltsimulation</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>6.4.7.1</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-person]- rator</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>6.4.7.2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Umweltsimulation ZSB Sei- tenairbag</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.8</p>
+</blockquote></td>
+<td><blockquote>
+<p>Fallturm-/Linearimpaktior-</p>
+<p>/Pendelversuche</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.9</p>
+</blockquote></td>
+<td><blockquote>
+<p>Gebrauchssicherheitsversu- che</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.4.10</p>
+</blockquote></td>
+<td><blockquote>
+<p>Crashversuche</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.8</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] und Si- mulation</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne Hardware- tests (6.4.5 und</p>
+<p>6.4.6)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>6.9</p>
+</blockquote></td>
+<td><blockquote>
+<p>Fahrzeugerprobung</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="p-freigabe">P-Freigabe</h2>
+<blockquote>
+<p>[redacted-person] der P- Freigabe ist die Erfüllung folgender Punkte
+durch den Auftragnehmer auf Basis der P- Freigabedaten nachzuweisen.</p>
+<p>BAM- Zulassung der Klasse 1 und CE Kennzeichnung nach [redacted-phone]EG für
+den ZSB Seitenairbag und den Generator sowie erforderliche DOT und UKCA
+Zulassungen.</p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#terminplan-und-meilensteine">Terminplan und
+Meilensteine</a></p></li>
+</ol>
+<blockquote>
+<p><a href="#geometrie">5.11.3</a> <a href="#geometrie">Geometrie</a></p>
+<p><a href="#anforderungen-an-den-gasgenerator">5.27</a> <a href="#anforderungen-an-den-gasgenerator">Anforderungen an den
+Gasgenerator</a></p>
+<p><a href="#standversuche-modul-only">6.4.2</a> <a href="#standversuche-modul-only">[redacted-person] only</a></p>
+<p><a href="#komponentenversuche-beengter-raum">6.4.5</a> <a href="#komponentenversuche-beengter-raum">Komponentenversuche (beengter
+Raum)</a> auf Basis von Vergleichsfahrzeugen</p>
+<p><a href="#_bookmark124">6.8</a> <a href="#_bookmark124">[redacted-person] und Simulation</a></p>
+<p>Darüber hinaus gilt [redacted-co]99000 -1 [redacted-person] zur
+Leistungserbringung im Rah- men der [redacted-person] 1:
+Planungsfreigabe.</p>
+<p>[redacted-person] der P- Freigabe durch den Auftraggeber erfolgt auf
+Basis einer Freigabeempfehlung des Auftragnehmers.</p>
+</blockquote>
+<h2 id="b-freigabe">B-Freigabe</h2>
+<blockquote>
+<p>[redacted-person] der B- Freigabe ist die Erfüllung folgender Punkte
+durch den Auftragnehmer auf Basis der B- Freigabedaten und
+Prototypenteilen nachzuweisen.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><a href="#_bookmark20">Risikomanagement (FMEA und
+FTA)</a></p></li>
+</ol>
+<blockquote>
+<p><a href="#_bookmark52">5.11.2</a> <a href="#_bookmark52">Montagekonzept</a></p>
+<p><a href="#geometrie">5.11.3</a> <a href="#geometrie">Geometrie</a>
+(Erfüllung ECE R17 und R21 anhand von physischen Bauteilen bzw.
+Versuche)</p>
+<p><a href="#_bookmark60">5.14</a> <a href="#_bookmark60">[redacted-person]</a></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><a href="#standversuche-modul-only">[redacted-person]
+only</a></p></li>
+<li><p><a href="#_bookmark112">[redacted-person]</a></p></li>
+<li><p><a href="#_bookmark113">Out of Position</a></p></li>
+<li><p><a href="#komponentenversuche-beengter-raum">Komponentenversuche
+(beengter Raum)</a></p></li>
+<li><p><a href="#_bookmark115">Schlittenversuche</a></p></li>
+<li><p><a href="#umweltsimulation">Umweltsimulation</a></p></li>
+<li><p><a href="#_bookmark117">Fallturm-/Linearimpaktor-/Pendelversuche</a></p></li>
+<li><p><a href="#_bookmark118">Gebrauchssicherheitsversuche</a></p></li>
+</ol>
+<blockquote>
+<p><a href="#_bookmark120">6.4.11</a> <a href="#_bookmark120">Crashversuche</a></p>
+<p><a href="#_bookmark124">6.8</a> <a href="#_bookmark124">[redacted-person] und Simulation</a></p>
+<p>Darüber hinaus gilt [redacted-co]99000 -2 [redacted-person] zur
+Leistungserbringung im Rah- men der [redacted-person] 2:
+Beschaffungsfreigabe.</p>
+<p>[redacted-person] der B- Freigabe durch den Auftraggeber erfolgt auf
+Basis einer Freigabeempfehlung des Auftragnehmers.</p>
+</blockquote>
+<h2 id="bmg--und-k-freigabe">BMG- und K-Freigabe</h2>
+<blockquote>
+<p>[redacted-person] der BMG bzw. K- Freigabe ist die Erfüllung folgender
+Punkte durch den Auftragneh- mer auf Basis der B- Freigabedaten inkl.
+alle Optimierungen für die Lastenhefterfüllung nachzu- weisen.</p>
+</blockquote>
+<ol start="4" type="1">
+<li><p><a href="#_bookmark17">Typprüfung und Zertifizierung</a></p></li>
+</ol>
+<blockquote>
+<p><a href="#_bookmark52">5.11.2</a> <a href="#_bookmark52">Montagekonzept</a></p>
+<p><a href="#geometrie">5.11.3</a> <a href="#geometrie">Geometrie</a>
+(Erfüllung ECE R17 und R21 anhand von physischen Bauteilen bzw.
+Versuche)</p>
+<p><a href="#_bookmark60">5.14</a> <a href="#_bookmark60">[redacted-person]</a></p>
+<p><a href="#recyclingkonzept">5.16.2</a> <a href="#recyclingkonzept">Recyclingkonzept</a></p>
+<p><a href="#elektrische-anforderungen">5.19</a> <a href="#elektrische-anforderungen">[redacted-person]</a></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><a href="#standversuche-modul-only">[redacted-person]
+only</a></p></li>
+<li><p><a href="#_bookmark112">[redacted-person]</a></p></li>
+<li><p><a href="#_bookmark113">Out of Position</a></p></li>
+<li><p><a href="#komponentenversuche-beengter-raum">Komponentenversuche
+(beengter Raum)</a></p></li>
+<li><p><a href="#_bookmark115">Schlittenversuche</a></p></li>
+<li><p><a href="#umweltsimulation">Umweltsimulation</a></p></li>
+<li><p><a href="#_bookmark117">Fallturm-/Linearimpaktor-/Pendelversuche</a></p></li>
+<li><p><a href="#_bookmark118">Gebrauchssicherheitsversuche</a></p></li>
+<li><p><a href="#versuche-in-der-umgebung">Versuche in der
+Umgebung</a></p></li>
+<li><p><a href="#_bookmark120">Crashversuche</a></p></li>
+</ol>
+<blockquote>
+<p><a href="#_bookmark124">6.8</a> <a href="#_bookmark124">[redacted-person] und Simulation</a></p>
+<p>Darüber hinaus gilt [redacted-co]99000 -3 [redacted-person] zur
+Leistungserbringung im Rah- men der Bauteilentwicklung; Teil 3:
+Konstruktionsfreigabe sowie [redacted-co]99000 -4 Übergreifende An- forderungen
+zur Leistungserbringung im Rahmen der Bauteilentwicklung; Teil 4:
+Baumustergeneh- migung.</p>
+<p>[redacted-person] der BMG bzw. K- Freigabe durch den Auftraggeber erfolgt
+auf Basis einer Freigabe- empfehlung des Auftragnehmers.</p>
+<p>[redacted-person] der o. [redacted-person] auf BMG bzw. K-Freigabe erfolgt
+durch markenspezifische Checklisten (siehe <a href="#checklisten">3.2.3</a> <a href="#checklisten">Checklisten</a>).</p>
+</blockquote>
+<h2 id="prüfungen">Prüfungen</h2>
+<blockquote>
+<p>[redacted-person] sämtlicher benötigten Teile für die folgenden
+Prüfungen liegt in der Verantwor- tung des Auftragnehmers. Vor jedem
+Versuch sind die Kannendruckkurven der verwendeten Gas- generatorchargen
+nach [redacted-co]82519 über das Temperaturband darzustellen und zur Verfügung zu
+stellen. [redacted-person] der Versuche <a href="#standversuche-modul-only">6.4.2</a> bis <a href="#versuche-in-der-umgebung">6.4.10</a> obliegt dem
+Auftragnehmer.</p>
+</blockquote>
+<h2 id="dauerversuch">Dauerversuch</h2>
+<blockquote>
+<p>Kapitel nicht belegt.</p>
+</blockquote>
+<h2 id="standversuche-modul-only">[redacted-person] only</h2>
+<blockquote>
+<p>Standversuche „Modul only“ erfolgen nach TL[redacted-phone]ohne Bezug.
+Freigabeversuche müssen mit neue Strukturen durchgeführt werden.</p>
+<p>[redacted-person] der Umgebung ist nur nach Abstimmung mit dem
+Auftraggeber zulässig. [redacted-person] darf nach den ersten Versuche
+mit Umgebungsteile (Schaum, Bezug, Verklei- dungsteile, usw.) erfolgen.</p>
+</blockquote>
+<h2 id="standversuche-grenznaht">[redacted-person]</h2>
+<blockquote>
+<p>Standversuche „Grenznaht“ erfolgen nach TL82380 stärkster/
+schwächster Bezug</p>
+<p>Die für diese Versuche benötigten Sitze, Lehnen und/oder
+Seitenpolster werden dem Auftragneh- mer kostenlos zur Verfügung
+gestellt.</p>
+<p>Für [redacted-co]: siehe
+<strong>Fehler! Verweisquelle konnte nicht gefunden
+werden.</strong>.</p>
+</blockquote>
+<h2 id="out-of-position">Out of Position</h2>
+<blockquote>
+<p>[redacted-person] sind nach der aktuellen Ausgabe der TWG, Recommended
+procedures for eva- luating occupant injury risk from deploying side
+airbags, durchzuführen.</p>
+<p>Die in o. [redacted-person] angegebenen Werte sind mit einer Sicherheit von
+20% zu erfüllen. Hierzu erforderliche Maßnahmen werden durch den
+Auftragnehmer am ZSB Seitenairbag definiert und umgesetzt.</p>
+<p>Innerhalb eines Dummys dürfen nur Einzelteile eines Herstellers
+verwendet werden. Das Mi- schen von Einzelteilen innerhalb eines Dummys
+ist unzulässig. Der verwendete Hersteller ist im Bericht anzugeben.</p>
+<p>[redacted-person] ist ausschließlich für den Markt NAR gültig.</p>
+</blockquote>
+<h2 id="komponentenversuche-beengter-raum">Komponentenversuche (beengter
+Raum)</h2>
+<blockquote>
+<p>In den dynamischen Komponentenversuchen wird die Entfaltung des ZSB
+Seitenairbag in einer Ersatzumgebung überprüft. [redacted-person] sind die Voraussetzung für die nach- folgenden Schlittenversuche.</p>
+</blockquote>
+<h2 id="schlittenversuche">Schlittenversuche</h2>
+<blockquote>
+<p>In den dynamischen Schlittenversuchen wird die Rückhaltewirkung des
+ZSB Seitenairbag über- prüft. [redacted-person] sind die
+Voraussetzung für nachfolgende Crashversuche.</p>
+</blockquote>
+<h2 id="umweltsimulation">Umweltsimulation</h2>
+<ol type="1">
+<li><p><strong>Umweltsimulation ZSB Gasgenerator</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] des Gasgenerators erfolgt nach: [redacted-co]82519 7.
+Umweltsimulation an dem Gasgenerator.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><strong>Umweltsimulation ZSB Seitenairbag</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] des ZSB Seitenairbag erfolgt nach [redacted-co]82517 8.
+Umweltsimulation an dem Airbag- Modul.</p>
+</blockquote>
+<h2 id="fallturm-linearimpaktor-pendelversuche">Fallturm-/Linearimpaktor-/Pendelversuche</h2>
+<blockquote>
+<p>[redacted-person] des ZSB Seitenairbags sind
+Fallturm-/Linearimpaktor-/Pendelversuche nach folgender
+Versuchskonfiguration durchzuführen:</p>
+<p>Versuchsbeschreibung:</p>
+</blockquote>
+<ul>
+<li><p>Zielstelle: dickster, aufgeblasener Luftsackbereich</p></li>
+<li><p>Energieeintrag: 515 Joule (entspricht z.B. m = 34 Kg, v = 5,5
+m/s)</p></li>
+<li><p>Versuchstemperatur: +85°C (im Gasgenerator) durch Entnahme aus
+Klimakammer</p></li>
+<li><p>Generatortyp: obere Grenzlast</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>auf starre Wand (Anbindungspunkte nach
+Fahrzeuggeometrie)</p></li>
+<li><p>Stosskörper: Bodyblock (H = 500 mm; b = 220 mm; R vorn = 110
+mm)</p></li>
+<li><p>[redacted-person]
+zum Stoßkörper: nach Erreichen der Füllzeit</p></li>
+</ul>
+<h2 id="gebrauchssicherheitsversuche">Gebrauchssicherheitsversuche</h2>
+<blockquote>
+<p>Gebrauchssicherheitsversuche sind gemäß untenstehender Tabelle in
+einer Fahrzeugkarosse durchzuführen.</p>
+<p>Versuche können in Absprache mit der Fachabteilung kombiniert werden.
+Fahrzeugspezifisch können in Absprache mit der [redacted-person]
+entfallen, bzw. hinzugefügt werden.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p>Vorgang</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Prüfverfahren</p>
+</blockquote></th>
+<th><blockquote>
+<p>Kriterien</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] (z.[redacted-person] von hinten nach vorn
+durchgeladen)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Modulmitte, langer horiz. Schnitt 20mm naben [redacted-person]
+Insasse.</p>
+<p>Bei der Verwendung eines Sei- tenpolsters ist der Schnitt je 10mm zu
+jeder Seite der airbag- naht auf Höhe der Airbagmodul- mitte
+Auszuführen. [redacted-person] unten.</p>
+<p>(siehe Bild unten.)</p>
+</blockquote></td>
+<td><ul>
+<li><p>Standversuche i.O.</p></li>
+<li><p>all. Systemanforde- rungen.</p></li>
+</ul></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Sitzlehne geklappt (falls mög- lich)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Aufblasversuch mit nach unten geklappter Sitzlehne</p>
+</blockquote></td>
+<td><blockquote>
+<p>- [redacted-person]- fährdung</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Kriterien zur Erfüllung Nr. 1:</p>
+</blockquote>
+<ul>
+<li><p>Bei der Entfaltung darf es zu keinen Airbagversagen kommen und
+eine Restschutzwir- kung muss gewährleistet sein.</p></li>
+<li><p>[redacted-person] muss ausgeschlossen sein.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] 1</p>
+</blockquote>
+<p><img src="./07_Components-lah-5q0-880-2023-03-20-media/media/image24.jpeg" style="width:5.68442in;height:3.0599in"/></p>
+<blockquote>
+<p>Schnitt</p>
+</blockquote>
+<h2 id="versuche-in-der-umgebung">Versuche in der Umgebung</h2>
+<blockquote>
+<p>Abhängig von der Interkation zwischen dem Airbag-Modul und den
+Umgebungsteilen, werden in Absprache mit dem [redacted-person] zur
+Bewertung des Verhaltens der Umgebungsteile durchzuführen.</p>
+<p>Maßnahmen werden zwischen Auftragnehmer und Auftraggeber abgestimmt.
+[redacted-person] am Airbag-Modul notwendig sind, müssen diese Maßnahmen
+kostenneutral umgesetzt werden.</p>
+<p>[redacted-person] werden vor der BMG Schleife mit Serienteile
+durchgeführt. Kriterien zur Erfüllung:</p>
+</blockquote>
+<ul>
+<li><p>Bei der Entfaltung darf es zu keinen Airbagversagen kommen und
+eine Restschutzwir-</p></li>
+</ul>
+<blockquote>
+<p>kung muss gewährleistet sein.</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] muss ausgeschlossen sein.</p></li>
+</ul>
+<blockquote>
+<p>Maximal können 15 Versuche mit nominalen Generatoren von -35°C bis
++85°C in der Karosserie durchgeführt werden.</p>
+</blockquote>
+<h2 id="crashversuche">Crashversuche</h2>
+<blockquote>
+<p>[redacted-person] im Rahmen der Entwicklung, einschließlich
+der Freigabecrashs, wer- den vom Auftraggeber durchgeführt oder
+vergeben.</p>
+<p>Für die ordnungsgemäße Funktion des ZSB Seitenairbag im Crash ist der
+Auftragnehmer verant- wortlich.</p>
+<p>[redacted-person] der Crashversuche bzgl. der Funktion des ZSB
+Seitenairbag wird vom Auftragge- ber durchgeführt. [redacted-person] des ZSB
+Seitenairbag im Crash erfolgt durch den Auftragnehmer.</p>
+<p>Bei negativem Ergebnis eines Crashversuchs, welches eindeutig einer
+Fehlfunktion des ZSB Sei- tenairbag zugeordnet werden kann, behält sich
+der Auftraggeber vor, die zusätzlich notwendigen Versuchsaufwendungen
+dem Auftragnehmer in Rechnung zu stellen.</p>
+<p>[redacted-person] mit dem Auftraggeber unterstützt der Auftragnehmer bei
+Crashversuchen so wie bei der Montage aller Systemkomponenten.</p>
+<p>[redacted-person] des Dummy und die Sitzeinstellung für jede
+Crashkonfiguration wird am Anfang des Projekts vom Auftraggeber
+definiert. [redacted-person] kann in Rahmen der Entwicklung sich
+ändern.</p>
+</blockquote>
+<h2 id="testparameter-und-zyklen">Testparameter und Zyklen</h2>
+<blockquote>
+<p>Kapitel nicht
+belegt.</p>
+</blockquote>
+<h2 id="beschaffenheit-des-zu-testenden-musterstandes">Beschaffenheit
+des zu testenden Musterstandes</h2>
+<blockquote>
+<p>ZSB Seitenairbagmodule für P- Freigabe und B- [redacted-person]
+können im Musterbau her- gestellt sein und Komponenten aus der
+Prototypenfertigung enthalten. Nach erteilter P- Freigabe erfolgt die
+Faltung automatisiert.</p>
+<p>Module für K- Freigabe, BMG- Prüfungen und Crashversuche mit PVS
+Fahrzeugen sind aus Se- rienwerkzeugen und Serienprozessen. [redacted-person] erfolgt am Serienstandort.</p>
+</blockquote>
+<h2 id="betriebszustände">Betriebszustände</h2>
+<blockquote>
+<p>Kapitel nicht
+belegt.</p>
+</blockquote>
+<h2 id="virtuelle-erprobung-und-simulation">[redacted-person] und
+Simulation</h2>
+<blockquote>
+<p><em>[A: BT-LAH-698]</em></p>
+<p>[redacted-person] und Simulationen sind die festgelegten Verfahren und
+Systeme anzuwenden. [redacted-person] erfolgt gemäß den Anforderungen
+der [redacted-co]99000, Abschnitt "Produktdaten- management".</p>
+<p>[redacted-person] in Fahrzeugumgebung erfolgt durch den
+Auftraggeber. Hierzu stellt der Auf- tragnehmer Simulationsmodelle nach
+LAH.DUM.880.EM zur Verfügung.</p>
+<p>[redacted-person] nach <strong>Fehler! Verweisquelle konnte nicht
+gefunden werden. Fehler! Ver- weisquelle konnte nicht gefunden
+werden.</strong> sind durch eine Simulation auszulegen und nach Versuch
+vom Auftragnehmer abzugleichen. [redacted-person] sind auf Anfrage vollständig
+dem Auftrag- geber zur Verfügung zu stellen.</p>
+<p>Bereiche hoher Dehnung des Luftsackgewebes sind durch die Simulation
+vom Auftragnehmer auf- zuzeigen.</p>
+</blockquote>
+<h2 id="fahrzeugerprobung">Fahrzeugerprobung</h2>
+<blockquote>
+<p><em>[A: BT-LAH-713]</em></p>
+<p>[redacted-person] ist verpflichtet im jeweiligen Zielfahrzeug die
+entsprechenden Untersuchungen durchzuführen, um damit den Nachweis der
+Funktionsfähigkeit des Produktes zu erbringen. [redacted-person] hierzu
+sind dem Auftraggeber offen zu legen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-715]</em></p>
+<blockquote>
+<p>Teile aus Fahrzeugdauerläufen sind auf Anforderung vom Auftragnehmer
+zu analysieren.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Wenn zur Durchführung von Versuchstätigkeiten das Bewegen von
+Fahrzeugen des Auftragge- bers vorgeschrieben wird, dann stellt der
+Auftraggeber die Fahrzeuge z. [redacted-person] Leihvertragsre- gelung zur
+Verfügung. Fahrer von Erprobungsfahrzeugen benötigen neben der
+erforderlichen Fahrlizenz ein vom Auftraggeber anerkanntes
+Fahrsicherheitstraining.</p>
+<p>[redacted-person] fallen in den Umfang der Fahrzeugadaption und
+werden beim Fahrzeugher- steller durchgeführt. Die den jeweiligen
+Entwicklungsständen entsprechenden Funktionsteile sind vom Lieferanten
+zur Verfügung zu stellen. [redacted-person] der Dauerversuche im
+Termin- plan ist erforderlich.</p>
+<p>Bewertet werden die Kriterien: Festigkeit, Vibration, Geräusch,
+Aussehen und Korrosion, welche die Funktion des Systems gegenüber dem
+Ausgangszustand nicht beeinträchtigen dürfen.</p>
+<p>Ergebnisse aus den Dauerversuchen sind bei der Entwicklung zu
+berücksichtigen. Auch wenn diese Ergebnisse erst nach der B-Freigabe
+vorliegen, sind die Abstellmaßnahmen kostenneutral umzusetzen.</p>
+</blockquote>
+<h1 id="definitionen-begriffe-abkürzungen">Definitionen, Begriffe,
+Abkürzungen</h1>
+<h2 id="begriffe">Begriffe</h2>
+<blockquote>
+<p><strong>A-, B- und C-Musterstand:</strong></p>
+<p>Lieferantenhandbuch für Prototypen (allgemeiner Teil)</p>
+<p><strong>Baumustergenehmigung:</strong></p>
+<p>siehe [redacted-co]99000-4</p>
+<p><strong>Erprobung:</strong></p>
+<p>Gesamtumfang aller Tests und/oder Prüfungen</p>
+<p><strong>Erstmuster:</strong></p>
+<p>siehe Formel-Q-Konkret</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><strong>Abkürzungen
+3D -</strong> Dreidimensional</p></li>
+</ol>
+<blockquote>
+<p><strong>ABG-Bauteile -</strong> Allgemein
+bauartgenehmigungspflichtige Bauteile</p>
+<p><em>[I: BT-LAH-719]</em></p>
+<p><em>[I: BT-LAH-722]</em></p>
+<p><em>[I: BT-LAH-726]</em></p>
+<p><em>[I: BT-LAH-898]</em></p>
+<p><em>[I: BT-LAH-729]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><strong>ADN</strong> - Accord europeen relatif au transport
+international des marchandises dangereuses par voie de navigation
+interieure</p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><strong>ADR</strong> - Accord européen relatif au transport
+international des marchandises dangereuses par route</p>
+<p><em>[I: BT-LAH-731]</em></p>
+<p><strong>BT-LAH -</strong> Bauteil-Lastenheft</p>
+<p><strong>BTV -</strong> Bauteilverantwortliche</p>
+<p><strong>BZD -</strong> Bauzustandsdokumentation</p>
+<p><strong>CAD -</strong> [redacted-person] Design</p>
+<p><strong>CeAB</strong> - Centerairbag</p>
+<p><strong>CCC -</strong> [redacted-person] Certification</p>
+<p><strong>CE –</strong> [redacted-person] für EU Konformität</p>
+<p><strong>DMC -</strong> [redacted-person] Code</p>
+<p><strong>DMU -</strong> [redacted-person]-Up</p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-732]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-734]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><strong>DPF -</strong> Dieselpartikelfilter</p>
+<p><strong>ECE -</strong> [redacted-person] for Europe</p>
+<p><strong>EEPROM -</strong> [redacted]</p>
+<p><strong>EG -</strong> [redacted-person]</p>
+<p><strong>eNTI -</strong> elektronisches Neuteileinformationsblatt</p>
+<p><strong>EOP –</strong> End of Production</p>
+<p><strong>ERC –</strong> [redacted-person] Components <strong>FMEA
+-</strong> Failure mode and effects analysis <strong>FTA -</strong>
+[redacted-person] Analysis</p>
+<p><strong>GK -</strong> Granulatklassen</p>
+<p><strong>HiL -</strong> Hardware in the Loop</p>
+<p><strong>HW –</strong> Hardware</p>
+</blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-735]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-738]</em></p>
+<p><em>[I: BT-LAH-740]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-741]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p><strong>IATA DGR</strong> - [redacted]Regulations</p>
+</blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p><strong>IMDG Code</strong> - [redacted]Code</p>
+<p><strong>KW -</strong> Kalenderwoche</p>
+<p><strong>MBT -</strong> [redacted-person]</p>
+<p><strong>Ppm -</strong> Parts per Million</p>
+<p><strong>PDM -</strong> Produktdatenmanagement <strong>PVS -</strong>
+Produktionsversuchsserie <strong>QM -</strong> Qualitätsmanagement</p>
+<p><strong>RFID -</strong> Radio-[redacted-person]</p>
+</blockquote>
+<p><em>[I: BT-LAH-746]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-751]</em></p>
+<p><em>[I: BT-LAH-752]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p><strong>RID</strong> - Règlement concernant le transport
+international ferroviaire des marchandises dangereuses</p>
+</blockquote>
+<p><em>[I: BT-LAH-756]</em></p>
+<blockquote>
+<p><strong>SE -</strong> [redacted-person]</p>
+<p><strong>SAB -</strong> Seitenairbag</p>
+<p><strong>SOP -</strong> Start of Production</p>
+<p><strong>SW -</strong> Software</p>
+<p><strong>TISAX -</strong> [redacted-person] Security/ [redacted-person]</p>
+<p><strong>TVP -</strong> Teileverbauprüfung</p>
+<p><strong>VDA -</strong> Verband der Automobilindustrie e.V.
+<strong>VDA ISA</strong> - [redacted-person] Assessment <strong>ZSB
+-</strong> Zusammenbau</p>
+<p><em>[I: BT-LAH-758]</em></p>
+<p><em>[I: BT-LAH-759]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-762]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-763]</em></p>
+</blockquote>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p><em>[A: BT-LAH-766]</em></p>
+<p>Es gelten die am Übergabedatum des BT-LAH gültigen mitgeltenden
+Unterlagen, sowie die darin genannten Dokumente.</p>
+</blockquote>
+<p><em>[A: BT-LAH-767]</em></p>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den für dieses BT-LAH
+gültigen mitgeltenden Unterla- gen zu arbeiten.</p>
+<p><strong>Bezugsquelle:</strong></p>
+<p><em>[I: BT-LAH-769]</em></p>
+<p>Dokumente können über die One.[redacted-person] Plattform (One.KBP)
+[redacted-co] unter der Internetadresse: <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+mit einer Zugangsbe- rechtigung abgerufen werden. (Kontakt B2B Support:
+Tel.: +49 5361 9-33099, Mail: <a href="mailto:b2bteam@vwgroupsupply.com"><u>[redacted-email]</u></a>).</p>
+</blockquote>
+<h2 id="zeichnungen-pläne-skizzen-variantenbaum">Zeichnungen, Pläne,
+Skizzen; Variantenbaum</h2>
+<blockquote>
+<p>[redacted-person] Anhang / Anfragezeichnung bzw.
+Anfrageblatt.</p>
+<p>Zusätzlich sind die Gewichte jedes Werkstoffanteils pro Teilenummer
+zur Erfassung des gesamten Werkstoffgewichtes eines Fahrzeuges oder
+einzelner Aggregate in die Zeichnung einzutragen. Dies gilt für Serien-,
+Versuchs- und Entwurfszeichnungen.</p>
+<p>Es sind alle Ansichten, die zur eindeutigen Darstellung des Teiles
+bzw. der Baugruppe notwendig sind, darzustellen. [redacted-person] des
+entfalteten Luftsackes ist im Maßstab 1:10 darzustellen und zu vermaßen.
+Es ist eine Darstellung des Faltschemas mit Maßen zu zeichnen.</p>
+<p>[redacted-person] sind auf der Zeichnung darzustellen. [redacted-person] ist die Baugruppe in Montagelage darzustellen. Bemaßung der
+Bauteile:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] muss nach der Referenz-Punkt-Systematik (RPS) der
+[redacted]bemaßt werden.</p></li>
+<li><p>[redacted-person] muss funktionsbezogen und mit Toleranzen bemaßt
+sein.</p></li>
+<li><p>Normen für Schweißverfahren müssen angegeben werden.</p></li>
+<li><p>[redacted-person] muss auf der Zeichnung sichtbar sein</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] sind mit dem Fachbereich des Auftraggebers
+festzulegen und zu dokumen- tieren.</p>
+<p>Es ist zusätzlich eine Explosionszeichnung zu erstellen, inklusiver
+aller Einzelteile mit Einzelge- wicht, Materialangabe, Herstellart und
+Lieferant mit Fertigungsort.</p>
+<p>[redacted-person] als nicht externes Verbendungsbeschränkt für den
+ZSB Seitenairbag befin- det sich in KVS unter ENT.[redacted-phone]AH und gilt
+als Vorgabe für die Freigabezeichnung der P-, B-, BMG- und
+K-Freigabe.</p>
+<p>[redacted-person] ist für die Kundenzeichnung vom Auftragnehmer
+zu verwenden, die in KVS unter der entsprechende Teilenummer vom
+Auftraggeber abgelegt wird.</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>[redacted-person] Formel Q
+Dokumentenreihe</strong></p></li>
+</ol>
+<blockquote>
+<p><strong>PV 3040</strong></p>
+<p><em>[I: BT-LAH-869]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Bestimmung der Gaskonzentration flüchtiger [redacted-person]-Gaschromatographie</p>
+</blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p><strong>PV 3055</strong></p>
+<p>Gehaltsbestimmung extrahierbarer Siloxane; Lösungsmittelextraktion
+mit anschließender GC/MS- Analyse</p>
+<p><strong>[redacted-co]01052</strong></p>
+<p>Zeichnungen</p>
+<p><strong>[redacted-co]01064</strong></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Baugruppenkennzeichnung an Serienfahrzeugen; BZD-Codierung an
+mechanischen Fahrzeugtei- len</p>
+<p><strong>[redacted-co]01067</strong></p>
+<p>Einsatz von Auto-ID zur eindeutigen Objektkennzeichnung</p>
+<p><strong>[redacted-co]01155</strong></p>
+<p>Fahrzeug-Zulieferteile; Genehmigung von Erstlieferung und
+Änderung</p>
+<p><strong>[redacted-co]10511</strong></p>
+<p>Kennzeichnung von Fahrzeugbauteilen</p>
+<p><strong>[redacted-co]10550</strong></p>
+<p>Herstellland-Kennzeichnung; Fahrzeugteile</p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><strong>[redacted-co]50026</strong></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Granulat für Bauteile aus Thermoplasten und thermoplas-tischen
+Elastomeren; Klassifizierung und Verwendungsgrundsätze</p>
+<p><strong>[redacted-co]50157</strong></p>
+<p>Verbindungselemente; Oberflächenschutzanforderungen</p>
+<p><strong>[redacted-co]52000</strong></p>
+<p>[redacted-person]; Prüfung und Dokumentation</p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><strong>[redacted-co]53000-1</strong></p>
+<p>Betriebsstoffe – Anforderungen und Dokumentation (Teil1:
+Betriebsstoffe in Zusammenbauteilen)</p>
+<p><strong>[redacted-co]91101</strong></p>
+<p>[redacted-person] – Material- und Chemikalienkonformität</p>
+<p><strong>[redacted-co]91101 (Anhang B)</strong></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person] - Fahrzeugteile, Werkstoffe, Betriebsstoffe -
+Schadstoffvermeidung; Be- sondere Anforderungen des [redacted-person]..</p>
+<p><strong>[redacted-co]91102</strong></p>
+<p><em>[I: BT-LAH-780]</em></p>
+<p>[redacted-person], Fahrzeugteile, Werkstoffe, Betriebsstoffe;
+Recyclinganforderungen, Rezyklateinsatz</p>
+<p><strong>[redacted-co]99000</strong></p>
+<p><em>[I: BT-LAH-781]</em></p>
+<p>[redacted-person] zur Leistungserbringung im Rahmen der
+Bauteilentwicklung</p>
+</blockquote>
+<p><em>[I: BT-LAH-782]</em></p>
+<blockquote>
+<p><strong>[redacted-co]99000-1</strong></p>
+<p>Teil 1: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Planungsfreigabe</p>
+<p><strong>[redacted-co]99000-2</strong></p>
+<p><em>[I: BT-LAH-783]</em></p>
+<p>Teil 2: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Beschaffungsfreigabe</p>
+<p><strong>[redacted-co]99000-3</strong></p>
+<p><em>[I: BT-LAH-784]</em></p>
+<p>Teil 3: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Konstruktionsfreigabe</p>
+<p><strong>[redacted-co]99000-4</strong></p>
+<p><em>[I: BT-LAH-785]</em></p>
+<p>Teil 4: [redacted-person] zur Leistungserbringung im Rahmen
+der [redacted-person]</p>
+<p><strong>[redacted-co]80150</strong></p>
+<p>[redacted-person] von pyrotechnischen Einheiten</p>
+<p><strong>[redacted-co]80151</strong></p>
+<p>[redacted-person] im Fahrzeug</p>
+<p><strong>[redacted-co]80152</strong></p>
+<p>[redacted-person] für pyrotechnische Systeme; Anforderungen und
+Prüfbedingungen</p>
+<p><strong>[redacted-co]82517</strong></p>
+<p>Airbag-System</p>
+<p>Seitenairbag - Module (Einbauort: Sitze) Anforderungen und
+Prüfbedingungen</p>
+<p><strong>[redacted-co]82518</strong></p>
+<p>Airbag-System</p>
+<p>Luftsäcke (Einbauort: Sitze) Anforderungen und Prüfbedingungen</p>
+<p><strong>[redacted-co]82519</strong></p>
+<p>Airbag-System</p>
+<p>Gasgeneratoren (Einbauort: Sitze) Anforderungen und
+Prüfbedingungen</p>
+<p><strong>LAH.DUM.880.EM</strong></p>
+<p>[redacted]Insassenschutz</p>
+<p><strong>LAH.[redacted-phone]A (TDO)</strong></p>
+<p>[redacted-person] for assessing Out-of-Position injury risk for
+[redacted-person]</p>
+</blockquote>
+<h2 id="typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen,
+Vorschriften, Gesetze</h2>
+<blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Im Folgenden sind einige wesentliche Vorschriften / Anforderungen aus
+Vorschriften für den LAH Umfang aufgeführt.</p>
+<p>GB [redacted-phone]“[redacted-person] for [redacted-person]
+Operating on Roads” FMVSS 208 [redacted-person] Protection</p>
+<p>FMVSS 214 [redacted-person] Protection</p>
+<p>FMVSS 302 Flammability of [redacted-person] ECE R17 Sitze und
+Kopfstützen</p>
+<p>ECE R21 Innenausstattung</p>
+<p>ECE R95 Insassenschutz beim Seitenaufprall ECE R135 [redacted-person]</p>
+<p>EWG 74/60 Innenausstattung</p>
+<p>EWG 96/27 Schutz der Kraftfahrzeuginsassen beim Seitenaufprall [redacted-co]82517 Seitenairbag- Module</p>
+<p>[redacted-co]82519 Gasgeneratoren (Einbauort: Sitze)</p>
+<p>TWG [redacted-person] for [redacted]from
+[redacted-person] Airbags</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] muss sich über die geltenden gesetzlichen
+Anforderungen für den Beauftra- gungsumfang informieren.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Während des Vertragszeitraums hat sich der Auftragnehmer über
+Änderungen gesetzlicher Anfor- derungen zu informieren und dem
+Auftraggeber anzuzeigen.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p><strong>Querschnittslastenhefte LAH
+5Q0.971</strong></p></li>
+</ol>
+<blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person]-Anforderungen</p>
+<p><strong>LAH DUM 000 K</strong></p>
+<p>Lastenheft für [redacted-person]</p>
+<p>Für [redacted-co] gilt:</p>
+<p><strong>LAH [redacted-phone]</strong></p>
+<p>Qualitätslastenheft</p>
+<p>Für [redacted-co] gilt:</p>
+<p><strong>LAH.[redacted-phone]AF</strong></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Anforderungsprofil für die Beauftragung von technischen Regeln zur
+Aufnahme im System MBT</p>
+<p><strong>LAH.[redacted-phone]AL</strong></p>
+<p>[redacted-person] im ZSB Sitz</p>
+<p><strong>LAH.DUM.880.EM</strong></p>
+<p>[redacted]</p>
+</blockquote>
+<h2 id="zu-beachtende-schutzrechte-und-lizenzen">Zu beachtende
+Schutzrechte und Lizenzen</h2>
+<blockquote>
+<p>Kapitel nicht belegt.</p>
+</blockquote>
+<h2 id="sonstige-unterlagen">[redacted-person]</h2>
+<h2 id="vda-band-260">VDA-Band 260</h2>
+<blockquote>
+<p>Bauteile von Kraftfahrzeugen, Kennzeichnung der [redacted-person]
+Dokumente zur Klassifizierung nach Gefahrgutrecht</p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,168 @@
+[
+  {
+    "slug": "transformer-math",
+    "title": "D1. Transformer 数学原理（自底向上）",
+    "description": "从线性代数到 Self-Attention，3 小时彻底搞懂 Transformer 数学",
+    "category": "training",
+    "phase": "D",
+    "order": 25,
+    "sections": [
+      {
+        "type": "text",
+        "title": "为什么必须懂数学？——工程师和魔法师的区别",
+        "content": "<p><b>工程师：知道怎么调参。</b><br/>魔法师：知道为什么调这个参。</p><p>Transformer 的全部机制就是 4 个数学对象：</p><ol><li>矩阵乘法（Q、K、V 投影）</li><li>Softmax（注意力归一化）</li><li>LayerNorm（数值稳定）</li><li>残差连接（梯度通路）</p></ol><p><b>类比：学开车。</b>你不需要懂内燃机热力学，但你需要懂"红灯停绿灯行"。Transformer 的"红绿灯"就是这 4 个数学对象。</p><p><b>本课目标：</b>看完后能<strong>手写 Self-Attention</strong>（20 行 PyTorch），能解释清楚为什么 d_k 要开根号。</p>"
+      },
+      {
+        "type": "formula",
+        "title": "Self-Attention 公式（必背）",
+        "content": "<p><b>公式：</b></p><pre>Attention(Q, K, V) = softmax(Q @ Kᵀ / √d_k) @ V</pre><p><b>逐符号解释：</b></p><ul><li><b>Q</b>：Query，当前 token 的"问题"。形状 [seq_len, d_k]。</li><li><b>K</b>：Key，所有 token 的"标签"。形状 [seq_len, d_k]。</li><li><b>V</b>：Value，所有 token 的"内容"。形状 [seq_len, d_v]。</li><li><b>Q @ Kᵀ</b>：相似度矩阵，每个 token 对其他所有 token 的打分。形状 [seq_len, seq_len]。</li><li><b>√d_k</b>：缩放因子，防止 softmax 饱和。d_k=64 时 √d_k=8。</li><li><b>softmax</b>：行归一化，每行和=1，变成概率分布。</li><li><b>@ V</b>：加权求和，每个 token 用注意力权重汇总所有信息。</li></ul><p><b>为什么除以 √d_k？</b>当 d_k 大时，Q@Kᵀ 的方差 = d_k，数值会很大（几十上百），softmax 会把所有概率压到一个 token 上，梯度消失。除以 √d_k 后方差 = 1，分布平滑。</p>"
+      },
+      {
+        "type": "code",
+        "title": "20 行 PyTorch 手写 Self-Attention",
+        "content": "<pre>import torch\nimport torch.nn.functional as F\n\ndef self_attention(Q, K, V, mask=None):\n    # Q/K/V: [batch, seq_len, d_k]\n    d_k = Q.size(-1)\n    scores = Q @ K.transpose(-2, -1) / (d_k ** 0.5)  # [batch, seq, seq]\n    if mask is not None:\n        scores = scores.masked_fill(mask == 0, -1e9)\n    attn = F.softmax(scores, dim=-1)                     # [batch, seq, seq]\n    return attn @ V, attn                               # [batch, seq, d_k]\n\n# 测试\nx = torch.randn(1, 5, 64)  # batch=1, 5 tokens, d_k=64\nout, weights = self_attention(x, x, x)\nprint(out.shape)  # torch.Size([1, 5, 64])\nprint(weights[0, 0])  # 第 0 个 token 对所有 token 的注意力</pre>",
+        "language": "python"
+      },
+      {
+        "type": "text",
+        "title": "Multi-Head：为什么不是 1 个注意力而是 8/16/32 个？",
+        "content": "<p><b>单头注意力的局限：</b>一个注意力头只能捕捉一种关系（比如"主谓"或"动宾"）。但语言有多种关系。</p><p><b>Multi-Head 思路：</b>把 d_model=512 拆成 h=8 个头，每个头 64 维，独立学习一种关系。最后 concat 起来。</p><p><b>类比：</b>一支足球队 11 个人，每个人负责不同位置（守门员、前锋、中场）。如果只有 1 个人，他只能踢前锋，赢不了比赛。</p><p><b>代码：</b></p><pre>h = 8\nQ = Q.view(batch, seq, h, d_k)        # [batch, seq, h, d_k]\nQ = Q.transpose(1, 2)                 # [batch, h, seq, d_k]\n# 每个头独立计算 attention\n# 最后 concat: [batch, seq, h*d_k] = [batch, seq, d_model]</pre><p><b>为什么有效？</b>每个头可以学不同模式。某个头学语法，某个头学实体识别，某个头学情感。GPT-2 有 12 层 × 12 头 = 144 个独立的注意力模式。</p>"
+      },
+      {
+        "type": "text",
+        "title": "LayerNorm + 残差：为什么训练 100 层不崩？",
+        "content": "<p><b>问题：</b>把 100 个 Transformer Block 堆叠，没有残差 + LN，梯度会指数级消失或爆炸（vanishing/exploding gradients）。</p><p><b>LayerNorm（LN）：</b>对每个 token 单独做归一化（不依赖 batch）。公式：<code>x_norm = (x - mean) / std * gamma + beta</code>。让每一层输入分布稳定。</p><p><b>残差连接：</b><code>output = x + Sublayer(LN(x))</code>。梯度可以通过"+"号无损反传（dL/dx = dL/d(x+...) = dL/d(...) + 1），至少能传 1。</p><p><b>Pre-Norm vs Post-Norm：</b>现代 Transformer 都用 Pre-Norm（LN 在 Sublayer 之前），训练更稳定，可以不用 warmup。</p><p><b>数值例子：</b>100 层网络，无残差，最末层梯度传到第一层时乘了 100 次 Jacobian，norm 会缩到 1e-100 或涨到 1e100。加残差后，每层梯度 = 本层梯度 + 1，至少保留 1，不会消失。</p>"
+      },
+      {
+        "type": "exercise",
+        "title": "练习：手算 4-token Attention 矩阵",
+        "content": "<p>给定 4 个 token，d_k=2：</p><pre>Q = [[1,0],[0,1],[1,1],[0,0]]\nK = [[1,0],[0,1],[1,1],[0,0]]\nV = [[1,2],[3,4],[5,6],[7,8]]</pre><p><b>任务：</b></p><ol><li>手算 Q@Kᵀ（4×4 矩阵）</li><li>除以 √2=1.414</li><li>手算 softmax（每行）</li><li>手算 attention output</li></ol><p><b>答案：</b>scores = [[1,0,1,0],[0,1,1,0],[1,1,2,0],[0,0,0,0]]。除以 √2 后 softmax 第 0 行 ≈ [0.43, 0.14, 0.43, 0]。Output 第 0 token = 0.43*[1,2] + 0.43*[5,6] = [2.6, 3.4]。</p>"
+      },
+      {
+        "type": "callout",
+        "title": "🎯 本课作业（动手才能会）",
+        "content": "<ol><li>在 Colab 跑上面的 20 行 Self-Attention 代码</li><li>打印第 0 个 token 对其他 token 的注意力权重，理解为什么第 0 个 token 主要关注自己</li><li>改 d_k=128 观察 softmax 输出差异</li><li>加 mask 模拟 causal attention（GPT 用的）</li><li>把 Single-Head 改成 8-Head Multi-Head</li></ol><p><b>时间投入：</b>3 小时<br/><b>前置：</b>线性代数（矩阵乘法）+ Python 基础<br/><b>产出：</b>GitHub repo `my-tiny-transformer`，含 self_attention.py + README 解释数学</p>"
+      }
+    ]
+  },
+  {
+    "slug": "pytorch-engineer",
+    "title": "D2. PyTorch 全栈训练工程师（实操派）",
+    "description": "7 天从 torch.zeros 到分布式训练工程化，含 GPU 显存优化 / 混合精度",
+    "category": "training",
+    "phase": "D",
+    "order": 26,
+    "sections": [
+      {
+        "type": "text",
+        "title": "第 1 天：张量 + 自动求导",
+        "content": "<p><b>PyTorch 两大基石：</b></p><ol><li><b>Tensor：</b>N 维数组，跟 numpy 互通。</li><li><b>Autograd：</b>自动求导，requires_grad=True 的 tensor 会记录所有操作，反向传播自动算梯度。</li></ol><pre>import torch\nx = torch.tensor([1.0, 2.0, 3.0], requires_grad=True)\ny = x ** 2\nloss = y.sum()\nloss.backward()\nprint(x.grad)  # tensor([2., 4., 6.])</pre><p><b>关键概念：</b></p><ul><li><code>.data</code>：绕过 autograd 取原始值</li><li><code>.detach()</code>：从计算图剥离</li><li><code>with torch.no_grad()</code>：推理时不记录梯度，省显存</li><li><code>torch.cuda.is_available()</code>：检查 GPU</li></ul>"
+      },
+      {
+        "type": "code",
+        "title": "第 2-3 天：nn.Module + 训练循环",
+        "content": "<p><b>标准训练循环模板（背下来）：</b></p><pre>import torch\nimport torch.nn as nn\nfrom torch.utils.data import DataLoader\n\n# 1. 模型\nclass TinyModel(nn.Module):\n    def __init__(self):\n        super().__init__()\n        self.fc1 = nn.Linear(784, 128)\n        self.fc2 = nn.Linear(128, 10)\n    def forward(self, x):\n        x = torch.relu(self.fc1(x))\n        return self.fc2(x)\n\nmodel = TinyModel().cuda()\n\n# 2. 优化器 + 损失\noptimizer = torch.optim.AdamW(model.parameters(), lr=1e-4)\ncriterion = nn.CrossEntropyLoss()\n\n# 3. 训练循环\nfor epoch in range(10):\n    for batch in dataloader:\n        x, y = batch[0].cuda(), batch[1].cuda()\n        optimizer.zero_grad()        # 关键！清零梯度\n        loss = criterion(model(x), y)\n        loss.backward()              # 反向传播\n        optimizer.step()             # 更新参数\n        # 打印 loss</pre><p><b>易错点：</b></p><ol><li>忘记 <code>optimizer.zero_grad()</code> → 梯度累加</li><li>忘了 <code>.cuda()</code> → CPU 跑慢 100 倍</li><li>用了 SGD 但 lr=1e-2 太大 → loss 发散</li><li>没用 <code>model.train()/eval()</code> → Dropout/BatchNorm 行为错</li></ol>"
+      },
+      {
+        "type": "formula",
+        "title": "第 4 天：GPU 显存计算（必会）",
+        "content": "<p><b>显存占用 = 参数 + 梯度 + 优化器状态 + 激活值 + 临时 buffer</b></p><p><b>以 7B 模型为例：</b></p><table border=\"1\"><tr><th>项</th><th>大小</th><th>说明</th></tr><tr><td>参数 (FP16)</td><td>14 GB</td><td>7B × 2 字节</td></tr><tr><td>梯度 (FP16)</td><td>14 GB</td><td>同参数</td></tr><tr><td>Adam 状态 (FP32)</td><td>56 GB</td><td>7B × 8 字节 (m+v+master_weight)</td></tr><tr><td>激活值 (seq=2048)</td><td>~20 GB</td><td>和 batch_size、seq_len、层数相关</td></tr><tr><td>合计</td><td><b>~104 GB</b></td><td>需要 A100 80GB 都不够</td></tr></table><p><b>省显存招数：</b></p><ol><li><b>混合精度 (AMP)</b>：参数/激活 FP16，loss FP32。显存减半。</li><li><b>Gradient Checkpointing</b>：重计算激活，不存中间值。激活从 20GB → 5GB。</li><li><b>ZeRO-3 / FSDP</b>：优化器状态分片到多卡。</li><li><b>LoRA</b>：只训练 0.1% 参数，冻结其他。显存降到 30GB。</li><li><b>INT8/INT4 量化</b>：推理时用。训练很少用。</li></ol>"
+      },
+      {
+        "type": "code",
+        "title": "第 5 天：混合精度训练（AMP）",
+        "content": "<pre>from torch.cuda.amp import autocast, GradScaler\n\nscaler = GradScaler()\n\nfor batch in dataloader:\n    x, y = batch[0].cuda(), batch[1].cuda()\n    optimizer.zero_grad()\n\n    with autocast():  # 自动 FP16\n        loss = criterion(model(x), y)\n\n    scaler.scale(loss).backward()  # 缩放避免梯度下溢\n    scaler.step(optimizer)\n    scaler.update()</pre><p><b>PyTorch 2.x 简化版：</b></p><pre># 只需 set_autocast + set_scaled_loss，scale 自动处理\nwith torch.autocast(device_type='cuda', dtype=torch.bfloat16):\n    loss = criterion(model(x), y)\nloss.backward()\noptimizer.step()</pre>"
+      },
+      {
+        "type": "code",
+        "title": "第 6-7 天：分布式训练（DDP）",
+        "content": "<pre># 单机 8 卡启动\ntorchrun --nproc_per_node=8 train.py\n\n# 多机多卡\ntorchrun --nproc_per_node=8 --nnodes=4 --rdzv_id=123 --rdzv_backend=c10d \\\n         --rdzv_endpoint=master:29500 train.py</pre><p><b>代码（train.py）：</b></p><pre>import torch.distributed as dist\nfrom torch.nn.parallel import DistributedDataParallel as DDP\n\ndef main(rank, world_size):\n    dist.init_process_group(\"nccl\", rank=rank, world_size=world_size)\n    model = Model().cuda(rank)\n    model = DDP(model, device_ids=[rank])\n    # 训练循环跟单卡一样，DDP 自动同步梯度\n    # DataLoader 用 DistributedSampler\n    train()\n    dist.destroy_process_group()</pre><p><b>关键陷阱：</b></p><ol><li>所有进程必须同时启动，差一个就 hang</li><li>用 <code>NCCL</code> 后端（GPU），不要用 <code>gloo</code></li><li>batch_size 是 per-GPU 的，全局 = per_gpu × world_size</li></ol>"
+      },
+      {
+        "type": "callout",
+        "title": "🎯 本课作业",
+        "content": "<p><b>任务 1：</b>在 MNIST 上训练一个 3 层 MLP，达到 95%+ 准确率</p><p><b>任务 2：</b>把上面的训练改成混合精度，对比 FP32 vs FP16 的显存占用（用 <code>nvidia-smi</code> 或 <code>torch.cuda.max_memory_allocated()</code>）</p><p><b>任务 3：</b>单卡训 1 epoch 的时间 vs 4 卡 DDP 训 1 epoch（用同一台机器），理解 DDP 的加速比</p><p><b>时间投入：</b>7 天 × 3 小时<br/><b>前置：</b>Python 基础 + 1 块消费级 GPU（RTX 3090/4090 即可）<br/><b>产出：</b>GitHub repo <code>my-pytorch-engineer</code>，含 4 个 .py 文件 + README 记录显存/速度对比</p>"
+      }
+    ]
+  },
+  {
+    "slug": "llm-finetuning",
+    "title": "D3. LLM 微调实战（LoRA / QLoRA / DPO）",
+    "description": "用消费级 GPU 微调 7B-70B 模型，含数据准备 / 训练 / 评估全流程",
+    "category": "training",
+    "phase": "D",
+    "order": 27,
+    "sections": [
+      {
+        "type": "text",
+        "title": "为什么需要微调？——预训练 vs 微调",
+        "content": "<p><b>预训练 (Pre-training)：</b>读 1 万亿 token，学语言规律。成本 $1M+。</p><p><b>微调 (Fine-tuning)：</b>在 1 万 - 100 万样本上继续训练，让模型学会特定任务。成本 $10 - $10,000。</p><p><b>三类微调对比：</b></p><table border=\"1\"><tr><th>方法</th><th>训练参数量</th><th>显存需求 (7B)</th><th>效果</th><th>适用</th></tr><tr><td>Full Fine-tune</td><td>100% (7B)</td><td>60 GB+</td><td>⭐⭐⭐⭐⭐</td><td>大厂、有钱</td></tr><tr><td>LoRA</td><td>0.1% (7M)</td><td>20 GB</td><td>⭐⭐⭐⭐</td><td>单卡 RTX 4090</td></tr><tr><td>QLoRA</td><td>0.1% (7M)</td><td><b>6 GB</b></td><td>⭐⭐⭐⭐</td><td>笔记本 2060 都能跑</td></tr><tr><td>DPO</td><td>0.1%</td><td>20 GB</td><td>⭐⭐⭐⭐⭐</td><td>对齐人类偏好</td></tr></table><p><b>LoRA 核心思想：</b>不更新原始权重 W，只训练低秩分解 W + ΔW = W + A·B，其中 A∈[d, r]，B∈[r, d]，r=8 通常。原始 7B×7B 矩阵变成 7B×8 + 8×7B = 112M 参数。</p>"
+      },
+      {
+        "type": "code",
+        "title": "LoRA 完整训练脚本（trl + peft）",
+        "content": "<pre>from transformers import AutoModelForCausalLM, AutoTokenizer\nfrom peft import LoraConfig, get_peft_model\nfrom trl import SFTTrainer\nfrom datasets import load_dataset\n\n# 1. 加载基础模型（4-bit 量化省显存）\nmodel = AutoModelForCausalLM.from_pretrained(\n    \"Qwen/Qwen2.5-7B-Instruct\",\n    load_in_4bit=True,\n    device_map=\"auto\",\n)\ntokenizer = AutoTokenizer.from_pretrained(\"Qwen/Qwen2.5-7B-Instruct\")\n\n# 2. 配置 LoRA\nlora_config = LoraConfig(\n    r=16,                       # 秩\n    lora_alpha=32,              # 缩放\n    target_modules=[\"q_proj\",\"k_proj\",\"v_proj\",\"o_proj\"],  # 注入位置\n    lora_dropout=0.05,\n    bias=\"none\",\n    task_type=\"CAUSAL_LM\",\n)\nmodel = get_peft_model(model, lora_config)\nmodel.print_trainable_parameters()  # 应该显示 0.1% 可训练\n\n# 3. 准备数据 (JSONL: {\"messages\": [{role, content}, ...]})\ndataset = load_dataset(\"json\", data_files=\"train.jsonl\", split=\"train\")\n\n# 4. 训练\ntrainer = SFTTrainer(\n    model=model,\n    train_dataset=dataset,\n    args={\"per_device_train_batch_size\":4, \"num_train_epochs\":3, \"learning_rate\":2e-4},\n)\ntrainer.train()\nmodel.save_pretrained(\"./my-lora\")</pre>"
+      },
+      {
+        "type": "text",
+        "title": "DPO：直接偏好优化（替代 RLHF）",
+        "content": "<p><b>RLHF 三步流程（OpenAI ChatGPT）：</b></p><ol><li>SFT：在标注数据上微调</li><li>RM：训练奖励模型（人类偏好打分）</li><li>PPO：用强化学习（RL）让 LLM 最大化奖励</li></ol><p><b>RLHF 痛点：</b>需要 4 个模型同时加载（Actor / Critic / Ref / RM），显存爆；训练不稳定；实现复杂。</p><p><b>DPO 创新（2023, Stanford）：</b></p><p>把 RLHF 的 PPO 步骤去掉，直接用偏好对 (chosen, rejected) 做监督学习。公式推导证明 DPO 等价于 RLHF 的最优策略。</p><p><b>Loss：</b></p><pre>Loss_DPO = -log_sigmoid(β * (log π(chosen)/π_ref(chosen) - log π(rejected)/π_ref(rejected)))</pre><p><b>数据格式：</b>每个样本一条 chosen + 一条 rejected。</p><pre>{\"prompt\": \"问题\", \"chosen\": \"好回答\", \"rejected\": \"差回答\"}</pre><p><b>效果：</b>DPO 在大多数任务上达到甚至超过 PPO 训练效果，但显存只要 1/3，训练只要 1/10 时间。</p>"
+      },
+      {
+        "type": "text",
+        "title": "数据准备：质量 > 数量",
+        "content": "<p><b>微调数据集 3 大来源：</b></p><ol><li><b>公开数据集：</b>HuggingFace datasets、魔搭社区、智源 FlagOpen</li><li><b>合成数据：</b>用 GPT-4 / Claude 生成训练样本（蒸馏）</li><li><b>业务数据：</b>你自己领域的真实数据（如汽车安全法规）</li></ol><p><b>格式标准（OpenAI ChatML）：</b></p><pre>{\"messages\": [\n  {\"role\": \"system\", \"content\": \"你是汽车安全法规专家\"},\n  {\"role\": \"user\", \"content\": \"C-NCAP 五星需要满足什么？\"},\n  {\"role\": \"assistant\", \"content\": \"正面 100% 重叠刚性壁障碰撞...\"}\n]}</pre><p><b>数据清洗关键步骤：</b></p><ol><li><b>去重：</b>用 sentence-transformers 算 embedding，cosine > 0.9 视为重复</li><li><b>去噪：</b>删除太短（<50字）、太长（>3000字）、有特殊字符</li><li><b>校验：</b>人工抽检 50 条，看质量</li><li><b>平衡：</b>保证类别分布均衡（如不要 90% 都是"碰撞"）</li></ol><p><b>数量参考：</b></p><ul><li><b>100 条：</b>够做 demo，验证流程</li><li><b>1,000 条：</b>够基本可用</li><li><b>10,000 条：</b>够生产部署</li><li><b>100,000+ 条：</b>需要合成数据 + 清洗 pipeline</li></ul>"
+      },
+      {
+        "type": "code",
+        "title": "评估：如何知道微调有效？",
+        "content": "<p><b>3 类评估方法：</b></p><ol><li><b>Loss 曲线：</b>train_loss 和 eval_loss 都应下降，差距小。差距大→过拟合。</li><li><b>Human eval：</b>让 5-10 个真人盲评 A/B，看偏好率。</li><li><b>自动 benchmark：</b></li></ol><pre># 中文常用评测\nfrom datasets import load_dataset\nmmlu = load_dataset(\"cais/mmlu\", \"all\")         # 多任务知识\nceval = load_dataset(\"ceval/ceval-exam\")          # 中文考试\n\n# 自定义领域评测（汽车安全）\n# 准备 100 道题 + 标准答案，看模型答对率\ndomain_acc = evaluate_model(model, domain_questions)</pre><p><b>常见误区：</b></p><ul><li><b>只看 Loss：</b>Loss 降但生成质量反而差（reward hacking）</li><li><b>不评估：</b>以为训练完就好用，实际上可能回答变差</li><li><b>用同一批数据 eval：</b>等于作弊</li></ul><p><b>本课作业：</b>微调 Qwen2.5-7B 在 100 条汽车安全数据上，loss 降 20% 视为有效。</p>"
+      },
+      {
+        "type": "callout",
+        "title": "🎯 本课作业（3 步实操）",
+        "content": "<p><b>Step 1：</b>用 GPT-4 生成 100 条汽车安全问答数据（提示词：你是资深汽车安全工程师，给出 100 道 C-NCAP/C-IASI 常见问题 + 标准答案 JSONL）。</p><p><b>Step 2：</b>用 QLoRA 微调 Qwen2.5-7B-Instruct，3 epoch，导出 <code>./safety-lora/</code>。</p><p><b>Step 3：</b>用同样的 100 条 holdout 测试集，对比 base 模型 vs LoRA 模型的答题准确率。</p><p><b>成功标准：</b>LoRA 模型在汽车安全问题上准确率提升 ≥10%。</p><p><b>硬件：</b>RTX 4090 24GB 或 RTX 3090 24GB，训练时间约 2-4 小时。</p><p><b>时间投入：</b>5 天 × 3 小时</p>"
+      }
+    ]
+  },
+  {
+    "slug": "safety-industry-deploy",
+    "title": "D4. 汽车安全 AI 落地（数据 + 法规 + 部署）",
+    "description": "把微调好的模型变成产品：数据采集 / RAG / 部署 / 评估 / 合规",
+    "category": "training",
+    "phase": "D",
+    "order": 28,
+    "sections": [
+      {
+        "type": "text",
+        "title": "汽车安全 AI 的真实需求场景",
+        "content": "<p><b>4 大场景：</b></p><ol><li><b>法规问答助手：</b>工程师问"GB 11551 是什么？" → AI 答（基于 RAG）</li><li><b>事故报告自动生成：</b>输入仿真数据 → 输出符合 GB 标准的报告</li><li><b>碰撞数据分析：</b>10万条历史事故数据 → AI 找模式、预测风险</li><li><b>安全工程师 Copilot：</b>主动建议"这个座椅设计可能过不了 C-NCAP"</li></ol><p><b>对应 AI 方案：</b></p><table border=\"1\"><tr><th>场景</th><th>技术栈</th><th>数据规模</th><th>难度</th></tr><tr><td>法规问答</td><td>RAG + LoRA</td><td>100-1000 份 PDF</td><td>⭐⭐</td></tr><tr><td>报告生成</td><td>Fine-tune + Prompt</td><td>100-1万条模板</td><td>⭐⭐⭐</td></tr><tr><td>数据分析</td><td>SQL Agent + RAG</td><td>10万行表格</td><td>⭐⭐⭐⭐</td></tr><tr><td>Copilot</td><td>Agent + 工具调用</td><td>LLM + 知识库</td><td>⭐⭐⭐⭐⭐</td></tr></table>"
+      },
+      {
+        "type": "code",
+        "title": "RAG 入门：让 LLM 读你的 PDF",
+        "content": "<pre># 最简单的 RAG：5 行代码\nfrom langchain.document_loaders import PyPDFLoader\nfrom langchain.embeddings import OpenAIEmbeddings\nfrom langchain.vectorstores import Chroma\nfrom langchain.chains import RetrievalQA\nfrom langchain.chat_models import ChatOpenAI\n\nloader = PyPDFLoader(\"GB_11551_正面碰撞.pdf\")\ndocs = loader.load()  # 解析 PDF 为文本块\n\nvectordb = Chroma.from_documents(docs, OpenAIEmbeddings())\nqa = RetrievalQA.from_chain_type(\n    llm=ChatOpenAI(model=\"gpt-4o\"),\n    retriever=vectordb.as_retriever(),\n)\n\nanswer = qa.run(\"GB 11551 适用于哪些车辆？\")\nprint(answer)</pre><p><b>RAG 工作流：</b></p><ol><li>加载文档 → 切块（每块 500 字 + 100 字 overlap）</li><li>每块用 embedding 模型转向量（OpenAI text-embedding-3-small）</li><li>存到向量数据库（Chroma / Milvus / pgvector）</li><li>用户提问 → 检索 top-5 相似块 → 和问题一起喂给 LLM</li><li>LLM 基于检索内容生成答案</li></ol><p><b>优化点：</b></p><ul><li>切块策略（句子级 vs 段落级）</li><li>检索增强（hybrid: BM25 + 向量）</li><li>重排序（rerank 模型）</li><li>query 改写（让模糊问题变清晰）</li></ul>"
+      },
+      {
+        "type": "text",
+        "title": "数据采集：C-NCAP / C-IASI 公开数据",
+        "content": "<p><b>数据源：</b></p><ol><li><strong>C-NCAP 官网：</strong>每年 30-50 款车评测结果，PDF 报告，含星级、得分、碰撞照片</li><li><strong>C-IASI 官网：</strong>类似，更注重维修经济性</li><li><strong>国家车辆事故深度调查体系 (NAIS)：</strong>深度事故数据，需申请</li><li><strong>GB 标准：</strong>强制性国标，从国家标准网下载</li><li><strong>企业自有：</strong>碰撞仿真数据（LS-DYNA 输出）、实测数据</li></ol><p><b>爬虫方案：</b></p><pre>import requests\nfrom bs4 import BeautifulSoup\n\ndef scrape_cncap_2025():\n    base = \"https://www.c-ncap.org.cn/\"\n    # 找车型列表页\n    car_links = []\n    for page in range(1, 10):\n        r = requests.get(f\"{base}/results?page={page}\")\n        soup = BeautifulSoup(r.text)\n        for a in soup.select(\".car-list a\"):\n            car_links.append(base + a[\"href\"])\n    # 抓每辆车\n    for link in car_links:\n        car_data = parse_car_page(link)  # 提取星级、得分、配置\n        save_to_db(car_data)</pre><p><b>数据清洗要点：</b></p><ol><li>删除广告、导航等噪声</li><li>统一单位（kph、km/h）</li><li>提取关键数值（碰撞加速度峰值、HIC 值）</li><li>关联车型（make/model/year）</li></ol>"
+      },
+      {
+        "type": "code",
+        "title": "部署：把模型变成 API",
+        "content": "<pre># 1. 用 vLLM 部署（推荐，速度比 HF 快 24 倍）\npip install vllm\npython -m vllm.entrypoints.openai.api_server \\\n    --model /path/to/qwen2.5-7b-safety-lora \\\n    --port 8000 \\\n    --gpu-memory-utilization 0.9 \\\n    --max-model-len 4096\n\n# 2. 调用\nimport openai\nclient = openai.OpenAI(base_url=\"http://localhost:8000/v1\", api_key=\"none\")\nresponse = client.chat.completions.create(\n    model=\"qwen2.5-7b-safety\",\n    messages=[{\"role\": \"user\", \"content\": \"C-NCAP 五星标准？\"}],\n)\nprint(response.choices[0].message.content)</pre><p><b>生产部署选项：</b></p><table border=\"1\"><tr><th>方案</th><th>并发</th><th>成本</th><th>运维难度</th></tr><tr><td>vLLM 单机</td><td>50 QPS</td><td>1×A100 $2/hr</td><td>易</td></tr><tr><td>TGI + K8s</td><td>200 QPS</td><td>4×A100 $8/hr</td><td>中</td></tr><tr><td>Modal / Replicate</td><td>弹性</td><td>按秒计费</td><td>易（无服务器）</td></tr><tr><td>阿里云 PAI / 腾讯 TI</td><td>高</td><td>国内合规</td><td>中</td></tr></table>"
+      },
+      {
+        "type": "text",
+        "title": "合规：在中国部署 AI 必须知道的",
+        "content": "<p><b>3 大法规：</b></p><ol><li><strong>《生成式 AI 服务管理暂行办法》</strong>（2023.8 生效）</li></ol><ul><li>面向公众的 AI 必须备案（算法备案）</li><li>训练数据来源合法</li><li>用户隐私保护</li><li>输出内容合规（无歧视、无虚假）</li></ul><ol start=\"2\"><li><strong>《数据安全法》</strong> + <strong>《个人信息保护法》</strong></li></ol><ul><li>用户数据本地化（重要数据出境需审批）</li><li>用户数据脱敏</li><li>用户可要求删除</li></ul><ol start=\"3\"><li><strong>《汽车数据安全管理若干规定》</strong>（2021）</strong></li></ol><ul><li>车外数据（摄像头采集）<strong>不能出境</strong></li><li>座舱数据（驾驶员人脸、语音）需要明示同意</li><li>重要数据（事故数据）需本地存储</li></ul><p><b>合规建议：</b></p><ul><li>训练数据用公开数据 + 授权数据，保留数据来源证明</li><li>用户上传数据需明确告知用途</li><li>生成内容加"AI 生成"水印</li><li>用户反馈入口 + 人工审核机制</li><li>每季度做合规自查</li></ul>"
+      },
+      {
+        "type": "callout",
+        "title": "🎯 本课作业：做出你的第一个汽车安全 AI 产品",
+        "content": "<p><b>目标：</b>用 RAG + LoRA 做一个"C-NCAP 法规问答机器人"</p><p><b>技术栈：</b></p><ul><li>基础模型：Qwen2.5-7B-Instruct</li><li>LoRA：基于 100 条汽车安全问答微调</li><li>RAG：把 GB 11551/20072/14167 等 5 个核心国标 PDF 入库</li><li>部署：vLLM + FastAPI + 简单 Web UI</li></ul><p><b>评估指标：</b></p><ul><li>法规问答准确率：≥80%</li><li>响应时间：<3 秒</li><li>用户满意度（5 人盲评）：≥4/5</li></ul><p><b>时间投入：</b>10 天 × 3 小时<br/><b>前置：</b>D1-D3 全部学完<br/><b>产出：</b>可部署的 Docker 镜像 + 演示视频 + 技术文档</p><p><b>商业化方向：</b>OEM 内部工具订阅 ¥5-20 万/年 / OEM × 50 = 千万级 ARR</p>"
+      }
+    ]
+  }
+]

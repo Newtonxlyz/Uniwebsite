@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_893_807_A_Funktionsabsicherung Fahrzeugsicherheit</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p><img src="./05_Pedestrian_Safety-lah-893-807-a-funktionsabsicherung-fahrz-media/media/image2.jpeg" style="width:3.31288in;height:2.76562in"/></p>
+<p>[redacted-person] Stoßfängersystem</p>
+<p>LAH [redacted-phone]A</p>
+<blockquote>
+<p>Verteiler:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Abt./OE</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Name</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#zielsetzung">Zielsetzung 5</a><a href="#technische-anforderungen-fahrzeugsicherheit">[redacted-person] Fahrzeugsicherheit 5</a><a href="#allgemeines">Allgemeines
+5</a><a href="#funktionsanforderungen">Funktionsanforderungen 5</a><a href="#erprobungen-fahrzeugsicherheit">[redacted-person]
+6</a><a href="#komponentenerprobung">Komponentenerprobung 6</a><a href="#fahrzeugerprobung">Fahrzeugerprobung 11</a><a href="#mitgeltende-unterlagen">[redacted-person] 11</a></p>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Vorwort</strong></p>
+</blockquote>
+<p>Das vorliegende LAH dient zur Ergänzung des Bauteil-Lastenheftes der
+Konstruktion und legt die technischen Daten und Randbedingungen für das
+Stoßfängersystem bezüglich den Anforderungen der Fahrzeugsicherheit
+(Crashverhalten) fest.</p>
+<h1 id="zielsetzung"><u>Zielsetzung</u></h1>
+<p>[redacted-person] der Entwicklung ist der Schutz der Insassen im Falle eines
+Crashs. [redacted-person] muss dazu beitragen, dass sämtliche
+internen Anforderungen und alle gesetzlichen Vorschriften vom
+Gesamtfahrzeug erfüllt werden. [redacted-person] ist das Bestehen von
+Verbrauchertests „in best class“, sowie Benchmark-Vergleiche während des
+gesamten Herstellzeitraumes des Fahrzeuges.</p>
+<h1 id="technische-anforderungen-fahrzeugsicherheit"><u>[redacted-person] Fahrzeugsicherheit</u></h1>
+<h2 id="allgemeines"><u>Allgemeines</u></h2>
+<p>[redacted](CMS) dient zur Einleitung und Verteilung
+der Kräfte in die Fahrzeugstruktur.</p>
+<h2 id="funktionsanforderungen"><u>Funktionsanforderungen</u></h2>
+<p>[redacted-person] sind hinsichtlich der Crashfunktionen (Deformation,
+Freigang, Blockbildung, Beschleunigung, ...) im Gesamtfahrzeug zu
+entwickeln. Es gelten die Anforderungen gemäß [redacted-person], TPB allgemeiner Teil und [redacted]</p>
+<p>Dabei müssen insbesondere nachfolgende Punkte berücksichtigt
+werden:</p>
+<ul>
+<li><p>[redacted-person], Stoßfänger – Deformationselement – Längsträger
+muss bei allen gemäß [redacted]aufgeführten Versuchen, erhalten bleiben, d.[redacted-person]
+Stoßfängerquerträger und die Anbindung über das Deformationselement zum
+Längsträger <strong>soll</strong> nicht abreißen und muss seinen Beitrag
+zur homogenen Kraftverteilung in der Fahrzeugstruktur leisten.</p></li>
+<li><p>Abrisse im CMS System sind zu vermeiden. Sollte im Crash ein
+Abriss vom Stoßfängerquerträger oder Defobox mit dem Längsträger
+geschehen, ist es mit der Fahrzeugsicherheit zu bewerten. Pauschal ,
+kann ein Versagen zugelassen werden wenn:</p>
+<ul>
+<li><p>[redacted-person] vom CMS vollständig ist.</p></li>
+<li><p>Das CMS Versage hat keine negativen Einflüsse auf den Insassen
+bzw. Erfüllung der Anforderungen (Verbraucherschutz ,Gesetz,
+HV-Sicherheit, Kraftstoffdichtigkeit).</p></li>
+<li><p>[redacted-person] sind erfühlt.</p></li>
+</ul></li>
+<li><p>[redacted-person] des Deformationsverhaltens von Längsträger und
+Deformationselement ist vor Konzeptfestlegung mit der Fahrzeugsicherheit
+abzustimmen. [redacted-person] des schnellen Crashs gemäß
+[redacted-person], TPB allgemeiner Teil und
+[redacted]dürfen nicht negativ
+beeinflusst werden.</p></li>
+<li><p>Bezogen auf TL 815 muss das Deformationsverhalten reversibler
+Pralldämpfer bei höheren Kollisionsgeschwindigkeiten sichergestellt
+werden. (Durch nachgeschaltete mechanische Kraftbegrenzer o.ä.)</p></li>
+<li><p>[redacted-person] ist so auszulegen, dass ein Verhaken
+beim Fahrzeug/Fahrzeug-Crash, speziell in der Seitenstruktur minimiert
+wird (Beispiel, siehe Bild 2).</p></li>
+</ul>
+<blockquote>
+<p>Bild 2</p>
+</blockquote>
+<ul>
+<li><p>Eine groß- und geradflächige Vorderseite des CMS-Querträgers im
+[redacted-person] Crashelement ist erforderlich. Die projizierte
+Aufprallfläche in diesem Bereich muss mindestens 110 mm Bauhöhe
+aufweisen. Im Bereich zwischen den Crashelementen sowie von Crashelement
+zu Trägeraußenkante kann die Querträgerhöhe eingeschränkt sein. [redacted-person] erfolgt dann in Abstimmung mit der Fahrzeugsicherheit und der
+Fachabteilung. Verprägungen und Öffnungen für Schrauberfreigänge sind
+ebenfalls abzustimmen.</p></li>
+<li><p>Die im Crash auftretenden Kräfte über das CMS müssen axial in den
+Längsträger eingeleitet werden. [redacted-person] zwischen CMS und
+Längsträger muss mit der Fahrzeugsicherheit und der Fachabteilung
+abgestimmt werden.</p></li>
+<li><p>Für SUV sind die Anforderungen für die [redacted-person] gemäß
+[redacted-person] LAH [redacted-phone]B zu beachten.</p></li>
+</ul>
+<h1 id="erprobungen-fahrzeugsicherheit"><u>[redacted-person]</u></h1>
+<h2 id="komponentenerprobung"><u>Komponentenerprobung</u></h2>
+<p>Vor einer Anlieferung und Abprüfung im Gesamtfahrzeug muss das
+Crashverhalten des Stoßfängersystems in den Einzelteilversuchen beim
+Auftragnehmer auf die Anforderung überprüft werden und i.[redacted-person].</p>
+<p>Für die Komponentenerprobungen der Fahrzeugsicherheit muss das
+AZT-Kraftniveau auf das jeweilige Fahrzeug abgestimmt sein, damit ein
+optimales Deformationsverhalten zwischen CMS und Längsträger
+gewährleistet ist.</p>
+<p>Die folgenden Komponententests gelten für das CMS vorn:</p>
+<blockquote>
+<p><strong>Pfahl – [redacted-person]</strong></p>
+</blockquote>
+<p>[redacted-person] ist ein Ersatzlastfall, welcher nicht in vollem Umfang
+die Performance im Gesamtfahrzeug sicherstellt, jedoch dessen [redacted-person] für die Durchführung eines Crashtests ist.</p>
+<p>Ziel des Pfahltest ist vor allem die Erprobung der Verbindungstechnik
+zwischen Crashelement und Längsträger sowie zwischen Crashelement und
+Querträger. [redacted-person] wird eine Mindestbiegesteifigkeit des CMS,
+dessen Beitrag zur Energieaufnahme im schnellen Crash sowie der
+Querverbund bei hohem Umformungsgrad getestet.</p>
+<blockquote>
+<p><strong>Versuchsaufbau:</strong></p>
+</blockquote>
+<p>[redacted-person] wird inkl. Deformationselemente entsprechend
+der Serienbedingungen auf zwei ideal steife, im Pfahl-Test
+undeformierbare Adapter von 300mm Länge und einer Aufschraubfläche, die
+mindestens der Größe der längsträgerseitigen Schottplatte entspricht,
+vor einem Rollbock aufgeschraubt.</p>
+<p>[redacted-person] hat jeweils das leichteste Fahrzeugleergewicht und kann
+schienengeführt sein.</p>
+<p>[redacted-person] hat einen Durchmesser von 178mm. [redacted-person] muss 15 km/h betragen. [redacted-person] muss mittig
+am Querträger sein. Im Aufschlagbereich wird der Stoßfängerträger mit
+einer Gummiauflage (ca. 3-5 mm dick) abgedeckt. Nach einem
+Verzögerungsweg (Deformationsweg CMS-Querträger) von 300mm kann ein
+Anschlag am Rollbock vorgesehen werden. Kraft-Weg-Diagramm und ggf.
+Highspeed- Filmaufnahmen werden aufgezeichnet.</p>
+<blockquote>
+<p><img src="./05_Pedestrian_Safety-lah-893-807-a-funktionsabsicherung-fahrz-media/media/image4.png" style="width:6.11624in;height:3.79812in"/></p>
+<p><strong>Abbildung 1: Versuchsaufbau</strong></p>
+</blockquote>
+<p>[redacted-person] muss im ersten Kraftanstieg mindestens 30kN
+betragen.</p>
+<p>Das CMS darf bis zum Verzögerungsweg des Rollbockes von 300mm nicht
+durchreißen. Risse im CMS bis zu 250mm müssen mit der [redacted-person] diskutiert werden. [redacted-person] darf nicht zu
+einem Kollaps im CMS führen (massiver Krafteinbruch, siehe Skizze
+unten).</p>
+<p>[redacted-person] der Deformationsenergie im Gesamtfahrzeug muss das CMS im
+Pfahltest mindestens 5,5kJ innerhalb von 300mm absorbieren.</p>
+<p>Im Abstimmprozess ist die Fachabteilung mit einzubeziehen.</p>
+<blockquote>
+<p><strong>Abbildung 2: Beispiel einer Kraft-Weg-Kurve und deren
+Interpretation</strong></p>
+<p><strong>Langsamer ODB Rollbockversuch</strong></p>
+</blockquote>
+<p>Ziel des Komponententests ist die Vorprüfung des Verhaltens gegen die
+deformierbare EEVC-Barriere. Hierbei wird besonders die Belastung des
+Crashelementes sowie des Querträgers im Bereich der Anbindung zum
+Crashelement getestet.</p>
+<p>[redacted-person] incl. Längsträgerabschnitten, Frontendmodul,
+Stoßfängerüberzug und Energiemanagementsystem (Änderungen des Vorbaus
+sind mit der Fahrzeugsicherheit abzustimmen) wird vorne an einem
+Rollbock mittels der Schraubpunkte aufgebaut. Gegebenenfalls ist eine
+prinzipartige Abstützung des Längsträgers durch den Hilfsrahmen
+erforderlich.</p>
+<p>Die ODB EEVC Barriere wird vor einer Kraftmesswand 200 mm über Boden
+mit 40% Überdeckung zum Rollbock (fahrzeugspezifischer Wert) aufgebaut.
+[redacted-person] (Stoßfänger über Boden) ist mit der Fahrzeugsicherheit
+abzustimmen. [redacted-person] wird im ersten Ansatz mit einer
+Geschwindigkeit von 40 km/h und dem leichtesten Fahrzeuggewicht (siehe
+Pfahltest) gefahren. Abhängig vom Deformationsverhalten müssen Masse und
+Geschwindigkeit angepasst werden. Kraft-Weg-Diagramm und ggf.
+Highspeed-Filmaufnahmen werden aufgezeichnet.</p>
+<p>Hierbei wird das Deformationsverhalten an der EEVC Barriere
+beurteilt. Anforderung:</p>
+<p>[redacted-person] des Energiemanagementsystems an der
+ODB Barriere. [redacted-person] darf des weiteren nicht abreißen.
+[redacted-person] sind einzeln mit der Fahrzeugsicherheit zu
+bewerten.</p>
+<blockquote>
+<p><strong>Langsamer FWDB Rollbockversuch</strong></p>
+</blockquote>
+<p>Kann optional von der Fahrzeugsicherheit oder der Fachabteilung
+gefordert werden. [redacted-person] wird während des Projektes
+festgelegt.</p>
+<p>[redacted-person] incl. Längsträgerabschnitten, Frontendmodul,
+Stoßfängerüberzug und Energiemanagementsystem (Änderungen des Vorbaus
+sind mit der Fahrzeugsicherheit abzustimmen) wird vorne an einem
+Rollbock mittels der Schraubpunkte aufgebaut. Gegebenenfalls ist eine
+prinzipartige Abstützung des Längsträgers durch den Hilfsrahmen
+erforderlich.</p>
+<p>Die FWDB Barriere ([redacted]150 mm
+0,34 MPa, [redacted-person] 150 mm 1,71 MPa) wird vor einer Kraftmesswand 80 mm
+über Boden aufgebaut. [redacted-person] (Stoßfänger über Boden) ist mit der
+Fahrzeugsicherheit abzustimmen. [redacted-person] wird im ersten Ansatz mit
+einer Geschwindigkeit von 30 km/h und dem leichtesten Fahrzeuggewicht
+(siehe Pfahltest) gefahren. Abhängig vom Deformationsverhalten müssen
+Masse und Geschwindigkeit angepasst werden. Kraft- Weg-Diagramm und ggf.
+Highspeed-Filmaufnahmen werden aufgezeichnet.</p>
+<p>Hierbei wird das Deformationsverhalten an der EEVC Barriere
+beurteilt. Ziel:</p>
+<p>[redacted-person] des Energiemanagementsystems an der
+Barriere. [redacted-person] darf nicht abreißen. [redacted-person] sind
+einzeln mit der Fahrzeugsicherheit zu bewerten.</p>
+<blockquote>
+<p><strong>Langsamer 30° Schräg-Versuch</strong></p>
+</blockquote>
+<p>Kann optional von der Fahrzeugsicherheit oder der Fachabteilung
+gefordert werden, z.[redacted-person] Versagen im Pfahltest oder wenn es das
+Konzept erfordert. [redacted-person] wird während des Projektes
+festgelegt.</p>
+<p>[redacted-person] incl. Längsträgerabschnitten und Energiemanagementsystem
+(Änderungen des Vorbaus sind mit der Fahrzeugsicherheit abzustimmen)
+wird vorne an einem Rollbock mittels der Schraubpunkte aufgebaut.</p>
+<p>[redacted-person] wird mit einer Geschwindigkeit und einer Masse gegen
+eine 30°-Barriere gefahren, die sich aus der AZT-Energie (jeweils
+leichteste Fahrzeugvariante mit 16 km/h) ergibt. Kraft-Weg-Diagramm und
+Highspeed-Filmaufnahmen werden aufgezeichnet.</p>
+<p>[redacted-person] der Holzplatte erfolgt nach FMVSS 208. Ziel:</p>
+<p>Entwicklungsziel ist das Einfahren der Deformationselemente bei
+Kollision gegen eine 30°-Barriere. [redacted-person] muss ein
+homogenes Deformationsverhalten zeigen. [redacted-person] bzw.
+scharfkantige Stellen sind mit der Fahrzeugsicherheit zu bewerten.</p>
+<blockquote>
+<p><strong>Fallbeiltest gemäß VW-Richtlinie (EP [redacted-phone])</strong></p>
+</blockquote>
+<p>Kann optional von der Fahrzeugsicherheit oder der Fachabteilung
+gefordert werden, z.[redacted-person] Versagen im ODB Rollbockversuch oder wenn es
+das Konzept erfordert. [redacted-person] wird während des Projektes
+festgelegt.</p>
+<p>Ziel:</p>
+<p>Dabei darf der Stoßfängerträger nicht abgeschert werden. Er darf des
+weiteren nicht abreißen. [redacted-person] sind einzeln mit der
+Fahrzeugsicherheit zu bewerten.</p>
+<p>[redacted-person] aus allen Versuchen sind mit der Fahrzeugsicherheit
+und der Fachabteilung zu bewerten.</p>
+<p>[redacted-person] sind ein Hilfsmittel zur Auslegung des
+Bauteils. [redacted-person] erfolgt nach positiver
+Gesamtfahrzeugerprobung.</p>
+<h2 id="fahrzeugerprobung"><u>Fahrzeugerprobung</u></h2>
+<p>[redacted-person]-Verhalten des Gesamtfahrzeugs wird bei [redacted-co] anhand von
+FE-Simulationen und durch Gesamtfahrzeug-Crashversuche beurteilt. Zeigt
+sich, dass die Ziele nicht erreicht werden, sind Optimierungen am
+Stoßfängersystem in Zusammenarbeit mit den Fachabteilungen
+durchzuführen.</p>
+<h1 id="mitgeltende-unterlagen"><u>[redacted-person]</u></h1>
+<ul>
+<li><p>[redacted-person] für das jeweilige
+Fahrzeugprojekt</p></li>
+<li><p>LAH [redacted-phone]J [redacted-person]
+Fahrzeugsicherheit</p></li>
+<li><p>LAH [redacted-phone]B [redacted-person]</p></li>
+</ul>
+<p>- EP [redacted-phone]</p>
+<blockquote>
+<p>- TL 815</p>
+<p>[redacted]für das jeweilige
+Fahrzeugprojekt</p>
+</blockquote>
+</body>
+</html>

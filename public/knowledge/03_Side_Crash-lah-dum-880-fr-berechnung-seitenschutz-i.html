@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>[redacted-person] Funktions-Lastenheft</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<header id="title-block-header">
+<h1 class="title">[redacted-person]
+Funktions-Lastenheft</h1>
+</header>
+<p>[redacted-person]</p>
+<blockquote>
+<p>[redacted]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-person] / OE</p>
+<p>Hausruf [redacted-phone]</p>
+<p>Telefax [redacted]</p>
+<p>[redacted-co]</p>
+<p><img src="./03_Side_Crash-lah-dum-880-fr-berechnung-seitenschutz-i-media/media/image2.jpeg" style="width:5.57518in;height:4.67875in"/>D[redacted]</p>
+<p><strong>Funktionslastenheft</strong></p>
+<p><strong>Integrität und Absicherung sicherheitsrelevanter Funktionen
+LAH.DUM.880.FR</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Verteiler</strong></p>
+</blockquote>
+<table>
+
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Seite</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Hillebrand, David</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<table>
+
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Seite</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Hillebrand, David</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Änderungs- stand</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung der Änderung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Ersteller</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Erstfassung</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Anpassung an PEP2.0</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] Barriere</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung
+des Entwicklungsumfanges 5</a><a href="#allgemeines">Allgemeines 5</a><a href="#integrität">Integrität 6</a><a href="#betroffene-komponenten">[redacted-person] 6</a><a href="#verkleidungsteile">Verkleidungsteile 6</a><a href="#sonstige">Sonstige 6</a><a href="#beauftragungsumfang">Beauftragungsumfang 6</a><a href="#komponententests">Komponententests 6</a><a href="#absicherung-sicherheitsrelevanter-funktionen">Absicherung
+sicherheitsrelevanter Funktionen 7</a><a href="#beauftragungsumfang-1">Beauftragungsumfang 7</a><a href="#betroffene-bauteile-und-funktionen">[redacted-person] und
+Funktionen 7</a><a href="#richtlinien-modellierung">[redacted-person] 7</a><a href="#dokumentation-und-datenaustausch">Dokumentation und
+Datenaustausch 8</a><a href="#mitgeltende-unterlagen">[redacted-person] 9</a><a href="#lastenhefte-zur-info">Lastenhefte zur Info
+9</a><a href="#technische-spezifikationen-normen">[redacted-person] / Normen 9</a></p>
+<h1 id="kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges</h1>
+<blockquote>
+<p>[redacted-person] wie z.[redacted-person] und Seitenverkleidungen werden
+im Seitencrash großen Belastungen und Verformungen ausgesetzt. Bruch
+oder Beschädigung einzelner Teile kann zur Gefährdung des Insassen
+beziehungsweise zum Ausfall oder Fehlverhalten von sicherheitsrelevanten
+Funktionen führen. [redacted-person] sollen auf Basis von
+Gesamtfahrzeugsimulationen, Komponenten- und Crashversuchen die
+Belastung der betroffenen Komponenten analysiert werden, Maßnahmen zur
+Vermeidung von Bauteilversagen beziehungsweise Funktionsausfällen oder
+Fehlverhalten erarbeitet und projektspezifische Ersatzlastfälle
+entwickelt werden.</p>
+</blockquote>
+<h1 id="allgemeines">Allgemeines</h1>
+<blockquote>
+<p>[redacted-person] und Funktion sind in allen Seitencrash-Lastfällen
+aus</p>
+<p><em>LAH.DUM.880.LF [redacted-person] 3 [redacted-person] Seitencrash</em></p>
+<p>sicherzustellen. Zusätzlich ist – falls nicht Projektstand – der
+Lastfall FMVSS214 Pfahl 75° SID2s als Worst-Case-Lastfall zu
+betrachten.</p>
+<p>Weiterhin sind für die Untersuchungen folgende Parametervariationen
+durchzuführen, um ein robustes Bauteilverhalten sicherzustellen:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Parameter</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Variationsbereich</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person] (EG, EuroNCAP, JNCAP, IIHS)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Horizontal: +/- 25mm Vertikal: +/- 25mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] (SINCAP,FMVSS 214)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Horizontal: +/- 51mm Vertikal: +/- 20mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>Horizontal: +/- 38mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>Vy: + 1 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>Vy: + 1 km/h</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tabelle 1: [redacted-person]</strong></p>
+<p>Falls es seitens der [redacted]mit
+[redacted-person] und deren Verbindungstechnik gibt, so sind
+die unten aufgeführten Untersuchungen <strong>zusätzlich</strong> auch
+mit diesen Versagensmodellen durchzuführen.</p>
+<p>Die bereits in den Gesamtfahrzeugmodellen enthaltenen Komponenten
+sind</p>
+<p><em>LAH.DUM.880.H [redacted]</em></p>
+<p>zu entnehmen. [redacted-person] ist aus Sicht des Umfangs dieser
+Beauftragung zu bewerten und, falls erforderlich, zu optimieren. [redacted-person] sind an das Gesamtfahrzeugmodell zurückzumelden. Nicht
+vorhandene und benötigte Komponenten sind zu modellieren.</p>
+<p>[redacted-person] gilt für Serien- sowie Mehrausstattungen
+gleichermaßen.</p>
+</blockquote>
+<h1 id="integrität">Integrität</h1>
+<h2 id="betroffene-komponenten">[redacted-person]</h2>
+<blockquote>
+<p>Grundsätzlich sind alle im Seitencrash belasteten Komponenten zu
+betrachten. Strukturbauteile (Karosserie, Türen, Klappen) sowie Bauteile
+außerhalb des Fahrzeuginnenraums sind <strong>nicht</strong> Gegenstand
+dieses Lastenhefts.</p>
+</blockquote>
+<h3 id="verkleidungsteile">Verkleidungsteile</h3>
+<blockquote>
+<p>[redacted-person] müssen mindestens betrachtet werden
+(jeweils für Fahrer und Beifahrerseite), sofern diese im Fahrzeug
+vorhanden und Projektstand sind:</p>
+</blockquote>
+<ul>
+<li><p>Türverkleidungen 1. Sitzreihe</p></li>
+<li><p>Türverkleidung 2. Sitzreihe bzw. Seitenverkleidung 2.
+Sitzreihe</p></li>
+<li><p>Seitenverkleidung 3. Sitzreihe</p></li>
+<li><p>A-/B-/C- und D-Säulenverkleidungen, sofern im Bereich des
+Insassen</p></li>
+<li><p>Dachrahmen und Hecklappenverkleidung, sofern im Bereich des
+Insassen</p></li>
+<li><p>Mittelkonsole beziehungsweise Mittelarmlehne 1.
+Sitzreihe</p></li>
+<li><p>Mittelkonsole beziehungsweise Mittelarmlehne 2.
+Sitzreihe</p></li>
+<li><p>Cockpit</p></li>
+</ul>
+<h3 id="sonstige">Sonstige</h3>
+<blockquote>
+<p>Folgende sonstige Komponenten müssen mindestens betrachtet werden
+(jeweils für Fahrer und Beifahrerseite), sofern diese im Fahrzeug
+vorhanden und Projektstand sind:</p>
+</blockquote>
+<ul>
+<li><p>Bauteile in der Mittelkonsole:</p>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>Steckdosen</p></li>
+</ul></li>
+<li><p>[redacted-person]:</p>
+<ul>
+<li><p>Rear-Entertainment</p></li>
+</ul></li>
+</ul>
+<h2 id="beauftragungsumfang">Beauftragungsumfang</h2>
+<blockquote>
+<p>Zu den jeweiligen Konstruktionsständen CAD digKF, CAD digVPT, CAD
+BST, CAD Serie, P-frei, B-frei und BMG sind möglichst frühzeitig zur
+Untersuchung der obigen Punkte die entsprechenden Komponenten in der
+Simulation in allen [redacted-person] zu betrachten
+und bezüglich Integrität zu analysieren.</p>
+<p>[redacted-person] der Analysen sind Simulationen ohne (Standard für normale
+Gesamtfahrzeugsimulationen) und mit Versagensmodellen in den betroffenen
+Komponenten (Material, Verbindungstechnik) zu berechnen.</p>
+<p>[redacted-person] der Analysen sind Maßnahmen zur Sicherstellung der
+Integrität auszuarbeiten. [redacted-person] sind mit dem
+Auftraggeber, der zuständigen Konstruktionsabteilung [redacted-co] und dem
+Lieferanten der betroffenen Komponenten abzustimmen.</p>
+<p>Falls erforderlich sind Substrukturmodelle für Lieferanten zu
+erzeugen, um diesen in der Entwicklung zu unterstützen.</p>
+</blockquote>
+<h3 id="komponententests">Komponententests</h3>
+<blockquote>
+<p>[redacted-person] der Integrität sind dynamische Komponententests als
+Ersatzlastfälle zu entwickeln und durchzuführen. Diese sind für alle
+Komponenten zu entwickeln, deren Integrität kritisch ist. Für</p>
+</blockquote>
+<blockquote>
+<p>die Türverkleidung vorne muss in jedem Fall ein dynamischer
+Komponententest durchgeführt werden. Die erforderlichen
+Fahrzeugkomponenten werden von [redacted-co] zur Verfügung gestellt, evtl.
+notwendige Sonder- bzw. Versuchsaufbauten sind vom Auftragnehmer zu
+erstellen.</p>
+<p>[redacted-person] sind durch Simulationen zu begleiten und die
+Versuchsergebnisse zur Validierung der Simulationsmodelle zu verwenden.
+Die validierten Modelle sind an das Gesamtfahrzeugmodell
+zurückzumelden.</p>
+</blockquote>
+<h1 id="absicherung-sicherheitsrelevanter-funktionen">Absicherung
+sicherheitsrelevanter Funktionen</h1>
+<h2 id="beauftragungsumfang-1">Beauftragungsumfang</h2>
+<blockquote>
+<p>Zu den [redacted-person], B-Frei und PVS ist auf Basis
+von Gesamtfahrzeugsimulationen der Standardlastfälle zusammenzufassen
+und zu analysieren, ob eine kritische Belastung von Steuergeräten oder
+Verkabelungen besteht, die für die Funktion sicherheitsrelevanter
+Funktionen im Seitencrash wichtig sind. Basis dafür ist eine Übersicht
+der dafür relevanten Kabel &amp; Steuergeräte. Diese wird von der
+[redacted-co]-Fachabteilung zur Verfügung gestellt.</p>
+</blockquote>
+<h2 id="betroffene-bauteile-und-funktionen">[redacted-person] und
+Funktionen</h2>
+<blockquote>
+<p>Betroffen sind alle Bauteile, die während oder nach einem Seitencrash
+eine Funktion zu erfüllen haben beziehungsweise deren Fehlverhalten zu
+einer Gefährdung des Insassen führen oder dessen Bergung nach Crash
+erschweren könnte. Dies sind unter anderem folgende Bauteile
+beziehungsweise Funktionen:</p>
+</blockquote>
+<ul>
+<li><p>Safetycomputer/Airbagsteuergerät</p></li>
+<li><p>Türsteuergerät (Auto-Lock der Türen)</p></li>
+<li><p>E-Call</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>Elektrifizierung</p></li>
+<li><p>[redacted-person]:</p>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>Multikollisionsbremse</p></li>
+</ul></li>
+</ul>
+<h1 id="richtlinien-modellierung">[redacted-person]</h1>
+<blockquote>
+<p>Siehe dazu Lastenheft</p>
+<p><em>LAH.DUM.880.FP [redacted-person] Modellierung und
+Modellierung</em></p>
+</blockquote>
+<h1 id="dokumentation-und-datenaustausch">Dokumentation und
+Datenaustausch</h1>
+<blockquote>
+<p>Siehe dazu Lastenheft</p>
+<p><em>LAH.DUM.880.FN [redacted-person] Dokumentation und
+Datenaustausch</em></p>
+</blockquote>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den aktuellen Unterlagen
+zu arbeiten.</p>
+<p>Es gelten die am Ausgabedatum des Lastenheftes gültigen, mitgeltenden
+Unterlagen. Abweichungen sind mit der [redacted-co]/GE-Fachabteilung abzustimmen
+und im Lastenheft zu dokumentieren.</p>
+<p>[redacted-person] sind selbständig zu besorgen.</p>
+</blockquote>
+<h2 id="lastenhefte-zur-info">Lastenhefte zur Info</h2>
+<ul>
+<li><p>LAH DUM 880 H [redacted-person]</p></li>
+<li><p>LAH.DUM.880.FP [redacted-person] Modellierung und
+Prozesse</p></li>
+<li><p>LAH.DUM.880.FN [redacted-person] Dokumentation und
+Datenaustausch</p></li>
+</ul>
+<h2 id="technische-spezifikationen-normen">[redacted-person] /
+Normen</h2>
+<ul>
+<li><p><u>[redacted]</u> Entwicklungsbedingungen</p></li>
+<li><p><u>[redacted]</u> Fahrzeugzulieferteile allgemein sowie die darin
+genannten Dokumente.</p></li>
+</ul>
+<h4 id="anmerkung">ANMERKUNG</h4>
+<blockquote>
+<p>Bezugsquellen für Normen und Dokumente: [redacted-person] können über die
+B2B Lieferantenplattform [redacted-co] unter der
+Internetadresse: <a href="http://www.vwgroupsupply.com/"><u>http://www.vwgroupsupply.com</u></a>
+mit einer Zugangsberechtigung abgerufen werden.</p>
+</blockquote>
+</body>
+</html>

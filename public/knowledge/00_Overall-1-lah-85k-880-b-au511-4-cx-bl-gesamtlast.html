@@ -1,0 +1,2978 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>1_LAH.85K.880.B_AU511_4_Cx_BL_Gesamtlastenheft-Fahrzeugsicherheit_EN</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"><blockquote>
+<p>First name Last name Department code</p>
+<p>Phone E-mail First issue</p>
+</blockquote>
+<p>Date of revision</p></th>
+<th><blockquote>
+<p>[redacted-person]</p>
+<p>[redacted-person]</p>
+<p>[redacted-phone]</p>
+<p><a href="mailto:frank.dohmen@audi.de">[redacted-email]</a></p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted]</p>
+<p>[redacted-addr]</p>
+<p>Phone: [redacted-phone]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>[redacted-co]</strong></p>
+<p>Development</p>
+<p><img src="./00_Overall-1-lah-85k-880-b-au511-4-cx-bl-gesamtlast-media/media/image2.jpeg" style="width:2.95037in;height:2.46125in"/></p>
+</blockquote>
+<p>[redacted]Specification for [redacted-person]</p>
+<blockquote>
+<p><strong>LAH.85K.880.B</strong></p>
+<p>[redacted-prj]/4_Cx_BL</p>
+<p><strong>LAH adapted to E6 and content reviewed:</strong></p>
+<p>🡲 New requirements in 2024 for China consumer tests and legal
+requirements</p>
+<p>🡲 High-voltage safety</p>
+<p>🡲 Internal requirements</p>
+<p>[redacted-person]:</p>
+</blockquote>
+<ul>
+<li><p>Team leader of simultaneous engineering team: [redacted-person] OK</p></li>
+<li><p>Whole-vehicle crash test: [redacted]</p></li>
+<li><p>Sensor system: [redacted-person] OK</p></li>
+<li><p>Pedestrian protection: [redacted-person] OK</p></li>
+<li><p>Restraint system, 1st and 2nd row of seats: [redacted]OK</p></li>
+<li><p>Restraint system, side: [redacted-person] OK</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person]:</p>
+</blockquote>
+<ul>
+<li><p>Function check owners OK</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person]:</p>
+</blockquote>
+<ul>
+<li><p>Seat belt system: [redacted-person] OK</p></li>
+<li><p>Front airbags: [redacted]OK</p></li>
+<li><p>Side airbags: [redacted-person] Koschitzky, [redacted-person] OK</p></li>
+<li><p>Airbag control module: [redacted-person] OK</p></li>
+</ul>
+<blockquote>
+<p><strong>After reviewing, please change the correction to black
+font!</strong></p>
+<p>Approved by the appropriate manager</p>
+<p>Dept./OU [redacted-person] issued:</p>
+<p>[redacted]☒ No ☐</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Role</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Department</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Signature</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Head of [redacted-person] Development</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Head of [redacted]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Head of [redacted-person] Development</p>
+<p>[redacted-person]/CAx Methodology/[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Head of Airbags, [redacted-person] Systems, and [redacted-person]
+Development</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Distribution list</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Role</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Department</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Head of [redacted-person] Development</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Head of [redacted]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Head of [redacted-person] Development</p>
+<p>[redacted-person]/CAx Methodology/[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Head of Airbags, [redacted-person] Systems, and [redacted-person]
+Development</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Head of [redacted]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Contents</strong></p>
+</blockquote>
+<p><em><a href="#preface">Preface 7</a><a href="#general-assumptions-and-basic-conditions">General assumptions and
+basic conditions 7</a></em><a href="#project-run">Project run 7</a><a href="#technology">Technology 7</a><a href="#terms-and-abbreviations">Terms and abbreviations 7</a><em><a href="#whole-vehicle">Whole vehicle: 9</a><a href="#legislation-voluntary-commitment-consumer-test-and-internal-requirements">Legislation,
+voluntary commitment, consumer test, and</a></em> <a href="#legislation-voluntary-commitment-consumer-test-and-internal-requirements">internal
+requirements 9</a></p>
+<p><a href="#frontal-impact">Frontal impact 11</a><a href="#legal-requirements">Legal requirements 12</a><a href="#consumer-test-requirements">Consumer test requirements 12</a><a href="#internal-requirements">Internal requirements 13</a><a href="#side-impact">Side impact 14</a><a href="#legal-requirements-1">Legal requirements 14</a><a href="#consumer-test-requirements-1">Consumer test requirements 14</a><a href="#internal-side-impact-requirements-for-all-markets">Internal side
+impact requirements for all markets 15</a><a href="#rear-impact">Rear
+impact 15</a><a href="#legal-requirements-2">Legal requirements 15</a><a href="#internal-requirements-1">Internal requirements 15</a><a href="#pedestrian-protection">Pedestrian protection 15</a><a href="#other-tests-v">Other tests (V) 16</a><a href="#other-tests-and-legislation">Other tests and legislation 16</a><a href="#other-consumer-tests">Other consumer tests 16</a><a href="#general-development-test-specifications">General development test
+specifications 17</a><a href="#vehicleparts-structure"><em>Vehicle/parts
+structure 18</em></a><a href="#legislation-for-vehicleparts-structure">Legislation for
+vehicle/parts structure 18</a><a href="#general-development-specifications-for-vehicle-structure">General
+development specifications for vehicle structure 18</a><a href="#system-performance-specifications-and-component-performance-specifications-for-vehicle-structure">[redacted-person] Specifications and [redacted-person] Specifications</a>
+<a href="#system-performance-specifications-and-component-performance-specifications-for-vehicle-structure">for
+vehicle structure 18</a><a href="#vehicle-interior"><em>Vehicle interior
+19</em></a><a href="#legislation-for-vehicle-interior-parts">Legislation
+for vehicle interior parts 19</a><a href="#general-development-specifications-for-the-vehicle-interior">General
+development specifications for the vehicle interior 19</a><a href="#system-performance-specifications-and-component-performance-specifications-for-the-vehicle-interior">[redacted-person] Specifications and [redacted-person] Specifications</a>
+<a href="#system-performance-specifications-and-component-performance-specifications-for-the-vehicle-interior">for
+the vehicle Interior 20</a><a href="#safety-electronics"><em>Safety
+electronics 21</em></a><a href="#the-following-performance-specifications-available-in-the-engineering-data-management-system-apply-to-the-development-of-the-au5114_cx_bl">The
+following [redacted-person] available in the [redacted-person]</a> <a href="#the-following-performance-specifications-available-in-the-engineering-data-management-system-apply-to-the-development-of-the-au5114_cx_bl">[redacted-person] apply to the development of the [redacted-prj]/4_Cx_BL: 21</a><a href="#electric-systemfuels-coolants-fluids-and-lubricantshigh-voltage"><em>Electric
+system/fuels, coolants, fluids, and lubricants/high</em></a> <a href="#electric-systemfuels-coolants-fluids-and-lubricantshigh-voltage">voltage
+23</a><em><a href="#numerical-simulation">Numerical simulation 23</a><a href="#test-facility-equipment">Test facility equipment 23</a><a href="#general-performance-specifications">[redacted-person]
+Specifications 25</a></em></p>
+<blockquote>
+<p><strong>Revision record</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Version</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Description with change(s)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Author/editor (name, OU)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>LAH created</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="preface">Preface</h1>
+<blockquote>
+<p>[redacted-person] Specification (LAH) describes the performance
+aspects, requirements, and vehicle safety testing conditions that the
+product must fulfill. In addition to this [redacted-person], the
+development conditions specified in Volkswagen standard [redacted-co]99000
+apply.</p>
+<p>The contents of this [redacted-person] must not be disclosed
+to third parties without the express permission of [redacted-co].</p>
+</blockquote>
+<h1 id="general-assumptions-and-basic-conditions">General assumptions
+and basic conditions</h1>
+<h2 id="project-run">Project run</h2>
+<blockquote>
+<p>The project run and the pertinent deadlines are documented in the
+project-specific project schedule/Body &amp; [redacted]LAH.85D.800.A.</p>
+</blockquote>
+<h2 id="technology">Technology</h2>
+<blockquote>
+<p>The project objectives must be met with the technical content
+specified in the [redacted-person] Book currently in effect (e.g.,
+engine types).</p>
+<p>See [redacted-co]99000 for general development objectives.</p>
+</blockquote>
+<h2 id="terms-and-abbreviations">Terms and abbreviations</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Abbreviation</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Meaning</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>A</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>B</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>B</p>
+</blockquote></td>
+<td><blockquote>
+<p>Confirmation by numerical simulation</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>PS</p>
+</blockquote></td>
+<td><blockquote>
+<p>Passenger side</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>BT</p>
+</blockquote></td>
+<td><blockquote>
+<p>Part</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>C</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C</p>
+</blockquote></td>
+<td><blockquote>
+<p>Confirmation by crash test</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>COP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Carry-over part</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]Program</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]Index</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>D</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>DIN</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] for Standardization</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>DUM</p>
+</blockquote></td>
+<td><blockquote>
+<p>Project-[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>E</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ECE</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] for Europe</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EC</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EOP</p>
+</blockquote></td>
+<td><blockquote>
+<p>End of production</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>F</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>DS</p>
+</blockquote></td>
+<td><blockquote>
+<p>Driver side</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>H</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>re.</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rear row of seats</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>HIII</p>
+</blockquote></td>
+<td><blockquote>
+<p>Hybrid III dummy</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>I</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ISO</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] for Standardization</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>K</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>L</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>LAH</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>LHD</p>
+</blockquote></td>
+<td><blockquote>
+<p>Left-hand drive vehicle</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>M</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>AE-MDB</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] mobile deformable barrier</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>MPDB</p>
+</blockquote></td>
+<td><blockquote>
+<p>Mobile progressive deformable barrier</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>N</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>R</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ROW</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rest-of-the-world</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>RHD</p>
+</blockquote></td>
+<td><blockquote>
+<p>Right-hand drive vehicle</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>S</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Confirmation by sled test</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SAE</p>
+</blockquote></td>
+<td><blockquote>
+<p>Society of [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SC</p>
+</blockquote></td>
+<td><blockquote>
+<p>Safety computer</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SER</p>
+</blockquote></td>
+<td><blockquote>
+<p>Production carry-over parts</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>T</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>TPB</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Book</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>V</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>fr.</p>
+</blockquote></td>
+<td><blockquote>
+<p>Front row of seats</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>V</p>
+</blockquote></td>
+<td><blockquote>
+<p>Confirmation by other tests</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co]..</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volkswagen standard</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>W</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>WS</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]Dummy (WorldSID)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="whole-vehicle">Whole vehicle:</h1>
+<h1 id="legislation-voluntary-commitment-consumer-test-and-internal-requirements">Legislation,
+voluntary commitment, consumer test, and internal requirements</h1>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Assumptions and basic conditions</p>
+</blockquote></td>
+<td><ul>
+<li><p>Compliance with the legislation and government regulations in
+effect on the start date must be reliably guaranteed. Any anticipated
+stricter regulations beyond the start date, as well as important safety
+rating procedures (compliance at the forefront of the competition or
+"best in class," including potentially stricter requirements) must be
+taken into account. ([redacted-person] Safety department defines objectives on
+a case-by-case basis, if they are not described in this LAH.)</p></li>
+<li><p>The developer must check which laws are pertinent for meeting the
+requirements for the parts described herein, up to and beyond the start
+date.</p></li>
+<li><p>For safety-relevant parts that are intended as production
+carry-over parts (SERs) or carry-over part (COP) scopes, a
+vehicle-specific adaptation may need to be planned for.</p></li>
+</ul>
+<blockquote>
+<p>For example:</p>
+</blockquote>
+<ul>
+<li><p>Vent opening in the airbag for curtain airbag/side
+airbag</p></li>
+<li><p>Airbag control module parameter tuning</p></li>
+<li><p>Seat adaptation, etc.</p></li>
+</ul>
+<ul>
+<li><p>In order to implement the scopes specified in the TPB, the
+respective [redacted-person] and [redacted-person] Specifications
+must be consulted, together with the supply specifications, test
+specifications, and procedural instructions cited herein.</p></li>
+<li><p>The general objective of development is compliance with all legal
+limits and the fulfillment of all requirements in terms of voluntary
+commitment with a 20% safety margin; in other words, the pertinent laws
+must be fulfilled with certainty.</p></li>
+<li><p>This serves as a safeguard against fluctuations in production
+(relating to joining technology, materials quality, materials strength)
+and test variance, and ensures the reliable fulfillment of all
+requirements (legal and voluntary) in series production throughout the
+production run.</p></li>
+</ul>
+<blockquote>
+<p>Deviations from the development objective are possible in individual
+cases if the necessary robustness evaluation or quality checks during
+production are verified. However, they require the approval of the
+[redacted-person] department, if necessary in collaboration with the
+appropriate [redacted-person] departments.</p>
+</blockquote>
+<ul>
+<li><p>[redacted]definitions must be taken into
+account.</p></li>
+<li><p>Another objective is to pass the consumer tests as "best in
+class" among the competition. Appendix 5 to this LAH governs the details
+(document number LAH.85D.880.C).</p></li>
+<li><p>The state of the art must be ensured until the vehicle's End of
+Production (EOP).</p></li>
+<li><p>For the release, the specific documents must be completed as
+specified and archived. The associated simulation and testing data must
+be classified accordingly and documented.</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Assumptions and basic conditions for development service
+providers/general</p>
+<p>developers</p>
+</blockquote></td>
+<td><blockquote>
+<p>The assumptions and general conditions for a bundled
+development-package contract award and general- developer contract award
+are summarized in the separate [redacted-person] LAH from the [redacted-person] department.</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.85K.880</p>
+<p>.D</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The applicable legal requirements are binding.</p>
+<p>In addition to the described vehicle requirements, the requirements
+of the [redacted-person] listed in sections 3 to 10 must also
+be taken into account and met.</p>
+<p>Furthermore, fulfillment must be verified for all pertinent variants
+(drive, doors, etc.). The tables below pertain to the whole-vehicle
+requirements.</p>
+<p>Additional vehicle safety tests are defined in the respective [redacted-person] Specifications and [redacted-person] Specifications.</p>
+</blockquote>
+<h2 id="frontal-impact">Frontal impact</h2>
+<blockquote>
+<p>This section documents the load cases for frontal impact relevant to
+the vehicle project. The detailed requirements for the individual load
+cases are described in the [redacted-person] below. The
+requirements described in the [redacted-person] apply to all
+load cases.</p>
+<p>Reliable fulfillment of the legislation must be guaranteed in case of
+legally stipulated load cases.</p>
+<p>The exact objectives of the consumer load cases are described in
+appendix 5 to this [redacted-person].</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>LAH.DUM.880.KG V2 LAH.85K.880.C LAH.DUM.880.AS</p>
+<p>LAH.DUM.857.DG</p>
+<p>LAH.[redacted-phone]LAH.DUM.880.KJ</p>
+<p>LAH.DUM.880.KH</p>
+</blockquote></th>
+<th><blockquote>
+<p>Appendix 2</p>
+<p>Appendix 5</p>
+</blockquote></th>
+<th><blockquote>
+<p>Front-end structure for China</p>
+<p>Consumer protection objectives for [redacted]and
+[redacted-person] Vehicles <em>(currently being updated in
+Group!)</em></p>
+<p>[redacted-person] of [redacted-person] Protection and [redacted-person] for
+[redacted-person] System and Fuels, Coolants, Fluids, and Lubricants</p>
+<p>Front-[redacted]Requirements for China</p>
+<p>Front-[redacted]Development for China</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<h3 id="legal-requirements">Legal requirements</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Angle</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Crash test dummy</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Frontal impact as per GB 11552- 2009,</p>
+<p>dynamic range determination</p>
+</blockquote></td>
+<td><blockquote>
+<p>-18°/0°/+18°</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE R16 pulse (48.3 km/h)</p>
+</blockquote></td>
+<td><blockquote>
+<p>5th-/50th-/95th-percentile on all seats</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact as per GB 11557- 2011, steering system</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>48.3 to 53.1 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact as per GB 11551- 2014, occupant protection, fuel
+system</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 × 50th-percentile HIII fr.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>GB/T 31498 post-crash safety for electrified vehicles (in conjunction
+with GB [redacted-phone])</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 × 50th-percentile HIII fr.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact as per GB 20913- 2007, 40% offset deformable barrier
+(ODB),</p>
+<p>occupant protection, fuel system</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>56 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 × 50th-percentile HIII fr.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h3 id="consumer-test-requirements">Consumer test requirements</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Angle</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Crash test dummy</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Frontal impact as per C-NCAP, MPDB</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person] for [redacted-person] Restraint (THOR), 50th-percentile
+DS</p>
+<p>5th-percentile HIII PS 5th-percentile HIII re. DS</p>
+<p>Q10 re. PS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact as per C-NCAP, wall</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2 × 50th-percentile HIII fr. 5th-percentile HIII re.</p>
+<p>Q3 re.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact as per C-IASI, small overlap, left</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>64 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50th-percentile THOR, driver 5th-percentile HIII re. DS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact as per C-IASI, small overlap, right</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>64 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50th-percentile THOR, driver 50th-percentile HIII, passenger</p>
+<p>5th-percentile HIII re. PS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knee mapping (C-NCAP)</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>As per protocol</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5th-/50th-/95th-percentile HIII</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h3 id="internal-requirements">Internal requirements</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Angle</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Crash test</strong></p>
+<p><strong>dummy</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Development objective</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Frontal impact, 40% ODB, left</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>56 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 × 50th-</p>
+<p>percentile HIII fr.</p>
+</blockquote></td>
+<td><blockquote>
+<p>Appendix 5: LAH.85D.880.C Appendix 2: LAH.DUM.880.KG V2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact, 40% ODB right</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>56 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 × 50th-</p>
+<p>percentile HIII fr.</p>
+</blockquote></td>
+<td rowspan="2"><blockquote>
+<p>(Sensor system, electrical safety, occupant values for rest-of-the-
+world [ROW] &lt; 80%) <em>run for each drive variant</em></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 × 50th-</p>
+<p>percentile HIII fr.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Appendix 5: LAH.85K.880.C Appendix 2: LAH.DUM.880.KG V2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact, ODB, left and right Structure, worst case</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>64 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 × 50th-</p>
+<p>percentile HIII fr.</p>
+</blockquote></td>
+<td><blockquote>
+<p>Structural integrity, electrical safety, biomechanical limits and no
+bottoming-out as per Euro NCAP definition</p>
+<p><em>[redacted-person] defines the configuration; heaviest</em></p>
+<p><em>veh. with largest block-forming element</em></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact, small overlap, left</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>64 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>50th-percentile THOR,</p>
+<p>driver</p>
+</blockquote></td>
+<td><blockquote>
+<p>Appendix 2: LAH.DUM.880.KG V2</p>
+<p>Appendix 5: LAH.85K.880.C</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact, small overlap, right</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>64 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>50th-percentile THOR, driver 50th-percentile HIII,</p>
+<p>front passenger</p>
+</blockquote></td>
+<td><blockquote>
+<p>Appendix 2: LAH.DUM.880.KG V2</p>
+<p>Appendix 5: LAH.85K.880.C</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-30°</p>
+<p>+30°</p>
+</blockquote></td>
+<td><blockquote>
+<p>32 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 × 5th- percentile HIII fr.</p>
+</blockquote></td>
+<td rowspan="11"><blockquote>
+<p>Biomechanical limits, electrical safety, sensor system</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2 × 5th-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>27 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>percentile HIII</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>fr.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2 × 5th-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact, ODB, left or right</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>40 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>percentile HIII</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>fr.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2 × 5th-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontal impact, 10" pole, center</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>35 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>percentile HIII</p>
+<p>fr.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2 × 5th-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Vehicle driving under truck</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30 km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>percentile HIII</p>
+<p>fr.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Guard rail ([redacted]System)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>15°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>80 km/h</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="side-impact">Side impact</h2>
+<blockquote>
+<p>This section documents the load cases for side impact relevant to the
+vehicle project. The detailed requirements for the individual load cases
+are described in the [redacted-person] below. The requirements
+described in the [redacted-person] apply to all load cases.</p>
+<p>Reliable fulfillment of the legislation must be guaranteed in case of
+legally stipulated load cases.</p>
+<p>The exact objectives of the consumer load cases are described in
+appendix 5 to this [redacted-person].</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>LAH.DUM.880.LH LAH.DUM.880.LJ LAH.85D.880.C LAH.[redacted-phone]LAH.DUM.880.AS LAH.DUM.959.E</p>
+</blockquote></th>
+<th><blockquote>
+<p>v20210108 v20210112</p>
+</blockquote></th>
+<th><blockquote>
+<p>Appendix 3</p>
+<p>Appendix 4</p>
+<p>Appendix 5</p>
+</blockquote></th>
+<th><blockquote>
+<p>Side occupant protection for [redacted-person] structure for China</p>
+<p>Consumer protection objectives for [redacted-person] System and Fuels,
+Coolants, Fluids, and Lubricants</p>
+<p>[redacted-person] Vehicles and [redacted-person] Vehicles</p>
+<p>[redacted-person]</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<h3 id="legal-requirements-1">Legal requirements</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: right;"><strong>Angle</strong></th>
+<th><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Crash test dummy</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Side impact with barrier as per GB [redacted-phone], occupant protection
+(cf. ECE-R95 barrier suppl. 2)</p>
+</blockquote></td>
+<td>90°</td>
+<td><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>GB/T 31498 post-crash safety for electrified vehicles (in conjunction
+with GB [redacted-phone])</p>
+</blockquote></td>
+<td>90°</td>
+<td><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>GB/T [redacted-phone]pole impact, China (cf. US [redacted]Standard FMVSS 214D with 50th-percentile ES-2 or ECE R135</p>
+<p>with 50th-percentile WS)</p>
+</blockquote></td>
+<td>75°</td>
+<td><blockquote>
+<p>32 km/h</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h3 id="consumer-test-requirements-1">Consumer test requirements</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Angle</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Crash test dummy</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>C-NCAP, [redacted-person] MDB (AE-MDB)</p>
+<p>(1 400 kg; +50 mm Z-height) Monitoring (because, according to
+protocol, only valid for internal</p>
+<p>combustion engines)</p>
+</blockquote></td>
+<td><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-NCAP, AE-MDB as of 2024</p>
+<p>Adaptation of test parameters</p>
+<p><em>(1 400 kg; +50 mm Z-height)?</em></p>
+</blockquote></td>
+<td><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td><blockquote>
+<p><em>(60 km/h) best guess</em></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-NCAP, AE-MDB, far side, monitoring</p>
+</blockquote></td>
+<td><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td><blockquote>
+<p><em>50 km/h</em></p>
+</blockquote></td>
+<td><blockquote>
+<p>50th-percentile ES-2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-NCAP, pole, 2022</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>75°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>32 km/h</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>C-IASI v3.0 side impact with barrier (as of 2024)</p>
+<p>(cf. [redacted]for [redacted-person] [IIHS]
+v2.0</p>
+<p>2023)</p>
+</blockquote></th>
+<th><blockquote>
+<p>90°</p>
+</blockquote></th>
+<th><blockquote>
+<p>60 km/h</p>
+</blockquote></th>
+<th><blockquote>
+<p>SID-IIs,</p>
+<p>front/rear</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<h3 id="internal-side-impact-requirements-for-all-markets">Internal side
+impact requirements for all markets</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Angle</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Crash test dummy</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Side impact, pole, rear, 2nd row of seats</p>
+</blockquote></td>
+<td><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td><blockquote>
+<p>29 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1 × 5th-percentile SID-IIs</p>
+<p>1 × 50th-percentile ES2 (simulated)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="rear-impact">Rear impact</h2>
+<blockquote>
+<p>This section documents the load cases for rear impact relevant to the
+vehicle project. The detailed requirements for the individual load cases
+are described in the [redacted-person] below. The requirements
+described in the [redacted-person] apply to all load cases.</p>
+<p>Reliable fulfillment of the legislation must be guaranteed in case of
+legally stipulated load cases. The exact objectives of the consumer load
+cases are described in appendix 5 to this [redacted-person].</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>LAH.[redacted-phone]D LAH.[redacted-phone]LAH.DUM.880.AS</p>
+</blockquote></th>
+<th><blockquote>
+<p>Rear-[redacted-person] Behavior</p>
+<p>[redacted-person] and Fuels, Coolants, Fluids, and Lubricants</p>
+<p>[redacted-person] Vehicles and [redacted-person] Vehicles <em>(currently
+being updated in Group!)</em></p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<h3 id="legal-requirements-2">Legal requirements</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Angle</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Crash test dummy</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Rear impact as per GB [redacted-phone], fuel system</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>180°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50 +2 km/h</p>
+</blockquote></td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="internal-requirements-1">Internal requirements</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Angle</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Crash test dummy</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Rear impact as in TRIAS 15-J[redacted-phone]or FMVSS 301 (old)</p>
+<p>Conventional and electric drives</p>
+</blockquote></td>
+<td><blockquote>
+<p>180°</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 +2 km/h</p>
+</blockquote></td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="pedestrian-protection">Pedestrian protection</h2>
+<blockquote>
+<p>Detailed information on pedestrian protection requirements are
+described in [redacted-person] Specification LAH.85K.880.F.</p>
+</blockquote>
+<h2 id="other-tests-v">Other tests (V)</h2>
+<h3 id="other-tests-and-legislation">Other tests and legislation</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Angle</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Crash test dummy</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Development objective</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Static door crush GB [redacted-phone]</p>
+</blockquote></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td><blockquote>
+<p>Reliable fulfillment LAH.DUM.880.KR</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt anchorage GB [redacted-phone]</p>
+<p>GB [redacted-phone]</p>
+</blockquote></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td><blockquote>
+<p>Covered by ECE R14, R16, R145</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Static roof crush GB [redacted-phone]</p>
+<p>(cf. FMVSS 216)</p>
+</blockquote></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td><blockquote>
+<p>Reliable fulfillment LAH.DUM.857.DH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Static roof crush GB [redacted-phone]</p>
+<p>(for best guess, cf. FMVSS 216a)</p>
+</blockquote></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td><blockquote>
+<p>Reliable fulfillment LAH.DUM.857.DH</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h3 id="other-consumer-tests">Other consumer tests</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Angle</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Speed</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Crash test dummy</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Development objective</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Static roof crush C-IASI roof crush</p>
+<p>(cf. IIHS roof crush)</p>
+</blockquote></td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td><blockquote>
+<p>Reliable fulfillment LAH.DUM.857.DH</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="general-development-test-specifications">General development
+test specifications</h2>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="5"><blockquote>
+<p>Test specifications, supply specifications, procedural
+instructions</p>
+</blockquote></td>
+<td><blockquote>
+<p>Test and release program for crash, sled, part, and out-of position
+tests</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Superordinate standard: [redacted-co]80151 [redacted-co]99000 (supersedes [redacted-co]01154)</p>
+<p>[redacted]TL 1010, TL 1011, 49 CFR §
+[redacted-phone](CFR – US Code of [redacted-person])</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Vehicle interior, seat belt systems, child restraint systems as per
+[redacted-co]TL 471, [redacted-co]TL 82500, [redacted-co]TL 82501,</p>
+<p>[redacted-co]TL 82502, [redacted-co]TL 82503, [redacted-co]TL 82504,</p>
+<p>[redacted-co]TL 52454, [redacted-co]TL 80150</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Side impact, side doors</p>
+<p>[redacted-co]TL 855, [redacted-co]TL 82375, [redacted-co]TL 82418, [redacted-co]TL 82419</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Additional basic conditions for measuring the gas concentration
+(supplement to [redacted-co]80151)</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.880. JG</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Type approval, regulations, legislation</p>
+</blockquote></td>
+<td><blockquote>
+<p>The testing deadlines, scopes, and parameters are specified in
+consultation with the [redacted-co] Type-[redacted-person] ([redacted-person]-G)
+department.</p>
+<p>All country-specific requirements must be taken into account.</p>
+<p>[redacted-person]-G must also adhere to the following specifications:</p>
+</blockquote>
+<ul>
+<li><p>Provision of data to prepare the TPB sheets, country-specific
+forms, and type-approval documents</p></li>
+<li><p>Procurement/logistics of test parts, bodies/partial bodies, and
+test vehicles</p></li>
+</ul>
+<blockquote>
+<p>Assumption of costs for performing the tests, as well as the
+expenditure for the technical service on-site (work time, travel time,
+travel costs, and other expenditures for the technical service that are
+directly related to</p>
+<p>type-approval testing)</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]-G</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]-G</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="vehicleparts-structure">Vehicle/parts structure</h1>
+<h2 id="legislation-for-vehicleparts-structure">Legislation for
+vehicle/parts structure</h2>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Locks, hinges</p>
+</blockquote></td>
+<td><blockquote>
+<p>GB [redacted-phone]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Event data recorder</p>
+</blockquote></td>
+<td><blockquote>
+<p>GB [redacted-phone]</p>
+<p>GB XXXX-EDR (draft)</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="general-development-specifications-for-vehicle-structure">General
+development specifications for vehicle structure</h2>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Body structure: General</p>
+<p>development specifications</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]appendix 2 "Structure
+requirements for frontal impact"</p>
+<p>[redacted]appendix 4 "Structure
+requirements for side impact"</p>
+<p>[redacted-person] for [redacted]</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.880.KG V2</p>
+<p>LAH.DUM.880.LJ LAH.85K.880.F</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-performance-specifications-and-component-performance-specifications-for-vehicle-structure">[redacted-person] Specifications and [redacted-person] Specifications for
+vehicle structure</h2>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Body structure: System and [redacted-person] Specifications</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] of [redacted]of [redacted]</p>
+<p>[redacted-person] of [redacted-person]; Rear-[redacted-person] Behavior</p>
+<p>[redacted]Specification</p>
+<p>[redacted]Assurance of
+[redacted]</p>
+<p>[redacted-person] of [redacted]during a
+Crash</p>
+<p>[redacted-person] of [redacted]</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>LAH.[redacted-phone]K LAH.[redacted-phone]A LAH.[redacted-phone]D</p>
+<p>LAH.DUM.857. DH</p>
+<p>LAH.DUM.880. KR</p>
+<p>LAH.[redacted-phone]B LAH.[redacted-phone]</p>
+<p>LAH.DUM.880. BL</p>
+<p>LAH.[redacted-phone] M</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Emergency call</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] for [redacted-person] Systems</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>LAH.DUM.035. B</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h1 id="vehicle-interior">Vehicle interior</h1>
+<h2 id="legislation-for-vehicle-interior-parts">Legislation for vehicle
+interior parts</h2>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Seat belt system: retractor, pyrotechnical seat belt pretensioner,
+seat belt buckles, seat belt height</p>
+<p>adjustment</p>
+</blockquote></td>
+<td><blockquote>
+<p>GB [redacted-phone], GB [redacted-phone], QC [redacted-phone]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Steering wheel</p>
+</blockquote></td>
+<td><blockquote>
+<p>GB [redacted-phone]</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]-42</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Side airbags</p>
+</blockquote></td>
+<td><blockquote>
+<p>TWG-ISO 14933</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Vehicle interior</p>
+</blockquote></td>
+<td><blockquote>
+<p>GB [redacted-phone]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="general-development-specifications-for-the-vehicle-interior">General
+development specifications for the vehicle interior</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Vehicle interior</p>
+</blockquote></td>
+<td><blockquote>
+<p>Front-[redacted]Development for China</p>
+<p>Requirements for Front-[redacted-person] Protection</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.880.K H</p>
+<p>LAH.DUM.880.KJ</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="system-performance-specifications-and-component-performance-specifications-for-the-vehicle-interior">[redacted-person] Specifications and [redacted-person] Specifications for
+the vehicle Interior</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="6"><blockquote>
+<p>Airbags</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>LAH.DUM.880.AT LAH.85D.880.K</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Airbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.880.BA</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] in the Front</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] in the Rear</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>LAH.[redacted-phone]A</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>LAH.5Q4.880 LAH.DUM.880.LP</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td rowspan="9"><blockquote>
+<p>Seat belts</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] for [redacted]</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.857.AA</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] for [redacted]Scope of
+Supply</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.85E.857.M</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Specification; [redacted-person] Specification for
+[redacted-person] System</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.857.D</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Specification for [redacted-person] of [redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.857.BB</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] for [redacted]Adjustment
+ASSY</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.4M0.857.AE</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Specification for [redacted-person] Guides</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.857.AE</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Specification for [redacted-person] of [redacted-person]
+Noise, Vibration, and</p>
+<p>Harshness</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.857.BL</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] for [redacted]</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.857.BJ</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] for [redacted-person] Pretensioner</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.857.T</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Cockpit</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Requirements for the Cockpit for China</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.880.KK</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Steering column</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Requirements for the [redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.880.BC</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="3"><blockquote>
+<p>Child safety ISOFIX child seat anchorage</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] for [redacted-person] Seat ISOFIX</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.8P0.881.A</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] for [redacted-person] ISOFIX</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.8P0.885</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] of [redacted-person] Protection and [redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.857.DG</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h1 id="safety-electronics">Safety electronics</h1>
+<h2 id="the-following-performance-specifications-available-in-the-engineering-data-management-system-apply-to-the-development-of-the-au5114_cx_bl">The
+following [redacted-person] available in the [redacted]apply to the development of the [redacted-prj]/4_Cx_BL:</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Crash sensor system</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.85K.880. H</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person], EK- 512</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Crash sensor system: design Engineering/Inte gration</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] for Up-[redacted]Guideline
+for [redacted]Guideline for [redacted]Guideline for [redacted]for [redacted]AA.12.20 [redacted-person] for [redacted]</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.89D.880. N LAH.89D.880. K LAH.89D.907 LAH.89D.907. A LAH.89D.880.
+M</p>
+<p>LAH.89D.880.L</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person], EK- 512</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The process specifications and contents are described in the
+specified LAHs, design guidelines, checklists, and the documents cited
+therein.</p>
+<p>The following load cases are required for the development of an
+algorithm application.</p>
+<p><strong>Basic set of crash tests, frontal impact</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Test type</p>
+</blockquote></th>
+<th><blockquote>
+<p>Basis for testing</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>15 km/h, [redacted-person] for [redacted-person] (RCAR)</p>
+<p>([redacted-person] for Technology [AZT])</p>
+</blockquote></td>
+<td><blockquote>
+<p>Low-speed crash, C-IASI</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>26 km/h, 0° wall</p>
+</blockquote></td>
+<td><blockquote>
+<p>All fire</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>32 km/h, 0° wall</p>
+</blockquote></td>
+<td><blockquote>
+<p>All fire</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, 0° wall</p>
+</blockquote></td>
+<td><blockquote>
+<p>All fire</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h, 0° wall</p>
+</blockquote></td>
+<td><blockquote>
+<p>All fire, C-NCAP</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>32 km/h, 30°, left/right</p>
+</blockquote></td>
+<td><blockquote>
+<p>All fire</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>40 km/h, ODB</p>
+</blockquote></td>
+<td><blockquote>
+<p>All fire</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h, ODB</p>
+</blockquote></td>
+<td><blockquote>
+<p>All fire</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>30 km/h, driving under truck</p>
+</blockquote></td>
+<td><blockquote>
+<p>Field: Must fire</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>35 km/h, pole, center</p>
+</blockquote></td>
+<td><blockquote>
+<p>Field: Must fire</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>64 km/h, small overlap</p>
+</blockquote></th>
+<th><blockquote>
+<p>All fire, frontal impact, C-IASI small overlap</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>80 km/h, 15°, guard rail, concrete</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]System testing</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, MPDB, left/right</p>
+</blockquote></td>
+<td><blockquote>
+<p>All fire, C-NCAP</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Basic set of crash tests, side impact</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Test type</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>Angle</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>Speed</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>US barrier, no fire</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>27°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>13 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Side impact with barrier as per</p>
+<p>GB [redacted-phone], occupant protection (cf. ECE-R95 barrier suppl. 2)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>GB/T [redacted-phone]pole side impact China</p>
+<p>(cf. FMVSS 214D with 50th-</p>
+<p>percentile ES-2 or ECE-R135 with 50th-percentile WS)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>75°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>32 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-NCAP, AE-MDB</p>
+<p>(1 400 kg; +50 mm Z-height) Monitoring (because, according to
+protocol, only valid for internal combustion engines)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-NCAP, AE-MDB as of 2024</p>
+<p>Adaptation of test parameters (1 400 kg; +50 mm Z-height)?</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>(60 km/h) best guess</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-NCAP, AE-MDB, far side, monitoring</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-NCAP, pole, 2022</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>75°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>32 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pole with 50th percentile</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>75°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Starting from 16 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pole with 5th-percentile SID-IIs crash test dummy</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>75°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Starting from 16 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>C-IASI v3.0 side impact with barrier (as of 2024)</p>
+<p>(cf. [redacted-person] IIHS v2.0 2023)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>60 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Side impact, pole, rear, 2nd row of seats</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>29 km/h</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Basic set of crash tests, rear impact</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Test type</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>Angle</p>
+</blockquote></th>
+<th><blockquote>
+<p>Speed</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>RCAR (AZT)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10°</p>
+</blockquote></td>
+<td><blockquote>
+<p>15 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Rear impact as per GB [redacted-phone], fuel system</p>
+</blockquote></td>
+<td style="text-align: right;">180°</td>
+<td style="text-align: right;">50 +2 km/h</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Rear impact as in TRIAS 15-J[redacted-phone]or FMVSS 301 (old)</p>
+<p>Conventional and electric drives</p>
+</blockquote></td>
+<td style="text-align: right;">180°</td>
+<td style="text-align: right;">50 +2 km/h</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The ignition times to be achieved (min./opt./max.) in the load cases
+must be continuously coordinated between the [redacted-person] department
+and the [redacted-person] department and documented.</p>
+</blockquote>
+<h1 id="electric-systemfuels-coolants-fluids-and-lubricantshigh-voltage">Electric
+system/fuels, coolants, fluids, and lubricants/high voltage</h1>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="3"><blockquote>
+<p>General development specifications</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH for [redacted-person] and Fuels, Coolants, Fluids, and
+Lubricants</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.[redacted-phone]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>LAH [redacted]</p>
+<p>[redacted-person] Vehicle/[redacted]</p>
+<p>Requirements</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.880. AS</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co] In-[redacted]</p>
+<p>[redacted-person] Vehicle/[redacted]Requirements</p>
+<p>Expansion of 4-[redacted-person] Specification for [redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>Applicable documents (appendix)</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h1 id="numerical-simulation">Numerical simulation</h1>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Front-[redacted]Development for China</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>LAH.DUM.880.KH</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Specification for the [redacted-person] of
+[redacted-person]</p>
+<p>[redacted-person] for [redacted-person]</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>LAH.DUM.880.EM</p>
+<p>[redacted-co]82036</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="3"><blockquote>
+<p>[redacted]contain further numerical
+simulation scopes.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="test-facility-equipment">Test facility equipment</h1>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Contents</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Requirements for [redacted-person] at [redacted-person] Laboratories</p>
+</blockquote></td>
+<td><blockquote>
+<p>LAH.DUM.880. BE</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p>[redacted-person] Requirements</p>
+</blockquote></th>
+<th><blockquote>
+<p>LAH.[redacted-phone]J</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted]</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<h1 id="general-performance-specifications">[redacted-person]
+Specifications</h1>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Scope</strong></p>
+</blockquote></th>
+<th style="text-align: right;"><strong>Contents</strong></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Source</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Responsible party</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;">Appendix 5 "Consumer protection"</td>
+<td style="text-align: center;"><blockquote>
+<p>LAH.85K.880.C</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

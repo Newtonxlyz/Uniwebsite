@@ -1,0 +1,1852 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH85E880J_Anfrage_EDL_EK-541_AU412</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p>[redacted]</p>
+<p>D[redacted]</p>
+<p>Telefon: [redacted-phone]</p>
+<p>Anfragelastenheft für Engineering-Leistungen</p>
+<p><strong>Sicherheitselektronik</strong></p>
+<blockquote>
+<p>[redacted-prj]</p>
+<p>AU412/1EU_B (E5Avant),</p>
+</blockquote>
+<p><br/>
+LAH.85E.880.J</p>
+<h1 id="inhaltsverzeichnis">Inhaltsverzeichnis</h1>
+<p><a href="#inhaltsverzeichnis">Inhaltsverzeichnis
+<span>2</span></a></p>
+<p><a href="#änderungsdokumentation">Änderungsdokumentation
+<span>4</span></a></p>
+<p><a href="#allgemeines">1 Allgemeines <span>5</span></a></p>
+<p><a href="#bedeutung-des-lastenhefts">1.1 Bedeutung des Lastenhefts
+<span>5</span></a></p>
+<p><a href="#strukturierte-anfrage">1.2 [redacted-person]
+<span>5</span></a></p>
+<p><a href="#geltungsbereich">1.3 Geltungsbereich <span>5</span></a></p>
+<p><a href="#abkürzungen">1.4 Abkürzungen <span>6</span></a></p>
+<p><a href="#projektspezifische-auftragsinhalte">2 [redacted-person] <span>7</span></a></p>
+<p><a href="#gesamt-gewerkumfang">2.1 Gesamt-Gewerkumfang
+<span>7</span></a></p>
+<p><a href="#entwicklung-sicherheitselektronik">2.1.1 [redacted-person] <span>7</span></a></p>
+<p><a href="#organisation-leitung-des-gewerks">2.1.2 Organisation,
+Leitung des Gewerks <span>8</span></a></p>
+<p><a href="#teil-gewerk-1-elektronikentwicklung">2.2 Teil-Gewerk 1:
+Elektronikentwicklung <span>9</span></a></p>
+<p><a href="#definition-sicherheitselektronik-varianten-und-rollen-im-projekt">2.2.1
+[redacted-person]-Varianten und Rollen im Projekt
+<span>9</span></a></p>
+<p><a href="#anforderungsmanagement-in-doors">2.2.2
+Anforderungsmanagement in DOORS <span>9</span></a></p>
+<p><a href="#schnittstellen-des-teil-gewerks">2.2.3 Schnittstellen des
+Teil-Gewerks <span>11</span></a></p>
+<p><a href="#teil-gewerk-2-funktionsentwicklung-event-data-recorder">2.3
+Teil-Gewerk 2: [redacted]<span>12</span></a></p>
+<p><a href="#teil-gewerk-3-funktionsentwicklung-assistenz-system-monitor">2.4
+Teil-Gewerk 3: [redacted]<span>12</span></a></p>
+<p><a href="#teil-gewerk-4-entwicklung-zieldatencontainer-zdc">2.5
+Teil-Gewerk 4: [redacted-person] (ZDC)
+<span>13</span></a></p>
+<p><a href="#erwartete-arbeitsergebnisse">2.6 [redacted-person] <span>14</span></a></p>
+<p><a href="#gesamt-gewerkumfang-1">2.6.1 Gesamt-Gewerkumfang
+<span>14</span></a></p>
+<p><a href="#teil-gewerk-1-elektronikentwicklung-1">2.6.2 Teil-Gewerk 1:
+Elektronikentwicklung <span>14</span></a></p>
+<p><a href="#teil-gewerk-2-funktionsentwicklung-event-data-recorder-1">2.6.3
+Teil-Gewerk 2: [redacted]<span>19</span></a></p>
+<p><a href="#teil-gewerk-3-funktionsentwicklung-assistenz-system-monitor-1">2.6.4
+Teil-Gewerk 3: [redacted]<span>19</span></a></p>
+<p><a href="#teil-gewerk-4-entwicklung-zieldatencontainer-zdc-1">2.6.5
+Teil-Gewerk 4: [redacted-person] (ZDC)
+<span>20</span></a></p>
+<p><a href="#gate-controlling">2.7 Gate-Controlling
+<span>20</span></a></p>
+<p><a href="#q-gate-1-projektstart">2.7.1 Q-Gate 1, Projektstart
+<span>20</span></a></p>
+<p><a href="#q-gate-2-prozessfähigkeit">2.7.2 Q-Gate 2, Prozessfähigkeit
+<span>20</span></a></p>
+<p><a href="#q-gate-3-serienfreigabe-sop-9-monate">2.7.3 Q-Gate 3,
+Serienfreigabe (SOP – 9 Monate) <span>20</span></a></p>
+<p><a href="#q-gate-4-projektabnahme-sop-1-monat">2.7.4 Q-Gate 4,
+Projektabnahme (SOP + 1 Monat) <span>20</span></a></p>
+<p><a href="#erforderliche-fachkenntnisse">2.8 [redacted-person] <span>21</span></a></p>
+<p><a href="#leistungszeitraum-und-leistungsumfang">2.9
+Leistungszeitraum und Leistungsumfang <span>21</span></a></p>
+<p><a href="#start-ende-des-projektes">2.9.1 Start, Ende des Projektes
+<span>21</span></a></p>
+<p><a href="#projekttermine-leistungsumfang">2.9.2 Projekttermine,
+Leistungsumfang <span>21</span></a></p>
+<p><a href="#leistungsort">2.10 Leistungsort <span>21</span></a></p>
+<p><a href="#beistellungen-der-audi-ag">2.11 Beistellungen der [redacted]<span>21</span></a></p>
+<p><a href="#fachliche-ansprechpartner-der-audi-ag">2.12 [redacted]<span>22</span></a></p>
+<p><a href="#rahmenbedingungen">3 Rahmenbedingungen
+<span>23</span></a></p>
+<p><a href="#verantwortung-informationspflichten-und-zusammenarbeit">3.1
+Verantwortung, Informationspflichten und Zusammenarbeit
+<span>23</span></a></p>
+<p><a href="#durchführung-der-arbeiten">3.2 Durchführung der Arbeiten
+<span>23</span></a></p>
+<p><a href="#leistungsfristen">3.3 Leistungsfristen
+<span>24</span></a></p>
+<p><a href="#änderung-der-leistung">3.4 Änderung der Leistung
+<span>24</span></a></p>
+<p><a href="#abnahme">3.5 Abnahme <span>25</span></a></p>
+<p><a href="#vergütung-leistungsnachweis">3.6 Vergütung /
+Leistungsnachweis <span>25</span></a></p>
+<p><a href="#nutzungsrechte">3.7 Nutzungsrechte <span>26</span></a></p>
+<p><a href="#schutzrechtsrecherchen-schutzrechte-dritter">3.8
+Schutzrechtsrecherchen, [redacted-person] <span>27</span></a></p>
+<p><a href="#vertragslaufzeit-und-kündigung">3.9 Vertragslaufzeit und
+Kündigung <span>27</span></a></p>
+<p><a href="#allgemeines-1">3.10 Allgemeines <span>27</span></a></p>
+<p><a href="#mitgeltende-unterlagen">3.11 [redacted-person]
+<span>28</span></a></p>
+<h1 id="änderungsdokumentation">Änderungsdokumentation</h1>
+<p><strong>Lastenheft-Freigabe</strong></p>
+<table>
+<tbody>
+<tr>
+<td><strong>Datum</strong></td>
+<td><strong>Ersteller [redacted-id]</strong></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><strong>Datum</strong></td>
+<td><strong>Leiter [redacted-id]</strong></td>
+<td><strong>Unterschrift</strong></td>
+</tr>
+<tr>
+<td>15.3.2018</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h1 id="allgemeines">Allgemeines</h1>
+<h2 id="bedeutung-des-lastenhefts">Bedeutung des Lastenhefts</h2>
+<blockquote>
+<p>Mit dem vorliegenden Lastenheft werden die kaufmännischen und
+technischen Vorgaben beschrieben, unter denen der Bieter, an den die
+Anfrage ergeht (im Folgenden „Auftragnehmer“ genannt), ein Angebot für
+den jeweils angefragten Arbeitsumfang abgeben kann.</p>
+<p>[redacted-person] beschreibt die betroffenen Schnittstellen, Prozesse,
+Rechte und die angeforderte Leistung als Grundlage für die Vergabe.</p>
+<p>[redacted-person] muss dieses Lastenheft in vollem Umfang bei seiner
+Angebotsgestaltung berücksichtigen. In seinem Angebot hat er sämtliche
+Leistungen zu berücksichtigen, die zur Erfüllung des Lastenheftes
+erforderlich sind. [redacted-person] soll sich unbedingt und ausschließlich
+auf das Lastenheft beziehen und die darin enthaltene Leistungserbringung
+plausibel bewerten. Abweichungen zum Lastenheft sind im Angebot bzw. in
+den Bestellsystemen [redacted-co] unter Bezugnahme auf den jeweiligen
+Abschnitt ausdrücklich als solche zu kenntlich zu machen.</p>
+<p>Wird der Auftrag an den Auftragnehmer vergeben, stellt dieser sicher,
+dass die im Lastenheft beschriebene Leistung vorgabegemäß gegenüber der
+[redacted-co] erbracht wird.</p>
+<p>Die [redacted-co] behält sich das Recht vor, eine Kostenplausibilisierung
+vor der Beauftragung durchzuführen und entsprechend nachzuverhandeln.
+Die angebotenen Preise und Termine dürfen nicht überschritten werden. Im
+Angebot enthalten sind alle notwendigen Änderungen zur Erreichung der
+Zielsetzungen und Funktionserfüllung des Lastenheftes.</p>
+<p>[redacted-person] des Lastenheftes ebenso wie die weiteren zur Verfügung
+gestellten Unterlagen unterliegen der Geheimhaltung und dürfen Dritten
+nur mit ausdrücklicher Genehmigung des zuständigen Fachbereiches der
+[redacted-co] zugänglich gemacht werden. Soweit eine Weitergabe an Dritte,
+insbesondere an mit dem Auftragnehmer verbundene Unternehmen, für die
+Erstellung eines Angebots erforderlich ist, hat der Auftragnehmer dafür
+Sorge zu tragen, dass die Vertraulichkeit sichergestellt ist.</p>
+</blockquote>
+<h2 id="strukturierte-anfrage">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] hat die strukturierte Anfrage [redacted-co]
+auszufüllen, also die geforderten Angaben zur Detaillierung und
+Plausibilisierung zu machen.</p>
+<p>[redacted-person] der strukturierten Anfrage erstellt der Auftragnehmer
+kostenlos ein entsprechend strukturiertes Angebot. In diesem Angebot
+müssen alle Details zur Herleitung des Angebotswertes und zur
+Plausibilisierung enthalten sein. Dies umfasst insbesondere den
+prognostizierten Aufwand an Arbeitsstunden beim Auftragnehmer. Sollten
+seitens [redacted-co] weitere Details zum Angebot gefordert werden, wird
+der Auftragnehmer diese unverzüglich und kostenlos zur Verfügung zu
+stellen.</p>
+</blockquote>
+<h2 id="geltungsbereich">Geltungsbereich</h2>
+<p>Das vorliegende Lastenheft bezieht sich ausschließlich Leistungen im
+Rahmen der Projektabläufe. Dies können u.[redacted-person],
+Konstruktions-, Berechnungs-, Prüfstands-, Versuchs-, Erprobungs-,
+Werkstatt- und Projektmanagementleistungen sein.</p>
+<p>Art und Umfang der Leistung richten sich nach diesem Lastenheft, es
+sei denn, ein Sachverhalt wird individuell ausgehandelt und ausdrücklich
+schriftlich abweichend geregelt.</p>
+<h2 id="abkürzungen">Abkürzungen</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Abkürzung</strong></th>
+<th><blockquote>
+<p><strong>Definition</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AB-SG</td>
+<td><blockquote>
+<p>[redacted-person] (Ist je nach Projekt gleichbedeutend mit SC)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ASL</td>
+<td><blockquote>
+<p>Aufbaustückliste</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ASM</td>
+<td><blockquote>
+<p>Assistenz-System-Monitor</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ATG</td>
+<td><blockquote>
+<p>Auftraggeber, bei [redacted-id] verantwortliche Fachabteilung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ATN</td>
+<td><blockquote>
+<p>Auftragnehmer (Paketnehmer, externer Dienstleister)</p>
+<p>Auftragnehmer ist die für das Gewerk beauftragte Firma. Unabhängig
+davon, ob Teile des Gewerks an Dritte unterbeauftragt werden.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>BT</td>
+<td><blockquote>
+<p>Bauteil</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>CDR</td>
+<td><blockquote>
+<p>[redacted-person] Retrieval</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>COP</td>
+<td><blockquote>
+<p>Conformity of Production (Serienüberprüfung)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>EDL</td>
+<td><blockquote>
+<p>Entwicklungsdienstleister, Paketnehmer</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>EDR</td>
+<td><blockquote>
+<p>[redacted-person] Recorder</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ELF</td>
+<td><blockquote>
+<p>Entwicklungsleitfaden</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>FGS</td>
+<td><blockquote>
+<p>Fußgängerschutz</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>FLAH</td>
+<td><blockquote>
+<p>Funktionslastenheft</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>FZ</td>
+<td><blockquote>
+<p>Fahrzeug</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>GE</td>
+<td><blockquote>
+<p>Generalentwickler</p>
+<p>Ist gleichbeutend mit ATN. Generalentwickler ist die für das Gewerk
+beauftragte Firma. Unabhängig davon, ob Teile des Gewerks an Dritte
+unterbeauftragt werden.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>IS X</td>
+<td><blockquote>
+<p>Integrationsstufe X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ISM</td>
+<td><blockquote>
+<p>Integrationsstufenmanagement</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>LAH</td>
+<td><blockquote>
+<p>Lastenheft</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>MS</td>
+<td><blockquote>
+<p>Meilenstein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>OPL</td>
+<td><blockquote>
+<p>[redacted-person] Liste</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>SC / SC2</td>
+<td><blockquote>
+<p>[redacted-person] (ist je nach Projekt gleichbedeutend mit AB-SG)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>SG-LF</td>
+<td><blockquote>
+<p>Steuergeräte-Lieferant</p>
+<p>Lieferant der Airbag-Steuergerätes und der externen Sensoren.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>SOP</td>
+<td><blockquote>
+<p>Start of production</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>TBD</td>
+<td><blockquote>
+<p>To be defined, noch zu definieren</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ZDC</td>
+<td><blockquote>
+<p>Zieldatencontainer</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="projektspezifische-auftragsinhalte">[redacted-person]</h1>
+<h2 id="gesamt-gewerkumfang">Gesamt-Gewerkumfang</h2>
+<h3 id="entwicklung-sicherheitselektronik">[redacted-person]</h3>
+<p>Der ATN verantwortet die Konzept- und/oder Serienentwicklung des
+Airbag-Steuergeräts, der externen Sensoren (Druck- bzw.
+Beschleunigungssensoren und FGS-Druckschlauch) und des [redacted-person].</p>
+<p>Im Rahmen dieser Entwicklungstätigkeiten muss der ATN folgende
+Umfänge leisten und folgende Anforderungen erfüllen.</p>
+<ul>
+<li><p>Projektsteuerung für die oben genannten Komponenten
+(Meilensteinfestlegungen, Terminplanüberarbeitungen, Terminüberwachung
+und Eskalationsanstöße, Projektdokumentation im [redacted-person]
+Entwicklungsleitfaden (ELF), Vorbereitung von und Teilnahme an
+Gremienauftritten)</p></li>
+<li><p>Durchführung von Projektbesprechungen (ggf. Telefonkonferenzen)
+zum Projektstatus. [redacted-person], und Dokumentation der
+Besprechung</p></li>
+<li><p>[redacted-person] gegenüber dem ATG. [redacted-person] beinhaltet alle technischen, sowie organisatorischen
+Inhalte des Projektes. [redacted-person] auch über die Umfänge der
+Sicherheitselektronik hinaus</p></li>
+<li><p>Vorbereitung von und Teilnahme an Gremienauftritten (inkl. ÄKO
+für Anpassungen)</p></li>
+<li><p>Teilnahme am ISM und Tracking der Funktionsreifegrade (ISM42) –
+Bereitstellung der Information an [redacted-person] PLs</p></li>
+<li><p>Teilnahme an Status- und Bauteilrunden für das Projekt bei
+[redacted-co]</p></li>
+<li><p>Schnittstelle und Informationsträger zwischen Fahrzeugsicherheit
+und [redacted-co]</p></li>
+<li><p>Abstimmung aller technischen Schnittstellen auf Komponentenebene
+mit den Funktions-, Bauteil- und Elektronikteams bei [redacted-person] bzw. innerhalb
+des ATN und den entsprechenden EE-Abteilungen des ATG</p></li>
+<li><p>Abdeckung aller technischen Schnittstellen auf Fahrzeugebene
+innerhalb [redacted-co] und zum ATN</p></li>
+<li><p>Abdeckung der Schnittstellen zum Plattform- und
+Modulentwickler</p></li>
+<li><p>Erteilung der Freigabeempfehlungen für die P-, B-, BMG- und
+K-Freigaben</p></li>
+<li><p>Durchführung bzw. Koordination aller relevanten Prüfungen der
+Bauteile (Detaillierung siehe Meilensteine). Fehler in den Prüfungen
+sind zu verifizieren und die Abstellung der Fehler ist mit dem
+Lieferanten zu klären. [redacted-person] der Prüfungen sind Teil der
+regelmäßigen Berichterstattung an [redacted-id] durch den ATN</p></li>
+<li><p>Der ATN muss eine Funktionsfreigabeempfehlung für den [redacted-person]
+Recorder (EDR) erteilen und für NAR zusätzlich einen
+Selbstzertifizierungsbericht gemäß 49 CFR 563 und SAE J1698-3
+erstellen</p></li>
+<li><p>Der ATN muss eine Funktionsfreigabeempfehlung für den [redacted-person] Monitor ASM) erteilen</p></li>
+<li><p>Der ATN muss die Verantwortung für die Erstellung und
+Freigabeempfehlung von Zieldatencontainern übernehmen</p></li>
+<li><p>Der ATN muss mit einer Arbeitsumgebung (VAS/ODIS Tester, IDEX,
+Prüfbox, etc.) ausgerüstet sein, die sicherstellt, dass die notwendigen
+Arbeiten zielgerichtet bearbeitet werden können. [redacted-person] und
+Bereitstellung dieser Umgebung obliegt dem Auftragnehmer. [redacted-person]
+der Umgebung muss mit dem Auftraggeber erfolgen</p></li>
+</ul>
+<p>Der ATN ist nicht Empfänger von Aufgaben (Datenanalyse,
+Variantenrechnungen, Büroarbeiten) aus der [redacted-co]-Fachabteilung.</p>
+<h3 id="organisation-leitung-des-gewerks">Organisation, Leitung des
+Gewerks</h3>
+<p>Soweit notwendig können <strong>Teil-Gewerke an Dritte
+unterbeauftragt werden</strong>. Unabhängig hiervon verbleibt die volle
+Verantwortung beim ATN. [redacted-person] an Dritte sind im
+Angebot zu vermerken. [redacted-person] muss außerdem die
+Koordination und Steuerung der Dritten ausschließlich über den ATN
+erfolgen. Der ATN bleibt alleinige Schnittstelle zum ATG.</p>
+<p>Dritte können</p>
+<ol type="A">
+<li><p>EDL ([redacted-person])</p></li>
+<li><p>[redacted-person]-Entwickler</p></li>
+</ol>
+<p>sein.</p>
+<p>Rahmenbedingungen für die Gewerkumsetzung</p>
+<ol type="1">
+<li><p>Der ATN steuert, plant und leitet das Projekt und die
+Teil-Gewerke eigenständig und eigenverantwortlich.</p></li>
+<li><p>Der ATN berichtet eigenständig und eigenverantwortlich den Status
+des Projektes an [redacted-person] und an die Projektbeteiligten.</p></li>
+<li><p>Der ATN erstellt zu Beginn des Projektes einen Projektterminplan
+und teilt das Gewerk in Arbeitspakete auf. [redacted-person] ist
+terminlich und inhaltlich zu definieren.</p></li>
+<li><p>Der ATN benennt einen Projektleiter für das Gewerk</p></li>
+<li><p>Der ATN benennt je einen Projektleiter für die
+Teil-Gewerke.</p></li>
+</ol>
+<p>[redacted-person] des Gewerkfortschritts sowie die Gewerkabnahme gemäß
+der geforderten Arbeitsergebnisse erfolgt durch den entsprechenden
+Gesamtgewerkprojektleiter beim ATG.</p>
+<p>[redacted-person] des geforderten Gesamtergebnisses werden vom ATG
+Teil-Gewerke definiert, welche die einzelnen vordefinierten
+Entwicklungsprozesse, -umfänge näher beschreiben.</p>
+<p>[redacted-person] und inhaltliche Abnahme von Teil-Gewerkergebnissen
+erfolgt mit dem Gesamtgewerkprojektleiter des ATG. [redacted-person]
+prozessualer Details der Teil-Gewerke erfolgt mit den
+Prozessprojektleitern des ATG.</p>
+<p>Der ATN erhält auf [redacted-person] in die Inhalte der
+Prozessvorschriften, Normen und Arbeitsanweisung, welche im Rahmen des
+Gewerkes verbindlich einzuhalten sind. [redacted-person] werden nicht im
+Rahmen der Anfrage für das Gewerk in elektronischer Form bereitgestellt.
+Fordert der ATN keinen Einblick an, wird angenommen, dass dem ATN die
+Inhalte hinreichend bekannt sind.</p>
+<h2 id="teil-gewerk-1-elektronikentwicklung">Teil-Gewerk 1:
+Elektronikentwicklung </h2>
+<p>[redacted-person] in diesem Gewerk umfasst alle
+elektronischen Komponenten deren Freigabe durch [redacted-id] erfolgt. Unter
+anderem sind das: Airbagsteuergerät bzw. [redacted-person] ([redacted-person] 2), die externen Sensoren (sowohl Druck- als auch
+Beschleunigungssensoren und FGS-Druckschlauch), und der Elektronikumfang
+des [redacted-person].</p>
+<p>Je nach Projektphase gibt es unterschiedliche Gewerkumfänge, die
+durch den Auftragnehmer zu leisten sind. [redacted-person] ist vor
+Angebotsabgabe durch den Auftraggeber festzulegen.</p>
+<ul>
+<li><p>Entwicklung bis Konzeptentscheid</p></li>
+<li><p>Entwicklung ab Konzeptentscheid</p></li>
+</ul>
+<p>Die unterschiedlichen Umfänge in den beiden Projektphasen sind aus
+dem Meilensteinplan ersichtlich.</p>
+<h3 id="definition-sicherheitselektronik-varianten-und-rollen-im-projekt">[redacted-person]-Varianten und Rollen im Projekt</h3>
+<p>Je nach Variantenentwicklung gibt es unterschiedliche Gewerkumfänge
+die durch den Auftragnehmer zu leisten sind. Im Rahmen dieser Anfrage
+gilt Variante (2).</p>
+<ol type="1">
+<li><p>Variantenentwicklung durch GE<br/>
+Sicherheitselektronik als Modulentwicklung mit einer Variante die nur
+vom Auftragnehmer in dem relevanten Fahrzeugprojekt genutzt
+wird.</p></li>
+</ol>
+<ol type="a">
+<li><p>[redacted-person] ist durch den GE in Abstimmung mit dem
+Modulentwickler zu entwickeln und auf Komponentenebene freizugeben. [redacted-person] sind sowohl die <strong>fahrzeugrelevanten als auch die
+bauteilrelevanten Umfänge</strong> zu berücksichtigen. [FZ, BT]</p></li>
+<li><p>Der ATN deckt alle Schnittstellen zum Lieferanten der Komponenten
+ab.</p></li>
+<li><p>Für die Laborprüfungen des Bauteils ist im Rahmen der Entwicklung
+ein automatisches Testsystem notwendig, welches alle Fehlerzustände und
+normalen Zustände der externen Schnittstellen simulieren kann und die
+notwendige Systemreaktion (z.[redacted-person], Messwerteblöcke und
+Warnlampenstatus) abprüft. Hier sind auch die Spannungsverläufe gemäß
+Testprüfspezifikation von [redacted-id] zu integrieren und die Systemreaktion
+abzuprüfen.</p></li>
+</ol>
+<ol start="2" type="1">
+<li><p>Variantenentwicklung durch Modulentwickler<br/>
+Sicherheitselektronik als Modulentwicklung durch [redacted]mit einer
+Variante die in anderen Fahrzeugprojekten im Konzern genutzt
+wird.</p></li>
+</ol>
+<ol type="a">
+<li><p>[redacted-person] ist durch den GE beim Modulentwickler einzusteuern
+und durch den Modulentwickler freizugeben.</p></li>
+<li><p>Bei der Kommunikation von und zum Modulentwickler ist [redacted-person]
+immer einzubinden, wenn der Modulentwickler nicht gleichzeitig der ATG
+ist. [redacted-person] sind nur die fahrzeugrelevanten Umfänge zu
+berücksichtigen [FZ].</p></li>
+<li><p>Der ATN beschafft und bewertet für das Projekt relevante
+Informationen aus dem Basisprojekt und stellt diese Informationen
+innerhalb der Organisation des ATN zur Verfügung</p></li>
+<li><p>Der ATN deckt die entsprechenden Schnittstellen zum Plattform-
+und Modulentwickler ab.</p></li>
+<li><p>Der ATN nimmt an Bauteilrunden aus dem Basisprojekt
+teil.</p></li>
+</ol>
+<h3 id="anforderungsmanagement-in-doors">Anforderungsmanagement in
+DOORS</h3>
+<ol type="a">
+<li><p>Bearbeitung, Review FLAHs in DOORS</p></li>
+<li><p>[redacted-person] DOORS-Module mit dem Lieferanten des
+Airbag-Steuergerätes</p></li>
+<li><p>[redacted-person] DOORS-Module mit Partnersteuergeräten über die
+jeweiligen Fachabteilungen [redacted]</p></li>
+<li><p>Ist der ATN nicht mit der Entwicklung des im Projekt verwendeten
+Airbagsteuergerätes beauftragt, muss der ATN die Umsetzung und
+Dokumentation der projektspezifischen Anforderungen durch die
+verantwortliche Fachabteilung [redacted]sicherstellen. Hierzu sind die
+projektspezifischen Anforderungen zu definieren, ab zu stimmen und die
+Umsetzung der Anforderungen in DOORS zu kontrollieren.</p></li>
+</ol>
+<p>[redacted-person] für die bauteilspezifischen Umfänge bzw. für
+die Testumfänge ist bei fehlendem Know-How möglich. [redacted-person] ist mit dem ATG vor Vergabe abzustimmen. [redacted-person]
+der Unterbeauftragung obliegt dem ATN.</p>
+<h3 id="schnittstellen-des-teil-gewerks">Schnittstellen des
+Teil-Gewerks</h3>
+<h4 id="variantenentwicklung-durch-ge">Variantenentwicklung durch
+GE</h4>
+<p><img src="./04_Crash_Sensoric-lah85e880j-anfrage-edl-ek-541-au412-media/media/image1.png" style="width:6.11024in;height:3.81102in"/></p>
+<h4 id="variantenentwicklung-durch-modulentwickler">Variantenentwicklung
+durch Modulentwickler</h4>
+<p><img src="./04_Crash_Sensoric-lah85e880j-anfrage-edl-ek-541-au412-media/media/image2.png" style="width:6.45669in;height:4.03937in"/></p>
+<h2 id="teil-gewerk-2-funktionsentwicklung-event-data-recorder">Teil-Gewerk
+2: [redacted]</h2>
+<p>[redacted-person] muss die [redacted](EDR) gemäß der
+geltenden Gesetzesanforderungen umgesetzt und freigegeben werden (z.B.
+49 CFR 563). Umfang des Teilgewerks ist die Einführung des EDR für das
+Fahrzeugprojekt und die Selbstzertifizierung gemäß 49 CFR 563 und
+geltender Standards zum Nachweis der gesetzeskonformen Freigabe der
+Funktion EDR und des CDR-Tools.</p>
+<p><strong>AP1: Anpassungsentwicklung CDR-Tool</strong></p>
+<p>- Anforderungsmanagement</p>
+<p>­ Terminplanung und –überwachung</p>
+<p>­ Fehlermanagement</p>
+<p>­ Entwicklungsunterstützung für den [redacted-person]
+Diagnostics</p>
+<p>­ Koordination der Schnittstelle zwischen [redacted-co] TE,
+Steuergerätlieferanten und Toolhersteller</p>
+<p>­ Koordination von Musterlieferungen</p>
+<p>- falls erforderlich: Verwaltung und Bereitstellung der
+EDR-Datendefinition für den Toolhersteller (auf<br/>
+Basis der SG-Spezifikation)</p>
+<p>­ Kommunikation mit dem Toolhersteller erfordert verhandlungssichere
+Englischkenntnisse</p>
+<p><strong>AP2: Freigabetests CDR-Tool</strong></p>
+<p>­ Prüfung der Musterstände des CDR-Tools</p>
+<p>­ Koordination der Fehlerbehebung mit dem Toolhersteller</p>
+<p>­ Dokumentation der Testergebnisse</p>
+<p>­ Erstellung einer fahrzeugspezifischen Freigabeempfehlung für das
+CDR-Tool</p>
+<p><strong>AP3: Selbstzertifizierung EDR</strong></p>
+<p>­ Koordination, Auswertung und Dokumentation der EDR-Tests im
+Crashprogramm</p>
+<p>­ Crashauswertung bzgl. der Funktion gemäß der [redacted-person]
+Procedure</p>
+<p>- Koordination, Auswertung und Dokumentation von zusätzlichen Tests
+am Prüfstand AFP in Abstimmung</p>
+<p>mit dem für den Prüfstand nominierten Projektpartner</p>
+<p>- Erstellung der Selbstzertifizierungsunterlagen gemäß 49 CFR 563 und
+SAE J1698-3 [redacted-person]</p>
+<p>Procedure</p>
+<p>- Erstellung der Zertifizierungsunterlagen erfordert
+verhandlungssichere Englischkenntnisse</p>
+<p><strong>AP4: [redacted-person] CDR-Tool /
+EDR-Zertifizierung</strong></p>
+<p>­ Betreuung bei Auffälligkeiten bei den jeweiligen Fachabteilungen</p>
+<p>- Erstellung von fahrzeugspezifischen Trainingsunterlagen /
+Dokumentationen für die Anwender des</p>
+<p>CDR-Tools (Zugang zum Steuergerät, Einsatz des Tools im jeweiligen
+Fahrzeug, Methodik zum EDR-</p>
+<p>Auslesen bei starker Schädigung des Fahrzeugs)</p>
+<h2 id="teil-gewerk-3-funktionsentwicklung-assistenz-system-monitor">Teil-Gewerk
+3: [redacted]</h2>
+<p>[redacted-person] beinhaltet die Funktionsentwicklung, Integration und
+Freigabeempfehlung für die [redacted](ASM) im
+angefragten Fahrzeugprojekt.</p>
+<p>[redacted-person] müssen durch den ATN eigenständig bearbeitet
+werden:</p>
+<ol type="1">
+<li><p>Falls erforderlich: [redacted-person] / Erweiterung
+der ASM-Anforderungen und –Datendefinitionen</p></li>
+<li><p>Systemerprobung am vernetzten Prüfstand</p></li>
+<li><p>Fahrzeugerprobung der Funktion</p></li>
+<li><p>Freigabeempfehlung zur Funktionsfreigabe ASM</p></li>
+<li><p>Freigabeempfehlung für das ASM-Auslesetool</p></li>
+</ol>
+<p>[redacted-person] sind im Querschnittslastenheft ASM und im
+Bauteillastenheft des SC2 beschrieben. [redacted-person] ASM kann
+in Abstimmung mit dem ATG an einen erfahrenen Unterauftragnehmer
+beauftragt werden.</p>
+<h2 id="teil-gewerk-4-entwicklung-zieldatencontainer-zdc">Teil-Gewerk 4:
+[redacted-person] (ZDC)</h2>
+<p>[redacted-person] beinhaltet die Erstellung, den Test und die
+Freigabeempfehlung für die im Projekt notwendigen Zieldatencontainer
+(ZDC).</p>
+<p>[redacted-person] müssen durch den ATN eigenständig bearbeitet
+werden:</p>
+<ol type="1">
+<li><p>Befüllung und Abstimmung der Freigabetabelle für die Bestellung
+der Parametersätze beim Lieferanten</p></li>
+<li><p>Ermittlung und Abstimmung der notwendigen Kodierinformationen und
+deren PR-Nummern-Steuerung mit den beteiligten Fachbereichen</p></li>
+<li><p>Tracking der ZDC-Bereitstellungstermine nach Arbeitsanweisung
+AA.12.02 und Anstoß von Eskalationen</p></li>
+<li><p>Erstellung der Zieldatencontainer in System42 (S42)</p></li>
+<li><p>Test und Review der erstellten ZDCs bei und mit den beteiligten
+Fachabteilungen (Absicherungstests für Serien-ZDCs am Prüfstand bei Fa.
+ASTech)</p></li>
+<li><p>Verteilung der aktuellen Zieldatencontainer an entwickelnde
+Fachbereiche (über CP-Tool) und Produktion sowie Sicherstellung der
+Aktualität von bestehenden ZDCs (z.[redacted-person] PR-Nummern, Anläufe,
+…)</p></li>
+<li><p>Freigabe der Zieldatencontainer und Bedienung der Gremien (u.[redacted-person] Team)</p></li>
+</ol>
+<h2 id="erwartete-arbeitsergebnisse">[redacted-person]</h2>
+<p>Der ATN legt bei Angebotsabgabe die geplanten Projektleiter von
+Gesamt-Gewerk und der Teil-Gewerke fest. [redacted-person] der
+Verantwortlichkeiten muss dem Auftraggeber spätestens 2 Monate vor
+Verantwortungswechsel mitgeteilt werden. Der ATN muss eine ausreichende
+Übergabezeit einplanen.</p>
+<ul>
+<li><p>[redacted-person] sind in Monaten vor bzw. nach SOP
+angegeben<br/>
+(SOP – x Monate bzw. SOP + x Monate).</p></li>
+<li><p>Es ist jeweils die maximale Laufzeit der Projekte
+referenziert.<br/>
+Die gültigen konkreten Meilensteine und Anlauftermine sind dem
+jeweiligen Projektterminplan zu entnehmen.</p></li>
+</ul>
+<h3 id="gesamt-gewerkumfang-1">Gesamt-Gewerkumfang</h3>
+<p>Zu Projektbeginn sowie regelmäßig zu berichtenden
+Arbeitsergebnisse:</p>
+<ol type="1">
+<li><p>[redacted-person]-Gewerk</p></li>
+<li><p>[redacted-person]-Gewerke und Arbeitspakete</p></li>
+</ol>
+<p>[redacted-person] Elektronik sind die Erstellung des [redacted-person] zum Meilenstein KE und die Freigabeempfehlung des ATN
+für das Airbagelektroniksystem im Fahrzeug zum [redacted-person].</p>
+<p>Beinhaltet das Gesamtgewerk die Entwicklung einer Plattform, für
+welche [redacted-co] verantwortlich ist ([redacted-co]-Plattform), müssen die
+entsprechenden Plattform-Meilensteine eingehalten werden.</p>
+<h3 id="teil-gewerk-1-elektronikentwicklung-1">Teil-Gewerk 1:
+Elektronikentwicklung</h3>
+<p>[redacted-person] des Teil-Gewerks erfolgt zu folgenden Meilensteinen. Zu
+jedem Meilenstein stellt der ATN die Arbeitsergebnisse dar, liefert
+diese aus und holt die Freigabe von [redacted-person] ein.</p>
+<p>Je Meilenstein und Funktion muss die Erfüllung der
+Entwicklungsumfänge bis zu diesem [redacted-person]. Zusätzlich
+müssen die ggf. erforderlichen Dokumentationsumfänge geliefert
+werden.</p>
+<table>
+<thead>
+<tr>
+<th>Meilenstein</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Projektphase bis KE</td>
+</tr>
+<tr>
+<td>1ster Funktionsfreeze „Konzept“</td>
+<td style="text-align: center;">-40</td>
+<td>Anfragevarianten (Min- und Max-Variante) anhand Spezifikationsliste
+abgeglichen und im [redacted-person] Projektforum verabschiedet.</td>
+</tr>
+<tr>
+<td>[redacted-person] an Einkauf</td>
+<td style="text-align: center;">-40</td>
+<td>Bauteil-Lastenhefte sind erstellt und mit Partnerabteilungen
+abgestimmt</td>
+</tr>
+<tr>
+<td>Auswahl der Vergabevariante</td>
+<td style="text-align: center;">-37</td>
+<td>Vergabevariante anhand Spezifikationsliste abgeglichen und im [redacted-person]
+Projektforum verabschiedet</td>
+</tr>
+<tr>
+<td>Konzeptentscheid</td>
+<td style="text-align: center;">-33</td>
+<td>Entscheidung des Fahrzeugkonzepts</td>
+</tr>
+<tr>
+<td>Projektphase ab KE</td>
+</tr>
+<tr>
+<td>ASL Stückliste für PT gefüllt</td>
+<td style="text-align: center;">-32</td>
+</tr>
+<tr>
+<td>IS1 im Fahrzeug</td>
+<td style="text-align: center;">-29</td>
+<td>Freigabeempfehlung für Entwicklungsumfang im Fahrzeug</td>
+</tr>
+<tr>
+<td>P-Freigabe</td>
+<td style="text-align: center;">-27</td>
+<td>Freigabeempfehlung P-Freigabe</td>
+</tr>
+<tr>
+<td>IS2 im Fahrzeug</td>
+<td style="text-align: center;">-25</td>
+<td>Freigabeempfehlung für Entwicklungsumfang im Fahrzeug</td>
+</tr>
+<tr>
+<td>Zeichnungsdaten archiviert</td>
+<td style="text-align: center;">-22</td>
+<td>Zeichnungsdaten vom Lieferanten überprüft und in KVS archiviert</td>
+</tr>
+<tr>
+<td>Stückliste gefüllt</td>
+<td style="text-align: center;">-22</td>
+</tr>
+<tr>
+<td>IS3 im Fahrzeug</td>
+<td style="text-align: center;">-21</td>
+<td>Freigabeempfehlung für Entwicklungsumfang im Fahrzeug</td>
+</tr>
+<tr>
+<td>B-Freigabe</td>
+<td style="text-align: center;">-18</td>
+<td>Freigabeempfehlung B-Freigabe</td>
+</tr>
+<tr>
+<td>IS4 im Fahrzeug</td>
+<td style="text-align: center;">-17</td>
+<td>Freigabeempfehlung für Entwicklungsumfang im Fahrzeug</td>
+</tr>
+<tr>
+<td>IS5 im Fahrzeug</td>
+<td style="text-align: center;">-12</td>
+<td>Freigabeempfehlung für Entwicklungsumfang im Fahrzeug</td>
+</tr>
+<tr>
+<td>100% Software</td>
+<td style="text-align: center;">-12</td>
+<td>Bestätigung dass Softwareumfang komplett umgesetzt wurde</td>
+</tr>
+<tr>
+<td>Software-Freigabe</td>
+<td style="text-align: center;">-5</td>
+<td>Bestätigung, dass Software freigabefähig für Kunde ist</td>
+</tr>
+<tr>
+<td>Baumusterfreigabe und K-Freigabe</td>
+<td style="text-align: center;">-4</td>
+<td>Freigabeempfehlung für Bauteile zum SOP; Begehren in AVON
+erstellt</td>
+</tr>
+<tr>
+<td>NAR, China</td>
+<td style="text-align: center;">+6</td>
+<td>Freigabeempfehlung für Folgeanlauf</td>
+</tr>
+<tr>
+<td>PHEV/Motorderivate S/RS</td>
+<td style="text-align: center;">+12</td>
+<td>Freigabeempfehlung für Folgeanlauf</td>
+</tr>
+</tbody>
+</table>
+<p>Aufgabenbeschreibung der Meilensteine</p>
+<p>Abhängig von der Variantenentwicklung sind hier nur die
+fahrzeugbezogenen Punkte [FZ] zu berücksichtigen (Variantenentwicklung
+durch Modulentwickler) oder fahrzeug- und bauteilbezogene Punkte [FZ,
+BT] zu berücksichtigen (Variantenentwicklung durch GE).</p>
+<p>[redacted-person] sind durch den ATN durchzuführen:</p>
+<ol type="1">
+<li><p>1ster Funktionsfreeze</p>
+<ol type="a">
+<li><p>[FZ] Darstellung aller möglichen Varianten sowie je eine mögliche
+Min- [redacted-person] für das Fahrzeugprojekt anhand der
+Fahrzeugspezifikationen</p></li>
+<li><p>[FZ] Vorlage einer abgestimmten
+E/E-Sicherheitselektronikarchitektur</p></li>
+<li><p>[FZ] Vorlage der erstellten Funktionsliste</p></li>
+<li><p>[FZ] Definition der HW- und SW-Vorhalte</p></li>
+<li><p>[FZ] Festlegung der möglichen Sensorkonfigurationen für das
+Fahrzeugprojekt</p></li>
+<li><p>[FZ] Bestätigung der möglichen Varianten im [redacted-person]-Forum</p></li>
+</ol></li>
+<li><p>[redacted-person] an Einkauf</p>
+<ol type="a">
+<li><p>[FZ] Auswahl, ob die Umfänge durch eine Variante des
+Modulentwicklers abgedeckt werden kann, oder ob eine eigene Variante
+notwendig werden könnte.</p></li>
+<li><p>[BT] Anpassung der Lastenhefte für die
+Sicherheitselektronik-Systeme einschließlich aller Anlagen in Abstimmung
+mit dem freigabeverantwortlichen Projekt-Ingenieur bei [redacted-id] auf das
+jeweilige Projekt.</p></li>
+<li><p>[BT] Übergabe der Vergabelastenhefte an den Einkauf zum Start des
+[redacted-person]</p></li>
+</ol></li>
+<li><p>Auswahl der Vergabevariante</p>
+<ol type="a">
+<li><p>[FZ] [redacted-person] der Auslösestrategie und Art der Auslösungen
+der Aktuatoren</p></li>
+<li><p>[FZ] Darstellung aller notwendigen Varianten für das
+Fahrzeugprojekt anhand der Fahrzeugspezifikationen</p></li>
+<li><p>[FZ] Vorlage der erstellten und abgestimmten
+Funktionsliste</p></li>
+<li><p>[FZ] Festlegung der Sensorkonfigurationen für das
+Fahrzeugprojekt</p></li>
+<li><p>[FZ] Konkretisierung der HW- und SW-Vorhalte</p></li>
+<li><p>[FZ] Bestätigung der Vergabevarianten im [redacted-person]-Forum</p></li>
+<li><p>[FZ] Auswahl, ob die Umfänge durch eine Variante des
+Modulentwicklers abgedeckt werden kann, oder ob eine eigene Variante
+notwendig wird.</p></li>
+<li><p>[BT] Finalisierung der offenen Umfänge in den Vergabelastenheften
+und Freigabe des Lastenhefts zur Übergabe an den Einkauf zur finalen
+Vergabe des Bauteils</p></li>
+<li><p>[FZ] Abstimmung der produktionsrelevanten Tests mit PG-E und
+Berücksichtigung dieser in der weiteren Entwicklung (Optimierung auf
+minimale F-Zeit/-Aufwand)</p></li>
+<li><p>[FZ] Prüfung der Verbaubarkeit des Sicherheitselektronik-Konzepts
+direkt mit PG-E an der Linie</p></li>
+</ol></li>
+<li><p>Konzeptentscheid</p></li>
+<li><p>ASL Stückliste für PT gefüllt bzw. Stückliste gefüllt</p>
+<ol type="a">
+<li><p>[FZ] Stücklistenpflege, für die ersten Konzeptfahrzeuge bzw.
+Technikträger</p></li>
+<li><p>[FZ] Stücklistenpflege für alle Sicherheitskomponenten für den
+Prototypen im System AVX</p></li>
+<li><p>[FZ] Stücklistenpflege für alle Sicherheitskomponenten für die
+Serie im System AVON.</p></li>
+</ol></li>
+<li><p>Zeichnungsdaten archiviert</p>
+<ol type="a">
+<li><p>[BT] Steuerung, Verifikation und Freigabe der Zeichnungen und
+notwendigen Anpassungen</p></li>
+</ol></li>
+<li><p>P-Freigabe</p>
+<ol type="a">
+<li><p>[FZ] [redacted-person] sind archiviert und das Bauraummodell
+ist im Fahrzeug ohne Kollision</p></li>
+<li><p>[FZ] Die P-Freigabe wird im System AVON erteilt</p></li>
+</ol></li>
+<li><p>IS x im Fahrzeug (bzw. zu jedem Bauteil-Musterstand),</p>
+<ol type="a">
+<li><p>[FZ] Definition der Funktionshübe zu den jeweiligen
+Integrationsstufen (evtl. in Abhängigkeit mit dem
+Modulentwickler)</p></li>
+<li><p>[FZ] Steuerung und Review der Systemschaltpläne.</p></li>
+<li><p>[FZ] [redacted-person]- und Prüfanweisungen</p></li>
+<li><p>[BT] [redacted-person]-Datenblätter</p></li>
+<li><p>[FZ] Erstellung und Verifikation der Freigabetabelle und der
+Zieldatencontainer zu den einzelnen Integrationsstufen und der
+Serie.</p></li>
+<li><p>[FZ] Ist eine Erstellung und Verifizierung der Zieldatencontainer
+hauseigen nicht möglich muss der ATN die notwendigen
+Zieldatencontainer-Umfänge unterbeauftragen</p></li>
+<li><p>[FZ] Pflege und Freigabe der Varianten und Versionen im
+System42</p></li>
+<li><p>[FZ] Aufbaukoordination und Begleitung von Erprobungsfahrzeugen
+unter für Sicherheitselektronik relevanten Gesichtspunkten (z.[redacted-person] für SC und RGS)</p></li>
+<li><p>[FZ] Planung, Beschaffung und Verwaltung sämtlicher
+Versuchsteile, welche in der Verantwortung von [redacted-person] liegen. Hierzu
+zählen unter anderem Airbagsteuergeräte, externe Airbag-Sensoren,
+SBR-Matte und BodySense-Steuergeräte als auch [redacted-person].</p></li>
+<li><p>[FZ] [redacted-person] bzgl. Funktion und Teilestände
+der Sicherheitskomponenten</p></li>
+<li><p>Fahrzeugunabhängige, durchzuführende Komponentenprüfungen:</p>
+<ol type="i">
+<li><p>[BT] [redacted-person]</p></li>
+<li><p>[BT] Diagnoseprüfung im Labor und im Fahrzeug</p></li>
+<li><p>[FZ] [redacted-person] der fahrzeugunabhängigen, durchzuführenden
+Prüfungen sind durch den ATN vom Modulentwickler zu beziehen und sind
+Teil der regelmäßigen Berichterstattung durch den ATN.</p></li>
+</ol></li>
+<li><p>Fahrzeugunabhängige, zu organisierende Komponentenprüfungen:</p>
+<ol type="i">
+<li><p>[BT] Komponentenerprobung nach LAH (Dauererprobung)</p></li>
+<li><p>[BT] Kommunikationsprüfung</p></li>
+<li><p>[BT] [redacted-person]</p></li>
+<li><p>[BT] Gesamtfahrzeug-HIL Tests in Abstimmung mit [redacted-id]</p></li>
+<li><p>[BT] Software/Datenfreigabe inklusive Überprüfung der
+Ergebnisse</p></li>
+<li><p>[FZ] [redacted-person] der fahrzeugunabhängigen, zu organisierenden
+Prüfungen sind durch den ATN vom Modulentwickler zu beziehen und sind
+Teil der regelmäßigen Berichterstattung durch den ATN.</p></li>
+</ol></li>
+<li><p>Fahrzeug-bezogene, zu organisierende Prüfungen:</p>
+<ol type="i">
+<li><p>[FZ] Referenzfahrzeuguntersuchung</p></li>
+<li><p>[FZ] Verbauprüfung (VBV)</p></li>
+</ol></li>
+</ol></li>
+<li><p>B-Freigabe</p>
+<ol type="a">
+<li><p>[FZ] [redacted-person] sind archiviert und das Bauraummodell
+ist im Fahrzeug ohne Kollision</p></li>
+<li><p>[FZ] Die B-Freigabe wird im System AVON erteilt</p></li>
+</ol></li>
+<li><p>100% Software</p>
+<ol type="a">
+<li><p>[redacted-person] ist wie der Meilenstein „IS x im Fahrzeug“ zu
+behandeln.</p></li>
+<li><p>[FZ, BT] Es ist sicherzustellen, dass alle Software zu 100%
+umgesetzt ist. Fehler dürfen vorhanden sein.</p></li>
+</ol></li>
+<li><p>Software-Freigabe</p>
+<ol type="a">
+<li><p>[redacted-person] gilt als erreicht, wenn der Lieferant seine
+Freigabe erteilt hat und anschließend die finale Softwarefreigabe durch
+den verantwortlichen [redacted-id] Mitarbeiter ausgesprochen wird. Durch den
+ATN ist eine SW-Freigabeempfehlung unterschrieben vorzulegen.</p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>[redacted-person] für die Softwarefreigabe sind folgende Umfänge:</p>
+</blockquote>
+<ol type="1">
+<li><p>Fachbereichs-Anforderungen sind abgestimmt und freigegeben [ggf.
+Unterfreigabe nach</p></li>
+</ol>
+<p>Prüfung gegen Lieferantenaussage]</p>
+<ol start="2" type="1">
+<li><p>[redacted-person] vom Bauteillieferanten ist erteilt und liegt
+dem V-STG und dem V-SW vor</p></li>
+<li><p>[redacted-person] (Flashen, Diagnose, Komponentenschutz,
+Vernetzung) sind durch die EE-Querschnittsabteilungen getestet und
+freigegeben. [redacted-person] der Prüforte wird über den aktuellsten
+Entwicklungsleitfaden sichergestellt</p></li>
+<li><p>[redacted-person] beim Erstanläufer ist durchgeführt
+und freigegeben</p></li>
+<li><p>Der EG-Dauerlauf und die EE-Breitenerprobung sind für den
+Erstanläufer durchgeführt</p></li>
+<li><p>Die im Projekt abgestimmten Labor-Prüfungen auf Bauteilebene sind
+durchgeführt und die ent-</p></li>
+</ol>
+<p>sprechenden Freigabeempfehlungen der funktionsverantwortlichen
+Abteilungen liegen vor</p>
+<ol start="7" type="1">
+<li><p>[redacted-person] [z.[redacted-person]] durch den V-Fusi für die
+SW-relevanten Umfänge der Funktionalen</p></li>
+</ol>
+<blockquote>
+<p>Sicherheit liegt vor</p>
+</blockquote>
+<ol start="8" type="1">
+<li><p>Alle anlaufrelevanten KPM-[redacted-person] mit Prio A1, A und B sind
+abgearbeitet und auf den freizugebenden Anlauf bezogene, offene Prio C
+Tickets wurden vom jeweiligen Funktionsverantwortlichen geprüft und als
+nicht-anlaufverhindernd eingestuft [Email oder KPM-[redacted-person] des
+Funktionsverantwortlichen unter Angabe der Ticketnummer ist ausreichend
+für die Freigabe]</p></li>
+<li><p>Auflagen, die beim Einsatz der SW berücksichtigt werden müssen,
+müssen in der SW-Freigabe dokumentiert werden</p></li>
+</ol>
+<p>[redacted-person] „nicht-parametersatzabhängigen“ Umfänge müssen als i.[redacted-person] werden.</p>
+<p>[redacted-person] interne Prüfung der freizugebenden Software muss durchgeführt
+und dokumentiert</p>
+<p>werden. Für die Softwarefreigabe ist die aktuellste
+Softwarefreigabecheckliste zu<br/>
+verwenden.</p>
+<p>[redacted-person] bei der Erfüllung der jeweiligen Punkte der
+Softwarefreigabecheckliste ist der</p>
+<p>aktuellste Entwicklungsleitfaden [redacted-id] zu verwenden.</p>
+<ol start="10" type="1">
+<li><p>Baumusterfreigabe</p>
+<ol type="a">
+<li><p>[redacted-person] ist wie der Meilenstein „IS x im Fahrzeug“ zu
+behandeln.</p></li>
+<li><p>[FZ, BT] Es ist sicherzustellen, dass alle Software zu 100%
+umgesetzt ist. Es ist sicherzustellen, dass keine Fehler vorhanden
+sind.</p></li>
+</ol></li>
+</ol>
+<ol type="a">
+<li><p>[BT] [redacted-person] und Testfälle beim Lieferanten für die
+Delta-Umfänge zum Grundmodul.</p>
+<ol type="a">
+<li><p>Zusätzliche fahrzeugunabhängige zu organisierende
+Komponentenprüfungen:</p>
+<ol type="i">
+<li><p>[BT] Überprüfung von Sicherheitsfunktionen mittels FMEA</p></li>
+<li><p>[BT] Prüfung der HW-Schnittstellen (CAN, LIN, FXR)</p></li>
+<li><p>[BT] [redacted-person] der Aufbautechnik</p></li>
+<li><p>[BT] Review und Freigabe des Pflichtenhefts vom
+Bauteil-Lieferanten.</p></li>
+</ol></li>
+<li><p>[BT] Der ATN erarbeitet die Gesamtfreigabeempfehlung für die
+Sicherheitselektronik. Basis für die Freigabeempfehlung sind die
+entsprechenden Komponentenprüfungen.</p></li>
+<li><p>[redacted-person] für die Sicherheitselektronik hat
+[redacted]der Freigabeempfehlung durch den ATN kann der
+Freigabeverantwortliche von [redacted-id] die jeweiligen Freigaben
+erteilen.</p></li>
+</ol></li>
+</ol>
+<ol start="11" type="1">
+<li><p>K-Freigabe</p>
+<ol type="a">
+<li><p>[FZ] [redacted-person] ist vom Bauteilverantwortlichen (GE
+oder Modulentwickler) einzuholen</p></li>
+<li><p>[FZ] Erstellung und Freigabe der PDM- und TLD-Blätter</p></li>
+<li><p>[redacted-person]-bezogene zu organisierende Prüfungen</p>
+<ol type="i">
+<li><p>[FZ] Prüfung EMV im Fahrzeug</p></li>
+<li><p>[FZ] EDR Tests im Rahmen der Crasherprobung</p></li>
+<li><p>[FZ] Sommer- und Winterfahrteinsatz, inklusive Überprüfung der
+Ergebnisse</p></li>
+<li><p>[FZ] Dauerlaufeinsatz im Fahrzeug, inklusive Überprüfung der
+Ergebnisse</p></li>
+</ol></li>
+<li><p>[FZ] Der ATN erarbeitet die Gesamtfreigabeempfehlung für die
+Sicherheitselektronik. Basis für die Freigabeempfehlung sind die BMG und
+die fahrzeugbezogenen Prüfungen.</p></li>
+<li><p>[FZ] [redacted-person] deckt sowohl die Komponenten der
+Sicherheitselektronik sowie deren Integration ins Gesamtfahrzeug
+ab.</p></li>
+<li><p>[redacted-person] für die Sicherheitselektronik hat
+[redacted]der Freigabeempfehlung durch den ATN kann der
+Freigabeverantwortliche von [redacted-id] die jeweiligen Freigaben
+erteilen.</p></li>
+</ol></li>
+<li><p>NAR, China, PHEV, Motorderivate S/RS</p>
+<ol type="a">
+<li><p>[FZ] Freigabeempfehlung für Folgeanläufe</p></li>
+<li><p>[FZ] Verifikation dass die entsprechende Variante auch für die
+jeweiligen Derivate freigegeben werden kann. Dafür sind die
+entsprechenden fahrzeugrelevanten Freigabepunkte analog BMG bzw.
+K-Freigabe zu erfüllen.</p></li>
+</ol></li>
+</ol>
+<h3 id="teil-gewerk-2-funktionsentwicklung-event-data-recorder-1">Teil-Gewerk
+2: [redacted]</h3>
+<ol type="1">
+<li><p>[redacted-person] zum Projektfortschritt</p></li>
+<li><p>[redacted-person] des CDR-Tools (zur
+US-Markteinführung des Fahrzeugs)</p></li>
+<li><p>[redacted-person] für das CDR-Tool (zur
+US-Markteinführung des Fahrzeugs)</p></li>
+<li><p>[redacted-person] für jedes
+Fahrzeugprojekt (6 Wochen vor relevantem Anlauftermin)</p></li>
+<li><p>Freigabeempfehlung für die Funktion EDR und das CDR-Tool auf
+Basis des NAR Crashversuchs-programms (6 Wochen vor relevantem
+Anlauftermin)</p></li>
+<li><p>Trainingsunterlagen / Dokumentationen für die Anwender des
+CDR-Tools</p></li>
+</ol>
+<h3 id="teil-gewerk-3-funktionsentwicklung-assistenz-system-monitor-1">Teil-Gewerk
+3: [redacted]</h3>
+<ol type="1">
+<li><p>[redacted-person] zum Projektfortschritt (inkl. Fehlerliste,
+Arbeitspunkte, Terminplanung SW-Stände, Erprobungsstatus)</p></li>
+<li><p>Falls erforderlich: Neue/erweiterte ASM-Datendefinitionen für
+betroffenen ASM-Sendersteuergeräte</p></li>
+<li><p>RainCoat-Auswertungen der Breitenerprobungsfahrzeug des
+Fahrzeugprojekts</p></li>
+<li><p>Freigabeempfehlung für die Funktion ASM auf Basis folgender
+Unterfreigaben (xx Wochen vor relevantem Anlauftermin):</p>
+<ol type="a">
+<li><p>Unterfreigaben der Komponenten des ASM-Systems (nur Koordination
+durch Gewerk, Unterfreigabe durch Fachabteilungen)</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>Unterfreigabe RainCoat-Auswertung ASM</p></li>
+<li><p>Falls erforderlich: [redacted-person] (GG-8) für neue /
+erweiterte ASM-Datenumfänge</p></li>
+</ol></li>
+<li><p>Falls erforderlich: Erweiterter ASM-Parser zur Interpretation der
+ausgelesenen ASM-Daten</p></li>
+<li><p>Falls erforderlich: Freigabeempfehlung für den
+ASM-Parser</p></li>
+</ol>
+<h3 id="teil-gewerk-4-entwicklung-zieldatencontainer-zdc-1">2.6.5
+Teil-Gewerk 4: [redacted-person] (ZDC)</h3>
+<ol type="1">
+<li><p>[redacted-person] zum Projektfortschritt</p></li>
+<li><p>[redacted-person] der notwendigen ZDCs</p></li>
+<li><p>[redacted-person] für Serien-ZDCs</p></li>
+<li><p>Dokumentationen der Aktivitäten über offene [redacted-person]
+(OPLs)</p></li>
+</ol>
+<h2 id="gate-controlling">Gate-Controlling</h2>
+<h3 id="q-gate-1-projektstart">Q-Gate 1, Projektstart</h3>
+<p>[redacted-person] nach Beauftragung stellt der ATN folgende Umfänge zur
+Abnahme durch den ATG vor.</p>
+<ol type="1">
+<li><p>Gesamtprojektplanung der Umfänge [redacted-id]</p></li>
+<li><p>Detailplanung der beauftragten Entwicklungsumfänge</p></li>
+<li><p>Liste der geplanten Dokumentationen, Freigabe-Dokumente,
+Arbeitsergebnisse inklusive Termin zur Bereitstellung</p></li>
+<li><p>Darstellung der Umsetzung der Prozessvorgaben und Standards,
+welche von [redacted-id] bereitgestellt wurden.</p></li>
+<li><p>Der ATN muss die Abnahme schriftlich vom
+Qualitätssicherungsbeauftragten [redacted-id] bestätigten lassen.</p></li>
+<li><p>Darstellung der projektspezifischen Umfänge je
+Entwicklungsumfang</p></li>
+</ol>
+<h3 id="q-gate-2-prozessfähigkeit">Q-Gate 2, Prozessfähigkeit</h3>
+<p>[redacted-person] nach Beauftragung oder nach Vereinbarung mit [redacted-id]
+entsprechend der Projekterfordernisse muss der ATN anhand vom ATG
+vorgegebener Beispielanwendungen seine Prozessfähigkeit zu folgenden
+Entwicklungstätigkeiten nachweisen.</p>
+<ol type="1">
+<li><p>Abstimmung und Freigabe einer Applikation</p></li>
+<li><p>Durchführung von Crashsimulationen und
+Referenzapplikationen</p></li>
+<li><p>Änderung, Bearbeitung von Lastenheften</p></li>
+</ol>
+<h3 id="q-gate-3-serienfreigabe-sop-9-monate">Q-Gate 3, Serienfreigabe
+(SOP – 9 Monate)</h3>
+<p>9 Monate vor SOP stellt der ATN folgende Umfänge zur Abnahme durch
+den ATG vor.</p>
+<ol type="1">
+<li><p>Detailplanung der beauftragten Entwicklungsumfänge</p></li>
+<li><p>Arbeitsprodukte aus der Umsetzung der Prozessvorgaben und
+Standards, welche von [redacted-id] bereitgestellt wurden</p></li>
+<li><p>Der ATN muss die Abnahme schriftlich vom
+Qualitätssicherungsbeauftragten [redacted-id] bestätigten lassen</p></li>
+</ol>
+<h3 id="q-gate-4-projektabnahme-sop-1-monat">Q-Gate 4, Projektabnahme
+(SOP + 1 Monat)</h3>
+<p>Spätestens 1 Monat nach SOP stellt der ATN folgende Umfänge zur
+Abnahme durch den ATG vor.</p>
+<ol type="1">
+<li><p>Auslieferung sämtlicher Dokumente, Daten, welche im Rahmen des
+[redacted]erzeugt wurden, insbesondere
+Freigabe-Dokumentationen</p></li>
+<li><p>[redacted-person] der Arbeitsprodukte aus der Umsetzung der
+Prozessvorgaben und Standards, welche von [redacted-id] bereitgestellt
+wurden</p></li>
+<li><p>Der ATN muss die Abnahme schriftlich vom
+Qualitätssicherungsbeauftragten [redacted-id] bestätigten lassen</p></li>
+</ol>
+<h2 id="erforderliche-fachkenntnisse">[redacted-person]</h2>
+<p>[redacted-person] gewährleistet, dass er die zur Abarbeitung des
+Umfangs erforderlichen Fachkenntnisse hat. Hierzu zählen aus Sicht der
+[redacted-co] insbesondere:</p>
+<ol type="1">
+<li><p>Konstruktion, DMU</p></li>
+<li><p>Elektronikentwicklung und Projektsteuerungserfahrung</p></li>
+</ol>
+<h2 id="leistungszeitraum-und-leistungsumfang">Leistungszeitraum und
+Leistungsumfang</h2>
+<h3 id="start-ende-des-projektes">Start, Ende des Projektes</h3>
+<p>Bei fristgerechter Beauftragung und Leistungserbringung</p>
+<p>Projektstart: wird durch die [redacted-person]-Gewerk-Anfrage
+vorgegeben</p>
+<p>Projektende: 3 Monate nach letztem SOP in der Anlaufstaffelung<br/>
+Die genauen Termine werden über die Gesamt-Gewerk-Anfrage
+vorgegeben.</p>
+<h3 id="projekttermine-leistungsumfang">Projekttermine,
+Leistungsumfang</h3>
+<p>[redacted-person] sind zu den unter 2.5 [redacted-person] genannten vom SOP abhängigen Meilensteinen zu
+erbringen.</p>
+<p>Erfolgt eine Beauftragung in einem bereits laufenden Projekt und sind
+somit einige der referenzierten Meilensteine bereits verstrichen, so
+sind nur noch die bevorstehenden Meilensteine anzubieten.</p>
+<p>Bei der Projektplanung sind Verschiebungen der bei Anfrage genannten
+Projekttermine von bis zu +6 Monaten einzukalkulieren. [redacted-person]
+müssen ohne Neubewertung des Umfangs innerhalb des Gewerkangebots
+abgedeckt sein.</p>
+<p>Bei darüber hinausgehenden Terminverschiebungen sind die entstehenden
+Delta-Umfänge in einem separaten Angebot auszuweisen.</p>
+<p>Es müssen die Teilgewerke für die Projekte und deren Derivate
+entsprechend</p>
+<p>angeboten werden. In Tabelle 1 sind die
+<strong><em>v</em>oraussichtlichen</strong> SOPs der Projekte angegeben,
+welche Grundlage für das Angebot sind. Die aktuellen Anläufe jedes
+Derivats sind jedoch der zum Zeitpunkt der Anfrage gültigen
+Anlaufstaffelung zu entnehmen.</p>
+<table>
+<caption><p>Tabelle 1: [redacted-person]/Derivate</p></caption>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Baureihe</strong></th>
+<th style="text-align: center;"><strong>Derivat<br/>
+Generation</strong></th>
+<th style="text-align: center;"><strong>Markt</strong></th>
+<th style="text-align: center;"><strong>SOP</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>E5</strong></td>
+<td style="text-align: center;">AU412</td>
+<td style="text-align: center;">RdW</td>
+<td style="text-align: center;">2022</td>
+</tr>
+</tbody>
+</table>
+<h2 id="leistungsort">Leistungsort</h2>
+<p>[redacted-person] muss am [redacted-person] erbracht werden. Teilumfänge
+ohne direkten Bezug, Einbindung des ATG und ohne Kommunikationsbedarf
+mit dem ATG können an beliebigen Standorten erbracht werden.</p>
+<h2 id="beistellungen-der-audi-ag">Beistellungen der [redacted]</h2>
+<p>[redacted-person] an Tochtergesellschaften der [redacted-co] oder des [redacted-co]Konzerns müssen die notwendigen Systemzugänge, Benutzer, etc. aller
+unterbeauftragter Projektbeteiligten soweit möglich über die
+Tochtergesellschaft beantragt, eingerichtet und die Kosten vom ATN
+getragen werden. [redacted-person] sind in diesem Fall im Angebot zu
+berücksichtigen und separat auszuweisen.</p>
+<p>Der ATN muss im Rahmen des Gewerkes anfallende Lizenzkosten für
+Software-Werkzeuge tragen, im Angebot berücksichtigen und separat
+ausweisen.</p>
+<p>Zugriffsberechtigungen auf erforderliche Systeme zur Ablage von
+Projektunterlagen ([redacted-co]dox, JIRA, KPMWeb, …) sind durch den ATN zu
+beantragen und die entstehenden Kosten zu tragen.</p>
+<h2 id="fachliche-ansprechpartner-der-audi-ag">[redacted]</h2>
+<p>Anfragen zur Abstimmung von Angebotsinhalten für das Gesamt-Gewerk
+richten Sie bitte an</p>
+<blockquote>
+<p>[redacted-person] ([redacted-id])<br/>
+[redacted-email]<br/>
+Tel.: [redacted-phone]</p>
+</blockquote>
+<p>[redacted-person]-Gewerk 2 [redacted]</p>
+<blockquote>
+<p>[redacted-person] ([redacted-id])<br/>
+[redacted-email]<br/>
+Tel.: [redacted-phone]</p>
+</blockquote>
+<p>[redacted-person]-Gewerk 3 [redacted-person] Monitor</p>
+<blockquote>
+<p>Tbd.</p>
+<p>[redacted-person] für die Teil-Gewerke und spezifische
+Themen im Rahmen des Gewerks werden, soweit erforderlich, nach Vergabe
+benannt.</p>
+</blockquote>
+<h1 id="rahmenbedingungen">Rahmenbedingungen</h1>
+<h2 id="verantwortung-informationspflichten-und-zusammenarbeit">Verantwortung,
+Informationspflichten und Zusammenarbeit</h2>
+<ol type="1">
+<li><p>[redacted-person] erbringt seine Leistung selbständig,
+eigenverantwortlich und ausschließlich mit eigenem qualifiziertem
+Personal. [redacted-person] erbringt seine Leistungen gemäß dem neuesten
+Stand von Wissenschaft und Technik und nach den Grundsätzen
+ordnungsgemäßer Berufsausübung einschließlich der Dokumentation. Etwaige
+technische, fachliche oder sonstige Vorgaben [redacted-co] entbinden den
+Auftragnehmer nicht von seiner Verpflichtung und Verantwortung für eine
+fehlerfreie Erbringung seiner Leistungen.</p></li>
+<li><p>[redacted-person] wird die Informationen, Unterlagen,
+projektbezogene Anweisungen, Anforderungen und ähnliche Vorgaben der
+[redacted-co] inhaltlich auf Vollständigkeit, [redacted-person] und
+Umsetzbarkeit hin überprüfen. [redacted-person] wird der
+Auftragnehmer gegenüber [redacted-co] unverzüglich schriftlich mit
+Begründung anzeigen.</p></li>
+<li><p>[redacted]wird der Auftragnehmer schriftliche und
+aussagekräftige Statusberichte verfassen.</p></li>
+<li><p>Die [redacted-co] wird dem Auftragnehmer die erforderlichen
+Informationen und Unterlagen nach Aufforderung zur Verfügung stellen.
+Darüber hinausgehende Mitwirkungsleistungen bedürfen einer gesonderten
+schriftlichen Vereinbarung.</p></li>
+<li><p>Soweit der Auftragnehmer zur Erledigung der [redacted-person] zu
+[redacted-co] IT-Systemen benötigt und die [redacted-co] diese Geräte nicht beistellt
+oder vermietet, wird der Auftragnehmer seine entsprechenden Geräte
+(Laptops etc.) [redacted-co] zur Installation der erforderlichen Software
+zur Verfügung stellen. [redacted-person] wird der Auftragnehmer diese
+Geräte erneut [redacted-co] zum Zweck der Datensicherung und -entfernung
+zur Verfügung stellen.</p></li>
+<li><p>Werden von [redacted-co] insbesondere aus [redacted-person] zur Verfügung gestellt, so bleiben diese sowie alle
+gegebenenfalls darauf gespeicherte Daten, Software etc. alleiniges
+Eigentum [redacted]sind ausschließlich für Zwecke des
+beauftragten Arbeitsumfangs zu verwenden.</p></li>
+</ol>
+<h2 id="durchführung-der-arbeiten">Durchführung der Arbeiten</h2>
+<ol type="1">
+<li><p>[redacted-person] ist für die Projektplanung und
+Leistungsdurchführung selbst verantwortlich. Sollten für den
+[redacted-person] seitens [redacted-co] angegeben werden,
+so sind dies lediglich Schätzungen, die auf Erfahrungswerten
+basieren.</p></li>
+<li><p>[redacted-person] erbringt seine Leistung in regelmäßiger
+fachlicher Abstimmung mit [redacted-co] und benennt einen Projektleiter,
+der den Einsatz des Personals und die Erstellung des Gewerkes plant bzw.
+überwacht. [redacted-person] ist der verantwortliche Ansprechpartner
+für die [redacted-co] in Bezug auf sämtliche Belange des Projektes. [redacted-person] gegenüber kann die [redacted-co] Erklärungen mit Wirkung für
+den Auftragnehmer abgeben.</p></li>
+<li><p>Die vom Auftragnehmer eingesetzten Mitarbeiter unterliegen
+alleine dem Weisungsrecht des Auftragnehmers. [redacted-person] stellt
+sicher, dass das Weisungsrecht ausschließlich durch ihn ausgeübt wird.
+Die vom Auftragnehmer eingesetzten Personen treten in kein
+Arbeitsverhältnis zur [redacted-co], auch soweit sie Leistungen auf deren
+Betriebsflächen erbringen.</p></li>
+<li><p>Wird eine vom Auftragnehmer zur Vertragserfüllung eingesetzte
+Person durch eine andere ersetzt oder ist generell eine Einarbeitung in
+den Auftrag (z. [redacted-person] zu für die Abarbeitung des Auftrags zwingend
+erforderlichen [redacted-co] IT-Systemen) erforderlich, so gehen die Kosten einer
+solchen Einarbeitung zu Lasten des Auftragnehmers. Bei der Auswahl wird
+der Auftragnehmer die Interessen [redacted-co] angemessen berücksichtigen.
+Die [redacted-co] kann mit Begründung den Austausch von vom Auftragnehmer zur
+Vertragserfüllung eingesetzten Personen verlangen, wenn diese wiederholt
+gegen vertragliche Pflichten verstoßen haben. Die durch den Austausch
+entstehenden Kosten gehen zu Lasten des Auftragnehmers.</p></li>
+<li><p>[redacted-person] verpflichtet sich, bei den zur Erfüllung seiner
+Leistungen eingesetzten Mitarbeitern durch geeignete Maßnahmen optisch
+kenntlich zu machen, dass sie Fremdfirmenmitarbeiter sind und
+unbeteiligte Dritte dies jederzeit zweifelsfrei erkennen können.
+Insbesondere sind Ausweise sichtbar zu tragen.</p></li>
+<li><p>Nutzt der Auftragnehmer im Rahmen der [redacted-person], die von [redacted-co] gesondert angemietet worden sind
+oder zur Verfügung gestellt werden, hat der Auftragnehmer dies in der
+Kalkulation seiner Angebotspreise zu berücksichtigen. Die [redacted-co] ist
+berechtigt, gesondert angemietete Flächen dem Auftragnehmer zu vermieten
+und den Mietzins in Rechnung zu stellen. An den Räumlichkeiten ist durch
+geeignete Maßnahmen optisch kenntlich zu machen, welcher Auftragnehmer
+über sie verfügt. Ob eine Beistellung oder Vermietung erfolgt, bedarf
+einer Entscheidung im Einzelfall. Gleiches gilt für Betriebsmittel der
+[redacted]für die Vorhaltung eigener Räumlichkeiten
+und Betriebsmittel sind bei der Angebotserstellung zu
+berücksichtigen.</p></li>
+<li><p>[redacted-person] des Auftrages oder Teilen des Auftrages an Dritte
+durch den Lieferanten bedarf der vorherigen schriftlichen Zustimmung der
+[redacted-co]. Sollte die Lieferung und Leistung durch Dritte erfolgen, ist
+die Abrechnung nur durch den Lieferanten zulässig.</p></li>
+<li><p>[redacted-person] gewährleistet über den gesamten Zeitraum der
+Leistungserbringung, dass er über eine gültige
+Arbeitnehmerüberlassungserlaubnis verfügt.</p></li>
+</ol>
+<h2 id="leistungsfristen">Leistungsfristen</h2>
+<ol type="1">
+<li><p>Die vereinbarten Leistungsfristen und Zeitpläne sind verbindlich
+und abschließend. In diesen Zeitplänen können Endtermine und
+gegebenenfalls Zwischentermine aufgenommen sein. Diese sind ebenfalls
+verbindlich. [redacted-person] können nur schriftlich und einvernehmlich
+geändert werden.</p></li>
+<li><p>Sollte der Auftragnehmer erkennen, dass er einen Termin
+möglicherweise nicht einhalten kann, unterrichtet er die [redacted-co]
+hierüber unverzüglich schriftlich. Er wird dabei Maßnahmen vorschlagen,
+wie eine Absicherung der Termine erfolgen kann. [redacted-person]
+entbindet den Auftragnehmer nicht von seiner Verpflichtung zur
+Einhaltung der Termine. Unterbleibt die Mitteilung, so hat der
+Auftragnehmer die Fristversäumnis unabhängig von der Ursache zu
+vertreten. Ist die Nichteinhaltung des Termins von [redacted-co] zu
+vertreten, so wird dieser Termin und etwaige Folgetermine auf für beide
+Seiten angemessene neue Termine festgesetzt.</p></li>
+</ol>
+<h2 id="änderung-der-leistung">Änderung der Leistung</h2>
+<ol type="1">
+<li><p>[redacted-person] ist bereit, Änderungs- und Ergänzungswünsche
+[redacted-co] für die Realisierung der in diesem Lastenheft beschriebenen
+Umfänge zu berücksichtigen. [redacted-person] wird Änderungswünsche der
+[redacted-co] nur aus wichtigem Grunde ablehnen. Als wichtiger Grund für eine
+Ablehnung gilt insbesondere, wenn nach begründeter Auffassung des
+Auftragnehmers die Leistung nicht ausführbar ist oder wenn die zur
+Durchführung der Änderung erforderlichen Ressourcen für den
+Auftragnehmer nicht verfügbar sind und auch nicht verfügbar gemacht
+werden können.</p></li>
+<li><p>[redacted-person] hat die von [redacted-co] gewünschten Änderungen
+betreffend deren Auswirkung auf Kosten, Investitionen und Termine zu
+bewerten und unter der Berücksichtigung, dass die Termine möglichst
+nicht verändert werden sollen, einen Umsetzungsvorschlag anzubieten.
+Hinsichtlich der Kosten muss dieses Angebot ebenso prüfbar sein wie das
+ursprüngliche Angebot. [redacted-person] erfolgt erst nach Verhandlung
+und finaler Vergabeentscheidung.</p></li>
+<li><p>[redacted-person] und Ergänzungen, die erforderlich sind, um die in
+diesem Lastenheft angegebenen Werte und Funktionen zu erfüllen, sind
+nach Rücksprache mit dem zuständigen [redacted-co] Fachbereich (Anforderer)
+umzusetzen. [redacted-person] sind durch die angebotene und endgültig
+vereinbarte Vergütung abgegolten. Dies gilt auch für Änderungen im
+Rahmen des Entwicklungsfortschritts einschließlich der Prototypenumfänge
+und zusätzlichen Erprobungen.</p></li>
+<li><p>Soweit der Auftragnehmer mitteilt, dass die [redacted-person] auf die Kostenstruktur und/oder den Meilensteinplan haben,
+wird der Auftragnehmer dies in einem separaten Angebot darstellen,
+dessen Annahme im freien Ermessen [redacted-co] liegt und schriftlich bzw.
+über die Bestellsysteme [redacted-co] zu erfolgen hat.</p></li>
+</ol>
+<h2 id="abnahme">Abnahme</h2>
+<ol type="1">
+<li><p>[redacted-person] kann die Feststellung, ob der
+vereinbarte Leistungsumfang des Auftragnehmers tatsächlich
+vereinbarungsgemäß erfüllt wurde, erst bei Abschluss und Übergabe des
+jeweiligen Entwicklungsprojekts getroffen werden. [redacted-person]
+erfolgt ausschließlich durch das Ausstellen einer schriftlichen
+Abnahmebestätigung im Rahmen der förmlichen Endabnahme des
+Leistungsumfangs des Auftragnehmers durch die [redacted-co].</p></li>
+<li><p>Die vom Auftragnehmer erarbeiteten Ergebnisse sind in prüffähiger
+Form zu übergeben. Ist dieses Erfordernis nicht erfüllt, werden Fristen
+wegen Unmöglichkeit der Abnahme nicht in Gang gesetzt. Ist das
+Leistungsergebnis in Datensätzen verkörpert, hat der Auftragnehmer
+soweit Einblick in den Code der erbrachten Leistung zu gewähren, dass
+eine Überprüfung auf vereinbarungsgemäße Leistungserbringung möglich
+ist.</p></li>
+<li><p>[redacted-person] wird die Gesamtfertigstellung des Auftrags zur
+Abnahme anzeigen. [redacted-person] hat wie nachfolgend beschrieben zu
+erfolgen:</p></li>
+</ol>
+<ul>
+<li><p>Die [redacted-co] wird die in prüffähiger Form übergebenen Leistungen
+innerhalb einer in Ansehung des Projekts angemessenen Frist
+prüfen.</p></li>
+<li><p>[redacted-person] wird auf Wunsch [redacted-co] und ohne gesonderte
+Vergütung geschultes Personal für die Abnahme erforderlichen Prüfungen
+zur Verfügung stellen. Die bei der Abnahmeprüfung auftretenden Mängel
+werden protokolliert.</p></li>
+<li><p>[redacted-person] ist vom Projektleiter des Auftragnehmers
+sowie dem fachlichen Ansprechpartner [redacted-co] abzuzeichnen.</p></li>
+<li><p>Verweigert die [redacted-co] die Abnahme aufgrund eines oder mehrerer
+Mängel, wird der Auftragnehmer den bzw. die Mängel unverzüglich
+beseitigen und seine Leistungen erneut zur Abnahme vorlegen. Die
+vorstehenden Vorschriften gelten für eine erneute Abnahme
+entsprechend.</p></li>
+</ul>
+<ol start="4" type="1">
+<li><p>[redacted-person] hat die Pflicht und nach Abstimmung mit der
+[redacted-co] das Recht zur zweimaligen Nachbesserung. [redacted-person] verändert nicht die vereinbarten
+Fertigstellungstermine und Rechtsfolgen aus Verzug. Die [redacted-co] kann
+nach Ablauf einer von [redacted-co] gesetzten angemessenen Frist die
+Leistung zu Lasten des Vertragspartners selbst vornehmen oder vornehmen
+lassen oder zurücktreten. Im Falle der Kündigung erhält der
+Auftragnehmer eine Vergütung nur für die als mangelfrei abgenommenen
+Leistungen und selbstständig nutzbaren Teile. [redacted-person] auf
+Schadensersatz bleibt unberührt.</p></li>
+</ol>
+<h2 id="vergütung-leistungsnachweis">Vergütung / Leistungsnachweis</h2>
+<ol type="1">
+<li><p>Für die angefragte Aufgabenstellung ist vom Auftragnehmer/Bieter
+ein Festpreis auszuweisen. Im Angebot muss die Kalkulation des
+Festpreises offengelegt werden. [redacted-person] des im Lastenheft
+beschriebenen Leistungsumfangs sollen die jeweiligen Kostenbestandteile
+einzeln aufgelistet werden. Dabei sollen u.[redacted-person] Dritter separat
+aufgeführt werden.</p></li>
+<li><p>Festpreise schließen alle Nebenkosten ein. Ebenso sind alle
+Aufwendungen und Kosten, die nicht ausdrücklich von [redacted-co] zu
+erbringen sind, vom Auftragnehmer zu tragen und mit dem vereinbarten
+Preis abgegolten. Abweichungen hiervon bedürfen einer ausdrücklichen
+Vereinbarung.</p></li>
+<li><p>Soweit nicht etwas anderes vereinbart wird, sind Reisekosten und
+-zeiten sowie Logis und Spesen nicht im Auftragswert enthalten. Sie
+werden nur maximal bis zu den vereinbarten Sätzen und innerhalb der
+vereinbarten Grenzen gegen Nachweis vergütet. Sie sind quartalsweise in
+Rechnung zu stellen. Es gelten die jeweils im Zeitpunkt der Beauftragung
+gültigen Reisekosten-Richtlinien für Entwicklungsdienstleister, die auf
+Anfrage durch die Beschaffung [redacted-co] zur Verfügung gestellt
+werden.</p></li>
+<li><p>[redacted-person] wird nach Leistungserfolg abgegolten. Hierfür ist
+jeweils im Vorfeld ein Leistungsnachweis vorzulegen. Zahlungspläne sind
+gesondert zu vereinbaren.</p></li>
+<li><p>Zahlungen erfolgen erst nach Vorlage eines Leistungsnachweises.
+[redacted-person] darf erst nach vollständiger Erbringung der
+vereinbarten Leistung bzw. Teilleistung gestellt werden. [redacted-person] muss mindestens folgende Inhalte aufweisen:</p></li>
+</ol>
+<blockquote>
+<p>- Stand der Arbeiten/Projektstatus,</p>
+<p>- bisher erreichte Teilergebnisse, Vereinbarungen über die weitere
+Vorgehensweise,</p>
+<p>- Unterschrift seitens des Auftragnehmers.</p>
+</blockquote>
+<ol start="6" type="1">
+<li><p>Für den Leistungsnachweis ist vorzugsweise das auf Anfrage beim
+Ansprechpartner [redacted-co] erhältliche Formular zu verwenden. Es ist
+darauf zu achten, dass alle dortigen Muss-Felder ausgefüllt
+sind.</p></li>
+<li><p>Vor der Rechnungsstellung an die [redacted-co] muss der
+Leistungsnachweis für die erbrachte Leistung vom [redacted-co] Fachbereich
+(Anforderer) und dem Auftragnehmer unterzeichnet werden. Der zweifach
+(von Auftragnehmer u. [redacted-co] Ansprechpartner) unterschriebene
+Leistungsnachweis ist als Anhang mit der Rechnung an die [redacted-co] zu
+übertragen. Rechnungen ohne entsprechend unterschriebenen
+Leistungsnachweis werden abgelehnt.</p></li>
+<li><p>[redacted-person] eines Leistungsnachweises oder die Auslösung
+einer Zahlung bewirken keine Abnahme.</p></li>
+</ol>
+<h2 id="nutzungsrechte">Nutzungsrechte</h2>
+<ol type="1">
+<li><p>[redacted-person] wird die [redacted-co] über alle bei ihm im
+Zusammenhang mit der Durchführung der vertragsgegenständlichen Arbeiten
+entstehenden Neuerungen (dazu zählen insbesondere Erfindungen,
+technische Verbesserungsvorschläge, Know-how, aber auch sonstige
+individuelle geistige Leistungen) unterrichten, alle zur Bewertung der
+Neuerungen erforderlichen Unterlagen vorlegen und alle vom Auftraggeber
+gewünschten Auskünfte zu den Neuerungen geben.</p></li>
+<li><p>[redacted-person] und darauf bestehende Schutz- oder
+Urheberrechte nachweislich bereits vor Beginn der
+vertragsgegenständlichen Arbeiten bei dem Auftragnehmer vorhanden waren
+(„Altschutzrechte“), bleibt der Auftragnehmer auch Inhaber derselben. Er
+erklärt sich aber bereit, [redacted-co] ein nichtausschließliches,
+zeitlich, räumlich und inhaltlich unbeschränktes und unterlizenzierbares
+Nutzungsrecht ohne Zahlung eines über den Festpreis hinausgehenden
+Entgelts einzuräumen, sofern diese Altschutzrechte in die Entwicklung
+einfließen. [redacted-person] in das Entwicklungsergebnis
+einfließen, teilt der Auftragnehmer [redacted-co] diese Altschutzrechte
+unverzüglich mit. Im Falle einer Entwicklung eines Serienlieferteiles
+teilt der Auftragnehmer die einfließenden Altschutzrechte mit Vorlage
+der Erstmuster mit.</p></li>
+<li><p>[redacted-person] überträgt [redacted-co] das ausschließliche,
+zeitlich, räumlich und inhaltlich unbeschränkte, unentgeltliche und
+übertragbare Nutzungsrecht an allen Urheberrechten, die dem
+Auftragnehmer an den von ihm zu erbringenden Leistungen oder
+Teilleistungen zustehen. [redacted]umfasst die
+Befugnis, das Arbeitsergebnis, die Unterlagen oder Aufzeichnungen zu
+überarbeiten, zu verändern und/oder Dritten entgeltlich oder
+unentgeltlich zur Benutzung zu überlassen.</p></li>
+<li><p>Sofern der Auftragnehmer aufgrund gesonderter vertraglicher
+Vereinbarung mit [redacted-co] von den Festlegungen zur vorstehenden
+Übertragung der Urheberrechte abweicht, ist er verpflichtet, zusätzlich
+zu den im Auftrag vereinbarten Unterlagen neutralisierte
+Anfragedokumente (z. B. 2D-CAD-Zeichnungsinformation, 3D-CAD-Modelle) zu
+liefern. [redacted-person] räumt [redacted-co] das unentgeltliche,
+zeitlich, räumlich und inhaltlich unbeschränkte Nutzungsrecht an den
+neutralisierten Anfrageunterlagen zur Verbreitung, Vervielfältigung und
+Bearbeitung, insbesondere zum Zwecke der Ausschreibung von Leistungen
+gegenüber Dritten, ein.</p></li>
+<li><p>Grundsätzlich stehen alle in diesem Projekt entstehenden
+Arbeitsergebnisse, erstellte Unterlagen und Leistungen usw. alleine der
+[redacted-co] zu. Soweit der [redacted-person] einschaltet,
+wird er durch entsprechende vertragliche Vereinbarungen sicherstellen,
+dass auch die Unterauftragnehmer dies als für sich verbindlich
+anerkennen. Die [redacted-co] behält sich das Recht vor, sämtliche Unterlagen
+auch an Dritte weiterzuleiten, u. [redacted-person] die Lieferantenauswahl. An
+sämtlichen Arbeitsergebnissen, insbesondere im Rahmen des Vertrages
+entstehenden Neuerungen, steht [redacted-co] das ausschließliche
+Verwertungsrecht zu.</p></li>
+<li><p>Die [redacted-co] ist alleine berechtigt, Schutzrechtsanmeldungen
+einzureichen. [redacted-person] des Auftragnehmers teilt die [redacted-co]
+schriftlich mit, dass sie im konkreten Einzelfall auf eine Anmeldung
+verzichtet. [redacted-person] ist dann zur Anmeldung des Schutzrechtes
+auf eigene Kosten berechtigt. An diesen Schutzrechten steht [redacted-co]
+ein nichtausschließliches, unentgeltliches, zeitlich, räumlich und
+inhaltlich unbeschränktes und übertragbares Nutzungsrecht zu.</p></li>
+</ol>
+<h2 id="schutzrechtsrecherchen-schutzrechte-dritter">Schutzrechtsrecherchen,
+[redacted-person]</h2>
+<ol type="1">
+<li><p>[redacted-person] wird durch entsprechende Recherchen unter
+Beachtung branchenüblicher Sorgfalt sicherstellen, dass durch die von
+ihm zu erbringenden Leistungen und deren Ergebnisse nicht in [redacted-person] eingegriffen wird.</p></li>
+<li><p>Würden durch die beabsichtigte Gestaltung der Arbeitsergebnisse
+oder die Umsetzung der angefragten [redacted-person] Dritter verletzt
+werden, so wird der Auftragnehmer die in diesem Lastenheft benannten
+Ansprechpartner [redacted-co] unverzüglich informieren und mit ihnen
+gemeinsam nach einer anderen Gestaltung der Arbeitsergebnisse suchen.
+[redacted-person] Dritter nicht zu umgehen sind, wird die [redacted-co]
+entscheiden, ob das betroffene Schutzrecht im Wege einer Lizenz benutzt
+werden soll. Über die Verteilung der dabei anfallenden Kosten werden
+sich [redacted-co] und Auftragnehmer im Einzelfall abstimmen.</p></li>
+<li><p>Soweit der Auftragnehmer die [redacted-co] nicht über entgegenstehende
+[redacted-person] informiert, die ihm bekannt sind oder von ihm bei
+Einhaltung der branchenüblichen Sorgfalt hätten erkannt werden müssen,
+stellt der Auftragnehmer den Auftraggeber von jedweden [redacted-person] frei, die auf entgegenstehende Rechte an dem
+Entwicklungsgegenstand gestützt werden.</p></li>
+</ol>
+<h2 id="vertragslaufzeit-und-kündigung">Vertragslaufzeit und
+Kündigung</h2>
+<ol type="1">
+<li><p>Die [redacted-co] kann den Auftrag jederzeit ganz oder teilweise
+ordentlich kündigen. Das beiderseitige Recht zur außerordentlichen
+Kündigung bleibt unberührt. [redacted-person] bedarf der Schriftform,
+soweit sie nicht über die Bestellsysteme [redacted-co] erfolgt.</p></li>
+<li><p>Sollte die [redacted-co] ordentlich kündigen, so steht dem
+Auftragnehmer die vereinbarte Vergütung für alle vertragsgemäßen
+Leistungen zu, die er bis zum Wirksamwerden der Kündigung erbracht hat,
+zuzüglich</p></li>
+</ol>
+<ul>
+<li><p>eines Ausgleichs nachgewiesener Kosten für die Vorhaltung von
+Personal und Material für eine Frist von bis zu maximal einem Monat nach
+Wirksamwerden der Kündigung, wenn der auf den noch nicht erbrachten Teil
+der Leistung entfallende Teil der Vergütung einen Betrag von [redacted-phone],-
+€ übersteigt, beziehungsweise</p></li>
+<li><p>eines Ausgleichs in Höhe von maximal fünf Prozent der auf den
+noch nicht erbrachten Teil der Leistung entfallenden vereinbarten
+Vergütung, wenn der auf den noch nicht erbrachten Teil der Leistung
+entfallende Teil der Vergütung einen Betrag von [redacted-phone],- €
+unterschreitet.</p></li>
+</ul>
+<ol start="3" type="1">
+<li><p>[redacted-person] wird nicht erstattet.</p></li>
+<li><p>Im Falle der Kündigung bleibt die [redacted-person] für
+die bis zur Kündigung erbrachten Leistungen.</p></li>
+</ol>
+<h2 id="allgemeines-1">Allgemeines</h2>
+<ol type="1">
+<li><p>[redacted-person]- und Prototypenwerkzeugen und -teilen wird auf
+das Lieferantenhandbuch für Prototypenteile besonders
+hingewiesen.</p></li>
+<li><p>[redacted-person] von vertraglichen Rechten oder Pflichten durch
+den Auftragnehmer bedarf zu ihrer Wirksamkeit der vorherigen
+schriftlichen Zustimmung [redacted-co].</p></li>
+<li><p>Gerichtsstand ist [redacted]Die [redacted-co] ist auch
+berechtigt, jedes andere zuständige Gericht anzurufen.</p></li>
+<li><p>Sollten eine oder mehrere Bestimmungen dieses Lastenhefts und
+etwaige weitere Vereinbarungen unwirksam sein oder werden, so bleibt die
+Geltung unter Einschluss der übrigen Bestimmungen davon
+unberührt.</p></li>
+<li><p>[redacted-person] an den Auftragnehmer werden die nachfolgend
+aufgeführten Regelungen und Unterlagen [redacted-co] und/oder des
+Auftragnehmers verbindlicher Vertragsbestandteil, wobei im Falle von
+Widersprüchen zwischen den Vertragsbestandteilen die nachfolgend
+angegebene Reihenfolge gilt:</p>
+<ol type="a">
+<li><p>Bestellung [redacted-co]</p></li>
+<li><p>Verhandlungsprotokolle</p></li>
+<li><p>[redacted-person] des Lastenhefts [redacted-co]</p></li>
+<li><p>[redacted-person] des Lastenhefts [redacted-co]</p></li>
+<li><p>Geheimhaltungsvereinbarungen zwischen [redacted-co] und dem
+Auftragnehmer (soweit vorhanden)</p></li>
+<li><p>VW-Norm 99000</p></li>
+<li><p>Weitere in diesem Lastenheft genannte Dokumente und
+Normen</p></li>
+<li><p>[redacted]</p></li>
+<li><p>Angebot des Auftragnehmers (ohne Anerkennung der allgemeinen
+Geschäftsbedingungen des Auftragnehmers)</p></li>
+</ol></li>
+</ol>
+<h2 id="mitgeltende-unterlagen">[redacted-person]</h2>
+<blockquote>
+<p>Es gelten die am Ausgabedatum des Lastenhefts gültigen mitgeltenden
+Unterlagen sowie die darin genannten Dokumente.</p>
+<p>[redacted-person] stellt sicher, jeweils mit den für das Lastenheft
+gültigen mitgeltenden Unterlagen zu arbeiten.</p>
+<p>Es sind insbesondere die nachfolgenden Dokumente und Normen zu
+berücksichtigen:</p>
+<p>- [redacted]</p>
+<p>- Für den Auftragsumfang einschlägigen Betriebsmittelvorschriften,
+technische und kaufmännische Vorgaben [redacted-co] und einschlägige
+Normen (z.B. [redacted-co]99000 einschließlich der Teile 1 bis 4)</p>
+<p>- IT-Sicherheitshandlungsleitlinien [redacted-co] für Partnerfirmen</p>
+<p>- Sicherheitsgebote für die bei [redacted-co] eingesetzten Fremdfirmen
+(falls die Auftragsbearbeitung auf Gelände [redacted-co] erfolgt)</p>
+<p>- SE-Kommunikation für Lieferanten [redacted-co]</p>
+<p>- PEP für externe Lieferanten [redacted-co]</p>
+<p>- [redacted-co]richtlinien für Qualitätssicherung "Formel Q"</p>
+<p><strong>Bezugsquelle:</strong></p>
+<p>Dokumente können über die B2B-Lieferantenplattform des [redacted-person] unter der Internetadresse <a href="http://www.vwgroupsupply.com">www.vwgroupsupply.com</a> mit einer
+Zugangsberechtigung abgerufen werden. (Kontakt auch über [redacted]99 bzw. International: [redacted-phone] oder
+e-Mail: [redacted-email])</p>
+</blockquote>
+</body>
+</html>

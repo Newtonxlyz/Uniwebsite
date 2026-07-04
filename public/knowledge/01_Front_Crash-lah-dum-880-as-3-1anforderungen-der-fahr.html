@@ -1,0 +1,2069 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH.DUM.880.AS_3.1Anforderungen der Fahrzeugsicherheit an E Fzg</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>[redacted-person] LAH.DUM.880.AS</p>
+</blockquote>
+<p>Version 3.1</p>
+<h1 id="anforderungen-der-fahrzeugsicherheit-an-elektrifizierte-fahrzeuge">Anforderungen
+der Fahrzeugsicherheit an elektrifizierte Fahrzeuge</h1>
+<blockquote>
+<p><strong>PHEV, HEV, BEV, iHEV</strong></p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches [redacted-co] verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> <strong>VOLKSWAGEN [redacted-co]</strong></p>
+<p>Seite 1</p>
+</blockquote>
+<blockquote>
+<p><strong><u>Genehmigung:</u></strong></p>
+</blockquote>
+<blockquote>
+<p><em>Inhaltsverzeichnis</em></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#vorwort-zum-lah">Vorwort zum LAH 5</a></p></li>
+<li><p><a href="#zielsetzung">Zielsetzung 6</a></p></li>
+<li><p><a href="#geltende-lastfälle">[redacted-person] 7</a></p></li>
+<li><p><a href="#technische-anforderungen-fahrzeugsicherheit">[redacted-person] Fahrzeugsicherheit 11</a></p>
+<ol type="1">
+<li><p><a href="#anforderungen-gesamtfahrzeug">[redacted-person] 11</a></p>
+<ol type="1">
+<li><p><a href="#allgemeines">Allgemeines 11</a></p></li>
+<li><p><a href="#abschaltschwellen-in-elektrifizierten-fahrzeugprojekten">Abschaltschwellen
+in elektrifizierten Fahrzeugprojekten 11</a></p></li>
+<li><p><a href="#anzahl-zündkreise-für-energienetzabschaltung">[redacted-person] für Energienetzabschaltung 11</a></p></li>
+<li><p><a href="#bauraumabhängige-beschleunigungsanforderungen">[redacted-person] 12</a></p></li>
+<li><p><a href="#bauraumabhängige-kraftanforderungen-an-komponenten">[redacted-person] an Komponenten 13</a></p></li>
+<li><p><a href="#package-von-hv--und-mv-komponenten">Package von HV- und
+MV-Komponenten 14</a></p></li>
+</ol></li>
+<li><p><a href="#anforderungen-an-mv-systeme">Anforderungen an
+MV-Systeme 14</a></p>
+<ol type="1">
+<li><p><a href="#allgemeine-anforderungen-an-mv-system">[redacted-person] an MV-System 14</a></p></li>
+<li><p><a href="#anforderung-an-mv-energiespeicher">Anforderung an MV
+Energiespeicher 15</a></p></li>
+<li><p><a href="#anforderung-an-12v-energiespeicher">Anforderung an 12V
+Energiespeicher 17</a></p></li>
+<li><p><a href="#anforderung-an-mv-riemen-starter-generator-rsg">Anforderung an MV
+Riemen-Starter-Generator (RSG) 18</a></p></li>
+<li><p><a href="#anforderung-an-mv-leistungselektronik">Anforderung an
+MV Leistungselektronik 19</a></p></li>
+<li><p><a href="#anforderung-an-mv-leitungsverlegung">Anforderung an MV
+Leitungsverlegung 20</a></p></li>
+<li><p><a href="#anforderung-an-eaws-und-eabc">Anforderung an eAWS und
+eABC 20</a></p></li>
+<li><p><a href="#anforderung-an-weitere-mv-komponenten">Anforderung an
+weitere MV Komponenten 20</a></p></li>
+</ol></li>
+<li><p><a href="#anforderungen-an-hv-systeme">Anforderungen an
+HV-Systeme 20</a></p>
+<ol type="1">
+<li><p><a href="#allgemeine-anforderungen-an-hv-system">[redacted-person] an HV-System 20</a></p></li>
+<li><p><a href="#anforderungen-an-hv-energiespeicher">Anforderungen an
+HV-Energiespeicher 22</a></p></li>
+<li><p><a href="#anforderungen-an-hv-leistungselektronik">Anforderungen
+an HV-Leistungselektronik 25</a></p></li>
+<li><p><a href="#anforderungen-an-hv-ptc">Anforderungen an HV-PTC
+25</a></p></li>
+<li><p><a href="#anforderungen-an-hv-ladegerät">Anforderungen an
+HV-Ladegerät 25</a></p></li>
+<li><p><a href="#anforderungen-an-ladedose">Anforderungen an Ladedose
+25</a></p></li>
+<li><p>Anforderungen an AWC (automotive wireless charging) 26</p></li>
+<li><p><a href="#anforderungen-an-hv-koordinator-hvk">Anforderungen an
+HV-Koordinator (HVK) 27</a></p></li>
+<li><p>Anforderungen an E-Maschine 27</p></li>
+<li><p><a href="#anforderungen-an-elektrifiziertes-getriebe">Anforderungen an
+elektrifiziertes Getriebe 27</a></p></li>
+<li><p><a href="#anforderungen-an-hv-leitungen">Anforderungen an
+HV-Leitungen 27</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#anhänge">Anhänge 29</a></p>
+<ol type="1">
+<li><p><a href="#lastfalldefinitionen">Lastfalldefinitionen 29</a></p>
+<ol type="1">
+<li><p><a href="#anhang-1---generische-barriere">Anhang 1 - [redacted-person] 29</a></p></li>
+<li><p><a href="#anhang-2-lkw-unterfahrer-frontal-audi-projektspezifisch">Anhang 2
+– LKW-Unterfahrer frontal ([redacted-co] projektspezifisch) 30</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#mitgeltende-unterlagen">[redacted-person]
+31</a></p></li>
+<li><p><a href="#definitionen-begriffe-abkürzungen">Definitionen,
+Begriffe, Abkürzungen 33</a></p></li>
+</ol>
+<h1 id="vorwort-zum-lah">Vorwort zum LAH</h1>
+<blockquote>
+<p><em>[I: E-BT-LAH-1]</em></p>
+<p>Das vorliegende LAH legt die technischen Daten und Randbedingungen
+für elektrifizierte Fahrzeugkonzepte im Crash bezüglich den
+Anforderungen der Fahrzeugsicherheit (Crashverhalten) fest. Dies
+beinhaltet Fahrzeuge mit HV und MV Komponenten sowie Fahrzeuge mit
+Speichern aller Spannungslagen mit brennbarem Elektrolyt.</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-2]</em></p>
+<blockquote>
+<p>Die vom Auftragnehmer zu erfüllenden Anforderungen sind in der
+Identifikationsnummer (z. B: [A: BT-LAH-1]) grundsätzlich durch ein "A"
+gekennzeichnet. Textteile, die durch ein "I" gekennzeichnet sind, sind
+Informationen zum besseren Verständnis des BT-LAH. Gibt es keine
+Identifikationsnummer oder keine Kennzeichnung mit "A" bzw. "I", so
+handelt es sich ebenfalls um eine Anforderung.</p>
+</blockquote>
+<p><em>[A: E- BT-LAH-3]</em></p>
+<blockquote>
+<p>Dieses LAH beschreibt Leistungen, Anforderungen, Prüf- und
+Erprobungsbedingungen, welche das zu entwickelnde Produkt und der
+Auftragnehmer erfüllen müssen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-4]</em></p>
+<blockquote>
+<p>[redacted-person] für ein Gesamtsystem gelten automatisch für die
+Subkomponenten des Systems. (z. B.: Beschleunigungsanforderungen des
+Batteriesystems müssen von elektronischen Bauteilen, wie den Schützen,
+erfüllt werden.)</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-5]</em></p>
+<blockquote>
+<p>Darüber hinaus gelten alle länderspezifischen Anforderungen der
+geltenden Gesetze, Normen und Prüfvorschriften.</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-6]</em></p>
+<blockquote>
+<p>In diesem Lastenheft wird immer wieder Bezug auf MV-Komponenten oder
+MV- Systeme genommen. MV-Komponenten sind in diesem Lastenheft
+elektrische Verbraucher bzw. elektrische Quellen mit Versorgungs- bzw.
+Quellspannungen von 12VDC&lt;U&lt;60VDC. Ein MV-System ist die
+Gesamtheit aller MV-Komponenten.</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-7]</em></p>
+<blockquote>
+<p>HV-Komponenten sind in diesem Lastenheft elektrische Verbraucher bzw.
+elektrische Quellen mit Versorgungs- bzw. Quellspannungen von U&gt;60VDC
+oder U&gt;30VAC. Ein HV-System ist die Gesamtheit aller
+HV-Komponenten.</p>
+</blockquote>
+<h1 id="zielsetzung">Zielsetzung</h1>
+<blockquote>
+<p><em>[A: E-BT-LAH-8]</em></p>
+<p>[redacted-person] der Entwicklung ist der Insassenschutz, die Sicherstellung
+der HV-Sicherheit und die Vermeidung exothermer Reaktionen des
+Gesamtfahrzeugs im Falle eines Crashs. [redacted-person] muss dazu
+beitragen, dass sämtliche internen Anforderungen nach TPB und alle
+gesetzlichen Vorschriften vom Gesamtfahrzeug sowie LAH Gesamtfahrzeug
+(siehe referenzierte Dokumente) erfüllt werden.</p>
+</blockquote>
+<h1 id="geltende-lastfälle">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] beschreibt die für elektrifizierte Fahrzeuge
+anzuwendenden Lastfälle. [redacted-person] sind dagegen in Kapitel <a href="#technische-anforderungen-fahrzeugsicherheit">4</a>
+beschrieben.</p>
+<p>Es gelten grundsätzlich die Stufen 1 und 4 des zweistufigen
+Absicherungskonzeptes. [redacted-person] sind in nachfolgender Abbildung
+dargestellt.</p>
+</blockquote>
+<p><img src="./01_Front_Crash-lah-dum-880-as-3-1anforderungen-der-fahr-media/media/image1.png" style="width:6.28697in;height:3.13906in"/></p>
+<blockquote>
+<p><em>Abbildung 1: [redacted-person] für elektrifizierte
+Fahrzeuge</em></p>
+<p><u>Stufe 1 - Mustfire</u></p>
+<p>Stufe 1 beinhaltet die für das jeweilige Fahrzeugprojekt geltenden
+Gesetzes- und Verbraucherschutzlastfälle, die internen
+Auslegungslastfälle sowie die [redacted-person].</p>
+<p>In Stufe 1 ist dabei nach Lastfällen zu differenzieren, welche für
+alle elektrifizierten Fahrzeuge (Definition siehe Kapitel <a href="#vorwort-zum-lah">1</a>) anzuwenden sind und welche, die nur
+projektspezifisch in Abhängigkeit der angebotenen Märkte,
+Verbraucherschutzziele oder markenspezifisch gelten. Siehe hierzu <a href="#_bookmark1">Tabelle 1</a>.</p>
+<p>Hierfür sind die jeweiligen Gesamtfahrzeuglastenhefte der
+Fahrzeugsicherheit für Front-, Seiten- und Heckcrash, sowie Rollover,
+Fußgängerschutz und mitgeltende Unterlagen zu beachten. Diese beinhalten
+sowohl Gesetzeslastfälle als auch Lastfälle hinsichtlich der
+länderspezifischen Verbraucherschutzziele.</p>
+<p>[redacted-person] ist dabei regelmäßig zu prüfen. Es gelten die
+Normen, Gesetze und Verbraucherschutzziele in der aktuell geltenden
+Fassung zum Einsatzzeitpunkt des Fahrzeugs. [redacted-person] sind zu
+berücksichtigen.</p>
+<p><u>Stufe 1 – [redacted-person]</u></p>
+<p>Für jeden im Fahrzeugprojekt gültigen Lastfall ist zudem die
+zugehörige [redacted-person] zu entwickeln (siehe <a href="#_bookmark1">Tabelle 1</a>, [redacted-person]). [redacted-person] der [redacted-person] sind dabei teilweise durch
+Standardlastfälle der Sensorik vorgeben (z.[redacted-person] Pfahl 35km/h oder
+[redacted-person] 0° 27km/h). [redacted-person] des HV-Systems aufgrund exponierter
+Packagelagen auf eine abweichende [redacted-person] mit reduzierter
+Geschwindigkeit ist in Absprache mit der Sensorikentwicklung
+projektspezifisch möglich. [redacted-person] ohne zugehörigen [redacted-person] (z.[redacted-person] FMVSS305neu) ist die [redacted-person]
+projektspezifisch in Abhängigkeit vom HV-Package auszulegen (siehe <a href="#_bookmark1">Tabelle 1</a>, Kennzeichnung ≤).</p>
+<p><u>Stufe 4</u></p>
+<p>Stufe 4 beinhaltet die internen Lastfälle zur Robustheitssteigerung
+im Feldgeschehen. Diese sind:</p>
+<p><em>[redacted-person]</em></p>
+<p>Stoßkörper: Pfahl, d=254mm Geschwindigkeit: 65km/h</p>
+<p>Positionierung: mittig oder außermittig bei Asymmetrien im Package,
+exponierten HV-Komponenten oder Energiespeichern mit brennbarem
+Elektrolyt</p>
+<p><em>[redacted-person]</em></p>
+<p>Stoßkörper: Pfahl, d=254mm, 75° Geschwindigkeit: 45km/h</p>
+<p>Positionierung: Worst-[redacted-person] für Energiespeicher und HV-
+Komponenten</p>
+<p><em>[redacted-person] Barriere</em></p>
+<p>Stoßkörper: generische Barriere, 2200 kg Geschwindigkeit: 80km/h</p>
+<p>Positionierung: Nominallage analog Gesetz (FMVSS[redacted-phone]); Variation
+in z- und y-Richtung: +/-50 mm; in Ausnahmefällen in y- Richtung 70% -
+100%Überdeckung ([redacted-person] Kapitel <a href="#anhänge">5</a>)</p>
+<p>Die konkreten Lastfälle des Stufenmodells sind der nachfolgenden
+Tabelle zu entnehmen.</p>
+<p><em>Tabelle 1: Lastfälle
+des Stufenmodells</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="5" style="text-align: center;"><blockquote>
+<p><strong>Mustfire</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote></th>
+</tr>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Stufe 4</strong></p>
+</blockquote></th>
+<th colspan="5" style="text-align: center;"><blockquote>
+<p><strong>Stufe 1</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="9" style="text-align: center;"><strong>Front</strong></td>
+<td><blockquote>
+<p>Pfahl (var.)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>65 km/h</p>
+</blockquote></td>
+<td colspan="4"><blockquote>
+<p>50 km/h ***</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>35km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] li / re</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td colspan="4"><blockquote>
+<p>64 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≤ 64 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ODB 40% li / re</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>64 km/h **</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≥ 56 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>40km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ODB 40% li / re [redacted-person] Case</p>
+</blockquote></td>
+<td colspan="4"><blockquote>
+<p>64 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Wand 0°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>56 km/h */**</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≥ 50 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>40 km/h *</p>
+</blockquote></td>
+<td><blockquote>
+<p>32 km/h *</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>27 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Wand 30° li. / re</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>48 km/h *</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>40 km/h *</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>32 km/h li</p>
+<p>32 km/h re*</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>MPDB</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td colspan="4"><blockquote>
+<p>50 km/h **</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≤ 50 km/h **</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Unterfahrer</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td colspan="4" style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>LWK Unterfahrer</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>69 km/h ***</p>
+</blockquote></td>
+<td colspan="4" style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="8" style="text-align: center;"><blockquote>
+<p><strong>Seite</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>MDB (NHTSA)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>62 km/h **</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>54 km/h *</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>13km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>MDB (IIHS)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>60 km/h **</p>
+<p>(ab '23)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50 km/h **</p>
+<p>(bis '22)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>MDB (C-IASI)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>60 km/h **</p>
+<p>(ab '24)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50 km/h **</p>
+<p>(bis '23)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>MDB (AE-MDB)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>60 km/h **</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>55 km/h **</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50 km/h **</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>MDB</p>
+<p>(Advanced2000)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td colspan="4"><blockquote>
+<p>50km/h *</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pfahl 75° (var.)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>45 km/h</p>
+</blockquote></td>
+<td colspan="4" style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≤ 45 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pfahl 75° (1.SR)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td colspan="4" style="text-align: right;">32 km/h</td>
+<td style="text-align: center;"><blockquote>
+<p>16km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pfahl 90° (2./3.SR)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td colspan="4" style="text-align: right;">29 km/h</td>
+<td style="text-align: center;"><blockquote>
+<p>20km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="4" style="text-align: center;"><blockquote>
+<p><strong>Heck</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>80 km/h</p>
+</blockquote></td>
+<td colspan="4" style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>305neu Barriere li /re</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td colspan="4"><blockquote>
+<p>80 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≤ 80 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>305alt Barriere li/re</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td colspan="4"><blockquote>
+<p>50 km/h</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≤ 50 km/h</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ECE Barriere</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td colspan="4"><blockquote>
+<p>50 km/h *</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≤ 50 km/h</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Legende:</em></p>
+<p>* marktspezifisch</p>
+<p>** verbraucherschutzspezifisch</p>
+<p>*** markenspezifisch</p>
+<p>Für [redacted-co]-Fahrzeugprojekte mit Traktionsbatterien im Vorderwagen, ist
+zusätzlich der Lastfall „LKW-Unterfahrer“ in Stufe 4 zu berücksichtigen
+(siehe Kapitel <a href="#anhänge">5</a>). Für [redacted-co]-Fahrzeugprojekte
+gilt zusätzlich der Pfahl frontal 50km/h.</p>
+<p>Der ODB [redacted-person] Case ist ein Lastfall zur mechanischen
+Auslegung der Struktur und der Energiespeicher. [redacted-person] sind
+Kapitel <a href="#technische-anforderungen-fahrzeugsicherheit">4</a> zu
+entnehmen.</p>
+<p>Der statische Rollover-Test ist bei entsprechenden gesetzlichen
+Anforderungen (FMVSS und KMVSS) zu berücksichtigen.</p>
+</blockquote>
+<h1 id="technische-anforderungen-fahrzeugsicherheit">[redacted-person] Fahrzeugsicherheit</h1>
+<h2 id="anforderungen-gesamtfahrzeug">[redacted-person]</h2>
+<h2 id="allgemeines">Allgemeines</h2>
+<p><em>[A: E-BT-LAH-22]</em></p>
+<blockquote>
+<p>[redacted-person] an das HV- oder MV-System sind während der
+Entwicklung regelmäßig bei Änderungen des Systems mindestens zur B-
+Freigabe, BMG, PVS und 0-Serie zu überprüfen und bei Bedarf zu
+modifizieren.</p>
+<p>[redacted-person] an das Kraftstoffsystem, Medien im Fahrzeug,
+Insassenschutz und Strukturintegrität sind den entsprechenden LAH der
+Fahrzeugsicherheit zu entnehmen.</p>
+</blockquote>
+<h2 id="abschaltschwellen-in-elektrifizierten-fahrzeugprojekten">Abschaltschwellen
+in elektrifizierten Fahrzeugprojekten</h2>
+<p><em>[I: E-BT-LAH-23]</em></p>
+<blockquote>
+<p>In Fahrzeugen mit konventionellen Antriebskonzepten, benötigt man
+verschiedene Reaktionen der Rückhaltesysteme, um einen optimalen Schutz
+der Insassen sicherzustellen. Beispiele hierfür sind die Auslösung der
+Gurtstraffer oder die Auslösung der Airbags in den jeweiligen
+Crash-Lastfällen (z.[redacted-person], Seite, Heck, Rollover).</p>
+<p><em>[I: E-BT-LAH-24]</em></p>
+<p>In elektrifizierten Fahrzeugen (mit MV-/HV-Systeme) muss zudem das
+HV-System bei den relevanten Crash-Lastfällen in einen sicheren Zustand
+überführt werden.</p>
+<p><em>[A: E-BT-LAH-26]</em></p>
+<p>Hierfür ist eine werkstattreversible Abschaltung umzusetzen.</p>
+<p><em>[A: E-BT-LAH-29]</em></p>
+<p>Bei der werkstattreversiblen Schwelle wird das HV- bzw. MV-System
+unverzüglich nach Erhalt der Crashbotschaft/Zündsignal, definiert im
+[redacted-person] LAH.DUM.959.E, abgeschaltet. [redacted-person] des HV- bzw. MV-Systems durch den Kunden ist in diesem
+Fall nicht mehr möglich.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-32]</em></p>
+<blockquote>
+<p>Das HV-System ist bei Auslösung der Airbags abzuschalten.</p>
+<p><em>[I: E-BT-LAH-33]</em></p>
+<p>[redacted-person] mit HV-System muss ein Rolloverlastfall erkannt
+werden. Dies muss zu einer werkstattreversiblen Abschaltung des
+HV-Systems führen.</p>
+</blockquote>
+<h2 id="anzahl-zündkreise-für-energienetzabschaltung">[redacted-person]
+für Energienetzabschaltung</h2>
+<p><em>[A: E-BT-LAH-35]</em></p>
+<blockquote>
+<p>Um redundant zum Fahrzeug-Bussystem (z.[redacted-person], Flexray)
+Energiespeicher bzw. Energienetze abzuschalten sind zusätzliche
+Zündkreise vom Airbag- Steuergerät erforderlich. Die erforderliche
+Anzahl ist projektspezifisch festzulegen.</p>
+</blockquote>
+<h2 id="bauraumabhängige-beschleunigungsanforderungen">[redacted-person]</h2>
+<blockquote>
+<p><em>[I: E-BT-LAH-36]</em></p>
+<p>Hinsichtlich der zu erwartenden Beschleunigungen im Fahrzeug werden
+bauraumabhängig Anforderungen an die HV- und MV-Komponenten sowie
+Speicher mit brennbarem Elektrolyt aller Spannungslagen gestellt.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-37]</em></p>
+<blockquote>
+<p>Die hier beschriebenen bauraumabhängigen Beschleunigungsanforderungen
+gelten darüber hinaus an alle Komponenten, welche für eine Abschaltung
+des HV- und MV-Systems notwendig sind (z.[redacted-person], Gateway, etc.).</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-38]</em></p>
+<blockquote>
+<p>Es ist vom Komponentenverantwortlichen nachzuweisen, dass die in
+diesem Lastenheft beschriebenen Anforderungen an die einzelnen
+Komponenten, sowie an das MV- und HV-System, nach den hier beschriebenen
+Beschleunigungspulsen erfüllt werden. Die dafür erforderlichen
+Komponentenversuche sind mit der Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-39]</em></p>
+<blockquote>
+<p>Nachfolgende <a href="#_bookmark4">Abbildung 2</a> zeigt schematisch
+die definierten Bauraumbereiche und die zugehörigen
+Beschleunigungswerte:</p>
+</blockquote>
+<ul>
+<li><p>Im Vorderwagen bzw. Frontcrash-Deformationsbereich werden 200g
+erwartet, (x-Richtung)</p></li>
+<li><p>im Seitencrash-Deformationsbereich 150g (y-Richtung)</p></li>
+<li><p>im Heckcrash-direkter Deformationsbereich &gt;&gt;150g
+(x-Richtung) (v.[redacted-person] kleine Energiespeicher)</p></li>
+<li><p>im Heckcrash-indirekter Deformationsbereich 90g bis 150g
+(x-Richtung)</p></li>
+<li><p>und im Fahrzeuginneren („deformationsfreie Zone“) eine
+Beschleunigung</p></li>
+</ul>
+<blockquote>
+<p>von 60g. (x,y-Richtung)</p>
+<p>In <a href="#_bookmark4">Abbildung 2</a> sind die zu testenden,
+abgeleiteten generischen Beschleunigungspulse (CFC60) abgebildet.</p>
+<p><img src="./01_Front_Crash-lah-dum-880-as-3-1anforderungen-der-fahr-media/media/image2.png" style="width:6.0679in;height:2.47812in"/></p>
+<p><em>Abbildung 2:
+[redacted-person]: definierte
+Bauraumbereiche (links) und definierte generische Beschleunigungspulse
+(rechts)</em></p>
+<p><em>[A: E- BT-LAH-40]</em></p>
+<p>Die hier beschriebenen bauraumabhängigen Beschleunigungsanforderungen
+sind als Mindestanforderungen zu verstehen. [redacted-person] in den
+markierten Bereichen ([redacted-person] 1 links) gelten zusätzlich zu der
+Mindestanforderung 60g@45ms. [redacted-person] in den einzelnen
+Projekten unter Berücksichtigung des projektspezifischen Packages und
+etwaige zusätzliche im speziellen Projekt geltenden Lastfälle müssen
+weiterhin projektspezifisch ermittelt und bewertet werden. Eine
+simulative Bewertung zu einem möglichst frühen Projektstand muss
+durchgeführt werden.</p>
+<p>Beschleunigungsanforderungen in ± z-Richtung sind projektspezifische
+zu berücksichtigen.</p>
+</blockquote>
+<h2 id="bauraumabhängige-kraftanforderungen-an-komponenten">[redacted-person] an Komponenten</h2>
+<blockquote>
+<p><em>[A: E-BT-LAH-41]</em></p>
+<p>[redacted-person] können, Kräfte auf die HV-/MV-Komponente im
+Crashfall abgeleitet werden. [redacted-person] sind bauraumabhängig
+und werden darüber hinaus von den benachbarten Komponenten und der zu
+erwartenden Crash-Kinematik beeinflusst. [redacted-person] sind vom
+bauteilverantwortlichen, projektspezifisch bei der Fahrzeugsicherheit
+bzw. der Fachabteilung zu erfragen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-42]</em></p>
+<blockquote>
+<p>Die hier beschriebenen bauraumabhängigen Kraftanforderungen gelten
+darüber hinaus an alle Komponenten, welche für eine Abschaltung der HV-
+und MV- Komponenten notwendig sind (z.[redacted-person], Gateway, etc.).</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-43]</em></p>
+<blockquote>
+<p>[redacted-person] an die HV-/MV-Komponenten sind durch Versuche
+vom Bauteilverantwortlichen nachzuweisen. [redacted-person] sind mit der
+Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<h2 id="package-von-hv--und-mv-komponenten">Package von HV- und
+MV-Komponenten</h2>
+<blockquote>
+<p><em>[A: E-BT-LAH-44]</em></p>
+<p>Die HV- bzw. MV-Komponenten sollten möglichst außerhalb von
+Deformationszonen verbaut werden.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-45]</em></p>
+<blockquote>
+<p>Treten an einer Position der HV- bzw. MV-Komponente höhere
+Beschleunigungen auf, welche die Beschleunigungsfestigkeit der
+Komponente übersteigen, so ist die Komponente neu für die auftretenden
+Beschleunigungswerte zu entwickeln. Ist dies nicht möglich, ist die
+Komponente an dieser Position abzulehnen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-46]</em></p>
+<blockquote>
+<p>Treten an einer Position der HV- bzw. MV-Komponente höhere Kräfte
+auf, welche die mechanische Robustheit der Komponente übersteigen, so
+ist die Komponente neu für die auftretenden Kräfte zu entwickeln. Ist
+dies nicht möglich, ist die Komponente an dieser Position
+abzulehnen.</p>
+</blockquote>
+<h2 id="anforderungen-an-mv-systeme">Anforderungen an MV-Systeme</h2>
+<h2 id="allgemeine-anforderungen-an-mv-system">[redacted-person]
+an MV-System</h2>
+<p><em>[I: E-BT-LAH-48]</em></p>
+<blockquote>
+<p>Als MV-System wird ein Energienetz mit einer nominalen Spannung 12VDC
+&lt; U &lt; 60VDC. Das konventionelle 12V Bordnetz gilt, zumindest in
+diesem LAH, nicht als MV-System.</p>
+<p><em>[I: E-BT-LAH-49]</em></p>
+<p>Im MV-System besteht keine Berührschutz-Anforderung im
+Gleichspannungsteil,</p>
+<p>da die „definierte Berührschutzsgrenze von U=60VDC nicht erreicht
+wird.</p>
+<p><em>[A: E-BT-LAH-50]</em></p>
+<p>[redacted-person] einer Wechselspannung U&gt;30VAC ist in einem
+MV-Energienetz nur komponentenintern zulässig.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-51]</em></p>
+<blockquote>
+<p>Wird im MV-System eine Wechselspannung U&gt;30VAC erzeugt, z.[redacted-person]
+einen Wechselrichter, so ist diese Spannung hinsichtlich des
+Berührschutzes nach Crash zu bewerten. Es muss sichergestellt werden,
+dass nach Crash das MV-System, sowie seine MV-Komponenten als elektrisch
+berührgeschützt eingestuft werden können.</p>
+<p>Bei einer Wechselspannung U&gt;30VAC außerhalb einer Komponente,
+gelten die Anforderungen HV gemäß Kapitel 4.3.1.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-52]</em></p>
+<blockquote>
+<p>MV-Systeme mit Gleichspannungen U&gt;20VDC sind bei einem Crash
+abzuschalten. Die MV-Energiespeicher (z.B. 48V-Supercap-Modul, 48V
+Lithium- Ionen-Batterie) müssen vom MV-System getrennt werden. Eine
+weitere Speisung des MV-Systems durch den MV-Energiespeicher ist zu
+verhindern.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-53]</em></p>
+<blockquote>
+<p>Ist die Gesamtenergie der Zwischenkreise der DC-Komponenten in einem
+MV- System E&gt;1kJ, so ist eine aktive Entladung der Zwischenkreise
+nach der</p>
+<p>Abschaltung des MV-Energiespeichers notwendig. Diese aktive Entladung
+muss innerhalb t=4s die Zwischenkreisspannung auf U&lt;20VDC reduzieren.
+[redacted-person] der Zwischenkreise ist für die maximale Betriebsspannung des
+MV-Systems zu bewerten.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-54]</em></p>
+<blockquote>
+<p>[redacted-person] des MV-Systems wird die MV-Versorgungsspannung aller
+MV- Komponenten abgeschaltet. MV-Komponenten welche nach einem
+Primär-Crash eine Funktion ausführen müssen (z.[redacted-person], E-Bremse),
+müssen hinsichtlich des Ausfalls der Versorgungsspannung MV bewertet
+werden. Ggf. sind geeignete Backuplösungen zu entwickeln.</p>
+<p>Kurzschlüsse, die vor oder nach Trennung des MV-Speichers vom
+MV-System innerhalb des MV-Systems entstehen können, dürfen nicht zu
+einem Brand führen. Dabei ist die gesamte mögliche Kurzschluss- /
+Lichtbogenenergie zu berücksichtigen, diese muss unterhalb 1kJ
+liegen.</p>
+</blockquote>
+<h2 id="anforderung-an-mv-energiespeicher">Anforderung an MV
+Energiespeicher</h2>
+<p><em>[A: E-BT-LAH-55]</em></p>
+<blockquote>
+<p>Bei einem MV-Energiespeicher mit brennbarem Elektrolyt gelten
+folgende Anforderungen an den Energiespeicher im Crash: [redacted-person] 1
+gilt:</p>
+</blockquote>
+<ul>
+<li><p>Es ist keine Zelldeformation zulässig.</p></li>
+<li><p>Es ist keine Leckage von Elektrolyt zulässig.</p></li>
+<li><p>Es ist keine exotherme Reaktion zulässig.</p></li>
+<li><p>[redacted-person] des MV-Energiespeichers vom MV-Energienetz ist
+sicherzustellen.</p></li>
+<li><p>Eine dauerhafte Abschaltung ist zu gewährleisten.</p></li>
+<li><p>Kurzschlüsse die vor Trennung der MV-Batterie vom MV-System
+innerhalb des MV-Systems entstehen können, dürfen die sichere Trennung
+der MV- Batterie vom MV-System nicht beeinflussen. [redacted-person]
+sind zu spezifizieren (ohm‘scher Widerstand und Induktivität) und mit
+dem BTV zu bewerten.</p></li>
+<li><p>[redacted-person] von Flüssigkeiten in den Energiespeicher von außen,
+welche im Nachgang zum Crash zu einem Kurzschluss der Zellen / Module
+oder zu einer exothermen Reaktion führen kann.</p></li>
+<li><p>Falls eine Flüssigkeitskühlung in dem Energiespeicher verbaut
+ist, ist keine Leckage dieser Kühlung im Energiespeicher
+zulässig.</p></li>
+<li><p>[redacted-person] mit dem MV-Energiespeicher (Überwachung des
+Zustandes, Ladezustand, Temperatur, etc.) ist auch nach dem Crash zu
+ermöglichen.</p></li>
+</ul>
+<p><em>[A: E-BT-LAH-57]</em></p>
+<blockquote>
+<p>Nach einem Crash ist sicherzustellen, dass der MV-Energiespeicher
+fest an der Karosserie bzw. Fahrzeugstruktur verbleibt. [redacted-person]
+des MV-</p>
+<p>Energiespeichers sind hinsichtlich der auftretenden Kräfte und
+Beschleunigungen zu entwickeln.</p>
+<p><em>[A: E-BT-LAH-58]</em></p>
+<p>Das MV-System muss ab einer definierten Crashschwere abgeschaltet
+werden.</p>
+<p><em>[A: E-BT-LAH-59]</em></p>
+<p>MV-Komponenten welche nach einem Primär-Crash eine Funktion ausführen
+(z.[redacted-person], E-Bremse), müssen hinsichtlich des Ausfalls seitens
+FuSi bewertet werden.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-60]</em></p>
+<blockquote>
+<p>[redacted-person]- und Temperaturmessung und die Kommunikation mit dem
+MV- Energiespeicher (Überwachung des Zustandes, Ladezustand, Temperatur,
+etc.) sind auch nach dem Crash sicherzustellen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-61]</em></p>
+<blockquote>
+<p>Es ist eine redundante Abschaltung des MV-Energiespeichers durch ein
+Bussystem und eine Zündkreisnachbildung vorzusehen. Die nötige Hardware-
+Umsetzung für eine solche Zündkreisnachbildung ist im
+[redacted-person] LAH.DUM.959.E beschrieben.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-62]</em></p>
+<blockquote>
+<p>Es kann auf eine Abschaltung über Zündkreis verzichtet werden, wenn
+eine Beschädigung von MV-Komponenten im Crash ausgeschlossen ist oder
+eine rechtzeitige Abschaltung über das Bussystem erfolgen kann.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-63]</em></p>
+<blockquote>
+<p>[redacted-person] des Energiespeichers muss intern im Gehäuse des
+Energiespeichers erfolgen. [redacted-person] von nicht abschaltbaren MV-
+Leitungen aus dem Energiespeichergehäuse ist nicht zulässig.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-64]</em></p>
+<blockquote>
+<p>Ein MV-Energiespeicher mit Supercaps (auch bekannt als Doppelschicht-
+Kondensatoren) muss auch bei einem Ausfall des Fahrzeug-Bussystems (z.[redacted-person], Flexray) den Supercap vom Energienetz abtrennen. Dies kann
+beispielsweise durch eine redundante Zündkreissimulation (analog
+HV-Batterie) erfolgen. Es ist aber auch möglich, bei einem Ausfall der
+Crashbotschaft (z.[redacted-person] von 10 Airbagbotschaften) die Abschaltung
+des Supercap-Moduls einzuleiten.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-65]</em></p>
+<blockquote>
+<p>[redacted-person] im Energiespeicher mit einer Differenzspannung
+U&gt;20VDC müssen räumlich separiert werden, um einen Kurzschluss durch
+Verformung oder Beschleunigung des Energiespeichers zu verhindern. Dies
+kann beispielsweise durch einen geeigneten bruchfesten Separator /
+Isolator erfolgen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-66]</em></p>
+<blockquote>
+<p>Die MV-Energiespeicher müssen die in diesem Kapitel geforderten
+Anforderungen bei den geforderten Beschleunigungen in Kapitel 4.1.4 und
+den geforderten Kräften in Kapitel 4.1.5 erfüllen. Dies ist in
+Komponentenversuche (z.[redacted-person] Schlittentests) durch den
+Bauteilverantwortlichen zu verifizieren.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-67]</em></p>
+<blockquote>
+<p>[redacted-person] für die Komponentenversuche und deren Anzahl sind
+mit der Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-68]</em></p>
+<blockquote>
+<p>[redacted-person] für die Beschleunigungsfestigkeit von
+MV-Energiespeichern mittels Beschleunigungsversuchen ist auf Zell-,
+Modul- und ZSB-Ebene zu erbringen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-69]</em></p>
+<blockquote>
+<p>[redacted-person]-Beschleunigungsversuche sind mit den verschiedenen
+Bauständen der Energiespeicher auf Zell-, Modul- und ZSB-Ebene
+durchzuführen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-70]</em></p>
+<blockquote>
+<p>[redacted-person] der Trennvorrichtungen (z.[redacted-person])
+ist in Komponentenversuchen unter Berücksichtigung der maximalen
+Betriebsströme vom Bauteilverantwortlichen nachzuweisen. Ein ungewolltes
+Schalten unter worst- case Bedingungen ist auszuschließen. Ein sicheres
+Öffnen unter worst-case Bedingungen ist zu gewährleisten.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-71]</em></p>
+<blockquote>
+<p>[redacted-person] der Trennvorrichtungen im Energiespeicher ist mit der
+Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-72]</em></p>
+<blockquote>
+<p>Falls mehrere Trennvorrichtungen mit mechanischen
+Betätigungselementen verbaut werden, darf deren Ausrichtung
+(Bewegungsrichtung der Betätigungselemente) nicht gleichgerichtet
+sein.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-73]</em></p>
+<blockquote>
+<p>[redacted-person] innerhalb des Energiespeichers sind in einem
+deformationsgeschützten Bereich zu integrieren.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-74]</em></p>
+<blockquote>
+<p>Die auftretenden Kräfte im Crash am Gehäuse des MV-Energiespeichers
+dürfen nicht zur Deformation auf Zellebene führen. Dies ist vom
+Bauteilverantwortlichen mittels geeigneter Komponentendruckversuche
+nachzuweisen. [redacted-person] zu diesen Versuchen sind mit der
+Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<h2 id="anforderung-an-12v-energiespeicher">Anforderung an 12V
+Energiespeicher</h2>
+<p><em>[A: E-BT-LAH-75]</em></p>
+<blockquote>
+<p>Bei einem Energiespeicher mit brennbarem Elektrolyt gelten folgende
+Anforderungen an den Energiespeicher im Crash: [redacted-person] 1 gilt:</p>
+</blockquote>
+<ul>
+<li><p>Es ist keine Zelldeformation zulässig.</p></li>
+<li><p>Es ist keine Leckage von Elektrolyt zulässig.</p></li>
+<li><p>Es ist keine exotherme Reaktion zulässig.</p></li>
+<li><p>Kein interner Kurzschluss</p></li>
+<li><p>[redacted-person] von Sicherheits- und Komfortfunktionen ist nach
+Crash sicherzustellen (gültig für Bordnetzbatterien)</p></li>
+<li><p>[redacted-person] von Flüssigkeiten in den Energiespeicher von außen,
+welche im Nachgang zum Crash zu einem Kurzschluss der Zellen / Module
+oder zu einer exothermen Reaktion führen kann.</p></li>
+<li><p>Falls eine Flüssigkeitskühlung in dem Energiespeicher verbaut
+ist, ist keine Leckage dieser Kühlung im Energiespeicher
+zulässig.</p></li>
+<li><p>[redacted-person]- und Temperaturmessung und die Kommunikation mit
+dem HV-Energiespeicher (Überwachung des Zustandes, Ladezustand,
+Temperatur, etc.) sind auch nach dem Crash sicherzustellen.</p></li>
+</ul>
+<p><em>[A: E-BT-LAH-76]</em></p>
+<blockquote>
+<p>Nach einem Crash ist sicherzustellen, dass der Energiespeicher fest
+an der Karosserie bzw. Fahrzeugstruktur verbleibt. [redacted-person] des
+Energiespeichers sind hinsichtlich der auftretenden Kräfte und
+Beschleunigungen zu entwickeln.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-79]</em></p>
+<blockquote>
+<p>[redacted-person] müssen die in diesem Kapitel geforderten
+Anforderungen bei den geforderten Beschleunigungen in Kapitel 4.1.4 und
+den geforderten Kräften in Kapitel 4.1.5 erfüllen. Dies ist in
+Komponentenversuche (z.[redacted-person] Schlittentests) durch den
+Bauteilverantwortlichen zu verifizieren.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-80]</em></p>
+<blockquote>
+<p>[redacted-person] für die Komponentenversuche und deren Anzahl sind
+mit der Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-81]</em></p>
+<blockquote>
+<p>[redacted-person] für die Beschleunigungsfestigkeit von Energiespeichern
+mittels Beschleunigungsversuche ist auf Zell-, Modul- und ZSB-Ebene zu
+erbringen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-82]</em></p>
+<blockquote>
+<p>[redacted-person]-Beschleunigungsversuche sind mit den verschiedenen
+Bauständen der Energiespeicher auf Zell-, Modul- und ZSB-Ebene
+durchzuführen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-86]</em></p>
+<blockquote>
+<p>[redacted-person] innerhalb des Energiespeichers sind in einem
+deformationsgeschützten Bereich zu integrieren.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-87]</em></p>
+<blockquote>
+<p>Die auftretenden Kräfte im Crash am Gehäuse des Energiespeichers
+dürfen nicht zu bleibenden Deformation oder Beschädigung von Zellen,
+Steuereinheit und Zell-/ Modulverbinder führen. Abhängig von der
+Zellchemie sind geringfügige bleibende Deformationen bei Nachweis der in
+diesem LAH genannten Anforderungen zulässig. Dies ist vom
+Bauteilverantwortlichen mittels geeigneter Komponentendruckversuche
+nachzuweisen. [redacted-person] zu diesen Versuchen sind mit der
+Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<h2 id="anforderung-an-mv-riemen-starter-generator-rsg">Anforderung an
+MV Riemen-Starter-Generator (RSG)</h2>
+<p><em>[I: E-BT-LAH-88]</em></p>
+<blockquote>
+<p><a href="#_bookmark5">Abbildung 3</a> zeigt die mögliche Position
+eines Riemen-Starter-Generators in einem längs eingebautem Motor.</p>
+<p><img src="./01_Front_Crash-lah-dum-880-as-3-1anforderungen-der-fahr-media/media/image3.jpeg" style="width:3.67474in;height:2.835in"/></p>
+<p><em>Abbildung 3: [redacted-person] eines Riemen-Starter-Generators im längs eingebauten
+Motor</em></p>
+</blockquote>
+<p><em>[A: E-BT-LAH-89]</em></p>
+<blockquote>
+<p>[redacted-person] des MV Systems im Crashfall muss eine Speisung von
+Energie in das MV Netz durch den Riemen-Starter-Generator verhindert
+werden. [redacted-person], welche dies verhindern sollen müssen mit der
+Fahrzeugsicherheit abgestimmt werden.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-90]</em></p>
+<blockquote>
+<p>Bei RSGs, welche eine interne Spannung im HV-Bereich (U&gt;60VDC oder
+U&gt;30VAC) aufweist, muss der Berührschutz nach Crash sichergestellt
+werden. [redacted-person] hierfür müssen mit der Fahrzeugsicherheit
+abgestimmt werden.</p>
+</blockquote>
+<h2 id="anforderung-an-mv-leistungselektronik">Anforderung an MV
+Leistungselektronik</h2>
+<p><em>[A: E-BT-LAH-91]</em></p>
+<blockquote>
+<p>Eine verbaute Leistungselektronik im MV-Energienetz darf bei einem
+Crash nicht das MV-Energienetz stützen. So ist z.[redacted-person] einem DC-DC
+Wandler zwischen dem 12V Netz und dem MV-Netz (z.[redacted-person] in <a href="#_bookmark6">Abbildung 4</a>) ein Hochsetzbetrieb im Crashfall zu
+verhindern. Die geforderten Reaktionen des Wandlers auf die
+unterschiedlichen Crash-Botschaften sind im Querschnittslastenheft „ „
+zu finden. [redacted-person] zur Einhaltung dieser Anforderung sind mit der
+Fahrzeugsicherheit abzustimmen.</p>
+<p><em>Abbildung 4: Mögliche
+MV-Energienetzvariante mit DC-DC Wandler</em></p>
+<p><em>[A: E-BT-LAH-92]</em></p>
+<p>Bei der Entwicklung der Leistungselektronik sind im Crashfall
+auftretende Spannungsausfälle, Ausfall von Fahrzeug-Bussystemen (z.[redacted-person], Flexray) und Ausfall von Partnersteuergeräten zu berücksichtigen
+und mit der Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<h2 id="anforderung-an-mv-leitungsverlegung">Anforderung an MV
+Leitungsverlegung</h2>
+<p><em>[A: E-BT-LAH-94]</em></p>
+<blockquote>
+<p>Bei MV-Leitungen sind in deformationsarmen Bereichen zu verlegen. Die
+MV- Leitungsverlegung ist mit der Fahrzeugsicherheit in den einzelnen
+Fahrzeugprojekten frühzeitig abzustimmen.</p>
+</blockquote>
+<h2 id="anforderung-an-eaws-und-eabc">Anforderung an eAWS und eABC</h2>
+<p><em>[I: E-BT-LAH-95]</em></p>
+<blockquote>
+<p>[redacted-person] der Funktion bei Crash ist vorzusehen. [redacted-person] von Energie in das System ist zu verhindern.</p>
+</blockquote>
+<h2 id="anforderung-an-weitere-mv-komponenten">Anforderung an weitere MV
+Komponenten</h2>
+<p><em>[A: E-BT-LAH-96]</em></p>
+<blockquote>
+<p>Bei MV-Komponenten welche eine Spannung oberhalb der HV-Grenzen
+(U&gt;60VDC oder U&gt;30VAC) innerhalb der Komponente erzeugen können,
+ist ein, elektrischer Berührschutz nach Crash zu bewerten. [redacted-person] ist mit der Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-97]</em></p>
+<blockquote>
+<p>Bei MV-Komponenten, welche sicherheitsrelevante Funktionen auch nach
+dem Crash ausführen sollen, muss diese sicherheitsrelevante Funktion
+hinsichtlich der Abschaltung des MV-Energienetzes bewertet werden.</p>
+</blockquote>
+<h2 id="anforderungen-an-hv-systeme">Anforderungen an HV-Systeme</h2>
+<h2 id="allgemeine-anforderungen-an-hv-system">[redacted-person]
+an HV-System</h2>
+<p><em>[A: E-BT-LAH-27]</em></p>
+<blockquote>
+<p>[redacted-person] ist mit einer Funktion zur Erkennung offener HV-Leitung:
+EoHVL während des Fahrbetriebs zu versehen.</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-98]</em></p>
+<blockquote>
+<p>Als HV-System wird ein System mit einer nominalen Spannung U&gt;=
+60VDC oder U&gt;=30VAC. bezeichnet</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-99]</em></p>
+<blockquote>
+<p>Das HV-System muss ab einer definierten Crashschwere abgeschaltet
+werden. Ein berührgeschützter Zustand (IPXXD Innenraum, IPXXB Außenraum)
+ist in allen beschriebenen Lastfällen sicherzustellen. Es darf keine
+Spannung U&gt;= 60VDC oder U&gt;=30VAC. bei der Prüfung nach IPXXD
+Innenraum, IPXXB Außenraum messbar sein.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-100]</em></p>
+<blockquote>
+<p>[redacted-person] der primären Trennvorrichtungen (z.[redacted-person] der HV- Batterie) des HV-Energiespeichers muss unter
+Beschleunigung im Falle eines Kurzschlusses sichergestellt werden. Ein
+ungewolltes Schalten durch Auftreten hoher Beschleunigungen im Crashfall
+ist zu verhindern. [redacted-person] sind gemeinsam mit der
+Fachabteilung der Fahrzeugsicherheit abzustimmen und von den
+Bauteilverantwortlichen durchzuführen (z.[redacted-person] von unter Last schaltenden Schützen).</p>
+<p>[redacted-person] (Schütze, Pyrofuse, etc.) müssen rechtzeitig nach
+Senden des Zündsignales einen offenen Zustand annehmen. Die notwendige
+Trennzeit ist projektspezifisch in Abhängigkeit von Package und
+Sensierzeit über alle geltenden Lastfälle zu spezifizieren.</p>
+<p>[redacted-person] von HV-Komponenten, die zu Kurzschlüssen,
+Lichtbögen oder anderen kritischen Zuständen in der Komponente selbst
+oder anderen Verbrauchern des Energienetzes führen können, ist vor
+sicherer Abtrennung des jeweiligen Energiespeichers vom HV-Bordnetz
+nicht zulässig.</p>
+<p>Kurzschlüsse, die nach Trennung der HV-Batterie vom HV-System
+innerhalb des HV-Systems entstehen können, dürfen nicht zu einem Brand
+führen. Dabei ist die gesamte Restenergie (inkl. möglicher Rekuperation)
+im HV-System zu berücksichtigen. Diese muss unterhalb 1kJ liegen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-101]</em></p>
+<blockquote>
+<p>[redacted-person] der Zwischenkreise muss maximal 4s nach Crasherkennung
+des Airbagsteuergerätes eine Spannung von U&lt;=60VDC und U&lt;=30VAC
+erreichen.</p>
+<p>Im Lastfall ODB 64km/h [redacted-person] Case ist dagegen der Schutz vor
+Stromschlag nach Crash zu gewährleisten.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-102]</em></p>
+<blockquote>
+<p>Ist die Gesamtenergie der Zwischenkreise der DC-Komponenten in einem
+HV- System E&gt;1kJ (bei U&lt;= 60VDC), so ist eine aktive Entladung der
+Zwischenkreise erforderlich, welche Zwischenkreise innerhalb t&lt;5s auf
+eine Zwischenkreisspannung U&lt;20VDC entlädt.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-103]</em></p>
+<blockquote>
+<p>HV-Komponenten welche nach einem Primär-Crash eine Funktion ausführen
+(z.[redacted-person], E-Bremse), müssen hinsichtlich des Ausfalls seitens
+FuSi bewertet werden.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-104]</em></p>
+<blockquote>
+<p>Es muss vom Komponentenverantwortlichen nachgewiesen werden, dass die
+einzelnen HV-Komponenten eine passive Entladung für deren elektrische
+Zwischenkreise besitzen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-105]</em></p>
+<blockquote>
+<p>[redacted-person] des gesamten HV-Systems ist auch nach Crash
+sicherzustellen. Es darf keine Spannung U&gt;= 60VDC oder U&gt;=30VAC.
+bei der Prüfung nach IPXXD Innenraum, IPXXB Außenraum messbar sein.</p>
+<p><u>Stufe 4:</u></p>
+<p>In Stufe 4 gelten für das HV-System dagegen folgenden
+Anforderungen:</p>
+<p>Kurzschlüsse, die vor oder nach Trennung der HV-Batterie vom
+HV-System innerhalb des HV-Systems entstehen können, dürfen nicht zu
+einem Brand führen. Dabei ist die gesamte mögliche Kurzschluss- /
+Lichtbogenenergie zu berücksichtigen.</p>
+<p>[redacted-person] des Energiespeichers vom HV-Bordnetz ist
+sicherzustellen. Eine sichere, dauerhafte, mindestens einpolige
+Abschaltung ist zu gewährleisten. Kurzschlüsse, die vor Trennung der
+HV-Batterie vom HV-System innerhalb des HV-Systems entstehen können,
+dürfen die sichere Trennung der HV-Batterie vom HV-System nicht
+beeinflussen.</p>
+</blockquote>
+<h2 id="anforderungen-an-hv-energiespeicher">Anforderungen an
+HV-Energiespeicher</h2>
+<p><em>[A: E-BT-LAH-106]</em></p>
+<blockquote>
+<p>Für einen HV-Energiespeicher gelten in <u>Stufe 1</u> folgende
+Anforderungen (Crash- und Komponentenversuch):</p>
+</blockquote>
+<ul>
+<li><p>Es ist keine Deformation oder Beschädigung von Zellen bzw.
+Zellmodulen (konzeptabhängig), CMC und Modulverbinder zulässig.</p></li>
+<li><p>Es ist kein Elektrolytaustritt zulässig.</p></li>
+<li><p>Es ist keine exotherme Reaktion zulässig.</p></li>
+<li><p>Die rechtzeitige, allpolige Abtrennung des HV-Energiespeichers
+vom HV- Energienetz ist sicherzustellen.</p></li>
+<li><p>[redacted-person] von Flüssigkeiten in den Energiespeicher, welche im
+Nachgang zum Crash zu einem Kurzschluss der Zellen / Module oder zu
+einer exothermen Reaktion führen kann.</p></li>
+<li><p>Falls eine Flüssigkeitskühlung in dem Energiespeicher verbaut
+ist, ist keine Leckage dieser Kühlung im Energiespeicher
+zulässig.</p></li>
+<li><p>[redacted-person]- und Temperaturmessung und die Kommunikation mit
+dem HV-Energiespeicher (Überwachung des Zustandes, Ladezustand,
+Temperatur, etc.) sind auch nach dem Crash sicherzustellen.</p></li>
+<li><p>[redacted-person] von Komponenten im Inneren der Batterie ist nicht
+zulässig</p></li>
+<li><p>IPXXD im Innenraum, IPXXB im Außenraum (Hinweis: ausreichende
+Integrität) inkl. Potentialausgleich</p></li>
+<li><p>Kein interner Kurzschluss</p></li>
+<li><p>[redacted-person] Hauptlastpfad</p></li>
+</ul>
+<p><em>[A: E-BT-LAH-107]</em></p>
+<blockquote>
+<p>Es ist eine redundante Abschaltung des HV-Energiespeichers durch ein
+Bussystem und eine Zündkreisnachbildung vorzusehen. Die nötige Hardware-
+Umsetzung für eine solche Zündkreisnachbildung ist im
+[redacted-person] LAH.DUM.959.E beschrieben.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-108]</em></p>
+<blockquote>
+<p>[redacted-person] des Energiespeichers muss intern im Gehäuse des
+Energiespeichers erfolgen. [redacted-person] von nicht abschaltbaren HV-
+Leitungen aus dem Energiespeichergehäuse ist zu vermeiden.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-109]</em></p>
+<blockquote>
+<p>[redacted-person] im Energiespeicher sind so auszulegen, dass durch
+Verformung und/oder Beschleunigung kein Kurzschluss auftreten kann.</p>
+<p><em>[A: E-BT-LAH-110]</em></p>
+<p>Es sind Komponentenversuche des HV-Energiespeichers vorzusehen. [redacted-person] und Randbedingung sind mit der Fahrzeugsicherheit
+abzustimmen.</p>
+<p><em>[A: E-BT-LAH-111]</em></p>
+<p>[redacted-person] für die Beschleunigungsfestigkeit von
+HV-Energiespeichern mittels Beschleunigungsversuche ist für jede
+Hardwarestufe auf Zell-, Modul- und ZSB- Ebene zu erbringen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-112]</em></p>
+<blockquote>
+<p>[redacted-person] der Trennvorrichtungen (z.[redacted-person])
+ist in Komponentenversuchen unter Berücksichtigung der maximalen
+Betriebsströme vom Bauteilverantwortlichen nachzuweisen. Ein ungewolltes
+Schalten unter worst- case Bedingungen ist auszuschließen. Ein sicheres
+Öffnen unter worst-case Bedingungen ist zu gewährleisten.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-113]</em></p>
+<blockquote>
+<p>[redacted-person] der Trennvorrichtungen im Energiespeicher ist mit der
+Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-114]</em></p>
+<blockquote>
+<p>Falls mehrere Trennvorrichtungen mit mechanischen
+Betätigungselementen verbaut werden, sind diese stehend unter der
+Voraussetzung, dass die Schließkräfte in z beschleunigungsfest bis 10g
+bleiben oder liegend in ihrer mechanischen Wirkrichtung um min. 90°
+gedreht zu verbauen, dadurch soll der Beschleunigungseinfluss sich nicht
+auf beide Schütze auswirken.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-115]</em></p>
+<blockquote>
+<p>[redacted-person] innerhalb des Energiespeichers sind in einem
+deformationsgeschützten Bereich zu integrieren.</p>
+<p>[redacted-person] HV+ und HV- der Batterie sind in einer
+verformungsarmen Zone zu positionieren. [redacted-person] dieser ist
+unzulässig. Gegebenenfalls sind zusätzliche Schutzmaßnahmen
+vorzuhalten.</p>
+<p>Vermeidung von brandbeschleunigenden Medien und Materialien im
+Bereich der HV-Batterie.</p>
+<p>[redacted-person] der Batterie ist in Stufen 1 zu gewährleisten.</p>
+<p>Nach einem Crashversuch muss die HV-Batterie im statischen
+Rollovertest („Grilltest“ nach [redacted-phone]) sicher am Fahrzeug verbleiben
+und darf nicht aus ihrer Halterung kippen und / oder rutschen. [redacted-person] der Batterie ist grundsätzlich über eine Beurteilung der
+verbleibenden integren Anbindungspunkte zu bewerten. Sollte die
+Integrität der Anbindungspunkte hierzu nicht gewährleistet werden
+können, sind geeignete alternative Lösungen (z.[redacted-person] o.ä.)
+vorzusehen. [redacted-person] des HV-Energiespeichers sind hinsichtlich
+der auftretenden Kräfte und Beschleunigungen zu entwickeln. Es gelten
+weiterhin die Anforderungen der Gesetzestexte FMVSS305, TRIAS 67 und ECE
+R94/95.</p>
+<p>Beschädigungen von unten bei Batterien nahe Bodengrenzfläche (z.[redacted-person] Randsteinüberfahrer) werden nicht seitens der Fahrzeugsicherheit
+bewertet. [redacted-person] sind seitens der jeweiligen zuständigen
+Fachabteilung zu bewerten.</p>
+<p>Abweichend zu den Anforderungen der Stufe 1 gilt für <u>Stufe 4</u>
+(Crash- und Komponentenversuch):</p>
+</blockquote>
+<ul>
+<li><p>Eine direkte Kraftübertragung und definierte Deformationen auf
+Batteriemodul-/ Zellebene (konzeptabhängig) ist zulässig. [redacted-person] soll ausgeschlossen werden. Alternativ kann
+nachgewiesen werden, dass eine geringfügige Leckage in flüssiger Form
+oder in Form von nicht sichtbaren kalten Dämpfen (kein heißes
+Elektrolytgas/-rauch) zu keiner exothermen Reaktion führt</p></li>
+<li><p>Die auftretenden Beschleunigungsbelastungen (siehe Kapitel 4.1.4)
+sind in der Auslegung zu berücksichtigen</p></li>
+<li><p>Es ist keine exotherme Reaktion (Brand und/ oder Explosion)
+zulässig.</p></li>
+<li><p>Die robuste, mindestens einpolige, Abtrennung des
+HV-Energiespeichers vom HV-Energienetz durch geeignete
+Trennvorrichtungen (z.[redacted-person]), auch bei Beschädigung von
+HV-Komponenten und entsprechenden Kurzschlussströmen, ist
+sicherzustellen.</p></li>
+</ul>
+<blockquote>
+<p><strong><u>Erprobung auf Zellmodulebene
+(konzeptabhängig):</u></strong></p>
+<p>Bei der Integration von Traktionsbatterien in ein Fahrzeug ist durch
+die verantwortlichen Fachbereiche eine Mindestanforderung auf
+Zellmodulebene nachzuweisen.</p>
+<p>Die dazu durchzuführenden Versuche und jeweiligen Bewertungskriterien
+sind im Erprobungslastenheft LAH.[redacted-phone]Specification for vehicle
+safety crush tests definiert.</p>
+<p>[redacted-person] und die Versuchsergebnisse sind mit der
+Fahrzeugsicherheit abzustimmen.</p>
+<p>[redacted-person] ist dem LAH.[redacted-phone]zu entnehmen.</p>
+</blockquote>
+<h2 id="anforderungen-an-hv-leistungselektronik">Anforderungen an
+HV-Leistungselektronik</h2>
+<p><em>[A: E-BT-LAH-125]</em></p>
+<blockquote>
+<p>Bei einer Abschaltung des HV-Systems aufgrund eines Crashs, muss der
+Wechselrichter bei Erhalt der zugehörigen Crash-Botschaft einen aktiven
+Kurzschluss schalten.</p>
+<p><em>[A: E-BT-LAH-126]</em></p>
+<p>Ist in der Leistungselektronik eine Schaltung für die aktive
+Entladung der Zwischenkreiskapazitäten der HV-Komponenten integriert,
+muss die aktive Entladung nach Absenden der [redacted-person] an die LE
+hinsichtlich einer Abschaltung des HV-Systems aktiviert werden. Die
+aktive Entladung muss dazu beitragen, die Anforderungen an das
+HV-System, definiert unter 4.3.1, zu erfüllen.</p>
+<p><em>[A: E-BT-LAH-127]</em></p>
+<p>Ein verbauter HV-DC-DC Wandler darf die Entladung der HV-
+Zwischenkreiskapazitäten nicht verzögern. [redacted-person] der HV-
+Zwischenkreiskapazitäten nach Erhalt der Crashbotschaft hinsichtlich
+einer Abschaltung des HV-Systems ist nicht zulässig.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-128]</em></p>
+<blockquote>
+<p>Die HV-Leistungselektronik muss die in diesem Kapitel geforderten
+Anforderungen bei den geforderten Beschleunigungen in Kapitel <a href="#bauraumabhängige-beschleunigungsanforderungen">0</a> und den
+geforderten Kräften in Kapitel 4.1.5 erfüllen. Dies ist in
+Komponentenversuche (z.[redacted-person] Schlittentests) durch den
+Bauteilverantwortlichen zu verifizieren.</p>
+</blockquote>
+<h2 id="anforderungen-an-hv-ptc">Anforderungen an HV-PTC</h2>
+<blockquote>
+<p><em>[A: E-BT-LAH-129]</em></p>
+<p>[redacted-person] der Komponente ohne Abschaltung des HV-Systems bzw.
+der Komponente ist nicht zulässig.</p>
+</blockquote>
+<h2 id="anforderungen-an-hv-ladegerät">Anforderungen an
+HV-Ladegerät</h2>
+<p><em>[A: E-BT-LAH-130]</em></p>
+<blockquote>
+<p>Ist das Ladegerät spannungsführend im Fahrbetrieb, ist eine
+Beschädigung der Komponente ohne Abschaltung des HV-Systems nicht
+zulässig.</p>
+</blockquote>
+<h2 id="anforderungen-an-ladedose">Anforderungen an Ladedose</h2>
+<p><em>[A: E-BT-LAH-131]</em></p>
+<blockquote>
+<p>Ladedosen, sowie die zugehörigen HV-Leitungen zwischen Ladedose und
+Ladegerät bzw. Batterie, dürfen im Fahrbetrieb und nach Crash nicht
+unter Spannung stehen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-132]</em></p>
+<blockquote>
+<p>Die mechanische Auslegung von Ladedosen müssen mit der
+Fahrzeugsicherheit hinsichtlich Fußgängerschutz-Anforderungen abgestimmt
+werden.</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-133]</em></p>
+<blockquote>
+<p>[redacted-person] hinsichtlich HV-Abschaltung berücksichtigen
+nicht die Ladedose und deren HV-Leitungen. D.[redacted-person] einer Beschädigung
+der Ladedose wird das HV-System im Fahrbetrieb nicht zwingend
+abgeschaltet.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-134]</em></p>
+<blockquote>
+<p>[redacted-person] nach Beschädigung der Ladedose oder der Ladekabel ist
+seitens der HV-Sicherheit und der Gebrauchssicherheit zu
+berücksichtigen.</p>
+</blockquote>
+<ol start="7" type="1">
+<li><p>Anforderungen an AWC (automotive wireless charging)<em>[I:
+E-BT-LAH-136]</em></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] an das AWC sind auf der Grundlage eines
+integrierten Systems von AWC-Feldspule, Gleichrichter und Bereich der
+HV-Stecker entstanden. [redacted-person] ist in <a href="#_bookmark7">Abbildung 5</a> das angenommene System schematisch
+dargestellt.</p>
+<p><em>[A: E-BT-LAH-137]</em></p>
+<p>Ändert sich das System, so
+z.[redacted-person] ein System mit räumlich getrenntem Gleichrichter und
+Feldplatte ins Fahrzeug integriert werden soll, ändern sich ggf. die
+Anforderungen an das System. Dies ist mit der Fahrzeugsicherheit im
+Projekt abzustimmen.</p>
+<p><em>Abbildung 5:
+[redacted-person] eines AWC-Systems</em></p>
+<p><em>[A: E-BT-LAH-138]</em></p>
+<p>Die AWC-Feldspule (vor Gleichrichter) muss im Fahrbetrieb
+abgeschaltet werden bzw. stromlos sein.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-139]</em></p>
+<blockquote>
+<p>[redacted-person] des AWCs, welcher auch im Fahrbetrieb unter Spannung
+steht (HV- Kabel, HV-Stecker, Gleichrichter) muss im geschützten Bereich
+untergebracht sein, d.h. z.[redacted-person] der AWC-Feldspule.</p>
+<p>[redacted-person] AWC ist eine HV-Abschaltung erforderlich.
+[redacted-person] des AWCs am Fahrzeug ist sicherzustellen.</p>
+<p><em>[A: E-BT-LAH-140]</em></p>
+<p><em>[A: E-BT-LAH-141]</em></p>
+</blockquote>
+<h2 id="anforderungen-an-hv-koordinator-hvk">Anforderungen an
+HV-Koordinator (HVK)</h2>
+<blockquote>
+<p><em>[A: E-BT-LAH-142]</em></p>
+<p>Ist im Fahrzeug ein Range-Extender verbaut, muss dieser bei
+HV-Abschaltung abgeschaltet und die Kraftstoffzufuhr unterbrochen
+werden.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-143]</em></p>
+<blockquote>
+<p>Nach einer HV-Abschaltung darf das Ladegerät nur noch durch den
+Kundendienst</p>
+<p>/ Werkstatt wieder in Betrieb genommen werden. [redacted-person] kann sein
+Fahrzeug nicht mehr durch das verbaute Ladegerät laden.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-144]</em></p>
+<blockquote>
+<p>Nach einer HV-Abschaltung darf das AWC (automotive wireless charging)
+nicht mehr vom Kunden in Betrieb genommen werden können. Das AWC kann
+nur durch den Kundendienst / Werkstatt wieder in Betrieb genommen
+werden.</p>
+</blockquote>
+<ol start="9" type="1">
+<li><p>Anforderungen an E-Maschine<em>[A: E-BT-LAH-145]</em></p></li>
+</ol>
+<blockquote>
+<p>Die E-Maschine darf im Falle eines Crashs keine Energie ins HV-Netz
+zurückspeisen. Die dafür notwendigen Bedingungen (z.[redacted-person]
+Getriebe, Erregerkreisspannung, Zustand der Verbrennungskraftmaschine,
+Leistungselektronik) sind mit der Fahrzeugsicherheit und den zuständigen
+Partnerabteilungen abzustimmen.</p>
+</blockquote>
+<h2 id="anforderungen-an-elektrifiziertes-getriebe">Anforderungen an
+elektrifiziertes Getriebe</h2>
+<p><em>[A: E-BT-LAH-146]</em></p>
+<blockquote>
+<p>[redacted-person] an das Getriebe richten sich in erster Linie
+danach, dass die E- Maschine keine Energie mehr in das HV-Netz
+zurückspeisen kann. Um dies zu gewährleisten sind die erforderlichen
+Maßnahmen / Anforderungen mit der Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<h2 id="anforderungen-an-hv-leitungen">Anforderungen an
+HV-Leitungen</h2>
+<p><em>[I: E-BT-LAH-147]</em></p>
+<blockquote>
+<p>An die Verbindungsleitung zwischen Ladedose und Ladegerät
+(spannungsfrei im Fahrbetrieb) besteht seitens Fahrzeugsicherheit keine
+Anforderung. [redacted-person] und Gefährdungen durch das Laden mit
+beschädigten Ladedosen und –kabeln muss seitens der HV-Sicherheit und
+Gebrauchssicherheit bewertet werden.</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-148]</em></p>
+<blockquote>
+<p>Es sind Überlängen bei HV-Leitungen zu berücksichtigen, um etwaige
+Relativbewegungen der HV-Komponenten ohne einen Leitungsabriss zu
+ermöglichen.</p>
+<p>[redacted-person] besteht die Anforderung:</p>
+<p>Es darf keine Spannung U&gt;= 60VDC oder U&gt;=30VAC. bei der Prüfung
+nach IPXXD Innenraum, IPXXB Außenraum messbar sein. Im Crash abgerissene
+Leitungen oder Kurzschlüsse sind denkbar wenn:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] für diesen Crashfall robust (ohne Gefährdung
+der Trenneinrichtung durch den Kurzschluss/Abriss) erfolgt.</p></li>
+<li><p>[redacted-person] zeitlich schon vor dem Auftreten des
+Kurzschlusses sicher geöffnet ist und somit keine Kurzschlussströme über
+das Trennelement mehr fließen.</p></li>
+<li><p>die Energie, welche in einem evtl. auftretenden Lichtbogen im
+Umfeld von Feststoffen entstehen könnte, ist E&lt;1kJ. Flüssige /
+gasförmige Medien sind gesondert zu betrachten.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] der Energien ist vom Komponentenverantwortlichen zu
+erbringen und mit der Fahrzeugsicherheit abzustimmen</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-149]</em></p>
+<blockquote>
+<p>[redacted-person] von HV-AC-Leitungen ist zu vermeiden. [redacted-person] von HV-AC-Leitungen zwischen Wechselrichter und
+E-Maschine ist jedoch unter folgenden Prämissen denkbar:</p>
+</blockquote>
+<ul>
+<li><p>Nur eine HV-AC Leitung einer dreiphasigen E-Maschine reißt ab,
+dadurch sind das Schalten des aktiven Kurzschlusses und das Abbremsen
+der E- Maschine noch möglich.</p></li>
+<li><p>[redacted-person], welche in einem evtl. auftretenden Lichtbogen
+entstehen könnte, ist E&lt;1kJ. [redacted-person] der Energien ist vom
+Komponentenverantwortlichen zu erbringen und mit der Fahrzeugsicherheit
+abzustimmen.</p></li>
+</ul>
+<h1 id="anhänge">Anhänge</h1>
+<h2 id="lastfalldefinitionen">Lastfalldefinitionen</h2>
+<h2 id="anhang-1---generische-barriere">Anhang 1 - [redacted-person]</h2>
+<p><img src="./01_Front_Crash-lah-dum-880-as-3-1anforderungen-der-fahr-media/media/image6.jpeg" style="width:6.29579in;height:2.55917in"/></p>
+<p><img src="./01_Front_Crash-lah-dum-880-as-3-1anforderungen-der-fahr-media/media/image7.jpeg" style="width:6.0451in;height:3.275in"/></p>
+<h2 id="anhang-2-lkw-unterfahrer-frontal-audi-projektspezifisch">Anhang
+2 – LKW-Unterfahrer frontal ([redacted-co] projektspezifisch)</h2>
+<p><img src="./01_Front_Crash-lah-dum-880-as-3-1anforderungen-der-fahr-media/media/image8.png" style="width:6.15857in;height:4.09635in"/></p>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p><em>[A: E-BT-LAH-766]</em></p>
+<p>Es gelten die am Ausgabedatum des BT-LAH gültigen mitgeltenden
+Unterlagen, sowie die darin genannten Dokumente.</p>
+<p>Insbesondere das Erprobungslastenheft für Drücktests mit
+Batteriezellmodulen LAH.[redacted-phone]</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-767]</em></p>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den für dieses BT-LAH
+gültigen mitgeltenden Unterlagen zu arbeiten.</p>
+<p><strong>Bezugsquelle:</strong></p>
+<p><em>[I: E-BT-LAH-769]</em></p>
+<p>Dokumente können über die B2B-Lieferantenplattform des [redacted-person] unter der Internetadresse: <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+mit einer Zugangsberechtigung abgerufen werden. (Kontakt auch über
+[redacted]99 bzw. International:</p>
+<p>[redacted-phone] oder e-Mail: <a href="mailto:supplierintegration@vwgroupsupply.com">[redacted-email]</a>
+)</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-770]</em></p>
+<blockquote>
+<p>Lastenhefte der HV-Komponenten: Batterie, Leistungselektronik,
+Ladegerät, Klimakompressor sind von den Bauteilverantwortlichen der
+zuständigen Fachabteilungen zur Verfügung zu stellen.</p>
+</blockquote>
+<p><em>[A: E-BT-LAH-777]</em></p>
+<blockquote>
+<p>Für [redacted-co] Sicherheitsauslegung E-Fahrzeuge“ der Abteilung EKSG</p>
+<p>QLAH Crashreaktionen LAH.DUM.959.E</p>
+<p>TL 1011</p>
+<p>[redacted-co]99000:</p>
+<p><em>[A: E-BT-LAH-781]</em></p>
+<p>[redacted-person] zur Leistungserbringung im Rahmen der
+Bauteilentwicklung</p>
+<p>[redacted-co]99000-1:</p>
+<p><em>[A: E-BT-LAH-782]</em></p>
+<p>Teil 1: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Planungsfreigabe</p>
+<p>[redacted-co]99000-2:</p>
+<p><em>[A: E-BT-LAH-783]</em></p>
+<p>Teil 2: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Beschaffungsfreigabe</p>
+<p>[redacted-co]99000-3:</p>
+<p><em>[A: E-BT-LAH-784]</em></p>
+<p>Teil 3: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Konstruktions- ([redacted-co]) bzw. Entwicklungsfreigabe
+(VW)</p>
+<p>[redacted-co]99000-4:</p>
+<p><em>[A: E-BT-LAH-785]</em></p>
+<p>Teil 4: [redacted-person] zur Leistungserbringung im Rahmen
+der [redacted-person]</p>
+<p>DIN EN ISO 9001</p>
+<p><em>[A: E-BT-LAH-771]</em></p>
+</blockquote>
+<h1 id="definitionen-begriffe-abkürzungen">Definitionen, Begriffe,
+Abkürzungen</h1>
+<h3 id="hv-batterie">HV-Batterie</h3>
+<blockquote>
+<p><em>[I: E-BT-LAH-772]</em></p>
+<p>Batteriemodule einschließlich Gehäuse, Batterieelektronik inkl.
+Peripherie für Ausführung der sicherheitsrelevanten Funktionen,
+Anschlüsse und Befestigung.</p>
+<p>HV-Batterie ist das wieder aufladbare Energiespeichersystem, das
+elektrische Energie für den Antrieb liefert.</p>
+</blockquote>
+<h3 id="definition-deformationszone">[redacted-person]</h3>
+<blockquote>
+<p><em>[I: E-BT-LAH-773]</em></p>
+<p>[redacted-person] gelten die Bereiche, welche im Feld sowie bei
+Laborlastfällen eine hohe Deformationswahrscheinlichkeit aufweisen,
+z.B.: vor und hinter den Radachsen und die Bereiche außerhalb der
+Längsträgerstruktur.</p>
+<p><strong>2-Tages-Produktion</strong></p>
+<p>siehe Formel-Q-Konkret</p>
+<p><strong>A-Muster:</strong></p>
+<p>Darstellung der Grundfunktionen zur Abstimmung des
+Bauteil-Lastenheftes:</p>
+</blockquote>
+<ul>
+<li><p>Vervollständigung des Bauteil-Lastenheftes</p></li>
+<li><p>Erprobung von alternativen Funktionen</p></li>
+<li><p>[redacted-person] Ziele:</p></li>
+<li><p>Konzept bestätigen und ergänzen</p></li>
+<li><p>BT-LAH endgültig festschreiben</p></li>
+</ul>
+<blockquote>
+<p><strong>Baumustergenehmigung:</strong></p>
+<p>siehe [redacted-co]99000-4</p>
+<p><strong>B-Muster (Grundsatzmuster):</strong></p>
+<p>Umsetzung des Bauteil-Lastenheftes in seriennaher Form:</p>
+</blockquote>
+<ul>
+<li><p>Zeichnungen, Schalt- und Bestückungsplan und Layout sowie
+Softwarebeschreibung entsprechend vorliegendem Baustand
+vorhanden</p></li>
+<li><p>[redacted-person], Layout, Bestückung und Software in
+seriennaher Ausführung (aus Hilfswerkzeugen)</p></li>
+<li><p>Erfüllung sämtlicher Funktionsanforderungen</p></li>
+<li><p>Beseitigung von Fehlern, Änderungen in begrenztem Umfang
+möglich</p></li>
+<li><p>Laborprüfungen sind vom Auftragnehmer durchzuführen
+Ziele:</p></li>
+<li><p>[redacted-person] durch Labor- und Fahrversuche
+feststellen</p></li>
+<li><p>Beauftragung der Werkzeuge für die Einzelteile durch die
+Beschaffung</p></li>
+</ul>
+<blockquote>
+<p><em>[I: E-BT-LAH-899]</em></p>
+<p><em>[I: E-BT-LAH-719]</em></p>
+<p><em>[I: E-BT-LAH-722]</em></p>
+<p><em>[I: E-BT-LAH-723]</em></p>
+<p><em>[I: E-BT-LAH-725]</em></p>
+<p><strong>C-Muster ([redacted-person]):</strong></p>
+<p>[redacted-person]- oder Serienfertigungsanlage hergestellte Teile:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] aus Serien-Fertigung</p></li>
+<li><p>Serien-Software</p></li>
+<li><p>[redacted-person] bezüglich Spezifikation</p></li>
+<li><p>Dokumentationen (Zeichnungen, Schaltungsunterlagen, usw.) und
+Prüfberichte liegen komplett vor</p></li>
+</ul>
+<blockquote>
+<p>Ziele:</p>
+</blockquote>
+<ul>
+<li><p>Serientauglichkeit bestätigen</p></li>
+<li><p>Baumustergenehmigung durch die [redacted-person] des
+Auftraggebers</p></li>
+</ul>
+<blockquote>
+<p><strong>Erprobung:</strong></p>
+<p>Gesamtumfang aller Tests und/oder Prüfungen</p>
+<p><strong>erkennen offener HV-Leitungen (EoHVL):</strong></p>
+<p><em>[I: E-BT-LAH-726]</em></p>
+<p><em>[I: E-BT-LAH-774]</em></p>
+<p>[redacted-person] wird durch einen Crashsignal getriggert und überprüft
+die Leitungen LE&lt;=&gt;Ladegerät, Ladegerät&lt;=&gt;EKK und
+Ladegerät&lt;=&gt;PTC auf Leitungsabrisse.</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-898]</em></p>
+<blockquote>
+<p><strong>Erstmuster:</strong></p>
+<p>siehe Formel-Q-Konkret</p>
+</blockquote>
+<h3 id="crashfall">Crashfall:</h3>
+<blockquote>
+<p><em>[I: E-BT-LAH-775]</em></p>
+<p>Crashfall bezieht sich, wenn nicht anderen spezifiziert auf
+<u>Standardlastfälle</u>: ODB 64km/h; 0° 56km/h; 32km/h [redacted-person]; MDB
+54km/h: PAG / 35km/h Pfahl frontal; LKW Unterfahrer 30km/h: [redacted-co] &amp;
+VW; Seiten-Barriere 62km/h und Heck ODB 80km/h mit werkstatt-reversibler
+HV-Abschaltung und <u>no fire Lastfälle</u> ohne HV-Abschaltung.</p>
+</blockquote>
+<h3 id="aktive-spannungsführende-teile">Aktive spannungsführende
+Teile:</h3>
+<blockquote>
+<p><em>[I: E-BT-LAH-776]</em></p>
+<p>„Aktive spannungsführende Teile“ sind die leitfähigen Teile, an die
+bei normaler</p>
+<p>Verwendung eine Spannung angelegt wird.</p>
+</blockquote>
+<h3 id="hochspannung-hv">Hochspannung HV:</h3>
+<blockquote>
+<p><em>[I: E-BT-LAH-778]</em></p>
+<p>Hochspannung ist die Spannung, für die ein elektrisches Bauteil oder
+ein Stromkreis ausgelegt ist, dessen Effektivwert der Betriebsspannung
+&gt; 60 V und ≤ 1 500 V (Gleichstrom) oder &gt; 30 V und ≤ 1 000 V
+(Wechselstrom) ist.</p>
+</blockquote>
+<h3 id="leistungselektronik-le">Leistungselektronik LE:</h3>
+<blockquote>
+<p><em>[I: E-BT-LAH-779]</em></p>
+<p>[redacted-person] wandelt nach Vorgaben des Hybridcontrollers
+elektrische Energie hinsichtlich ihrer Polarität, Spannung, Frequenz und
+Phasenlage von der Batterie mit Gleichspannung (DC, direct current) zu
+der E-Maschine mit Wechselspannung (AC, alternating current).</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-780]</em></p>
+<h3 id="klimakompressor">Klimakompressor:</h3>
+<blockquote>
+<p>[redacted-person] (auch Verdichter genannt) sorgt für die
+Verdichtung des gasförmigen Kältemittels im Kreislauf einer Klimaanlage
+und wird entweder über den Fahrzeugmotor oder durch Elektromotor
+angetrieben.</p>
+</blockquote>
+<h3 id="ladegerät">Ladegerät:</h3>
+<blockquote>
+<p>[redacted-person] für die Ladung der HV-Batterie verwendet.</p>
+<p><strong>AC</strong></p>
+<p>Wechselstrom (eng.: alternating current)</p>
+<p><strong>A-CAN</strong></p>
+<p>Antriebs - Controller-Area-Network</p>
+<p><strong>AKS</strong></p>
+<p>[redacted-person]</p>
+<p><strong>3D</strong></p>
+<p>Dreidimensional</p>
+<p><strong>BEV / EV</strong></p>
+<p>Battery electric vehicle / Electric vehicle</p>
+<p><strong>BMG</strong></p>
+<p>Baumustergenehmigung</p>
+<p><strong>BMS</strong></p>
+<p>[redacted-person]</p>
+<p><strong>BT-LAH</strong></p>
+<p>Bauteil-Lastenheft</p>
+<p><strong>B-Freigabe</strong></p>
+<p>Beschaffungsfreigabe</p>
+<p><strong>CAD</strong></p>
+<p>[redacted-person] Design</p>
+<p><strong>CAN</strong></p>
+<p>Controller-Area-Network</p>
+<p><strong>CCC</strong></p>
+<p>[redacted-person] Certification</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-786]</em></p>
+<p><em>[I: E-BT-LAH-787]</em></p>
+<p><em>[I: E-BT-LAH-788]</em></p>
+<p><em>[I: E-BT-LAH-789]</em></p>
+<p><em>[I: E-BT-LAH-729]</em></p>
+<p><em>[I: E-BT-LAH-790]</em></p>
+<p><em>[I: E-BT-LAH-747]</em></p>
+<p><em>[I: E-BT-LAH-791]</em></p>
+<p><em>[I: E-BT-LAH-731]</em></p>
+<p><em>[I: E-BT-LAH-792]</em></p>
+<p><em>[I: E-BT-LAH-732]</em></p>
+<p><em>[I: E-BT-LAH-793]</em></p>
+<p><em>[I: E-BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p><strong>CMVSS</strong></p>
+<p>[redacted]Standards</p>
+<p><strong>DC</strong></p>
+<p>Gleichstrom (eng.: direct current)</p>
+<p><strong>DIN</strong></p>
+<p>[redacted-person] für Normung</p>
+<p><strong>DMU</strong></p>
+<p>[redacted-person]-Up</p>
+<p><strong>ECE</strong></p>
+<p>[redacted-person] for Europe</p>
+<p><strong>EU</strong></p>
+<p>[redacted-person]</p>
+<p><strong>EG</strong></p>
+<p>[redacted-person]</p>
+<p><strong>EoHVL</strong></p>
+<p>Erkennen offener [redacted-person]</p>
+<p><strong>FMEA</strong></p>
+<p>Failure mode and effects analysis</p>
+<p><strong>FMVSS</strong></p>
+<p>[redacted]Standards</p>
+<p><strong>FTA</strong></p>
+<p>[redacted-person] Analysis</p>
+<p><strong>H-CAN</strong></p>
+<p>Hybrid - Controller-Area-Network</p>
+<p><strong>HEV</strong></p>
+<p>Hybrid electric vehicle</p>
+<p><strong>HiL</strong></p>
+<p>Hardware in the Loop</p>
+</blockquote>
+<p><em>[I: E-BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: E-BT-LAH-794]</em></p>
+<p><em>[I: E-BT-LAH-795]</em></p>
+<p><em>[I: E-BT-LAH-734]</em></p>
+<p><em>[I: E-BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: E-BT-LAH-796]</em></p>
+<p><em>[I: E-BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: E-BT-LAH-797]</em></p>
+<p><em>[I: E-BT-LAH-738]</em></p>
+<p><em>[I: E-BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: E-BT-LAH-740]</em></p>
+<p><em>[I: E-BT-LAH-798]</em></p>
+<p><em>[I: E-BT-LAH-799]</em></p>
+<p><em>[I: E-BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: E-BT-LAH-741]</em></p>
+<blockquote>
+<p><strong>HW</strong></p>
+<p>Hardware</p>
+<p><strong>HV</strong></p>
+<p>Hochvolt</p>
+<p><strong>iHEV</strong></p>
+<p>Intelligent hybrid electric vehicle</p>
+<p><strong>ISO</strong></p>
+<p>[redacted-person] Organisation</p>
+<p><strong>KW</strong></p>
+<p>Kalenderwoche</p>
+<p><strong>LAH</strong></p>
+<p>Lastenheft</p>
+<p><strong>LE</strong></p>
+<p>Leistungselektronik</p>
+<p><strong>LKW</strong></p>
+<p>Lastkraftwagen</p>
+<p><strong>MOS</strong></p>
+<p>Märkte ohne Sicherheitstandards</p>
+<p><strong>NAR</strong></p>
+<p>[redacted-person] Raum (eng.: [redacted-person] Region)</p>
+<p><strong>ppm</strong></p>
+<p>Parts per Million</p>
+<p><strong>PDM</strong></p>
+<p>Produktdatenmanagement</p>
+<p><strong>PHEV</strong></p>
+<p>Plug-In Hybrid electric vehicle</p>
+<p><strong>PTC</strong></p>
+<p>Positive temperature coefficient</p>
+<p><strong>PVS</strong></p>
+</blockquote>
+<p><em>[I: E-BT-LAH-800]</em></p>
+<p><em>[I: E-BT-LAH-801]</em></p>
+<p><em>[I: E-BT-LAH-748]</em></p>
+<p><em>[I: E-BT-LAH-749]</em></p>
+<p><em>[I: E-BT-LAH-750]</em></p>
+<p><em>[I: E-BT-LAH-751]</em></p>
+<p><em>[I: E-BT-LAH-752]</em></p>
+<p><em>[I: E-BT-LAH-753]</em></p>
+<p><em>[I: E-BT-LAH-754]</em></p>
+<p><em>[I: E-BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: E-BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: E-BT-LAH-764]</em></p>
+<p><em>[I: E-BT-LAH-755]</em></p>
+<p><em>[I: E-BT-LAH-751]</em></p>
+<blockquote>
+<p>Produktionsversuchsserie</p>
+<p><strong>QM</strong></p>
+<p>Qualitätsmanagement</p>
+<p><strong>SE</strong></p>
+<p>[redacted-person]</p>
+<p><strong>SOP</strong></p>
+<p>Start of Production</p>
+<p><strong>SW</strong></p>
+<p>Software</p>
+<p><strong>TL</strong></p>
+<p>[redacted-person]</p>
+<p><strong>WD</strong></p>
+<p>Arbeitsversion (eng.: Working draft)</p>
+<p><strong>VDA</strong></p>
+<p>Verband der Automobilindustrie e.V.</p>
+<p><strong>ZAE</strong></p>
+<p>[redacted-person]</p>
+<p><strong>ZSB</strong></p>
+<p>Zusammenbau</p>
+</blockquote>
+<p><em>[I: E-BT-LAH-752]</em></p>
+<p><em>[I: E-BT-LAH-756]</em></p>
+<p><em>[I: E-BT-LAH-758]</em></p>
+<p><em>[I: E-BT-LAH-759]</em></p>
+<p><em>[I: E-BT-LAH-760]</em></p>
+<p><em>[I: E-BT-LAH-757]</em></p>
+<p><em>[I: E-BT-LAH-762]</em></p>
+<p><em>[I: E-BT-LAH-761]</em></p>
+<p><em>[I: BT-LAH-763]</em></p>
+</body>
+</html>

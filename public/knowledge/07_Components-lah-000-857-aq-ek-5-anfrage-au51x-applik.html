@@ -1,0 +1,1226 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH.[redacted-phone]AQ_EK-5_Anfrage_AU51x_Applikationsentwicklung Sicherheitsgurtsystem</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote>
+<blockquote>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+</blockquote>
+<p><img src="./07_Components-lah-000-857-aq-ek-5-anfrage-au51x-applik-media/media/image2.png" style="width:2.91667in;height:2.4375in"/>[redacted-person] LAH.[redacted-phone]AQ</p>
+<blockquote>
+<p>Projekte AU51x/4 EU_B Anfragelastenheft für
+Engineering-Leistungen</p>
+<p>Verteiler:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Name</p>
+</blockquote></th>
+<th><blockquote>
+<p>Vorname</p>
+</blockquote></th>
+<th><blockquote>
+<p>Abteilung</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#allgemeines">Allgemeines 4</a></p>
+<ol type="1">
+<li><p><a href="#bedeutung-des-lastenhefts">Bedeutung des Lastenhefts
+4</a></p></li>
+<li><p><a href="#strukturierte-anfrage">[redacted-person]
+4</a></p></li>
+<li><p><a href="#geltungsbereich">Geltungsbereich 5</a></p></li>
+</ol></li>
+<li><p><a href="#projektspezifische-auftragsinhalte">[redacted-person] 6</a></p>
+<ol type="1">
+<li><p><a href="#beschreibung-des-projektumfelds">Beschreibung des
+Projektumfelds 6</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark6">Projektleitung 6</a></p></li>
+<li><p><a href="#konzeptauslegung-gurtanordnung">[redacted-person]: 7</a></p></li>
+<li><p><a href="#serienentwicklung-gurtanordnung">[redacted-person]: 7</a></p></li>
+<li><p><a href="#gurtkonstruktion">Gurtkonstruktion: 7</a></p></li>
+<li><p><a href="#konstruktions-fmea">Konstruktions-FMEA: 8</a></p></li>
+<li><p><a href="#bauteil-applikationsentwicklung">Bauteil-Applikationsentwicklung:
+8</a></p></li>
+<li><p><a href="#funktion-im-fahrzeug">Funktion im Fahrzeug
+8</a></p></li>
+<li><p><a href="#stückliste-änderungsmanagement">Stückliste /
+Änderungsmanagement 8</a></p></li>
+</ol></li>
+<li><p><a href="#zielsetzung-des-projekts">Zielsetzung des Projekts
+9</a></p></li>
+<li><p><a href="#_bookmark15">[redacted-person]
+9</a></p></li>
+<li><p><a href="#erforderliche-fachkenntnisse">[redacted-person] 9</a></p></li>
+<li><p><a href="#leistungszeitraum">Leistungszeitraum 9</a></p>
+<ol type="1">
+<li><p><a href="#start-ende-des-projekts">Start / Ende des Projekts
+9</a></p></li>
+<li><p><a href="#_bookmark19">Meilensteine 9</a></p></li>
+</ol></li>
+<li><p><a href="#leistungsort">Leistungsort 10</a></p></li>
+<li><p><a href="#beistellungen-der-audi-ag">Beistellungen [redacted-co]
+10</a></p>
+<ol type="1">
+<li><p><a href="#it-beistellungen">IT-Beistellungen 10</a></p></li>
+</ol></li>
+<li><p><a href="#vergütung">Vergütung 10</a></p></li>
+<li><p><a href="#nebenkosten">Nebenkosten 10</a></p></li>
+<li><p><a href="#fachliche-ansprechpartner-der-audi-ag">[redacted]10</a></p></li>
+<li><p><a href="#sonstige-anforderungen">[redacted-person]
+10</a></p></li>
+<li><p><a href="#mitgeltende-lastenhefte-und-richtlinien">[redacted-person] und Richtlinien 11</a></p></li>
+</ol></li>
+<li><p><a href="#kaufmännische-rahmenbedingungen">[redacted-person] 12</a></p>
+<ol type="1">
+<li><p><a href="#verantwortung-informationspflichten-und-zusammenarbeit">Verantwortung,
+Informationspflichten und Zusammenarbeit 12</a></p></li>
+<li><p><a href="#durchführung-der-arbeiten">Durchführung der Arbeiten
+12</a></p></li>
+<li><p><a href="#leistungsfristen">Leistungsfristen 13</a></p></li>
+<li><p><a href="#änderung-der-leistung">Änderung der Leistung
+13</a></p></li>
+<li><p><a href="#abnahme">Abnahme 14</a></p></li>
+<li><p><a href="#vergütung-leistungsnachweis">Vergütung /
+Leistungsnachweis 14</a></p></li>
+<li><p><a href="#nutzungsrechte">Nutzungsrechte 15</a></p></li>
+<li><p><a href="#verwendung-von-freier-software">Verwendung von [redacted-person] 16</a></p></li>
+<li><p><a href="#schutzrechtsrecherchen-schutzrechte-dritter">Schutzrechtsrecherchen,
+[redacted-person] 16</a></p></li>
+<li><p><a href="#vertragslaufzeit-und-kündigung">Vertragslaufzeit und
+Kündigung 17</a></p></li>
+<li><p><a href="#_bookmark39">Allgemeines 17</a></p></li>
+</ol></li>
+</ol>
+<h2 id="mitgeltende-unterlagen-18"><a href="#_bookmark40">[redacted-person] 18</a></h2>
+<h1 id="allgemeines">Allgemeines</h1>
+<h2 id="bedeutung-des-lastenhefts">Bedeutung des Lastenhefts</h2>
+<blockquote>
+<p>Mit dem vorliegenden Lastenheft werden die kaufmännischen und
+technischen Vorgaben beschrie- ben, unter denen der Bieter, an den die
+Anfrage ergeht (im Folgenden „Auftragnehmer“ genannt), ein Angebot für
+den jeweils angefragten Arbeitsumfang abgeben kann.</p>
+<p>[redacted-person] beschreibt die betroffenen Schnittstellen, Prozesse,
+Rechte und die angeforderte Leistung als Grundlage für die Vergabe.</p>
+<p>[redacted-person] muss dieses Lastenheft in vollem Umfang bei seiner
+Angebotsgestaltung be- rücksichtigen. In seinem Angebot hat er sämtliche
+Leistungen zu berücksichtigen, die zur Erfüllung des Lastenheftes
+erforderlich sind. [redacted-person] soll sich unbedingt und ausschließlich
+auf das Las- tenheft beziehen und die Art und Weise der Erbringung der
+darin geforderten Leistungen nachvoll- ziehbar darstellen. Abweichungen
+zum Lastenheft sind im Angebot bzw. in den Bestellsystemen [redacted-co]
+unter Bezugnahme auf den jeweiligen Abschnitt ausdrücklich als solche
+kenntlich zu machen.</p>
+<p>Wird der Auftrag an den Auftragnehmer vergeben, stellt dieser sicher,
+dass die im Lastenheft be- schriebene Leistung vorgabegemäß gegenüber
+[redacted-co] erbracht wird.</p>
+<p>Die [redacted-co] behält sich das Recht vor, eine Kostenplausibilisierung
+vor der Beauftragung durchzu- führen und entsprechend nachzuverhandeln.
+Die angebotenen Preise und Termine dürfen nicht überschritten werden. Im
+Angebot enthalten sind alle notwendigen Änderungen zur Erreichung der
+Zielsetzungen und Funktionserfüllung des Lastenheftes.</p>
+<p>[redacted-person] des Lastenheftes ebenso wie die weiteren zur Verfügung
+gestellten Unterlagen unter- liegen der Geheimhaltung und dürfen Dritten
+nur mit ausdrücklicher Genehmigung des zuständi- gen Fachbereiches der
+[redacted-co] zugänglich gemacht werden. Soweit eine Weitergabe an Dritte,
+insbesondere an mit dem Auftragnehmer verbundene Unternehmen, für die
+Erstellung eines Ange- bots erforderlich ist und genehmigt wurde, hat
+der Auftragnehmer dafür Sorge zu tragen, dass die Vertraulichkeit
+sichergestellt ist.</p>
+</blockquote>
+<h2 id="strukturierte-anfrage">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] hat die strukturierte Anfrage [redacted-co]
+auszufüllen, also die geforderten Angaben zur Detaillierung und
+Plausibilisierung zu machen.</p>
+<p>[redacted-person] der strukturierten Anfrage erstellt der Auftragnehmer
+kostenlos ein entsprechend struk- turiertes Angebot. In diesem Angebot
+müssen alle Details zur Herleitung des Angebotswertes und</p>
+<p>zur Plausibilisierung enthalten sein. Dies umfasst insbesondere den
+prognostizierten Aufwand an Arbeitsstunden beim Auftragnehmer. Sollten
+seitens [redacted-co] weitere Details zum Angebot ge- fordert werden, wird
+der Auftragnehmer diese unverzüglich und kostenlos zur Verfügung
+stellen.</p>
+</blockquote>
+<h2 id="geltungsbereich">Geltungsbereich</h2>
+<blockquote>
+<p>Das vorliegende Lastenheft bezieht sich ausschließlich auf Leistungen
+im Rahmen der Projektabläu- fe. Dies können u. [redacted-person],
+Konstruktions-, Berechnungs-, Prüfstands-, Versuchs-, Erpro- bungs-,
+Werkstatt- und Projektmanagementleistungen sein.</p>
+<p>Art und Umfang der Leistung richten sich nach diesem Lastenheft, es
+sei denn, ein Sachverhalt wird individuell ausgehandelt und ausdrücklich
+schriftlich abweichend geregelt.</p>
+</blockquote>
+<h1 id="projektspezifische-auftragsinhalte">[redacted-person]</h1>
+<h2 id="beschreibung-des-projektumfelds">Beschreibung des
+Projektumfelds</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>AU513/4 EU_B
+(SB)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>AU512/4</strong></p>
+<p><strong>EU_B (Avant)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>2.1.1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Projektleitung</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.2</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.3</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Gurtkonstruktion</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konstruktions-FMEA</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Bauteil-Applikationsentwicklung</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Funktion im Fahrzeug</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.8</p>
+</blockquote></td>
+<td><blockquote>
+<p>Stückliste / Änderungsmanagement</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+<td><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="projektleitung">Projektleitung:</h2>
+<blockquote>
+<p>Koordination des oben beschriebenen Gewerkumfangs gemäß den in den
+Abschnitten 2.1.2 bis</p>
+<p>2.1.8 beschriebenen Aufgaben- und Tätigkeitsbeschreibungen.</p>
+<p>Sicherstellen des fachlichen Informationsaustausches für das
+Fahrzeugprojekt innerhalb der Fahr- zeugsicherheit [redacted-person] und den
+beteiligten Fachbereichen.</p>
+<p>Erstellung und Verfolgung von Bauteilterminplänen, Gewichts- und
+Freigabelisten zur Einhaltung der [redacted-co]-Meilensteine.</p>
+<p>Darstellung des Entwicklungsfortschritts in [redacted-co]-Gremien.</p>
+<p>Teilnahme an Teil für Teil-Gesprächen und Koordination aktueller
+Bauteilstände zum Aufbau von Prototypen (z.[redacted-person] Abnahmefahrten) und
+Vorserienfahrzeugen.</p>
+</blockquote>
+<h2 id="konzeptauslegung-gurtanordnung">[redacted-person]:</h2>
+<blockquote>
+<p>Umsetzung der Gurtanordnung in einem Fahrzeugprojekt in der
+Konzeptphase bis zum Projektmei- lenstein Konzeptentscheid (KE).</p>
+<p>Es müssen Bauraumuntersuchungen durchgeführt und Gurtaufroller,
+Gurt-Höhenversteller, Gurt- schlösser sowie Gurtumlenkungen/-führungen
+etc. positioniert werden. [redacted-person] müssen die Vorgaben der
+Modulpackages erfüllen. Die CAD-Daten müssen dahingehend stets überprüft
+werden.</p>
+<p>[redacted-person]/-führungen, Halter, Beschläge und Befestigungen
+sind neben der konstruk- tiven auch die Festigkeitsauslegung
+(Bauteilsimulation) gemäß [redacted-prj] Berechnung Si-
+cherheitsgurte (LAH.DUM.857.BB) durchzuführen.</p>
+<p>Zusätzlich ist der Verbau von Kindersitzen und Prüfkörpern gemäß der
+[redacted-person]- cherheit mittels CAD sicherzustellen.</p>
+<p>Es sind regelmäßige Abstimmungen mit den Ansprechpartnern der
+Fachbereiche der angrenzenden Bauteile und gegebenenfalls innerhalb des
+VW-Konzerns erforderlich.</p>
+<p>[redacted-person] an Dienstreisen ist vorzuhalten.</p>
+</blockquote>
+<h2 id="serienentwicklung-gurtanordnung">[redacted-person]:</h2>
+<blockquote>
+<p>Umsetzung der Gurtanordnung in einem Fahrzeugprojekt in der
+Serienentwicklungsphase ab Kon- zeptentscheid bis zum Serienstart des
+Projektes (SOP + 3 Monate).</p>
+<p>Es müssen Bauraumuntersuchungen durchgeführt und Gurtaufroller,
+Gurt-Höhenversteller, Gurt- schlösser sowie Gurtumlenkungen/-führungen
+etc. positioniert werden. [redacted-person] müssen die Vorgaben der
+Modulpackages erfüllen. Die CAD-Daten müssen dahingehend stets überprüft
+werden.</p>
+<p>[redacted-person]/-führungen, Halter, Beschläge und Befestigungen
+sind neben der konstruk- tiven auch die Festigkeitsauslegung
+(Bauteilsimulation) gemäß [redacted-prj] Berechnung Si-
+cherheitsgurte durchzuführen.</p>
+<p>Zusätzlich ist der Verbau von Kindersitzen und Prüfkörpern gemäß der
+[redacted-person]- cherheit mittels CAD sicherzustellen.</p>
+<p>Es sind regelmäßige Abstimmungen mit den Ansprechpartnern der
+Fachbereiche der angrenzenden Bauteile und gegebenenfalls innerhalb des
+VW-Konzerns erforderlich.</p>
+<p>[redacted-person] an Dienstreisen ist vorzuhalten.</p>
+</blockquote>
+<h2 id="gurtkonstruktion">Gurtkonstruktion:</h2>
+<blockquote>
+<p>Die konstruktive Auslegung sowie die Positionierung der Bauteile des
+Gurtsystems in der Fahr- zeugumgebung (z.[redacted-person],
+Gurtschlosshalter etc.) erfolgt, in Abstimmung mit der Gur-
+tanordnungsentwicklung, gemäß den in den Abschnitten 2.1.2 und 2.1.3
+aufgeführten Projektpha- sen.</p>
+<p>[redacted-person] von Gurtumlenkungen/-führungen erfolgt gemäß
+Lastenheft Si. Gurtführung hin- ten außen, Si. Gurtführung vorne Säule
+[redacted-person] Auftragnehmer verantwortet neben der Bauteilkon- struktion und
+der Bauteilfestigkeit auch die Komponentenprüfungen.</p>
+<p>Datensätze, Teile-Ausstattungs-Listen (TAL) und Zeichnungen
+(Einzelteile und gesamte Lieferum- fänge) müssen erstellt und archiviert
+werden.</p>
+</blockquote>
+<h2 id="konstruktions-fmea">Konstruktions-FMEA:</h2>
+<blockquote>
+<p>Erstellung und Verfolgung einer System-FMEA für die Anordnung der
+Sicherheitsgurtbauteile in ei- nem Fahrzeugprojekt.</p>
+<p>Hierzu ist das System APIS IQ-FMEA-L zu verwenden.</p>
+<p>Es ist ein Team mit den zuständigen Ansprechpartnern der beteiligten
+Fachbereiche sowie z.[redacted]Montageplanung
+und bei Bedarf den betreffenden Bauteillieferanten zusammenzustellen und
+in regelmäßigen Sitzungen die FMEA-Formblätter abzuarbeiten.</p>
+<p>[redacted-person] der FMEA ist in regelmäßigen Statusberichten
+aufzuzeigen und zu den in den Pro- jektmeilensteinen vorgegebenen
+Terminen abzuschließen.</p>
+</blockquote>
+<h2 id="bauteil-applikationsentwicklung">Bauteil-Applikationsentwicklung:</h2>
+<blockquote>
+<p>Für die Sicherheitsgurtsysteme in einem Fahrzeugprojekt sind die
+Funktionen und Eigenschaften der Komponenten, unter Berücksichtigung
+deren Interaktion mit der Umgebung, zu entwickeln. Dies umfasst die
+[redacted-person], Gurtband, Steckzunge, Gurtumlenker,
+Höhenversteller, Endbeschläge, Endbeschlagstraffer, Gurtführungen und
+Gurtschlösser.</p>
+<p>Hierbei ist eine direkte Abstimmung mit den Lieferanten und der
+Systementwicklung der Fahrzeug- sicherheit erforderlich.</p>
+<p>[redacted-person] an Dienstreisen ist vorzuhalten.</p>
+</blockquote>
+<h2 id="funktion-im-fahrzeug">Funktion im Fahrzeug:</h2>
+<blockquote>
+<p>Überprüfung der Funktionen der Gurtsystemkomponenten und der
+Maßnahmen aus der Anord- nungs-FMEA im Fahrzeug. Dies umfasst unter
+anderem Geräuschverhalten (Knister-Knaster), Tra- gekomfort,
+Gurtaufrollen und Kindersitz-/Prüfkörpereinbau im Fahrzeug.</p>
+<p>Organisation und Durchführung von regelmäßigen Besprechungen mit den
+Gurtsystemlieferanten am Fahrzeug („[redacted-person]“), zur gemeinsamen
+Bewertung und Maßnahmendefinition der o.[redacted-person] im Projekt.</p>
+<p>Es ist sicherzustellen, dass in Erprobungs- und Abnahme-Fahrzeugen
+die aktuellen Bauteilestände verbaut und festgestellte Mängel abgestellt
+werden.</p>
+</blockquote>
+<h2 id="stückliste-änderungsmanagement">Stückliste /
+Änderungsmanagement:</h2>
+<blockquote>
+<p>Erstellung und Pflege der für das Fahrzeugprojekt notwendigen
+Bauteilstückliste in ESON sowie die regelmäßige Pflege von Sollterminen
+und Zertifikatspflichten in TEVON.</p>
+<p>Füllung der Aufbau-Stückliste für Prototypen- und
+Vorserienfahrzeuge.</p>
+<p>[redacted-person] von Änderungsdokumentationen sowie den
+zugehörigen Änderungsbe- gehren/-Vorhaben über AVON.</p>
+<p>Erstellung und Pflege von Bauteilübersichten für das
+Fahrzeugprojekt.</p>
+</blockquote>
+<h2 id="zielsetzung-des-projekts">Zielsetzung des Projekts</h2>
+<blockquote>
+<p>[redacted-person] der unter Abschnitt 2.1 beschriebenen Aufgaben ist in
+regelmäßigen Projektsta- tusreviews aufzuzeigen und zu den unter
+Abschnitt 2.5.2 aufgeführten Meilensteinen gemäß einer
+Meilensteincheckliste nachzuweisen. Hierzu ist im Anhang eine Vorlage
+beigefügt.</p>
+<p>[redacted-person] des beauftragten Gewerkes sind gegenüber der
+Gesamtprojektleitung der Fahrzeugsicherheit, [redacted-person], folgendermaßen
+aufzuzeigen und zu dokumentieren:</p>
+</blockquote>
+<ul>
+<li><p>Terminstatus der Bauteile in TEVON und ESON,</p></li>
+<li><p>Bauteil-Termin-, -Gewichts- und -Technikänderungen im
+Projektstatusblatt und Bauteil- monitor,</p></li>
+<li><p>Befüllung von [redacted-person] (TPB) für den
+beauftragten Bauteile- umfang des Gewerks,</p></li>
+<li><p>Bauteilstatus in der [redacted-person]-Projektstatusrunde,</p></li>
+<li><p>Aufbaustückliste (ASL) für jede Integrationsstufe ISx vor dem
+[redacted-person] Teil-für-Teil-Gespräch.</p></li>
+</ul>
+<blockquote>
+<p>Für die [redacted-person] von Bauteilen sind, in Abstimmung mit dem
+Fachkoordinator der Fach- abteilung [redacted-id], freigabefähige Unterlagen
+von den Lieferanten einzuholen und der Fachabtei- lung vorzulegen.</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>[redacted-person], Normen,
+technische Leitlinien, Betriebsmittelvorschriften etc. (soweit nicht
+unter Abschnitt 4. erfasst)</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] 4.</p>
+</blockquote>
+<h2 id="erforderliche-fachkenntnisse">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] gewährleistet, dass er die zur Abarbeitung des
+Umfangs erforderlichen Fach- kenntnisse hat. Hierzu zählen aus Sicht der
+[redacted-co] insbesondere:</p>
+<p>Bei den oben beschriebenen Tätigkeiten sind Statusberichte und
+Präsentationsunterlagen aufzube- reiten, die zur Entscheidungsfindung
+innerhalb [redacted-co] verwendet werden können. Hierzu sind Kenntnisse in
+den [redacted-person].</p>
+<p>Weiterhin sind, je nach oben beschriebener Tätigkeit, Kenntnisse in
+den EDV-Systemen HyperKVS, CONNECT, CATIA V5, LCS, RAMSIS, eBTD, DMU,
+AVxNT ([redacted-co] Workbench), AVON, TEVON, VDSwin,</p>
+<p>VISVERDI, FalCon, APIS IQ-FMEA-L etc. erforderlich.</p>
+<p>Für technische Abstimmungen mit Schnittstellenpartnern, Lieferanten
+oder innerhalb des VW- Konzerns werden gegebenenfalls
+verhandlungssichere Englischkenntnisse benötigt.</p>
+</blockquote>
+<h2 id="leistungszeitraum">Leistungszeitraum</h2>
+<h2 id="start-ende-des-projekts">Start / Ende des Projekts</h2>
+<blockquote>
+<p>[redacted-person] und die
+jeweiligen SOPs der Derivate werden im EK-Lastenheft LAH.85H.800 A</p>
+<p>festgelegt.</p>
+<p><strong>Projektstart</strong>: Meilenstein PF Ersteinsetzer,
+frühestens jedoch mit Beauftragung. Die zum Projekt- start noch offenen
+Konzeptthemen sind im Angebot zu berücksichtigen.</p>
+<p><strong>Projektende</strong>: letzter Anlauf +3Monate (aktuell Anlauf
+7, siehe EK- LAH LAH.85H.800 A)</p>
+</blockquote>
+<h2 id="meilensteine">Meilensteine</h2>
+<blockquote>
+<p>Aufgeführt in den aktuellen übergeordneten Projektterminplänen der
+Baureihe (Steuerungstermin- plan, Anlaufstaffelung, etc.).</p>
+<p>LAH.85H.800 A Anlage 13 (Terminplan)</p>
+<p>Bauteilterminpläne und spezifische Entwicklungs-Terminpläne für die
+Fahrzeugsicherheit (z.[redacted-person] suchsplan) sind vom Auftragnehmer zu
+erstellen und zu pflegen und über die Projektgremien der [redacted-co] (z.[redacted-person]) zu kommunizieren.</p>
+</blockquote>
+<h2 id="leistungsort">Leistungsort</h2>
+<blockquote>
+<p>[redacted-addr] bzw. am Standort des Auftragsnehmers</p>
+</blockquote>
+<h2 id="beistellungen-der-audi-ag">Beistellungen [redacted-co]</h2>
+<h2 id="it-beistellungen">IT-Beistellungen</h2>
+<blockquote>
+<p>Die notwendigen IT-Beistellungen durch Auftragnehmer bzw.
+Auftraggeber sind den LAH- Ergänzungen zum Umfang der erforderlichen
+Anbindungstechnologien zu entnehmen.</p>
+<p><u>Anlagen:</u></p>
+</blockquote>
+<ul>
+<li><p>Gewerkeprofil GP CAT</p></li>
+<li><p>Gewerkeprofil GP CAD</p></li>
+<li><p>Anleitung und IT-Mengengerüst GP CAT</p></li>
+</ul>
+<h2 id="vergütung">Vergütung</h2>
+<blockquote>
+<p>[redacted-person] 3.6.</p>
+<p>[redacted-person] der Leistungen erfolgt mit Leistungsnachweisen, anhand
+der in den ca. 4-wöchig stattfindenden Projektreviews vorgestellten
+Projektfortschrittsberichten.</p>
+</blockquote>
+<h2 id="nebenkosten">Nebenkosten</h2>
+<blockquote>
+<p>Dienstreisen und Erprobungen sind nach Aufwand, gegen Nachweis,
+separat als Nebenkosten abzu- rechnen (Ausweisen der Kosten für Hotel,
+Spesen, Kraftstoff, etc.).</p>
+<p>Hierzu ist im Festpreisangebot ein separater Posten pauschal
+auszuweisen.</p>
+</blockquote>
+<h2 id="fachliche-ansprechpartner-der-audi-ag">[redacted]</h2>
+<blockquote>
+<p>Projektintegrator(en) der Abteilung [redacted-id]:</p>
+<p>[redacted]Tel.: [redacted-phone]1</p>
+</blockquote>
+<h2 id="sonstige-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] rüstet seine Mitarbeiter mit Mobiltelefon und
+Laptop, mit der für die oben beschriebenen Tätigkeiten erforderlichen
+Software, aus. [redacted-person] wird nach Vertragsende zur Datensicherung und
+Datenentfernung vorübergehend [redacted-co] zur Verfügung gestellt.</p>
+</blockquote>
+<h2 id="mitgeltende-lastenhefte-und-richtlinien">[redacted-person]
+und Richtlinien</h2>
+<ul>
+<li><p>A00664 - [redacted-person] von CAD-Daten und technischen
+Doku-</p></li>
+</ul>
+<blockquote>
+<p>mentationen für die [redacted-person]</p>
+</blockquote>
+<ul>
+<li><p>LAH.DUM.857.D - Konzern-[redacted-person]</p></li>
+<li><p>LAH.DUM.857.L - [redacted-person]</p></li>
+<li><p>LAH.DUM.857.Q - [redacted-person] Sicherheitsgurte
+vorne</p></li>
+<li><p>LAH.DUM.857.S - [redacted-person] Sicherheitsgurte
+hinten</p></li>
+<li><p>LAH.DUM.857.AE - Si. Gurtführung hinten außen, Si. Gurtführung
+vorne Säule B</p></li>
+<li><p>LAH.DUM.857.BB - [redacted]</p></li>
+<li><p><em>LAH.XXX.857.B</em>* - <em>[redacted-person] AU16_X
+MEB</em></p></li>
+<li><p>LAH.85H.800 A - Anlage 13 Terminplan</p></li>
+</ul>
+<blockquote>
+<p>*: Nur zur Information bezüglich der Anforderungen an die
+Gurtkomponenten beim Systemlieferanten.</p>
+</blockquote>
+<h1 id="kaufmännische-rahmenbedingungen">[redacted-person]</h1>
+<h2 id="verantwortung-informationspflichten-und-zusammenarbeit">Verantwortung,
+Informationspflichten und Zusammenarbeit</h2>
+<ol type="1">
+<li><p>[redacted-person] erbringt seine Leistung selbstständig,
+eigenverantwortlich und ausschließ- lich mit qualifiziertem Personal.
+[redacted-person] erbringt seine Leistungen gemäß dem neuesten Stand von
+Wissenschaft und Technik und nach den Grundsätzen ordnungsgemäßer
+Berufsausübung einschließlich der Dokumentation. Etwaige technische,
+fachliche oder sonstige Vorgaben [redacted-co] entbinden den Auftragnehmer
+nicht von seiner Verpflichtung und Ver- antwortung für eine fehlerfreie
+Erbringung seiner Leistungen.</p></li>
+<li><p>[redacted-person] wird die Informationen, Unterlagen,
+projektbezogene Anweisungen, Anfor- derungen und ähnliche Vorgaben der
+[redacted-co] inhaltlich auf Vollständigkeit, [redacted-person]- sistenz und
+Umsetzbarkeit hin überprüfen. [redacted-person] wird der
+Auftragneh- mer gegenüber [redacted-co] unverzüglich schriftlich mit
+Begründung anzeigen.</p></li>
+<li><p>[redacted]wird der Auftragnehmer schriftliche und
+aussagekräftige Statusbe- richte verfassen.</p></li>
+<li><p>Die [redacted-co] wird dem Auftragnehmer die erforderlichen
+Informationen und Unterlagen nach Aufforderung zur Verfügung stellen.
+Darüber hinausgehende Mitwirkungsleistungen bedürfen einer gesonderten
+schriftlichen Vereinbarung.</p></li>
+<li><p>Werden von [redacted-co] insbesondere aus [redacted-person] (Hardware, Soft- ware etc.) zur Verfügung gestellt, so
+erfolgt dies leihweise. [redacted-person] sowie alle
+gegebenenfalls darauf gespeicherte Daten, Software etc. sind alleiniges
+Eigentum [redacted]sind ausschließlich für die
+Zwecke und die Dauer des beauftragten Arbeitsum- fangs zu verwenden. Sie
+sind nach Abschluss des Auftrags an [redacted-co] zurückzugeben oder, im Falle
+von ohne Hardware überlassener Software, zu löschen. Speziell für den
+Bereich IT (Hardware / Software) wird auf die Geltung der
+IT-Sicherheitshandlungsleitlinien hingewiesen.</p></li>
+</ol>
+<h2 id="durchführung-der-arbeiten">Durchführung der Arbeiten</h2>
+<ol type="1">
+<li><p>[redacted-person] ist für die Projektplanung und
+Leistungsdurchführung selbst verantwort- lich. Sollten für den
+[redacted-person] seitens [redacted-co] angegeben werden,
+so sind dies lediglich Schätzungen, die auf Erfahrungswerten
+basieren.</p></li>
+<li><p>[redacted-person] erbringt seine Leistung in regelmäßiger
+fachlicher Abstimmung mit [redacted-co] und benennt einen Projektleiter,
+der den Einsatz des Personals und die Erstellung des Gewerkes plant bzw.
+überwacht. [redacted-person] ist der verantwortliche Ansprechpartner
+für die [redacted-co] in Bezug auf sämtliche Belange des Projektes. [redacted-person] gegen- über kann die [redacted-co] Erklärungen mit Wirkung für
+den Auftragnehmer abgeben.</p></li>
+<li><p>Die vom Auftragnehmer eingesetzten Mitarbeiter unterliegen
+alleine dem Weisungsrecht des Auftragnehmers. [redacted-person] stellt
+sicher, dass das Weisungsrecht ausschließlich durch ihn ausgeübt wird.
+Die vom Auftragnehmer eingesetzten Personen treten in kein Arbeitsver-
+hältnis zur [redacted-co], auch soweit sie Leistungen auf deren
+Betriebsflächen erbringen.</p></li>
+<li><p>Wird eine vom Auftragnehmer zur Vertragserfüllung eingesetzte
+Person durch eine andere er- setzt oder ist generell eine Einarbeitung
+in den Auftrag (z. [redacted-person] zu für die Abarbeitung des Auftrags
+zwingend erforderlichen [redacted-co] IT-Systemen) erforderlich, so gehen die
+Kosten einer solchen Einarbeitung zu Lasten des Auftragnehmers. Bei der
+Auswahl wird der Auftragnehmer die Interessen [redacted-co] angemessen
+berücksichtigen. Die [redacted-co] kann mit Begründung den Austausch von vom
+Auftragnehmer zur Vertragserfüllung eingesetzten Personen verlan- gen,
+wenn diese wiederholt gegen vertragliche Pflichten verstoßen haben. Die
+durch den Aus- tausch entstehenden Kosten gehen zu Lasten des
+Auftragnehmers.</p></li>
+<li><p>[redacted-person] verpflichtet sich, bei den zur Erfüllung seiner
+Leistungen eingesetzten Mit- arbeitern durch geeignete Maßnahmen optisch
+kenntlich zu machen, dass sie Fremdfirmenmit- arbeiter sind und
+unbeteiligte Dritte dies jederzeit zweifelsfrei erkennen können.
+Insbesondere sind Ausweise sichtbar zu tragen.</p></li>
+<li><p>Nutzt der Auftragnehmer im Rahmen der [redacted-person], die von [redacted-co] gesondert angemietet worden sind
+oder zur Verfügung gestellt werden, hat der Auf- tragnehmer dies in der
+Kalkulation seiner Angebotspreise mindernd zu berücksichtigen. Die [redacted-co] ist berechtigt, gesondert angemietete Flächen dem Auftragnehmer zu
+vermieten und den Mietzins in Rechnung zu stellen. An den Räumlichkeiten
+ist durch geeignete Maßnahmen optisch kenntlich zu machen, welcher
+Auftragnehmer über sie verfügt. Ob eine Beistellung oder Vermietung
+erfolgt, bedarf einer Entscheidung im Einzelfall. Gleiches gilt für
+Betriebsmittel [redacted]für die Vorhaltung
+eigener Räumlichkeiten und Betriebsmit- tel sind bei der
+Angebotserstellung zu berücksichtigen.</p></li>
+<li><p>[redacted-person] des Auftrages oder Teilen des Auftrages an Dritte
+durch den Auftragnehmer bedarf der vorherigen schriftlichen Zustimmung
+[redacted-co]. Sollte die Lieferung und Leistung durch Dritte erfolgen,
+ist die Abrechnung nur durch den Auftragnehmer zulässig.</p></li>
+</ol>
+<h2 id="leistungsfristen">Leistungsfristen</h2>
+<ol type="1">
+<li><p>Die vereinbarten Leistungsfristen und Zeitpläne sind verbindlich
+und abschließend. In diesen Zeitplänen können gegebenenfalls
+Zwischentermine aufgenommen sein. Diese sind ebenfalls verbindlich.
+[redacted-person] können nur schriftlich und einvernehmlich geändert
+werden.</p></li>
+<li><p>Sollte der Auftragnehmer erkennen, dass er einen Termin
+möglicherweise nicht einhalten kann, unterrichtet er die [redacted-co]
+hierüber unverzüglich schriftlich. Er wird dabei Maßnahmen vor-
+schlagen, wie eine Absicherung der Termine erfolgen kann. [redacted-person] entbindet den Auf- tragnehmer nicht von seiner Verpflichtung
+zur Einhaltung der Termine. Unterbleibt die Mittei- lung, so hat der
+Auftragnehmer die Fristversäumnis unabhängig von der Ursache zu
+vertreten. Ist die Nichteinhaltung des Termins von [redacted-co] zu
+vertreten, so wird dieser Termin und etwaige Folgetermine auf für beide
+Seiten angemessene neue Termine festgesetzt.</p></li>
+</ol>
+<h2 id="änderung-der-leistung">Änderung der Leistung</h2>
+<ol type="1">
+<li><p>[redacted-person] ist bereit, Änderungs- und Ergänzungswünsche
+[redacted-co] für die Reali- sierung der in diesem Lastenheft
+beschriebenen Umfänge zu berücksichtigen. [redacted-person]- mer wird
+Änderungswünsche [redacted-co] nur aus wichtigem Grunde ablehnen. Als
+wichtiger Grund für eine Ablehnung gilt insbesondere, wenn nach
+begründeter Auffassung des Auftrag- nehmers die Leistung nicht
+ausführbar ist oder wenn die zur Durchführung der Änderung erfor-
+derlichen Ressourcen für den Auftragnehmer nicht verfügbar sind und auch
+nicht verfügbar gemacht werden können.</p></li>
+<li><p>[redacted-person] hat die von [redacted-co] gewünschten Änderungen
+betreffend deren Aus- wirkung auf Kosten, Investitionen und Termine zu
+bewerten und unter der Berücksichtigung, dass die Termine möglichst
+nicht verändert werden sollen, einen Umsetzungsvorschlag anzu- bieten.
+Hinsichtlich der Kosten muss dieses Angebot ebenso prüfbar sein wie das
+ursprüngliche Angebot. [redacted-person] erfolgt erst nach Verhandlung
+und finaler Vergabeentscheidung.</p></li>
+<li><p>[redacted-person] und Ergänzungen, die erforderlich sind, um die in
+diesem Lastenheft angege- benen Werte und Funktionen zu erfüllen, sind
+nach Rücksprache mit dem zuständigen [redacted-co] Fachbereich (Anforderer)
+umzusetzen. [redacted-person] sind durch die angebotene und endgül- tig
+vereinbarte Vergütung abgegolten. Dies gilt auch für Änderungen im
+Rahmen des Entwick- lungsfortschritts einschließlich der
+Prototypenumfänge und zusätzlichen Erprobungen.</p></li>
+<li><p>Soweit der Auftragnehmer mitteilt, dass die [redacted-person] auf die Kosten- struktur und/oder den Meilensteinplan
+haben, wird der Auftragnehmer dies in einem separaten</p></li>
+</ol>
+<blockquote>
+<p>Angebot darstellen, dessen Annahme im freien Ermessen [redacted-co]
+liegt und schriftlich bzw. über die Bestellsysteme [redacted-co] zu
+erfolgen hat.</p>
+</blockquote>
+<h2 id="abnahme">Abnahme</h2>
+<ol type="1">
+<li><p>[redacted-person] kann die Feststellung, ob der
+vereinbarte Leistungsumfang des Auf- tragnehmers tatsächlich
+vereinbarungsgemäß erfüllt wurde, erst bei Abschluss des Entwick-
+lungsprojekts und Übergabe der jeweiligen Entwicklungsergebnisse
+getroffen werden. [redacted-person] erfolgt ausschließlich durch das
+Ausstellen einer schriftlichen Abnahmeerklärung im Rahmen der förmlichen
+Endabnahme des Leistungsumfangs des Auftragnehmers durch die [redacted]</p></li>
+<li><p>Die vom Auftragnehmer erarbeiteten Ergebnisse sind in prüffähiger
+Form zu übergeben. Ist dieses Erfordernis nicht erfüllt, werden Fristen
+wegen Unmöglichkeit der Abnahme nicht in Gang gesetzt. Ist das
+Leistungsergebnis in Datensätzen verkörpert, hat der Auftragnehmer so-
+weit Einblick in den Code der erbrachten Leistung zu gewähren, dass eine
+Überprüfung auf ver- einbarungsgemäße Leistungserbringung möglich
+ist.</p></li>
+<li><p>[redacted-person] wird die Gesamtfertigstellung des Auftrags zur
+Abnahme anzeigen. Die Ab- nahme hat wie nachfolgend beschrieben zu
+erfolgen:</p>
+<ol type="a">
+<li><p>Die [redacted-co] wird die in prüffähiger Form übergebenen Leistungen
+innerhalb einer in Ansehung des Projekts angemessenen Frist
+prüfen.</p></li>
+<li><p>[redacted-person] wird auf Wunsch [redacted-co] und ohne gesonderte
+Vergütung ge- schultes Personal für die zur Abnahme erforderlichen
+Prüfungen zur Verfügung stellen. Die bei der Abnahmeprüfung auftretenden
+Mängel werden protokolliert.</p></li>
+<li><p>[redacted-person] ist vom Projektleiter des Auftragnehmers
+sowie den Verantwort- lichen [redacted-co] nach den jeweils geltenden
+Unterschriftenregelungen abzuzeichnen.</p></li>
+<li><p>Verweigert die [redacted-co] die Abnahme aufgrund eines oder mehrerer
+Mängel, wird der Auftragnehmer den bzw. die Mängel unverzüglich
+beseitigen und seine Leistungen er- neut zur Abnahme vorlegen. Die
+vorstehenden Vorschriften gelten für eine erneute Ab- nahme
+entsprechend.</p></li>
+</ol></li>
+<li><p>[redacted-person] hat die Pflicht und nach Abstimmung mit der
+[redacted-co] das Recht zur zwei- maligen Nachbesserung. [redacted-person] verändert nicht die vereinbarten Fertig-
+stellungstermine und Rechtsfolgen aus Verzug. Die [redacted-co] kann nach
+Ablauf einer von [redacted-co] gesetzten angemessenen Frist die Leistung
+zu Lasten des Auftragnehmers selbst vor- nehmen oder vornehmen lassen
+oder zurücktreten. Im Falle der Kündigung erhält der Auftrag- nehmer
+eine Vergütung nur für die als mangelfrei abgenommenen Leistungen und
+selbststän- dig nutzbaren Teile. [redacted-person] auf Schadensersatz bleibt
+unberührt.</p></li>
+</ol>
+<h2 id="vergütung-leistungsnachweis">Vergütung / Leistungsnachweis</h2>
+<ol type="1">
+<li><p>Für die angefragte Aufgabenstellung ist vom Auftragnehmer/Bieter
+ein Festpreis auszuweisen. Im Angebot muss die Kalkulation des
+Festpreises offengelegt werden. [redacted-person] des im Lasten- heft
+beschriebenen Leistungsumfangs sollen die jeweiligen Kostenbestandteile
+einzeln aufge- listet werden. Dabei sollen u. [redacted-person] Dritter separat
+aufgeführt werden.</p></li>
+<li><p>Festpreise schließen alle Nebenkosten ein. Ebenso sind alle
+Aufwendungen und Kosten, die nicht ausdrücklich von [redacted-co] zu
+erbringen sind, vom Auftragnehmer zu tragen und mit dem vereinbarten
+Preis abgegolten. Abweichungen hiervon bedürfen einer ausdrücklichen
+Ver- einbarung.</p></li>
+<li><p>Reisekosten umfassen nur Transfer und Unterbringungskosten (keine
+Verpflegungsmehrauf- wendungen und vergleichbare Positionen). Soweit
+nicht etwas anderes vereinbart wird, sind Reisekosten nicht im
+Auftragswert enthalten. Sie werden nur maximal bis zu den vereinbarten
+Sätzen und innerhalb der vereinbarten Grenzen gegen Nachweis vergütet.
+Sie sind quartalswei-</p></li>
+</ol>
+<blockquote>
+<p>se in Rechnung zu stellen. Es gelten die jeweils im Zeitpunkt der
+Beauftragung gültigen Reise- kosten-Richtlinien für
+Entwicklungsdienstleister, die auf Anfrage durch die Beschaffung der
+[redacted-co] zur Verfügung gestellt werden. Reisezeiten,
+Verpflegungsmehraufwendungen etc. werden nicht erstattet.</p>
+</blockquote>
+<ol start="4" type="1">
+<li><p>Die erbrachte Leistung wird nach Leistungsfortschritt abgegolten.
+Hierfür ist jeweils im Vorfeld ein Leistungsnachweis vorzulegen.
+Zahlungspläne sind gesondert zu vereinbaren. [redacted-person]- tungsanspruch
+besteht nur bei tatsächlicher Erbringung der Leistung.</p></li>
+<li><p>Zahlungen erfolgen erst nach Vorlage eines Leistungsnachweises.
+[redacted-person] darf erst nach vollständiger Erbringung der
+vereinbarten Leistung bzw. Teilleistung gestellt werden. [redacted-person] muss mindestens folgende Inhalte aufweisen:</p>
+<ol type="a">
+<li><p>Stand der Arbeiten/Projektstatus,</p></li>
+<li><p>bisher erreichte Meilensteine / Teilergebnisse, Vereinbarungen
+über die weitere Vorge- hensweise,</p></li>
+<li><p>Unterschrift seitens des Auftragnehmers.</p></li>
+</ol></li>
+<li><p>Für den Leistungsnachweis ist vorzugsweise das auf Anfrage beim
+Ansprechpartner [redacted-co] erhältliche Formular zu verwenden. Es ist
+darauf zu achten, dass alle Felder ordnungsgemäß ausgefüllt
+sind.</p></li>
+<li><p>Vor der Rechnungsstellung an die [redacted-co] muss der
+Leistungsnachweis für die erbrachte Leis- tung vom [redacted-co] Fachbereich
+(Anforderer) und dem Auftragnehmer unterzeichnet werden. Der zweifach
+(von Auftragnehmer u. [redacted-co] Ansprechpartner) unterschriebene
+Leistungsnachweis ist als Anhang mit der Rechnung an die [redacted-co] zu
+übertragen. Rechnungen ohne entsprechend unterschriebenen
+Leistungsnachweis werden abgelehnt.</p></li>
+<li><p>[redacted-person] eines Leistungsnachweises oder die Auslösung
+einer Zahlung bewirken keine Abnahme.</p></li>
+</ol>
+<h2 id="nutzungsrechte">Nutzungsrechte</h2>
+<ol type="1">
+<li><p>[redacted-person] wird die [redacted-co] über alle bei ihm im
+Zusammenhang mit der Durchfüh- rung der vertragsgegenständlichen
+Arbeiten entstehenden Neuerungen (dazu zählen insbeson- dere
+Erfindungen, technische Verbesserungsvorschläge, Know-how, aber auch
+sonstige indivi- duelle geistige Leistungen) unterrichten, alle zur
+Bewertung der Neuerungen erforderlichen Unterlagen vorlegen und alle von
+[redacted-co] gewünschten Auskünfte zu den Neuerungen ge- ben.</p></li>
+<li><p>[redacted-person] und darauf bestehende Schutz- oder
+Urheberrechte nachweislich bereits vor Beginn der
+vertragsgegenständlichen Arbeiten bei dem Auftragnehmer vorhanden waren
+(„Altschutzrechte“), bleibt der Auftragnehmer auch Inhaber derselben. Er
+erklärt sich aber be- reit, [redacted-co] ein nichtausschließliches,
+zeitlich, räumlich und inhaltlich unbeschränktes und unterlizenzierbares
+Nutzungsrecht ohne Zahlung eines über den Festpreis hinausgehenden
+Entgelts einzuräumen, sofern diese Altschutzrechte in die Entwicklung
+einfließen. [redacted-person]- schutzrechte in das Entwicklungsergebnis
+einfließen, teilt der Auftragnehmer [redacted-co] die- se Altschutzrechte
+unverzüglich mit. Im Falle einer Entwicklung eines Serienlieferteiles
+teilt der Auftragnehmer die einfließenden Altschutzrechte mit Vorlage
+der Erstmuster mit.</p></li>
+<li><p>[redacted-person] überträgt [redacted-co] das ausschließliche,
+zeitlich, räumlich und inhaltlich unbeschränkte, unentgeltliche und
+übertragbare Nutzungsrecht an allen Urheberrechten (in- klusive Software
+und dem zugehörigen Quellcode), die dem Auftragnehmer an den von ihm zu
+erbringenden Leistungen oder Teilleistungen zustehen. [redacted]um- fasst die Befugnis, das Arbeitsergebnis, die Unterlagen
+oder Aufzeichnungen zu überarbeiten, zu verändern und/oder Dritten
+entgeltlich oder unentgeltlich zur Benutzung zu überlassen.</p></li>
+<li><p>In begründeten Einzelfällen kann der Auftragnehmer mit der [redacted-co] vereinbaren, dass die vom Auftragnehmer vertragsgemäß gelieferten
+vollständigen 2D-/3D-Daten nicht an Dritte au- ßerhalb [redacted-co]
+und der Beteiligungsgesellschaften des VW-Konzerns weitergege-</p></li>
+</ol>
+<blockquote>
+<p>ben werden dürfen. In diesem Fall ist der Auftragnehmer jedoch
+verpflichtet, auf eigene Kosten zusätzlich zu diesen vertraglich
+geschuldeten vollständigen 2D-/3D-Daten neutralisierte Anfra-
+gedokumente zu liefern. [redacted-person] sind Bauraum-
+Schnittstellendarstellungen (2D-/3D-Daten), welche die Einbausituation,
+nicht jedoch das in den zugrunde liegenden 2D-/3D-Daten verkörperte
+Alt-Know-how des Auftragnehmers darstel- len. [redacted-person] räumt
+[redacted-co] das unentgeltliche, zeitlich, räumlich und inhaltlich
+unbeschränkte Nutzungsrecht an diesen neutralisierten Anfragedokumenten
+zur Verbreitung, Vervielfältigung und Bearbeitung, sowie zur
+öffentlichen Zugänglichmachung im Rahmen der Ausschreibung von
+Leistungen gegenüber Dritten ein.</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p>Grundsätzlich stehen alle in diesem Projekt entstehenden
+Arbeitsergebnisse, erstellte Unterla- gen und Leistungen usw. alleine
+[redacted-co] zu. Soweit der [redacted-person]- mer
+einschaltet, wird er durch entsprechende vertragliche Vereinbarungen
+sicherstellen, dass auch die Unterauftragnehmer dies als für sich
+verbindlich anerkennen. Die [redacted-co] behält sich das Recht vor, sämtliche
+Unterlagen auch an Dritte weiterzuleiten, u. [redacted-person] die Lieferantenaus-
+wahl. An sämtlichen Arbeitsergebnissen, insbesondere im Rahmen des
+Vertrages entstehenden Neuerungen, steht [redacted-co] ab dem Zeitpunkt
+ihres Entstehens das ausschließliche Verwer- tungsrecht zu.</p></li>
+<li><p>Die [redacted-co] ist alleine berechtigt, Schutzrechtsanmeldungen
+einzureichen. [redacted-person] des Auftragnehmers teilt die [redacted-co]
+schriftlich mit, ob sie im konkreten Einzelfall auf eine An- meldung
+verzichtet. [redacted-person] ist dann zur Anmeldung des Schutzrechtes
+auf eigene Kosten berechtigt. An diesen Schutzrechten steht [redacted-co]
+ein nichtausschließliches, un- entgeltliches, zeitlich, räumlich und
+inhaltlich unbeschränktes und übertragbares Nutzungs- recht zu.</p></li>
+</ol>
+<h2 id="verwendung-von-freier-software">Verwendung von [redacted-person]</h2>
+<ol type="1">
+<li><p>[redacted-person] hat [redacted-co] gegenüber zu erklären, ob das
+von ihm geschuldete Er- gebnis [redacted-person] ([redacted-person] Software,
+Freeware und/oder [redacted-person] einschließlich Unterkomponenten oder
+Teilen dieser) enthält oder nicht.</p></li>
+<li><p>Verwendet der [redacted-person] Software in dem geschuldeten
+Ergebnis oder ist dies beab- sichtigt, so ist der Einsatz generell nur
+dann statthaft, wenn der Auftragnehmer die [redacted-co] hierüber vor
+Entwicklungsbeginn gemäß den Vorgaben der „Regelungen zum Einsatz von
+[redacted-person]“ (mitgeltende Unterlage) informiert.</p></li>
+<li><p>Es besteht keine Verpflichtung [redacted-co], die Verwendung von
+[redacted-person] im geschulde- ten Ergebnis zu akzeptieren. [redacted-person] durch den Auftragnehmer bewirkt keine Akzep- tanz der
+Verwendung von [redacted-person] durch die [redacted]der
+Verwendung von [redacted-person] durch die [redacted-co] kann insbesondere zur
+Abwendung von Sicherheits- oder rechtlichen Risiken erfolgen.</p></li>
+<li><p>Die nachstehenden Bestimmungen, insbesondere der
+Freistellungsanspruch zu den Schutzrech- ten Dritter, gelten
+ergänzend.</p></li>
+</ol>
+<h2 id="schutzrechtsrecherchen-schutzrechte-dritter">Schutzrechtsrecherchen,
+[redacted-person]</h2>
+<ol type="1">
+<li><p>[redacted-person] wird durch entsprechende Recherchen unter
+Beachtung branchenüblicher Sorgfalt sicherstellen, dass durch die von
+ihm zu erbringenden Leistungen und deren Ergebnis- se nicht in [redacted-person] eingegriffen wird. [redacted-person] in [redacted-person] liegt auch
+dann vor, wenn die Nutzung von Bedingungen abhängt.</p></li>
+<li><p>Würden durch die beabsichtigte Gestaltung der Arbeitsergebnisse
+oder die Umsetzung der an- gefragten [redacted-person] Dritter verletzt
+werden, so wird der Auftragnehmer die in diesem Lastenheft benannten
+Ansprechpartner [redacted-co] unverzüglich informieren und mit ihnen
+gemeinsam nach einer anderen Gestaltung der Arbeitsergebnisse suchen.
+[redacted-person] Dritter nicht zu umgehen sind, wird die [redacted-co]
+entscheiden, ob das betroffene Schutzrecht im</p></li>
+</ol>
+<blockquote>
+<p>Wege einer Lizenz benutzt werden soll. Über die Verteilung der dabei
+anfallenden Kosten wer- den sich [redacted-co] und Auftragnehmer im Einzelfall
+abstimmen.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Soweit der Auftragnehmer die [redacted-co] nicht über entgegenstehende
+[redacted-person] informiert, die ihm bekannt sind oder von ihm bei
+Einhaltung der branchenüblichen Sorgfalt hätten er- kannt werden müssen,
+stellt der Auftragnehmer die [redacted-co] von jedweden [redacted-person]
+frei, die auf entgegenstehende Rechte an dem Entwicklungsgegenstand
+gestützt werden.</p></li>
+</ol>
+<h2 id="vertragslaufzeit-und-kündigung">Vertragslaufzeit und
+Kündigung</h2>
+<ol type="1">
+<li><p>Die [redacted-co] kann den Auftrag jederzeit ganz oder teilweise
+ordentlich kündigen. Das beidersei- tige Recht zur außerordentlichen
+Kündigung bleibt unberührt. [redacted-person] bedarf der Schriftform,
+soweit sie nicht über die Bestellsysteme [redacted-co] erfolgt.</p></li>
+<li><p>Sollte die [redacted-co] ordentlich kündigen, so steht dem
+Auftragnehmer die vereinbarte Vergütung für alle vertragsgemäßen
+Leistungen zu, die er bis zum Wirksamwerden der Kündigung erbracht hat,
+soweit diese selbstständig nutzbar sind, zuzüglich</p>
+<ol type="a">
+<li><p>eines Ausgleichs nachgewiesener Kosten für die Vorhaltung von
+Personal und Material für eine Frist von bis zu maximal einem Monat nach
+Wirksamwerden der Kündigung, wenn der auf den noch nicht erbrachten Teil
+der Leistung entfallende Teil der Vergütung einen Betrag von [redacted-phone],-
+€ übersteigt, beziehungsweise</p></li>
+<li><p>eines Ausgleichs in Höhe von maximal fünf Prozent der auf den
+noch nicht erbrachten Teil der Leistung entfallenden vereinbarten
+Vergütung, wenn der auf den noch nicht er- brachten Teil der Leistung
+entfallende Teil der Vergütung [redacted-phone],- € beträgt oder diesen Betrag
+unterschreitet.</p></li>
+</ol></li>
+<li><p>Der jeweilige Gegenbeweis hinsichtlich eines tatsächlich höheren
+oder niedrigeren Vergütungs- anspruchs ist zulässig. [redacted-person]
+wird nicht erstattet.</p></li>
+<li><p>Im Falle der Kündigung bleibt die [redacted-person] für
+die bis zur Kündigung erbrach- ten Leistungen.</p>
+<ol type="1">
+<li><p><strong>Allgemeines</strong></p></li>
+</ol></li>
+</ol>
+<ol type="1">
+<li><p>Bezüglich der Versuchs- und Prototypenwerkzeuge und -teile wird
+auf das Lieferantenhandbuch für Prototypenteile besonders
+hingewiesen.</p></li>
+<li><p>[redacted-person] von vertraglichen Rechten oder Pflichten durch
+den Auftragnehmer bedarf zu ihrer Wirksamkeit der vorherigen
+schriftlichen Zustimmung [redacted-co].</p></li>
+<li><p>Gerichtsstand ist [redacted]Die [redacted-co] ist auch
+berechtigt, jedes andere zu- ständige Gericht anzurufen.</p></li>
+<li><p>Sollten eine oder mehrere Bestimmungen dieses Lastenhefts und
+etwaige weitere Vereinbarun- gen unwirksam sein oder werden, so bleibt
+die Geltung der übrigen Bestimmungen davon unbe- rührt.</p></li>
+<li><p>Soweit nicht anderweitig in diesem Lastenheft geregelt, gelten
+die gesetzlichen Haftungsrege- lungen.</p></li>
+<li><p>Eine etwaige englische Fassung dieses Anfragelastenheftes stellt
+eine reine Arbeitserleichte- rung dar. Die deutsche Fassung ist alleine
+maßgeblich und hat bei Widersprüchen oder Abwei- chungen gegenüber der
+[redacted-person]. Dies gilt für alle sonstigen hiermit zusam-
+menhängenden Unterlagen wie z.[redacted-person] Unterlagen
+entsprechend.</p></li>
+<li><p>[redacted-person] an den Auftragnehmer werden die nachfolgend
+aufgeführten Regelungen und Unterlagen [redacted-co] und/oder des
+Auftragnehmers verbindlicher Vertragsbestandteil, wobei im Falle von
+Widersprüchen zwischen den Vertragsbestandteilen die nachfolgend ange-
+gebene Reihenfolge gilt:</p>
+<ol type="a">
+<li><p>Bestellung [redacted-co]</p></li>
+<li><p>Verhandlungsprotokolle</p></li>
+<li><p>[redacted-person] des Lastenhefts [redacted-co]</p></li>
+<li><p>[redacted-person] des Lastenhefts [redacted-co]</p></li>
+<li><p>Geheimhaltungsvereinbarungen zwischen [redacted-co] und dem
+Auftragnehmer (soweit vorhanden)</p></li>
+<li><p>Fahrzeugleihverträge (soweit vorhanden) bzw. [redacted-person] für Er- probungsfahrzeuge</p></li>
+<li><p>VW-Norm 99000</p></li>
+<li><p>Weitere in diesem Lastenheft genannte Dokumente und
+Normen</p></li>
+<li><p>[redacted]</p></li>
+<li><p>Angebot des Auftragnehmers (ohne Anerkennung der allgemeinen
+Geschäftsbedingun- gen des Auftragnehmers)</p></li>
+</ol></li>
+</ol>
+<ol start="4" type="1">
+<li><p><strong>[redacted-person]</strong></p></li>
+</ol>
+<blockquote>
+<p>Es gelten die mitgeltenden Unterlagen in der am Ausgabedatum des
+Lastenhefts gültigen Fassung sowie die darin genannten Dokumente.</p>
+<p>[redacted-person] stellt sicher, jeweils mit den für das Lastenheft
+gültigen mitgeltenden Unterla- gen zu arbeiten.</p>
+<p>Es sind insbesondere die nachfolgenden Dokumente und Normen zu
+berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>[redacted]</p></li>
+<li><p>[redacted-person] für Erprobungsfahrzeuge</p></li>
+<li><p>Für den Auftragsumfang einschlägige Betriebsmittelvorschriften,
+technische und kaufmänni- sche Vorgaben [redacted-co] und einschlägige
+Normen (z.B. [redacted-co]99000 einschließlich der Teile 1 bis 4)</p></li>
+<li><p><a href="http://www.audi.de/de/brand/de/lieferanten-und-partner.html%23page%3D/de/brand/de/lieferanten-und-partner/it-sicherheitshandlungsleitlinien.html"><u>IT-Sicherheitshandlungsleitlinien
+[redacted-co] für Partnerfirmen</u></a></p></li>
+<li><p>Regelungen zum Einsatz von [redacted-person]</p></li>
+<li><p>Sicherheitsgebote für die bei [redacted-co] eingesetzten
+Fremdfirmen (falls die Auftragsbear- beitung auf Gelände [redacted-co]
+erfolgt)</p></li>
+<li><p>[redacted-co]richtlinien für Qualitätssicherung "Formel
+Q"</p></li>
+</ul>
+<blockquote>
+<p><strong>Bezugsquelle:</strong></p>
+<p>Dokumente können über die B2B-Lieferantenplattform des [redacted-person] unter der Inter- netadresse <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+(teils mit Zugangsberechtigung, teils öffentlich verfügbar) abgerufen
+werden. (Kontakt auch über [redacted]99 bzw.
+International:</p>
+<p>[redacted-phone] oder e-Mail: <a href="mailto:supplierintegration@vwgroupsupply.com"><u>[redacted-email]</u></a>)</p>
+</blockquote>
+</body>
+</html>

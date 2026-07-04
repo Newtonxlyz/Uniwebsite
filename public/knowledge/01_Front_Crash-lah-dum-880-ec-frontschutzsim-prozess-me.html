@@ -1,0 +1,1341 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_DUM_880_EC_Frontschutzsim_Prozess_Methode_[redacted-phone]</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>[redacted-person]
+Lastenheft LAH.DUM.880.EC</p>
+<p><img src="./01_Front_Crash-lah-dum-880-ec-frontschutzsim-prozess-me-media/media/image2.png" style="width:3.30213in;height:2.77031in"/></p>
+</blockquote>
+<p>[redacted]und Methode
+LAH.DUM.880.EC</p>
+<blockquote>
+<p>[redacted]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-person] / OE</p>
+<p>Hausruf [redacted-phone]</p>
+<p>Telefax [redacted]</p>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+<p><strong>Verteiler</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Änderungs- stand</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung der Änderung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Ersteller</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Erstfassung</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Aktualisierung und Abstimmung [redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Überarbeitung und Aktualisierung der Prozess-Dokus</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Anpassung auf neues Anfragekonzept</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Überarbeitung und Aktualisierung der Prozess-Dokus</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Anpassung PAM-[redacted-person] Formulierung</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Überarbeitung und Aktualisierung:</p>
+</blockquote>
+<ul>
+<li><p>Prozess-Dokus</p></li>
+<li><p>Verlinkungen</p></li>
+<li><p>Mitgeltende LAHs</p></li>
+<li><p>Abteilungskürzel</p></li>
+</ul></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Anpassung der Abteilungsbezeichnungen</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] Pam-[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#allgemein">Allgemein 8</a><a href="#berechnungsprozess">Berechnungsprozess 9</a><a href="#berechnungsablauf-frontschutz">[redacted-person]
+9</a><a href="#modellstruktur">Modellstruktur 9</a><a href="#komponentenmodelle">Komponentenmodelle 9</a><a href="#modellierungsrichtlinien">Modellierungsrichtlinien 10</a><a href="#nummerierungskonvention">Nummerierungskonvention 10</a><a href="#elementqualität">Elementqualität 10</a><a href="#allgemeine-anforderungen">[redacted-person] 11</a><a href="#umgang-mit-verschlüsselten-daten">Umgang mit verschlüsselten
+Daten 12</a><a href="#informationen-zum-modellaufbau">Informationen zum
+Modellaufbau 13</a><a href="#erklärungen-zu-den-includes">Erklärungen zu
+den Includes 13</a><a href="#erzeugen-von-karosserie-s01-datei-und-motion">Erzeugen von
+Karosserie, S01-Datei und Motion 13</a><a href="#erzeugen-von-dummy-gurt-und-sitz">Erzeugen von Dummy, Gurt und
+Sitz 13</a><a href="#automatisch-positionierte-airbags">Automatisch
+positionierte Airbags 13</a><a href="#versuchsabgleich">Versuchsabgleich
+14</a><a href="#kurvenvergleich">Kurvenvergleich 14</a><a href="#überprüfung-und-anpassung-randbedingungen">Überprüfung und
+[redacted-person] 14</a><a href="#dokumentation">Dokumentation
+15</a><a href="#referenzpoolversion">Referenzpoolversion 15</a><a href="#komponentenübersicht">Komponentenübersicht 15</a><a href="#ergebnisdokumentation">Ergebnisdokumentation 15</a><a href="#abarbeitungs-checkliste-modellaufbau">Abarbeitungs-[redacted-person] 16</a><a href="#lastenhefte">Lastenhefte 17</a></p>
+<blockquote>
+<p><strong>Abkürzungsverzeichnis</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>A</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p>Anforderung</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>CAE-Bench</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-co]-interne Datenbank zur Dokumentation von Simulationen und
+Versuchen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>COP</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Part</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>DOE</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Design of Experiments</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>FMVSS</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]Standards</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>FPM</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Methode</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>GE</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Generalentwickler</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>HIC</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Criterion</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>I</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Information</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>KAB</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Kopfairbag</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>KVS</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Konstruktionsdaten-Verwaltungssystem im Volkswagen-Konzern</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>LAH</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Lastenheft</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>LL</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Linkslenker</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>LoCo</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>MeRKE</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Methode für effektive Rückhaltesystem-Komponenten-Entwicklung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>NAR</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] (Verkaufsregionen, die den USA-Gesetzen
+unterliegen)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>NCAP</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>ODB</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Offset gegen deformierbare Barriere</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>OOP</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Out Of Position</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Pam-Crash</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>FEM Berechnungsprogramm der Firma ESI</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>PDB</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Partnership for Dummy and Biomechanics</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>RdW</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Rest der Welt (Verkaufsregion außer NAR)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>RHS</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Rückhaltesystem</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>RL</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Rechtslenker</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Vorwort</strong></p>
+<p>In diesem Lastenheft und den zugehörigen Präsentationen wird der
+Arbeitsablauf in der Frontschutzsimulati- on beschrieben. Im Vordergrund
+stehen dabei Prozessthemen, Vorgehensweisen und Konventionen.</p>
+</blockquote>
+<h1 id="allgemein">Allgemein</h1>
+<blockquote>
+<p>A: [redacted-person] des Lastenheftes unterliegen der Geheimhaltung und
+dürfen Dritten nur mit ausdrücklicher Genehmigung des zuständigen
+Fachbereiches [redacted-co] zugänglich gemacht werden.</p>
+<p>A: [redacted-person]- und Urheberrechte sowie Geheimhaltungsvorschriften
+gelten die Regelungen der [redacted]</p>
+<p>I: [redacted-co] stellt Tools zur Verfügung, die bei der Einhaltung der
+Richtlinien und beim Durchführen der Berech- nungsprozesse helfen.</p>
+<p>A: [redacted-person] dürfen nur für Projekte im VW-Konzern angewendet
+werden.</p>
+<p>A: Mit der Auftragsannahme verpflichtet sich der Auftragnehmer, alle
+beschriebenen Konventionen und Ar- beitsabläufe inkl. der mitgelieferten
+Präsentationen einzuhalten. Sollten sich im [redacted-person]
+bzgl. Prozess und Methode ergeben, wird der Auftragnehmer durch die
+[redacted-co]-Fachabteilung informiert.</p>
+</blockquote>
+<h1 id="berechnungsprozess">Berechnungsprozess</h1>
+<blockquote>
+<p>A: [redacted-person] werden mit dem Loadcase-Composer
+(LoCo) aufgebaut und anschlie- ßend ausgewertet.</p>
+<p>A: Im Rahmen der Entwicklung erarbeiteten Modelle sind jederzeit dem
+Auftraggeber zur Verfügung zu stel- len.</p>
+</blockquote>
+<h2 id="berechnungsablauf-frontschutz">[redacted-person]</h2>
+<blockquote>
+<p>I: [redacted-person] „Frontschutzberechnung_Allgemein.pptx“ beschreibt
+den allgemeinen Prozessablauf in der Frontschutzberechnung bei [redacted-co] und
+ist hier zu finden:</p>
+<p><a href="https://portal.epp.audi.vwg/wiki/display/EFS/Allgemein%2B-%2BFrontschutzberechnung"><u>https://portal.epp.audi.vwg/wiki/display/EFS/Allgemein+-+Frontschutzberechnung</u></a></p>
+</blockquote>
+<h2 id="modellstruktur">Modellstruktur</h2>
+<blockquote>
+<p>A: [redacted-person] sind entsprechend der [redacted-co] Modulstrategie aufzubauen
+und zu pflegen.</p>
+<p>I: Bei [redacted-co] werden Includes so aufgebaut, dass innerhalb der Dateien
+keine Verknüpfungen zu anderen Includes vorhanden sind. Kontakte und
+Verbindungen zu anderen Includes werden erst unmittelbar vor der
+Rechnung automatisiert aufgebaut. [redacted-person] ist folgender
+Präsentation zu entnehmen:</p>
+<p><a href="https://portal.epp.audi.vwg/wiki/display/EFS/Modellstruktur"><u>https://portal.epp.audi.vwg/wiki/display/EFS/Modellstruktur</u></a></p>
+</blockquote>
+<h2 id="komponentenmodelle">Komponentenmodelle</h2>
+<blockquote>
+<p>I: [redacted-person] trägt durch sein Bauteil eine
+Mitverantwortung für die [redacted-person]. Dies gilt auch
+bei Bauteilen, welche als COP-Teile vorgesehen sind. In diesem Rahmen
+sind von den Komponentenlieferanten dem Systementwickler geeignete
+Berechnungsmodelle zum Zweck der Systemauslegung zur Verfügung zu
+stellen.</p>
+</blockquote>
+<h1 id="modellierungsrichtlinien">Modellierungsrichtlinien</h1>
+<blockquote>
+<p>A: [redacted-person], welche für die Beurteilung der Schutzwirkung des
+Gesamtsystems relevant sind, müssen in den Insassenschutzmodellen
+abgebildet werden. Bei relevanten Änderungen hinsichtlich Funktion und
+Ge- ometrie ist eine Anpassung der betroffenen Bauteile in den Modellen
+vorzunehmen. [redacted-person]- le sind im Pam-Crash-Format zu
+erstellen.</p>
+<p>A: Sofern, durch den Projektablauf bedingt, zu einem Zeitpunkt
+benötigte CAD/CAE-Daten bzw. Informatio- nen zu bestimmten Kennungen
+nicht vorliegen, sind diese durch entsprechende Annahmen nach Absprache
+mit der [redacted-co]/GE-Fachabteilung festzulegen.</p>
+</blockquote>
+<h2 id="nummerierungskonvention">Nummerierungskonvention</h2>
+<blockquote>
+<p>I: [redacted-person] bildet die Basis für einen
+problemlosen Austausch von Includes innerhalb eines Gesamtmodells.
+Pam-Crash bricht ab, wenn ein ID-tragendes Entity doppelt definiert ist.
+Deshalb be- zieht sich die Konvention nicht nur auf Knoten, Elemente und
+PID’s, sondern auf alle ID-tragenden Entities. A: [redacted-person] ist dem [redacted-prj] LAH.DUM.880.DL zu
+entnehmen.</p>
+<p>A: Innerhalb eines Includes müssen keine weiteren Untergliederungen
+eingehalten werden. Beispiel: Ist das Greenhouse ein einzelnes Include,
+dann muss dieses Include nur den Nummerierungsbereich des Green- house
+einhalten. Ist das Greenhouse aus 12 Includes aufgebaut, so muss jedes
+dieser Unterincludes die detaillierte Nummerierungskonvention dieser
+Unterbereiche einhalten, damit es ausgetauscht werden kann, ohne
+Probleme zu verursachen.</p>
+<p>I: [redacted-person] zur Anpassung der Modelle an die Nummerierungskonvention
+wird bereitgestellt:</p>
+</blockquote>
+<h3 id="renumb_neue_konv">„renumb_neue_konv“</h3>
+<h2 id="elementqualität">Elementqualität</h2>
+<blockquote>
+<p>A: Für die Elementqualität (ausgenommen Airbags) gelten folgende
+Anforderungen:</p>
+</blockquote>
+<ul>
+<li><p>warp angle &lt; 25.0</p></li>
+<li><p>aspect ratio &lt; 4.0</p></li>
+<li><p>Taper &gt; 0,15</p></li>
+<li><p>Skewing:</p>
+<ul>
+<li><p>Dreieckelemente: &lt; 90°</p></li>
+<li><p>Viereckelemente: &lt; 120°</p></li>
+</ul></li>
+<li><p>[redacted-person]:</p>
+<ul>
+<li><p>Dreieckelemente: 30° &lt; ang &lt; 120°</p></li>
+<li><p>Viereckelemente: 40° &lt; ang &lt; 150°</p></li>
+</ul></li>
+<li><p>4-knotige Schalenelemente mit zwei freien Kanten sind in
+Dreieckelemente zu teilen</p></li>
+</ul>
+<blockquote>
+<p>A: Elemente, die diese Kriterien nicht erfüllen (max. 3% aller
+Elemente), dürfen das Berechnungsergebnis nicht verfälschen oder die
+Rechnung negativ beeinflussen.</p>
+<p>A: [redacted-person] sind auf Mittelfläche zu modellieren. [redacted-person] muss
+aus mindestens 90% Vierecken beste- hen, insbesondere müssen
+Ansammlungen von Dreieckelementen vermieden werden. Ausnahmen sind mit
+der [redacted-co]-Fachabteilung abzustimmen.</p>
+</blockquote>
+<h2 id="allgemeine-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p>A: Es bestehen folgende allgemeine Anforderungen an die
+Pam-Crash-Modelle:</p>
+</blockquote>
+<ul>
+<li><p>Die zu verwendende Version des Solvers VPS wird von der [redacted-co]
+Fachabteilung vorgegeben.</p></li>
+</ul>
+<blockquote>
+<p>Die [redacted-co]-internen Arbeitsabläufe erfordern eine regelmäßige
+Aktualisierung der Includes auf eine neuere [redacted]wird von der [redacted-co] Fachabteilung mit ausreichend Vor-
+lauf zusammen mit der neu zu verwendenden Pam-[redacted-person] und einem
+verbindlichen Termin beim Auftragnehmer angezeigt.</p>
+<p>Je nach Projektmeilenstein ist die Pam-[redacted-person] wie folgt
+durchzuführen; gültig bis SOP des Beauftragungszeitraums:</p>
+</blockquote>
+<ul>
+<li><p>24 Lastfälle, siehe <a href="#_bookmark1">Tabelle 3.1:
+[redacted]</a></p></li>
+<li><p>1 Umstellung pro Jahr</p></li>
+<li><p>Komponentenumstellung über die jeweiligen Lieferanten</p></li>
+<li><p>Eine letzte Umstellung zum SOP des Beauftragungsumfangs</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] ist in <a href="#_bookmark1">Tabelle 3.1:
+[redacted]</a> dargestellt. Hierbei hat der
+Auftragnehmer die Lastfälle einmal mit der bestehenden Pam-[redacted-person]
+vorzurechnen sowie einmal mit der neuen Pam-[redacted-person]
+nachzurechnen:</p>
+<p><strong>Tabelle 3.1:
+[redacted]</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Regulation</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Lastfall</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>[redacted-person]- rer</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>[redacted-person]- rer</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>FMVSS208</p>
+</blockquote></td>
+<td><blockquote>
+<p>56 km/h 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>FMVSS208</p>
+</blockquote></td>
+<td><blockquote>
+<p>56 km/h 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>FMVSS208</p>
+</blockquote></td>
+<td><blockquote>
+<p>40 km/h 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>FMVSS208</p>
+</blockquote></td>
+<td><blockquote>
+<p>40 km/h 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>FMVSS208</p>
+</blockquote></td>
+<td><blockquote>
+<p>40 km/h 30° links</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>FMVSS208</p>
+</blockquote></td>
+<td><blockquote>
+<p>40 km/h 30° rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>IIHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>64 km/h 25% [redacted-person] links</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>IIHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>64 km/h 25% [redacted-person] rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ECE-R94</p>
+</blockquote></td>
+<td><blockquote>
+<p>56 km/h 40% ODB links</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>T3</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EU-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h 50% MPDB</p>
+</blockquote></td>
+<td><blockquote>
+<p>T3</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EU-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>50 km/h 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Je nach Einsatzmärkten kann die o.[redacted-person] um entsprechende Lastfälle
+nach Abstimmung mit der Fachabteilung variiert werden (z.[redacted-person],
+das nicht nach NAR geht).</p>
+<p>Sollten die Vergleichsrechnungen zeigen, dass die Ergebnisse der
+angepassten Includes von der Referenzrechnung abweichen, so sind die
+Ursachen für die Abweichung zu untersuchen und zu kor- rigieren. Ggf.
+sind Validationen auf bestehende Komponentenversuche oder ähnliches
+erneut bzw. Sensitivitätsuntersuchungen anhand streuender Inputparameter
+durchzuführen.</p>
+<p>Analog zur [redacted-person] Version ist in die [redacted-co] Simulationsprozesse der
+sog. „ESI Check“ integriert. [redacted-person]- tragnehmer muss den gültigen und
+aktuellsten „ESI Check“ einhalten. Hier gelten die gleichen Anforde-
+rungen wie vorstehende bei der [redacted-person] Version. Auch hier ist von
+einer Aktualisierung des Tools von max. einmal pro Kalenderjahr
+auszugehen.</p>
+<p>[redacted-person] muss die jeweils gültigen und aktuellsten
+Standardheader verwenden.</p>
+</blockquote>
+<ul>
+<li><p>In den Part- bzw. Materialkarten ist die Bauteil- und
+Materialbezeichnung anzugeben</p></li>
+<li><p>In der NAME-Karte dürfen keine Leerzeichen und diese Zeichen
+nicht verwendet werden: [ ] &lt; &gt;</p></li>
+<li><p>[redacted-person] ist über die PID zu definieren</p></li>
+</ul>
+<blockquote>
+<p>A: [redacted-person] ist des Weiteren auf folgende Punkte zu
+achten:</p>
+</blockquote>
+<ul>
+<li><p>Unnötig und doppelt definierte Kontakte müssen vermieden
+werden</p></li>
+<li><p>[redacted-person] sind darauf zu kontrollieren, dass die zu
+verbindenden Bauteile wirklich miteinan- der verbunden sind (PLINKs,
+TIEDs etc.), auch durch optische Kontrolle nach der Berechnung</p></li>
+<li><p>[redacted-person] müssen vermieden werden</p></li>
+<li><p>Unnötige freie Knoten müssen vermieden werden</p></li>
+<li><p>homogene Netzübergänge müssen umgesetzt werden</p></li>
+</ul>
+<blockquote>
+<p>A: Die numerische Stabilität und die Aussagequalität der Modelle sind
+sicherzustellen. [redacted-person] von Instabilitäten sind diese zu
+untersuchen und zu beheben. [redacted-person] von Modellen unterschied-
+licher Berechnungsdisziplinen ist die korrekte Platzierung im
+fahrzeugeigenen Koordinatensystem zu beach- ten.</p>
+</blockquote>
+<h2 id="umgang-mit-verschlüsselten-daten">Umgang mit verschlüsselten
+Daten</h2>
+<blockquote>
+<p>Es werden für den [redacted-co]-internen Prozess keine verschlüsselten Daten
+akzeptiert. [redacted-person] werden aus- schließlich für den [redacted-co]-internen
+Prozess zum Einsatz gebracht. Auch bei evtl. untervergebenen Teilumfän-
+gen ist die Geheimhaltung durch eine vertragliche
+Geheimhaltungsvereinbarung gewährleistet.</p>
+<p>[redacted-person] ist nur dann erlaubt, wenn Modelle an Dritte
+übergeben werden müssen, bei denen keine Geheimhaltungsvereinbarung mit
+[redacted-co] besteht.</p>
+</blockquote>
+<h1 id="informationen-zum-modellaufbau">Informationen zum
+Modellaufbau</h1>
+<h2 id="erklärungen-zu-den-includes">Erklärungen zu den Includes</h2>
+<blockquote>
+<p>I: In der Präsentation „Dateibeschreibungen.pptx“ werden die
+einzelnen Konfigurationsdateien und Inclu- des erklärt. [redacted-person] dient dazu, die Dateien richtig aufzubauen und Fehler zu
+vermeiden.</p>
+<p><a href="https://portal.epp.audi.vwg/wiki/display/EFS/Dateienbeschreibung%2BOS_FRONT"><u>https://portal.epp.audi.vwg/wiki/display/EFS/Dateienbeschreibung+OS_FRONT</u></a></p>
+<p>I: Es wird ein Referenz-Projekt übergeben, der den Modellaufbau
+exemplarisch aufzeigt. <a href="https://portal.epp.audi.vwg/wiki/display/EFS/Referenzprojekt%2BOS_FRONT"><u>https://portal.epp.audi.vwg/wiki/display/EFS/Referenzprojekt+OS_FRONT</u></a></p>
+</blockquote>
+<h2 id="erzeugen-von-karosserie-s01-datei-und-motion">Erzeugen von
+Karosserie, S01-Datei und Motion</h2>
+<blockquote>
+<p>I: [redacted-person] Karosserie, Subrun (S01-Datei) und Motion werden durch
+einen automatisierten Prozess auf- gebaut. [redacted-person] ist in der
+Datei „Karosserie_Motion_S01_190725.pdf“ beschrieben:</p>
+<p><a href="https://portal.epp.audi.vwg/wiki/display/EFS/Karosserie%2C%2BS01%2Bund%2BMotion%2Berzeugen"><u>https://portal.epp.audi.vwg/wiki/display/EFS/Karosserie%2C+S01+und+Motion+erzeugen</u></a></p>
+<p>I: Mit dem Tool <strong>„schlittenpuls_extractor“</strong> wird
+ausgehend von einer 3D-Motion ein Schlittenpuls erzeugt.</p>
+</blockquote>
+<h2 id="erzeugen-von-dummy-gurt-und-sitz">Erzeugen von Dummy, Gurt und
+Sitz</h2>
+<blockquote>
+<p>I: Positionierte und eingesetzte Dummy-, Gurt- und Sitzmodelle werden
+durch einen automatisierten Prozess aufgebaut. [redacted-person] ist
+den Seiten „<a href="https://portal.epp.audi.vwg/wiki/pages/viewpage.action?pageId=184811550">Einsitzprozess
+in OS-FRONT (Dummy, Sitz und Gurt)</a>“ zu entnehmen:</p>
+<p><a href="https://portal.epp.audi.vwg/wiki/pages/viewpage.action?pageId=184811550"><u>https://portal.epp.audi.vwg/wiki/pages/viewpage.action?pageId=184811550</u></a></p>
+<p>I: [redacted-person] sind mit den aktuellen Gurtfunktionsmodellen des
+jeweiligen Gurtlieferanten aufzubauen. Beschreibungen und Hinweise sind
+unter „Gurt CAE“ abgelegt:</p>
+<p><a href="https://portal.epp.audi.vwg/wiki/display/EFS/Gurt%2BCAE"><u>https://portal.epp.audi.vwg/wiki/display/EFS/Gurt+CAE</u></a></p>
+</blockquote>
+<h2 id="automatisch-positionierte-airbags">Automatisch positionierte
+Airbags</h2>
+<blockquote>
+<p>I: [redacted-person] sollen unabhängig von [redacted-person] in jedem
+beliebigen Projekt genutzt werden können. Um sie automatisch
+positionieren zu können, müssen sie gemäß Vorgabe aufgebaut sein. [redacted-person]- weise ist in der Präsentation
+„Selbstpositionierende_Airbags.ppt“ beschrieben:</p>
+<p><a href="https://portal.epp.audi.vwg/wiki/display/EFS/Positionierung%2BAirbags"><u>https://portal.epp.audi.vwg/wiki/display/EFS/Positionierung+Airbags</u></a></p>
+</blockquote>
+<h1 id="versuchsabgleich">Versuchsabgleich</h1>
+<blockquote>
+<p>A: Für sämtliche Versuche im Projekt (MeRKE-, Schlitten- oder
+Gesamtfahrzeugcrashversuche) sind Ver- gleiche zwischen Versuch und
+Simulation anzufertigen. Hierzu müssen die in CAViT verfügbaren
+Reporting- Werkzeuge verwendet werden.</p>
+</blockquote>
+<h2 id="kurvenvergleich">Kurvenvergleich</h2>
+<blockquote>
+<p>I: Mit dem CAViT-Tool</p>
+</blockquote>
+<h3 id="front_report">Front_Report</h3>
+<blockquote>
+<p>werden Versuchs- und Simulationskurven verglichen und können als
+PDF-Dokument abgespeichert werden.</p>
+</blockquote>
+<h2 id="überprüfung-und-anpassung-randbedingungen">Überprüfung und
+[redacted-person]</h2>
+<blockquote>
+<p>A: [redacted-person] des Versuchs sind mit der zugehörigen
+Simulationsvariante zu vergleichen. Sind diesbezüglich Abweichungen
+zwischen Versuch und Simulation zu erkennen, sind neue
+Simulationsvarian- ten mit den Versuchsrandbedingungen aufzubauen und zu
+rechnen. Im Anschluss ist das Simulationsmodell zu validieren.</p>
+<p>I: [redacted-person] und Anpassung der Randbedingungen gilt
+insbesondere für (als Beispiel):</p>
+</blockquote>
+<ul>
+<li><p>Motion</p></li>
+<li><p>Dummy-, Gurt und Sitzposition</p></li>
+<li><p>Bauteilstände</p></li>
+<li><p>Bauteilperformance</p></li>
+<li><p>Zündzeiten</p></li>
+</ul>
+<blockquote>
+<p>A: [redacted-person] mit Schlittenversuchen ist der Schlittenpuls
+nachzurechnen.</p>
+<p>I: Dieser wird beim Erzeugen des Schlittenpulses mithilfe des
+Tools</p>
+</blockquote>
+<h3 id="schlittenpuls_extractor">schlittenpuls_extractor</h3>
+<blockquote>
+<p>zusätzlich erzeugt.</p>
+</blockquote>
+<h1 id="dokumentation">Dokumentation</h1>
+<h2 id="referenzpoolversion">Referenzpoolversion</h2>
+<blockquote>
+<p>A: Mindestens einmal pro Quartal ist eine Referenzpoolversion zu
+erstellen, die:</p>
+</blockquote>
+<ul>
+<li><p>den aktuellen gesamtheitlichen Fahrzeugzustand darstellt</p></li>
+<li><p>rechenfähig ist</p></li>
+<li><p>public und auf referenz gesetzt ist und mit dem [redacted-co]-LoCo-Server
+synchronisiert ist A: Es ist eine Dokumentation über die Validität
+dieser Referenzpoolversion zu erstellen.</p></li>
+</ul>
+<h2 id="komponentenübersicht">Komponentenübersicht</h2>
+<blockquote>
+<p>A: [redacted-person] der eingesetzten Bauteile und Komponenten ist in einer
+aktuell zu haltenden Übersicht darzu- stellen. Darin ist neben der
+Bauteilbenennung auch der Entwicklungsstand aufzuführen.</p>
+</blockquote>
+<h2 id="ergebnisdokumentation">Ergebnisdokumentation</h2>
+<blockquote>
+<p>A: [redacted-person] sind in das System CAE-Bench innerhalb
+eines Werktages nach der Berech- nung und Auswertung einzupflegen.</p>
+<p>A: Die durchgeführten Rechnungen inkl. aller zugehörigen Output-Daten
+sind in CAE-Bench auf Richtigkeit und Vollständigkeit zu überprüfen und
+anschließend freizugeben.</p>
+<p>A: Dabei sind alle überprüften Rechnungen mit [redacted-person] 1 zu
+kennzeichnen</p>
+<p>A: Rechnungen zu Meilensteinterminen müssen auf [redacted-person] 2
+hochgeschaltet werden.</p>
+<p>A: [redacted-person] müssen 30 Jahre gesichert werden
+und müssen dazu in CAE-Bench entsprechend geschaltet werden</p>
+<p>A: [redacted-person] und Untersuchungen sind in Präsentationsform zu
+dokumentieren.</p>
+</blockquote>
+<h2 id="abarbeitungs-checkliste-modellaufbau">Abarbeitungs-[redacted-person]</h2>
+<blockquote>
+<p>A: [redacted-person] und die Ergebnisfiles sind auf
+Plausibilität und Fehler zu überprüfen.</p>
+<p>A: Hierzu muss die folgende Checkliste abgearbeitet werden. [redacted-person] ist die [redacted-co]-Fachabteilung durch den Auftragnehmer zu
+informieren.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="4"><blockquote>
+<p><strong>Checkliste für Modellvariante:</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Arbeitsschritt</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Betreff</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Inhalt</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Erledigt</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Preprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Modellaufbau</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-co] Modellierungsrichtlinien müssen erfüllt sein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Preprocessing</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Warping , Skew, Angles, Length, Topology usw. laut Lastenheft</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Preprocessing</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Prozentzahl der Trias auf Plausibilität prüfen bei Neuver-
+netzung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Preprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Connectivity</p>
+</blockquote></td>
+<td><blockquote>
+<p>Prüfung auf doppelte Elemente, [redacted-person], Freie 1D Elemente</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Preprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Connectivity</p>
+</blockquote></td>
+<td><blockquote>
+<p>Verbindungen zu angrenzenden Bauteilen überprüfen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Preprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Intersections</p>
+</blockquote></td>
+<td><blockquote>
+<p>Intersections entfernen, Penetrationcheck durchführen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Preprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Renumber</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nummernbereiche einhalten bei Node, Ele, Set, Curve usw.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Preprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Kontakte</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] checken</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Anrechnen</p>
+</blockquote></td>
+<td><blockquote>
+<p>ESI-Check</p>
+</blockquote></td>
+<td><blockquote>
+<p>ESI-Check einhalten</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Anrechnen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Includes</p>
+</blockquote></td>
+<td><blockquote>
+<p>Includes müssen einzeln lauffähig sein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Anrechnen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Masse</p>
+</blockquote></td>
+<td><blockquote>
+<p>Massen prüfen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Anrechnen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Timestep</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] kontrollieren</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Postprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Verbindungen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Verbindungen überprüfen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Postprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Dicken</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] im Animator prüfen (Symmetrie, [redacted-person])</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Postprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Masse, E-Modul</p>
+</blockquote></td>
+<td><blockquote>
+<p>Massenzuwachs und dyn. [redacted-person] kontrollieren</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Postprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Energie</p>
+</blockquote></td>
+<td><blockquote>
+<p>Energiebilanz überprüfen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Postprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Kinematik</p>
+</blockquote></td>
+<td><blockquote>
+<p>Neu eingebaute Teile visuell überprüfen (Anbindung, Ver- halten)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Postprocessing</p>
+</blockquote></td>
+<td><blockquote>
+<p>Plausibilität</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] in den Zielwerten auf Plausibilität
+überprüfen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Allgemein</p>
+</blockquote></td>
+<td><blockquote>
+<p>Freigabe</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Abstimmung mit [redacted-co]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Allgemein</p>
+</blockquote></td>
+<td><blockquote>
+<p>Freigabe</p>
+</blockquote></td>
+<td><blockquote>
+<p>Berechnung freigeben in CAE-Bench</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="lastenhefte">Lastenhefte</h1>
+<blockquote>
+<p>Bei den im Folgenden aufgeführten Lastenheften gilt als aktueller
+Stand derjenige Änderungsstand, mit dem die Lastenhefte zum Zeitpunkt
+der Angebotsabgabe in KVS archiviert sind. Sofern ein Angebot
+überarbeitet und nachgereicht wird, sind wiederum die dann archivierten
+Lastenheft-Stände zu berücksichtigen.</p>
+</blockquote>
+<h3 id="mitgeltende-lastenhefte">[redacted-person]</h3>
+<blockquote>
+<p>Die folgenden Lastenhefte sind zusätzlich zu berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] Frontschutz LAH.DUM.880.DR</p></li>
+<li><p>[redacted-person] LAH.DUM.880.KB</p></li>
+<li><p>[redacted-prj] Nummerierungskonvention LAH.DUM.880.DL</p></li>
+</ul>
+</body>
+</html>

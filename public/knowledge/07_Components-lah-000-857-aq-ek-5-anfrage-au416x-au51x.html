@@ -1,0 +1,1290 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH.[redacted-phone]AQ_EK-5_Anfrage_AU416x_AU51x_CN_EN</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><strong>Development</strong></p>
+<p>[redacted-person]/OU</p>
+<p>Phone E-mail address</p>
+<p>First issue Date of revision MaCRO identification</p>
+<p>[redacted]</p>
+<p>[redacted-phone]</p>
+<p><a href="mailto:markus.schiebenes@audi.de"><u>[redacted-email]</u></a>
+[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<p>[redacted]</p>
+<p>[redacted-addr]</p>
+<p>Phone: [redacted-phone]</p>
+</blockquote>
+<p>[redacted]Development LAH.[redacted-phone]AQ</p>
+<blockquote>
+<p>Projects [redacted-prj]/2_Cx_BL [redacted-prj]/3_Cx_BL [redacted-prj]/4_Cx_BL</p>
+<p>RFQ [redacted-person] for [redacted-person]</p>
+<p><strong>Distribution list:</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Name</p>
+</blockquote></th>
+<th><blockquote>
+<p>First name</p>
+</blockquote></th>
+<th><blockquote>
+<p>Department</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p><strong>Contents</strong></p>
+</blockquote>
+<p><a href="#general-information">General information 5</a><a href="#purpose-of-the-performance-specification">Purpose of the
+[redacted-person] 5</a><a href="#structured-rfq">Structured RFQ
+5</a><a href="#scope">Scope 6</a><a href="#project-specific-contents-of-the-order">Project-specific contents
+of the order 7</a><a href="#description-of-the-project-environment">Description of the
+project environment 7</a><a href="#project-management">Project
+management: 7</a><a href="#seat-belt-arrangement-concept-design">Seat
+belt arrangement concept design: 7</a><a href="#seat-belt-arrangement-development-to-production-readiness">Seat
+belt arrangement development to production readiness: 8</a><a href="#seat-belt-design">Seat belt design: 8</a><a href="#design-fmea">Design FMEA 8</a><a href="#part-application-development">Part application development:
+8</a><a href="#function-in-the-vehicle">Function in the vehicle: 9</a><a href="#bill-of-materialsengineering-change-management">Bill of
+materials/engineering change management: 9</a><a href="#project-objectives">Project objectives 9</a><a href="#framework-conditions-standards-technical-guidelines-production-equipment-specifications-etc.-to-be-adhered-to-unless-included-in-section-4">Framework
+conditions, standards, technical guidelines, [redacted-person]
+Specifications, etc., to be adhered to (unless included in section 4)
+9</a><a href="#required-expertise">Required expertise 9</a><a href="#performance-period">Performance period 10</a><a href="#startend-of-the-project">Start/end of the project 10</a><a href="#milestones">Milestones 10</a><a href="#place-of-performance">Place of performance 10</a><a href="#supplies-from-audi-ag">Supplies from [redacted-co] 10</a><a href="#supplied-it">Supplied IT 10</a><a href="#remuneration">Remuneration 10</a><a href="#ancillary-costs">Ancillary costs 10</a><a href="#technical-contacts-of-audi-ag">Technical contacts of [redacted-co]
+11</a><a href="#other-requirements">Other requirements 11</a><a href="#applicable-performance-specifications-and-guidelines">[redacted-person] Specifications and guidelines 11</a><a href="#commercial-framework-conditions">Commercial framework conditions
+12</a><a href="#responsibility-duty-to-provide-information-and-cooperation">Responsibility,
+duty to provide information, and cooperation 12</a><a href="#carrying-out-the-work">Carrying out the work 12</a><a href="#performance-periods">Performance periods 13</a><a href="#modifications-of-the-services">Modifications of the services
+13</a><a href="#acceptance-of-delivery">Acceptance of delivery 14</a><a href="#remunerationproof-of-performance">Remuneration/proof of
+performance 14</a><a href="#rights-of-use">Rights of use 15</a><a href="#use-of-free-software">Use of free software 16</a><a href="#intellectual-property-rights-searches-intellectual-property-rights-of-third-parties">Intellectual
+property rights searches, intellectual property rights of third parties
+16</a></p>
+<ol start="10" type="1">
+<li><p>Contract term and termination 17</p></li>
+<li><p>General information 17</p></li>
+</ol>
+<h2 id="applicable-documents-19">Applicable documents 19</h2>
+<table>
+<thead>
+<tr>
+<th colspan="3" style="text-align: center;"><blockquote>
+<p><strong>Revision record</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Date</p>
+</blockquote></td>
+<td><blockquote>
+<p>Revision</p>
+</blockquote></td>
+<td><blockquote>
+<p>Name, department</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>First issue</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Updated for Chinese market; [redacted-person] version 2.2</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h1 id="general-information">General information</h1>
+<h2 id="purpose-of-the-performance-specification">Purpose of the
+[redacted-person]</h2>
+<blockquote>
+<p>With the present [redacted-person], the commercial and
+technical requirements are described under which the bidder, to whom the
+request for quotation (RFQ) is extended (hereinafter, "contractor"), can
+submit a quotation for the requested scope of service.</p>
+<p>This document describes the relevant interfaces, processes, rights,
+and services requested as the basis for the award.</p>
+<p>The contractor shall take this [redacted-person] into
+consideration to the fullest extent in preparing its quotation. In its
+quotation, the contractor shall consider all services required for
+complying with the [redacted-person]. It is imperative that the
+quotation exclusively refer to the [redacted-person] and
+comprehensively present the manner of rendering the services required
+therein. Deviations from the [redacted-person] shall be
+expressly identified as such in the quotation or in the ordering systems
+of [redacted]with reference to the respective section.</p>
+<p>If the contract is awarded to the contractor, the latter shall ensure
+that the performance described in the [redacted-person] be
+rendered towards [redacted-co] as specified.</p>
+<p>[redacted-co] reserves the right to conduct cost plausibility checks prior
+to ordering the work and to conduct subsequent negotiations accordingly.
+The prices and scheduled dates quoted may not be exceeded. All
+modifications necessary for achieving the objectives and functional
+compliance with the [redacted-person] are contained in the
+quotation.</p>
+<p>The content of the [redacted-person] and likewise, the
+documents additionally provided, are subject to confidentiality and may
+only be made accessible to third parties with the express consent of the
+responsible [redacted-co] department. Insofar as a transmission to third
+parties, in particular, to third parties affiliated with the contractor,
+is required for preparing a quotation and this was approved, the
+contractor shall make certain that confidentiality is ensured.</p>
+</blockquote>
+<h2 id="structured-rfq">Structured RFQ</h2>
+<blockquote>
+<p>The contractor shall fill out the structured RFQ of [redacted]that is
+to say, provide the required information for itemization and
+plausibility analysis.</p>
+<p>Based on the structured RFQ, the contractor shall prepare a
+correspondingly structured quotation free of charge. All details for
+deriving the value of the quotation and the plausibility analysis shall
+be contained in this quotation. This includes, in particular, the
+forecast expenditure of working hours for the contractor. If additional
+details with regard to the quotation are requested by [redacted]the
+contractor shall promptly provide these free of charge.</p>
+</blockquote>
+<h2 id="scope">Scope</h2>
+<blockquote>
+<p>The present [redacted-person] exclusively refers to services
+within the scope of project schedules. These can be, among other things,
+development, design engineering, numerical simulation, test bed,
+testing, workshop, and project management services.</p>
+<p>The nature and scope of the services shall be in conformity with the
+[redacted-person] unless circumstances are individually
+negotiated and explicitly regulated differently in writing.</p>
+</blockquote>
+<h1 id="project-specific-contents-of-the-order">Project-specific
+contents of the order</h1>
+<h2 id="description-of-the-project-environment">Description of the
+project environment</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p>[redacted-prj]/2_Cx_BL</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>[redacted-prj]/3_Cx_BL</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>[redacted-prj]/4_Cx_BL</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>2.1.1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Project management</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.2</p>
+</blockquote></td>
+<td><blockquote>
+<p>Seat belt arrangement concept design</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Seat belt arrangement development to production readiness</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.4</p>
+</blockquote></td>
+<td><blockquote>
+<p>Seat belt design</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.5</p>
+</blockquote></td>
+<td><blockquote>
+<p>Design FMEA</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.6</p>
+</blockquote></td>
+<td><blockquote>
+<p>Part application development</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.7</p>
+</blockquote></td>
+<td><blockquote>
+<p>Function in the vehicle</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>2.1.8</p>
+</blockquote></td>
+<td><blockquote>
+<p>Bill of materials/engineering change management</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="project-management">Project management:</h2>
+<blockquote>
+<p>Coordinating the development package described above, in accordance
+with the task and activity descriptions specified in sections 2.1.2 to
+2.1.8</p>
+<p>Ensuring the exchange of technical information for the vehicle
+project within [redacted]and the other departments
+involved</p>
+<p>Creating and monitoring part schedules, weight lists, and release
+lists for compliance with [redacted-co] milestones</p>
+<p>Presenting development progress in [redacted-co] committees</p>
+<p>Participating in part-by-part meetings and coordinating current part
+versions to configure prototypes (e.g., for [redacted-person] Testing) and
+Pre-[redacted-person] Vehicles.</p>
+</blockquote>
+<h2 id="seat-belt-arrangement-concept-design">Seat belt arrangement
+concept design:</h2>
+<blockquote>
+<p>Packaging space examinations must be performed and the retractors,
+seat belt height adjusters, seat belt buckles, and belt guide
+fittings/seat belt guides, etc. must be positioned. The seat belt
+components must meet the specifications of the module package. The
+computer-aided design (CAD) data must always be checked to this
+effect.</p>
+<p>For belt guide fittings/seat belt guides, brackets, recliners, and
+fasteners, not only the constructive design, but also the strength
+design (part simulation) must be performed as per [redacted-person]
+Specification for [redacted-person] of [redacted-person].</p>
+<p>In addition, the installation of child seats and test objects must be
+ensured by means of CAD as per [redacted-person] for [redacted-person].</p>
+<p>Regular consultations with the contact persons of the appropriate
+departments for the adjacent components and, if applicable, with others
+within the [redacted-person] will be required.</p>
+<p>Provision must be made for a number of business trips.</p>
+</blockquote>
+<h2 id="seat-belt-arrangement-development-to-production-readiness">Seat
+belt arrangement development to production readiness:</h2>
+<blockquote>
+<p>Implementation of the seat belt arrangement in a vehicle project in
+the development-to-production- readiness phase, from the [redacted-person]
+Decision through to Start of Production (SOP) of the project</p>
+<p>+ 3 months.</p>
+<p>Packaging space examinations must be performed and the retractors,
+seat belt height adjusters, seat belt buckles, and belt guide
+fittings/seat belt guides, etc. must be positioned. The seat belt
+components must meet the specifications of the module package. CAD data
+must always be checked to this effect.</p>
+<p>For belt guide fittings/seat belt guides, brackets, recliners, and
+fasteners, not only the constructive design, but also the strength
+design (part simulation) must be performed as per [redacted-person]
+Specification for [redacted-person] of [redacted-person]
+(LAH.DUM.857.BB).</p>
+<p>In addition, the installation of child seats and test objects must be
+ensured by means of CAD as per [redacted-person] for [redacted-person].</p>
+<p>Regular consultations with the contact persons of the appropriate
+departments for the adjacent components and, if applicable, with others
+within the [redacted-person] will be required.</p>
+<p>Provision must be made for a number of business trips.</p>
+</blockquote>
+<h2 id="seat-belt-design">Seat belt design:</h2>
+<blockquote>
+<p>The constructive design and positioning of components of the seat
+belt system parts in the vehicle environment (e.g., seat belt guides,
+seat belt buckle holders) takes place, in consultation with [redacted]in accordance with the project phases listed in
+sections 2.1.2 and 2.1.3.</p>
+<p>The belt guide fittings/seat belt guides are designed as per
+[redacted-person] for [redacted]Guide and Front
+B-[redacted]The contractor is responsible for the part
+design and part strength, as well as the component tests.</p>
+<p>Data sets, part equipment lists, and drawings (individual parts and
+entire scopes of supply) must be created and archived.</p>
+</blockquote>
+<h2 id="design-fmea">Design FMEA:</h2>
+<blockquote>
+<p>Creating and tracking a system failure modes and effects analysis
+(FMEA) for the arrangement of the seat belt components in a vehicle
+project.</p>
+<p>The APIS IQ-FMEA-L system must be used for this purpose.</p>
+<p>A team must be assembled with the responsible contacts of the
+involved departments, as well as, e.g., [redacted]and, if necessary, the appropriate
+component suppliers, to work through the FMEA forms at regular
+meetings.</p>
+<p>The progress of the FMEA must be indicated in regular status reports
+and completed at the deadlines specified in the project milestones.</p>
+</blockquote>
+<h2 id="part-application-development">Part application development:</h2>
+<blockquote>
+<p>For the seat belt systems in a vehicle project, the functions and
+properties of the components must be developed taking into account their
+interaction with the environment. This includes the following parts:
+retractors, webbing, latch plates, belt guide fittings, height
+adjusters, belt end fittings, lap belt pretensioners, seat belt guides,
+and seat belt buckles.</p>
+<p>Direct consultation with the suppliers and [redacted]is required for this purpose.</p>
+<p>Provision must be made for a number of business trips.</p>
+</blockquote>
+<h2 id="function-in-the-vehicle">Function in the vehicle:</h2>
+<blockquote>
+<p>The functions of the seat belt system components and actions from the
+arrangement FMEA in the vehicle must be checked. This includes acoustic
+characteristics (noise, vibration, and harshness [NVH]), wearing
+comfort, seat belt retraction, and child seat/test object installation
+in the vehicle.</p>
+<p>Regular meetings must be organized and held with the seat belt system
+suppliers on the vehicle ("[redacted-person]") to jointly evaluate and define
+actions for the aforementioned aspects in the vehicle.</p>
+<p>It must be ensured that the current part versions are installed in
+test and acceptance vehicles and that the identified faults are
+rectified.</p>
+</blockquote>
+<h2 id="bill-of-materialsengineering-change-management">Bill of
+materials/engineering change management:</h2>
+<blockquote>
+<p>The part bill of materials (BOM) for the vehicle project must be
+created and maintained in ESON and regular maintenance of deadlines and
+certificate obligations in [redacted-person] Online (TEVON) must be
+ensured.</p>
+<p>The assembly BOM for prototypes and pre-production vehicles must be
+completed.</p>
+<p>Engineering change documentation and the associated AVON
+items/intentions must be created independently in the [redacted]System (AVON).</p>
+<p>Creating and maintaining part overviews for the vehicle project.</p>
+</blockquote>
+<h2 id="project-objectives">Project objectives</h2>
+<blockquote>
+<p>The progress of the tasks described in section 2.1 must be indicated
+in regular project status reviews and verified in accordance with a
+milestone checklist at the milestones listed in section 2.5.2. A
+template for this checklist is enclosed in the appendix.</p>
+<p>The work results of the commissioned contractor must be indicated and
+documented for the overall project management of [redacted]as follows:</p>
+</blockquote>
+<ul>
+<li><p>Deadline status of the parts in TEVON and ESON</p></li>
+<li><p>Changes in part deadlines, weights, and technology on the project
+status sheet and in the Bauteilmonitor development maturity monitoring
+tool</p></li>
+<li><p>Completing the [redacted-person] Book (TPB) for the part scope
+awarded to the contractor</p></li>
+<li><p>Part status in the [redacted-person] project status meeting</p></li>
+<li><p>Assembly BOM for each integration level (ISx) before the [redacted-person]
+part-by part meeting</p></li>
+</ul>
+<blockquote>
+<p>For the technical release of parts, releasable documents must be
+obtained from the suppliers and submitted to the appropriate department
+in consultation with the technical coordinator of the [redacted-id]
+department.</p>
+</blockquote>
+<h2 id="framework-conditions-standards-technical-guidelines-production-equipment-specifications-etc.-to-be-adhered-to-unless-included-in-section-4">Framework
+conditions, standards, technical guidelines, [redacted-person]
+Specifications, etc., to be adhered to (unless included in section
+4)</h2>
+<blockquote>
+<p>See section 4.</p>
+</blockquote>
+<h2 id="required-expertise">Required expertise</h2>
+<blockquote>
+<p>The contractor guarantees that it has the necessary expertise to
+process the scope of the project. From the perspective of [redacted]this
+includes, in particular:</p>
+<p>For the activities described above, status reports and presentation
+documents must be prepared, which can be used for decision making within
+[redacted]Knowledge of the [redacted-person].</p>
+<p>Furthermore, depending on the activity described above, knowledge of
+one or more of the following IT systems will be required: [redacted](HyperKVS), CONNECT, CATIA V5,</p>
+<p>LCS, RAMSIS, eBTD, DMU, AVxNT ([redacted-co] Workbench), AVON, TEVON, VDSwin,
+VisVerdi, Falcon, APIS IQ-FMEA-L, etc.</p>
+<p>Professional fluency in English may be required for technical
+consultations with interface partners, suppliers, or within the
+[redacted-person].</p>
+</blockquote>
+<h2 id="performance-period">Performance period</h2>
+<h2 id="startend-of-the-project">Start/end of the project</h2>
+<blockquote>
+<p>The start of the project and the respective SOPs for derivatives are
+defined in Body &amp; [redacted]LAH.85D.880.B and LAH.85K.880.B.</p>
+<p><strong>Start of project</strong>: [redacted-person] (PF) milestone
+for first user, but no earlier than contract award. The conceptual
+issues still open at the start of the project must be taken into account
+in the quotation.</p>
+<p><strong>End of project</strong>: Last ramp-up + 3 months (currently
+ramp-up 7; see Body &amp; [redacted]LAH.85D.880.B and LAH.85K.880.B)</p>
+</blockquote>
+<h2 id="milestones">Milestones</h2>
+<blockquote>
+<p>Listed in the current higher-level project schedules for the product
+line (control schedule, SOP cascade, etc.)</p>
+<p>LAH.85D.880.B and LAH.85K.880.B</p>
+<p>The contractor must prepare and maintain part schedules and specific
+development schedules for vehicle safety (e.g., test plan) and
+communicate them via the [redacted-co] project committees (e.g., simultaneous
+engineering team).</p>
+</blockquote>
+<h2 id="place-of-performance">Place of performance</h2>
+<blockquote>
+<p>[redacted-addr] or the contractor's location</p>
+</blockquote>
+<h2 id="supplies-from-audi-ag">Supplies from [redacted]</h2>
+<h2 id="supplied-it">Supplied IT</h2>
+<blockquote>
+<p>The IT to be provided by the contractor and purchaser must be taken
+from the [redacted-person] supplements for the scope of required
+connection technologies.</p>
+<p><u>Appendices:</u></p>
+</blockquote>
+<ul>
+<li><p>Technical-[redacted-person] (GP) for Computer-[redacted-person]
+(CAT)</p></li>
+<li><p>Technical-[redacted-person] (GP) for CAD</p></li>
+<li><p>Instructions and IT [redacted-person] GP CAT</p></li>
+</ul>
+<h2 id="remuneration">Remuneration</h2>
+<blockquote>
+<p>See section 3.6.</p>
+<p>Services are invoiced with proof of performance documentation, based
+on the project progress reports presented in the project reviews held at
+intervals of approx. 4 weeks.</p>
+</blockquote>
+<h2 id="ancillary-costs">Ancillary costs</h2>
+<blockquote>
+<p>Business trips and tests must be invoiced separately as ancillary
+costs , based on proof of actual expenditure (statement of costs for
+hotels, travel expenses, fuel, etc.).</p>
+<p>A separate flat-rate item must be indicated for these costs in the
+fixed-price quotation.</p>
+</blockquote>
+<h2 id="technical-contacts-of-audi-ag">Technical contacts of [redacted]</h2>
+<blockquote>
+<p>Project integrator(s) of the [redacted-person] department:</p>
+<p>[redacted]phone [redacted-phone]</p>
+</blockquote>
+<h2 id="other-requirements">Other requirements</h2>
+<blockquote>
+<p>The contractor must equip its employees with a cell phone and a
+laptop loaded with the software required for the activities described
+above. The laptop must be made available temporarily to [redacted-co] at the
+end of the contract, for the purpose of data backup and data
+removal.</p>
+</blockquote>
+<h2 id="applicable-performance-specifications-and-guidelines">[redacted-person] Specifications and guidelines</h2>
+<ul>
+<li><p>A00664 – Guideline for Archiving CAD Data and [redacted-person]</p></li>
+</ul>
+<blockquote>
+<p>for the Development of [redacted-person] Systems</p>
+</blockquote>
+<ul>
+<li><p>LAH.DUM.857.D – [redacted]Specification</p></li>
+<li><p>LAH.DUM.857.L – [redacted]</p></li>
+<li><p>LAH.DUM.857.Q – [redacted-person] for Arrangement of
+[redacted-person] Belts</p></li>
+<li><p>LAH.DUM.857.S – [redacted-person] for Arrangement of [redacted-person] Belts</p></li>
+<li><p>LAH.DUM.857.AE – [redacted-person] for [redacted]Guide and Front B-[redacted]</p></li>
+<li><p>LAH.DUM.857.BB – [redacted-person] Specification for [redacted-person] of Seat</p></li>
+</ul>
+<blockquote>
+<p>Belts</p>
+</blockquote>
+<ul>
+<li><p>AH.85H.857 – [redacted-person] of Supply for
+<strong>[redacted-prj]/x_Cx_BL</strong></p></li>
+<li><p>AH.85E.857.M – [redacted-person] of Supply for
+<strong>[redacted-prj]/4_Cx_BL</strong></p></li>
+</ul>
+<h1 id="commercial-framework-conditions">Commercial framework
+conditions</h1>
+<h2 id="responsibility-duty-to-provide-information-and-cooperation">Responsibility,
+duty to provide information, and cooperation</h2>
+<ol type="1">
+<li><p>The contractor shall render its services independently and under
+its sole responsibility, and exclusively with qualified personnel. The
+contractor shall render services according to the latest state of the
+art and science and technology, and according to the accepted standards
+of professional practice, including the documentation. Any technical,
+expert, or other requirements of [redacted-co] do not release the contractor
+from its obligation and responsibility for rendering the services free
+of faults.</p></li>
+<li><p>The contractor shall evaluate the content of the information,
+documents, project-related instructions, requirements, and similar
+specifications of [redacted-co] for completeness, accuracy, consistency, and
+feasibility. The contractor shall promptly notify [redacted-co] in writing,
+with regard to any inadequacies stating the reasons.</p></li>
+<li><p>Upon [redacted-co]'s request, the contractor shall draw up meaningful
+status reports in writing.</p></li>
+<li><p>[redacted-co] will make available to the contractor the necessary
+information and documents upon request. Beyond this, any participation
+requires a separate, written agreement.</p></li>
+<li><p>If working equipment is made available by [redacted]in particular,
+for security reasons (hardware, software, etc.), this is done on a loan
+basis. All working equipment, and all data, software, etc. stored
+thereon, are the sole property of [redacted]The working equipment shall
+be used exclusively for the purposes and for the duration of the
+assigned scope of the work. It shall be returned to [redacted-co] after
+concluding the order, or, in the case of software handed over without
+hardware, deleted. For the IT sector (hardware/software), reference is
+made in particular to the applicability of the IT [redacted-person].</p></li>
+<li><p>The contractor must render the services as per the contract,
+e.g., those assigned to the dispatching party (shipper), sender,
+packaging party, loader, filler, transporter, receiving party, unloader,
+etc., independently and at its own risk. The contractor alone is
+responsible for adhering to all national and international regulations
+and rules pertinent to the respective service. This applies in
+particular to the hazardous materials management and to the handling of
+hazardous substances. The contractor commits itself to have all work
+done exclusively by employees that have been trained and/or instructed
+as per the applicable regulations. The contractor must disclose its
+strategy for hazardous materials management in particular.</p></li>
+</ol>
+<h2 id="carrying-out-the-work">Carrying out the work</h2>
+<ol type="1">
+<li><p>The contractor is responsible for planning the project and
+performing the services. If there are hourly allocations stated by [redacted-co] for the scope of the performance, these are merely estimates based on
+experiential values.</p></li>
+<li><p>The contractor shall render its services with regular
+professional consultation with [redacted]and shall designate a project
+manager who plans and monitors the deployment of personnel and
+development of the unit. This project manager is the responsible contact
+for [redacted-co] with regard to all concerns pertaining to the project. [redacted-co] can make statements effective for the contractor vis-à-vis this
+contact.</p></li>
+<li><p>The employees employed by the contractor are solely subject to
+the contractor's right to issue instructions. The contractor shall
+ensure that the right to issue instructions is exclusively exercised by
+the contractor. The persons employed by the contractor may not enter
+into any employment relationship for [redacted]also insofar as they
+render services in the latter's premises.</p></li>
+<li><p>If a person employed by the contractor for fulfilling the
+contract is replaced by another, or if familiarization with the order is
+generally required (e.g., training for processing the order mandatorily
+required for [redacted-co] IT systems), the expenses for such familiarization
+shall be borne by the contractor. The contractor shall reasonably take
+into consideration the interests of [redacted-co] in the course of its
+selection. [redacted-co] can, while providing the rationale, request the
+replacement of persons employed by the contractor for fulfilling the
+contract if these persons</p></li>
+</ol>
+<blockquote>
+<p>repeatedly violate contractual obligations. The costs arising due to
+this replacement shall be borne by the contractor.</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p>The contractor commits to – with respect to the employees
+employed for fulfilling the contractor's services – making visually
+recognizable by suitable measures the fact that these are contractor
+employees, and non-involved third parties are able to unambiguously
+recognize this at any time. In particular, identification must be
+visibly worn.</p></li>
+<li><p>If the contractor, within the framework of rendering the
+services, uses premises that have been specially rented by [redacted]or
+made available, the contractor shall take this into account as a
+reduction in the calculation of its quotation prices. [redacted-co] is
+authorized to lease to the contractor specially rented spaces and to
+invoice for the rent. It must be made visually recognizable in these
+premises (by suitable measures) as to which contractor has the premises
+at its disposal. Whether the premises are provided or leased requires a
+decision in each individual case. The same shall apply for production
+equipment of [redacted]The contractor shall take into account in the
+quotation expenditures saved for not having to provide its own premises
+and production equipment.</p></li>
+<li><p>Transferring to, or sharing the order with third parties on the
+part of the contractor requires the prior written consent of [redacted]If
+a delivery and service are made by third parties, invoicing may only be
+carried out by the contractor.</p></li>
+</ol>
+<h2 id="performance-periods">Performance periods</h2>
+<ol type="1">
+<li><p>The agreed performance periods and schedules are binding and
+conclusive. If necessary, interim dates can be incorporated into these
+schedules. These are likewise binding. All scheduled dates can only be
+modified in writing and by mutual agreement.</p></li>
+<li><p>If the contractor should recognize that it potentially cannot
+comply with the scheduled date, the contractor shall immediately inform
+[redacted-co] about this in writing. In so doing, the contractor shall propose
+measures aimed at guaranteeing the scheduled dates. This notice does not
+release the contractor from its obligation to comply with scheduled
+dates. If the notice is not provided, the contractor is responsible for
+failure to meet the deadline, irrespective of the cause. If [redacted-co] is
+responsible for not complying with the scheduled date, the scheduled
+date and any follow-on dates shall be specified for new deadlines
+reasonable for both parties.</p></li>
+</ol>
+<h2 id="modifications-of-the-services">Modifications of the
+services</h2>
+<ol type="1">
+<li><p>The contractor is prepared to take into consideration requests by
+[redacted-co] for modifications and supplementation for the purpose of
+realizing the scope of the work described in this [redacted-person]. The contractor shall refuse requests for modifications
+made by [redacted-co] for only for good reasons. A good reason for the refusal
+shall be considered to be, in particular, if according to the
+contractor's reasoned assessment, the performance is not practicable, or
+if the resources necessary for undertaking the modification are not
+available for the contractor and also cannot be made available.</p></li>
+<li><p>The contractor shall assess the modifications requested by [redacted-co] as they pertain to their impact on costs, investments, and scheduled
+dates, and – taking into consideration that to the greatest extent
+possible the scheduled dates should not be changed – quote an
+implementation proposal. With respect to the costs, this quotation must
+be just as amenable to verification as the original quotation. The work
+may only be ordered subsequent to negotiation and a final decision
+concerning the contract award.</p></li>
+<li><p>All modifications and supplementations that are required to
+fulfill the values and functions stated in this [redacted-person] shall be implemented after consultation with the
+responsible [redacted-co] department (purchaser). Payment for the modifications
+is satisfied by the quoted and finally agreed remuneration. This shall
+also apply for modifications within the framework of development
+progress, including the prototype scopes and additional
+testing.</p></li>
+<li><p>Insofar as the contractor determines that the requests for
+modifications will have effects on the cost structure and/or the
+milestone schedule, the contractor shall present these in a separate
+quotation, the acceptance of which lies within [redacted-co]'s sole
+discretion, and which shall be done in writing or via [redacted-co]'s ordering
+systems.</p></li>
+</ol>
+<h2 id="acceptance-of-delivery">Acceptance of delivery</h2>
+<ol type="1">
+<li><p>For development projects, the determination as to whether the
+contractor's agreed scope of performance was actually fulfilled as per
+the agreement cannot be made until after conclusion of the development
+project and the transfer of the respective development results. This
+determination takes place exclusively by means of issuing a written
+declaration of acceptance within the scope of the formal, final
+inspection of the contractor's scope of performance by [redacted]</p></li>
+<li><p>The results developed by the contractor shall be delivered in a
+verifiable form. If this requirement is not fulfilled, the time period
+for acceptance will not be initiated due to the impossibility of
+accepting delivery. If the results of the performance are represented as
+data sets, the contractor shall to this extent grant access for the code
+of the services rendered so that inspection for performing the services
+as per the agreement is possible.</p></li>
+<li><p>The contractor shall provide notice of completing the entirety of
+the order for the purpose of acceptance of delivery. The acceptance of
+delivery shall take place as described in the following:</p>
+<ol type="a">
+<li><p>[redacted-co] inspects the services transferred in a form capable of
+inspection within a time period that is reasonable with respect to the
+project.</p></li>
+<li><p>The contractor shall, upon [redacted-co]'s request, and without
+separate remuneration, provide trained personnel for the testing
+necessary for acceptance of delivery. Defects occurring in the course of
+the acceptance inspection will be recorded.</p></li>
+<li><p>The declaration of acceptance must be signed by the contractor's
+project manager and the party responsible on behalf of [redacted-co] as per
+the pertinent signature regulations.</p></li>
+<li><p>If [redacted-co] rejects acceptance of delivery due to one or more
+defects, the contractor shall promptly eliminate the defect or defects
+and shall once again submit the contractor's performance for inspection.
+The above regulations shall apply accordingly for a renewed
+inspection.</p></li>
+</ol></li>
+<li><p>The contractor has the obligation, and subsequent to agreement
+with [redacted]the right, to remedy defects twice. This obligation to
+remedy faults does not modify the agreed completion dates and the legal
+consequences arising from delay. [redacted-co] may, subsequent to the
+expiration of a reasonable grace period set by [redacted]itself undertake
+the contractor's performance, or have the services performed, or
+withdraw from the contract at the expense of the contractor. In the
+event of termination, the contractor will only receive remuneration for
+the services that are independently utilizable and accepted without
+defects. The right to compensatory damages shall remain unaffected
+thereby.</p></li>
+</ol>
+<h2 id="remunerationproof-of-performance">Remuneration/proof of
+performance</h2>
+<ol type="1">
+<li><p>A fixed price shall be designated by the contractor/bidder for
+the task requested for quotation. The calculation of the fixed price
+shall be disclosed in the quotation. The respective cost elements shall
+be separately listed based on the scope of performance described in the
+[redacted-person]. In so doing, third party expenses, among
+other things, shall be separately listed.</p></li>
+<li><p>Fixed prices include all ancillary costs. Likewise, all expenses
+and costs not expressly to be borne by [redacted-co] must be borne by the
+contractor and covered by the agreed price. Deviations from this require
+an express agreement.</p></li>
+<li><p>Travel costs only include the cost of a transfer and
+accommodations (no additional costs for meals and comparable items).
+Insofar as not otherwise agreed, travel costs are not contained in the
+order value. These costs may only be remunerated up to a maximum of the
+agreed rates and</p></li>
+</ol>
+<blockquote>
+<p><u>within the agreed limits upon providing proof of the expenses.
+They shall be invoiced</u> on a</p>
+<p>quarterly basis. The travel cost guidelines for development service
+providers effective on the respective date of placing the order are
+applicable; upon request, these are made available by the Procurement
+department of [redacted]Travel times, additional cost for meals, etc.,
+will not be reimbursed.</p>
+</blockquote>
+<ol start="4" type="1">
+<li><p>The services rendered will be compensated according to the
+progress achieved. For this purpose, proof of performance shall be
+provided in advance in each case. Payment plans shall be separately
+agreed. A claim for remuneration only exists for actual services
+rendered.</p></li>
+<li><p>Payments are only made after submitting proof of performance.
+Proof of performance may only be supplied after completely providing the
+agreed services or partial services. The proof of performance must have
+the following content at a minimum:</p>
+<ol type="a">
+<li><p>Status of the work/project status,</p></li>
+<li><p>Previously achieved milestones/partial results, agreements
+concerning further actions to be taken,</p></li>
+<li><p>Signature on the part of the contractor.</p></li>
+</ol></li>
+<li><p>For proof of performance, it is preferred that the form
+obtainable upon request from the [redacted-co] contact is used. Care must be
+taken that all fields are properly filled out.</p></li>
+<li><p>Prior to invoicing [redacted]the proof of performance for the
+services rendered shall be signed by the [redacted-co] department (purchaser) and
+the contractor. The dually (by contractor and the [redacted-co] contact) signed
+proof of performance shall be transmitted as an attachment with the
+invoice to [redacted]Invoices without the appropriate signed proof of
+performance will be rejected.</p></li>
+<li><p>The handwritten signatures may be replaced by public key
+infrastructure (PKI) signatures if the following requirements are
+cumulatively met:</p>
+<ol type="a">
+<li><p>The [redacted-co] proof of performance form is used.</p></li>
+<li><p>The proof of performance explicitly states that a signature by
+means of PKI signature is permissible.</p></li>
+<li><p>The contractor signs the proof of performance using a PKI
+signature and forwards this electronic document to the
+requester.</p></li>
+<li><p>The requester then signs this electronic document using a PKI
+signature.</p></li>
+<li><p>The requester electronically sends the electronic document signed
+by both contracting parties using a PKI signature to the
+purchaser.</p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>The choice of format for signing the proof of performance (PKI
+signature or handwritten signature) is at the sole and free discretion
+of [redacted]</p>
+</blockquote>
+<ol start="9" type="1">
+<li><p>The acknowledgment of a proof of performance or initiation of a
+payment are not to be construed as an acceptance of delivery.</p></li>
+</ol>
+<h2 id="rights-of-use">Rights of use</h2>
+<ol type="1">
+<li><p>The contractor shall notify [redacted-co] concerning all innovations
+originating with the contractor in connection with carrying out the work
+under the contract (included in this are in particular, inventions,
+technical suggestions for improvement, know-how, but also other
+individual intellectual efforts), shall submit all documents required
+for evaluating the innovations, and provide [redacted-co] with all requested
+information with regard to the innovations.</p></li>
+<li><p>Insofar as inventions and intellectual property rights or
+copyrights established thereon were demonstrably already available to
+contractor prior to commencing the work as per the contract ("prior
+intellectual property rights"), the contractor remains the owner of
+same. However, the contractor shall state its willingness to grant to
+[redacted-co] a non-exclusive, sub-licensable right of use, unlimited in terms
+of duration, geography, and content without paying a fee in excess of
+the fixed price, if these prior industrial property rights are applied
+to the development. Insofar as prior intellectual property rights flow
+into the development result, the contractor shall promptly inform [redacted-co] concerning these prior intellectual property rights. In the event of
+the</p></li>
+</ol>
+<blockquote>
+<p>development of a production part, the contractor shall disclose the
+prior intellectual property rights being applied with the presentation
+of the initial samples.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>The contractor shall transfer to [redacted-co] an exclusive,
+non-remunerated, and transferable right of use that is unlimited in
+terms of duration, geography, and content to all copyrights (including
+software and the accompanying source code) to which the contractor is
+entitled with respect to the services or partial services to be rendered
+by the contractor. The right of use of [redacted-co] encompasses the
+authorization to revise, modify, and/or entrust to third parties for
+their use with or without remuneration the results of the work, the
+documents, or records.</p></li>
+<li><p>In justified individual cases, the contractor can agree with [redacted-co] that the complete 2D/3D data delivered by the contractor under the
+contract may not be transferred to third parties outside of Volkswagen
+AG and the subsidiary/associate companies of the [redacted-person].
+However, in this case, the contractor is obligated to supply neutralized
+RFQ documents in addition to this contractually owed complete 2D/3D
+data. Neutralized RFQ documents are packaging space interface
+presentations (2D/3D data) that present the installation situation, not
+however, the contractor's prior know-how as represented in the
+underlying 2D/3D data. The contractor grants [redacted-co] a non-remunerated
+right of use unlimited in terms of duration, geography, and content to
+these neutralized RFQ documents for dissemination, duplication, and
+processing purposes, as well as for public disclosure within the scope
+of an RFQ vis-à-vis third parties.</p></li>
+<li><p>In general, [redacted-co] is solely entitled to all work results,
+documents prepared and services, etc. arising from this project. To the
+extent the contractor engages subcontractors, the contractor shall
+ensure by means of appropriate contractual agreements that the
+subcontractors also acknowledge this as binding on them. [redacted-co]
+reserves the right to also transmit all documents to third parties,
+among other things, for the purpose of selecting suppliers. [redacted-co] is
+exclusively entitled to a right of exploitation in all work results from
+the date that they arise, in particular, innovations arising within the
+framework of the contract.</p></li>
+<li><p>[redacted-co] is solely entitled to submit applications for
+intellectual property rights. Upon the contractor's request, [redacted-co]
+will communicate in writing whether it waives an application in a
+specific case. The contractor is then authorized to apply for the
+industrial property right at its own expense. [redacted-co] is entitled to a
+non-exclusive, non-remunerated, and transferable right of use unlimited
+in terms of duration, geography, and content in these intellectual
+property rights.</p></li>
+</ol>
+<h2 id="use-of-free-software">Use of free software</h2>
+<ol type="1">
+<li><p>The contractor shall state towards [redacted-co] whether the work
+results owed by the contractor contain free software (open source
+software, freeware and/or public domain, including subcomponents or
+parts thereof) or not.</p></li>
+<li><p>If the contractor uses free software in the work results owed, or
+if this is intended, this use is only then permitted if the contractor
+informs [redacted-co] about this prior to commencing the development as per
+the provisions of the "Regulations on the Use of [redacted-person]"
+(applicable document).</p></li>
+<li><p>There is no obligation on the part of [redacted-co] to accept the use
+of free software in the work results owed. The information supplied by
+the contractor does not effectuate any acceptance on the part of [redacted-co]
+for the use of free software. In particular, [redacted-co]'s rejection of the
+use of free software can occur for the purpose of averting security or
+legal risks.</p></li>
+<li><p>The following provisions, in particular, the claim for indemnity
+with regard to third party intellectual property rights, shall apply by
+way of supplementation.</p></li>
+</ol>
+<h2 id="intellectual-property-rights-searches-intellectual-property-rights-of-third-parties">Intellectual
+property rights searches, intellectual property rights of third
+parties</h2>
+<ol type="1">
+<li><p>The contractor shall ensure by means of appropriate searches – in
+compliance with the diligence customary in the industry – that there is
+no interference with the rights of third parties owing to the services
+to be rendered by the contractor, as well as their results. An
+interference in the rights of third parties also exists then if the use
+is dependent upon conditions.</p></li>
+<li><p>If the rights of third parties would be violated due to the
+intended design of the work results or implementation of the requested
+feature, the contractor shall immediately inform the [redacted-co] contacts
+identified in this [redacted-person], and shall jointly find
+with them a different design for the work results. Insofar as it is not
+possible to circumvent third party industrial property rights, [redacted-co]
+will decide whether the affected industrial property right should be
+utilized by means of a license. [redacted-co] and the contractor shall agree
+on sharing the expenses accruing thereby in each individual
+case.</p></li>
+<li><p>To the extent that the contractor does not inform [redacted-co]
+concerning conflicting third party rights of which the contractor is
+aware, or which the contractor should have recognized by observing the
+diligence customary in the industry, the contractor shall indemnify [redacted-co] for any and all third party claims that are based on conflicting
+rights in the development subject matter.</p></li>
+</ol>
+<h2 id="contract-term-and-termination">Contract term and
+termination</h2>
+<ol type="1">
+<li><p>[redacted-co] may terminate the contract at any time in whole or in
+part. The mutual right of a termination for cause shall remain
+unaffected thereby. A termination shall be in written form insofar as it
+does not take place by way of the [redacted-co] ordering system.</p></li>
+<li><p>In cases of proper contract termination initiated by [redacted]the
+contractor has the right to the agreed remuneration for all
+contractually agreed services that it has rendered up to the point in
+time the termination takes effect, provided the services can be regarded
+as completed and usable, plus a compensation amounting to five percent
+of the remuneration attributable to the scope of services not yet
+rendered.</p></li>
+<li><p>In case the costs incurred by the contractor under the assumption
+of complete contract fulfillment and that it justly incurred exceed the
+remaining amount of remuneration stipulated as per paragraph 2, the
+contractor is free to provide proof of these costs. In this case, [redacted-co]
+will refund the contractor with the proven amount. However, claims for
+the remaining amount of the remuneration as per paragraph 2 cannot be
+made in this case. Lost profit cannot be claimed.</p></li>
+<li><p>In the event of termination, placement of the order remains a
+legal ground for the services rendered up until the termination.</p>
+<ol type="1">
+<li><p><strong>General information</strong></p></li>
+</ol></li>
+</ol>
+<ol type="1">
+<li><p>Special reference is made to the [redacted-person] for [redacted-person] with respect to the test and prototype tools and parts.</p></li>
+<li><p>The transfer of contractual rights or obligations by the
+contractor requires prior written consent from [redacted-co] to be legally
+effective.</p></li>
+<li><p>The legal venue is located in [redacted]AG is
+also entitled to apply to any other court of competent
+jurisdiction.</p></li>
+<li><p>If one or more provisions of this [redacted-person] and
+any additional agreements should be or become invalid, the applicability
+of the remaining provisions shall remain unaffected thereby.</p></li>
+<li><p>If not otherwise regulated in this [redacted-person], the
+statutory regulations on liability shall apply.</p></li>
+<li><p>[redacted-person] version of this RFQ [redacted-person] is
+merely for the purpose of facilitating the work. [redacted-person] version is
+solely authoritative, and in the case of conflicts or differences, takes
+precedence over the English version. This applies accordingly for all
+other documents associated with this, such as, for example, applicable
+documents.</p></li>
+<li><p>When an order is placed with the contractor, the following listed
+regulations and documents of [redacted-co] and/or the contractor will become
+an integral part of the contract, provided that in the case of conflicts
+between the contract components, the following stated rank order shall
+apply:</p>
+<ol type="a">
+<li><p>[redacted-co]'s order</p></li>
+<li><p>Negotiation records</p></li>
+<li><p>The technical portion of the [redacted-co] [redacted-person]</p></li>
+<li><p>Other portions of the [redacted-co] [redacted-person]</p></li>
+<li><p>Non-disclosure agreement between [redacted-co] and the contractor
+(insofar as they exist)</p></li>
+<li><p>Vehicle leasing contracts (insofar as they exist), or [redacted-person] Conditions for [redacted-person]</p></li>
+<li><p>Volkswagen standard [redacted-co]99000</p></li>
+<li><p>Additional documents and standards mentioned in this [redacted-person]</p></li>
+<li><p>[redacted-co] [redacted-person]</p></li>
+<li><p>The contractor's quotation (without recognizing the general terms
+and conditions of the contractor)</p></li>
+</ol></li>
+</ol>
+<ol start="4" type="1">
+<li><p><strong>Applicable documents1</strong></p></li>
+</ol>
+<blockquote>
+<p>The applicable documents shall apply in the version valid on the
+issue date of the [redacted-person], as well as the documents
+mentioned therein.</p>
+<p>The contractor shall ensure that it works with the applicable
+documents valid for the [redacted-person] in each case.</p>
+<p>In particular, the following documents and standards must be taken
+into consideration:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-co] [redacted-person]</p></li>
+<li><p>[redacted-person] Conditions for [redacted-person]</p></li>
+<li><p>[redacted-person] Specifications and technical and commercial
+requirements of [redacted-co] relevant for the scope of the order, and
+relevant standards (e.g. [redacted-co]99000, including parts 1 – 4).</p></li>
+<li><p><u>Informationssicherheitshandlungsleitlinien für Partnerfirmen
+[redacted-co]</u> ([redacted-person] Guidelines for Contractors of [redacted-co] – only available in German)</p></li>
+<li><p>Regulations on the Use of [redacted-person]</p></li>
+<li><p>Security rules for third party companies employed at [redacted-co] (if
+order processing takes place on [redacted-co] premises)</p></li>
+<li><p>[redacted-person] Policies for [redacted-person] "Formula
+Q"</p></li>
+</ul>
+<blockquote>
+<p><strong>To be obtained from:</strong></p>
+<p>Documents can be retrieved via the B2B [redacted-person] of the
+[redacted-person] under the internet address <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+(partly with access authorization, partly publicly available). (Contact
+is also possible via the [redacted-addr] hotline: [redacted-phone] or
+international:</p>
+<p>[redacted-phone], or e-mail:
+<u>[redacted-email]</u>)</p>
+<p>1 Please only refer to standard/document numbers since the document
+titles may vary.</p>
+</blockquote>
+</body>
+</html>

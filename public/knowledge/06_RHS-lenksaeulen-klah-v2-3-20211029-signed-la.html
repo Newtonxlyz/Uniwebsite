@@ -1,0 +1,2983 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Lenksaeulen-KLAH_v2_3_20211029_signed_LAHDUM880BC</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>LAH-Vorlagen-Version: BT-LAH-Vorlage-TE_07.2009_V13.00</p>
+</blockquote>
+<p>[redacted-prj]</p>
+<h2 id="fahrzeugsicherheitsanforderungen-an-die-lenksäule">Fahrzeugsicherheitsanforderungen
+an die Lenksäule</h2>
+<blockquote>
+<p><strong>[redacted]LAH.DUM.880.BC</strong></p>
+</blockquote>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der [redacted-person] verboten.
+Vertragspartner erhalten dieses Dokument nur über die zuständige
+Beschaf-fungsabteilung.</p>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p>[redacted-phone]</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-person]. 3.2.2 Bild3 erweitert auf max. +/- 300N; …</p>
+<p>…</p>
+<p>Ablage nach Unterschriftendurchlauf im KVS</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted]</p>
+<p>[redacted]</p>
+<p>[redacted-person]</p>
+</blockquote></th>
+<th><blockquote>
+<p>Ch. Hilpoltsteiner, [redacted-id]</p>
+<p>[redacted]42</p>
+<p>[redacted-person], EKSG/5</p>
+<p>Dr. [redacted-person] , EKSB/1 Ch. Greis, EFAF/2</p>
+<p>[redacted-person] Perdices, [redacted-person]</p>
+<p>[redacted]EK- 50</p>
+<p>[redacted]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Lastenheftversion für Vergabe [redacted-prj].</p>
+<p>[redacted-person] – Prüfungen als Extrakapitel</p>
+<p>[redacted-person], Teilebereitstellung, [redacted]</p>
+<p>[redacted-person], Bilder aktualisiert</p>
+<p>[redacted-person] neu abgestimmt</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted]EF-42</p>
+<p>[redacted-person], EKS4</p>
+<p>[redacted-name], EFS4 [redacted-person], EKV2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Checkliste geändert</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted][redacted-name], [redacted]EF-42, [redacted-co]</p>
+<p>[redacted-person], EKS4, [redacted-co]</p>
+<p>[redacted-name], EFS4, [redacted-co]</p>
+<p>[redacted-person], EKV2, [redacted-co]</p>
+<p>[redacted-person], EKSG, [redacted-co][redacted-name], EKSG/5 , [redacted]EKS/B1, [redacted]EFDL/2, VW</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>[redacted-phone]</p>
+</blockquote></th>
+<th><blockquote>
+<p>Koppelkörperkennung für dynamische Fallturmversuche definiert</p>
+<p>Steifigkeitsversuche in Querrichtung eingefügt.</p>
+<p>Kriterien für Validierungsgüte des Lenksäulen-Simulationsmodells
+eingefügt.</p>
+<p>Energieniveaus für dynamische Fallturmversuche überarbeitet.</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted]</p>
+<p>[redacted-person], EKS1, [redacted-co]</p>
+<p>[redacted-person], EKS/B1, VW</p>
+</blockquote></th>
+<th style="text-align: right;"><p>D i g i t a l u n t e r s</p>
+<blockquote>
+<p>M u e l l e r J o M u e l l e r J o</p>
+<p>2 A 8 D F C E</p>
+<p>D a t u m : 2 0 2 1 . 2 A 8 D F C E 3</p>
+</blockquote>
+<p>' + 0 2</p>
+<blockquote>
+<p>[redacted-name], [redacted]</p>
+<p>BDVMrW7au1rcPc6hevBDMVuDnoriW7antgu1ericcPr6thsae3Kcl7hIEriEeb8</p>
+<p>Datum: 202</p>
+<p>[redacted]</p>
+<p>VFHGDeWr3aPmFldvGDVHuFnoDieWtngkre3aimPrtFlsadK1clAhI nrCie6bB</p>
+<p>Datum: 2021</p>
+<p>[redacted-person], EKS1, [redacted-co]</p>
+<p>vMDGVuFnoDiWetgneeDngiPrtzo4saKeclrAhIFri5e7b7 Datum: 2021</p>
+<p>[redacted-person], EFS4, [redacted-co]</p>
+<p>CVKA3WnCdcPr3ke vADVKuCno3nWtngCideicPrt3kseaK4cleChIhr7ieFb7</p>
+<p>Datum: 2021</p>
+<p>[redacted-name], EKSG, VW</p>
+<p>JBV5aAlWniEcPkE JvDVBu5anoAliWnitngEceiPkrtEsawKcFl heI1dr4iee1b0</p>
+<p>Datum: 2021</p>
+<p>[redacted-name], EKSG/5, VW</p>
+<p>CEV8hWeBrliPe1stvVDVCuEno8hiiWntgeBreliPerst1sartKBcol hIp2rh4i5e</p>
+<p>Datum: 202</p>
+<p>[redacted-person], EKS/B1, VW</p>
+<p>MVD1DrWaoEibkPAevMDVDu1DonirWantgoEeiibkPrtAsaKcl3kI9rBie2</p>
+<p>Datum: 202</p>
+<p>[redacted-person], EFDL/2, VW</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<h1 id="inhaltsverzeichnis">Inhaltsverzeichnis</h1>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><a href="#_bookmark0"><strong>1</strong></a></p>
+</blockquote></th>
+<th><blockquote>
+<p><a href="#_bookmark0"><strong>Vorwort</strong></a></p>
+</blockquote></th>
+<th style="text-align: right;"><a href="#_bookmark0"><strong>6</strong></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><a href="#allgemeine-festlegungen"><strong>2</strong></a></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: right;"><a href="#allgemeine-festlegungen"><strong>7</strong></a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#zielsetzung">2.1</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#zielsetzung">Zielsetzung</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#zielsetzung">7</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#projektvorgaben">2.2</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#projektvorgaben">Projektvorgaben</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#projektvorgaben">7</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#teilebereitstellung">2.3</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#teilebereitstellung">Teilebereitstellung</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#teilebereitstellung">7</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><a href="#technische-anforderungen"><strong>3</strong></a></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: right;"><a href="#technische-anforderungen"><strong>8</strong></a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#definitionen">3.1</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#definitionen">Definitionen</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#definitionen">8</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#allgemeine-technische-anforderungen">3.2</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#allgemeine-technische-anforderungen">[redacted-person]
+Anforderungen</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#allgemeine-technische-anforderungen">9</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#anforderungen-an-das-crashsystem">3.3</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#anforderungen-an-das-crashsystem">Anforderungen an das
+Crashsystem</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#anforderungen-an-das-crashsystem">9</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#anforderungen-an-die-funktionsstabilität">3.4</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#anforderungen-an-die-funktionsstabilität">Anforderungen an
+die Funktionsstabilität</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#anforderungen-an-die-funktionsstabilität">14</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#anforderungen-an-den-lenksäulenverstellhebel">3.5</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#anforderungen-an-den-lenksäulenverstellhebel">Anforderungen
+an den Lenksäulenverstellhebel</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#anforderungen-an-den-lenksäulenverstellhebel">16</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#einflussnahme-auf-umgebungsbauteile">3.6</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#einflussnahme-auf-umgebungsbauteile">Einflussnahme auf
+Umgebungsbauteile</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#einflussnahme-auf-umgebungsbauteile">18</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><a href="#lenksäulenprüfungen"><strong>4</strong></a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#lenksäulenprüfungen"><strong>Lenksäulenprüfungen</strong></a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#lenksäulenprüfungen"><strong>19</strong></a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#allgemeine-anforderungen">4.1</a></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: right;"><a href="#allgemeine-anforderungen">19</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#messung-der-lenksäulenkräfte">4.2</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#messung-der-lenksäulenkräfte">Messung der
+Lenksäulenkräfte</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#messung-der-lenksäulenkräfte">19</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#quasistatischer-druckversuch">4.3</a></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: right;"><a href="#quasistatischer-druckversuch">20</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#dynamischer-druckversuch-fallturm">4.4</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#dynamischer-druckversuch-fallturm">[redacted-person]
+(Fallturm)</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#dynamischer-druckversuch-fallturm">23</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#dynamischer-ersatzprüfstand-merke">4.5</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#dynamischer-ersatzprüfstand-merke">[redacted-person] (MerKe)</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#dynamischer-ersatzprüfstand-merke">27</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#quasistatische-prüfung-in-querrichtung">4.6</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#quasistatische-prüfung-in-querrichtung">[redacted-person] in Querrichtung</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#quasistatische-prüfung-in-querrichtung">28</a></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="#_bookmark19">4.6.1</a></td>
+<td><blockquote>
+<p><a href="#_bookmark19">[redacted-person] der
+Höhenverstellung</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#_bookmark19">28</a></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="#steifigkeitsversuche-in-seitliche-querrichtung">4.6.2</a></td>
+<td><blockquote>
+<p><a href="#steifigkeitsversuche-in-seitliche-querrichtung">Steifigkeitsversuche
+in seitliche Querrichtung</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#steifigkeitsversuche-in-seitliche-querrichtung">29</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#prüfung-hebelbruchkraft">4.7</a></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: right;"><a href="#prüfung-hebelbruchkraft">29</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#prüfung-verschiebung-oberes-kreuzgelenk">4.8</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#prüfung-verschiebung-oberes-kreuzgelenk">[redacted-person] oberes Kreuzgelenk</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#prüfung-verschiebung-oberes-kreuzgelenk">30</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#prüfung-der-integrität-bei-heckcrash">4.9</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#prüfung-der-integrität-bei-heckcrash">Prüfung der
+Integrität bei Heckcrash</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#prüfung-der-integrität-bei-heckcrash">31</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#prüfumfang-vor-bereitstellung-von-erprobungsmustern">4.10</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#prüfumfang-vor-bereitstellung-von-erprobungsmustern">Prüfumfang
+vor Bereitstellung von Erprobungsmustern</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#prüfumfang-vor-bereitstellung-von-erprobungsmustern">32</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#prüfumfang-zu-entwicklungsmeilensteinen">4.11</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#prüfumfang-zu-entwicklungsmeilensteinen">Prüfumfang zu
+Entwicklungsmeilensteinen</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#prüfumfang-zu-entwicklungsmeilensteinen">32</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#prüfung-des-crashsystems-zur-serienüberwachung">4.12</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#prüfung-des-crashsystems-zur-serienüberwachung">Prüfung des
+Crashsystems zur Serienüberwachung</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#prüfung-des-crashsystems-zur-serienüberwachung">34</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><a href="#simulationsmodell"><strong>5</strong></a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#simulationsmodell"><strong>Simulationsmodell</strong></a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#simulationsmodell"><strong>35</strong></a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#allgemeines">5.1</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#allgemeines">Allgemeines</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#allgemeines">35</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#datenbereitstellung">5.2</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#datenbereitstellung">Datenbereitstellung</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#datenbereitstellung">35</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#modellanforderungen">5.3</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#modellanforderungen">Modellanforderungen</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#modellanforderungen">35</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#simulationsabgleich-zu-versuchen">5.4</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#simulationsabgleich-zu-versuchen">Simulationsabgleich zu
+Versuchen</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#simulationsabgleich-zu-versuchen">37</a></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="#aufprägung-der-randbedingungen-bei-quasistatischen-versuchen">5.4.1</a></td>
+<td><blockquote>
+<p><a href="#aufprägung-der-randbedingungen-bei-quasistatischen-versuchen">Aufprägung
+der Randbedingungen bei [redacted-person]</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#aufprägung-der-randbedingungen-bei-quasistatischen-versuchen">38</a></td>
+</tr>
+<tr>
+<td style="text-align: right;"><a href="#aufprägung-der-randbedingungen-bei-dynamischen-fallturm-versuchen">5.4.2</a></td>
+<td><blockquote>
+<p><a href="#aufprägung-der-randbedingungen-bei-dynamischen-fallturm-versuchen">Aufprägung
+der Randbedingungen bei [redacted-person]-Versuchen</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#aufprägung-der-randbedingungen-bei-dynamischen-fallturm-versuchen">38</a></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><a href="#dokumentationsumfang">5.5</a></p>
+</blockquote></td>
+<td><blockquote>
+<p><a href="#dokumentationsumfang">Dokumentationsumfang</a></p>
+</blockquote></td>
+<td style="text-align: right;"><a href="#dokumentationsumfang">38</a></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><a href="#mitgeltende-unterlagen"><strong>6</strong></a></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: right;"><a href="#mitgeltende-unterlagen"><strong>39</strong></a></td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p><strong>Vorwort</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] (LAH) beschreibt Mindestanforderungen aus Sicht der
+Fahrzeugsicherheit an die zu entwickelnde Lenksäule und ist Teil des
+[redacted-person].</p>
+<p>[redacted-person] dieser Mindestanforderungen ist vom Auftragnehmer in
+einem Pflichtenheft zu dokumentieren. [redacted-person] ist vom
+Auftragnehmer auf dem aktuellen Stand zu halten.</p>
+<p>Alle hier nicht ausreichend beschriebenen Punkte müssen in Absprache
+mit den Fachbereichen des Auftraggebers geklärt werden und bedürfen der
+schriftlichen Festlegung in einem Lastenheft. Inhalte dieses LAHs dürfen
+Dritten ohne ausdrückliche Genehmigung des zuständigen Fachbereiches des
+Auftraggebers nicht zugänglich gemacht werden.</p>
+</blockquote>
+<h1 id="allgemeine-festlegungen">[redacted-person]</h1>
+<h2 id="zielsetzung">Zielsetzung</h2>
+<blockquote>
+<p>[redacted-person] beschreibt Anforderungen, um die Funktion der
+Lenksäule im Gesamtfahrzeug hinsichtlich des Insassenschutzes
+sicherzustellen.</p>
+</blockquote>
+<h2 id="projektvorgaben">Projektvorgaben</h2>
+<blockquote>
+<p>Das vorliegende Lastenheft und die Norm [redacted-co]99000 inkl. Teil 1 bis
+Teil 4 sind Grundlage des zu erbringenden Leistungsumfanges des
+Auftragnehmers.</p>
+<p>Dieses LAH beschreibt Leistungen, Anforderungen, Prüf- und
+Erprobungsbedingungen, die das zu entwickelnde Produkt und somit auch
+der Auftragnehmer erfüllen müssen.</p>
+</blockquote>
+<h2 id="teilebereitstellung">Teilebereitstellung</h2>
+<blockquote>
+<p>Für die [redacted-person] (MerKe, Schlitten- und Crash)
+sind vom Lieferanten die ZSB-Lenksäule unabhängig von Variante und
+Ausstattung der Lenksäulen kostenfrei zu liefern. Die genauen
+Stückzahlen sind zur Vergabe mit den Fachabteilungen abzustimmen.</p>
+<p>Für den Fall, dass während der Entwicklung noch weitere Lenksäulen
+benötigt werden, muss zur Vergabe der Preis der Lenksäulen (A-Muster,
+B-Muster, C-Muster) verhandelt werden.</p>
+<p>[redacted-person] ist jeweils eine Abstimmung über den zu liefernden
+Musterteilestand durchzuführen. [redacted-person] über Versuchsanzahl und
+Aufbautermin (virtuell und physikalisch) sind im Erprobungsterminplan
+(MerKe -, Schlitten- und Crashversuche) des Auftraggebers
+festzulegen.</p>
+<p>Für die Komponentenentwicklung selbst sind sämtliche Versuchskosten
+und Versuchsteile vom Komponentenentwickler zu
+tragen<strong>.</strong></p>
+<p>Sollte durch einen fehlerhaften Aufbau der Versuchsteile oder bei
+Bauteileversagen durch nachweisliche Fehler des Komponentenentwicklers
+eine Lenksäulenfunktion nicht gegeben sein, sind Bauteil- und
+Versuchskosten für Wiederholungsversuche von diesem zu tragen. Es sind
+alle für den Versuch benötigten Bauteile zu ersetzen, nicht nur die
+Lenksäule.</p>
+<p>Über den vereinbarten Umfang hinausgehende Bedarfe (z.[redacted-person]
+erforderliche Entwicklungsschleifen) werden nach dem Verursacherprinzip
+verrechnet. [redacted-person] gilt der vereinbarte Baustand- bzw.
+Mischpreis aus den jeweiligen Angebotsverhandlungen.</p>
+<p>[redacted-person] sind mit der Vorbereitung für die Kraftaufnehmer am
+Lenksäulenwellenende vorzusehen.</p>
+</blockquote>
+<h1 id="technische-anforderungen">[redacted-person]</h1>
+<h2 id="definitionen">Definitionen</h2>
+<blockquote>
+<p><u>Deformationselement:</u></p>
+<p>Bauteil zur gezielten Energieumwandlung.</p>
+<p><u>Crashkennung:</u></p>
+<p>Kraft-Weg-Verlauf der Lenksäule, der zum optimalen Rückhalt der
+Insassen gefordert wird; wird auch als Crashkennlinie bezeichnet.</p>
+<p><u>Crashsystem:</u></p>
+<p>ZSB aller Bauteile, die zur Darstellung der Crashkennung nötig sind,
+inklusive des Deformationselemtes.</p>
+<p><u>Koordinatensystem:</u></p>
+<p>Es gelten die Richtungskonventionen für Lenksäulen, wie im Bild 1
+beschrieben.</p>
+</blockquote>
+<p><img alt="Bild1.png" src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image10.png" style="width:4.76275in;height:3.52in"/></p>
+<blockquote>
+<p><strong>Bild 1:</strong> [redacted-person]</p>
+<p><u>Querkraft:</u></p>
+<p>[redacted-person] werden die seitlichen Kräfte ±F2 und auch die
+Hochkräfte ±F3 bezeichnet.</p>
+<p><u>Losbrechkraft:</u></p>
+<p>[redacted-person] wird die Kraft bezeichnet, welche die Lenksäule bei
+vollständig aktiviertem Crashsystem zum Einlaufen bringt.</p>
+<p><u>Einbaulage:</u></p>
+<p>Lenksäule in [redacted-person]-Mitte im jeweiligen Fahrzeugprojekt.</p>
+<p><u>[redacted-person]-Mitte:</u></p>
+<p>[redacted-person]-Mitte = Höhen- und Längsverstellung in mittlerer
+Position</p>
+<p><u>Auftraggeber:</u></p>
+<p>Da es sich bei diesem [redacted-prj] (KLAH) um eine Ergänzung zum
+eigentlichen Bauteillastenheft handelt, ist im Folgenden unter dem
+Auftraggeber der Vertreter der Fahrzeugsicherheit des jeweiligen OEM zu
+verstehen.</p>
+</blockquote>
+<h2 id="allgemeine-technische-anforderungen">[redacted-person]
+Anforderungen</h2>
+<ol type="1">
+<li><p>[redacted-person] muss alle für das jeweilige Fahrzeug vorgegebenen
+nationalen und internationalen Gesetzes- und Consumertestanforderungen
+erfüllen.</p></li>
+<li><p>Es darf kein Versagen und keine Deformation von Bauteilen
+auftreten, die den Insassen gefährden oder die Crashfunktionen der
+Lenksäule beeinträchtigen.</p></li>
+<li><p>Entscheidend für eine Freigabe des Bauteiles ist die Erfüllung
+der Anforderungen im Gesamtfahrzeugcrash. [redacted-person] muss
+die Rückhaltesystementwicklung bis zur Freigabe des Bauteiles im
+Gesamtfahrzeugtest begleitend unterstützen.</p></li>
+<li><p>[redacted-person] der Lenksäule muss homogen, ohne scharfe Kanten
+und spitze Vorsprünge gestaltet sein, damit beim [redacted-person] bzw. Verletzungen infolge vorstehender Bauteile vermieden
+werden und vorhandene Polsterungen nicht geschwächt oder reduziert
+werden müssen. [redacted-person] gilt für alle Positionen der Höhen- und
+Längsverstellung. Eine maximale Bauhöhe bzw. Grenzkontur wird von den
+zuständigen Fachabteilungen definiert und muss seitens des Lieferanten
+eingefordert und erfüllt werden.</p></li>
+</ol>
+<h2 id="anforderungen-an-das-crashsystem">Anforderungen an das
+Crashsystem</h2>
+<ol type="1">
+<li><p>In der Lenksäule muss für den Crashlastfall eine konstruktiv
+festgelegte Verschiebungsmöglichkeit in horizontaler oder axialer
+Richtung (vom Insassen weg) vorgesehen sein. [redacted-person] muss auf
+einem definierten Kraftniveau (Crashkennung) zurückgelegt
+werden.</p></li>
+<li><p>Der mögliche Verschiebeweg der Lenksäule muss aus der [redacted-person]-Mitte 80 mm betragen. [redacted-person] über 80 mm hinaus ist zu
+verhindern, damit für die Auslegung aller angrenzenden Bauteile klare
+Randbedingungen vorliegen. In Abstimmung mit dem OEM kann für reine
+RdW-Fahrzeugprojekte auch ein Crashverschiebeweg von 60 mm angeboten
+werden.</p></li>
+<li><p>Im Verlauf der Entwicklung muss in Abstimmung mit dem OEM ein
+projektspezifischer quasistatischer axialer Kraft-Weg-Verlauf definiert
+werden. Aus diesem ergeben sich folgende Kraft-Weg-Verläufe:
+quasistatisch mit Querkrafteinfluss; dynamisch axial; dynamisch unter
+Winkel</p></li>
+</ol>
+<blockquote>
+<p>Bild 2 zeigt den prinzipiellen Ablauf bei der Auslegung einer
+Crashkennung. Es müssen mindestens 3 verschiedene Crashkennungen in
+Hardware für Optimierungsschleifen in der Entwicklung vorgehalten
+werden.</p>
+<p><strong>Bild 2:</strong> Prozessbeschreibung zur Auslegung einer
+Crashkennung</p>
+</blockquote>
+<ol start="4" type="1">
+<li><p>[redacted-person] muss für alle Positionen im
+Lenksäulenverstellfeld gewährleistet sein. Dies ist auch für die
+Crashfunktion mit einer 5%-[redacted-person]/Mitte nachzuweisen. [redacted-person] muss in jeder Position
+im Lenksäulenverstellfeld im definierten Toleranzband liegen siehe Bild
+4a.</p></li>
+<li><p>[redacted-person] der Lenksäule im Crash muss ohne Verkanten,
+Verklemmen o. [redacted-person].</p></li>
+<li><p>In Abstimmung mit der Fachabteilung der Fahrzeugsicherheit wird
+für jedes Fahrzeug festgelegt, ob eine adaptive Kennung des Crashsystems
+vorgehalten werden soll. D.[redacted-person] Crashkennung muss abhängig vom
+Lastfall oder Insassen auf ein anderes Kraftniveau schaltbar bzw.
+selbstschaltend sein.</p></li>
+<li><p>[redacted-person] ist, eine Welt-Crashkennung für jedes Fahrzeugprojekt zu
+entwickeln. [redacted-person] sind die Kosten einer zusätzlichen Kennung vom
+Einkauf zu verhandeln. Im projektspezifischen Bauteil-Lastenheft wird
+für jedes Fahrzeug festgelegt, mit wie vielen Kennungen gestartet wird.
+[redacted-person] ist mit der Fachabteilung der Fahrzeug- sicherheit
+abzustimmen.</p></li>
+<li><p>[redacted-person] muss während der Entwicklung prototypisch
+einfach, schnell und ohne zusätzlichen Kostenaufwand modifizierbar sein.
+Es sind einzeln montierbare Energieabsorptionselemente, die kurz vor
+Versuch einfach getauscht werden können, vorzusehen.</p></li>
+<li><p>[redacted-person] der Lenksäule setzt sich aus den [redacted-person] und Einschieben der Lenksäule zusammen. [redacted-person]-Wegkennung
+von Losbrechen und Einschieben der Lenksäule müssen unabhängig
+voneinander abstimmbar sein. Es ist ein progressiver Auslauf vorzusehen,
+um einen harten Anschlag zu verhindern (siehe Bild 3).</p></li>
+<li><p>[redacted-person] der Lenksäule im axialen quasistatischen
+Druckversuch muss bei vollständig aktiviertem Crashsystem im Bereich 2
+bis 6 kN einstellbar sein. [redacted-person] muss sich in allen
+Lenksäulenpositionen nach mindestens 5 mm Laufweg einstellen. Auf dem
+restlichen Laufweg der Lenksäule muss die Kraft im Bereich 1,5 bis 6 kN
+einstellbar sein (siehe Bild 3).</p></li>
+</ol>
+<blockquote>
+<p><img src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image12.png" style="width:6.28465in;height:3.50927in"/></p>
+<p><strong>Bild 3:</strong> [redacted-person] Kraft(F1)- vs.
+Wegkennung des Crashsystems im axialen quasistatischen Druckversuch</p>
+</blockquote>
+<ol start="11" type="1">
+<li><p>Im quasistatischen Druckversuch (axial) sind folgende maximale
+Toleranzbereiche der Einschubkräfte einzuhalten (Bild 4a):</p>
+<ul>
+<li><p>±300 N für die Losbrechkraft</p></li>
+<li><p>±350 N im gesamten Laufbereich</p></li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Die quasistatische Druckversuchskurve axial wird in der ZSB Zeichnung
+dokumentiert.</p>
+<p>Im statischen Druckversuch unter Winkel sind zur B-Freigabe die
+Parameter der Streuung und somit die Toleranzen zu ermitteln und zur BMG
+zu bestätigen.</p>
+</blockquote>
+<ol start="12" type="1">
+<li><p>Im dynamischen Fallversuch unter Winkel sind zur B-Freigabe die
+Parameter der Streuung und somit die Toleranzen zu ermitteln und zur BMG
+zu bestätigen (Bild 4b).</p></li>
+</ol>
+<blockquote>
+<p><img src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image13.png" style="width:5.44269in;height:3.65479in"/></p>
+<p><strong>Bild 4a:</strong> [redacted-person] Toleranzbereiche
+der Lenksäulenkennung im quasistatischen Druckversuch</p>
+</blockquote>
+<p><img src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image14.png" style="width:5.51653in;height:3.72375in"/></p>
+<blockquote>
+<p><strong>Bild 4b:</strong> [redacted-person] der
+Toleranzbereiche der Lenksäulenkennung im dynamischen Druckversuch</p>
+</blockquote>
+<ol start="13" type="1">
+<li><p>[redacted-person] darf nicht über die zulässigen Toleranzen hinaus
+(z. [redacted-person] einen Komfortanschlag oder Längsanschlag) beeinflusst
+werden.</p></li>
+<li><p>Materialpaarungseinflüsse wie Fressen, Kaltverschweißungen o. [redacted-person] aufgrund des starken Einflusses auf die Crashkennung nicht
+zulässig.</p></li>
+<li><p>Es muss für alle quasistatischen und dynamischen Prüfungen
+dargestellt werden, inwieweit sich die axiale Kraft F1 durch die
+auftretenden Querkräfte erhöht. Ziel ist es, eine Erhöhung um weniger
+als 50% der resultierenden Querkräfte zu erreichen (siehe Bild
+5).</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] ohne Querkrafteinfluss (F1o) wird für die
+quasistatischen Druckversuche die im Druckversuch unter 0° gemessene
+Kraft F1 und für die dynamischen Versuche die im Fallturmversuch unter
+0° gemessene Kraft F1 herangezogen.</p>
+<p>[redacted-person] sind durch Messung der eingeleiteten Kräfte im
+Versuch und über die Simulation nachzuweisen. Sie müssen in folgender
+Form dargestellt werden:</p>
+</blockquote>
+<blockquote>
+<p><strong>Bild 5:</strong> [redacted-person] der Anforderungen
+an die Querkraftempfindlichkeit</p>
+</blockquote>
+<ol start="16" type="1">
+<li><p>Manuell und elektrisch verstellbare Lenksäulen müssen eine
+vergleichbare dynamische und statische Crashkennung aufweisen. Die im
+Crashfall beschleunigten, beweglichen Massen der unterschiedlichen
+Lenksäulenvarianten müssen vergleichbar sein.</p></li>
+<li><p>[redacted-person] für den Serienüberwachungsprozess muss im
+Entwicklungsverlauf folgendes dokumentiert werden:</p>
+<ul>
+<li><p>Zusammenhang/Korrelation zwischen den quasistatischen und
+dynamischen Kennungen</p></li>
+<li><p>[redacted-person] haben Abweichungen in der quasistatischen
+Kennung auf die dynamische Kennung?</p></li>
+<li><p>Ableitung von Toleranzen für den quasistatischen und dynamischen
+Druckversuch</p></li>
+<li><p>Reproduzierbarkeitsanalyse des Einflusses der Querkräfte</p></li>
+<li><p>Bei unterschiedlichen Prüfständen ist die Vergleichbarkeit dieser
+durch den Lieferanten mit geeigneten Versuchen nachzuweisen</p></li>
+</ul></li>
+<li><p>[redacted-person] muss zwischen der flachsten Einbaulage und der
+steilsten Einbaulage und auch in allen Längseinstellungen unabhängig von
+den wirkenden Querkräften gewährleistet sein. Die zu betrachtenden
+Einbaulagen sind zu Beginn des Projektes zwischen Lieferant und
+Auftraggeber abzustimmen (Plattform-Entwicklung). [redacted-person] sind auch die maximalen und minimalen
+Lenksäulenlagen zu berücksichtigen:</p>
+<ul>
+<li><p>[redacted-person]: flachste Einbaulage in unterster
+Höhenverstellung</p></li>
+<li><p>[redacted-person]: steilste Einbaulage in oberster
+Höhenverstellung plus 3° (zulässige Verdrehung des
+Lagerbocks/Modulquerträgers)</p></li>
+</ul></li>
+<li><p>[redacted-person] von Kraft- und Reibungseinflüssen im Crashsystem
+durch das Anstellen der Lenksäule auf die maximalen und minimalen
+Lenksäulenlagen darf nicht zum Klemmen oder Verkanten führen. Eine
+stabile Führung muss im Crashfall immer gewährleistet sein.</p></li>
+<li><p>[redacted-person], bei Änderungen im System und vor dem Einsatz in
+Schlitten- und Crashversuchen muss die Performance der Lenksäule
+nachgewiesen werden. Dies muss über die validierte Simulation und im
+Versuch erfolgen. Hierzu sind beim Komponentenlieferanten geeignete
+instrumentierte quasistatische Druck-, Fallturm- bzw. Impaktor-Versuche
+durchzuführen. [redacted-person] mit [redacted-co] sind zusätzlich dynamische
+Komponentenversuche bei [redacted-co] intern auf dem MerKe-Prüfstand
+durchzuführen.</p></li>
+<li><p>Alle erforderlichen Lenksäulenprüfungen und deren Vorgaben sind
+im [redacted-person] aufgeführt.</p></li>
+</ol>
+<h2 id="anforderungen-an-die-funktionsstabilität">Anforderungen an die
+Funktionsstabilität</h2>
+<ol type="1">
+<li><p>[redacted-person] der Lenksäule und die Lage des Lenkrades soll durch
+eine eventuelle Stirnwandintrusion und/oder eine
+Lenkgetriebeverschiebung nicht beeinflusst werden.</p></li>
+</ol>
+<blockquote>
+<p>Die maximal möglichen Verlagerungen des Lenkgetriebes sind
+fahrzeugspezifisch mit dem Auftraggeber abzustimmen. Folgende maximale
+Verlagerungen des Lenkgetriebes sind als Entwicklungsstartwerte
+anzunehmen:</p>
+<p>Horizontal:</p>
+</blockquote>
+<ul>
+<li><p>Quermotorisierung: 100 mm statisch/ 120 mm dynamisch</p></li>
+<li><p>Längsmotorisierung/Sonstige: 250 mm statisch/ 300 mm dynamisch
+Vertikal:</p></li>
+<li><p>Quermotorisierung: 50 mm statisch</p></li>
+<li><p>Längsmotorisierung/Sonstige: 50 mm statisch</p></li>
+</ul>
+<blockquote>
+<p>Um zu gewährleisten, dass die Lenksäule im Crashfall nicht durch die
+Intrusion des Lenkgetriebes bewegt wird, muss zwischen unterem (Bild 6,
+Punkt 3) und oberen Kreuzgelenk (Bild 6, Punkt 2) eine
+Teleskopierbarkeit vorgesehen werden.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>In Abstimmung mit dem Auftraggeber ist je nach Fahrzeugprojekt
+ein Verschieben oder Abknicken des oberen Kreuzgelenkes (Bild 6: Punkt
+2) bei auftretenden Intrusionen der Stirnwand zu ermöglichen. Dies muss
+ohne Auswirkungen auf den Punkt 1, dessen max. Verschiebeweg, die
+Verschiebemechanik und ohne Anstellen/Absenken der Lenksäule
+erfolgen.</p></li>
+</ol>
+<blockquote>
+<p>Bei einem axialen Einschiebemechanismus des Punktes 2 (oberes
+Kreuzgelenk) [redacted-person] 1 ist ein Kraftniveau bei axialem
+Einschieben von 1,5 bis max. 2,5 kN in axialer Richtung
+einzustellen.</p>
+<p>Bei einem Knickmechanismus zum Ausweichen des Punktes 2 unter 90° zur
+Lenksäulenachse muss eine Knickkraft von 1,5 kN bis max. 2,5 kN
+eingestellt werden.</p>
+<p>[redacted-person] und Konzepte sind mit der Fachabteilung
+abzustimmen.</p>
+</blockquote>
+<p><img src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image16.jpeg" style="width:3.93896in;height:2.26646in"/></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Lenksäulen- punkt</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Bezeichnung</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted]Bezeichnung</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-co]-</strong></p>
+<p><strong>Bezeichnung</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person] vorn</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>D</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Kreuzgelenk oben</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>B</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>K1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Kreuzgelenk unten</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>C</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>KU</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Lenkgetriebe</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>D</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>A</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Bild 6:</strong> Lenksäulenpunkte</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Bei einer Querkraft von 2 kN (vertikal nach unten gerichtet) am
+oberen Kreuzgelenk und unveränderten Energieeinträgen soll die Lenksäule
+im dynamischen Druckversuch unter Einbaulage noch vollständig
+einlaufen.</p></li>
+<li><p>Im Crashfall (auch bei nicht angegurtetem Insassen) und im
+dynamischen Komponententest muss das maximale Lenksäulenansteigen
+bezüglich der Lenksäulenanbindung inkl. der elastischen und plastischen
+Verformungsanteile kleiner 3° sein (Nachweis über Auswertung der
+dynamischen Lenksäulenbewegung an der [redacted-person]).</p></li>
+<li><p>[redacted-person] muss gewährleistet werden, dass die Lenksäule oder
+Teile davon bei einem Crashpuls von 72 g, nicht separieren. [redacted-person]
+kann über einen quasistatischen Versuch (siehe Bauteil-LAH) oder einen
+Schlitten-Ersatzversuch erbracht werden.</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] für den Schlittenersatzversuch sind im
+Kapitel 4.9 aufgelistet.</p>
+</blockquote>
+<ol start="6" type="1">
+<li><p>Mittels eines statischen Versuchs (siehe Abschnitt 4.6.1.) sind
+folgende Anforderungen an die Haltekraft der Höhen- und Längsverstellung
+zu erfüllen:</p></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Vertikale* Kraft nach oben:</p>
+</blockquote></th>
+<th><blockquote>
+<p>F3 &gt; 5 kN</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Vertikale* Kraft nach unten:</p>
+</blockquote></td>
+<td><blockquote>
+<p>F3 &gt; 3 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Winkeländerung:</p>
+</blockquote></td>
+<td><blockquote>
+<p>α &lt; 3° (Gesamtverformung unter Belastung gemessen am
+Crashrohr)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="2"><blockquote>
+<p>*: im rechten Winkel zur Lenksäulenachse</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Die axialen Belastungen sind im Bauteilelastenheft definiert und
+darüber abgedeckt.</p>
+</blockquote>
+<ol start="7" type="1">
+<li><p>Mittels eines statischen Versuchs (siehe Abschnitt 4.6.2.) sind
+folgende Anforderungen an die Quersteifigkeit in 2-Richtung zu
+erfüllen:</p></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Kraft in positiver und negativer 2-Richtung:</p>
+</blockquote></th>
+<th><blockquote>
+<p>F2 = 3 kN</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Winkeländerung:</p>
+</blockquote></td>
+<td><blockquote>
+<p>α &lt; 4° (Gesamtverformung unter Belastung gemessen am</p>
+<p>Crashrohr)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="anforderungen-an-den-lenksäulenverstellhebel">Anforderungen an
+den Lenksäulenverstellhebel</h2>
+<ol type="1">
+<li><p>[redacted-person] darf sich im crashrelevanten
+Zeitbereich nicht öffnen. Hierbei sind unter anderem die Interaktionen
+mit dem Dummy und Knieairbag sowie die Fahrzeugverzögerung in die
+Lenksäulenhebelauslegung einzubeziehen. [redacted-person] oder Verrastung
+muss in allen Lastfällen standhalten (kein Verschieben, kein
+Durchrutschen, kein Lösen).</p></li>
+<li><p>Bei der Auslegung des Hebels zu Beginn der Entwicklung werden
+folgende Annahmen getroffen:</p>
+<ul>
+<li><p><em>[redacted-person] = 72g (resultierender Fahrzeugpuls in
+x)</em></p></li>
+<li><p><em>[redacted-person] (i.d.[redacted-person]
+Position)</em></p></li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Dies ist ein Ausgangswert. Falls die Entwicklung zeigt, dass der
+Hebel öffnet, wird dieser Wert entsprechend angepasst. [redacted-person]
+erfolgt über Schlitten- und Crashversuche.</p>
+<p>Nach der ersten Hebelauslegung muss das Öffnungsmoment von Hand MH
+größer sein als das Öffnungsmoment im Crash MC (Bild 7).</p>
+</blockquote>
+<p><img src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image17.jpeg"/></p>
+<blockquote>
+<p><strong>Bild 7:</strong> Berechnungsformel und [redacted-person]</p>
+<p>Falls die statische Forderung mit 72 g aufgrund von hohen
+Bedienkräften nicht erfüllt werden kann, kann auch mit einem dynamischen
+Ersatzversuch mit realem Fahrzeugpuls der Nachweis erbracht werden.
+Ersatzversuch und Puls (typischerweise Puls am MQT gemessen) müssen mit
+der Fachabteilung abgestimmt werden.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>[redacted-person] der Lenksäule muss seitlich links in die Ablage
+bzw. Lenkstockschalterverkleidung eingebettet werden. In allen
+Lenksäulenpositionen ist auszuschließen, dass es zu einer Interaktion
+zwischen Hebel und Lenkstockschalterverkleidung beim Einlaufen der
+Lenksäule kommt. [redacted-person] darf keine Behinderung für die
+Knieairbagentfaltung darstellen und durch seine Formgebung nicht zu
+einer Beschädigung führen. [redacted-person] ist mit den jeweiligen
+Fahrzeugsicherheitsabteilungen abzustimmen.</p></li>
+<li><p>Für den Fall eines Bruches des Verstellhebels der Höhen- und
+Längsverstellung ist eine Sollbruchstelle außerhalb des
+Knieaufschlagbereichs im Crash vorzusehen. Die zum Bruch des Hebels
+führende Kraft muss in Crash- und Schlittenversuchen unter 3 kN liegen
+(Anforderung aufgrund Euro-NCAP Kneemapping). [redacted-person] dieser
+Anforderung ist eine Ersatzprüfung bis zum Bruch des Lenksäulenhebels
+durchzuführen (siehe Kapitel 4.7). [redacted-person] muss innerhalb der
+Instrumententafel-Kontur liegen. Der beim Bruch an der Lenksäule
+verbleibende Teil des Hebels muss einen Abstand von min. 50 mm von der
+Oberfläche der Instrumententafel aufweisen.</p></li>
+<li><p>[redacted-person] und die Formgebung der Lenksäule bzw. des
+Lenksäulenverstellhebels dürfen die Entfaltung des Knieairbags nicht
+behindern und nicht zu einer Beschädigung des Knieairbags
+führen.</p></li>
+<li><p>[redacted-person]- und Konstruktionsfreigabe sind entsprechende
+Funktionsnachweise zur Lastenheft-Erfüllung zu führen und zu
+dokumentieren.</p></li>
+</ol>
+<h2 id="einflussnahme-auf-umgebungsbauteile">Einflussnahme auf
+Umgebungsbauteile</h2>
+<blockquote>
+<p>[redacted-person] müssen zusätzlich vom Lenksäulenlieferanten mit den
+jeweiligen Fachabteilungen abgestimmt werden:</p>
+</blockquote>
+<ol type="1">
+<li><p>[redacted-person] der Lenkstockschalterverkleidung und deren
+Verschraubung sind in den entsprechenden Projektrunden mit den
+Beteiligten abzustimmen.</p></li>
+<li><p>Die karosserieseitigen Anbindungen der Lenksäule (z. [redacted-person], Ab- stützungen, Fußhebelwerk, Kabelführung etc.)
+dürfen zu keinen nachteiligen Einflüssen auf die Lenksäulenfunktion im
+Crash führen. Es sind deshalb geeignete konstruktive Maßnahmen wie
+"ausklinkende Lager" oder Sollbruchstellen vorzusehen.</p></li>
+<li><p>Um einen Kontakt mit der Stirnwand zu vermeiden ist der
+kleinstmögliche Durchmesser der Lenkwelle ist zu wählen.</p></li>
+<li><p>[redacted-person] für den gezielten Energieabbau soll ohne
+Behinderung durch angrenzende Bauteile bei dem angegebenen Kraftniveau
+verfügbar sein (z. [redacted-person] mit Verkleidungs- oder Schalterteilen).
+Dies ist durch entsprechende Untersuchungen in der Konzeptphase und bei
+der Komponentenauslegung zu berücksichtigen.</p></li>
+<li><p>[redacted-person] darf es zu keiner Blockbildung der
+Lenksäule mit angrenzenden Bauteilen kommen. Dies ist über geeignete
+Maßnahmen (z.[redacted-person]) zu gewährleisten.</p></li>
+<li><p>[redacted-person] zum Fußhebelwerk soll gegeben sein. Es
+soll keine Beeinflussung der Crashfunktion von Lenkung oder
+Lenkungsanbindungen durch das Fußhebelwerk oder davon separierende Teile
+(Pedale/Pedalachse) im Falle einer Rohbauverformung geben. Im Gegenzug
+soll die Lenksäulenwelle im Crashfall die Pedale nicht
+anschieben.</p></li>
+<li><p>Ist eine Interaktion des Fußhebelwerkes zur Lenksäule im Crash
+konzeptionell vorgesehen, dann muss die Lenksäule den Belastungen
+standhalten können ohne dass die Crashfunktion dabei beeinträchtiget
+wird.</p></li>
+<li><p>Es dürfen sich keine blockbildenden Bauteile in der
+Deformationszone zwischen Lenkstockschalterverkleidung und Lenksäule
+befinden. Weiterhin dürfen keine Aufnahmen (z. [redacted-person]
+Lenksäulenhöhenverstellung), E-Motoren und sonstige Bauteile unter
+Berücksichtigung der Verstellbereiche in den
+Euro-NCAP-Inspektionsbereich hineinragen, der von den Fachabteilungen
+zur Verfügung gestellt wird.</p></li>
+</ol>
+<h1 id="lenksäulenprüfungen">Lenksäulenprüfungen</h1>
+<h2 id="allgemeine-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p>Zu jedem Versuch beim Lieferanten ist ein Versuchsbericht mit der
+Zusammenfassung der Ergebnisse anzufertigen. Zusätzlich ist eine
+Versuchsübersicht über die durchgeführten Versuche zu erstellen. [redacted-person] sind auf Nachfrage durch den Auftraggeber in digitaler
+Form (ISO- MME-Format) zur Verfügung zu stellen.</p>
+<p>Darüber hinaus sind Bauteile aus Schlitten- / Crashversuchen auf
+Wunsch des OEM zu analysieren und mittels eines Berichtes zu
+dokumentieren.</p>
+</blockquote>
+<h2 id="messung-der-lenksäulenkräfte">Messung der Lenksäulenkräfte</h2>
+<blockquote>
+<p>Bei allen Komponenten-, Schlitten- und Crashversuchen ist ein
+identisches Kraftmesssystem zu verwenden. [redacted-person] der auftretenden
+Kräfte muss am Lenkstangenrohr-Ende (Lenkradnabe) mit einem 3-[redacted-person] (x-, y-, z-Richtung) erfolgen. [redacted-person] sind über Zeit
+und Weg darzustellen. Durch die Kraftmessung darf sich das Verhalten der
+Lenksäule im Gesamtsystem nicht verändern ([redacted-person],
+Kraftangriffspunkte, Verschiebeweg etc.). [redacted-person] sind vom
+Lenksäulenlieferanten mit einer entsprechenden Adaption für die
+Kraftaufnehmer zur Verfügung zu stellen.</p>
+</blockquote>
+<p><img src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image18.jpeg"/></p>
+<blockquote>
+<p><strong>Bild 10:</strong> [redacted-person]</p>
+<p>Aus den Vorgaben ergeben sich folgende Maße für die Vorbereitung der
+Lenksäulen:</p>
+</blockquote>
+<ul>
+<li><p>Lenksäulenende um <strong>46 mm kürzen</strong></p></li>
+<li><p><strong>M27x1,5 Gewinde</strong> min. <strong>21 mm tief</strong>
+inklusive Freistich einbringen</p></li>
+</ul>
+<blockquote>
+<p>Achtung: In vorderster Crashposition (maximale Crashverschiebung)
+darf keine Kollision zwischen Spindel und Messaufnehmer auftreten.</p>
+<p>[redacted-person] bei Seat wird ein anderes Messmittel
+verwendet. Deshalb erfolgt die Kraftmessung in diesem Fall in Absprache
+mit Seat.</p>
+</blockquote>
+<h2 id="quasistatischer-druckversuch">[redacted-person]</h2>
+<blockquote>
+<p><u>Motivation:</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>[redacted-person] einzelner Lenksäulenkomponenten</p></li>
+<li><p>Erzeugung der Kraft-Weg-Kurve und deren Dokumentation auf
+Zeichnung</p></li>
+<li><p>Ermittlung von Streuungen</p></li>
+<li><p>Feststellen von Unregelmäßigkeiten in Serienüberwachung</p></li>
+</ul>
+<blockquote>
+<p><u>Prüfaufbau</u></p>
+</blockquote>
+<ul>
+<li><p>Lenksäule an den Anbindungspunkten fest einspannen</p></li>
+<li><p>Lenksäule muss an der Nabe frei beweglich sein</p></li>
+<li><p>In der Lenksäule muss eine Kraftmessung (F1, F2, F3) integriert
+sein, und der Laufweg muss gemessen werden. Für den Lenksäulenaufnehmer
+gilt die Richtungskonvention für Lenksäulen (siehe Bild 1).</p></li>
+<li><p>Komfortverstellung in geforderter Position arretieren. [redacted-person] sind:</p>
+<ul>
+<li><p>Längsverstellung: Mitte, Höhenverstellung: Mitte</p></li>
+<li><p>Längsverstellung: eingeschoben, Höhenverstellung: Mitte</p></li>
+<li><p>Optional: worst case Positionen, die sich z.[redacted-person] der
+Addition von Kraftpeaks ergeben.</p></li>
+</ul></li>
+<li><p>[redacted-person] des Prüfaufbaus muss einstellbar sein.
+[redacted-person]:</p>
+<ul>
+<li><p>Parallel zur Laufrichtung der Lenksäule (siehe Bild 11a)</p></li>
+<li><p>[redacted-person]</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Bei winkliger Anordnung (siehe Bild 11b, linkes Bild) wird als
+Startwert der Einbauwinkel der Lenksäule gewählt. Es kann auch ein
+anderer Winkel als Einbaulage gefordert werden, um die wirkenden
+Querkräfte realitätsnaher abzubilden.</p>
+<p>Sollten die Querkräfte dennoch nicht realitätsnah dargestellt werden
+können, kann alternativ eine konstante Hochkraft bei axialer Prüfung
+aufgebracht werden (Bild 11b, mittleres Bild). Dabei ist als Startwert
+für die Hochkraft 3 kN zu wählen.</p>
+</blockquote>
+<ul>
+<li><p>unter Winkel und 10° Querwinkel links bzw. rechts (Bild 11 b,
+rechtes Bild)</p></li>
+</ul>
+<ul>
+<li><p>[redacted-person] sind mit verschiedenen Teilsystemen bzw. mit
+kompletten Lenksäulen durchzuführen:</p>
+<ul>
+<li><p>Lenksäule ohne Crashelement und Abscherelemente: Hier soll nur
+die Kraft durch die Grundreibung bestimmt werden</p></li>
+<li><p>Lenksäule ohne Crashelement und Grundreibung (wenn möglich, je
+nach Lenksäulentyp): Hier sollen nur die Kraftpeaks durch
+Abscherelemente (z.[redacted-person], Losbrechelemente, [redacted-person]) bestimmt werden</p></li>
+<li><p>Lenksäule ohne Abscherelemente und Grundreibung: Hier sollen nur
+die Kennung des Crashelementes bestimmt werden</p></li>
+<li><p>ZSB-Lenksäule</p></li>
+<li><p>Optional: Je nach Projektfortschritt und Teileverfügbarkeit ist
+nach Absprache mit dem Auftraggeber auch eine Lenksäule mit verbauten
+Umgebungsbauteilen zu untersuchen, um deren Einfluss zu untersuchen
+(Einbau der Gelenkwelle nicht notwendig). Bei der Beschaffung dieser
+Bauteile unterstützt der Auftraggeber.</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><u>Prüfung</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] muss in der x-z-Ebene gefilmt werden. Die t0-Signale
+von Film und Kurven müssen übereinstimmen.</p></li>
+<li><p>Einleiten der Kräfte mit einem Vorschub von 40 mm/min</p></li>
+<li><p>Lenksäule bis zum Ende des Crashsystems einschieben</p></li>
+<li><p>Aufzeichnen der Kräfte (axial: F1; unter Winkel: F1, F2 und F3)
+und des Laufweges und der Auslenkung der Nabe</p></li>
+<li><p>Darstellung der gemessenen Kräfte über dem Laufweg</p></li>
+<li><p>Abgleich der gemessenen Kraft-Weg-Kennung mit der vorgegebenen
+Crashkennung</p></li>
+<li><p>Abgleich der sich ergebenen Toleranzen mit den LAH-Anforderungen
+und der technischen Zeichnung</p></li>
+</ul>
+<blockquote>
+<p><strong>Bild 11a:</strong> [redacted-person] axialer
+quasistatischer Druckversuch</p>
+</blockquote>
+<blockquote>
+<p><strong>Bild 11b:</strong> [redacted-person]
+quasistatischer Druckversuch unter Winkel</p>
+</blockquote>
+<h2 id="dynamischer-druckversuch-fallturm">[redacted-person]
+(Fallturm)</h2>
+<blockquote>
+<p>[redacted-person] und zur Bewertung der dynamischen Crashkennung
+sind Fallturmversuche oder in Absprache mit der Fachabteilung
+gleichwertige Versuche durchzuführen. [redacted-person] und
+Randbedingungen sind so zu wählen, dass die Belastungen der Lenksäule
+unter realen Crashbedingungen möglichst realistisch abgebildet werden.
+Dabei sind die Aufnahmewinkel der Lenksäule mit den Fachabteilungen
+abzustimmen, um die entsprechenden Querkräfte F2 und F3 zu
+realisieren.</p>
+<p><u>Prüfaufbau</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] muss an den Anbindungspunkten fest eingespannt
+werden.</p></li>
+<li><p>In der <strong>Lenksäule</strong> muss eine Kraftmessung (F1, F2,
+F3) integriert sein, und der Laufweg muss gemessen werden. Für den
+Lenksäulenaufnehmer gilt die Richtungskonvention für Lenksäulen (siehe
+Bild 1).</p></li>
+<li><p>Die <strong>Komfortverstellung</strong> ist in geforderter
+Position zu arretieren. [redacted-person] laut Prüfumfang (siehe Bild
+20) sind:</p>
+<ul>
+<li><p>Längsverstellung: Mitte, Höhenverstellung: Mitte</p></li>
+<li><p>Längsverstellung: eingeschoben, Höhenverstellung: Mitte</p></li>
+<li><p>Längsverstellung: Mitte, Höhenverstellung: unten</p></li>
+<li><p>Längsverstellung: ausgezogen, Höhenverstellung: oben</p></li>
+<li><p>Optional: worst case Positionen, die sich z.[redacted-person] der
+Addition von Kraftpeaks ergeben</p></li>
+</ul></li>
+<li><p>Die <strong>Lenksäulenaufnahme</strong> muss wie folgt
+einstellbar sein (schematische Darstellung: Bild 13):</p>
+<ul>
+<li><p>Winkel um die 2-Achse (Hoch-Tief-Einstellung); Einstellbereich:
+0° bis steilste Einbaulage plus 10°.</p></li>
+<li><p>Winkel um die 3-Achse: ±10° (Hochachse)</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Eine konstruktive und bewährte Lösungsmöglichkeit zeigt die
+Lenksäulenaufnahme in Bild 12.</p>
+<p>Für die Prüfung unter Winkel gilt:</p>
+<p>Zunächst wird unter Einbaulage geprüft. Sollten die unter Einbaulage
+auftretenden Querkräfte nicht realitätsnah sein, kann der Winkel
+angepasst werden. [redacted-person] mit der Fahrzeugsicherheit ist
+notwendig.</p>
+</blockquote>
+<ul>
+<li><p>Der <strong>Fallturm</strong> ist mit geführtem Fallkörper,
+Koppelkörper mit definierter Kennung und einer Lenksäulenaufnahme
+auszurüsten.</p></li>
+<li><p>Der <strong>Fallkörper</strong> muss bzgl. Masse (ca. 20-60 kg)
+und Geschwindigkeit (2 bis 6 m/s) variierbar sein. Er ist mit einem
+Beschleunigungssensor auszustatten. [redacted-person] wird zunächst einer
+von 5 Energiekategorien zugeordnet. Die grobe Zuordnung geschieht über
+den Energieverzehr der Lenksäule im quasistatischen axialen
+Versuch.</p></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th colspan="3"><blockquote>
+<p>[redacted-person] berechnet sich zu:</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>∫Fds</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>=</p>
+</blockquote></td>
+<td><blockquote>
+<p>Energieverzehr der Lenksäule</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>F</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>=</p>
+</blockquote></td>
+<td><blockquote>
+<p>gemessene Kraft</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>s</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>=</p>
+</blockquote></td>
+<td><blockquote>
+<p>Laufweg der Lenksäule</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Energieverzehr der Lenksäule</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Energie- kategorie</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Hochenergie- versuche</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Niedrigenergie- versuche</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="5"><blockquote>
+<p>∫Fds = 130 J</p>
+<p>∫Fds = 340 J</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>25 kg, 3,6 m/s (≈162 J)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>25 kg, 2,9 m/s (≈105 J)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>35 kg, 3,6 m/s (≈227 J)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>35 kg, 2,9 m/s (≈147 J)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>35 kg, 4,3 m/s (≈324 J)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>35 kg, 3,5 m/s (≈214 J)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td><blockquote>
+<p>35 kg, 5,1 m/s (≈455 J)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>35 kg, 4,1 m/s (≈294 J)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>5</p>
+</blockquote></td>
+<td><blockquote>
+<p>35 kg, 6,0 m/s (≈630 J)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>35 kg, 4,8 m/s (≈403 J)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>In der Liste „Prüfumfang zu Entwicklungsmeilensteinen“ (Bild 20) sind
+alle Versuche definiert, die im Verlauf einer Lenksäulenentwicklung
+durchzuführen sind. Diese dynamischen Versuche werden wie folgt in
+Hochenergie- und Niedrigenergieversuche unterteilt, um bei jeder
+Versuchskonfiguration einen charakteristischen Laufweg möglichst ohne
+harten Endanschlag zu erreichen:</p>
+<p>Hochenergieversuche sind:</p>
+</blockquote>
+<ul>
+<li><p>unter Winkel (Mitte-Mitte) (geforderte 70%-100% Laufweg)</p></li>
+<li><p>unter Winkel mit zusätzlicher Beaufschlagung 10° links/rechts
+(Mitte-Mitte)</p></li>
+<li><p>unter Winkel mit Querkraft am oberen Kreuzgelenk
+(Mitte-Mitte)</p></li>
+<li><p>flachste Einbaulage (Mitte-unten) (70%-100% Laufweg)</p></li>
+<li><p>steilste Einbaulage +3° (ausgezogen-oben)</p></li>
+</ul>
+<blockquote>
+<p>Niedrigenergieversuche sind:</p>
+</blockquote>
+<ul>
+<li><p>axial 0° (Mitte-Mitte)</p></li>
+<li><p>unter Winkel mit reduzierter Energie (Mitte-Mitte) (ca. 50%
+Laufweg)</p></li>
+<li><p>unter Winkel (eingefahren-Mitte)</p></li>
+</ul>
+<blockquote>
+<p>Wenn bei dem Hochenergieversuch unter Winkel (Mitte-Mitte) der
+gesamte Laufweg mit hartem Endanschlag (=Kraftanstieg am Ende des
+Laufweges größer 1kN) aufgebraucht wird, dann ist die nächst niedrigere
+Energiekategorie zu wählen.</p>
+<p>Wenn bei dem Hochenergieversuch unter Winkel (Mitte-Mitte) weniger
+als 70% des Laufwegs erreicht wird, dann ist die nächst höhere
+Energiekategorie zu wählen. [redacted-person] übersticht die Regel des harten
+Endanschlags.</p>
+</blockquote>
+<ul>
+<li><p>Der <strong>Koppelkörper</strong> muss eine Masse zwischen 11 und
+16 kg aufweisen und darf nur die rein translatorische Bewegung in
+z-Richtung ausführen. Er ist mit einem</p></li>
+</ul>
+<blockquote>
+<p>Beschleunigungssensor und einer Trackingmarke ausgestattet.</p>
+<p>[redacted-person] enthält das Koppelelement, das zur definierten
+Ankopplung der Fallmasse an den Koppelkörper dient. [redacted-person]
+muss eine definierte, lineare Kraft-Weg-Kennung von 1 kN je 10mm im der
+Belastungspfad aufweisen, siehe Bild 14. Hiermit wird gewährleistet,
+dass die Lenksäule sich entsprechend eines realistischen Kraftaufbaus
+wie im Crashversuch auslenken und loslaufen kann.</p>
+<p>[redacted-person] muss außerdem die Lenksäulennabe definiert
+aufnehmen. Bei der Prüfung unter sowohl einem als auch zwei Winkeln
+müssen folgende Anforderungen erfüllt sein:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] zwischen Lenksäulennabe und
+Koppelkörper</p></li>
+<li><p>[redacted-person] der Auslenkungen der
+Lenksäulennabe</p></li>
+<li><p>[redacted-person]</p></li>
+</ul>
+<blockquote>
+<p>Eine konstruktive und bewährte Lösungsmöglichkeit zeigt die
+Linearführung in Bild 12.</p>
+</blockquote>
+<ul>
+<li><p>Um den Einfluss von durch Intrusionen übertragenen Querkräften
+prüfen zu können, muss die Möglichkeit bestehen, das obere Kreuzgelenk
+mit einer Querkraft von max. 4 kN zu beaufschlagen (Bild 13, Mitte). [redacted-person] muss senkrecht zur Lenksäulenachse wirken.</p></li>
+</ul>
+<p><img src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image36.png"/></p>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>a: Fallmasse</p>
+</blockquote></th>
+<th><blockquote>
+<p>d: LKS-Aufnahme, [redacted-person] 1</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>b: Koppelkörper mit Koppelelement</p>
+</blockquote></td>
+<td><blockquote>
+<p>e: LKS-Aufnahme, [redacted-person] 2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>c: Koppelelement</p>
+</blockquote></td>
+<td><blockquote>
+<p>f: [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>g: Basis</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Bild 12:</strong> [redacted-person] der
+Versuchseinrichtung im Fallturm zur Bestimmung der dynamischen
+Crashkennung</p>
+</blockquote>
+<blockquote>
+<p><strong>Bild 13:</strong> [redacted-person] dynamischer
+Druckversuch (Fallturm)</p>
+<p>Kraft / kN</p>
+<p><strong>Bild 14:</strong> [redacted-person] Koppelelement</p>
+<p><u>Prüfung</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] muss mit einer High-Speed-Kamera (Bildfolge von 1000
+Bildern pro Sekunde oder höher) in der x-z-Ebene gefilmt werden. [redacted-person] des Koppelkörpers muss auswertbar sein. Die t0-Signale von
+Film und Kurven müssen übereinstimmen. Dies ist z.[redacted-person] eine
+Kontaktfolie mit „Blitzsignal“ sicherzustellen. [redacted-person] und
+Farbgebung der einzelnen Bauteile müssen so gewählt werden, dass alle
+relevanten Bauteile und Effekte im Film deutlich erkennbar
+sind.</p></li>
+<li><p>Alle geforderten Messsignale sind über der Zeit darzustellen. [redacted-person] an der Lenksäulenspindel sind zusätzlich als
+Kraft-Weg-Diagramme (Kraft vs. Laufweg) darzustellen.</p></li>
+<li><p>Zusammenfassend ergeben sich folgende Mindestanforderungen an die
+Messtechnik:</p>
+<ul>
+<li><p>2x Kraftmessung (Triaxial an Lenkradnabe siehe Bild 10)</p></li>
+<li><p>2x einaxiale Beschleunigungsmessung in Fallrichtung (Fallkörper,
+Koppelkörper)</p></li>
+<li><p>2x Wegmessung (1x Lenksäule in axialer Richtung, 1x Auslenkung am
+Koppelkörper)</p></li>
+<li><p>Messung t0-Signal (z.[redacted-person])</p></li>
+<li><p>High-Speed-Kamera aus mindestens zwei Ansichten mit einer
+Bildfolge von 1000 Bildern pro Sekunde oder höher; Bildausschnitt in
+Absprache mit den Projektverantwortlichen</p></li>
+<li><p>Weg-Messung am Koppelkörper und an der Fallmasse sowie
+Kraftmessung zwischen Koppelkörper und Fallmasse, um die geforderte
+lineare Kraft-Weg- Kennung des Koppelelementes und deren
+Reproduzierbarkeit nachzuweisen. Wird der Toleranzbereich nicht
+eingehalten, muss der Versuch wiederholt werden.</p></li>
+</ul></li>
+</ul>
+<h2 id="dynamischer-ersatzprüfstand-merke">[redacted-person]
+(MerKe)</h2>
+<blockquote>
+<p>Im [redacted-person] MerKe (Bild 15) werden mit
+unterschiedlichen Energieeinträgen und Abständen typische Lastfälle
+(EuroNCAP ODB, 40km/h 0° passiv 50%-Mann, 56km/h 0° 5%- Frau)
+abgebildet. Im Prüfstand wird die Lenksäule zusammen mit einem Lenkrad
+und Fahrerairbag verbaut und getestet.</p>
+<p>Zweck dieser Versuche ist die Überprüfung der Validität des
+LS-Simulationsmodells und/oder der Funktionsweise der Lenksäule. So
+können z. [redacted-person] von elektrischen und mechanischen Lenksäulen
+untersucht werden. Gegebenenfalls sind daraufhin Optimierungsmaßnahmen
+bezüglich der Bauteile oder des Simulationsmodells durchzuführen.</p>
+<p><img alt="epk_001" src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image51.jpeg" style="width:5.57933in;height:3.0324in"/></p>
+<p><strong>Bild 15:</strong> Merke</p>
+</blockquote>
+<h2 id="quasistatische-prüfung-in-querrichtung">[redacted-person]
+in Querrichtung</h2>
+<ol type="1">
+<li><p><strong>[redacted-person] der Höhenverstellung</strong></p></li>
+</ol>
+<blockquote>
+<p><u>Prüfaufbau:</u></p>
+</blockquote>
+<ul>
+<li><p>Lenksäule an den Anbindungspunkten fest einspannen</p></li>
+<li><p>Komfortverstellung arretieren</p></li>
+<li><p>Lenksäule in Position ausgezogen-Mitte</p></li>
+<li><p>Falls die [redacted-person]-Mitte die worst-case Einstellung ist,
+muss diese zusätzlich geprüft werden.</p></li>
+</ul>
+<blockquote>
+<p><u>Prüfung:</u></p>
+</blockquote>
+<ul>
+<li><p>Kraft muss senkrecht zur Lenksäulenachse und an der Spindel zur
+Aufnahme des Lenkrades aufgebracht werden</p></li>
+<li><p>Prüfgeschwindigkeit: 40 mm/min</p></li>
+<li><p>Darstellung im Kraft-Weg-Diagramm</p></li>
+</ul>
+<blockquote>
+<p><strong>Bild 16:</strong> [redacted-person] zur Prüfung der
+Haltekraft der Höhenverstellung</p>
+</blockquote>
+<h2 id="steifigkeitsversuche-in-seitliche-querrichtung">Steifigkeitsversuche
+in seitliche Querrichtung</h2>
+<blockquote>
+<p><u>Motivation:</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] in positiver und negativer
+2-Richtung</p></li>
+</ul>
+<blockquote>
+<p><u>Prüfaufbau</u></p>
+</blockquote>
+<ul>
+<li><p>Lenksäule an den Anbindungspunkten fest einspannen.</p></li>
+<li><p>Lenksäule muss an der Nabe frei beweglich sein.</p></li>
+<li><p>Komfortverstellung in Position ausgezogen-Mitte
+arretieren.</p></li>
+<li><p>[redacted-person]: positive und negative
+2-Richtung</p></li>
+</ul>
+<blockquote>
+<p><u>Prüfung</u></p>
+</blockquote>
+<ul>
+<li><p>Einleiten der Kräfte mit einem Vorschub von 40 mm/min</p></li>
+<li><p>Aufzeichnen der Kraft und des Vorschubs der Prüfmaschine</p></li>
+<li><p>Darstellung der gemessenen Kräfte über dem Vorschub</p></li>
+<li><p>Prüfung in positiver und negativer 2-Richtung: bis 3 kN</p></li>
+</ul>
+<h2 id="prüfung-hebelbruchkraft">[redacted-person]</h2>
+<blockquote>
+<p><u>Prüfaufbau</u></p>
+</blockquote>
+<ul>
+<li><p>Lenksäule an den Anbindungspunkten fest einspannen</p></li>
+<li><p>Komfortverstellung arretieren</p></li>
+<li><p>Angriffspunkt der Kraft F3 ist am [redacted-person] (Bild 17)</p></li>
+<li><p>Winkel A ist bei der [redacted-person] zu
+erfragen, da dieser von der Fahrzeuggeometrie abhängig ist</p></li>
+<li><p>Lenksäulenposition: Mitte-Mitte</p></li>
+</ul>
+<p><img src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image54.jpeg"/></p>
+<blockquote>
+<p><strong>Bild 17:</strong> [redacted-person]</p>
+<p><u>Prüfung</u></p>
+</blockquote>
+<ul>
+<li><p>Einleiten der Kräfte z.[redacted-person] einem dyn. Pendel bzw.
+Linearimpaktor und Knieprüfkörper ([redacted-person] 100 mm)
+Prüfgeschwindigkeit 2 – 5 m/s in Abstimmung mit dem Auftraggeber).
+Alternativ kann ein statischer Versuch mit 40 mm/min. durchgeführt
+werden.</p></li>
+<li><p>[redacted-person] sind zu prüfen:</p>
+<ul>
+<li><p>Hebel ohne Umgebung ([redacted-person] auf Hebelende)</p></li>
+<li><p>Hebel mit Umgebung ([redacted-person] auf Hebelende)</p></li>
+</ul></li>
+<li><p>Aufzeichnung der Kraft-Weg-Kurve</p></li>
+<li><p>Kraft F3 &lt;3,0 kN die zum Bruch führt</p></li>
+</ul>
+<h2 id="prüfung-verschiebung-oberes-kreuzgelenk">[redacted-person]
+oberes Kreuzgelenk</h2>
+<blockquote>
+<p>Lenksäulen, die mit einem Mechanismus versehen sind, der bei
+auftretenden Intrusionen das Ausweichen des oberen Kreuzgelenks
+ermöglicht, sind abhängig vom Mechanismus einer Druckprüfung zu
+unterziehen (Bild 18).</p>
+<p><u>Prüfaufbau:</u></p>
+</blockquote>
+<ul>
+<li><p>Lenksäule an den Anbindungspunkten fest einspannen</p></li>
+<li><p>Komfortverstellung arretieren <u>Prüfung:</u></p></li>
+<li><p>Krafteinleitung am Punkt 2 (oberes Kreuzgelenk) in Abhängigkeit
+des Ausweichmechanismus:</p>
+<ul>
+<li><p>axiale Verschiebemöglichkeit: axial</p></li>
+<li><p>Knickmechanismus: unter 90° Winkel</p></li>
+</ul></li>
+<li><p>Prüfgeschwindigkeit: 40 mm/min</p></li>
+</ul>
+<blockquote>
+<p><strong>Bild 18:</strong> [redacted]oberes Kreuzgelenk</p>
+</blockquote>
+<h2 id="prüfung-der-integrität-bei-heckcrash">Prüfung der Integrität bei
+Heckcrash</h2>
+<blockquote>
+<p>Im Heckcrash darf die Lenksäule nicht separieren. [redacted-person]
+mittels dynamischen Schlittenversuchs erfolgt mit folgenden
+Parametern:</p>
+</blockquote>
+<ul>
+<li><p>Einbauwinkel: 15°</p></li>
+<li><p>[redacted-person] von 5 kg an Lenksäulenspindel starr
+befestigen</p></li>
+<li><p>Puls: siehe Bild 19 (wird auf Nachfrage von der Fachabteilung zur
+Verfügung gestellt)</p></li>
+</ul>
+<blockquote>
+<p><strong>Bild 19:</strong> Heckcrashpuls für [redacted-person]</p>
+</blockquote>
+<h2 id="prüfumfang-vor-bereitstellung-von-erprobungsmustern">Prüfumfang
+vor Bereitstellung von Erprobungsmustern</h2>
+<blockquote>
+<p>[redacted-person] des Entwicklungsstandes, die die Crashkennung
+beeinflussen bzw. einer Änderung der Crashkennung, muss in Absprache mit
+den Fachabteilungen ein abzustimmender Teilumfang des Prüfprogramms
+(siehe Bild 20) vor Auslieferung der Versuchsteile durchgeführt
+werden:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p>
+<ul>
+<li><p>0˚ axial, Mitte - Mitte</p></li>
+<li><p>mit Querkrafteinfluss, Mitte - Mitte</p></li>
+</ul></li>
+<li><p>[redacted-person]</p>
+<ul>
+<li><p>axial (Mitte - Mitte)</p></li>
+<li><p>unter Winkel (Mitte - Mitte)</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>[redacted-person] darüber hinaus sind je nach Änderungsumfang in
+Absprache mit der Fahrzeugsicherheit durchzuführen. Es sind jeweils drei
+Versuche für jede Konfiguration durchzuführen.</p>
+<p>Ein validiertes Simulationsmodell ist zum jeweiligen
+Entwicklungsstand bereitzustellen.</p>
+</blockquote>
+<h2 id="prüfumfang-zu-entwicklungsmeilensteinen">Prüfumfang zu
+Entwicklungsmeilensteinen</h2>
+<blockquote>
+<p>Die folgende Tabelle zeigt die Mindestprüfumfänge für die
+Grundmodulentwicklung zu den jeweiligen Meilensteinen der
+Lenksäulenentwicklung. Sie sind für jedes Lenksäulenprinzip (mechanisch
+/ elektrisch) durchzuführen. [redacted-person] ist in Abstimmung
+mit der Fachabteilung ein reduzierter Versuchsumfang abzustimmen.</p>
+<p>Sollten bei zwei identischen Versuchen die Ergebnisse nicht
+vergleichbar sein, ist ein Wiederholversuch durchzuführen. [redacted-person] hat eine Analyse über die Ursachen der Abweichungen
+durchzuführen.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th rowspan="3"><blockquote>
+<p><strong>Prüfungen</strong></p>
+</blockquote></th>
+<th colspan="4"><blockquote>
+<p><strong>Meilenstein, [redacted-person]</strong></p>
+</blockquote></th>
+</tr>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Vergabe</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Konzept-</strong></p>
+<p><strong>entscheid</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>B-Freigabe</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>BMG</strong></p>
+</blockquote></th>
+</tr>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>PT</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>A-Muster</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>B-Muster</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>C-Muster</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person], axial 0°, Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person], axial 0°, vorn-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person], unter Winkel, Mitte-Mitte, alternativ 0° mit
+Querkrafteinleitung</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person], unter Winkel und 10° links, Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person], unter Winkel und 10° rechts, Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Grundreibung, ohne Crashelemnt und Abscherelemente, 0°,
+Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Abscherelemente (z.[redacted-person], Längsanschläge, …)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Crashelemente (Biegestreifen, Biegereißlasche)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]: F_Reaktion_quer &lt; 0,5 x
+F_quer</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Summe</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>4</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>13</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>24</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>34</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>axial 0°, Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>unter Winkel, Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>unter Winkel mit reduzierter Energie, Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>unter Winkel, vorn-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>unter Winkel mit Beaufschlagung 10° links, Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>unter Winkel mit Beaufschlagung 10° rechts, Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>unter Winkel mit Querkraft 2kN am oberen Kreuzgelenk (vertikal nach
+unten <strong>und</strong> oben</p>
+<p>gerichtet), Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>unter Winkel mit Querkraft 2kN am oberen Kreuzgelenk (vertikal nach
+unten <strong>oder</strong> oben</p>
+<p>gerichtet), Mitte-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Robustheit: flachste Einbaulage, unterste Höhenverstellung, mittlere
+Längsposition</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Robustheit: steilste Einbaulage, oberste Höhenverstellung + 3°, voll
+ausgezogen</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]: F_Reaktion_quer &lt; 0,5 x
+F_quer</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Summe</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>3</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>12</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>23</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>22</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>MeRKE Versuche</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person] für Versuche beim OEM</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Summe</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>4</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>0</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>0</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>0</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>Haltekraftversuche des Klemmsystems</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>vertikal zur Lenksäulenachse, Richtung nach oben (5kN)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>vertikal zur Lenksäulenachse, Richtung nach unter (3kN)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Längsrichtung nach hinten aus [redacted-person]-Mitte (dynamischer
+Versuch)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Summe</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>1</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>3</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>7</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>7</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>[redacted-person] in seitlicher
+Querrichtung</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>positive 2-Richtung bis 3 kN, ausgezogen-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>negative 2-Richtung bis 3 kN, ausgezogen-Mitte</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Summe</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>2</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>4</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>4</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>Darstellen der Tunebarkeit des Crashsystems</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person] mit Auswerikung auf ZSB
+Crashkennung</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Versuchsergebnisse von Crashelementauslegung mit Auswerkung auf ZSB
+Crashkennung</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>Lenksäulenverstellhebelauslegung mit
+Sollbruchstelle</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Bruchkräfte &lt; 3,0 kN</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Bruchbild bewerten</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>visuell</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>visuell</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>visuell</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Lenksäulenverstellhebel: Sicherstellung gegen Öffnen im dynamischen
+Versuch</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>Intrudierbarkeit der Lenksäule am oberen Kreuzgelenk</strong>
+(falls Lenksäule intrudierbar ausgeführt)</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>quasistatischer Druckversuch axial 0° bzw. bei Knickmechanismus unter
+90°; Kraftniveau</p>
+<p>zwischen 1,5 kN - 2,5 kN</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>unter Winkel: Anfangswert = Einbaulage, Änderung in Absprache mit
+Frahrzeugsicherheit</em></p>
+<p><strong>Bild 20:</strong> Prüfumfang zu Entwicklungsmeilensteinen</p>
+</blockquote>
+<h2 id="prüfung-des-crashsystems-zur-serienüberwachung">Prüfung des
+Crashsystems zur Serienüberwachung</h2>
+<blockquote>
+<p>[redacted-person] der ZSB-Lenksäule muss die in der technischen
+Zeichnung dargestellte Kraft- Weg-Kurve innerhalb der Toleranzen
+erfüllen.</p>
+<p>Für die Serienüberprüfung mit quasistatischem Druckversuch gilt die
+PV3595.</p>
+<p>Bei crashsystemrelevanten Änderungen müssen zusätzlich dynamische
+Versuche durchgeführt werden, um die Einhaltung der in der Entwicklung
+erarbeiteten dynamischen Crashkennung nachzuweisen.</p>
+</blockquote>
+<h1 id="simulationsmodell">Simulationsmodell</h1>
+<h2 id="allgemeines">Allgemeines</h2>
+<blockquote>
+<p>[redacted-person] der Lenksäule soll in der Insassensimulation
+verwendet werden. Da die Lenksäule zu den primären
+Rückhaltesystem-Komponenten gehört, ist deren Validation für die
+Insassensimulation sehr wichtig. Das bedeutet insbesondere, dass das
+LS-Modell auch unter Querkraft ein realistisches Laufverhalten zeigen
+muss.</p>
+<p>Um dies sicherzustellen, ist das Modell auf alle unter Bild 20
+aufgeführten quasistatischen und dynamischen Versuche zu validieren. [redacted-person] muss zunächst eine Validierung der quasistatischen Versuche in
+Querrichtung erfolgen. Ebenfalls müssen die Versuche</p>
+<p>„Intrudierbarkeit am oberen Kreuzgelenk“ als Validierungsbasis für
+das Modell dienen.</p>
+</blockquote>
+<h2 id="datenbereitstellung">Datenbereitstellung</h2>
+<blockquote>
+<p>[redacted-person] bis 3 Monate nach SOP muss der Lieferant validierte
+Simulationsmodelle dem OEM zur Verfügung zu stellen. Mit dem
+Simulationsmodell ist jeweils der in Kapitel 5.5 beschriebene
+Dokumentationsumfang bereitzustellen.</p>
+<p>Modelle müssen für alle im Vergabeumfang definierten Varianten (z.[redacted-person]/Rechtlenker; mechanisch/elektrisch etc., mit/ohne
+dynamischen Lenksteller) bereitgestellt werden. Sie müssen im
+Fahrzeugkoordinatensystem des jeweiligen Projektes modelliert sein.</p>
+<p>Bei relevanten Hardware-Änderungen der Lenksäule sowie neuen
+Crashkennungen muss ein Update des Simulationsmodells inklusive einer
+aktualisierten Validierung geliefert werden. Siehe außerdem Abschnitt
+4.10.</p>
+<p>Das gelieferte Modell muss unverschlüsselt sein und darf beim OEM
+oder bei vom OEM beauftragten Entwicklungsdienstleistern verwendet
+werden.</p>
+</blockquote>
+<h2 id="modellanforderungen">Modellanforderungen</h2>
+<blockquote>
+<p>[redacted-person] muss die jeweils gültigen Anforderungen des Auftraggebers
+an Simulationsmodelle erfüllen. Das umfasst die Version des
+Crash-Solvers (PamCrash- und LS-Dyna-Version), die Modellierungstechnik
+sowie die Qualitätskriterien für Simulationsmodelle (PamCrash:
+ESI-Checks; LS-Dyna: DYNAinspector). Nach jeder Modellanpassung muss
+eine Validierung durchgeführt werden.</p>
+<p>[redacted-person] ist berechtigt, eine Umstellung auf eine neue
+aktualisierte Solver-Version zu verlangen. Dies wird mit ausreichend
+Vorlauf dem Auftragnehmer mitgeteilt, der zu einem abgestimmten Termin
+alle Modelle in der angegebenen Version zu liefern hat. Hierzu sind
+Vergleichsrechnungen notwendig, die eine Korrelation mit der vorherigen
+Version aufzeigen. [redacted-person] kann eine Umstellung pro
+Kalenderjahr angenommen werden.</p>
+<p>[redacted-person] der Lenksäule mit dem Umfeld ist realistisch
+darzustellen. Bei der Modellierung ist auf die geometrisch richtige
+Abbildung der einzelnen Bauteile zu achten. [redacted-person] mit Einfluss
+auf das Laufverhalten sind realistisch abzubilden. Ersatzmodellierungen
+sind nur nach Rücksprache mit dem OEM erlaubt.</p>
+<p><strong><u>[redacted-person]</u></strong></p>
+</blockquote>
+<ul>
+<li><p>Einheitensystem: mm/kg/ms</p></li>
+<li><p>Zeitschritt: 0,5 μs. [redacted-person] behält sich vor, vor
+Projektbeginn einen davon abweichenden Zeitschritt vorzugeben.</p></li>
+<li><p>LoCo-Fähigkeit ([redacted-person])</p></li>
+<li><p>Numerisch stabil (konstanter Zeitschritt in allen
+Validierungslastfällen, keine Modellabstürze)</p></li>
+<li><p>Keine hochfrequenten Schwingungen</p></li>
+<li><p>Nummerierung gemäß LAH.DUM.880.DL</p></li>
+<li><p>[redacted-person] (bis auf Crash-Element) sind realistisch
+abzubilden</p></li>
+<li><p>[redacted-person] und Anfangspenetrationen in den Kontakten,
+auch in den Kontakten, in denen Kanten nicht geprüft werden. Falls für
+die Abbildung relevanter [redacted-person]
+erforderlich sind, müssen diese mit der
+Auftraggeber-Berechnungsabteilung abgestimmt werden.</p></li>
+<li><p>[redacted-person] und Trägheitseigenschaften müssen der Realität
+entsprechen</p></li>
+<li><p>Skalierungen zur Zeitschrittmanipulation sind nicht zulässig,
+Ausnahmen sind mit dem Auftraggeber abzustimmen</p></li>
+<li><p>In der Lenksäule müssen die Kontakte der Reibflächen realistisch
+modelliert werden, damit die Querkräfte in realistische Längskräfte
+gewandelt werden. [redacted-person] müssen im lokalen Koordinatensystem des
+Kontakts (Normal- und Reibkräfte) auswertbar sein.</p></li>
+<li><p>[redacted-person] der Lenksäulenverstellung ist bei mechanischen
+Lenksäulen realistisch abzubilden</p></li>
+<li><p>[redacted-person] muss im gesamten Bereich der Komfortverstellung über
+geeignete Variablendefinitionen positionierbar sein.</p></li>
+<li><p>[redacted-person] müssen bei Single und [redacted-person] vergleichbare
+Ergebnisse liefern</p></li>
+<li><p>[redacted-person] des Deformationselements muss eine real ermittelte
+Kurve aus einem Versuch sein. [redacted-person] darf durch eine
+vereinfachte Kraft-Weg- Kennung abgebildet werden, muss aber die
+Kinematik abbilden.</p></li>
+<li><p>Losbrechkraft und Crashkennung müssen unabhängig voneinander
+einstellbar sein</p></li>
+</ul>
+<blockquote>
+<p><strong><u>PAMCRASH spezifische Anforderungen</u></strong></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] des Fahrer-Airbagmoduls relativ zur Lenksäule
+sind in der Lenksäule der Lenkrad D-Punkt und zwei weitere Knoten zu
+definieren. Die jeweiligen NODE IDs sind in PYVAR Definitionen zu
+deklarieren. [redacted-person] kann ein Beispiel zur Verfügung
+stellen.</p></li>
+</ul>
+<blockquote>
+<p><img alt="lks" src="./06_RHS-lenksaeulen-klah-v2-3-20211029-signed-la-media/media/image59.jpeg" style="width:4.92316in;height:2.095in"/></p>
+<p>Bild 20: Benennung der Knoten</p>
+</blockquote>
+<ul>
+<li><p>Kräfte und Momente in der Lenkradnabe müssen auswertbar sein
+(Ausrichtung des Koordinatensystems wie im Versuchsbetrieb)</p></li>
+<li><p>[redacted-person] und Interaktion mit anderen Includes sind gewisse
+Definitionen im Include mitzupflegen. Für [redacted-co]müssen die Modelle mit der
+Animator- Standardauswertung auswertbar sein. [redacted-person] kann ein
+Beispiel zur Verfügung stellen.</p></li>
+</ul>
+<blockquote>
+<p><strong><u>LS-Dyna spezifische Anforderungen</u></strong></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] des Fahrer-Airbagmoduls relativ zur Lenksäule
+sind in der Lenksäule der Lenkrad D-Punkt und zwei weitere Knoten zu
+definieren (Bild 20). Die jeweiligen NODE IDs sind in *PARAMETER
+Definitionen zu deklarieren. [redacted-person] kann ein Beispiel zur
+Verfügung stellen.</p></li>
+<li><p>Kräfte und Momente in der Lenkradnabe müssen auswertbar sein
+(Ausrichtung des Koordinatensystems wie im Versuchsbetrieb).</p></li>
+<li><p>Simulationsmodelle müssen nach den Vorgaben der gültigen
+Projektrichtlinien (siehe Kapitel 6) erstellt werden. [redacted-person] beschreibt Modellierungsvorgaben hinsichtlich der
+Modellstruktur (Kontakte, Sets, …), welche für eine reibungslose
+Integration der einzelnen Komponenten in die Systemsimulation unbedingt
+einzuhalten sind. [redacted-person] hat keine Kostenrelevanz und
+wird nach der Vergabe geliefert und stetig aktualisiert.</p></li>
+<li><p>[redacted-person] muss als eine Include-Datei geliefert
+werden.</p></li>
+<li><p>Von der [redacted-co]-Berechnungsabteilung wird eine Master-Datei mit
+den vorgegebenen Control-Karten sowie den Kontakten und
+Kontakteinstellungen zur Verfügung gestellt. [redacted-person] sind
+nur in Abstimmung mit [redacted-co] zulässig.</p></li>
+</ul>
+<h2 id="simulationsabgleich-zu-versuchen">Simulationsabgleich zu
+Versuchen</h2>
+<blockquote>
+<p>Alle durchgeführten Versuche müssen für die Validierung des
+Simulationsmodels verwendet werden. [redacted-person] muss der
+Kurvenvergleich aller für den jeweiligen Lastfall geforderten Kurven
+dargestellt und in Übereinstimmung gebracht werden.</p>
+<p>Die geforderte Übereinstimmung von Modell mit Versuch ist wie
+folgt:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"><strong>Bewertungsgegenstand, Bewertung
+von</strong></th>
+<th><blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><ul>
+<li><p>Zeitpunkt des Loslaufens</p></li>
+</ul></td>
+<td><blockquote>
+<p>+/- 2 ms</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><ul>
+<li><p>Kraftniveau des Loslaufens</p></li>
+</ul></td>
+<td><blockquote>
+<p>+/- 0,2 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><ul>
+<li><p>Niveau der Laufkraft</p></li>
+</ul></td>
+<td><blockquote>
+<p>+/- 0,2 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><ul>
+<li><p>Zeitpunkt des Maximalweges/Stops</p></li>
+</ul></td>
+<td><blockquote>
+<p>+/- 2 ms</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><ul>
+<li><p>Maximalweg</p></li>
+</ul></td>
+<td><blockquote>
+<p>+/- 5 mm</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="aufprägung-der-randbedingungen-bei-quasistatischen-versuchen">Aufprägung
+der Randbedingungen bei [redacted-person]</h2>
+<blockquote>
+<p>Bei quasistatischen Versuchen wird die Impaktorbewegung mit
+konstanter Geschwindigkeit aufgeprägt. [redacted-person] darf in der
+Simulation höher eingestellt werden als die Versuchsgeschwindigkeit (40
+mm/min). [redacted-person] muss jedoch aufzeigen und dokumentieren, dass
+dynamische Effekte keinen Einfluss auf die Kraft-[redacted-person] haben.</p>
+</blockquote>
+<h2 id="aufprägung-der-randbedingungen-bei-dynamischen-fallturm-versuchen">Aufprägung
+der Randbedingungen bei [redacted-person]-Versuchen</h2>
+<blockquote>
+<p>Der dynamische Fallturmversuch muss in der Simulation realistisch
+abgebildet werden. Masse und Anfangsgeschwindigkeit des Fallkörpers
+werden wie im abzubildenden Versuch eingestellt. [redacted-person] und
+die Eigenschaften des Koppelelements müssen realistisch</p>
+<p>abgebildet sein. [redacted-person] der Lenksäule darf nicht aufgeprägt
+werden. [redacted-person] muss frei auf die eingebrachte Energie
+reagieren.</p>
+</blockquote>
+<h2 id="dokumentationsumfang">Dokumentationsumfang</h2>
+<blockquote>
+<p>[redacted-person] eines validierten Modells muss die folgenden
+Bestandteile enthalten.</p>
+</blockquote>
+<ul>
+<li><p>Lenksäulen-Include mit folgenden Informationen:</p>
+<ul>
+<li><p>Ersteller (= verantwortlicher Ansprechpartner bei
+Rückfragen)</p></li>
+<li><p>Datum</p></li>
+<li><p>[redacted-person]-Nummer</p></li>
+<li><p>[redacted-person]-Nummer</p></li>
+<li><p>Validierungsberichtnummer</p></li>
+<li><p>Änderungshistorie</p></li>
+</ul></li>
+<li><p>Validierungsbericht</p>
+<ul>
+<li><p>[redacted-person] mit allen geforderten Kurven</p></li>
+<li><p>Analyse der dargestellten Kurven</p></li>
+<li><p>Nennung der Validierungsparameter</p></li>
+<li><p>Bauteilnummer, Bauteilstand, Entwicklungsstand des Bauteils,
+Produktionsstandort</p></li>
+</ul></li>
+<li><p>Simulationsmodelle von allen Validierungslastfällen</p></li>
+<li><p>Versuchsdaten von allen Validierungslastfällen</p></li>
+</ul>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>Es gelten die am Ausgabedatum des Lastenhefts gültigen mitgeltenden
+Unterlagen, sowie die darin genannten Dokumente.</p>
+<p>[redacted-person] stellt sicher, jeweils mit den für dieses
+Lastenheft gültigen mitgeltenden Unterlagen zu arbeiten.</p>
+</blockquote>
+<h2 id="konzernweit">Konzernweit:</h2>
+<blockquote>
+<p>PV3595 Serienprüfung von Lenksäulen</p>
+<p>LAH.DUM.880.DL Konzern-Nummerierungskonvention</p>
+<p>[redacted-person] wird auf Nachfrage von der Fachabteilung zur Verfügung
+gestellt</p>
+</blockquote>
+<h2 id="oem-spezifisch">OEM spezifisch:</h2>
+<blockquote>
+<p>LAH.DUM.880.AQ Simulationslastenheft [redacted-co] „[redacted]“</p>
+<p>LAH.DUM.880.EC Simulationslastenheft [redacted-co]</p>
+</blockquote>
+<h2 id="pag-lastenhefte">PAG Lastenhefte:</h2>
+<blockquote>
+<p>[redacted-person] für eine reibungslose
+Integration der einzelnen Komponenten in die [redacted-person] Projektrichtlinie hat keine Kostenrelevanz und wird nach der Vergabe
+geliefert.</p>
+<p>Anforderungsrichtlinie</p>
+<p>CAE [redacted-person] Modellierungstechnik in LS-Dyna.</p>
+<p>Anforderungsrichtlinie</p>
+<p>CAE [redacted]zur
+Materialdatenermittlung in</p>
+<p>LS-Dyna</p>
+</blockquote>
+</body>
+</html>

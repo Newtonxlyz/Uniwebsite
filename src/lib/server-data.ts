@@ -18,14 +18,18 @@ async function readJsonSafe<T = unknown>(filename: string, fallback: T): Promise
 }
 
 export async function getLessons() {
-  return readJsonSafe<any[]>("lessons.json", []);
+  // 合并主 lessons.json + 安全领域训练路径 (Phase D)
+  const main = await readJsonSafe<any[]>("lessons.json", []);
+  const safety = await readJsonSafe<any[]>("safety-training-paths.json", []);
+  return [...main, ...safety];
 }
 
 export async function getCards() {
-  // cards.json 格式: { cards: [...] }
+  // 合并主 cards.json + 安全领域训练概念卡
   const data = await readJsonSafe<{ cards?: any[] } | any[]>("cards.json", { cards: [] });
-  if (Array.isArray(data)) return data;
-  return data.cards || [];
+  const main = Array.isArray(data) ? data : (data.cards || []);
+  const safety = await readJsonSafe<any[]>("safety-training-cards.json", []);
+  return [...main, ...safety];
 }
 
 export async function getLessonBySlug(slug: string) {

@@ -1,0 +1,1707 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>220221_v02-5_te-anfragelah-FGS_2022_EN</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<table>
+<tbody>
+<tr>
+<td style="text-align: right;">Editor</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Department/OU</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Phone</td>
+<td><blockquote>
+<p>+49 8418 9 xxx</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: right;">E-mail address</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">First issue</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Date of revision</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">MaCRO identification</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[redacted]</p>
+<p>[redacted-addr]</p>
+<p>Phone: [redacted-phone]</p>
+<p>Test-[redacted-person] for<br/>
+[redacted]</p>
+<p>Execution, Coordination, Logistics,<br/>
+and Documentation</p>
+</blockquote>
+<p>RFQ [redacted-person]<br/>
+for [redacted-person]</p>
+<p><strong>Distribution list:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Name</th>
+<th>First name</th>
+<th>Department</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schlicht</td>
+<td>Oliver</td>
+<td>[redacted-person]-42</td>
+</tr>
+<tr>
+<td>Karges</td>
+<td>Albert</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Gramling</td>
+<td>Markus</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Arneth</td>
+<td>Birgit</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Pöppel</td>
+<td>Josef</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Netter</td>
+<td>Martin</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>RFQ [redacted-person] release:</strong></p>
+<table>
+<tbody>
+<tr>
+<td><u>Released by author:</u></td>
+</tr>
+<tr>
+<td>Place, date, signature; or [redacted-co] PKI signature</td>
+</tr>
+<tr>
+<td><u>Released by manager:</u></td>
+</tr>
+<tr>
+<td>Place, date, signature; or [redacted-co] PKI signature</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contents</strong></p>
+<p><a href="#general-information">1. General information
+<span>4</span></a></p>
+<p><a href="#purpose-of-the-performance-specification">1.1. Purpose of
+the [redacted-person] <span>4</span></a></p>
+<p><a href="#structured-rfq">1.2. Structured RFQ <span>4</span></a></p>
+<p><a href="#scope">1.3. Scope <span>5</span></a></p>
+<p><a href="#project-specific-contents-of-the-order">2. Project-specific
+contents of the order <span>6</span></a></p>
+<p><a href="#description-of-the-project-environment">2.1. Description of
+the project environment <span>6</span></a></p>
+<p><a href="#project-manager">2.1.1. Project manager
+<span>6</span></a></p>
+<p><a href="#submission-of-quotation-phase">2.1.2. Submission of
+quotation phase <span>6</span></a></p>
+<p><a href="#objective-of-the-project">2.2. Objective of the project
+<span>6</span></a></p>
+<p><a href="#general-conditions-standards-technical-guidelines-production-equipment-specifications-etc.-to-be-adhered-to-unless-covered-in-section-4">2.3.
+General conditions, standards, technical guidelines, [redacted-person] Specifications, etc.,<br/>
+to be adhered to (unless covered in section 4) <span>7</span></a></p>
+<p><a href="#required-expertise-and-equipment">2.4. Required expertise
+and equipment <span>7</span></a></p>
+<p><a href="#technical-equipment">2.4.1. Technical equipment
+<span>8</span></a></p>
+<p><a href="#definition-of-tests-and-test-matrix">2.4.2. Definition of
+tests and test matrix <span>9</span></a></p>
+<p><a href="#test-preparation">2.4.3. Test preparation
+<span>9</span></a></p>
+<p><a href="#test-execution">2.4.4. Test execution
+<span>10</span></a></p>
+<p><a href="#service-period">2.5. Service period <span>11</span></a></p>
+<p><a href="#startend-of-the-project">2.5.1. Start/end of the project
+<span>11</span></a></p>
+<p><a href="#milestones">2.5.2. Milestones <span>11</span></a></p>
+<p><a href="#expected-work-result">2.5.3. Expected work result
+<span>11</span></a></p>
+<p><a href="#tolerance-stack-up-analysis">2.5.4. Tolerance stack-up
+analysis <span>11</span></a></p>
+<p><a href="#limitation-of-the-work-result">2.5.5. Limitation of the
+work result <span>11</span></a></p>
+<p><a href="#performance-catalog">2.6. Performance catalog
+<span>12</span></a></p>
+<p><a href="#place-of-service-provision">2.7. Place of service provision
+<span>14</span></a></p>
+<p><a href="#supplies-from-audi-ag">2.8. Supplies from [redacted]<span>14</span></a></p>
+<p><a href="#supplied-it">2.8.1. Supplied IT <span>15</span></a></p>
+<p><a href="#other-supplies">2.8.2. Other supplies
+<span>16</span></a></p>
+<p><a href="#remuneration">2.9. Remuneration <span>16</span></a></p>
+<p><a href="#ancillary-costs">2.10. Ancillary costs
+<span>16</span></a></p>
+<p><a href="#specialist-contacts-at-audi-ag">2.11. Specialist contacts
+at [redacted]<span>16</span></a></p>
+<p><a href="#other-requirements">2.12. Other requirements
+<span>17</span></a></p>
+<p><a href="#tisaxprototype-protection-confidentiality-and-information-security">2.13.
+TISAX/prototype protection, confidentiality, and information security
+<span>17</span></a></p>
+<p><a href="#terms-and-abbreviations">2.14. Terms and abbreviations
+<span>17</span></a></p>
+<p><a href="#general-commercial-conditions">3. General commercial
+conditions <span>20</span></a></p>
+<p><a href="#responsibility-duty-to-provide-information-and-cooperation">3.1.
+Responsibility, duty to provide information, and cooperation
+<span>20</span></a></p>
+<p><a href="#carrying-out-the-work">3.2. Carrying out the work
+<span>20</span></a></p>
+<p><a href="#service-deadlines">3.3. Service deadlines
+<span>21</span></a></p>
+<p><a href="#changes-to-the-services">3.4. Changes to the services
+<span>21</span></a></p>
+<p><a href="#acceptance">3.5. Acceptance <span>22</span></a></p>
+<p><a href="#remunerationproof-of-performance">3.6. Remuneration/proof
+of performance <span>22</span></a></p>
+<p><a href="#rights-of-use">3.7. Rights of use <span>24</span></a></p>
+<p><a href="#use-of-free-software">3.8. Use of free software
+<span>24</span></a></p>
+<p><a href="#intellectual-property-rights-searches-intellectual-property-rights-of-third-parties">3.9.
+Intellectual property rights searches, intellectual property rights of
+third parties <span>25</span></a></p>
+<p><a href="#contract-term-and-termination">3.10. Contract term and
+termination <span>25</span></a></p>
+<p><a href="#general-information-1">3.11. General information
+<span>25</span></a></p>
+<p><a href="#applicable-documents">4. Applicable documents
+<span>27</span></a></p>
+<table>
+<thead>
+<tr>
+<th colspan="3" style="text-align: center;"><strong>Revision
+record</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Date</td>
+<td>Revision</td>
+<td>Name, department</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>New issue</td>
+<td>[redacted]</td>
+</tr>
+</tbody>
+</table>
+<h1 id="general-information">1. General information</h1>
+<h2 id="purpose-of-the-performance-specification">1.1. Purpose of the
+[redacted-person]</h2>
+<p>[redacted-person] Specification describes the commercial and technical
+specifications under which the bidder receiving the request for
+quotation (RFQ) (hereinafter referred to as the "contractor") may submit
+a quotation for the pertinent requested scope of work.</p>
+<p>This document describes the relevant interfaces, processes, rights,
+and services requested as the basis for the award.</p>
+<p>The contractor must take this [redacted-person] into
+consideration to the fullest extent in preparing its quotation. In its
+quotation, the contractor must consider all services required for
+complying with the [redacted-person]. It is imperative that the
+quotation exclusively refer to the [redacted-person] and
+comprehensively present the manner of rendering the services required
+therein. Deviations from the [redacted-person] must be expressly
+identified as such in the quotation or in the ordering systems of
+[redacted]with reference to the respective section.</p>
+<p>If the contract is awarded to the contractor, the latter must ensure
+that the performance described in the [redacted-person] be
+rendered towards [redacted-co] as specified.</p>
+<p>[redacted-co] reserves the right to conduct cost plausibility checks prior
+to ordering the work and to conduct subsequent negotiations accordingly.
+The prices and scheduled dates quoted may not be exceeded. All
+modifications necessary for achieving the objectives and functional
+compliance with the [redacted-person] are contained in the
+quotation.</p>
+<p>The content of the [redacted-person] and likewise, the
+documents additionally provided, are subject to confidentiality and may
+only be made accessible to third parties with the express consent of the
+responsible [redacted-co] department. Insofar as a transmission to third
+parties, in particular, to third parties affiliated with the contractor,
+is required for preparing a quotation and this was approved, the
+contractor must make certain that confidentiality is ensured.</p>
+<h2 id="structured-rfq">1.2. Structured RFQ</h2>
+<p>The contractor must fill out the structured RFQ of [redacted]that is
+to say, provide the required information for itemization and
+plausibility analysis.</p>
+<p>Based on the structured RFQ, the contractor must prepare a
+correspondingly structured quotation free of charge. All details for
+deriving the value of the quotation and the plausibility analysis must
+be contained in this quotation. This includes, in particular, the
+forecast expenditure of working hours for the contractor. If additional
+details with regard to the quotation are requested by [redacted]the
+contractor must promptly provide these free of charge.</p>
+<h2 id="scope">1.3. Scope</h2>
+<p>The present [redacted-person] exclusively refers to services
+within the scope of project schedules. These can be, among other things,
+development, design engineering, numerical simulation, test bed,
+testing, workshop, and project management services.</p>
+<p>The nature and scope of the services must be in conformity with the
+[redacted-person] unless circumstances are individually
+negotiated and explicitly regulated differently in writing.</p>
+<blockquote>
+<p><strong>Development</strong></p>
+</blockquote>
+<h1 id="project-specific-contents-of-the-order">2. Project-specific
+contents of the order</h1>
+<h2 id="description-of-the-project-environment">2.1. Description of the
+project environment</h2>
+<h3 id="project-manager">2.1.1. Project manager</h3>
+<p>The contractor specifies a project manager as the single point of
+contact (SPoC). This person coordinates all scopes, deadlines, technical
+content, and queries with the specialist points of contact with the
+involvement of the</p>
+<p>SPoCs of [redacted-co]: E-mail: <a href="mailto:FZGSI-Steuerungsprozesse-Dienstleister@audi.de"><strong>[redacted-email]</strong></a></p>
+<p>The project manager of the contractor ensures that the contractor has
+at its disposal all the up-to-date documents, data, information, test
+mules, and update scopes, etc., necessary for contract perform­ance. The
+project manager immediately informs the purchaser's contact of all
+changes and disruptions in contract performance. Examples: Scheduling
+delays, occurring faults, unavailability of documents and parts,
+etc.</p>
+<p>The project manager is responsible for the work result. This means
+also correctly transmitting data to the databases.</p>
+<p>The technical coordination meetings during the contracted term take
+place with widely established communication software ([redacted-person], Skype)
+or in person in the Development department of [redacted-co] [redacted-addr]. An
+appropriate time commitment is a condition of the contract award and
+must be taken into consideration accordingly.</p>
+<p>The contact for coordinating scopes of performance is exclusively the
+contract-awarding department of [redacted-co] and its contacts.</p>
+<p>Change requests from other departments of [redacted-co] and from third
+parties contracted by these departments must be agreed upon with – and
+approved by – the SPoC at [redacted-co]</p>
+<p><a href="mailto:FZGSI-Steuerungsprozesse-Dienstleister@audi.de">[redacted-email]</a>
+or its specialist contacts.</p>
+<h3 id="submission-of-quotation-phase">2.1.2. Submission of quotation
+phase</h3>
+<p>The bidder clarifies with [redacted-co] all unresolved questions concerning
+the [redacted-person] before the quotation is submitted.</p>
+<p>As the quantity of documents and the volume of data can be too high
+to be provided via the B2B supplier platform, the bidder is advised to
+liaise with the contacts to take collection of the documents.</p>
+<p>It is generally advisable to hold a meeting with the contacts at
+[redacted]The bidder must, on request, offer a date on which the contacts
+at [redacted-co] may come to view the bidder's establishment.</p>
+<p>In time for the start of the project, the smooth running of the
+process must be ensured with reference tests and the appropriate data
+provision.</p>
+<h2 id="objective-of-the-project">2.2. Objective of the project</h2>
+<p>The project pertains to the coordination, execution, and
+documentation of impact tests for pedestrian protection. This includes
+tests for "passive" pedestrian protection and tests for determining the
+necessary design of the sensor system of active pedestrian protection
+(PP) systems as per the applicable [redacted-person].</p>
+<p>In particular, the requirements of [redacted-person]
+LAH.[redacted-phone]J "[redacted-person] for [redacted-person] Tests ([redacted-person], Sled, Out-of-Position, and [redacted-person])" must be observed.</p>
+<p>Documentation is carried out in the form of the data created from
+video equipment and metrology instruments, photographic documentation,
+and the updating of databases (e.g., VisVerdi, FalCon). Service
+provision is not considered complete until all test data has been fully
+and correctly transmitted to the relevant [redacted-co] systems.</p>
+<p><strong>Without the correct data in the [redacted-co] systems, service
+provision is not considered complete.</strong></p>
+<p>The bidder clarifies with [redacted-co] all unresolved questions concerning
+the [redacted-person] before the quotation is submitted.</p>
+<p>It is generally advisable to hold a meeting with the contacts at
+[redacted-co] [redacted-addr]. The bidder must, on request, offer a date on which
+the contacts at [redacted-co] may come to view the bidder's establish­ment.</p>
+<h2 id="general-conditions-standards-technical-guidelines-production-equipment-specifications-etc.-to-be-adhered-to-unless-covered-in-section-4">2.3.
+General conditions, standards, technical guidelines, [redacted-person] Specifications, etc., to be adhered to (unless covered in
+section 4)</h2>
+<p>The contractor has testing systems at its disposal for carrying out
+impact tests in the area of pedestrian protection. The contractor is
+certified in this discipline to DIN ISO 17025. The tests must fulfill
+legal requirements, requirements for consumer protection, and internal
+requirements from [redacted-person] LAH.[redacted-phone]J.</p>
+<p>In the event of contradictions with other applicable documents,
+subject to mutual agreement, this [redacted-person] has priority
+with the exception of technical requirements. In the case of technical
+requirements, subject to mutual agreement, LAH.[redacted-phone]J has priority.
+In the event of contradictions with respect to technical specifications
+(e.g., tolerances, measurement accuracies), the stricter requirement
+applies in case of doubt.</p>
+<p>In the event of contradictions with section 2, it is sections 1, 3,
+and 4 of this [redacted-person] that have priority.</p>
+<p><strong>Attention:</strong> The documents received with the request
+for quotation (RFQ) are intended to support quotation costing. During
+contract performance, the currency of the documents must always be
+checked and the latest version must be used.</p>
+<h2 id="required-expertise-and-equipment">2.4. Required expertise and
+equipment</h2>
+<p>The contractor guarantees that it has the necessary expertise to
+process the scope of the project. From the perspective of [redacted]this
+particularly includes expertise in the field of pedestrian
+protection:</p>
+<ul>
+<li><p>Project experience in the development of passive/active
+pedestrian protection</p></li>
+<li><p>Experience in the coordination, execution, and evaluation of
+pedestrian protection tests.</p></li>
+<li><p>Working with the necessary impactors</p></li>
+<li><p>Experience with measurement, video, and data handling</p></li>
+<li><p>Knowledge of working with tools for data documentation at [redacted-co]
+(VisVerdi, FalCon, CAVIT Workbench, etc.)</p></li>
+<li><p>In time for the start of the project, the smooth running of the
+process must be ensured with reference tests and the appropriate data
+provision.</p></li>
+<li><p>Before each test, the test mule with the provided spare parts
+must be prepared so that it is in a condition ready for testing. The
+required repair work must also be taken into consideration for
+individual service items 1–3 in the performance catalog.</p></li>
+<li><p>Experience in sensor/electronic control unit integration in the
+area of safety electronics, know­ledge of metrology instruments for
+testing active pedestrian protection (reference sensors, data recorders,
+etc.), and knowledge of the whole vehicle.</p></li>
+<li><p>Working with vehicle diagnostic systems</p></li>
+<li><p>Comprehensive knowledge of vehicle electronics and electronic
+control unit networking</p></li>
+<li><p>Comprehensive knowledge in the area of high-voltage (HV)
+automotive engineering and HV battery technologies, and working with HV
+vehicles and their batteries</p></li>
+<li><p>Experience in the area of automotive servicing and
+repair</p></li>
+<li><p>Working with vehicle-specific pyrotechnics</p></li>
+<li><p>A permit as specified in clause 7 and ownership of a certificate
+of competence as specified in clause 20 of the [redacted-person] Act
+(Gesetz über explosionsgefährliche Stoffe) are required</p></li>
+<li><p>Trained electrically skilled personnel for working with HV
+technology.</p></li>
+<li><p>Vehicles with other alternative powertrains could be involved at
+some point in the course of the project term (e.g., hydrogen, other
+battery technologies). As applicable, the relevant qualifica­tions in
+this regard must be obtained. The contractor bears the costs. This is
+not covered by additional renumeration.</p></li>
+</ul>
+<h3 id="technical-equipment">2.4.1. Technical equipment</h3>
+<p>The following technical equipment is indispensable to performance of
+the contract:</p>
+<ul>
+<li><p>Own test laboratory and test facilities to be able to carry out
+the test as per LAH.[redacted-phone]J section 3.8.3 Pedestrian
+protection.</p></li>
+<li><p>Conventional automotive workshop equipment, working with all
+fuels, coolants, fluids, and lubricants, and substitutes.</p></li>
+<li><p>Equipment for working on automotive
+electrics/electronics</p></li>
+<li><p>Balances for wheel load determination</p></li>
+<li><p>Resources and measuring equipment for creating test zones/test
+areas and creating computer-aided design (CAD) measurement data for
+comparison with the engineered design.</p></li>
+<li><p>Measuring equipment for 3D coordinate measurement, application of
+measuring points as per CAD specifications.</p></li>
+<li><p>A data connection with faultless data transfer to [redacted-co] is a
+mandatory requirement.</p></li>
+<li><p>The contractor provides all standard metrology instruments (e.g.,
+acceleration sensors, dis­place­ment sensors, load cells, etc.) and
+associated means of data acquisition.</p></li>
+<li><p>Vehicle-specific metrology instruments (e.g., electronic control
+units, vehicle-specific sensors) are made available. The contractor
+ascertains the scope of equipment needed for the series of tests,
+reports this to the contacts, and coordinates with them to arrange
+timely provision (contractor has duty to collect).</p></li>
+</ul>
+<blockquote>
+<p>The contractor ensures that any metrology instruments made available
+it are handled correctly and with care. If the metrology instruments are
+damaged as a consequence of incorrect use, the contractor is liable for
+the repair or the purchase of spare parts.</p>
+</blockquote>
+<ul>
+<li><p>Modifications to parts and vehicles require, to some extent,
+model-making tools and skills, e.g., foam working, introduction of
+predetermined breaking points, etc.</p></li>
+<li><p>For work involving vehicles with alternative powertrains,
+equipment and areas are necessary to guarantee safety and environmental
+protection. At present, these vehicles are primarily those with HV
+batteries (lithium-ion). Others could be involved at some point in the
+course of the project term (e.g., hydrogen, other battery technologies).
+As applicable, the relevant equipment and areas (accident) must be
+upgraded accordingly. The contractor bears the costs. This is not
+covered by additional renumeration.</p></li>
+<li><p>A recovery concept in the event of an accident must be
+established (alerting the fire department, rescue concept).</p></li>
+<li><p>Systems for HV battery monitoring (voltage, temperature)</p></li>
+<li><p>Occupational safety and tools for working with vehicles with
+alternative powertrains</p></li>
+</ul>
+<h3 id="definition-of-tests-and-test-matrix">2.4.2. Definition of tests
+and test matrix</h3>
+<p>For the individual series of tests, [redacted-co] makes a corresponding test
+matrix available. In this text matrix, the test numbers, test points,
+test parameters, measuring points, channel names, the vehicle
+configuration with part numbers, and any necessary adaptations are
+defined. The contractor fills out this matrix with the results of the
+tests.</p>
+<p>The contractor must request the test numbers before the tests or
+generate them using a provided variant of the VisVerdi software. This is
+a mandatory requirement for the process of storing data in the
+VisVerdi/Falcon databases of [redacted]</p>
+<p><strong>Test matrix</strong></p>
+<p>Before the tests are carried out, the test matrix made available by
+[redacted-co] must be agreed upon with the purchaser. The experience gained from
+previous tests must be taken into consideration for further test
+scenarios. In particular, the possibility of cost savings, e.g., through
+an optimized test sequence, must be presented to and agreed upon with
+the purchaser.</p>
+<p>Values from the test matrix must be transferred to VisVerdi. This can
+be done directly in the VisVerdi system, Cavit or together with the
+measurement data import as <em>Versuchsnummer.attribute</em>
+(testnumber.attribute).</p>
+<h3 id="test-preparation">2.4.3. Test preparation</h3>
+<p><strong>Before the start and after the end of a test
+series:</strong></p>
+<p>The test mules are generally not at the state of development
+necessary for testing and must be updated with the relevant parts. These
+update scopes (parts) of the test mules are made available to the
+contractor from the [redacted-addr] location.</p>
+<ul>
+<li><p>[redacted-co] nominates the contacts for this.</p></li>
+<li><p>The contractor reports the necessary scope of parts to the
+contacts in a timely fashion.</p></li>
+<li><p>The contractor is responsible for the timely call-off of the
+parts. The definition of "timely" must be agreed on a case-by-case basis
+after the development phase of the test mule.</p></li>
+<li><p>The contractor checks for completeness immediately after delivery
+and notifies the purchaser's contact of any missing or incorrectly
+supplied items.</p></li>
+<li><p>The timings must be agreed upon with the contact at
+[redacted-co].</p></li>
+<li><p>The contractor ensures that the tests are carried out with the
+defined part version of the relevant parts.</p></li>
+<li><p>Before the test series begins, operating fluids must also be
+removed if necessary (e.g., coolant and refrigerant).</p></li>
+<li><p>After the end of the test series, the test mule must be restored
+to operational condition as necessary (add coolant and refrigerant,
+adjust headlamps, adjust radar sensor, etc.)</p></li>
+</ul>
+<blockquote>
+<p>The scope of these activities must be agreed upon with the purchaser
+before the return delivery.</p>
+</blockquote>
+<p><strong>During the test series</strong></p>
+<p>The contractor fully prepares the test vehicle for the tests,
+replaces damaged parts (approximately 15 relevant parts per setup, not
+including small parts), and carries out conversions/repairs during the
+test series or from one test series to the other. Parts are made
+available as individual parts and assemblies, e.g., bumper cover
+assembly (ASSY). Equipment variant add-ons must be set up as per the
+purchaser's specifications.</p>
+<p><strong>Installation or replacement of parts and repairs from test to
+test are included in the test price. A basis for costing is specified in
+the performance catalog items 1.0 to 3.0.</strong></p>
+<p>The contractor ensures that the tests are carried out with the
+defined part version of the relevant parts.</p>
+<p>The necessary specific metrology instruments are installed and
+carried over as per the purchaser's specifications.</p>
+<p>Vehicle software must be updated if necessary</p>
+<p>If repeated preparatory tasks (e.g., installation of metrology
+instruments) arise as a consequence of test interruptions caused by the
+purchaser, this effort can be billed as per the performance catalog.</p>
+<p>Tests with sensor systems for re-active hood/pedestrian protection
+systems: In the vehicle electronics, a vehicle condition must be
+simulated by bus signals. The purchaser makes available one instance of
+the hardware/software ("airbag portable unit").</p>
+<h3 id="test-execution">2.4.4. Test execution</h3>
+<p>The following scopes are included in the individual price of each
+test.</p>
+<ul>
+<li><p>Complying with the applicable documents and standards from
+LAH.[redacted-phone]J</p></li>
+<li><p>Checking and ensuring vehicle configuration, part versions,
+correct installation, chassis adjust­ments, test point marking,
+etc.</p></li>
+<li><p>Wear parts of the impactor</p></li>
+<li><p>Standard measurement/documentation:</p>
+<ul>
+<li><p>Speed of the impacter</p></li>
+<li><p>Impact point of the impactor</p></li>
+<li><p>Impact angle of the impactor (OK/not OK)</p></li>
+<li><p>Up to 25 measurement channels (acceleration rates, pressures,
+temperatures, triggers)</p></li>
+<li><p>Validation check of the measurement data</p></li>
+<li><p>Ambient conditions (humidity, air temperature)</p></li>
+<li><p>Checking the part structure in the front end for damage,
+documenting damage, e.g., breaks, foam damage, fastening points,
+irregularities</p></li>
+</ul></li>
+<li><p>Simulation of CAN and FlexRay signals ("airbag portable
+unit")</p></li>
+</ul>
+<p>Quotations must be presented for the following optional individual
+services:</p>
+<ul>
+<li><p>Measurements, tactile and optical</p></li>
+<li><p>Extra charge for climate-controlled test</p></li>
+<li><p>High-speed cameras (up to three camera positions per
+test)</p></li>
+<li><p>Flat-rate price for additional measuring points, e.g.,
+acceleration sensor, potentiometer, proof of contact by pressure-sensing
+films or electrically by copper foil (up to 25 measuring points included
+in the test price).</p></li>
+</ul>
+<p>An appropriate time commitment must be taken into account. This time
+commitment is not reimbursed separately.</p>
+<h2 id="service-period">2.5. Service period</h2>
+<h3 id="startend-of-the-project">2.5.1. Start/end of the project</h3>
+<p><em>Project start: [redacted-phone], but no sooner than the contract
+award</em></p>
+<p><em>Project end: [redacted-phone]</em><em>0</em></p>
+<p><em><strong>Services are commissioned in partial orders in line with
+the progress of the project.</strong></em></p>
+<h3 id="milestones">2.5.2. Milestones</h3>
+<p><em>Milestones:</em> Test requirement (test type/timing) in the
+enclosed schedule.</p>
+<h3 id="expected-work-result">2.5.3. Expected work result</h3>
+<p>The contractor works independently. The contractor coordinates the
+execution of the test in line with the progress of the project. The
+essential work result is considered to be fulfilled when the contractor
+has transferred all required data (measurement data, physical variables,
+videos, photos, and documentation) from the test to the IT systems of
+[redacted-co] (see "Guidelines for [redacted-person] in [redacted-person] Tests"
+[redacted-phone]_Leitfaden Datentransfer_Version_1.1.pdf) plausibly,
+correctly, and as per the requirements.</p>
+<p>Data must be made available within 24 hours. Without the correct data
+in the [redacted-co] systems, service provision is not considered complete.</p>
+<p>The current state of work progress must be presented weekly in a jour
+fixe meeting. The completeness of the test results in the test databases
+is displayed. In line with project progress, the necessary order details
+of the subsequent tests are coordinated.</p>
+<p>Accurate preparation and post-processing of the test mule as per the
+applicable documents and requirements is indispensable to data
+collection. The contractor must monitor the supplies, particularly test
+parts, necessary for execution of the project. As further need arises,
+the contractor must report this to the purchaser in a timely fashion.
+The prerequisites described are necessary for complete billing as per
+the performance catalog.</p>
+<p>The scope of a test series is considered complete when the scopes
+described in this [redacted-person] have been performed, and the
+test mule and test part packages have been returned as specified.</p>
+<h3 id="tolerance-stack-up-analysis">2.5.4. Tolerance stack-up
+analysis</h3>
+<p><strong>Legally required by the current version of UN Regulation 127
+or [redacted]Program (Euro NCAP)
+protocol.</strong></p>
+<p>Additional limitation of tolerances in LAH.[redacted-phone]H.</p>
+<p>If the design level of the available test equipment does not permit
+compliance with these tolerances, the contractor discloses the feasible
+tolerances before submission of quotation and seeks confirmation from
+[redacted-co].</p>
+<h3 id="limitation-of-the-work-result">2.5.5. Limitation of the work
+result</h3>
+<p>After each test, the contractor checks the recorded test data for
+plausibility of the signal. Where signals are implausible, this must be
+documented and reported to the purchaser.</p>
+<p>If the contractor does not perform the service in full, the
+corresponding items of the performance catalog are not factored into the
+calculation. The purchaser checks the usability of the test and deducts
+a percentage of the remaining test costs. If the test is not usable, the
+amount of the deduction is 100%.</p>
+<p>In the event of abortive tests due to gross negligence in their
+execution, the contractor also bears the costs of the damaged parts.</p>
+<h2 id="performance-catalog">2.6. Performance catalog</h2>
+<p><strong>The performance catalog</strong> is an Excel file
+("Leistkat_***.xlsx") that lists all the necessary individual services
+in a table. It comprises multiple worksheets. It applies only to the
+respective RFQ and version of this RFQ and to any requests for
+corrections and negotiation rounds (see cover sheet) in the context of
+this RFQ. A new version of an RFQ contains revised, new, and/or
+supplementary RFQ documents.</p>
+<p>The performance catalog must always be submitted in *.xlsx format as
+part of the quotation. It provides the basis for quotation evaluation
+and supplier selection. This applies not only to the initial quotation
+and corrected quotations, but also to price negotiation rounds. The
+prices of the individual services are just as crucial as the total
+quotation amount (cover sheet, cell C19). A quotation without the
+perform­ance catalog in *.xlsx format will not be accepted.</p>
+<p>This performance catalog is sent for negotiation rounds (with target
+prices for the individual services where applicable). The total amount
+of the best-price quotation must always be determined from this
+performance catalog by entering the individual-service best prices and
+this must also be submitted. This avoids contradictions. RFQ number and
+version number of the performance catalog (cover sheet) must be
+identical to those of the RFQ. It must be ensured that the entries in
+the cover sheet are correct. <strong>A negotiation quotation without the
+performance catalog in *.xlsx format will not be accepted.</strong></p>
+<p>The quoted and negotiated individual prices based on this RFQ are the
+basis for individual (partial) orders and invoices in the service
+period. The prices and quotation apply to this entire period.</p>
+<p><strong>"Deckblatt" (Cover sheet) worksheet</strong></p>
+<p>Please complete cells C6, C7 (if not already completed on receipt of
+the RFQ) and C15 to C18. The values are carried over to the
+"Einzelleistungen" (Individual services) and "Angebotssumme" (Quotation
+amount) sheets.</p>
+<p>The quotation amounts (cell C19) are carried over automatically from
+the "Angebotssumme" (Quotation amount) sheet. It is mandatory to state
+these prices as the quotation price in the online submission of
+quotation via the supplier platform. A quotation without this entry on
+the platform cannot be processed due to system constraints. This applies
+to the initial quotation, corrected quotations, and negotiations.</p>
+<p><strong>RFQ number and version number of the performance catalog
+(cover sheet) must be identical to</strong> <strong>those of the RFQ. A
+quotation without the correct data in the cover sheet will not be
+accepted.</strong></p>
+<p><strong>"Einzelleistungen" (Individual services)
+worksheet</strong></p>
+<p>For each item, the individual prices must be quoted. Please enter
+only numbers in column F, otherwise the price calculation will not
+work.</p>
+<p>The prices must be entered exclusively <strong>in euros with two
+decimal comma places</strong> (cents). Floating-point numbers and cell
+formatting applied to display only two decimal places (cents) will lead
+to unnecessary rounding errors at a later stage. For this reason, please
+round to the whole cent when you calculate the prices.</p>
+<p>General rule in the context of this RFQ: Only items from the
+"Einzelleistungen" (Individual services) worksheet are billable. No
+further costs can be reimbursed. For the storage of parts and test mules
+in the course of the work or in the event of interruptions to work, for
+production equipment, disposal of vehicle operating fluids, data
+handling, documentation, and all other work of the contractor, the
+contractor must factor these into its costing of the prices entered in
+the "Einzelleistungen" (Individual services) sheet.</p>
+<p>Items 1.0 to 3.0 (including sub-items) must contain all costs of the
+impactors (including calibration, certification, maintenance, and spare
+parts).</p>
+<p><strong>Transport:</strong></p>
+<p><strong>Vehicles and parts are made available from [redacted-addr],
+Kösching warehouse or Königsmoos vehicle warehouse.</strong></p>
+<p>For transport within a 50-km radius of [redacted-addr], it is possible to
+use the available infrastructure of the purchaser. The contractor must
+complete the relevant transport forms and enter them into the [redacted-co]
+systems.</p>
+<p>The contractor must finance transport outside this radius itself. The
+costs must be stated separately in the performance catalog when the
+quotation is submitted.</p>
+<p>Vehicle transport: If the contractor transports the vehicles itself,
+the contractor must provide proof of "prototype protection." Otherwise,
+only a carrier recognized by [redacted-co] may be commissioned to carry out
+transport. The contractor coordinates delivery and collection timings
+with the point of contact in [redacted-person]-42. The price quoted is the single
+journey per vehicle. The test mule may be damaged from a pre-test and is
+not driveable or mobile on its wheels. This must be taken into
+consideration in the selection of transport vehicle and during loading
+and unloading. Vehicles with alternative powertrains require special
+kinds of organizational effort. For example, vehicles with high-voltage
+batteries must not be lifted by forklift truck during transport unless
+this is done with the appropriate organizational effort and lifting
+equipment.</p>
+<p>Parts transport could involve the handling of dangerous goods (e.g.,
+pyrotechnics or batteries).</p>
+<p>It must be ensured that all parts being returned are exhaustively
+documented. Where applicable, further requirements for the form of
+documentation could follow in the course of contract performance</p>
+<p>Transport takes place only in the context of the services described
+in the [redacted-person]/ performance catalog.</p>
+<p>Note: Prototype protection must also be guaranteed during the loading
+of test mules.</p>
+<p><strong>Unforeseeable expenditures</strong></p>
+<p>These expenditures must be documented in writing and/or by photos in
+the proof of performance or, for more substantial undertakings, as an
+attachment to the proof of performance.</p>
+<p><strong>"Angebotssumme" (Quotation amount) worksheet</strong></p>
+<p>The quantities serve only as the basis for calculating the submitted
+quotation. The actual scope could differ from this, i.e., it is not
+possible to infer the actual order volume from these amounts.</p>
+<p>The prices of the respective items in the "Angebotssumme" (Quotation
+amount) sheet are calculated from the unit quantities specified in the
+sheet and corresponding prices from the "Einzelleistungen" (Individual
+services) sheet.</p>
+<p>The total amount at the far bottom is the quotation amount.</p>
+<p><strong>"Bestellsumme" (Order amount) worksheet</strong></p>
+<p>In some cases, orders could be placed for partial scopes of
+performance.</p>
+<p>For a particular order, the unit quantity of individual items
+expected to be needed must be stated in the "Bestellsumme" (Order
+amount) worksheet. The order amount is calculated from the quantity in
+this sheet and the price of individual items in the "Einzelleistungen"
+(Individual services) sheet.</p>
+<p><strong>"Rechnungssumme" (Invoice amount) worksheet</strong></p>
+<p>After performance fulfillment, the contractor completes a copy of the
+"Rechnungssumme" (Invoice amount) sheet showing the individual services
+performed for the test series or for each test. It provides the basis
+for the proof of performance (Excel file). A template of the proof of
+performance is made available in *.xlsx format and must be used. The
+"Rechnungssumme" (Invoice amount) sheet must be copied to the proof of
+performance Excel file. Each proof of performance is sent to the
+purchaser for formal checking first. Performance is confirmed after
+formal correctness has been confirmed. When the scope of performance has
+been accepted, a signed copy of the proof of performance is returned to
+the contractor. The proof of performance may contain multiple tests or
+series of tests. The "Rechnungssumme" (Invoice amount) sheet is
+completed for each test or series of tests.</p>
+<p>All "unforeseeable expenditures" must be documented by key words in
+the "Bemerkungen" (Notes) column and in detail in the proof of
+performance or in the attachment to the proof of performance in writing
+and by photos.</p>
+<p>Invoices are generally submitted monthly.</p>
+<h2 id="place-of-service-provision">2.7. Place of service provision</h2>
+<p>Services must be provided at the establishment of the contractor. The
+establishment(s) of the con­tractor must be suitable for the necessary
+work. In the quotation phase, the bidder agrees to a date on which the
+[redacted-co] specialist contacts may come to view the bidder's
+establishment(s).</p>
+<p>Flexible and dynamic decisions concerning the test workflow are
+necessary. Immediate assessments of the test object via secure online
+communication must be ensured to support this.</p>
+<p>The test mule remains in the same establishment of the contractor
+during the preparation, post-processing, and execution of the tests.
+Exceptions require the approval of the purchaser.</p>
+<p>For homologations and release tests, authority officials and
+technical services must also be allowed to access and see the test
+proceedings on site. In agreement with the purchaser, the necessary
+documents relating to the test bed and the work resources used must also
+be made available.</p>
+<h2 id="supplies-from-audi-ag">2.8. Supplies from [redacted]</h2>
+<p>When the contractor needs supplies, the contractor notifies the
+purchaser using the appropriate interfaces/forms.</p>
+<blockquote>
+<p>- Test mules (vehicles and bodies)</p>
+<p>- Parts for test setup (e.g., hoods, bumpers, etc.)</p>
+<p>- Vehicle-specific metrology instruments (e.g., electronic control
+units, replacement wiring harnesses)</p>
+<p>- Remaining-bus simulation (interface via FlexRay/CAN)</p>
+</blockquote>
+<p>Parts are made available as individual parts and assemblies, e.g.,
+bumper cover assembly (ASSY). Equipment variant add-ons must be set up
+as per the purchaser's specifications.</p>
+<p>An up-to-date list of parts in storage must be maintained at all
+times. The following contents must be documented at a minimum:</p>
+<p><strong>Quantity | part number | designation</strong></p>
+<p>All supplies must be used exclusively for the current order. Diligent
+and professional handling is a prerequisite. All supplies must be
+returned to [redacted-co] in flawless condition by the end of the project term at
+the latest. The contractor is obliged to pay compensation for damage
+beyond expected wear.</p>
+<p><strong>Return of supplies:</strong></p>
+<p>Returns must similarly be administratively transferred to the
+purchaser using the appropriate digital interfaces/forms.</p>
+<p>For no additional charge, the contractor stores all parts with
+prototype protection under its own responsibility. The correct
+containers must be selected for the specific test and project. It must
+be possible to assign all test parts to the test number
+unambiguously.</p>
+<ul>
+<li><p>For the return, at least the following must be stated:</p></li>
+</ul>
+<blockquote>
+<p><strong>Container type, dimensions, weight</strong></p>
+<p><strong>Content: Quantity | part number | designation</strong></p>
+</blockquote>
+<ul>
+<li><p>Each packaging unit must be clearly marked with the [redacted-co] test
+number.</p></li>
+<li><p>The single-use packaging provided by the purchaser must be
+disposed of by the contractor free of charge</p></li>
+<li><p>The returnable containers provided by the purchaser must be
+returned free of charge within five working days of receipt</p></li>
+<li><p>Test mule and parts must be stored free of charge for up to
+three months after the last use.</p></li>
+</ul>
+<p><strong>Dangerous goods items – requirements and
+supplies</strong></p>
+<ul>
+<li><p>Parts that are declared as dangerous goods and require sending
+must be processed in accordance with applicable dangerous goods
+regulations. The contractor must procure the necessary packag­ing
+material under its own responsibility and without charge.</p></li>
+<li><p>Pyrotechnics must be deactivated by being deployed before return.
+This applies to parts that are no longer needed that have been defined
+previously in coordination with the test coordinator.</p></li>
+<li><p>For LITHIUM-ION BATTERIES, the packaging material is provided by
+[redacted]The purchaser does this via the test setup supervisor of
+[redacted-person]. The contractor procures additional packaging material, such as
+thermal insulation, film bags, or labels, under its own responsibility
+and without charge.</p></li>
+</ul>
+<h3 id="supplied-it">2.8.1. Supplied IT</h3>
+<p>In general, the contractor must provide its own work equipment. The
+purchaser makes available IT systems that must be integrated into the
+[redacted-co] network for service provision.</p>
+<p>The purchaser will provide the following IT systems:</p>
+<blockquote>
+<p>- [redacted]</p>
+<p>- [redacted]</p>
+<p>- [redacted-person] (AD) account</p>
+<p>- Animator and ANSA licenses (in [redacted-addr])</p>
+<p>- Unix account</p>
+<p>- [redacted-co] mynet access</p>
+<p>- SecurID</p>
+<p>- DaServ</p>
+<p>- WTS (including Office licenses) or access to Office365 via the web
+browser in [redacted-person]</p>
+<p>- Outlook CAX user request, AD basic</p>
+<p>- CAE-Bench, certificates for multifunction ID card</p>
+<p>- [redacted-co] mynet (dox, Faserplan setup guide)</p>
+<p>- WTS access (WTS [redacted-person], WTS Desktop CAViT),</p>
+<p>- Vehicle safety CAT applications (VisVerdi/Falcon, WTS Desktop
+CAViT)</p>
+<p>- [redacted](HyperKVS)</p>
+<p>- FAZIT/GeKo</p>
+<p>- CheckIT²</p>
+<p>- Crash VBV</p>
+<p>- [redacted-person] Environment for ODX (IDEX)</p>
+<p>- Protection of vehicle diagnostics (PVD)</p>
+<p>- [redacted](ODIS)</p>
+<p>- CP-Tool</p>
+<p>- System42</p>
+<p>- Workbench (AVx/EVx)</p>
+<p>- Image import</p>
+</blockquote>
+<p>The contractor must indicate in the quotation which items provided by
+[redacted-co] it can use and the amount by which the quotation price can be
+reduced as a result.</p>
+<h3 id="other-supplies">2.8.2. Other supplies</h3>
+<p><em>-</em></p>
+<h2 id="remuneration">2.9. Remuneration</h2>
+<p>See also section 2.6.</p>
+<p>The fixed price will be paid out in partial payments after services
+have been performed as per the performance catalog. For this, the
+required proof of performance must be submitted in advance.</p>
+<p>Only the items from the "Einzelleistungen" (Individual services)
+worksheet are billable. No further costs can be reimbursed.</p>
+<p>Invoices must generally be submitted monthly.</p>
+<h2 id="ancillary-costs">2.10. Ancillary costs</h2>
+<p>All ancillary costs, such as travel costs and materials, must be
+included in the prices stated in the performance catalog and are not
+reimbursed separately.</p>
+<h2 id="specialist-contacts-at-audi-ag">2.11. Specialist contacts at
+[redacted]</h2>
+<p>The purchaser is department [redacted-person]-42</p>
+<ul>
+<li><p>Contacts for technical questions:</p></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>• [redacted-person]</th>
+<th>[redacted-id]</th>
+<th>Head of OU</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>• [redacted-person]</td>
+<td>[redacted-person]</td>
+<td>Head of technical center</td>
+</tr>
+<tr>
+<td>• [redacted-person]</td>
+<td>[redacted-person]</td>
+<td>Feature test coordinator</td>
+</tr>
+<tr>
+<td>• [redacted-person]</td>
+<td>[redacted-person]</td>
+<td>Feature test coordinator</td>
+</tr>
+<tr>
+<td>• [redacted-person]</td>
+<td>[redacted-person]-42</td>
+<td>Order management/SPoC</td>
+</tr>
+<tr>
+<td>• [redacted-person]</td>
+<td>[redacted-person]-42</td>
+<td>Order management/SPoC</td>
+</tr>
+</tbody>
+</table>
+<p><strong>-Technical questions</strong> relating to RFQ, orders, formal
+checking of proof of performance, billing/ invoices, EDP access,
+requests for partner ID, orders for supplied software/IT:</p>
+<p>E-mail address: <a href="mailto:FZGSI-Steuerungsprozesse-Dienstleister@audi.de">[redacted-email]</a></p>
+<p><strong>-Vehicle supply and return:</strong></p>
+<p>E-mail address: <a href="mailto:FZGSI-Steuerungsprozesse-Dienstleister@audi.de">[redacted-email]</a></p>
+<p><strong>-Delivery of parts to the contractor</strong></p>
+<p>E-mail address: <a href="mailto:ek-5-beschaffungsmanagement@audi.de">[redacted-email]</a></p>
+<p><strong>-Return of parts/scrapping/disposal/dangerous
+goods:</strong></p>
+<p>E-mail address: <a href="mailto:fzgsi-prueffeldlogistik@audi.de">[redacted-email]</a></p>
+<p><strong>Matters relating to commissioning (software) of
+vehicles:</strong></p>
+<p>E-mail address: <a href="mailto:fzgsi-ibz@audi.de">[redacted-email]</a></p>
+<h2 id="other-requirements">2.12. Other requirements</h2>
+<p>For homologations and release tests, authority officials and
+technical services must also be allowed to access and see the test
+proceedings on site. In agreement with the purchaser, the necessary
+docu­ments relating to the test bed and the work resources used must also
+be made available.</p>
+<h2 id="tisaxprototype-protection-confidentiality-and-information-security">2.13.
+TISAX/prototype protection, confidentiality, and information
+security</h2>
+<p>The scope is relevant to [redacted]Exchange (TISAX):</p>
+<p>The contractor must verify upon submission of its quotation that it
+is TISAX-certified.</p>
+<p>If the contractor is not TISAX-certified, it must submit a
+declaration of intent to obtain TISAX certification with the submission
+of quotation."</p>
+<p>TISAX model of the [redacted-person] of the [redacted-person]
+(VDA) (https://enx.com/tisax/)</p>
+<p>As part of this RFQ, the purchaser expects proof of TISAX compliance
+with at least the following labels:</p>
+<p>- "Information with [redacted-person] Needs," [redacted-person] 2
+(AL2)</p>
+<p>- "Protection of [redacted-person]," [redacted-person] 3 (AL3)</p>
+<p>Note: Prototype protection must also be guaranteed during the loading
+of test mules.</p>
+<p>The contractor must bear the costs of providing proof.</p>
+<p>The proof of acceptance must be in place no later than at the start
+of the project or upon receipt of an order from [redacted]</p>
+<p>If the proof is already in place in the quotation phase, we request
+that this be enclosed with the quotation.</p>
+<h2 id="terms-and-abbreviations">2.14. Terms and abbreviations</h2>
+<p><strong>[redacted-co]</strong></p>
+<p>Purchaser</p>
+<p><strong>Update scope</strong></p>
+<p>Items (generally parts in the current state of development) needed to
+bring the test mule up to the state of development required in the test
+definition.</p>
+<p><strong>AN</strong></p>
+<p>Contractor</p>
+<p><strong>CAViT</strong></p>
+<p>Analysis tool for test data from the <a href="https://portal.epp.audi.vwg/wps/poc?uri=audi-np:oid:1412694100139">VisVerdi</a>
+FalCon, and <a href="https://portal.epp.audi.vwg/wps/poc?uri=audi-np:oid:1412571385314">CAE-Bench
+IT systems</a></p>
+<p><strong>CheckIT²</strong></p>
+<p>An application in which all information is provided for preparing a
+vehicle for a crash test. It is a guide to preparation. The steps
+completed are documented. The state of progress is shown as a
+percentage. Creation of checklists specific to the equipment and
+integration level. Recording and management of faults (software) in
+vehicles. Evaluation of event memory read-outs.</p>
+<p><strong>COP</strong></p>
+<p>Conformity of production – monitoring conformity of production</p>
+<p><strong>CP-Tool</strong></p>
+<p>Coding/configuration tool, for quick and efficient coding and
+configuration of test mules and prototypes.</p>
+<p><strong>Crash VBV</strong></p>
+<p>Application in which the current version of the software of the
+electronic control units and their networking in the vehicle can be
+compared with the correct version. This shows which software must be
+updated.</p>
+<p><strong>FalCon</strong></p>
+<p>Software and database system for storing/viewing/evaluating
+measurement data, video/photo data, and documents.</p>
+<p><strong>Faserplan</strong></p>
+<p>Database in which, with regard to the test mule (vehicle, partial
+body), the test scopes can be planned and the test mule can be
+managed.</p>
+<p><strong>PP</strong></p>
+<p>Pedestrian/partner protection</p>
+<p><strong>HV "high voltage"</strong></p>
+<p>Voltages &gt; 60 V and ≤ 1 500 VDC (direct voltage) and &gt; 30 V and
+≤ 1 000 VAC (alternating voltage) in the vehicle engineering, excluding
+add-on parts and assemblies. (Electrical engineering: Low voltage.)</p>
+<p><strong>IDEX</strong></p>
+<p>Diagnostics application with special functions for vehicle
+commissioning/vehicle testing/electronic control unit development</p>
+<p><strong>MKB</strong></p>
+<p>[redacted]System</p>
+<p><strong>MV</strong></p>
+<p>Current ([redacted-co]) vehicles with additional 48-V on-board system.</p>
+<p><strong>ODIS</strong></p>
+<p>[redacted]For test mule preparation,
+ODIS.Engineering is required.</p>
+<p><strong>PVS</strong></p>
+<p>[redacted-person]</p>
+<p><strong>PVD</strong></p>
+<p>Protection of vehicle diagnostics (PVD) is a system with which
+software-controlled vehicle features can be protected from misuse and
+unauthorized modification.</p>
+<p><strong>SPoC</strong></p>
+<p>Single point of contact: Central contact at the contractor and
+purchaser.</p>
+<p><strong>system42</strong></p>
+<p>Continuous provision of electronic control unit information</p>
+<p><strong>TAK</strong></p>
+<p>Partially equipped body, e.g., body with axles/chassis</p>
+<p><strong>TISAX</strong></p>
+<p>[redacted]Exchange (<a href="http://www.enx.com/tisax/)">http://www.enx.com/tisax/)</a></p>
+<p><strong>Test mule</strong></p>
+<p>Generally the vehicle, but could also be a partially equipped body, a
+partially equipped assembly setup, or a fixture used to carry out the
+test.</p>
+<p><strong>VisVerdi</strong></p>
+<p>Database system for defining, documenting, and evaluating the test.
+Also for recording discrete values.</p>
+<p><strong>VFF</strong></p>
+<p>Pre-[redacted-person] Vehicles</p>
+<p><strong>0S</strong></p>
+<p>0-Series</p>
+<h1 id="general-commercial-conditions">3. General commercial
+conditions</h1>
+<h2 id="responsibility-duty-to-provide-information-and-cooperation">3.1.
+Responsibility, duty to provide information, and cooperation</h2>
+<p>(1) The contractor must render its services independently and under
+its sole responsibility, and exclusively with qualified personnel. The
+contractor must render services according to the latest state of the art
+and science and technology, and according to the accepted standards of
+professional practice, including the documentation. Any technical,
+expert, or other requirements of [redacted-co] do not release the contractor
+from its obligation and responsibility for rendering the services free
+of faults.</p>
+<p>(2) The contractor must check the information, documents,
+project-related instructions, requirements, and similar specifications
+from [redacted-co] for the completeness, correctness, consistency, and
+implementability of their content. The contractor must promptly notify
+[redacted-co] in writing, with regard to any inadequacies stating the
+reasons.</p>
+<p>(3) Upon request by [redacted]the contractor shall draw up meaningful
+status reports in writing.</p>
+<p>(4) [redacted-co] will make available to the contractor the necessary
+information and documents upon request. Beyond this, any participation
+requires a separate, written agreement.</p>
+<p>(5) If working equipment is made available by [redacted]in particular,
+for security reasons (hardware, software, etc.), this is done on a loan
+basis. All working equipment, and all data, software, etc. stored
+thereon, are the sole property of [redacted]The working equipment must be
+used exclusively for the purposes and for the duration of the assigned
+scope of the work. It must be returned to [redacted-co] after concluding the
+order, or, in the case of software handed over without hardware,
+deleted. For the IT sector (hardware/software), reference is made in
+particular to the applicability of the IT [redacted-person].</p>
+<p>(6) The contractor must render the services as per the contract,
+e.g., those assigned to the dispatching party (shipper), sender,
+packaging party, loader, filler, transporter, receiving party, unloader,
+etc., independently and at its own risk. The contractor alone is
+responsible for adhering to all national and international regulations
+and rules pertinent to the respective service. This applies in
+particular to managing dangerous goods and the handling of hazardous
+substances. The contractor agrees to have all work conducted exclusively
+by employees that have been trained and/or instructed as per the
+applicable regulations. The contractor must disclose its strategy for
+dangerous goods management in particular.</p>
+<h2 id="carrying-out-the-work">3.2. Carrying out the work</h2>
+<p>(1) The contractor is responsible for planning the project and
+performing the services. If there are hourly allocations stated by
+[redacted-co] for the scope of the performance, these are merely estimates
+based on experiential values.</p>
+<p>(2) The contractor shall render its services with regular
+professional consultation with [redacted]and shall designate a project
+manager who plans and monitors the deployment of personnel and
+development of the unit. This project manager is the responsible contact
+for [redacted-co] with regard to all concerns pertaining to the project.
+[redacted-co] can make statements effective for the contractor vis-à-vis this
+contact.</p>
+<p>(3) The employees employed by the contractor are solely subject to
+the contractor's right to issue instructions. The contractor must ensure
+that the right to issue instructions is exclusively exercised by the
+contractor. The persons employed by the contractor may not enter into
+any employment relationship for [redacted]also insofar as they render
+services in the latter's premises.</p>
+<p>(4) If a person employed by the contractor for fulfilling the
+contract is replaced by another, or if familiar­ization with the order is
+generally required (e.g., training for processing the order mandatorily
+required for [redacted-co] IT systems), the expenses for such familiarization
+shall be borne by the contractor. The contractor must reasonably take
+into consideration the interests of [redacted-co] in the course of its
+selection. [redacted-co] can, while providing the rationale, request the
+replacement of persons employed by the contractor for fulfilling the
+contract if these persons repeatedly violate contractual obligations.
+The costs arising due to this replacement must be borne by the
+contractor.</p>
+<p>(5) The contractor commits to – with respect to the employees
+employed for fulfilling the contractor's services – making visually
+recognizable by suitable measures the fact that these are contractor
+employees, and non-involved third parties are able to unambiguously
+recognize this at any time. In particular, identification must be
+visibly worn.</p>
+<p>(6) If the contractor, within the framework of rendering the
+services, uses premises that have been specially rented by [redacted]or
+made available, the contractor shall take this into account as a
+reduction in the calculation of its quotation prices. [redacted-co] is
+authorized to lease to the contractor specially rented spaces and to
+invoice for the rent. It must be made visually recognizable in these
+premises (by suitable measures) as to which contractor has the premises
+at its disposal. Whether the premises are provided or leased requires a
+decision in each individual case. The same must apply for production
+equipment of [redacted]The contractor must take into account in the
+quotation expenditures saved for not having to provide its own premises
+and production equipment.</p>
+<p>(7) Transferring to, or sharing the order with third parties on the
+part of the contractor requires the prior written consent of [redacted]If
+a delivery and service are made by third parties, invoicing may only be
+carried out by the contractor.</p>
+<h2 id="service-deadlines">3.3. Service deadlines</h2>
+<p>(1) The agreed service deadlines and schedules are binding and
+conclusive. If necessary, interim dates can be incorporated into these
+schedules. These are likewise binding. All scheduled dates can only be
+modified in writing and by mutual agreement.</p>
+<p>(2) If the contractor realizes that it may not be able to meet a
+deadline, it must inform [redacted-co] of this matter in writing and without
+delay. In so doing, the contractor must propose measures aimed at
+guaranteeing the scheduled dates. This notice does not release the
+contractor from its obligation to comply with scheduled dates. If the
+notice is not provided, the contractor is responsible for failure to
+meet the deadline, irrespective of the cause. If [redacted-co] is responsible
+for not complying with the scheduled date, the scheduled date and any
+follow-on dates must be specified for new deadlines reasonable for both
+parties.</p>
+<h2 id="changes-to-the-services">3.4. Changes to the services</h2>
+<p>(1) The contractor is prepared to take into consideration requests by
+[redacted-co] for modifications and supplementation for the purpose of
+realizing the scope of the work described in this [redacted-person]. The contractor must refuse requests for modifications
+made by [redacted-co] for only for good reasons. A good reason for the refusal
+must be considered to be, in particular, if according to the
+contractor's reasoned assessment, the performance is not practicable, or
+if the resources necessary for undertaking the modification are not
+available for the contractor and also cannot be made available.</p>
+<p>(2) The contractor shall assess the modifications requested by
+[redacted-co] as they pertain to their impact on costs, investments, and
+scheduled dates, and – taking into consideration that to the greatest
+extent possible the scheduled dates should not be changed – quote an
+implementation proposal. With respect to the costs, this quotation must
+be just as amenable to verification as the original quotation. The work
+may only be ordered subsequent to negotiation and a final decision
+concerning the contract award.</p>
+<p>(3) All modifications and supplementations that are required to
+fulfill the values and functions stated in this [redacted-person] shall be implemented after consultation with the
+appropriate [redacted-co] department (purchaser). Payment for the modifications
+is satisfied by the quoted and finally agreed remuneration. This must
+also apply for modifications within the framework of development
+progress, including the prototype scopes and additional testing.</p>
+<p>(4) Insofar as the contractor determines that the requests for
+modifications will have effects on the cost structure and/or the
+milestone schedule, the contractor shall present these in a separate
+quotation, the acceptance of which lies within the sole discretion of
+[redacted]and which shall be done in writing or via [redacted-co] ordering
+systems.</p>
+<h2 id="acceptance">3.5. Acceptance</h2>
+<p>(1) For development projects, the determination as to whether the
+contractor's agreed scope of performance was actually fulfilled as per
+the agreement cannot be made until after conclusion of the development
+project and the transfer of the respective development results. This
+determination takes place exclusively by means of issuing a written
+declaration of acceptance within the scope of the formal, final
+inspection of the contractor's scope of performance by [redacted]</p>
+<p>(2) The results developed by the contractor shall be delivered in a
+verifiable form. If this requirement is not fulfilled, the time period
+for acceptance will not be initiated due to the impossibility of
+accepting delivery. If the results of the performance are represented as
+data sets, the contractor must to this extent grant access for the code
+of the services rendered so that inspection for performing the services
+as per the agreement is possible.</p>
+<p>(3) The contractor shall provide notice of completing the entirety of
+the order for the purpose of acceptance of delivery. The acceptance must
+take place as described in the following:</p>
+<blockquote>
+<p>a. [redacted-co] inspects the services transferred in a form capable of
+inspection within a time period that is reasonable with respect to the
+project.</p>
+<p>[redacted-person] contractor must, upon request by [redacted]and without separate
+remuneration, provide trained personnel for the testing necessary for
+acceptance of delivery. Defects occurring in the course of the
+acceptance inspection will be recorded.</p>
+<p>[redacted-person] declaration of delivery acceptance must be signed by the
+contractor's project manager and the responsible person from [redacted-co] in
+accordance with the signature regulations in force at the time.</p>
+<p>[redacted]AG rejects acceptance of delivery due to one or more
+defects, the contractor shall promptly eliminate the defect or defects
+and shall once again submit the contractor's performance for inspection.
+The provisions above apply to repeat acceptances accordingly.</p>
+</blockquote>
+<p>(4) The contractor has the obligation, and subsequent to agreement
+with [redacted]the right, to remedy deficiencies twice. This obligation
+to remedy faults does not modify the agreed completion dates and the
+legal consequences arising from delay. [redacted-co] may, subsequent to the
+expiration of a reasonable grace period set by [redacted]itself undertake
+the contractor's performance, or have the services performed, or
+withdraw from the contract at the expense of the contractor. In the
+event of termination, the contractor will only receive remuneration for
+the services that are accepted as fault-free and for independently
+utilizable parts. The right to compensatory damages must remain
+unaffected thereby.</p>
+<h2 id="remunerationproof-of-performance">3.6. Remuneration/proof of
+performance</h2>
+<p>(1) A fixed price must be designated by the contractor/bidder for the
+task requested for quotation. The calculation of the fixed price must be
+disclosed in the quotation. The respective cost elements must be
+separately listed based on the scope of performance described in the
+[redacted-person]. In so doing, third party expenses, among
+other things, must be separately listed.</p>
+<p>(2) Fixed prices include all additional expenses. Likewise, all
+expenditures and costs that are not to be expressly furnished by [redacted-co]
+must be borne by the contractor and are satisfied with the agreed price.
+Deviations from this require an express agreement.</p>
+<p>(3) Travel costs include only transfer and accommodation costs (no
+additional meal expenses or comparable items). Unless otherwise agreed,
+travel costs are not included in the contract value. These costs may
+only be remunerated up to a maximum of the agreed rates and within the
+agreed limits upon providing proof of the expenses. They must be
+invoiced on a quarterly basis. The travel cost guidelines for
+development service providers effective on the respective date of
+placing the order are applicable; upon request, these are made available
+by the Procurement department of [redacted]Travel times, additional cost
+for meals, etc., will not be reimbursed.</p>
+<p>(4) The services rendered will be compensated according to the
+progress achieved. For this purpose, proof of performance must be
+provided in advance in each case. Payment plans must be separately
+agreed. A claim for remuneration only exists for actual services
+rendered.</p>
+<p>(5) Payments are only made after submission of proof of performance.
+Proof of performance may only be supplied after completely providing the
+agreed services or partial services. The proof of perform­ance must have
+the following content at a minimum:</p>
+<blockquote>
+<p>[redacted-person] of the work/project status</p>
+<p>[redacted-person]/partial results achieved thus far, agreements on
+further procedures</p>
+<p>[redacted-person] of the contractor</p>
+</blockquote>
+<p>(6) For the proof of performance, the form that can be obtained upon
+request from the contact person at [redacted-co] must preferably be used. Care
+must be taken that all fields are properly filled out.</p>
+<p>(7) Prior to invoicing [redacted]the proof of performance for the
+services rendered must be signed by the [redacted-co] department (purchaser) and
+the contractor. The dually (by contractor and the [redacted-co] contact) signed
+proof of performance must be transmitted as an attachment with the
+invoice to [redacted]Invoices without the appropriate signed proof of
+performance will be rejected.</p>
+<p>(8) The handwritten signatures may be replaced by public key
+infrastructure (PKI) signatures if the following requirements are
+cumulatively met:</p>
+<blockquote>
+<p>[redacted]AG proof of performance form is used.</p>
+<p>[redacted-person] proof of performance explicitly states that a signature by
+means of PKI signature is permissible.</p>
+<p>[redacted-person] contractor signs the proof of performance using a PKI
+signature and forwards this electronic document to the requester.
+Alternatively, it is also permissible for the contractor to sign the
+proof of performance by hand. In this case, however, the original proof
+of performance must be sent to the requester.</p>
+<p>[redacted-person], the requester signs this electronic document using a
+PKI signature or the requester generates an electronic document and
+signs this using a PKI signature.</p>
+<p>[redacted-person] requester sends the electronic document signed by both
+contracting parties to the contractor electronically.</p>
+<p>The choice of format for signing the proof of performance (PKI
+signature or handwritten signature) is at the sole and free discretion
+of [redacted]</p>
+</blockquote>
+<p>(9) The acknowledgment of a proof of performance or initiation of a
+payment do not result in accept­ance of delivery.</p>
+<h2 id="rights-of-use">3.7. Rights of use</h2>
+<p>(1) The contractor must notify [redacted-co] concerning all innovations
+originating with the contractor in connection with carrying out the work
+under the contract (included in this are in particular, inventions,
+technical suggestions for improvement, know-how, but also other
+individual intellectual efforts), must submit all documents required for
+evaluating the innovations, and provide [redacted-co] with all requested
+information with regard to the innovations.</p>
+<p>(2) If the contractor can provide evidence to the extent that
+inventions and intellectual property rights or copyrights based on them
+already existed before the start of the work that is the object of the
+contract ("prior intellectual property rights"), the contractor retains
+the ownership of said rights. However, the contractor must state its
+willingness to grant to [redacted-co] a non-exclusive, sub-licensable right of
+use, unlimited in terms of duration, geography, and content without
+paying a fee in excess of the fixed price, if these prior industrial
+property rights are applied to the development. Insofar as prior
+intellectual property rights flow into the development result, the
+contractor must promptly inform [redacted-co] concerning these prior
+intellectual property rights. In the event of the development of a
+production part, the contractor must disclose the prior intellectual
+property rights being applied with the presentation of the initial
+samples.</p>
+<p>(3) The contractor must transfer to [redacted-co] an exclusive,
+non-remunerated, and transferable right of use that is unlimited in
+terms of duration, geography, and content to all copyrights (including
+software and the accompanying source code) to which the contractor is
+entitled with respect to the services or partial services to be rendered
+by the contractor. The right of use of [redacted-co] encompasses the
+authorization to revise, modify, and/or entrust to third parties for
+their use with or without remuneration the results of the work, the
+documents, or records.</p>
+<p>(4) In justified individual cases, the contractor can agree with
+[redacted-co] that the complete 2D/3D data delivered by the contractor under
+the contract may not be transferred to third parties outside of
+Volkswagen AG and the subsidiary/associate companies of the
+[redacted-person]. However, in this case, the contractor is obligated to
+supply neutralized RFQ documents in addition to this contractually owed
+complete 2D/3D data. Neutralized RFQ documents are packaging space
+interface presentations (2D/3D data) that present the installation
+situation, not however, the contractor's prior know-how as represented
+in the underlying 2D/3D data. The contractor grants [redacted-co] a
+non-remunerated right of use unlimited in terms of duration, geography,
+and content to these neutralized RFQ documents for dissemination,
+duplication, and processing purposes, as well as for public disclosure
+within the scope of an RFQ vis-à-vis third parties.</p>
+<p>(5) [redacted-co] is exclusively entitled to all work results, documents,
+and services, etc., resulting from this project. To the extent the
+contractor engages subcontractors, the contractor must ensure by means
+of appropriate contractual agreements that the subcontractors also
+acknowledge this as binding on them. [redacted-co] reserves the right to also
+transmit all documents to third parties, among other things, for the
+purpose of selecting suppliers. [redacted-co] is exclusively entitled to a
+right of exploitation in all work results from the date that they arise,
+in particular, innovations arising within the framework of the
+contract.</p>
+<p>(6) [redacted-co] is solely entitled to file applications for intellectual
+property rights. Upon the contractor's request, [redacted-co] will communicate
+in writing whether it waives an application in a specific case. The
+contractor is then authorized to apply for the industrial property right
+at its own expense. [redacted-co] is entitled to a non-exclusive,
+non-remunerated, and transferable right of use unlimited in terms of
+duration, geography, and content in these intellectual property
+rights.</p>
+<h2 id="use-of-free-software">3.8. Use of free software</h2>
+<p>(1) The contractor must declare to [redacted-co] whether or not the work
+results owed by the contractor contain free software (open source
+software, freeware, and/or public domain, including sub­components or
+parts thereof).</p>
+<p>(2) If the contractor uses free software in the work results owed, or
+if this is intended, this use is only then permitted if the contractor
+informs [redacted-co] about this prior to commencing the development as per
+the provisions of the "Regulations on the Use of [redacted-person]"
+(applicable document).</p>
+<p>(3) There is no obligation on the part of [redacted-co] to accept the use
+of free software in the work results owed. The information supplied by
+the contractor does not effectuate any acceptance on the part of [redacted-co]
+for the use of free software. In particular, [redacted-co]'s rejection of the
+use of free software can occur for the purpose of averting security or
+legal risks.</p>
+<p>(4) The following provisions apply additionally, particularly the
+indemnity claim regarding the intellec­tual property rights of third
+parties.</p>
+<h2 id="intellectual-property-rights-searches-intellectual-property-rights-of-third-parties">3.9.
+Intellectual property rights searches, intellectual property rights of
+third parties</h2>
+<p>(1) The contractor must ensure by means of appropriate searches – in
+compliance with the diligence customary in the industry – that there is
+no interference with the rights of third parties owing to the services
+to be rendered by the contractor, as well as their results. Interference
+in the rights of third parties also exists then if the use is dependent
+upon conditions.</p>
+<p>(2) If the rights of third parties would be violated due to the
+intended design of the work results or implementation of the requested
+feature, the contractor shall immediately inform the [redacted-co] contacts
+identified in this [redacted-person], and shall jointly find
+with them a different design for the work results. Insofar as it is not
+possible to circumvent third party industrial property rights, [redacted-co]
+will decide whether the affected industrial property right should be
+utilized by means of a license. [redacted-co] and the contractor must agree on
+sharing the expenses accruing thereby in each individual case.</p>
+<p>(3) To the extent that the contractor does not inform [redacted-co]
+concerning conflicting third party rights of which the contractor is
+aware, or which the contractor should have recognized by observing the
+diligence customary in the industry, the contractor must indemnify
+[redacted-co] for any and all third party claims that are based on conflicting
+rights in the development subject matter.</p>
+<h2 id="contract-term-and-termination">3.10. Contract term and
+termination</h2>
+<p>(1) [redacted-co] may terminate the contract at any time in whole or in
+part. The mutual right of a termina­tion for cause must remain unaffected
+thereby. A termination must be in written form insofar as it does not
+take place by way of the [redacted-co] ordering system.</p>
+<p>(2) In the event of termination, placement of the order remains a
+legal ground for the services rendered up until the termination.</p>
+<h2 id="general-information-1">3.11. General information</h2>
+<p>(1) Special reference is made to the [redacted-person] for [redacted-person] with respect to the test and prototype tools and parts.</p>
+<p>(2) The transfer of contractual rights or obligations by the
+contractor requires the prior written approval of [redacted-co] in order to be
+effective.</p>
+<p>(3) The place of jurisdiction is [redacted]AG is also
+entitled to apply to any other court of competent jurisdiction.</p>
+<p>(4) If one or more provisions of this [redacted-person], or
+any other agreements, are or become invalid, the other provisions remain
+valid.</p>
+<p>(5) If not otherwise regulated in this [redacted-person], the
+statutory regulations on liability apply.</p>
+<p>(6) An English version of this RFQ [redacted-person] is
+provided purely for the convenience of the reader. [redacted-person] version is
+solely authoritative, and in the case of conflicts or differences, takes
+precedence over the English version. This applies accordingly for all
+other documents associated with this, such as, for example, applicable
+documents.</p>
+<p>(7) When an order is placed with the contractor, the following listed
+regulations and documents of [redacted-co] and/or the contractor will become
+an integral part of the contract, whereby in the case of conflicts
+between the contract components, the following stated rank order
+applies:</p>
+<blockquote>
+<p>a. [redacted-co] order</p>
+<p>[redacted-person] records</p>
+<p>[redacted-person] part of the [redacted-co] [redacted-person]</p>
+<p>[redacted-person] parts of the [redacted-co] [redacted-person]</p>
+<p>[redacted-person] agreements between [redacted-co] and the contractor (if
+applicable)</p>
+<p>[redacted-person] lease contracts (if any) and [redacted-person] Conditions for
+[redacted-person]</p>
+<p>[redacted-person] standard VW 99000</p>
+<p>[redacted-person] documents and standards specified in this [redacted-person]</p>
+<p>i. [redacted-co] [redacted-person] Terms</p>
+<p>[redacted-person] from the contractor (without recognition of the
+purchaser's Terms and Conditions)</p>
+</blockquote>
+<h1 id="applicable-documents">4. Applicable documents<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a></h1>
+<p>The applicable documents must apply in the version valid on the issue
+date of the [redacted-person], as well as the documents
+mentioned therein.</p>
+<p>The contractor must ensure that it works with the applicable
+documents valid for the [redacted-person] in each case.</p>
+<p>In particular, the following documents and standards must be taken
+into consideration:</p>
+<blockquote>
+<p>- [redacted-co] [redacted-person] Terms</p>
+<p>- [redacted-person] Conditions for [redacted-person]</p>
+<p>- [redacted-person] Specifications and technical and commercial
+requirements of [redacted-co] relevant for the scope of the order, and
+relevant standards (e.[redacted-person] 99000, including parts 1 – 4).</p>
+<p>- <a href="https://www.audi.de/de/brand/de/lieferanten-und-partner/informationssicherheitsleitlinien.html"><u>Informationssicherheitshandlungsleitlinien
+für Partnerfirmen [redacted-co]</u></a> ([redacted-person] Guidelines
+for Contractors of [redacted-co] – only available in German)</p>
+<p>- Regulations on the use of free software</p>
+<p>- Security rules for third party companies employed at [redacted-co] (if
+order processing takes place on [redacted-co] premises)</p>
+<p>- "Formula Q" [redacted-person] Policies for quality assurance</p>
+</blockquote>
+<p><strong>To be obtained from:</strong></p>
+<p>Documents can be retrieved via the B2B supplier platform of the
+[redacted-person] at the internet address <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+(some areas require authorization for access, some are publicly
+available. (Or contact the German hotline: [redacted-phone] or
+international hotline: [redacted-phone], or e-mail: <a href="mailto:supplierintegration@vwgroupsupply.com"><u>[redacted-email]</u></a>)</p>
+<section class="footnotes footnotes-end-of-document" id="footnotes" role="doc-endnotes">
+<hr/>
+<ol>
+<li id="fn1"><p>Please only refer to standard/document numbers since the
+document titles may vary.<a class="footnote-back" href="#fnref1" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

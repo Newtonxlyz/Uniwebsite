@@ -1,0 +1,3150 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>20190311_LAH_DUM_857_AE_V_1_7_GuFü_hi_auß_Saeule_B__FINAL</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>01_Bauteilname-Bauteilnummer_Konzern-BT-LAH-Vorlage_Basismodul-TE-V21_Mai[redacted-ext]</p>
+</blockquote>
+<p>Si. Gurtführung hinten außen Si. Gurtführung vorne Säule B</p>
+<blockquote>
+<p>Bauteil-Lastenheft</p>
+<p><strong>[redacted]</strong>: LAH
+DUM.857.AE</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Verteiler</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Abt./OE, Kostenstelle, Name</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Abt./OE, Kostenstelle, Name</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+<p><em>[I: BT-LAH-941]</em></p>
+</blockquote>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#vorwort">Vorwort 8</a></p>
+<ol type="1">
+<li><p><a href="#allgemeine-anforderungen">[redacted-person]
+8</a></p></li>
+</ol></li>
+<li><p><a href="#allgemeine-projektvorgaben">[redacted-person]
+9</a></p>
+<ol type="1">
+<li><p><a href="#kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges 9</a></p></li>
+<li><p><a href="#zielsetzung">Zielsetzung 9</a></p></li>
+<li><p><a href="#zuordnung-der-komponente">Zuordnung der Komponente
+9</a></p>
+<ol type="1">
+<li><p><a href="#zielfahrzeuge">Zielfahrzeug(e) 9</a></p></li>
+<li><p><a href="#einsatzort-und-zielmarkt">Einsatzort und Zielmarkt
+10</a></p></li>
+<li><p><a href="#variantenmanagement">Variantenmanagement
+10</a></p></li>
+</ol></li>
+<li><p><a href="#entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang 10</a></p></li>
+<li><p><a href="#angebotsumfang">Angebotsumfang 10</a></p></li>
+<li><p><a href="#entwicklungsablauf">Entwicklungsablauf 12</a></p>
+<ol type="1">
+<li><p><a href="#terminplan-und-meilensteine">Terminplan und
+Meilensteine 12</a></p></li>
+<li><p><a href="#metriken-zur-projektverfolgung">Metriken zur
+Projektverfolgung 13</a></p></li>
+<li><p><a href="#musterstände-und-musterstückzahlen">Musterstände und
+Musterstückzahlen 14</a></p></li>
+<li><p><a href="#typprüfung-und-zertifizierung">Typprüfung und
+Zertifizierung 15</a></p></li>
+</ol></li>
+<li><p><a href="#qualität-und-zuverlässigkeit">Qualität und
+Zuverlässigkeit 16</a></p>
+<ol type="1">
+<li><p><a href="#qualitätskonzepte">Qualitätskonzepte 16</a></p></li>
+<li><p><a href="#risikomanagement-fmea-und-fta">Risikomanagement (FMEA
+und FTA) 17</a></p></li>
+</ol></li>
+<li><p><a href="#fachbereichs--bzw.-projektspezifische-dmu-richtlinien">Fachbereichs-
+bzw. projektspezifische DMU-Richtlinien 17</a></p></li>
+<li><p><a href="#anforderungen-an-kenntnisse-im-produktdaten-management">Anforderungen
+an Kenntnisse im Produktdaten-Management 17</a></p></li>
+</ol></li>
+<li><p><a href="#projektmanagement-und--organisation">Projektmanagement
+und -organisation 18</a></p>
+<ol type="1">
+<li><p><a href="#verantwortlichkeiten-im-projekt-und-projektstrukturplan">Verantwortlichkeiten
+im Projekt und Projektstrukturplan 18</a></p></li>
+<li><p><a href="#dokumentation">Dokumentation 18</a></p>
+<ol type="1">
+<li><p><a href="#mustermappe">Mustermappe 18</a></p></li>
+<li><p><a href="#datenaustausch">Datenaustausch 19</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#systemumgebung">Systemumgebung 20</a></p>
+<ol type="1">
+<li><p><a href="#funktionale-systemumgebung">[redacted-person]
+20</a></p></li>
+<li><p><a href="#physische-systemumgebung">[redacted-person]
+20</a></p></li>
+<li><p><a href="#systemschaltbild">Systemschaltbild 22</a></p></li>
+</ol></li>
+<li><p><a href="#technische-anforderungen">[redacted-person]
+23</a></p>
+<ol type="1">
+<li><p><a href="#benennung-und-teilnummer">Benennung und Teilnummer
+23</a></p></li>
+<li><p><a href="#block--und-prinzipschaltbild">Block- und
+Prinzipschaltbild 23</a></p></li>
+<li><p><a href="#funktionen">Funktionen 23</a></p>
+<ol type="1">
+<li><p><a href="#funktionsbeschreibung">Funktionsbeschreibung
+23</a></p></li>
+<li><p><a href="#fehlbedienung">Fehlbedienung 24</a></p></li>
+<li><p><a href="#notbetrieb">Notbetrieb 24</a></p></li>
+</ol></li>
+<li><p><a href="#architektur">Architektur 24</a></p></li>
+<li><p><a href="#steuergerätekonzept">Steuergerätekonzept
+24</a></p></li>
+<li><p><a href="#elektrische-schnittstellen">[redacted-person]
+24</a></p></li>
+<li><p><a href="#spezifische-kenndaten">[redacted-person] 25</a></p>
+<ol type="1">
+<li><p><a href="#gurtführung-hinten-außen">Gurtführung hinten außen
+25</a></p></li>
+<li><p><a href="#gurtführung-vorne-b-säule">Gurtführung vorne B-Säule
+25</a></p></li>
+</ol></li>
+<li><p><a href="#sicherheitsanforderungen">Sicherheitsanforderungen
+25</a></p>
+<ol type="1">
+<li><p><a href="#personen--und-insassensicherheit">Personen- und
+Insassensicherheit 25</a></p></li>
+<li><p><a href="#fahrzeugsicherheit">Fahrzeugsicherheit 25</a></p></li>
+</ol></li>
+<li><p><a href="#alternativen-und-künftige-varianten">Alternativen und
+künftige Varianten 26</a></p></li>
+<li><p><a href="#gewichtsziele">Gewichtsziele 26</a></p></li>
+<li><p><a href="#einbau">Einbau 26</a></p>
+<ol type="1">
+<li><p><a href="#einbauorte-und-einbaulage">Einbauorte und Einbaulage
+26</a></p></li>
+<li><p><a href="#montagekonzept">Montagekonzept 26</a></p></li>
+<li><p><a href="#geometrie">Geometrie 28</a></p></li>
+<li><p><a href="#toleranzen">Toleranzen 28</a></p></li>
+</ol></li>
+<li><p><a href="#formgestaltung-und-design">Formgestaltung und Design
+28</a></p></li>
+<li><p><a href="#ergonomie">Ergonomie 29</a></p>
+<ol type="1">
+<li><p><a href="#optik-und-haptik">Optik und Haptik 29</a></p></li>
+<li><p><a href="#akustik">Akustik 29</a></p></li>
+<li><p><a href="#handling">Handling 29</a></p></li>
+</ol></li>
+<li><p><a href="#technische-materialanforderungen">[redacted-person] 29</a></p></li>
+<li><p><a href="#medienbeständigkeit-und-chemische-anforderungen">Medienbeständigkeit
+und chemische Anforderungen 30</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark60">Sauberkeitsanforderungen 30</a></p></li>
+<li><p><a href="#reinigung">Reinigung 30</a></p></li>
+<li><p><a href="#korrosionsschutz">Korrosionsschutz 30</a></p></li>
+<li><p><a href="#schutzklassen">Schutzklassen 30</a></p></li>
+</ol></li>
+<li><p><a href="#umweltverträglichkeit">Umweltverträglichkeit 30</a></p>
+<ol type="1">
+<li><p><a href="#werkstoffauswahl">Werkstoffauswahl 30</a></p></li>
+<li><p><a href="#recyclingkonzept">Recyclingkonzept 31</a></p></li>
+<li><p><a href="#ökobilanz">Ökobilanz 31</a></p></li>
+</ol></li>
+<li><p><a href="#mechanische-anforderungen">[redacted-person]
+32</a></p>
+<ol type="1">
+<li><p><a href="#last">Last 32</a></p></li>
+<li><p><a href="#schwingungsverhalten">Schwingungsverhalten
+33</a></p></li>
+<li><p><a href="#steifigkeit-und-federeigenschaften">Steifigkeit und
+Federeigenschaften 34</a></p></li>
+<li><p><a href="#verformung-und-deformation">Verformung und Deformation
+34</a></p></li>
+<li><p><a href="#druck">Druck 34</a></p></li>
+</ol></li>
+<li><p><a href="#lebensdauer">Lebensdauer 34</a></p></li>
+<li><p><a href="#elektrische-anforderungen">[redacted-person]
+35</a></p>
+<ol type="1">
+<li><p><a href="#beschreibung-der-allgemeinen-anforderungen">Beschreibung der
+allgemeinen Anforderungen 35</a></p></li>
+</ol></li>
+<li><p><a href="#klimatische-anforderungen">[redacted-person]
+35</a></p></li>
+<li><p><a href="#serviceanforderungen">Serviceanforderungen
+35</a></p></li>
+<li><p><a href="#transportschutz">Transportschutz 36</a></p></li>
+<li><p><a href="#logistikanforderungen">Logistikanforderungen
+36</a></p></li>
+<li><p><a href="#qualitätssicherungsanforderungen">Qualitätssicherungsanforderungen
+36</a></p></li>
+</ol></li>
+<li><p><a href="#anforderungen-an-erprobung">Anforderungen an Erprobung
+39</a></p>
+<ol type="1">
+<li><p><a href="#prüfmittel-erprobungsträger">Prüfmittel /
+Erprobungsträger 39</a></p></li>
+<li><p><a href="#erfüllungsnachweise">Erfüllungsnachweise
+39</a></p></li>
+<li><p><a href="#erprobungsplan">Erprobungsplan 39</a></p></li>
+<li><p><a href="#prüfungen">Prüfungen 39</a></p>
+<ol type="1">
+<li><p><a href="#dauerversuch">Dauerversuch 40</a></p></li>
+<li><p><a href="#temperierverfahren-vor-festigkeitsversuchen">Temperierverfahren
+vor Festigkeitsversuchen 40</a></p></li>
+<li><p><a href="#_bookmark89">[redacted-person]
+41</a></p></li>
+<li><p><a href="#_bookmark90">[redacted-person]
+45</a></p></li>
+<li><p><a href="#_bookmark91">Anforderungen an alle geprüften Teile
+48</a></p></li>
+</ol></li>
+<li><p><a href="#testparameter-und-zyklen">Testparameter und Zyklen
+49</a></p></li>
+<li><p><a href="#beschaffenheit-des-zu-testenden-musterstandes">Beschaffenheit des
+zu testenden Musterstandes 49</a></p></li>
+<li><p><a href="#betriebszustände">Betriebszustände 49</a></p></li>
+<li><p><a href="#_bookmark95">[redacted-person] und Simulation
+49</a></p></li>
+<li><p><a href="#fahrzeugerprobung">Fahrzeugerprobung 50</a></p>
+<ol type="1">
+<li><p><a href="#erprobung-gurtsystem">[redacted-person]
+50</a></p></li>
+<li><p><a href="#typprüfung-gesamtfahrzeug">[redacted-person]
+51</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#definitionen-begriffe-abkürzungen">Definitionen,
+Begriffe, Abkürzungen 52</a></p>
+<ol type="1">
+<li><p><a href="#begriffe">Begriffe 52</a></p></li>
+<li><p><a href="#_bookmark101">Abkürzungen 53</a></p></li>
+</ol></li>
+<li><p><a href="#mitgeltende-unterlagen">[redacted-person]
+56</a></p>
+<ol type="1">
+<li><p><a href="#zeichnungen-pläne-skizzen-variantenbaum">Zeichnungen,
+Pläne, Skizzen; Variantenbaum 56</a></p></li>
+<li><p><a href="#technische-spezifikationen">[redacted-person]
+56</a></p></li>
+<li><p><a href="#typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen,
+Vorschriften, Gesetze 59</a></p></li>
+<li><p><a href="#querschnittslastenhefte">Querschnittslastenhefte
+60</a></p></li>
+<li><p><a href="#zu-beachtende-schutzrechte-und-lizenzen">Zu beachtende
+Schutzrechte und Lizenzen 60</a></p></li>
+<li><p><a href="#sonstige-unterlagen">[redacted-person]
+61</a></p></li>
+</ol></li>
+</ol>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>[redacted-person]-Lastenheft beschreibt Anforderungen für die gesamte
+Baugruppe der Gurt- führung vorn (Säule B), der Gurtführung hinten außen
+sowie der Formulierung der Festig- keitsanforderungen. Zur vollständigen
+Entwicklung sind zusätzliche Anforderungen verbind- lich:</p>
+</blockquote>
+<ul>
+<li><p>fahrzeugbezogenes Lieferumfangslastenheft</p></li>
+<li><p>Anforderungen an den Lieferanten und Entwickler der
+Gurtführung</p></li>
+<li><p>Zeichnungsanforderungen</p></li>
+</ul>
+<p><em>[I: BT-LAH-4]</em></p>
+<blockquote>
+<p>Das vorliegende Bauteil-Lastenheft (BT-LAH) ist angelehnt an die
+Struktur des VDA- [redacted-person] 2 (<a href="http://www.vda-qmc.de/"><u>www.vda-qmc.de</u></a>) und beschreibt
+komponentenspezifi- sche Anforderungen. Das VDA-Modul 1 wird durch die
+[redacted-co]99000 abgebildet und beschreibt komponentenübergreifende allgemeine
+Anforderungen zur Leistungsbringung im Rahmen der
+Bauteilentwicklung.</p>
+</blockquote>
+<p><em>[I: BT-LAH-13]</em></p>
+<blockquote>
+<p>Die vom Auftragnehmer zu erfüllenden Anforderungen sind in der
+Identifikationsnummer (z. B: [A: BT-LAH-1]) grundsätzlich durch ein "A"
+gekennzeichnet. Textteile, die durch ein "I" gekennzeichnet sind, sind
+Informationen zum besseren Verständnis des BT-LAH. Gibt es keine
+Identifikationsnummer oder keine Kennzeichnung mit "A" bzw. "I", so
+handelt es sich ebenfalls um eine Anforderung.</p>
+</blockquote>
+<h2 id="allgemeine-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p><em>[A: BT-LAH-5]</em></p>
+<p><strong>Das vorliegende Bauteil-Lastenheft und die Norm [redacted-co]99000 ff.
+sind zusammen Grund- lage des zu erbringenden Leistungsumfanges des
+Auftragnehmers.</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH-6]</em></p>
+<blockquote>
+<p>Dieses BT-LAH beschreibt Leistungen, Anforderungen, Prüf- und
+Erprobungsbedingungen, die das zu entwickelnde Produkt und der
+Auftragnehmer erfüllen müssen.</p>
+</blockquote>
+<h1 id="allgemeine-projektvorgaben">[redacted-person]</h1>
+<h2 id="kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges</h2>
+<blockquote>
+<p>Vor dem Hintergrund neuer Fahrzeugprojekte, sollen neue Gurtführungen
+entwickelt werden, welche hinsichtlich Sicherheit, Festigkeit,
+Bedienbarkeit, Erreichbarkeit, Komfort, Korrosi- onsschutz, Gewicht,
+Geräusche, Abmessungen und Anmutung den Anforderungen entspre- chen.</p>
+</blockquote>
+<h2 id="zielsetzung">Zielsetzung</h2>
+<blockquote>
+<p>Das vorliegende LAH dient zur Festlegung der technischen Daten und
+Randbedingungen für den Leistungsumfang.</p>
+<p>Im Rahmen der Entwicklung sind folgende Punkte zu
+berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>Kosten- und termingerecht entwickeln</p></li>
+<li><p>werkzeuglose Montagekonzepte</p></li>
+<li><p>Variantenreduzierung</p></li>
+<li><p>Qualitätsverbesserung</p></li>
+<li><p>Preiskonstanz</p></li>
+<li><p>neue gesetzliche Vorgaben</p></li>
+<li><p>Recyclingkonzepte</p></li>
+<li><p>FMEA</p></li>
+<li><p>[redacted-person] entsprechen den Preisen zum SOP inklusive der
+erforderlichen Optimierungen, Anpassungen und den notwendigen
+Serienüberwachungsprozess.</p></li>
+</ul>
+<blockquote>
+<p>Ein entsprechendes Pflichtenheft ist durch den Auftragnehmer zu
+formulieren und unter an- derem mit dem Angebot beim Auftraggeber
+einzureichen (siehe auch Kapitel 2.5 Angebots- umfang).</p>
+</blockquote>
+<h2 id="zuordnung-der-komponente">Zuordnung der Komponente</h2>
+<h2 id="zielfahrzeuge">Zielfahrzeug(e)</h2>
+<blockquote>
+<p>Bezeichnung des Zielfahrzeuges: siehe Lieferumfangslastenheft</p>
+<p><em>[A: BT-LAH-21]</em></p>
+<p>Entwicklungsauftragsnummer: siehe Lieferumfangslastenheft</p>
+<p><em>[A: BT-LAH-22]</em></p>
+</blockquote>
+<h2 id="einsatzort-und-zielmarkt">Einsatzort und Zielmarkt</h2>
+<blockquote>
+<p>Zielmarkt: siehe Lieferumfangslastenheft</p>
+<p><em>[A: BT-LAH-25]</em></p>
+<p>Die relevanten Gesetzesanforderungen der Zielmärkte sind zu
+erfüllen.</p>
+</blockquote>
+<h2 id="variantenmanagement">Variantenmanagement</h2>
+<blockquote>
+<p><em>[A: BT-LAH-26]</em></p>
+<p>Target: siehe Lieferumfangslastenheft</p>
+</blockquote>
+<h2 id="entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang</h2>
+<blockquote>
+<p><em>[A: BT-LAH-916]</em></p>
+</blockquote>
+<p><em>[A: BT-LAH-31]</em></p>
+<blockquote>
+<p>Es gelten die Anforderungen des Kapitels "Entwicklungs- und
+Lieferumfang" der [redacted-co]99000.</p>
+</blockquote>
+<p><em>[A: BT-LAH-714]</em></p>
+<blockquote>
+<p>[redacted-person] verpflichtet sich bei der Integration des Bauteiles
+beim Auftraggeber mit- zuwirken.</p>
+</blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Im Rahmen der Forward-[redacted-person] wird über das
+Neuteilinformationsblatt die KV- Quote vorgegeben, welche im Rahmen der
+Vergabeverhandlungen vereinbart wird.</p>
+<p>(Gilt nicht für [redacted-co].)</p>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-936]</em></p>
+<p>Es gelten die Anforderungen der Konzeptverantwortungsvereinbarung.
+Für das Bauteil gilt folgende Konzept-Verantwortungs-Quote für den
+Lieferanten der Gurtführung: 30%</p>
+</blockquote>
+<h2 id="angebotsumfang">Angebotsumfang</h2>
+<blockquote>
+<p><em>[A: BT-LAH-33]</em></p>
+<p>[redacted-person] verpflichtet sich, alle Anforderungen dem Angebot
+als vereinbarte Be- schaffenheit zugrunde zu legen. Abweichungen vom
+BT-LAH sind dem Angebot beizufügen und zu dokumentieren.</p>
+</blockquote>
+<p><em>[I: BT-LAH-837]</em></p>
+<blockquote>
+<p>[redacted-person] eines Auftragnehmers muss dieser nach den konzernweit
+abgestimmten Bewertungskriterien des Auftraggebers (bauteilbezogene
+Beurteilung von Entwicklungspart- nern) auditiert und zugelassen
+sein.</p>
+</blockquote>
+<p><em>[A: BT-LAH-34]</em></p>
+<blockquote>
+<p>Mit dem Angebot sind vom Auftragnehmer folgende Unterlagen den
+technischen oder zu- ständigen Fachabteilungen des Auftraggebers zur
+Prüfung vorzulegen:</p>
+</blockquote>
+<p><em>[A: BT-LAH-35]</em></p>
+<ul>
+<li><p>Liste der offenen Punkte und Abweichungen vom BT-LAH (analog zur
+Struktur des BT-LAH)</p></li>
+<li><p>Pflichtenheft</p></li>
+<li><p>Erfahrungsnachweis aus ähnlichen Projekten</p></li>
+</ul>
+<p><em>[A: BT-LAH-36]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p>Nachweis über ausreichende Entwicklungskompetenz bzw.
+Entwicklungskapazitä- ten</p></li>
+</ul>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p>Nachweis über die geforderte Ausrüstung im Versuch, Labor,
+Prüfstände, CAD- Bereich</p></li>
+</ul>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p>Erfahrungsnachweis im Prototypenbau (insbesondere bei
+sicherheitskritischen Bauteilen)</p></li>
+</ul>
+<p><em>[A: BT-LAH-38]</em></p>
+<ul>
+<li><p>[redacted-person], die auch Engpässe bei anderen
+Aufträgen des Auftragnehmers berücksichtigt</p></li>
+<li><p>Projektstrukturplan gemäß [redacted-co]99000</p></li>
+<li><p>Projektterminplan gemäß [redacted-co]99000</p></li>
+<li><p>Montage- und Befestigungskonzept</p></li>
+<li><p>Angaben zu Eigen- und Fremdanteil (Entwicklung,
+Produktion)</p></li>
+<li><p>Erprobungsplan/Testmanagement</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-41]</em></p>
+<p><em>[A: BT-LAH-42]</em></p>
+<p><em>[A: BT-LAH-43]</em></p>
+<p><em>[A: BT-LAH-44]</em></p>
+<p><em>[A: BT-LAH-45]</em></p>
+</blockquote>
+<p><em>[A: BT-LAH-46]</em></p>
+<ul>
+<li><p>Werkstoffkonzept aller Einzelbauteile (nur Werkstoffe, keine
+Reinstoffangaben er- forderlich)</p></li>
+<li><p>QM-Plan</p></li>
+<li><p>Verwertungskonzepte nach [redacted-co]91102, Beiblatt 3</p></li>
+<li><p>[redacted-person] durchzuführende Simulationen</p></li>
+<li><p>FMEA-Prozess</p></li>
+</ul>
+<p><em>[A: BT-LAH-47]</em></p>
+<p><em>[A: BT-LAH-48]</em></p>
+<p><em>[A: BT-LAH-49]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Es ist der Nachweis zu erbringen, dass das in Kapitel "2.9
+Anforderungen an Kenntnisse im Produktdaten-Management" geforderte
+Anforderungsprofil bereits erfüllt ist oder zum Zeit- punkt der
+Beauftragung erfüllt sein wird, z. [redacted-person] entsprechende
+Qualifizierungsnachwei- se.</p>
+</blockquote>
+<h2 id="entwicklungsablauf">Entwicklungsablauf</h2>
+<h2 id="terminplan-und-meilensteine">Terminplan und Meilensteine</h2>
+<blockquote>
+<p>Zwischen dem Entwickler der Sicherheitsgurtanordnung und dem
+Lieferanten der Gurtfüh- rung finden in regelmäßigen [redacted-person] und Technikrunden statt. [redacted-person] der
+Gurtführung verpflichtet sich, den Entwicklungsprozess hinsichtlich
+ferti- gungstechnischer Belange zu unterstützen.</p>
+</blockquote>
+<p><em>[I: BT-LAH-59]</em></p>
+<blockquote>
+<p>Der aktuelle Terminplan wird von der Beschaffung des Auftraggebers
+den Anfrageunterlagen beigefügt.</p>
+</blockquote>
+<p><em>[A: BT-LAH-60]</em></p>
+<blockquote>
+<p>Folgende vom Auftraggeber vorgegebenen Termine sind vom Auftragnehmer
+nach [redacted-co]99000 im Projektterminplan zu berücksichtigen.</p>
+<p>siehe Lieferumfangslastenheft</p>
+</blockquote>
+<ul>
+<li><p>KW <strong>x</strong> : Verfügbarkeit A-Muster</p></li>
+<li><p>KW <strong>x</strong> : 3D-CAD-Datensatz</p></li>
+<li><p>KW <strong>x</strong> : [redacted-person]</p></li>
+<li><p>KW <strong>x</strong> : DDKM ([redacted-person]-Kontroll-Modell)</p></li>
+<li><p>KW <strong>x</strong> : Verfügbarkeit B-Muster</p></li>
+<li><p>KW <strong>x</strong> : Verfügbarkeit C-Muster</p></li>
+<li><p>KW <strong>x</strong> : Erstmuster</p></li>
+<li><p>KW <strong>x</strong> : Erstmuster-Prüfbericht</p></li>
+<li><p>KW <strong>x</strong> : Typprüfungsunterlagen (z. [redacted-person]'s,
+CCC,...)</p></li>
+<li><p>KW <strong>x</strong> : Baumustergenehmigung</p></li>
+<li><p>KW <strong>x</strong> : P-Freigabetermin</p></li>
+<li><p>KW <strong>x</strong> : B-Freigabetermin</p></li>
+<li><p>KW <strong>x</strong> : 2-Tagesproduktion</p></li>
+<li><p>KW <strong>x</strong> : SOP</p></li>
+</ul>
+<p><em>[A: BT-LAH-62]</em></p>
+<p><em>[A: BT-LAH-63]</em></p>
+<p><em>[A: BT-LAH-917]</em></p>
+<p><em>[A: BT-LAH-918]</em></p>
+<p><em>[A: BT-LAH-64]</em></p>
+<p><em>[A: BT-LAH-65]</em></p>
+<p><em>[A: BT-LAH-66]</em></p>
+<p><em>[A: BT-LAH-67]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH-68]</em></p>
+<p><em>[A: BT-LAH-919]</em></p>
+<p><em>[A: BT-LAH-920]</em></p>
+<p><em>[A: BT-LAH-69]</em></p>
+<p><em>[A: BT-LAH-70]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Für allgemein bauartgenehmigungspflichtige Bauteile (ABG’s) sind vom
+Auftragnehmer Ge- nehmigungsdokumente incl. Testreport (z. [redacted-person] ECE,
+CCC, Taiwan) an den jeweiligen bau- teileverantwortlichen Konstrukteur
+zu liefern, der es an die Typprüfabteilung der Marke (sie- he auch [redacted-co]01155) weiterleitet.</p>
+</blockquote>
+<ul>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für ECE</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<ul>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für Taiwan</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<ul>
+<li><p>KW x: Vorlage der ABG-Antragsnummer für China (CCC)</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<ul>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für China (CCC)</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<ul>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für Indien</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<ul>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für Brasilien</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+</blockquote>
+<ul>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für Japan</p></li>
+</ul>
+<h2 id="metriken-zur-projektverfolgung">Metriken zur
+Projektverfolgung</h2>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH-73]</em></p>
+<blockquote>
+<p>[redacted-person] liefert im Rahmen der Fortschrittsberichte die
+erforderlichen Daten für folgende Metriken:</p>
+<p><em>[A: BT-LAH-74]</em></p>
+</blockquote>
+<ul>
+<li><p>Meilensteintrendanalyse basierend auf den vereinbarten
+Meilensteinen</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-75]</em></p>
+</blockquote>
+<ul>
+<li><p>Vergleich der geplanten und der tatsächlichen Dauer der
+Aktivitäten und Arbeitspa- kete basierend auf dem
+Projektterminplan</p></li>
+<li><p>Fehlerverfolgung inkl. Priorisierung und
+Bearbeitungsstatus</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-76]</em></p>
+<p><em>[A: BT-LAH-77]</em></p>
+<p>Weitere projektspezifische technische Metriken, die kritische Aspekte
+messen, werden zwi- schen den Projektverantwortlichen des Auftragnehmers
+und des Auftraggebers abgestimmt.</p>
+</blockquote>
+<h2 id="musterstände-und-musterstückzahlen">Musterstände und
+Musterstückzahlen</h2>
+<ul>
+<li><p><strong>20 - Teile für Funktionsprüfungen und Versuchszwecke bei
+jeder Bauteilän- derung</strong></p></li>
+<li><p><strong>x</strong> - Teile für Funktionsprüfungen</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-83]</em></p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<ul>
+<li><p><strong>x</strong> - Teile für Gesamtintegrationstest (inklusive
+der Teile für Verbauvorschrift, HILs, Referenzfahrzeug und weitere
+Prüforte)</p></li>
+<li><p><strong>x</strong> - Teile für Einbauuntersuchungen</p></li>
+<li><p><strong>x</strong> - Teile für Kundendienstlösungen</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-84]</em></p>
+<p><em>[A: BT-LAH-85]</em></p>
+<p><em>[A: BT-LAH-86]</em></p>
+</blockquote>
+<ul>
+<li><p><strong>x</strong> - Teile für Erprobungen (z. [redacted-person], Korrosion, Festigkeit, Akustik)</p></li>
+</ul>
+<p><em>[A: BT-LAH-87]</em></p>
+<ul>
+<li><p><strong>x</strong> - Teile für Fahrversuch</p></li>
+<li><p><strong>x</strong> - Teile für Dauererprobungen</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-88]</em></p>
+</blockquote>
+<ul>
+<li><p><strong>x</strong> - Teile für Fahrzeugdauerlauf</p></li>
+<li><p><strong>x</strong> - Teile für Laboranalyse</p></li>
+<li><p><strong>x</strong> - Teile für Vorbau/Vorderwagen</p></li>
+<li><p><strong>x</strong> - Teile für Unterflurmodelle</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-89]</em></p>
+<p><em>[A: BT-LAH-90]</em></p>
+<p><em>[A: BT-LAH-922]</em></p>
+<p><em>[A: BT-LAH-923]</em></p>
+</blockquote>
+<p><em>[A: BT-LAH-93]</em></p>
+<blockquote>
+<p>[redacted-person] von Mustern sind die Musterstände für ZSB bzw. Systeme,
+Einzelteile, Kom- ponenten mit dem Auftraggeber abzustimmen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-94]</em></p>
+<blockquote>
+<p>[redacted-person] muss mit dem aktuellen Stand (HW, SW, EEPROM,
+Mechanik) gekenn- zeichnet werden.</p>
+</blockquote>
+<p><em>[A: BT-LAH-838]</em></p>
+<blockquote>
+<p>[redacted-person] von 3D-CAD-Daten (digitaler Prototyp) hat zu einem
+definierten Zeitpunkt vor Lieferung der Musterteile zu erfolgen.</p>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-80]</em></p>
+<p>Mindestens für alle geplanten Baustufen und Erprobungsfahrzeuge ist
+jeweils ein [redacted-person]- terteile anzuliefern.</p>
+</blockquote>
+<p><em>[I: BT-LAH-839]</em></p>
+<blockquote>
+<p>[redacted-person] über Fahrzeug-Anzahl und Aufbautermin (virtuell und
+physisch) sind unter Abschnitt "Terminplan und Meilensteine" festgelegt
+bzw. dem Prototypenbauplan zu ent- nehmen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-924]</em></p>
+<blockquote>
+<p>Zu berücksichtigen sind auch Musterteile für Vorbau/Vorderwagen und
+Unterflurmodelle, falls packagerelevante Änderungen (laut [redacted-co]99000
+Kapitel "Änderungsmanagement") an dort verbauten Bauteilen vorgenommen
+werden.</p>
+</blockquote>
+<p><em>[I: BT-LAH-925]</em></p>
+<blockquote>
+<p>[redacted-person] können sein:</p>
+</blockquote>
+<ul>
+<li><p>Geometrieänderungen</p></li>
+<li><p>Schlauchmarkierungen</p></li>
+<li><p>Wechsel des Werkzeugsentwicklungsstandes (Prototypen-Werkzeug,
+Serien- Werkzeug)</p></li>
+</ul>
+<p><em>[A: BT-LAH-91]</em></p>
+<blockquote>
+<p>Die genannte Anzahl an Teilen ist Bestandteil des
+Entwicklungsumfanges und der Entwick- lungskosten. Musterteile sind dem
+Auftraggeber frei Haus anzuliefern.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Für die Bauteile ist eine Kennzeichnung mit einem RFID-Transponder
+nach [redacted-co]01067 „Ein- satz von Auto-ID zur eindeutigen
+Objektkennzeichnung“ gefordert.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] übernimmt das Beschaffen, Beschreiben und Montieren
+der Transpon- der, sowie die elektronische Bereitstellung des
+geforderten Dokumentationsumfangs.</p>
+</blockquote>
+<h2 id="typprüfung-und-zertifizierung">Typprüfung und
+Zertifizierung</h2>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Fahrzeugteile und [redacted-person] (z. [redacted-person], After-[redacted-person]), welche nach weltweiten Gesetzen, z. [redacted-person], EG, Inmetro
+(Brasilien) und CCC ([redacted-person] Certification), eine
+Bauartgenehmigung benötigen, sind unabhängig vom Einsatzort/Zielmarkt
+und Fahr- zeugmodell zu zertifizieren und mit der entsprechenden
+Identifizierung nach Gesetzesvorga- be zu kennzeichnen.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] muss die Zertifikate vor Ablauf ihrer jeweiligen
+Gültigkeit sowie bei Ge- setzesänderungen aktualisieren und rechtzeitig
+unaufgefordert an den Auftraggeber liefern. Dies gilt über den gesamten
+Produktlebenszyklus, der auch den Zeitraum der Versorgungs-
+verpflichtung von [redacted-person] beinhaltet.</p>
+<p>[redacted-person] ist typprüfpflichtig: <strong>Nein</strong></p>
+<p><em>[A: BT-LAH-98]</em></p>
+</blockquote>
+<p><em>[A: BT-LAH-99]</em></p>
+<blockquote>
+<p>Bei typprüfpflichtigen Bauteilen sind zum Erfüllungsnachweis der
+gesetzlichen Anforderun- gen Prüfungen in Absprache mit der zuständigen
+Typprüfabteilung des Auftraggebers ggf. in Anwesenheit des [redacted-person] bzw. der Behörde durchzuführen und zu dokumen- tieren.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] ist selbstzertifizierungsrelevant:
+<strong>Nein</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Für selbstzertifizierungsrelevante Teile muss eine gesetzeskonforme
+Dokumentation der geforderten meist experimentellen Nachweise der
+Gesetzeserfüllung durchgeführt werden.</p>
+</blockquote>
+<h2 id="qualität-und-zuverlässigkeit">Qualität und Zuverlässigkeit</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Es gelten die Anforderungen und Verfahren bezüglich Qualität der
+Formel-Q-Reihe und der [redacted-co]99000.</p>
+</blockquote>
+<h2 id="qualitätskonzepte">Qualitätskonzepte</h2>
+<p><em>[A: BT-LAH-103]</em></p>
+<blockquote>
+<p>[redacted-person] des Bauteils ist mit einer Design-Validierung am
+B-Musterstand und ei- ner Produkt-Validierung am C-Musterstand
+nachzuweisen.</p>
+<p>Anzahl der Ausfälle:</p>
+<p>0-km-Ausfälle: 0 ppm (Ziel) *)</p>
+<p><em>[A: BT-LAH-104]</em></p>
+<p><em>[A: BT-LAH-105]</em></p>
+<p><em>[A: BT-LAH-108]</em></p>
+<p>*) Maßnahmen zur Zielerreichung (Strategiepapier usw.) sind bei
+Angebotsabgabe anzuge- ben.</p>
+</blockquote>
+<p><em>[A: BT-LAH-109]</em></p>
+<blockquote>
+<p>Hiervon kann im Rahmen einer separaten Qualitätsvereinbarung
+(ppm-Zielvereinbarung) nur in Abstimmung mit der Produkttechnik der
+Qualitätssicherung des Auftraggebers abgewi- chen werden.</p>
+<p><em>[A: BT-LAH-110]</em></p>
+<p>[redacted-person] in Auftragnehmerangeboten werden als gegenstandslos
+betrachtet.</p>
+<p><em>[A: BT-LAH-111]</em></p>
+<p>[redacted-person] der Serienlieferung wird ein ppm-Programm (für den
+0-km-Bereich) mit der Quali- tätssicherung vereinbart, das eine
+fortlaufende Qualitätsverbesserung in der Serie sicher- stellt.</p>
+</blockquote>
+<p><em>[A: BT-LAH-112]</em></p>
+<blockquote>
+<p>Es ist über eine 2-Tages-Produktion gemäß den Regelungen der Formel
+Q-Konkret die Sta- bilität der Qualität unter Serienbedingungen
+nachzuweisen.</p>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-927]</em></p>
+<p>Es gelten die Anforderungen des Qualitätslastenheftes [redacted-co]
+(LAH [redacted-phone]).</p>
+</blockquote>
+<p><em>[A: BT-LAH-928]</em></p>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p>[redacted-person] und Planung muss vom Auftraggeber vorgegebene
+Prüftechnologien und - Konzepte berücksichtigen.</p>
+</blockquote>
+<h2 id="risikomanagement-fmea-und-fta">Risikomanagement (FMEA und
+FTA)</h2>
+<blockquote>
+<p><strong>[redacted-person] FMEA: Entwickler der
+[redacted-person] Fertigungs FMEA: Lieferant der
+Gurtführung</strong></p>
+<p>Für das [redacted-person] ist sowohl eine Konstruktions FMEA sowie
+eine Fertigungs FMEA anzufertigen und dem Auftraggeber zur B-Freigabe
+vorzulegen. Regelmäßige Ar- beitsstände und deren Maßnahmen sind in den
+Entwicklungsgesprächen und Technikrunden vom Lieferanten zu
+präsentieren.</p>
+</blockquote>
+<h2 id="fachbereichs--bzw.-projektspezifische-dmu-richtlinien">Fachbereichs-
+bzw. projektspezifische DMU-Richtlinien</h2>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-929]</em></p>
+<p>[redacted-person] bezüglich CAD und DMU werden im
+"TE- Infocenter" (<a href="https://engineering-portal.audi.web.vwg/"><u>https://engineering-portal.audi.web.vwg/</u></a>)
+geregelt.</p>
+</blockquote>
+<h2 id="anforderungen-an-kenntnisse-im-produktdaten-management">Anforderungen
+an Kenntnisse im Produktdaten-Management</h2>
+<blockquote>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Zur prozesssicheren Einsteuerung von Entwicklungsergebnissen in die
+Systeme des Auf- traggebers sind Grundkenntnisse über das
+Produktdaten-Management ([redacted]) unerlässlich.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] des LAH.[redacted-phone]AF „Anforderungsprofil für die
+Beauftragung von tech- nischen Regeln zur Aufnahme im System MBT“ sind
+zu erfüllen.</p>
+</blockquote>
+<h1 id="projektmanagement-und--organisation">Projektmanagement und
+-organisation</h1>
+<h2 id="verantwortlichkeiten-im-projekt-und-projektstrukturplan">Verantwortlichkeiten
+im Projekt und Projektstrukturplan</h2>
+<p><em>[A: BT-LAH-122]</em></p>
+<blockquote>
+<p>[redacted-person] stellt ständige Applikationsingenieure nur für das
+beschriebene Einzel- projekt im eigenen Hause, sowie Residentingenieure
+am jeweiligen Entwicklungsstandort beim
+Auftraggeber<strong>.</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH-123]</em></p>
+<blockquote>
+<p>Sowohl für die Applikations- als auch die Residentingenieure sind
+durch den Auftragnehmer die notwendigen Mess- und Applikationssysteme zu
+stellen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-124]</em></p>
+<blockquote>
+<p>[redacted-person] sollen in Absprache mit dem Auftraggeber
+an den Erprobungs- fahrten des Auftraggebers teilnehmen.</p>
+</blockquote>
+<h2 id="dokumentation">Dokumentation</h2>
+<p><em>[A: BT-LAH-126]</em></p>
+<blockquote>
+<p>Die gesamte Dokumentation ist vom Auftragnehmer in deutscher Sprache
+zu erstellen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-127]</em></p>
+<blockquote>
+<p>Die jeweils aktuelle Dokumentation des Entwicklungsstandes ist nach
+Vereinbarung dem Auftraggeber auszuhändigen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-930]</em></p>
+<blockquote>
+<p>[redacted-person] ist dem Auftraggeber in folgendem Dateiformat
+auszuhändigen:</p>
+</blockquote>
+<ul>
+<li><p>.docx / .pdf / .xlsx...</p></li>
+</ul>
+<h2 id="mustermappe">Mustermappe</h2>
+<blockquote>
+<p><em>[A: BT-LAH-166]</em></p>
+<p>Zu jeder Lieferung eines neuen Standes des Bauteiles (Hardware,
+Software und Mechanik) muss den zuständigen Fachabteilungen des
+Auftraggebers eine Mustermappe mit mindes- tens folgenden Inhalten
+übergeben werden:</p>
+</blockquote>
+<ul>
+<li><p>Deckblatt mit folgendem Inhalt:</p>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>Teilebezeichnung</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>[redacted-person]</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-167]</em></p>
+<p><em>[A: BT-LAH-870]</em></p>
+<p><em>[A: BT-LAH-871]</em></p>
+<p><em>[A: BT-LAH-872]</em></p>
+<p><em>[A: BT-LAH-873]</em></p>
+<p><em>[A: BT-LAH-878]</em></p>
+</blockquote>
+<ul>
+<li><p>Mechanik-Stand (z. [redacted-person])</p></li>
+<li><p>Projektleitername des Auftragnehmers</p></li>
+<li><p>Unterlageninhaltsverzeichnis</p></li>
+<li><p>Stand des Lastenheftes</p></li>
+<li><p>Stand des Pflichtenheftes</p></li>
+</ul>
+<ul>
+<li><p>Kurzbeschreibung bzw. Informationen mit folgenden Angaben:</p>
+<ul>
+<li><p>alle Änderungen gegenüber vorherigem Stand</p></li>
+<li><p>die Notwendigkeit der Änderung</p></li>
+<li><p>die Auswirkungen der Änderung</p></li>
+</ul></li>
+<li><p>Teilelebenslauf</p></li>
+<li><p>Pflichtenheft</p></li>
+<li><p>Mess- und Prüfberichte (inkl. Toleranzanalyse)</p></li>
+<li><p>Simulationsergebnis</p></li>
+<li><p>Prüfbericht über Werkstoffanforderungen</p></li>
+<li><p>Herstellungsverfahren</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-879]</em></p>
+<p><em>[A: BT-LAH-881]</em></p>
+<p><em>[A: BT-LAH-882]</em></p>
+<p><em>[A: BT-LAH-883]</em></p>
+<p><em>[A: BT-LAH-168]</em></p>
+<p><em>[A: BT-LAH-884]</em></p>
+<p><em>[A: BT-LAH-885]</em></p>
+<p><em>[A: BT-LAH-886]</em></p>
+<p><em>[A: BT-LAH-171]</em></p>
+<p><em>[A: BT-LAH-172]</em></p>
+<p><em>[A: BT-LAH-174]</em></p>
+<p><em>[A: BT-LAH-175]</em></p>
+<p><em>[A: BT-LAH-176]</em></p>
+<p><em>[A: BT-LAH-177]</em></p>
+<p><em>[A: BT-LAH-178]</em></p>
+<p>[redacted-person] der Mustermappe ist in Form einer ausgefüllten Checkliste
+nachzuweisen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-179]</em></p>
+<blockquote>
+<p>[redacted-person] sind innerhalb von 5 Arbeitstagen nach zu
+reichen.</p>
+</blockquote>
+<h2 id="datenaustausch">Datenaustausch</h2>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-932]</em></p>
+<p>Es gelten die Anforderungen der Querschnittslastenhefte "TE DMU" LAH
+DUM 000 A und "TE CATIA V5" LAH DUM 000.</p>
+</blockquote>
+<h1 id="systemumgebung">Systemumgebung</h1>
+<h2 id="funktionale-systemumgebung">[redacted-person]</h2>
+<h2 id="physische-systemumgebung"><img src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image4.png"/>[redacted-person]</h2>
+<p><img alt="C:\Users\grk0z5e\Desktop\Bild1.jpg" src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image7.jpeg" style="width:3.30704in;height:3.11667in"/></p>
+<blockquote>
+<p>Gurtführung hinten außen (Metall)</p>
+<p>Referenzdatensätze:</p>
+<p><img alt="Gurtführung_B-Saeule_optimiert_211009" src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image8.jpeg" style="width:2.54464in;height:2.74312in"/> </p>
+<p>GuFü vorn (Kunststoff) 4G[redacted-phone]GuFü vorn (Metall)
+8V[redacted-phone]B</p>
+</blockquote>
+<blockquote>
+<p>GuFü vorn (Metall) 4N[redacted-phone]GuFü vorn (Metall) 80A.[redacted-phone]</p>
+</blockquote>
+<p><img alt="GV_1_AU481" src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image12.png" style="width:2.10605in;height:2.66396in"/><img alt="1" src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image13.png" style="width:2.21585in;height:2.71125in"/></p>
+<blockquote>
+<p>GuFü hinten außen (Kunststoff) 8K[redacted-phone]A GuFü hinten außen
+(Kunststoff) 8X[redacted-phone]</p>
+<p>GuFü hinten außen (Metall) 4N[redacted-phone]GuFü hinten außen (Metall)
+4K[redacted-phone]A</p>
+</blockquote>
+<h2 id="systemschaltbild">Systemschaltbild</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+<p><em>[I: BT-LAH-846]</em></p>
+</blockquote>
+<h1 id="technische-anforderungen">[redacted-person]</h1>
+<h2 id="benennung-und-teilnummer">Benennung und Teilnummer</h2>
+<blockquote>
+<p>Benennung: Gurtführung</p>
+<p>Teilnummer:</p>
+<p><em>[A: BT-LAH-192]</em></p>
+<p><em>[A: BT-LAH-193]</em></p>
+<p>Die projektspezifischen Teilenummern sind dem jeweiligen
+Lieferumfangslastenheft zu ent- nehmen.</p>
+</blockquote>
+<h2 id="block--und-prinzipschaltbild">Block- und Prinzipschaltbild</h2>
+<h2 id="funktionen">Funktionen</h2>
+<h2 id="funktionsbeschreibung">Funktionsbeschreibung</h2>
+<ol type="1">
+<li><p><strong>Gurtführung hinten außen</strong></p></li>
+</ol>
+<blockquote>
+<p>Grundsätzlich ist die Position und Geometrie der Gurtführung hinten
+außen so auszulegen, dass ein ausreichender Komfort und der notwendige
+Insassenschutz für kleine Personen (5%-Perzentil) als auch für große
+Personen (95%-Perzentil) sowie für Kinder (Q6 und Q10) gegeben ist. [redacted-person] soll dabei für alle Personen mittig über die Schulter
+verlaufen.</p>
+<p>Zusätzlich muss die Gurtführung so ausgelegt sein, dass eine
+abgelegte Position des Gurt- bandes unproblematisch erfolgen kann.</p>
+<p>[redacted-person]- und Rückzugsrichtungen aller genannten Perzentile sowie ein
+Geradauszug beim Anschnallvorgang müssen ohne negative Beeinflussung
+möglich sein.</p>
+<p><u>Speziell für Gurführungen mit „Muldengeometrie“ (siehe
+8K[redacted-phone]A in Kap. 4.2):</u></p>
+<p><strong>Bei kleinen Personen</strong> muss der Gurt bei Aus- und
+Einzug des Bandes in die Führungsmul- de gleiten und dort verbleiben.
+Dadurch wird der Schultergurt vom Hals des Insassen weg- geführt. Je
+nach Größe des Insassen gleitet der Gurt mehr oder weniger tief in die
+Mulde.</p>
+<p><strong>Bei großen Personen</strong> verläuft der Schultergurt
+kreuzend über die Oberkante der Gurtfüh- rung zur Schulter.</p>
+<p><strong>Bei abgelegtem Gurt</strong> muss das Band in die
+Führungsmulde gleiten und dort verbleiben.</p>
+<p><strong>Gurtband-Auszugsrichtungen:</strong> Es ist mit der Geometrie
+der Gurtführung sicherzustellen, dass nachfolgende Auszugsrichtungen
+ohne negative Beeinflussung möglich sind:</p>
+</blockquote>
+<ul>
+<li><p>5%, 50%, 95%, Geradauszug beim Anschnallvorgang</p>
+<ol type="1">
+<li><p><strong>Gurtführung vorne Säule B</strong></p></li>
+</ol></li>
+</ul>
+<blockquote>
+<p>[redacted-person] in der B-Säule führt das Gurtband zwischen Retraktor
+und Gurthöhenver- stellung / Gurtumlenkbeschlag.</p>
+<p>[redacted-person] dient außerdem zum Ausgleich der Fallung in der
+B-Säule.</p>
+<p>Im Crashfall muss die Gurtführung den durch das Gurtband übertragenen
+Kräften standhal- ten. [redacted-person] und ein Lösen der
+B-Säulenverkleidung sind nicht zulässig.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><strong>Aus- und [redacted-person] (alle)</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] muss aus allen möglichen Richtungen bei -40°C / -20°C /
++20°C / +80°C ohne fremde Hilfe vom Gurtretraktor aufgezogen werden. [redacted-person] des gesamten Gurtsys- tems muss die Gurtführung möglichst
+reibungsarm ausgeführt sein.</p>
+</blockquote>
+<h2 id="fehlbedienung">Fehlbedienung</h2>
+<h2 id="notbetrieb">Notbetrieb</h2>
+<h2 id="architektur">Architektur</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+</blockquote>
+<h2 id="steuergerätekonzept">Steuergerätekonzept</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+</blockquote>
+<h2 id="elektrische-schnittstellen">[redacted-person]</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+<p><em>[I: BT-LAH-847]</em></p>
+<p><em>[I: BT-LAH-848]</em></p>
+<p><em>[I: BT-LAH-849]</em></p>
+</blockquote>
+<h2 id="spezifische-kenndaten">[redacted-person]</h2>
+<h2 id="gurtführung-hinten-außen">Gurtführung hinten außen</h2>
+<blockquote>
+<p><u>Gurtführungen aus Kunststoff, wie 8K[redacted-phone]A (siehe Kap.
+4.2):</u></p>
+</blockquote>
+<ul>
+<li><p>Großkopfschrauben M5 Festigkeitsklasse 8.8, bei Hersteller
+vormontiert</p></li>
+<li><p>Anziehdrehmoment: max. 1,2 Nm bis 2 Nm (Abstimmung mit
+Fachabteilung)</p></li>
+<li><p>Schraube darf sich nicht selbst lösen, Sicherungsmittel
+verwenden</p></li>
+<li><p>Lösemoment: 2 Nm bis 5 Nm während der ersten 3
+Umdrehungen</p></li>
+<li><p>Scheiben einzeln oder einteilig mit Schraube</p></li>
+<li><p>Rastelement zur Fixierung der Gurtführung in den
+Schlüssellöchern</p></li>
+<li><p>2 Filze und/oder partielle Gleitbeschichtung zur
+Geräuschreduzierung, falls erforderlich werkzeuglose Montage, Verrastung
+im Rohbau</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person], wie 4K[redacted-phone]A (siehe Kap.
+4.2):</u></p>
+</blockquote>
+<ul>
+<li><p>7/16-[redacted-person], WHT.[redacted-phone], Festigkeit 8.8</p></li>
+</ul>
+<blockquote>
+<p><u>Doppelt verschraubte Metallgurtführung, wie 4N[redacted-phone](siehe
+Kap. 4.2):</u></p>
+</blockquote>
+<ul>
+<li><p>Zwei M8 Schrauben, N.[redacted-phone]</p></li>
+</ul>
+<h2 id="gurtführung-vorne-b-säule">Gurtführung vorne B-Säule</h2>
+<blockquote>
+<p><u>[redacted-person], wie 4G[redacted-phone](siehe Kap.
+4.2):</u></p>
+</blockquote>
+<ul>
+<li><p>Großkopfschrauben M5, Festigkeit 8.8, mit Beschichtung für
+Lösesicherung (ge- schraubte [redacted-person])</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person], wie 80A.[redacted-phone]oder
+8V[redacted-phone]B (siehe Kap. 4.2):</u></p>
+</blockquote>
+<ul>
+<li><p>werkzeuglose Montage, Verrastung im Rohbau (gesteckte
+Gurtführung)</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person], wie 4N[redacted-phone](siehe Kap.
+4.2):</u></p>
+</blockquote>
+<ul>
+<li><p>Zwei M6 Muttern, N.[redacted-phone]</p></li>
+</ul>
+<h2 id="sicherheitsanforderungen">Sicherheitsanforderungen</h2>
+<blockquote>
+<p><strong>Zuständigkeit: Lieferant der Gurtführung</strong></p>
+<p>[redacted-person] der Gurtführung muss gemäß TL 1010
+nachgewiesen werden.</p>
+</blockquote>
+<h2 id="personen--und-insassensicherheit">Personen- und
+Insassensicherheit</h2>
+<h2 id="fahrzeugsicherheit">Fahrzeugsicherheit</h2>
+<h2 id="alternativen-und-künftige-varianten">Alternativen und künftige
+Varianten</h2>
+<h2 id="gewichtsziele">Gewichtsziele</h2>
+<blockquote>
+<p>[redacted-person] ist gewichtsoptimiert zu entwickeln. Zielgewicht: &lt;
+<strong>x</strong> g</p>
+<p><em>[A: BT-LAH-468]</em></p>
+<p><em>[A: BT-LAH-469]</em></p>
+<p>[redacted-person] ist bauraum-, werkstoff- und konzeptabhängig.
+[redacted-person] zum Gewicht können vor P-Freigabe getroffen werden.</p>
+</blockquote>
+<h2 id="einbau">Einbau</h2>
+<h2 id="einbauorte-und-einbaulage">Einbauorte und Einbaulage</h2>
+<blockquote>
+<p>Befestigungen und Einbauorte sind den im Lieferumfangslastenheft
+definierten Teilenum- mern zu entnehmen, bzw. in Absprache mit der
+Fachabteilung festzulegen.</p>
+<p>[redacted-person] ist den PDM Blättern zu entnehmen.</p>
+<p>Die äußere Form der Baugruppe und insbesondere die Lage und
+Ausführung der Befesti- gungspunkte ist mit den zuständigen
+Fachabteilungen des Auftraggebers, unter Zugrundele- gung des vom
+Auftraggeber definierten Bauraumes, frühzeitig festzulegen.</p>
+</blockquote>
+<h2 id="montagekonzept">Montagekonzept</h2>
+<p><em>[A: BT-LAH-475]</em></p>
+<blockquote>
+<p>Teile sind grundsätzlich so zu konstruieren, dass ein Falscheinbau
+(z. [redacted-person], sei- tenverkehrt, Fehlfunktion bei Falscheinbau)
+nicht möglich ist.</p>
+</blockquote>
+<p><em>[A: BT-LAH-476]</em></p>
+<blockquote>
+<p>Teile, bei denen ein Falscheinbau verhindert werden muss, müssen
+mechanisch codiert o- der mittels Diagnose im Fahrzeug überprüfbar
+sein.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Die geplante Reihenfolge und Ausrichtung der Teile beim Verbau sowie
+der zu verwenden- den Vorrichtungen muss in allen 6 Freiheitsgraden
+eindeutig beschrieben sein.</p>
+<p>[redacted-person] sind so zu befestigen, dass ein Klappern an anderen
+Bauteilen unter Berück- sichtigung aller Toleranzen nicht auftreten
+kann.</p>
+<p>[redacted-person] und deren Befestigungselemente, welche gesteckt
+werden, sind so auszu- legen, dass diese leicht und ohne Verhaken in die
+Schlüssellöcher oder Laschen der Karos- se eingeschoben und wieder
+demontiert werden können. [redacted-person] müs- sen vollständig
+einrasten.</p>
+<p><strong>[redacted-person] hinten außen auf Konsole:</strong></p>
+</blockquote>
+<ol type="A">
+<li><p><u>gemäß Gurtführung AU481 (8K[redacted-phone]A, siehe Kap.
+4.2)</u></p></li>
+</ol>
+<blockquote>
+<p>Hierzu müssen die Kanten der Befestigungsschrauben gerundet sein,
+damit diese nicht am Blech der Karosse schaben oder einhaken.</p>
+<p>[redacted-person] müssen mit geringem Druck auf die Gurtführung in
+die Schlüssellöcher einspuren.</p>
+<p>[redacted-person] darf beim Ansetzen der Gurtführung diese nicht nach oben
+drücken.</p>
+<p>In der Endposition verrastet eine Rastnase der Gurtführung in einem
+Rastfenster der Karos- se.</p>
+<p>Einschubkraft der Gurtführung in die Verankerung in X-Richtung
+(Fahrzeuglage) max.100 N Ausrückkraft der Rastnase in Z-Richtung
+(Fahrzeuglage) max. 60 N Nach der Montage müssen die 2 Schrauben sicher
+in den Schlüssellöchern sitzen.</p>
+<p>Montagekräfte sind mit [redacted-person] im Einbauversuch abzustimmen.</p>
+</blockquote>
+<ol start="2" type="A">
+<li><p><u>gemäß Gurtführung AU210 (8X[redacted-phone], siehe Kap.
+4.2)</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] wird in Y-Richtung (Fahrzeugkoordinatensystem) auf
+die Konsole gescho- ben und mit einer Schraube gesichert.</p>
+<p>[redacted-person] M6 9 ± 0,5 Nm</p>
+</blockquote>
+<ol start="3" type="A">
+<li><p><u>gemäß Gurtführung AU58x (4K[redacted-phone]A, siehe Kap.
+4.2)</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] wird in Z-Richtung (Fahrzeugkoordinatensystem) auf
+die Konsole aufge- setzt, sodass die Verdrehsicherung in der Konsole
+einrastet und anschließend mit einer Schraube gesichert.</p>
+<p>[redacted-person] 7/16 Zoll 40 Nm</p>
+</blockquote>
+<ol start="4" type="A">
+<li><p><u>gemäß Gurtführung AU651 (4N[redacted-phone], siehe Kap.
+4.2)</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] wird in Z-Richtung (Fahrzeugkoordinatensystem) auf
+die Konsole aufgesetzt und anschließend mit zwei Schrauben
+befestigt.</p>
+<p>[redacted-person] M8 27 Nm</p>
+<p><strong>[redacted-person] vorne an Säule B:</strong></p>
+</blockquote>
+<ol type="A">
+<li><p><u>gemäß Gurtführung AU573 (4G[redacted-phone]siehe Kap.
+4.2)</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] im Fahrzeug muss die Gurtführung vormontiert werden
+können.</p>
+</blockquote>
+<ol type="1">
+<li><p>Vormontage über Haken, Zapfen, Rastnasen</p></li>
+<li><p>Verschraubung nach der Vormontage</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] M5 5 ± 0,5 Nm</p>
+</blockquote>
+<ol start="2" type="A">
+<li><p><u>gemäß Gurtführung AU370 (8V[redacted-phone]B oder 80A.[redacted-phone], siehe
+Kap. 4.2)</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] erfolgt durch das Einstecken der (Draht-) Gurtführung in
+eine Lasche an der B- Säule. [redacted-person] muss frei von Grat sein um
+das Einstecken der Gurtführung ge- mäß der angegebenen Einschubkraft zu
+gewährleisten. [redacted-person] der Gurtführung er- folgt durch die
+Formgebung und der Federwirkung der [redacted-person].</p>
+<p>Einschubkraft der Gurtführung in die Lasche max. 100 N</p>
+</blockquote>
+<ol start="3" type="A">
+<li><p><u>gemäß Gurtführung AU651 (4N[redacted-phone], siehe
+Kap.4.2)</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] erfolgt durch Aufstecken der (Draht-) Gurtführung auf
+zwei Befestigungsbolzen an der B-Säule.</p>
+<p>[redacted-person] M6 6 Nm</p>
+<p><u>Alle:</u></p>
+<p>Die mehrmalige Montage und Demontage muss ohne Beschädigung der
+Gurtführung und der angrenzenden Bauteilen möglich sein.</p>
+<p>Anforderungen an die Montage / Demontage gemäß [redacted-co]99000, [redacted-co]99000-1,
+[redacted-co]99000-4 [redacted-person] sind möglich.</p>
+</blockquote>
+<h2 id="geometrie">Geometrie</h2>
+<blockquote>
+<p>[redacted-person] steht folgender Bauraum zur Verfügung:</p>
+<p><em>[A: BT-LAH-479]</em></p>
+</blockquote>
+<p><em>[A: BT-LAH-480]</em></p>
+<blockquote>
+<p>[redacted-person] muss die äußere Geometrie der Baugruppe und
+insbesondere die Lage und Ausführung der Befestigungspunkte (falls
+vorhanden) mit den zuständigen Fachabtei- lungen des Auftraggebers,
+unter Zugrundelegung des vom Auftraggeber definierten Bau- raumes,
+abstimmen.</p>
+</blockquote>
+<h2 id="toleranzen">Toleranzen</h2>
+<blockquote>
+<p>Toleranzen zum Rohbau sind, wenn nicht fertigungstechnisch steuerbar,
+durch elastisch deformierbare Elemente bzw. Langlöcher am Rohbau / an
+der Gurtführung auszugleichen. Klappergeräusche sind zu unterbinden.</p>
+</blockquote>
+<h2 id="formgestaltung-und-design">Formgestaltung und Design</h2>
+<blockquote>
+<p><em>[A: BT-LAH-484]</em></p>
+<p>Für alle Strakbauteile gilt: Die vom Auftraggeber gelieferten
+Strakdaten sind verbindlich.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Änderungen der Strakoberfläche sind ausschließlich über den
+Strakprozess in Abstimmung mit dem Design des Auftraggebers
+zulässig.</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] im Sichtbereich müssen frei von Einfallstellen
+sein.</p></li>
+<li><p>Formtrennungen und Grate dürfen nicht im Sicht- und
+Funktionsbereich des Gurtbandes liegen.</p></li>
+<li><p>Formtrennungen, welche wegen des Fertigungsprozesses nicht
+vermeidbar sind, dürfen nicht kantig und gratbehaftet sein.</p></li>
+<li><p>[redacted-person] im Gurtgleitbereich müssen glatt und frei von
+Unebenheiten (Kanten, Graten, Formtrennung, Schweißspritzer) sein,
+welche das Gleitverhalten des Gurtban- des verschlechtern.</p></li>
+<li><p>Bauteiloberflächen die nicht im Sichtbereich liegen und ohne
+Funktion sind, dürfen in übli- cher Gussoberfläche ausgeführt
+sein.</p></li>
+</ul>
+<h2 id="ergonomie">Ergonomie</h2>
+<h2 id="optik-und-haptik">Optik und Haptik</h2>
+<blockquote>
+<p><em>[A: BT-LAH-491]</em></p>
+<p>Bauteile mit äußeren optischen Funktionselementen sind so auszulegen,
+dass es im Betrieb auch unter extremen Bedingungen nicht zu einer
+Funktionsbeeinträchtigung kommt.</p>
+<p><em>[A: BT-LAH-492]</em></p>
+<p>[redacted-person] ist nach Vorgabe des Auftraggebers auszuführen und
+muss umlaufend gleichmäßig sein.</p>
+</blockquote>
+<h2 id="akustik">Akustik</h2>
+<blockquote>
+<p><em>[A: BT-LAH-498]</em></p>
+<p>Geräusche dürfen im Fahrgastraum nicht oder nicht störend wahrnehmbar
+sein. [redacted-person]- teilung erfolgt durch die Fachabteilung des
+Auftraggebers im Fahrzeug mit den Innenge- räuschbedingungen.</p>
+<p>Klapper-, Knarz- und Schabegeräusche zwischen der Gurtführung,
+Rohbau, Sitzen, dem Gurtband und den Verkleidungsteilen sind im
+Fahrbetrieb, bei Türen- oder Klappenzuschla- gen nicht zulässig.
+Eventuell erforderliche Maßnahmen zur Geräuschminimierung sind vom
+Lieferanten umzusetzen (siehe auch Lieferumfangslastenheft,
+Zeichnungseinträge). Falls erforderlich, sind entsprechende Filze
+und/oder Gleitfolien aufzukleben.</p>
+<p>[redacted-person] sollte beim Ein- / Auszug möglichst flächig geführt
+werden um Geräusche und zusätzliche Reibung zu vermeiden.</p>
+</blockquote>
+<h2 id="handling">Handling</h2>
+<h2 id="technische-materialanforderungen">[redacted-person]</h2>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person], welche im Außenbereich oder an Stellen mit erhöhter
+Umweltbelastung (z. [redacted-person] und Spritzwasser, Salznebel,
+Tauchbereich) verbaut werden, ist die Verwen- dung von
+Schmelzwerkstoffen (Hotmelts) nicht zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] von Schmelzwerkstoffen zur Umspritzung von bestückten
+Bauelementeträ- gern ist nicht zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] von Schmelzwerkstoffen zur Abdichtung und zum Schutz
+gegen Feuchtig- keit ist nicht zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Abweichungen vom dargestellten Grundsatz bedürfen eines
+Eignungsnachweises unter al- len relevanten
+Fahrzeugeinsatzbedingungen.</p>
+</blockquote>
+<h2 id="medienbeständigkeit-und-chemische-anforderungen">Medienbeständigkeit
+und chemische Anforderungen</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Bauteile, welche mit Kraftstoff oder Kraftstoffdämpfen/-kondensat in
+Berührung kommen, müssen Ethanol sowie Methanol verträglich sein.</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>[redacted-person]:
+Lieferant der Gurtführung</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] müssen die [redacted]erfüllen. [redacted-person] muss
+geruchsneutral sein.</p>
+</blockquote>
+<h2 id="reinigung">Reinigung</h2>
+<h2 id="korrosionsschutz">Korrosionsschutz</h2>
+<blockquote>
+<p><u>Abzuprüfen für korrosive Gurtführungen, beispielsweise aus
+Metall.</u></p>
+<p><em>[A: BT-LAH-508]</em></p>
+<p><strong>Zuständigkeit: Lieferant der Gurtführung</strong></p>
+<p>Korrosionsprüfung nach TL471</p>
+<p>Insbesondere sind folgende Punkte zu berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>Vermeidung von Kontaktkorrosion zwischen unterschiedlichen
+Werkstoffen (Stahl, Edel- stahl, Alu, Mg, Elastomerteile etc.) durch
+geeignete Beschichtungen</p></li>
+<li><p>Vermeidung von Oberflächenkorrosion durch geeignete
+Beschichtungen</p></li>
+<li><p>lackiergerechte Gestaltung von Fahrzeugen und Bauteilen</p></li>
+<li><p>[redacted-person] neuer Werkstoffe sind die grundlegenden Eigenschaften
+wie z.[redacted-person] risskorrosion, Filiformkorrosion etc. zu
+untersuchen.</p></li>
+</ul>
+<h2 id="schutzklassen">Schutzklassen</h2>
+<h2 id="umweltverträglichkeit">Umweltverträglichkeit</h2>
+<h2 id="werkstoffauswahl">Werkstoffauswahl</h2>
+<blockquote>
+<p>[redacted-person] mit Farbgebung erfolgt im fahrzeugbezogenen LAH,
+im LAH Lieferum- fang, bzw. in der Anfragezeichnung.</p>
+<p>Gurtführungen im Sichtbereich:</p>
+</blockquote>
+<ul>
+<li><p>Gurtführung aus Kunststoff, Romiloy ASA/PA [redacted-phone]</p></li>
+<li><p>Gurtführung aus Kunststoff, Altech PA6+ASA A [redacted-phone]UV
+IM</p></li>
+<li><p>Gurtführung aus Kunststoff, Bayblend T65, ABS/PC,
+lackiert</p></li>
+<li><p>Gurtführung aus Kunststoff, [redacted-person] GX70 PV1303, ABS/PC,
+lackiert</p></li>
+<li><p>Gurtführung aus Stahl, KTL-Beschichtung, TL260</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] der Sicht- und Bandseite erfolgt gemäß TL 226, wenn im
+fahrzeugbezoge- nen LAH gefordert. Wegen der Funktion des
+Sicherheits-Gurtbandes dürfen keine bremsen- den Lacke verwendet werden.
+Zulässig sind ausschließlich <strong>reibungsneutrale oder gleit-
+verbessernde Lacke</strong> (KU Lack). Softlacke dürfen nicht angewendet
+werden.</p>
+<p>[redacted-person] 2K-PU-Hydrolack ( KU-Lack ) 1 schichtig 20 – 30
+μm</p>
+<p>TL 226 und AWR 3212 ( B1C1 )</p>
+<p>[redacted-person], Lack R 5403</p>
+<p>[redacted-person] erfolgt gemäß fahrzeugbezogenem LAH, wenn nicht
+anders gefordert.</p>
+</blockquote>
+<ul>
+<li><p>Grundausführung schwarz nach Farbkombination</p></li>
+<li><p>weitere Farben nach Farbkombination</p></li>
+<li><p>[redacted-person] muss in gleicher Farbe ausgeführt sein wie die
+Lackoberfläche.</p></li>
+</ul>
+<blockquote>
+<p>Werkstoffweiterentwicklungen bzw. -änderungen hinsichtlich
+Festigkeits-, Kosten- und Ver- arbeitungsoptimierungen sind möglich.</p>
+<p>Gurtführungen außerhalb des Sichtbereichs:</p>
+</blockquote>
+<ul>
+<li><p>Stahl (S235JRC+C)</p></li>
+<li><p>Gurtführung aus Kunststoff, Bayblend T65, ABS/PC</p></li>
+<li><p>Gurtführung aus Kunststoff, [redacted-person] GX70 PV1303,
+ABS/PC</p></li>
+</ul>
+<h2 id="recyclingkonzept">Recyclingkonzept</h2>
+<h2 id="ökobilanz">Ökobilanz</h2>
+<h2 id="mechanische-anforderungen">[redacted-person]</h2>
+<h2 id="last">Last</h2>
+<blockquote>
+<p>[redacted-person] wird beim Crash durch die Massenkräfte des Insassen
+über das Gurtband belastet.</p>
+<p>[redacted-person] muss alle Belastungen, welche durch die Benutzung, im
+Fahrbetrieb und beim Unfall entstehen, ohne Schaden, ohne bleibende
+Verformung, Bruch und ohne Funkti- onsausfall überstehen. Bei max. Crash
+ist eine bleibende Verformung zulässig.</p>
+<p>[redacted-person] darf sich durch die Benutzung, durch den Fahrbetrieb,
+durch Belastungen sowie im Crash nicht aus der Verankerung lösen.</p>
+<p>[redacted-person] muss bei Belastung flächig über die gesamte Bandbreite
+an der Gurtführung aufliegen.</p>
+<p><strong>[redacted-person] der Gurtführung muss während der
+Konstruktionsphase rechnerisch vom Entwickler der Gurtanordnung
+nachgewiesen werden. (siehe Abs. 6.8)</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><strong>[redacted-person] hinten ist
+überwiegend</strong></p>
+<ul>
+<li><p>vertikal nach unten: daraus resultiert Druckbelastung auf die
+Gurtführung</p></li>
+<li><p>horizontal nach vorne: dadurch werden die Schrauben und deren
+Anbindungen belas- tet</p></li>
+<li><p>quer zur Fahrzeuglängsachse: Hieraus ergibt sich ein Moment um
+eine vertikale Achse der Gurtführung, welche von den Schrauben und
+Verdrehsicherungen über deren Ab- stand abgefangen wird.</p></li>
+<li><p>Die L-förmig angeordneten Schenkel der Gurtführung gemäß
+Gurtführung AU481 (8K[redacted-phone]A, siehe Kap. 4.2) werden durch die
+Querkraft aufgeweitet, dadurch besteht Bruchgefahr am Knoten der
+Schenkel.</p></li>
+<li><p>Während des Straffvorganges wird die Führung kurzzeitig nach
+hinten gezogen. Dadurch wird die Gurtführung in Gegenrichtung
+belastet.</p></li>
+</ul></li>
+<li><p><strong>[redacted-person] vorne ist überwiegend</strong></p>
+<ul>
+<li><p>horizontal zum Fahrzeuginneren: Daraus resultiert eine Zug- und
+Biegebelastung an der Gurtführung und deren Verankerung.</p></li>
+<li><p>Während des Straffvorganges wird die Gurtführung kurzzeitig nach
+unten gezogen. Dadurch wird die Verankerung ggf. eine Verrastung
+belastet.</p></li>
+<li><p>ggf. Belastung durch die Verankerung der [redacted-person] B
+gemäß Gurtführung 4G[redacted-phone](siehe Kap. 4.2)</p></li>
+</ul></li>
+<li><p><strong>Kleinunfall (alle)</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] („no fire crash“) bei denen die Sicherheitssysteme
+(Airbag, pyrotechnischer Gurtstraffer) nicht auslösen,
+Frontaufschlag:</p>
+<p>Gurtkomponenten, Gurtführungen, Befestigungen, Befestigungsbasen
+dürfen nicht beschä- digt und bleibend verformt werden, so dass kein
+Wechsel dieser Teile erfolgen muss.</p>
+<p>[redacted-person] gilt folgender Belastungswert:</p>
+<p>Zuglast: ≥4,5 kN</p>
+</blockquote>
+<ol start="4" type="1">
+<li><p><strong>Großunfall (alle)</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] bis 56km/h Frontcrash, Seitencrash, Überschlag:</p>
+<p>[redacted-person] darf ausreißen oder brechen. Eine bleibende Verformung
+ist zulässig. [redacted-person] gilt folgender Belastungswert:</p>
+<p>Zuglast: 9 – 12 kN</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p><strong>Kräfte beim Straffvorgang (alle)</strong></p></li>
+</ol>
+<blockquote>
+<p>Während des Straffvorganges entstehen umgekehrt gerichtete Gurtkräfte
+in Richtung des Gurtaufrollers. [redacted-person] wird hierbei über eine
+Länge von bis zu 150 mm unter Straffbe- lastung in [redacted-person] gezogen. Hierdurch darf kein Bauteil geöffnet werden, zer-
+stört werden, oder aus der Verankerung reißen. [redacted-person] darf im
+Straffvorgang durch die Gurtführung nicht beschädigt werden.</p>
+<p><strong>Belastungsfall Si Gurt abgelegt</strong></p>
+</blockquote>
+<ol start="6" type="1">
+<li><p><strong>Kräfte beim Kopfaufschlag</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] beim Kopfaufschlag dürfen die Bauteile nicht brechen,
+reißen oder splittern. Gurtführung hinten außen gemäß AU481
+(8K[redacted-phone]A, siehe Kap. 4.2):</p>
+</blockquote>
+<ul>
+<li><p>Zwischen dem vorderen Ende der Gurtführung und der Blechkonsole
+muss ein Überstand von &gt; 35 mm als Deformationsweg
+vorliegen.</p></li>
+</ul>
+<h2 id="schwingungsverhalten">Schwingungsverhalten</h2>
+<blockquote>
+<p>In der Gurtführung dürfen keine Schwingungen entstehen, welche zu
+einem Ermüdungs- bruch der Gurtführung und/oder deren Verankerung, sowie
+zu Geräuschen oder Rissbildung führen.</p>
+</blockquote>
+<h2 id="steifigkeit-und-federeigenschaften">Steifigkeit und
+Federeigenschaften</h2>
+<h2 id="verformung-und-deformation">Verformung und Deformation</h2>
+<blockquote>
+<p>Die elastischen und plastischen Deformationen sind so gering wie
+möglich zu halten.</p>
+</blockquote>
+<h2 id="druck">Druck</h2>
+<h2 id="lebensdauer">Lebensdauer</h2>
+<blockquote>
+<p>[redacted-person]- und Einzug des Gurtbandes sind die Gurtführung und das
+Gurtband einer Scheuerbelastung unterworfen.</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] muss diese Scheuerbelastung ohne sichtbaren
+Schaden im Sichtbereich und ohne Funktionsbeeinträchtigung
+überstehen.</p></li>
+<li><p>[redacted-person] darf dadurch nicht beschädigt werden.</p></li>
+<li><p>Durch ständige Benutzung und durch dynamische Einwirkungen im
+Fahrbetrieb dürfen sich Funktion, Form und Festigkeit nicht nachteilig
+verändern.</p></li>
+<li><p>[redacted-person] des Bauteils muss über einen Zeitraum von mind. 15
+Jahren sichergestellt sein.</p></li>
+</ul>
+<p><em>[A: BT-LAH-933]</em></p>
+<blockquote>
+<p>Bauteile müssen auf eine Lebensdauerforderung von 300000 km
+Laufleistung statistisch ausgelegt sein.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Bauteile mit definiertem Wechselintervall müssen auf km Laufleistung
+/ Be- triebsstunden / Jahre ausgelegt sein.</p>
+</blockquote>
+<p><em>[A: BT-LAH-935]</em></p>
+<blockquote>
+<p>Bei der Umsetzung der Forderung ist darauf zu achten, dass zur
+Einhaltung gesetzlicher Vorschriften für abgasbeeinflussende und
+kraftstoffführende Bauteile eine Lebensdauer von 15 Jahren bzw. 150000
+Meilen zu erfüllen ist.</p>
+<p>[redacted-person] ist bis zur B-Freigabe zu erbringen.</p>
+<p><em>[A: BT-LAH-542]</em></p>
+</blockquote>
+<h2 id="elektrische-anforderungen">[redacted-person]</h2>
+<h2 id="beschreibung-der-allgemeinen-anforderungen">Beschreibung der
+allgemeinen Anforderungen</h2>
+<p><em>[A: BT-LAH-983]</em></p>
+<blockquote>
+<p>[redacted-person] mit Bordnetzschnittstellen, d. [redacted-person] Vorverkabelungen
+und Adapterleitungen, Bauteile mit Anschlussleitungen, und Leitungen in
+Komponenten, die als ZSB geliefert wer- den, gelten die Anforderungen
+des Querschnittslastenheftes LAH 5Q0.971 „[redacted-person]-Anforderungen“.</p>
+</blockquote>
+<h2 id="klimatische-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p><u>Abzuprüfen für Gurtführungen mit geringen Schmelztemperaturen,
+beispielsweise bei Kunst-</u> <u>stoff.</u></p>
+<p><strong>Zuständigkeit: Lieferant der Gurtführung</strong></p>
+</blockquote>
+<ul>
+<li><p>Formbeständigkeit und Funktion müssen über einen
+Temperaturbereich von -40°C (Kälte- lagerung) bis +100°C (Wärmelagerung)
+bei jeweils 48h erfüllt werden.</p></li>
+<li><p>Lichtbeständigkeit nach PV 1303, 5 Zyklen am Einzelteil
+<strong>(bei Sichtteilen)</strong></p></li>
+</ul>
+<blockquote>
+<p>3 Zyklen am Einzelteil <strong>(bei nicht Sichtteilen)</strong></p>
+<p>Anforderung: &gt; Klasse 4 nach DIN EN 20105-A02 Veränderung der
+Farbe nicht zulässig</p>
+</blockquote>
+<ul>
+<li><p>Klimawechseltest nach PV 1200, 8 Zyklen am Einzelteil</p></li>
+<li><p>Sonnenlichtsimulation nach DIN 75220 durch <strong>[redacted]</strong></p></li>
+<li><p>Bewitterungssimulation im Fahrzeug nach DIN 75220 durch
+<strong>[redacted-co]</strong></p></li>
+<li><p>Freibewitterung nach [redacted-co]50185 durch <strong>[redacted]</strong></p></li>
+<li><p>TL1010 (Brennverhalten)</p></li>
+<li><p>VW50180 (Emission)</p></li>
+<li><p>VW50190 (Farbe/Glanz)</p></li>
+<li><p>TL52231 (PC+ABS)</p></li>
+</ul>
+<blockquote>
+<p>Anforderungen:</p>
+</blockquote>
+<ul>
+<li><p>keine Verformung des Bauteiles</p></li>
+<li><p>keine Farbveränderung</p></li>
+<li><p>Erfüllung der Anforderungen an die Funktion (siehe Kap.
+5.3)</p></li>
+</ul>
+<h2 id="serviceanforderungen">Serviceanforderungen</h2>
+<blockquote>
+<p><em>[A: BT-LAH-851]</em></p>
+<p>Die minimale Lagerfähigkeit ist mit dem Auftraggeber zu
+Angebotsvergabe gemeinsam zu definieren und zu dokumentieren.</p>
+<p><em>[A: BT-LAH-853]</em></p>
+<p>Nach der Lagerzeit müssen alle Anforderungen einschließlich
+Lebensdauer erfüllt werden.</p>
+</blockquote>
+<h2 id="transportschutz">Transportschutz</h2>
+<h2 id="logistikanforderungen">Logistikanforderungen</h2>
+<blockquote>
+<p>Gurtführungen im Sichtbereich sind entsprechend vor
+Oberflächenschäden (Kratzer, Abrieb- spuren, etc.) während des
+Transports und während der Montage zu sichern.</p>
+</blockquote>
+<h2 id="qualitätssicherungsanforderungen">Qualitätssicherungsanforderungen</h2>
+<blockquote>
+<p><em>[A: BT-LAH-634]</em></p>
+<p>Es gelten die Vorgaben der [redacted-co]99000 und der Formel Q-Konkret (Kap.
+"Produktsicherheit, Produkthaftung" und "Verpflichtung zur eigenen
+Feldbeobachtung mit Meldepflicht") zur Ver- antwortung des Lieferanten
+und dessen Unterlieferanten für eingebaute Kaufteile.</p>
+<p>[redacted-person] behält sich das Recht einer stichprobenartigen
+Qualitätsprüfung vor.</p>
+</blockquote>
+<p><em>[A: BT-LAH-900]</em></p>
+<blockquote>
+<p>[redacted-person] muss das Prüfkonzept für Schadensteile dem
+Bauteilverantwortlichen vorstellen und mit ihm bis PVS abstimmen.</p>
+<p><u>Metallgurtführungen:</u></p>
+<p>Für die Sicherung gleichbleibender Qualität und Festigkeit der
+Gurtführung verpflichtet sich der Lieferant zur Durchführung
+serienbegleitender Bauteilprüfungen mittels statischen Gurt- zug gemäß
+6.4.3.2.</p>
+<p><u>Kunststoffgurtführungen:</u></p>
+<p>Für die Sicherung gleichbleibender Qualität und Festigkeit der
+Gurtführung verpflichtet sich der Lieferant zur Durchführung
+serienbegleitender Bauteilprüfungen mittels Fallturm (siehe Skizze).</p>
+<p><img src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image16.jpeg"/></p>
+<p>[redacted-person] der Gurtführung ist für die Bereitstellung des
+Fallturms bzw. der Zugmaschine und der entsprechenden Aufnahme für die
+zu prüfende Gurtführung zuständig. Dazu zählen die Konstruktion (3D, 2D)
+und der Bau der Prüfvorrichtung. [redacted-person] sind auf Anfrage
+des Auftraggebers diesem vorzulegen.</p>
+<p>[redacted-person] der kritischen Fallhöhe und der Masse erfolgt mit
+Teilen aus Serienwerkzeu- gen. [redacted-person] des Prüfdorns auf der
+Gurtführung befindet sich in einem festig- keitskritischen Bereich.</p>
+<p><strong><u>Prüfzyklus zur Fertigungsfreigabe</u></strong></p>
+</blockquote>
+<ul>
+<li><p>5 Teile je Nest vor Fertigungsanlauf</p></li>
+</ul>
+<blockquote>
+<p><strong>Anforderungen:</strong></p>
+</blockquote>
+<ul>
+<li><p>alle 5 Teile je Nest müssen der Belastung ohne Bruch
+standhalten</p></li>
+<li><p>Splittern und Ausbrüche sind nicht zulässig</p></li>
+<li><p>[redacted-person] der Anforderungen, erfolgt der Nachweis der
+Funktionssicherheit durch die Erfüllung der Freigabeversuche nach diesem
+Lastenheft.</p></li>
+</ul>
+<blockquote>
+<p><strong><u>Prüfzyklus jährlich</u></strong></p>
+</blockquote>
+<ul>
+<li><p>Qualifikation nach GQ Lastenheft Q-LAH [redacted-phone]D Version</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] zur Produkt- und Prozessüberwachung werden durch
+den „COP-[redacted-person]“ definiert. Änderungen und projektbedingte
+Anpassungen bleiben [redacted-co] vorbehalten.</p>
+</blockquote>
+<h1 id="anforderungen-an-erprobung">Anforderungen an Erprobung</h1>
+<h2 id="prüfmittel-erprobungsträger">Prüfmittel / Erprobungsträger</h2>
+<blockquote>
+<p><em>[A: BT-LAH-694]</em></p>
+<p>[redacted-person] spricht mit dem Auftraggeber ab, ob und wie viele
+Fahrzeuge der Auf- tragnehmer mit Mess- und Applikationsgeräten
+auszurüsten und für die Dauer der Entwick- lung (bis 3 Monate nach SOP)
+bereitzustellen hat.</p>
+</blockquote>
+<h2 id="erfüllungsnachweise">Erfüllungsnachweise</h2>
+<p><em>[A: BT-LAH-697]</em></p>
+<blockquote>
+<p>Sämtliche unten aufgeführten Erprobungen sind nach den zitierten
+Vorschriften durchzufüh- ren.</p>
+</blockquote>
+<h2 id="erprobungsplan">Erprobungsplan</h2>
+<blockquote>
+<p>Grundsätzlich ist das [redacted-person] vom Hersteller und vom
+Entwickler zu erproben. Ausnahmen sind unter den vorstehenden LAH sowie
+in der Folge gekennzeichnet:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] werden vom Hersteller der Gurtführung zur Verfügung
+gestellt.</p></li>
+<li><p>[redacted-person] mit Nachweis über die Erfüllung der Anforderungen
+muss je Bauzustand / Farbe / Prozessänderung mit vorgegebener
+Teileanzahl erfolgen (siehe Kap. 6.4).</p></li>
+<li><p>[redacted-person] der Erprobung ist dem Auftraggeber schriftlich in
+einem Prüfbericht vorzu- legen.</p></li>
+<li><p>Abschlussbewertung mit Bezug auf Lastenheft i.[redacted-person]
+n.i.O</p></li>
+<li><p>Anlage mit Einzelergebnissen in der Versuchsreihenfolge</p></li>
+<li><p>Dokumentation der Versuchsteile mit Bildern in der
+Versuchsreihenfolge</p></li>
+<li><p>Die ausgefüllte Prüfmatrix (Anhang 1) ist dem Auftraggeber
+vorzulegen</p></li>
+<li><p>Erprobungen am Gesamtfahrzeug werden bei der [redacted-co] bzw. beim
+Entwickler der Gur- tanordnung durchgeführt.</p></li>
+</ul>
+<h2 id="prüfungen">Prüfungen</h2>
+<blockquote>
+<p>[redacted-person] erfolgt in der aufgeführten Reihenfolge.</p>
+<p>Umfang der zu testenden Bauteile je Versuch (wenn nicht anders
+angegeben):</p>
+<p><strong>mindestens 4 Teile je Farbe (Farbvarianz bei
+Kunststoffgurtführungen im Sichtbe- reich)</strong></p>
+</blockquote>
+<h2 id="dauerversuch">Dauerversuch</h2>
+<blockquote>
+<p><strong>Zuständigkeit: [redacted-co] / Entwickler der
+Gurtanordnung</strong></p>
+<p>[redacted-person] des Versuchs ist die Verwendung von Teilen im
+Neuzustand zulässig.</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] werden mit einem Gurtaufroller auf einer
+Vorrichtung gemäß <strong>[redacted-person] 2 (falls nicht vorhanden:
+Blatt 1)</strong> wie im Fahrzeug befestigt.</p></li>
+<li><p>Gurtband 700 mm ausziehen und aufrollen entspricht 1
+Zyklus</p></li>
+<li><p>Gurtbandlage quer zur Zugrichtung nach jedem Zyklus ca. 1 cm
+verändern, oder Lageän- derung + Aus- Einzug innerhalb eines Zyklus mit
+Kurbeltrieb durchführen <strong>(nur bei Gurt- führungen hinten
+außen)</strong></p></li>
+<li><p>Aus- / Einzuggeschwindigkeit: 500 mm/sec</p></li>
+<li><p>Anzahl der Zyklen: 70 000</p></li>
+</ul>
+<h2 id="temperierverfahren-vor-festigkeitsversuchen">Temperierverfahren
+vor Festigkeitsversuchen</h2>
+<blockquote>
+<p><u>Abzuprüfen für Gurtführungen mit geringen Schmelztemperaturen,
+beispielsweise bei Kunst-</u> <u>stoff.</u></p>
+<p><strong>Zuständigkeit: Entwickler der Gurtanordnung</strong></p>
+<p><strong>Lagerung</strong>:</p>
+<p>24 h bei + 100°C 24 h bei - 40°C</p>
+<p><strong>Klimawechseltest gemäß PV 1200:</strong></p>
+<p>Grenztemperaturen: + 80°C / - 40°C rel. Luftfeuchte: 80%</p>
+<p>Anzahl der Zyklen: 8</p>
+<p>Dauer 1 Zyklus: 12 Std.</p>
+<p>[redacted-person] und der Klimawechseltest dürfen unmittelbar
+hintereinander erfol- gen.</p>
+<p><strong>Trocknung:</strong></p>
+<p>Grenztemperatur: +100°C</p>
+<p>rel. Luftfeuchte: gegen 0%</p>
+<p>Dauer: bis messbarer Gewichtsverlust stagniert</p>
+<p>[redacted-person] der Bauteile ist nur bei Kunststoffgurtführungen
+vorzunehmen. [redacted-person] wird projektspezifisch ermittelt:</p>
+</blockquote>
+<ul>
+<li><p>GuFü werden unmittelbar nach Trocknung gewogen (Teile noch im
+warmen Zustand)</p></li>
+<li><p>danach Abkühlung der GuFü innerhalb von 2 Stunden auf
+Raumtemperatur bei 30% rel. Luftfeuchte</p></li>
+<li><p>danach erneutes wiegen der GuFü und Ermittlung der
+Sättigung</p></li>
+<li><p>Ermittlung der Zeit, die zwischen Beendigung der Trockung und dem
+Versuch liegen darf</p></li>
+</ul>
+<blockquote>
+<p><strong>Temperaturbereiche:</strong></p>
+<p>[redacted-person] sind in den Temperaturbereichen</p>
+<p><strong>-35°C (+5°C), 20°C (+5°C), 100°C (+5°C)</strong></p>
+<p>durchzuführen (Trocknung optional vor Festigkeitsprüfungen, in
+Absprache mit der Fachab- teilung).</p>
+<p>[redacted-person] der Versuchsteile vor den Festigkeitsversuchen
+dauert mindestens 4 Stunden.</p>
+<p>Nach der Entnahme der temperierten Gurtführungen aus dem Klimaschrank
+muss der dy- namische/statische Festigkeitsversuch innerhalb von 60
+Sekunden erfolgen.</p>
+<p>Prüfaufbau und -durchführung müssen die vorgeschriebenen Temperaturen
+zum Versuchs- zeitpunkt sicherstellen. [redacted-person] ist für jede
+Kunststoffgurtführung versuchsbeglei- tend zu erfassen und zu
+dokumentieren. Die exakte Position der Temperaturmessung ist mit dem
+Auftraggeber abzustimmen.</p>
+<p>Über repräsentative Bauteiltemperaturmessungen ist im Vorfeld ein
+entsprechender Nach- weis zu erbringen.</p>
+<p>Sind die geforderten Leistungen nachweislich nicht erfüllt, bessert
+der Auftragnehmer zu seinen Lasten nach.</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>[redacted-person] Zuständigkeit: Lieferant der
+Gurtführung</strong></p>
+<ol type="1">
+<li><p><strong>[redacted-person] statisch</strong></p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>In der Regel sind Rastnasen nur bei Kunststoffgurtführungen gemäß
+8K[redacted-phone]A (siehe Kap. 4.2) verbaut und somit auch nur bei diesen
+Bauteilen durchzuführen.</p>
+<p>[redacted-person] werden ohne Gurtaufroller auf einer Vorrichtung gemäß
+<strong>[redacted-person] 2 (falls nicht vorhanden: Blatt 1)</strong> wie
+im Fahrzeug befestigt.</p>
+</blockquote>
+<ul>
+<li><p>Gurtführung entgegen der Einschubrichtung gegen die Rastnase
+belasten</p></li>
+<li><p>Drückgeschwindigkeit: 100 mm/min</p></li>
+<li><p>Drücklast: hinten ≥ 2 kN vorne ≥ 1,5 kN</p></li>
+<li><p>Haltezeit der Last: ≥ 10 ms</p></li>
+<li><p>Aufzeichnung der Kräfte über Zeit</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] kann auch durch <strong>6.4.4.3 [redacted-person] -
+Sicherheitsgurt abgelegt</strong></p>
+<p>erbracht werden.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><strong>[redacted-person] statisch</strong></p></li>
+</ol>
+<blockquote>
+<p><strong>***geprüft wird nur die rechte Gurtführung***</strong></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] werden ohne Gurtrolle auf einer Vorrichtung gemäß
+<strong>[redacted-person] 2 (falls nicht vorhanden: Blatt
+1)</strong> wie im Fahrzeug befestigt.</p></li>
+<li><p>[redacted-person] wird über 2 Bolzen eingeschlauft.</p></li>
+<li><p>Gurtband über die Gurtführung führen und belasten</p></li>
+<li><p>Aufzeichnung der Kräfte über Zeit</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] der Schrauben zum Verrasten der Gurtführung gemäß
+Gurtführung AU481 (8K[redacted-phone]A, siehe Kap. 4.2) auf dem Prüfstand ist
+zulässig, solange ein fester Sitz der GuFü gewährleistet ist.</p>
+<p><u>Kraft-Zeit-Diagramm mit einer 10 [redacted-person]
+(Prinzipdarstellung, für Kunststoffgurt-</u> <u>führungen):</u></p>
+<p><img alt="C:\Users\WG28FGV\Desktop\Unbenannt.png" src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image18.png" style="width:5.43415in;height:3.43646in"/><strong>fahrzeugspezifisch
+ge- mäß Gurtzugsimulation</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Gurtführung hinten außen</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Gurtführung vorne</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>4 Versuche*</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abzug gem. Gurtzug**</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person] B</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>* mindestens 4 Teile je Farbe nach Temperaturtest (siehe 6.4.2)
+(Farbvarianz bei Kunststoffgurtführungen im Sichtbereich)</p>
+<p>** Die zuständige Fachabteilung behält sich statische
+Festigkeitsprüfungen mit anderen Abzugswinkeln bei der Gurtführung
+hinten außen vor. [redacted-person] werden
+anordnungsabhängig ge- prüft.</p>
+<p><strong><u>Kleinunfall</u></strong></p>
+<p><strong>Prozedur für Kunststoffteile und Metallteile:</strong></p>
+<p>Zuglast: ≥4,5 kN Bandlast in Fzg. Anordnung</p>
+<p>(1,3 kN Richtwert für Direktlast quer zur Gurtführung vorne)</p>
+<p>Zugrichtung: fahrzeugspezifischer Gurtbandabzug gemäß</p>
+<p>Gurtzugsimulation ([redacted-person])</p>
+<p>siehe <strong>[redacted-person] 2 (falls nicht vorhanden: Blatt
+1)</strong></p>
+<p>Zuggeschwindigkeit: 100 mm/min Haltezeit: ≥1 sec
+<strong>Anforderungen zusätzlich:</strong></p>
+</blockquote>
+<ul>
+<li><p>keine bleibende Verformung der Gurtführung und der Verankerung
+(bei Kunststoffteilen)</p></li>
+<li><p>plastische Verformungen zulässig, solange Funktion gegeben ist
+(bei Gurtführungen aus Metall)</p></li>
+<li><p>keine sonstigen Schäden an der Gurtführung und der
+Verankerung</p></li>
+</ul>
+<blockquote>
+<p><strong><u>Großunfall</u></strong></p>
+<p><strong>Prozedur für Kunststoffteile:</strong></p>
+<p>Zuglast: fahrzeugspezifische max. Schulterlast gemäß
+Gurtzugsimulation ([redacted-person])</p>
+<p>Zugrichtung: fahrzeugspezifischer Gurtbandabzug gemäß</p>
+<p>Gurtzugsimulation ([redacted-person])</p>
+<p>siehe <strong>[redacted-person] 2 (falls nicht vorhanden: Blatt
+1)</strong></p>
+<p>Zuggeschwindigkeit: 100 mm/min</p>
+<p>Haltezeit: ≥10 sec. (bei Kunststoffteilen)</p>
+<p><strong>Anforderungen zusätzlich:</strong></p>
+</blockquote>
+<ul>
+<li><p>plastische Verformung ohne Riss- und Kantenbildung
+zulässig</p></li>
+</ul>
+<blockquote>
+<p><strong>Prozedur für Metallteile:</strong></p>
+<p>Zuglast: Zug bis zum Versagen</p>
+<p>Zugrichtung: fahrzeugspezifischer Gurtbandabzug gemäß</p>
+<p>Gurtzugsimulation ([redacted-person])</p>
+<p>siehe <strong>[redacted-person] 2 (falls nicht vorhanden: Blatt
+1)</strong></p>
+<p>Zuggeschwindigkeit: 100 mm/min</p>
+<p><strong>Anforderungen zusätzlich:</strong></p>
+</blockquote>
+<ul>
+<li><p>plastische Verformung ohne Riss- und Kantenbildung zulässig bis
+zur fahrzeugspezifi- schen max. Schulterlast gemäß Gurtzugsimulation
+([redacted-person])</p></li>
+<li><p>Versagensgrenze &gt; fahrzeugspezifische max. Schulterlast gemäß
+Gurtzugsimulation ([redacted-person]) nach Konzernvorgabe (→ 20% Sicherheit
+integriert)</p></li>
+</ul>
+<ol start="3" type="1">
+<li><p><strong>[redacted-person] und Muttern</strong></p></li>
+</ol>
+<blockquote>
+<p>In der Regel sind Schrauben nur bei Kunststoffgurtführungen gemäß
+8K[redacted-phone]A (siehe Kap. 4.2) verbaut bzw. im Lieferumfang der
+Gurtführung und somit auch nur bei diesen Bau- teilen durchzuführen.</p>
+</blockquote>
+<p><img src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image19.png" style="width:3.44717in;height:3.28125in"/></p>
+<blockquote>
+<p>[redacted-person] muss nach jeder Neuanschaffung und bei jedem
+Herstellerwechsel der Zukaufteile folgender Versuchsdurchlauf (siehe
+Skizze oben) erfolgen:</p>
+</blockquote>
+<ul>
+<li><p>Schraube und Mutter werden in einer Prüfvorrichtung bis zum Bruch
+gezogen</p></li>
+<li><p>Bruchlastanforderung: &gt; 5kN</p></li>
+<li><p>[redacted-person] entspricht dem der Gurtführung hinten
+außen (siehe Bau- teilzeichnung).</p></li>
+<li><p>[redacted-person] von mind. 4 Stück ist mit der dafür
+zuständigen Fachabteilungen abzusprechen und kann bei Bedarf erweitert
+werden.</p></li>
+</ul>
+<ol start="2" type="1">
+<li><p><strong>[redacted-person] Zuständigkeit: Entwickler der
+Gurtanordnung</strong></p>
+<ol type="1">
+<li><p><strong>[redacted-person] dynamisch</strong></p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p><strong>***geprüft wird nur die linke Gurtführung***</strong></p>
+<p><strong>Prüfaufbau:</strong></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] werden mit einem Gurtaufroller auf einer
+Vorrichtung gemäß <strong>Bauteilzeich- nung Blatt 2 (falls nicht
+vorhanden: Blatt 1)</strong> wie im Fahrzeug befestigt.</p></li>
+<li><p>Band über die Gurtführung führen und belasten</p></li>
+<li><p>Zugrichtung siehe <strong>[redacted-person] 2 (falls nicht
+vorhanden: Blatt 1)</strong></p></li>
+<li><p>Messung und Aufzeichnung der Kräfte über der Zeit</p></li>
+<li><p>Videoaufzeichnung des Bauteilverhaltens während Test aus zwei
+aussagekräftigen Posi- tionen</p></li>
+<li><p>Synchronisation zwischen Kraft-Zeit-Messung und
+Videoaufzeichnung</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] der Schrauben zum Verrasten der Gurtführung gemäß
+Gurtführung AU481 (8K[redacted-phone]A, siehe Kap. 4.2) auf dem Prüfstand ist
+zulässig, solange ein fester Sitz der GuFü gewährleistet ist.</p>
+<p><strong>Belastungspuls</strong></p>
+</blockquote>
+<ul>
+<li><p>Die aufzubringenden Lastkurven (1. und 2. Sitzreihe) sind im
+Vorfeld mittels Simulation zu ermitteln (Gurtkraft an der Schulter
+B3).</p></li>
+<li><p>Insassengröße: 95%</p></li>
+<li><p>härtester anzunehmender Puls (z.[redacted-person],
+Gurtretraktor mit Stopp, …)</p></li>
+<li><p>Vorgehensweise (siehe Bild) zur Ermittlung der Grenzkurve:</p>
+<ol type="1">
+<li><p>Ermittlung des Maximums aus der Insassensimulation (blaue
+Kurve)</p></li>
+<li><p>Maximum aus der Insassensimulation + 10% in vertikale
+Richtung</p></li>
+</ol></li>
+</ul>
+<blockquote>
+<p>= 1.Punkt bzw. Maximum der Grenzkurve</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Maximum aus der Insassensimulation – 10ms in horizontale
+Richtung</p></li>
+</ol>
+<blockquote>
+<p>= 2. Punkt der Grenzkurve</p>
+</blockquote>
+<ol start="4" type="1">
+<li><p>Maximum aus der Insassensimulation + 10ms in horizontale
+Richtung</p></li>
+</ol>
+<blockquote>
+<p>= 3. Punkt der Grenzkurve</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p>Belastungsanstieg bis zu 3. (2. Punkt der Grenzkurve) innerhalb
+30ms</p></li>
+</ol>
+<ul>
+<li><p>Sicherheit: 10% über 1. Maximum aus der
+Insassensimulation</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] des Belastungspulses wird im Folgenden beispielhaft,
+ausgehend von einer vorliegenden Insassensimulation beschrieben:</p>
+</blockquote>
+<p><img alt="C:\Users\grk0z5e\Desktop\Bild2221.jpg" src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image20.jpeg" style="width:6.16899in;height:3.43333in"/></p>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Gurtführung hinten außen</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Gurtführung vorne</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>4 Versuche*</p>
+</blockquote></td>
+<td><blockquote>
+<p>Zugrichtung 95 %**</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person] B</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>* mindestens 4 Teile je Farbe nach Temperaturtest (siehe 6.4.2)
+(Farbvarianz bei Kunststoffgurtführungen im Sichtbereich)</p>
+<p>** Die zuständige Fachabteilung behält sich statische
+Festigkeitsprüfungen mit anderen Abzugswinkeln bei der Gurtführung
+hinten außen vor. [redacted-person] werden
+anordnungsabhängig ge- prüft.</p>
+<p><strong>Anforderungen zusätzlich:</strong></p>
+</blockquote>
+<ul>
+<li><p>plastische Verformung ohne Riss- und Kantenbildung
+zulässig</p></li>
+</ul>
+<ol start="2" type="1">
+<li><p><strong>[redacted-person] – Sicherheitsgurt
+angelegt</strong></p></li>
+</ol>
+<blockquote>
+<p>Dieser <em><strong>Versuch ist nur erforderlich</strong></em>, falls
+ein Nachweis über die vollständige Verrastung während der dynamischen
+Belastungsversuche nicht erbracht werden konnte (nur bei Gurt- führungen
+die lediglich über eine Verrastung am Rohbau befestigt, nicht aber noch
+zusätz- lich verschraubt sind, beispielsweise gemäß Gurtführung AU481
+(8K[redacted-phone]A, siehe Kap. 4.2).</p>
+<p><strong>Prüfaufbau:</strong></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] mit vollständiger Gurtstraffer-
+Anordnung</p></li>
+<li><p>Dummy 5%</p></li>
+<li><p>Gurtband angelegt</p></li>
+<li><p>Straffer wird im Stand gezündet</p></li>
+<li><p>ohne folgende Belastung durch Insassen</p></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Gurtführung hinten außen</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Gurtführung vorne</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>2 Versuche</p>
+</blockquote></td>
+<td><blockquote>
+<p>Zugrichtung 5 %</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person] B</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li><p><strong>[redacted-person] – Sicherheitsgurt
+abgelegt</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] soll die Festigkeit der Gurtführung hinten außen beim
+Straffvorgang <strong>bei voll- ständig abgelegtem Gurtband</strong>
+bestätigen (bei Gurtführungen mit großem Überstand zum
+Rohbau<strong>,</strong> wodurch zusätzliche Momente auf die
+Gurtumlenkung wirken).</p>
+<p><strong>Prüfaufbau:</strong></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person], Konsole, Lehnenseitenteil</p></li>
+<li><p>Gurtband in Richtung abgelegt verankern</p></li>
+<li><p>projektspezifischen Gurtstraffer (Hochleistungsstraffer) im Stand
+zünden</p></li>
+<li><p>ohne folgende Belastung durch Insassen</p></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Gurtführung hinten außen</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>1 Versuch</p>
+</blockquote></td>
+<td><blockquote>
+<p>abgelegter Gurt</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Anforderungen zusätzlich:</strong></p>
+</blockquote>
+<ul>
+<li><p>Das vordere überstehende Ende der Gurtführung hinten außen darf
+nicht brechen oder einreißen.</p></li>
+</ul>
+<ol start="3" type="1">
+<li><p><strong>Anforderungen an alle geprüften [redacted-person]:</strong></p></li>
+</ol>
+<ul>
+<li><p>keine Beschädigung des Gurtbandes durch die Oberfläche der
+Gurtführung</p></li>
+<li><p>[redacted-person] erfolgt bei [redacted-co] oder Entwickler der
+Anordnung</p></li>
+<li><p>keine Beschädigung der [redacted-person] durch das
+Gurtband</p></li>
+</ul>
+<blockquote>
+<p><strong>Temperaturtest:</strong></p>
+</blockquote>
+<ul>
+<li><p>keine Verformung des Bauteiles</p></li>
+<li><p>keine Einfallstellen im Sichtbereich</p></li>
+<li><p>keine Veränderung der Rastnase, Rastnase darf nicht nach
+innerhalb des Bauteiles ver- zogen sein</p></li>
+<li><p>kein Bruch der Verschraubung</p></li>
+</ul>
+<blockquote>
+<p><strong>Rastnase:</strong></p>
+</blockquote>
+<ul>
+<li><p>Vor, während und nach der Belastung muss die Gurtführung
+vollständig in der Veranke- rung / Verrastung bleiben.</p></li>
+<li><p>kein Knicken, Abscheren oder andere Zerstörung der Rastnase und
+deren Befestigungs- basis</p></li>
+<li><p>Gelingt der Nachweis über die vollständige Verrastung während des
+Straffvorganges (Schlitten- und Craschversuche) nicht, so muss ein
+Nachweis über Strafferstandversuche erbracht werden.</p></li>
+</ul>
+<blockquote>
+<p><strong>Festigkeit statisch / dynamisch:</strong></p>
+</blockquote>
+<ul>
+<li><p>kein Bruch, Rissbildung, Splittern an der Gurtführung und deren
+Verankerung</p></li>
+<li><p>keine sonstigen Schäden an der Gurtführung und deren
+Verankerung</p></li>
+<li><p>elastische und plastische Verformung ohne Riss- und Kantenbildung
+zulässig</p></li>
+<li><p>Gurtband darf während der Versuche die Gurtführung nicht
+verlassen</p></li>
+<li><p>[redacted-person] darf nicht beschädigt werden.</p></li>
+</ul>
+<h2 id="testparameter-und-zyklen">Testparameter und Zyklen</h2>
+<p><img src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image21.png" style="width:4.89393in;height:3.43406in"/></p>
+<blockquote>
+<p>Temperatur-Zeit-Diagramm: Zyklus PV1200</p>
+</blockquote>
+<h2 id="beschaffenheit-des-zu-testenden-musterstandes">Beschaffenheit
+des zu testenden Musterstandes</h2>
+<h2 id="betriebszustände">Betriebszustände</h2>
+<ol start="4" type="1">
+<li><p><strong>[redacted-person] und [redacted-person]: Entwickler der
+Gurtanordnung</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] der Festigkeit der Gurtführungen (vorne und hinten
+außen) erfolgt durch den Entwickler der Gurtanordnung.</p>
+<p>Entwicklungsziel ist, den im Lastenheft / in der Prüfmatrix genannten
+Prüfumfang (Festigkeit statisch / dynamisch) umfassend virtuell
+abzubilden und bei Bedarf zur Verfügung zu stellen. Dabei sind
+zusätzlich zur Gurtführung auch sämtliche an die Gurtführung grenzende
+Kom- ponenten (Verkleidungsteile, Kofferraumabdeckung, Seitenpolster,
+Rücksitzlehne) und die Anbindung an den Rohbau entsprechend in der
+Simulation zu modellieren. [redacted-person] sind für jeden neuen Teilestand
+bei [redacted-person] für die Rückhaltesystemaus- legung zur
+Verfügung zu stellen, die den aktuellen Entwicklungsstand virtuell
+abbilden.</p>
+<p>[redacted-person] soll insbesondere folgende Ergebnisse abbilden:</p>
+</blockquote>
+<ul>
+<li><p>Bauteilfestigkeit/-steifigkeit</p></li>
+<li><p>Spannungsspitzen</p></li>
+<li><p>maximale Verformungen</p></li>
+<li><p>Visualisierung der Grenzbruchdehnung</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] der Gurtführung erfolgt auf Anweisung des
+Auftraggebers mit verschiedenen Werkstoffen.</p>
+<p>Siehe [redacted]LAH.DUM.857.BB</p>
+<p><em>[A: BT-LAH-698]</em></p>
+<p>[redacted-person] und Simulationen sind die festgelegten Verfahren und
+Systeme anzu- wenden. [redacted-person] erfolgt gemäß den Anforderungen
+der [redacted-co]99000, Abschnitt "Produktdatenmanagement".</p>
+</blockquote>
+<h2 id="fahrzeugerprobung">Fahrzeugerprobung</h2>
+<blockquote>
+<p>Erprobungen am Gesamtfahrzeug werden bei [redacted-co] bzw. beim Entwickler
+der Gurtanordnung durchgeführt.</p>
+<p>[redacted-person] der Gurtführung erfolgt beim Entwickler der
+Gurtanordnung.</p>
+</blockquote>
+<p><em>[A: BT-LAH-713]</em></p>
+<blockquote>
+<p>[redacted-person] ist verpflichtet im jeweiligen Zielfahrzeug die
+entsprechenden Untersu- chungen durchzuführen, um damit den Nachweis der
+Funktionsfähigkeit des Produktes zu erbringen. [redacted-person] hierzu
+sind dem Auftraggeber offen zu legen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-715]</em></p>
+<blockquote>
+<p>Teile aus Fahrzeugdauerläufen sind auf Anforderung vom Auftragnehmer
+zu analysieren.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Wenn zur Durchführung von Versuchstätigkeiten das Bewegen von
+Fahrzeugen des Auf- traggebers vorgeschrieben wird, dann stellt der
+Auftraggeber die Fahrzeuge z. [redacted-person] Leihvertragsregelung zur
+Verfügung. Fahrer von Erprobungsfahrzeugen benötigen neben der
+erforderlichen Fahrlizenz ein vom Auftraggeber anerkanntes
+Fahrsicherheitstraining.</p>
+</blockquote>
+<h2 id="erprobung-gurtsystem">[redacted-person]</h2>
+<ol type="1">
+<li><p><strong>[redacted-person] Zuständigkeit: [redacted]</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] wird mit den anderen Gurtsystemkomponenten gemeinsam
+in der Karosse-</p>
+<p>rie auf Erfüllung der gesetzlichen Anforderungen geprüft.</p>
+<p><strong>Anforderungen:</strong></p>
+</blockquote>
+<ul>
+<li><p>ohne Bruch oder sonstiges Versagen, welches zur Beeinträchtigung
+der Rückhaltefunkti- on des Gurtsystems führt</p></li>
+<li><p>Nachgiebigkeit von Bauteilen mit darauffolgender Gurtlose ist
+nicht zulässig</p></li>
+<li><p>Einhaltung der Gesetzesanforderungen</p></li>
+</ul>
+<ol start="2" type="1">
+<li><p><strong>[redacted]</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] durch kleine Unfälle ([redacted-person]) dürfen die
+Bauteile und deren Ver-</p>
+<p>ankerungen sich nicht bleibend verformen, bzw. beschädigt werden.
+Nach der Belastung muss die vollständige Funktion aller Bauteile
+gewährleistet sein.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p><strong>[redacted]</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person]</p>
+<p>Abschließend zur Entwicklung des Gurtsystems erfolgt der TL 471
+Schlittenversuch nach Kapitel „[redacted-person] mit 95%-Mann im
+Fahrzeug“.</p>
+</blockquote>
+<ol start="4" type="1">
+<li><p><strong>Funktionserprobung</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] wird <strong>von [redacted-co], vom Entwickler der
+Gurtanordnung, bzw. vom [redacted-person]</strong> durchgeführt. Im
+Bedarfsfall, wenn Probleme mit der Gurtführung auftreten, wird der
+Hersteller der Gurtführung hinzugezogen.</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p><strong>[redacted]</strong></p></li>
+</ol>
+<h2 id="typprüfung-gesamtfahrzeug">[redacted-person]</h2>
+<blockquote>
+<p><strong>Zuständigkeit: [redacted-co]</strong></p>
+<p>Bei typprüfpflichtigen Bauteilen sind zum Erfüllungsnachweis der
+gesetzlichen Anforderun- gen Prüfungen in Absprache mit der zuständigen
+Typprüfabteilung des Auftraggebers ggf. in Anwesenheit des [redacted-person] bzw. der Behörde durchzuführen und zu dokumen- tieren (siehe
+auch Kap. 2.6.4).</p>
+</blockquote>
+<h1 id="definitionen-begriffe-abkürzungen">Definitionen, Begriffe,
+Abkürzungen</h1>
+<h2 id="begriffe">Begriffe</h2>
+<blockquote>
+<p><strong>2-Tages-Produktion</strong></p>
+<p>siehe Formel-Q-Konkret</p>
+<p><strong>A-Muster:</strong></p>
+<p>Darstellung der Grundfunktionen zur Abstimmung des
+Bauteil-Lastenheftes:</p>
+</blockquote>
+<ul>
+<li><p>Vervollständigung des Bauteil-Lastenheftes</p></li>
+<li><p>Erprobung von alternativen Funktionen</p></li>
+<li><p>[redacted-person] Ziele:</p></li>
+<li><p>Konzept bestätigen und ergänzen</p></li>
+<li><p>BT-LAH endgültig festschreiben</p></li>
+</ul>
+<blockquote>
+<p><strong>Baumustergenehmigung:</strong></p>
+<p>siehe [redacted-co]99000-4</p>
+<p><strong>B-Muster (Grundsatzmuster):</strong></p>
+<p>Umsetzung des Bauteil-Lastenheftes in seriennaher Form:</p>
+<p><em>[I: BT-LAH-899]</em></p>
+<p><em>[I: BT-LAH-719]</em></p>
+<p><em>[I: BT-LAH-722]</em></p>
+<p><em>[I: BT-LAH-723]</em></p>
+</blockquote>
+<ul>
+<li><p>Zeichnungen, Schalt- und Bestückungsplan und Layout sowie
+Softwarebeschrei- bung entsprechend vorliegendem Baustand
+vorhanden</p></li>
+<li><p>[redacted-person], Layout, Bestückung und Software in
+seriennaher Ausfüh- rung (aus Hilfswerkzeugen)</p></li>
+<li><p>Erfüllung sämtlicher Funktionsanforderungen</p></li>
+<li><p>Beseitigung von Fehlern, Änderungen in begrenztem Umfang
+möglich</p></li>
+<li><p>Laborprüfungen sind vom Auftragnehmer durchzuführen
+Ziele:</p></li>
+<li><p>[redacted-person] durch Labor- und Fahrversuche
+feststellen</p></li>
+<li><p>Beauftragung der Werkzeuge für die Einzelteile durch die
+Beschaffung</p></li>
+</ul>
+<p><em>[I: BT-LAH-725]</em></p>
+<blockquote>
+<p><strong>C-Muster ([redacted-person]):</strong></p>
+<p>[redacted-person]- oder Serienfertigungsanlage hergestellte Teile:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] aus Serien-Fertigung</p></li>
+<li><p>Serien-Software</p></li>
+<li><p>[redacted-person] bezüglich Spezifikation</p></li>
+<li><p>Dokumentationen (Zeichnungen, Schaltungsunterlagen, usw.) und
+Prüfberichte liegen komplett vor</p></li>
+</ul>
+<blockquote>
+<p>Ziele:</p>
+</blockquote>
+<ul>
+<li><p>Serientauglichkeit bestätigen</p></li>
+<li><p>Baumustergenehmigung durch die [redacted-person] des
+Auftraggebers</p></li>
+</ul>
+<blockquote>
+<p><strong>Entwicklungsdienstleister:</strong></p>
+<p>Entwickler der Gurtanordnung, zuständiges Ingenieurbüro für die
+Konstruktion der Gurtfüh- rung (CAD, Simulation, Erprobungsumfänge)</p>
+<p><strong>Erprobung:</strong></p>
+<p>Gesamtumfang aller Tests und/oder Prüfungen</p>
+<p><strong>Erstmuster:</strong></p>
+<p>siehe Formel-Q-Konkret</p>
+<p><strong>Lieferant:</strong></p>
+<p>Hersteller / Produzent der Gurtführung</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>Abkürzungen
+3D</strong></p></li>
+</ol>
+<blockquote>
+<p>Dreidimensional</p>
+<p><strong>ANO-LAH</strong></p>
+<p>Anordnungs-Lastenheft</p>
+<p><strong>ABG-Bauteile</strong></p>
+<p>Allgemein bauartgenehmigungspflichtige Bauteile</p>
+<p><strong>BT-LAH</strong></p>
+<p>Bauteil-Lastenheft</p>
+<p><strong>CAD</strong></p>
+<p>[redacted-person] Design</p>
+<p><strong>CCC</strong></p>
+<p>[redacted-person] Certification</p>
+<p><strong>DMU</strong></p>
+<p>[redacted-person]-Up</p>
+<p><strong>ECE</strong></p>
+<p>[redacted-person] for Europe</p>
+<p><strong>EDL</strong></p>
+<p>Entwicklungsdienstleister</p>
+<p><strong>EEPROM</strong></p>
+<p>[redacted]</p>
+<p><strong>EG</strong></p>
+<p>[redacted-person]</p>
+</blockquote>
+<p><em>[I: BT-LAH-726]</em></p>
+<p><em>[I: BT-LAH-898]</em></p>
+<p><em>[I: BT-LAH-729]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-731]</em></p>
+<p><em>[I: BT-LAH-732]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-734]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-735]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-738]</em></p>
+<blockquote>
+<p><strong>FMEA</strong></p>
+<p>Failure mode and effects analysis</p>
+<p><strong>FTA</strong></p>
+<p>[redacted-person] Analysis</p>
+<p><strong>GHV</strong></p>
+<p>Gurthöhenverstellung</p>
+<p><strong>GuFü</strong></p>
+<p>Gurtführung</p>
+<p><strong>HiL</strong></p>
+<p>Hardware in the Loop</p>
+<p><strong>HW</strong></p>
+<p>Hardware</p>
+<p><strong>KW</strong></p>
+<p>Kalenderwoche</p>
+<p><strong>MBT</strong></p>
+<p>[redacted-person]</p>
+<p><strong>ppm</strong></p>
+<p>Parts per Million</p>
+<p><strong>PDM</strong></p>
+<p>Produktdatenmanagement</p>
+<p><strong>PVS</strong></p>
+<p>Produktionsversuchsserie</p>
+<p><strong>QM</strong></p>
+<p>Qualitätsmanagement</p>
+<p><strong>RFID</strong></p>
+<p>Radio-[redacted-person]</p>
+<p><strong>SE</strong></p>
+<p>[redacted-person]</p>
+<p><strong>SOP</strong></p>
+<p>Start of Production</p>
+<p><strong>SW</strong></p>
+<p>Software</p>
+</blockquote>
+<p><em>[I: BT-LAH-740]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-741]</em></p>
+<p><em>[I: BT-LAH-746]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-751]</em></p>
+<p><em>[I: BT-LAH-752]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-756]</em></p>
+<p><em>[I: BT-LAH-758]</em></p>
+<p><em>[I: BT-LAH-759]</em></p>
+<p><em>[I: BT-LAH-760]</em></p>
+<blockquote>
+<p><strong>TL</strong></p>
+<p>[redacted-person]</p>
+<p><strong>VDA</strong></p>
+<p>Verband der Automobilindustrie e.V.</p>
+<p><strong>ZSB</strong></p>
+<p>Zusammenbau</p>
+<p><em>[I: BT-LAH-762]</em></p>
+<p><em>[I: BT-LAH-763]</em></p>
+</blockquote>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<p><em>[A: BT-LAH-766]</em></p>
+<blockquote>
+<p>Es gelten die am Ausgabedatum des BT-LAH gültigen mitgeltenden
+Unterlagen, sowie die darin genannten Dokumente.</p>
+</blockquote>
+<p><em>[A: BT-LAH-767]</em></p>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den für dieses BT-LAH
+gültigen mitgeltenden Unterlagen zu arbeiten.</p>
+<p><strong>Bezugsquelle:</strong></p>
+<p><em>[I: BT-LAH-769]</em></p>
+<p>Dokumente können über die B2B-Lieferantenplattform des [redacted-person] unter der Internetadresse: <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+mit einer Zugangsberechtigung abgerufen wer- den. (Kontakt auch über
+[redacted]99 bzw. International: +49-5361- 933099
+oder e-Mail: <a href="mailto:supplierintegration@vwgroupsupply.com">[redacted-email]</a>
+)</p>
+</blockquote>
+<h2 id="zeichnungen-pläne-skizzen-variantenbaum">Zeichnungen, Pläne,
+Skizzen; Variantenbaum</h2>
+<p><img src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image22.jpeg" style="width:3.07926in;height:3.42083in"/><img src="./07_Components-20190311-lah-dum-857-ae-v-1-7-guf-hi-au-media/media/image23.jpeg" style="width:3.00628in;height:3.35562in"/></p>
+<blockquote>
+<p>[redacted-person] statisch [redacted-person] dynamisch</p>
+</blockquote>
+<h2 id="technische-spezifikationen">[redacted-person]</h2>
+<blockquote>
+<p><strong>DIN 75220</strong></p>
+<p>Sonnenlichtsimulation</p>
+<p><strong>EP [redacted-phone]</strong></p>
+<p>[redacted-person]</p>
+</blockquote>
+<p><em>[A: BT-LAH-869]</em></p>
+<blockquote>
+<p><strong>Formel Q</strong></p>
+<p>Konzern-Richtlinien der [redacted-person]: Formel
+Q-Konkret, -Neuteile integ- ral, -Fähigkeit</p>
+<p><strong>PV 1200</strong></p>
+<p>Klimawechseltest</p>
+<p><strong>PV 1303</strong></p>
+<p>Lichtechtheitsprüfung</p>
+<p><strong>PV 3341</strong></p>
+<p>[redacted-person] der Kfz-Innenausstattung; Bestimmung der
+Emission organi- scher Verbindungen</p>
+<p><strong>PV 3900</strong></p>
+<p>Bauteile des Fahrzeuginnenraums, Geruchsprüfung</p>
+<p><strong>PV 3905</strong></p>
+<p>Kugelfallprüfung</p>
+<p><strong>PV 3925</strong></p>
+<p>Polymerwerkstoffe; Messung der Formaldehydemission</p>
+<p><strong>PV 3952</strong></p>
+<p>Schreibverhalten</p>
+<p><strong>PV 3974</strong></p>
+<p>Kratzverhalten</p>
+<p><strong>TL 1010</strong></p>
+<p>Schwerbrennbarkeit</p>
+<p><strong>VDA [redacted-phone]</strong></p>
+<p>Werkstoffklassifizierung im Kraftfahrzeugbau; Aufbau und
+Nomenklatur</p>
+<p><strong>VDA [redacted-phone]</strong></p>
+<p>[redacted-person] für deklarationspflichtige Stoffe im Automobilbau</p>
+<p><strong>VDA 260</strong></p>
+<p>Bauteile von Kraftfahrzeugen - Kennzeichnung der Werkstoffe</p>
+<p><strong>[redacted]</strong></p>
+<p>Firmenzeichen, Teilekennzeichnung; Richtlinie für die Anwendung</p>
+<p><strong>[redacted]</strong></p>
+<p>Warenzeichen für Fahrzeugteile</p>
+<p><strong>[redacted]</strong></p>
+<p>Hersteller-Code für Fahrzeugteile</p>
+<p><strong>[redacted]</strong></p>
+<p>Herstellland-Kennzeichnung, Fahrzeugteile</p>
+<p><strong>[redacted]</strong></p>
+<p>Datumskennzeichnung, Fahrzeugteile</p>
+<p><strong>[redacted-co]13750</strong></p>
+<p>Oberflächenschutz für Metallteile; Schutzarten, Kurzzeichen</p>
+<p><strong>[redacted-co]50179</strong></p>
+<p>Bauteile des Fahrzeuginnenraumes; Emissionsverhalten</p>
+<p><strong>[redacted-co]50180</strong></p>
+<p>Bauteile des Fahrzeuginnenraumes; Emissionsverhalten</p>
+<p><strong>[redacted-co]50185</strong></p>
+<p>Freibewitterung</p>
+<p><strong>[redacted-co]50190</strong></p>
+<p>Fahrzeugbauteile; Farbe/ Glanz/ Oberfläche</p>
+<p><strong>[redacted-co]91100</strong></p>
+<p>[redacted-person]; Fahrzeugteile, Werkstoffe, Betriebsstoffe;
+Zielsetzung, Festlegung</p>
+<p><strong>[redacted-co]91104</strong></p>
+<p>[redacted-person]; Grundlagen; [redacted-person],
+Sachbilanz</p>
+<p><strong>[redacted-co]01067</strong></p>
+<p>Einsatz von Auto-ID zur eindeutigen Objektkennzeichnung</p>
+<p><strong>[redacted-co]01155</strong></p>
+<p>Fahrzeug-Zulieferteile; Genehmigung von Erstlieferung und
+Änderung</p>
+<p><strong>[redacted-co]91102</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH-780]</em></p>
+<blockquote>
+<p>[redacted-person], Fahrzeugteile, Werkstoffe, Betriebsstoffe;
+Recyclinganforderungen, Rezyklateinsatz</p>
+<p><strong>[redacted-co]99000</strong></p>
+<p><em>[A: BT-LAH-781]</em></p>
+<p>[redacted-person] zur Leistungserbringung im Rahmen der
+Bauteilentwicklung</p>
+</blockquote>
+<p><em>[A: BT-LAH-782]</em></p>
+<blockquote>
+<p><strong>[redacted-co]99000-1</strong></p>
+<p>Teil 1: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilent- wicklung; Planungsfreigabe</p>
+<p><strong>[redacted-co]99000-2</strong></p>
+<p><em>[A: BT-LAH-783]</em></p>
+<p>Teil 2: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilent- wicklung; Beschaffungsfreigabe</p>
+<p><strong>[redacted-co]99000-3</strong></p>
+<p><em>[A: BT-LAH-784]</em></p>
+<p>Teil 3: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilent- wicklung; Konstruktionsfreigabe</p>
+<p><strong>[redacted-co]99000-4</strong></p>
+<p><em>[A: BT-LAH-785]</em></p>
+<p>Teil 4: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilent- wicklung Baumustergenehmigung</p>
+</blockquote>
+<h2 id="typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen,
+Vorschriften, Gesetze</h2>
+<blockquote>
+<p>Aufgeführt sind hier nur die wichtigsten Typprüfungen, Vorschriften
+und Gesetze. Selbstver- ständlich gelten auch alle anderen relevanten
+weltweiten Anforderungen.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Gesetznummer</th>
+<th><blockquote>
+<p>Geltungsbereich</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>EG 77, ECE-R16</td>
+<td><blockquote>
+<p>EG und ECE</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] und Si Gurte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>FMVSS 208 und 209</td>
+<td><blockquote>
+<p>USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] und Si Gurte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>SR S 208 und 209</td>
+<td><blockquote>
+<p>Canada</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] und Si Gurte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ADR 4</td>
+<td><blockquote>
+<p>Australien</p>
+</blockquote></td>
+<td><blockquote>
+<p>Gesetz Si Gurte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>EG 76, ECE-R 14</td>
+<td><blockquote>
+<p>EG und ECE</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Si Gurte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>FMVSS 210</td>
+<td><blockquote>
+<p>USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Si Gurte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>SR S 210 ( CMVSS )</td>
+<td><blockquote>
+<p>Canada</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Si Gurte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ADR 5</td>
+<td><blockquote>
+<p>Australien</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Si Gurte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>FMVSS 225</td>
+<td><blockquote>
+<p>USA</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>SR S 210.2 ( CMVSS )</td>
+<td><blockquote>
+<p>Canada</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>ADR 34</td>
+<td><blockquote>
+<p>Australien</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>EG 74/60, ECE-R21</td>
+<td><blockquote>
+<p>EG und ECE</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] und Kanten</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>FMVSS 201</td>
+<td><blockquote>
+<p>USA</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>SRS S 201 ( CMVSS )</td>
+<td><blockquote>
+<p>Canada</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>FMVSS 302</td>
+<td><blockquote>
+<p>USA</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>SR S 302</td>
+<td><blockquote>
+<p>Canada</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>TL 1010</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>UL94 V-0</td>
+<td><blockquote>
+<p>[redacted-person] von Bauteilen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>EU–Richtlinie [redacted-phone]EG</td>
+<td><blockquote>
+<p>EU – Richtlinie zur Altautoverordnung</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Erfüllung der Kopfaufschlaganforderungen bei offenliegenden Teilen
+ECE R21</p>
+</blockquote>
+<ul>
+<li><p>Mindestradien R 3,5</p></li>
+<li><p>Deformationsweg für das vordere überstehende Ende der
+Gurtumlenkung hinten außen</p></li>
+</ul>
+<blockquote>
+<p>&gt; 35 mm</p>
+</blockquote>
+<h2 id="querschnittslastenhefte">Querschnittslastenhefte</h2>
+<blockquote>
+<p><strong>Lieferumfangslastenheft</strong></p>
+<p>projektspezifisches Lieferumfangslastenheft</p>
+<p><strong>Gurtanordnungslastenheft</strong></p>
+<p>projektspezifisches Gurtanordnungslastenheft</p>
+<p><strong>Lastenheft</strong></p>
+<p>projektspezifisches [redacted-person]
+Frontrückhaltesystem</p>
+<p><strong>LAH DUM.857.BB</strong></p>
+<p>[redacted]</p>
+<p><strong>Lastenheft</strong></p>
+<p>projektspezifisches Gesamtfahrzeuglastenheft</p>
+<p><strong>LAH 5Q0.971</strong></p>
+<p>[redacted-person]-Anforderungen</p>
+<p>Für [redacted-co] gilt:</p>
+<p><strong>LAH [redacted-phone]</strong></p>
+<p>Qualitätslastenheft</p>
+<p>Für [redacted-co] gilt: <strong>LAH DUM 000 A</strong> TE DMU</p>
+<p>Für [redacted-co] gilt: <strong>LAH DUM 000</strong> TE CATIA V5</p>
+<p><strong>LAH.[redacted-phone]AF</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH-938]</em></p>
+<p><em>[A: BT-LAH-939]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Anforderungsprofil für die Beauftragung von technischen Regeln zur
+Aufnahme im System MBT</p>
+</blockquote>
+<h2 id="zu-beachtende-schutzrechte-und-lizenzen">Zu beachtende
+Schutzrechte und Lizenzen</h2>
+<h2 id="sonstige-unterlagen">[redacted-person]</h2>
+<h2 id="anhang-1-prüfmatrix">Anhang 1: Prüfmatrix</h2>
+<blockquote>
+<p>siehe beigefügte Excel-Datei zur Prüfmatrix für die B-Freigabe und
+Baumusterfreigabe der Gurtführung</p>
+<p>[redacted-person] ist durch den jeweiligen Prüfer auszufüllen und dem
+Auftraggeber vorzulegen. Zusätzlich sind weitere Dokumente
+(Datenblätter, Werkstoffprüfberichte, etc.) der Matrix bei- zufügen.</p>
+<p>[redacted-person] der erfolgten und bestandenen Prüfungen (aus diesem
+Lastenheft / der Prüfmatrix) <strong>wird die Empfehlung zur B-Freigabe
+und Baumusterfreigabe vom Lieferan- ten der Gurtführung und dem
+Entwickler der Gurtanordnung abgegeben</strong>.</p>
+<p><strong>Anhang 2: Abwicklung von Baumusterfreigaben</strong></p>
+<p>bei Änderung des Fertigungsortes, von Werkzeugen, Bauteilen,
+Werkstoffen usw. auf Wunsch eines Lieferanten</p>
+<p>Alle geplanten Änderungen sind zu bündeln und zum Modelljahreswechsel
+zum Einsatz zu bringen.</p>
+<p>folgender Ablauf ist einzuhalten:</p>
+</blockquote>
+<ol type="1">
+<li><p>frühzeitige Meldung der geplanten Maßnahme an die Beschaffung,
+Entwicklung und Qualitätssicherung zur Sicherstellung der
+termingerechten Baumusterfreigabe unter Berücksichtigung der notwendigen
+Prüfzeiträume und Durchführungsbestimmungen</p></li>
+</ol>
+<blockquote>
+<p><strong>Zuständigkeit: Lieferant der Gurtführung</strong></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>gemeinsames Gespräch zwischen Beschaffung, Entwicklung,
+Qualitätssicherung und Lieferant zur Abstimmung der erforderlichen
+Aufwendungen und terminlichen Abar- beitungszeit</p></li>
+</ol>
+<blockquote>
+<p><strong>Zuständigkeit: [redacted]</strong></p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Alle festgelegten Maßnahmen dürfen erst nach Genehmigung seitens
+[redacted-co] umge- setzt werden.</p></li>
+</ol>
+<blockquote>
+<p><strong>Zuständigkeit: Lieferant der Gurtführung, [redacted-co]
+Durchführungsbestimmungen:</strong></p>
+</blockquote>
+<ol type="1">
+<li><p>[redacted-person] führt die festgelegten Prüfungen entsprechend
+dieses Lastenheftes sowie der beigefügten Prüfmatrix durch.</p></li>
+<li><p>[redacted-person] erstellt in deutscher Sprache einen kompletten
+Prüfbericht über die ge- mäß diesem Lastenheft durchgeführten Versuche
+und stellt die Versuchsergebnisse in schriftlicher und elektronischer
+Form zur Verfügung.</p></li>
+<li><p>[redacted-person] erstellt und übergibt einen Prüfbericht, eine
+Fotodokumentation der ge- prüften Teile mit den Werkstoffangaben der
+einzelnen Teile und Belegmuster an die Fachabteilung.</p></li>
+<li><p>[redacted-person] sendet der Fachabteilung eine
+Baumusterfreigabeempfehlung auf Ba- sis der Prüfergebnisse.</p></li>
+<li><p>[redacted-person] erhält Teile für Stichprobenprüfungen.</p></li>
+<li><p>[redacted-person] hat das Recht, bei Prüfungen anwesend zu
+sein.</p></li>
+<li><p>[redacted-person] erstellt ggf. einen Bericht zur Dokumentation
+und erteilt die Bau- musterfreigabe.</p></li>
+</ol>
+</body>
+</html>

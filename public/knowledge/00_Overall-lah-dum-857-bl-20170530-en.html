@@ -1,0 +1,1501 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH.DUM.857.BL_20170530_EN</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>V25_BT-LAH Final_Basismodul-TE-V25_Mai[redacted-ext].docx</p>
+</blockquote>
+<p>[redacted]for [redacted-person] NVH</p>
+<blockquote>
+<p><strong>Development, [redacted-person] Specification</strong>:
+LAH.DUM.857.BL</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Author</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-person]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Dept./OU</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Phone</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Fax</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>E-mail</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>First issue</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-phone]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Date of revision</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Performance</strong></p>
+<p><strong>Specification version</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>3.1</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Distribution list</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted][redacted-name]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Volkswagen, EKSR/3, [redacted-name]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Bentley, EKS/S4, Garth McKay</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SEAT, [redacted-person], Javier Luzón</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Škoda, EKS/3, [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Vehicles, NE-KC, [redacted-person]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Approval</strong></p>
+<p>[I: BT-LAH[redacted-ext]]</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Function</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Department</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Signature</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Vehicle safety</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>- [redacted-co]</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>- Bentley</p>
+</blockquote></td>
+<td><blockquote>
+<p>EKS/S4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>- [redacted-co]</p>
+</blockquote></td>
+<td><blockquote>
+<p>EKS 4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>- SEAT</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>- Škoda</p>
+</blockquote></td>
+<td><blockquote>
+<p>EKS/3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>- Volkswagen</p>
+</blockquote></td>
+<td><blockquote>
+<p>EKSR</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>- [redacted-person] Vehicles</p>
+</blockquote></td>
+<td><blockquote>
+<p>NE-KC</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Revision record</strong></p>
+<p>[I: BT-LAH-941]</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Version</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Description of change(s)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Author/editor (name, OU)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>First issue</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Revised</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Revised</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Completely revised</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>Section 6 shortened and slightly modified; alternative specification
+added as an option in sections 3.2</p>
+<p>and 7; section 3.1.1 added</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>New template</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Contents</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#preface">Preface 4</a></p>
+<ol type="1">
+<li><p><a href="#general-requirements">General requirements
+4</a></p></li>
+</ol></li>
+<li><p><a href="#nvhfrequency-response">NVH/frequency response 5</a></p>
+<ol type="1">
+<li><p><a href="#simplified-retractor-detail-model">Simplified retractor
+detail model 5</a></p></li>
+</ol></li>
+<li><p><a href="#testing-and-noise-measurement-validation">Testing and
+noise measurement validation 6</a></p>
+<ol type="1">
+<li><p><a href="#shaker-validation">Shaker validation 6</a></p>
+<ol type="1">
+<li><p><a href="#validation-on-horizontal-testing-system-with-shaker-table">Validation
+on horizontal testing system with shaker table 6</a></p></li>
+</ol></li>
+<li><p><a href="#retractor-validation">Retractor validation 7</a></p>
+<ol type="1">
+<li><p><a href="#determining-the-loudness-sone-test">Determining the
+loudness (sone test) 8</a></p></li>
+<li><p><a href="#sound-pressure-level-as-a-function-of-time">Sound
+pressure level as a function of time 9</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark11">Optimizing the retractor connection
+parts/holder 9</a></p></li>
+</ol></li>
+<li><p><a href="#acoustic-simulations">Acoustic simulations 10</a></p>
+<ol type="1">
+<li><p><a href="#retractor-noise-behavior-from-shaker-tests">Retractor
+noise behavior from shaker tests 10</a></p></li>
+<li><p><a href="#_bookmark14">Model setup 10</a></p></li>
+<li><p><a href="#simulation-method">Simulation method 10</a></p></li>
+<li><p><a href="#load-cases-and-requirements">Load cases and
+requirements 11</a></p></li>
+</ol></li>
+<li><p><a href="#comparison-between-test-and-simulations">Comparison
+between test and simulations 13</a></p>
+<ol type="1">
+<li><p><a href="#curve-comparison">Curve comparison 13</a></p></li>
+<li><p><a href="#validation-quality">Validation quality 13</a></p></li>
+</ol></li>
+<li><p><a href="#noise-road-testing">Noise road testing 14</a></p></li>
+<li><p><a href="#overview-of-load-cases-for-testing-and-simulation">Overview of
+load cases for testing and simulation 16</a></p>
+<ol type="1">
+<li><p><a href="#shaker">Shaker 16</a></p></li>
+<li><p><a href="#rough-roads">Rough roads 16</a></p></li>
+<li><p><a href="#slamming-the-doors-and-tailgate-shut">Slamming the
+doors and tailgate shut 16</a></p></li>
+<li><p><a href="#sound-excitation">Sound excitation 16</a></p></li>
+</ol></li>
+<li><p><a href="#documentation-and-data-exchange">Documentation and data
+exchange 17</a></p>
+<ol type="1">
+<li><p><a href="#non-disclosure">Non-disclosure 17</a></p></li>
+<li><p><a href="#simulation">Simulation 17</a></p></li>
+<li><p><a href="#testing">Testing 18</a></p></li>
+<li><p><a href="#documentation-at-the-end-of-the-project">Documentation
+at the end of the project 18</a></p></li>
+</ol></li>
+<li><p><a href="#applicable-documents1">Applicable documents
+19</a></p></li>
+</ol>
+<h1 id="preface">Preface</h1>
+<blockquote>
+<p>[redacted-person] Specification (LAH) describes requirements for
+components and simulation models related to vehicle safety. It describes
+the performance specifications, requirements, and test conditions the
+contractor and the product that is to be developed must fulfill.</p>
+<p>[redacted-person] Specification is the basis of the services that the
+contractor must perform. The quotation release procedure must be
+followed.</p>
+</blockquote>
+<h2 id="general-requirements">General requirements</h2>
+<blockquote>
+<p><em>[A: BT-LAH-5]</em></p>
+<p><strong>This LAH and [redacted-co]99000 including parts 1 to 4 define the basic
+scope of the contractor's performance obligations.</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH-6]</em></p>
+<blockquote>
+<p>This LAH describes the performance specifications, requirements, and
+test conditions that the contractor and the product to be developed must
+fulfill.</p>
+</blockquote>
+<h1 id="nvhfrequency-response">NVH/frequency response</h1>
+<blockquote>
+<p>The frequency response must be used to identify retractor and body
+connection point mode shapes that are critical to operation or
+acoustically inadequate. The frequency response is characterized with an
+excitation of 1 N in all spatial directions. The forces are applied at
+the top of the retractor housing as far away from the screw-on point as
+possible. The retractor is rigidly mounted. The numerical simulation
+must be run for a frequency band of 10 to 200 Hz. Targeted changes to
+the system characteristics, such as the damping capacity of the
+materials or additional stiffening elements, must be used in order to
+alter the natural vibrations in such a way that critical frequency
+ranges will be avoided or moved through with significantly reduced
+amplitudes.</p>
+</blockquote>
+<h2 id="simplified-retractor-detail-model">Simplified retractor detail
+model</h2>
+<blockquote>
+<p>For noise, vibration, and harshness (NVH) examinations in the body
+assembly (ASSY), simplified retractor detail models must be provided for
+every single retractor model quoted.</p>
+</blockquote>
+<blockquote>
+<p>F<u>igure 2.1 Examples of simplified retractor detail models</u></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>DOF 123</p>
+</blockquote></th>
+<th><blockquote>
+<p>DOF 123</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>DOF 123456</p>
+</blockquote></td>
+<td><blockquote>
+<p>DOF 123456</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>The models must be constructed as follows:</p>
+</blockquote>
+<ul>
+<li><p>Format: NASTRAN (models must executable in NASTRAN)</p></li>
+<li><p>Element edge length equal to or greater than 3 mm</p></li>
+<li><p>The component stiffnesses and mass distributions match the actual
+real-life parts.</p></li>
+<li><p>The mass comparison (between the actual real-life component and
+the simulation model) must be documented.</p></li>
+<li><p>The position of the rotary shaft and the mass distribution of the
+webbing must be faithfully reproduced.</p></li>
+<li><p>Remaining belt winding length of 1 800 mm (as in an unoccupied
+seat).</p></li>
+<li><p>If there are dimples, the translational degrees of freedom (DOF:
+123) must be locked in place at the dimple bearing surface.</p></li>
+</ul>
+<blockquote>
+<p>The model must be validated as per section <a href="#testing-and-noise-measurement-validation">3</a> "<a href="#testing-and-noise-measurement-validation">Testing and noise
+measurement validation</a>."</p>
+</blockquote>
+<h1 id="testing-and-noise-measurement-validation">Testing and noise
+measurement validation</h1>
+<h2 id="shaker-validation">Shaker validation</h2>
+<blockquote>
+<p>A shaker with a first natural frequency that does not interfere with
+the excitation spectrum must be used.</p>
+<p>The shaker must be validated with rigid retractor equivalent masses
+and retractor holders. The lightest and heaviest retractor masses must
+be tested. The retractor equivalent masses must be screwed onto the
+holder as per the as-installed position. In further tests, the retractor
+holder always remains secured at the exact same points.</p>
+<p>The shaker must be operated in an anechoic or semi-anechoic measuring
+chamber or encapsulated accordingly in order to prevent the measurement
+from being disrupted.</p>
+<p>At least two triaxial acceleration sensors must be secured:</p>
+</blockquote>
+<ul>
+<li><p>On the retractor tightening screw on the holder.</p></li>
+<li><p>Directly on the shaker plate.</p></li>
+</ul>
+<blockquote>
+<p>The excitation signals described in section <a href="#retractor-validation">3.2</a> must be used.</p>
+<p>The required validation quality as per section <a href="#validation-quality">5.2</a> must be achieved. The remaining
+winding lengths must also be approximated with equivalent masses.</p>
+<p>The shaker setup being used must meet the following general
+conditions:</p>
+</blockquote>
+<ul>
+<li><p>The root-mean-square (RMS) value of the power spectral density
+(PSD) of the Z-axis acceleration must not deviate from the desired value
+by more than 5% (evaluation range: 15 to 100 Hz; sampling rate: 1 kHz).
+With the exception of a 4th-order Butterworth low-pass filter with a
+cutoff frequency of 500 Hz, no filters must be used. General PSD
+parameters: Hanning window with 4 096 samples; sampling rate of</p></li>
+</ul>
+<blockquote>
+<p>1 kHz; 90% overlap; RMS amplitude scaling.</p>
+</blockquote>
+<ul>
+<li><p>It is impermissible for the acceleration in the transverse
+direction to exceed the RMS value of the power spectral density in the
+Z-axis direction by more than 10%. The deviation in the Z-axis direction
+must be determined relative to the resulting vector in the XY
+plane.</p></li>
+<li><p>During non-operation, without a retractor, with the webbing drive
+switched on, the test bed setup must have a loudness &lt; 1
+sone.</p></li>
+<li><p>The overall center of gravity (retractor and setup) is located on
+the shaker's Z-axis.</p></li>
+<li><p>A holder that is as rigid as possible and that does not have any
+significant natural vibrations below double the excitation frequency
+must be used.</p></li>
+</ul>
+<h2 id="validation-on-horizontal-testing-system-with-shaker-table">Validation
+on horizontal testing system with shaker table</h2>
+<blockquote>
+<p>It must be technically possible to perform a measurement on the
+shaker table. For a measuring setup with a shaker table used to subject
+the component to a horizontal vibration test (defined for the Y-axis
+direction in this case), the setup must meet the following general
+conditions analogously to section 3.1:</p>
+</blockquote>
+<ul>
+<li><p>The RMS value of the power spectral density of the Y-axis
+acceleration must not deviate from the desired value by more than 5%
+(evaluation range: 15 to 100 Hz; sampling rate: 1 kHz). With the
+exception of a 4th-order Butterworth low-pass filter with a cutoff
+frequency of 500 Hz, no filters must be used. General PSD
+parameters:</p></li>
+</ul>
+<blockquote>
+<p>Hanning window with 4 096 samples; sampling rate of 1 kHz; 90%
+overlap; RMS amplitude scaling.</p>
+</blockquote>
+<ul>
+<li><p>It is impermissible for the acceleration in the transverse
+direction to exceed the RMS value of the power spectral density in the
+Y-axis direction by more than 10%. The deviation in the Y-axis direction
+must be determined relative to the resulting vector in the XZ
+plane.</p></li>
+<li><p>During non-operation, without a retractor, with the webbing drive
+switched on, the test bed setup must have a loudness &lt; 1
+sone.</p></li>
+<li><p>A holder that is as rigid as possible and that does not have any
+significant natural vibrations below double the excitation frequency
+must be used.</p></li>
+</ul>
+<blockquote>
+<p>It must be technically possible to perform a measurement on the
+shaker table.</p>
+</blockquote>
+<h2 id="retractor-validation">Retractor validation</h2>
+<blockquote>
+<p>The position of the retractor's first bending mode and torsional mode
+from the simulation and testing must be validated and documented before
+the first integration into a vehicle. To this end, a shaker measurement
+of the retractor must be carried out in the as-installed position on a
+rigid holder (<a href="#_bookmark9">Figure 3.1</a>). It is recommended
+to use a holder with a natural frequency that is at least twice the
+maximum excitation frequency. The measurement must be performed with the
+following specifications:</p>
+</blockquote>
+<ul>
+<li><p>Measurement without dimple (front vehicle position), the
+retractor bearing surface is a circular surface with a radius of 22.5
+±0.5 mm around the screw-on point; as per [redacted-person] Specification
+TL 82500.</p></li>
+<li><p>Measurement on a rigid holder analogous to mounting in the
+vehicle (three-point support with dimple for rear vehicle
+position)</p></li>
+</ul>
+<blockquote>
+<p>Alternatively, the following measurement is possible following
+consultation with the appropriate departments:</p>
+</blockquote>
+<ul>
+<li><p>"Flat" measurement: Retractor resting across its entire surface
+horizontally, with preload (e.g., dimple). A ball-type sensor must be
+used for the horizontal position.</p></li>
+<li><p>Measurement on a rigid holder analogous to mounting in the
+vehicle (three-point support with dimple for all vehicle
+positions)</p></li>
+<li><p>Remaining belt winding length of 1 800 mm: as in an unoccupied
+seat</p></li>
+</ul>
+<blockquote>
+<p>In order to clearly identify the source of noise, tests with
+retractor parts locked in place (e.g., ball-type sensor) must be
+conducted following consultation with the appropriate department.</p>
+</blockquote>
+<ul>
+<li><p>Procedure as per TL 82500 or, alternatively, as per new
+specification – see section 7.1. Load cases following consultation with
+the appropriate department</p></li>
+<li><p>Starting from a remaining winding length of 1 800 mm ±5 mm, the
+belt is retracted a length equivalent to a single belt coil revolution
+with a constant speed during the measuring duration of 60 s ±1 [redacted-person], the loudest wave position can be tested.</p></li>
+<li><p>All test conditions and general conditions must be
+documented.</p></li>
+</ul>
+<blockquote>
+<p>Deviations from TL 82500, e.g., regarding the general test
+conditions, must be discussed and agreed upon with the appropriate
+department.</p>
+<p>The average value from 5 measured specimens of a retractor type must
+be calculated.</p>
+<p>Four triaxial acceleration sensors must be secured as per TL
+82500.</p>
+</blockquote>
+<ul>
+<li><p>On the retractor tightening screw on the holder (position
+identical to that in section <a href="#shaker-validation">3.1</a>).</p></li>
+<li><p>On the shaker plate (see section <a href="#shaker-validation">3.1</a>).</p></li>
+<li><p>Two on the retractor housing; one of them as far away as possible
+from the screw position, the second on the sensor side at the sensor
+position.</p></li>
+</ul>
+<blockquote>
+<p>The simplified retractor detail model must be validated with the fast
+Fourier transform (FFT) for the acceleration sensors on the retractor
+housing.</p>
+</blockquote>
+<h2 id="determining-the-loudness-sone-test">Determining the loudness
+(sone test)</h2>
+<blockquote>
+<p>In addition to the retractor's accelerations, the sound pressure must
+be measured and documented.</p>
+<p>To this end, a measuring microphone must be used at a distance of 100
+mm ±5 mm. The microphone's front side must be aimed toward the sensor
+side. The microphone axis must be aligned with the retractor's winding
+axis. The sound pressure must be used to determine the loudness [sones],
+the weighted sound pressure level [dB(A)], and the level as a function
+of time.</p>
+<p>The requirements in the [redacted-person] for the relevant
+vehicle apply.</p>
+<p>The loudness must be analyzed with the following parameters:</p>
+</blockquote>
+<ul>
+<li><p>4th-order Butterworth high-pass filter with a cutoff frequency fc
+= 500 Hz (infinite impulse response (IIR) filter).</p></li>
+<li><p>Loudness as a function of time as per ISO 532 B filter method;
+free field; 6th-order Butterworth;</p></li>
+</ul>
+<blockquote>
+<p>sampling rate of 20 480 Hz; time averaging = 2 ms.</p>
+<p>(For higher sampling rates, a 4th-order low-pass filter with a cutoff
+frequency fc = 12 kHz must be used.)</p>
+</blockquote>
+<ul>
+<li><p>Single-number values are calculated with the arithmetic mean of
+the loudness curve.</p></li>
+</ul>
+<p><img src="./00_Overall-lah-dum-857-bl-20170530-en-media/media/image6.jpeg" style="width:6.39208in;height:2.76in"/></p>
+<blockquote>
+<p>Figure 3.1 Example of a
+shaker mounting system for the retractor in a semi-free-field
+chamber</p>
+<p>The required validation quality as per section <a href="#comparison-between-test-and-simulations">5</a> "<a href="#comparison-between-test-and-simulations">Comparison between test
+and simulations</a>" must be achieved.</p>
+</blockquote>
+<h2 id="sound-pressure-level-as-a-function-of-time">Sound pressure level
+as a function of time</h2>
+<blockquote>
+<p>In addition, the energy spectral density of the microphone
+measurement as a function of time must be determined. The following
+parameters must be used for this purpose (conforming to ISO 532B and DIN
+45631/A1):</p>
+</blockquote>
+<ul>
+<li><p>A 4th-order high-pass filter with a cutoff frequency of 1 500
+Hz</p></li>
+<li><p>A 2nd-order low-pass filter with a cutoff frequency of 6 000
+Hz</p></li>
+<li><p>Level vs. time analysis of the filtered data, A-weighted, block
+size of 50 ms</p></li>
+<li><p>FFT vs. time analysis</p>
+<ul>
+<li><p>1/48-octave width</p></li>
+<li><p>A-weighted</p></li>
+<li><p>50% overlap</p></li>
+<li><p>Hanning
+window</p></li>
+</ul></li>
+</ul>
+<h2 id="optimizing-the-retractor-connection-partsholder">Optimizing the
+retractor connection parts/holder</h2>
+<blockquote>
+<p>The simplified detail models must be used to design and optimize the
+retractor connection parts/holder on the body (e.g., holder for
+reversible belt pretensioner models with two screw- on points). That is,
+suggestions for improvement that optimize weight must be prepared both
+for the retractor's holder and sheet metal housing. To this end,
+constant excitations must be applied as per section 1.</p>
+<p>[redacted-co] designs the connection point on the body side. For this
+purpose, a standardized retractor model that depends on the general
+conditions for the installation position (standard retractor) and that
+covers the heaviest relevant retractor type is used.</p>
+<p>The design of the retractor and holder relative to the screw-on
+points on the body side must be based on the requirements in [redacted-person] LAH.DUM.857.[redacted-person] simulations must be performed
+on a rigid holder. The dimple design must take into account the
+tolerances of the connection points between the retractor and the body
+sheet.</p>
+</blockquote>
+<h1 id="acoustic-simulations">Acoustic simulations</h1>
+<blockquote>
+<p>Acoustic simulations must be carried out as per this section. By the
+B-release, the correct acoustic behavior of the retractors offered in
+the Group must be verified with an acoustic simulation. The goal is to
+use example simulations of at least two retractors in order to improve
+process reliability. If there are acoustic anomalies, they must be
+examined with acoustic simulations following consultation with the
+appropriate department. The overarching goal is a simulation in the
+vehicle geometry with vehicle-specific excitations in order to identify
+potential sources of noise.</p>
+</blockquote>
+<h2 id="retractor-noise-behavior-from-shaker-tests">Retractor noise
+behavior from shaker tests</h2>
+<blockquote>
+<p>The determined FFTs and sound pressure measurements in section <a href="#testing-and-noise-measurement-validation">3</a> "<a href="#testing-and-noise-measurement-validation">Testing and noise</a>
+<a href="#testing-and-noise-measurement-validation">measurement
+validation</a>" must be used as a basis in order to draw design
+conclusions so as to reduce retractor noise emissions and determine the
+connection to the body that is required for this purpose. For this
+purpose, the loudness [sones] and the weighted sound pressure level
+[db(A)] must be plotted as a function of the frequency. In addition, the
+loudness and the level must
+be plotted as a function of time.</p>
+</blockquote>
+<h2 id="model-setup">Model setup</h2>
+<blockquote>
+<p>The model basis must be set up analogously to the NVH retractor
+models (section <a href="#simplified-retractor-detail-model">2.1</a>).
+In addition, the following must be considered:</p>
+</blockquote>
+<ul>
+<li><p>The rotary shaft with the webbing wound around it (outer
+position) and its connection to the housing must be reproduced
+faithfully; the behavior of the bearing for the shaft relative to the
+housing must match that of the actual real-life components. The position
+of the rotary shaft and the mass distribution of the webbing must be
+faithfully reproduced.</p></li>
+<li><p>The influence of the pawl position must be taken into
+account.</p></li>
+</ul>
+<h2 id="simulation-method">Simulation method</h2>
+<blockquote>
+<p>The retractor's noise behavior must be simulated with a multi-body
+simulation (MBS). The following method is recommended:</p>
+</blockquote>
+<ol type="1">
+<li><p>The contact and bearing forces between the system's components
+are computed in the time domain with a multi-body simulation for the
+specified excitation (the excitation direction and the acceleration
+signals are defined in the [redacted-person]) under
+consideration of the flexibility of the sensor housing, sensor lever,
+and, if applicable, seat belt pretensioner frame and system caps. The
+flexible structures are integrated into an MBS simulation model using
+their Craig-Bampton modal base. The sampling rate for the saved
+time-domain signals must be at least 10 kHz.</p></li>
+<li><p>The averaged complex spectra of the numerically simulated time
+series for the contact and bearing surfaces are determined in the
+frequency domain for a range of up to 5 kHz as an excitation for the
+subsequent acoustic simulation in the frequency domain. The</p></li>
+</ol>
+<blockquote>
+<p>following FFT parameters must be used: Block size of 2 048, 50%
+overlap, Hanning window.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>The free structural modes of the retractor (assembly) are
+computed in the frequency domain for a range of up to 5.5 kHz for the
+subsequent acoustic simulation.</p></li>
+<li><p>The averaged sound pressure spectrum at the measuring microphone
+(for the microphone's position, see section <a href="#determining-the-loudness-sone-test">3.2.1</a>) resulting from the
+retractor's sound emissions is computed in the frequency domain for a
+range of up to 5 kHz. The time-dependent complex force spectra
+determined in step 2 must be used as an excitation. The structural modes
+determined in step 3 must be used in the simulations. For computing the
+sound emissions, the acoustic transfer functions (ATF), which must be
+determined independently of the excitation only once for one seat belt
+pretensioner geometry in the frequency domain for a range of up to 5 kHz
+and a frequency resolution of 10 Hz, must be used preferably. Within
+this context, the surface impedance of the wound belt must be taken into
+account. The ATFs must be used to compute the sound emissions for
+individual time segments. These must then be linked in order to form a
+continuous time series that must be used as a basis to determine the
+loudness.</p></li>
+<li><p>If the retractor's design has large-volume (a dimension greater
+than or equal to 30 mm) cavities between the retractor's individual
+elastic components, the sound transmission through these components must
+be computed in addition to the sound emissions. In this case, the sound
+transmission component of the sound pressure is computed on the basis of
+a coupled vibroacoustic simulation in consideration of the structural
+modes determined in step 3 and projected onto the acoustic mesh. Both
+components of the complex sound pressure spectrum (for sound emissions
+and sound transmission) are then combined into a total spectrum. For the
+simulations of sound emissions and sound transmission, the modal damping
+values for the structural modes determined in the experiment must be
+used preferably. As an initial approximation, the modal damping in the
+entire frequency range must be assumed as being 3%.</p></li>
+</ol>
+<h2 id="load-cases-and-requirements">Load cases and requirements</h2>
+<blockquote>
+<p>The simulation must be carried out with the excitation profiles
+required in section <a href="#overview-of-load-cases-for-testing-and-simulation">7</a> "<a href="#overview-of-load-cases-for-testing-and-simulation">Overview of
+load cases for testing and simulation</a>" for the relevant load cases
+in the "Retractor on rigid mount (without vehicle environment)" setup.
+If these profiles are not adhered to, design changes must be made to the
+retractor and it must be verified that the requirements are being met.
+The retractor model must be updated after design changes are made.</p>
+<p>Up-to-date test definitions and limits must be taken from [redacted-person] LAH.DUM.857.D.</p>
+<p>The following applies to all load cases:</p>
+</blockquote>
+<ul>
+<li><p>Excitation point: Screw-on point and top center of retractor
+housing (see <a href="#_bookmark17">Figure 4.1</a>)</p></li>
+<li><p>Simulation setup: Retractor on rigid holder.</p></li>
+<li><p>Evaluation position: On the sensor side, on the shaft axis, 10 cm
+away from the retractor housing.</p></li>
+</ul>
+<blockquote>
+<p>The simulated sound pressures must be used to determine the loudness
+[sones] and the weighted sound pressure level [dB(A)].</p>
+<p>The evaluation parameters for the simulation are analogous to those
+for the real-life tests; see sections 2 and 5.</p>
+<p><img src="./00_Overall-lah-dum-857-bl-20170530-en-media/media/image7.png" style="width:3.46167in;height:3.41656in"/></p>
+<p>Figure 4.1: Excitation
+positions – screw-on point and top center of structure using position 6
+<u>as an example.</u></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Gurtaufroller hinten außen Struktur oben</p>
+</blockquote></th>
+<th><blockquote>
+<p>Rear outer retractor</p>
+<p>Top of structure</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Gurtaufroller hinten außen Anschraubpunkt</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rear outer retractor</p>
+</blockquote>
+<p><u>Screw-on point</u></p></td>
+</tr>
+</tbody>
+</table>
+<h1 id="comparison-between-test-and-simulations">Comparison between test
+and simulations</h1>
+<h2 id="curve-comparison">Curve comparison</h2>
+<blockquote>
+<p>The curve comparison must be made with the help OF CORA (CORelation
+and Analysis). CORA is a software program initiated by PDB (Partnership
+for [redacted-person] and Biomechanics) and that is meant for objectively
+evaluating curves. The program is available free of charge from the
+original equipment manufacturer (OEM), including the configuration file
+that needs to be used, as well as a manual and examples. The
+acceleration and sound pressure level signals measured in the test and
+computed in the validated simulation model must be compared. The signals
+being compared must be filtered identically.</p>
+<p>The configuration file specified by the OEM must not be modified so
+as to ensure a standardized, objective evaluation. The determined
+comparison values must be enclosed with the documentation for the
+acoustic simulations.</p>
+</blockquote>
+<h2 id="validation-quality">Validation quality</h2>
+<blockquote>
+<p>The goal is to achieve a correlation between the simulation and the
+test that is as good as possible. The correlation parameters in <a href="#_bookmark21">Table 5.1: CORA evaluation criteria</a> are the
+basis.</p>
+<p>Each individual signal must be evaluated separately as per <a href="#_bookmark21">Table 5.1</a>:</p>
+</blockquote>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Signal</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Corridor method</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Cross correlation Prog./Magnitude/Phase</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Validation quality</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Acceleration</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90%</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Sound pressure</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0.5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0.5</p>
+<p>0.33/0.33/0.33</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90%</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Table 5.1: CORA
+evaluation criteria</p>
+<p>If there are multiple tests for a test configuration, the simulation
+curves must not only fall within the required validation quality as per
+CORA, but also within the test curves. This also applies to the loudness
+[sones] and the weighted sound pressure level [dB(A)].</p>
+<p>The relevant analysis interval is identical for all the signals
+belonging to a load case and will be determined automatically by CORA
+based on the test's acceleration signal.</p>
+</blockquote>
+<h1 id="noise-road-testing">Noise road testing</h1>
+<blockquote>
+<p>In the vehicle, the retractors are tested on the rough-road tracks at
+the proving grounds in Neustadt, [redacted-addr] with the participation of the
+NVH team. The retractors are evaluated and released within the scope of
+a test ride in the pre-production approval testing vehicle (VFF) vehicle
+status. If there are any anomalies during the drive, or if noise
+anomalies are to be expected (e.g., based on simulations or special
+cases related to the design), the appropriate department may arrange for
+additional noise road tests.</p>
+<p>All noise road tests are planned and carried out by the appropriate
+department. It is possible for the supplier to participate, but not
+absolutely mandatory.</p>
+<p>From the selected vehicles, the ones preferred are those that meet
+the requirements for production (e.g., flatness of contact surface). The
+road tests are carried out without noise- reducing parts (rear noise
+package, rear shelf, trim parts) in order to avoid potential
+interference from these parts. This is taken into account during the
+evaluation.</p>
+<p>The retractors are preferably evaluated on LZS 5 ([redacted-addr] train
+station/cobblestone pavement) at a speed of 50 km/h in order to ensure
+comparability (LZS – slow track in different conditions). If the
+retractor is conspicuous during the hand rapping test, the anomaly must
+be reproduced by going through additional track sections.</p>
+<p>The retractors are evaluated subjectively by the NVH team and the
+appropriate department. This evaluation is carried out based on a fixed
+evaluation key (see <a href="#_bookmark23">Figure 6.1 : NVH team</a> <a href="#_bookmark23">evaluation key</a>)</p>
+<p>In addition, the retractor's and the vehicle's movements, as well as
+the noise level inside the vehicle, are recorded and compared with
+simulation results and shaker test results.</p>
+<p>The shaker tests for the acoustic and vibration behavior must be
+carried out and documented before the first noise road test.</p>
+<p>The retractors to be tested in the noise road test must be provided,
+with the desired configuration, at the latest one week before the
+appropriate department starts the road test.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="2"><blockquote>
+<p>[redacted-person]</p>
+</blockquote></th>
+<th colspan="7"><blockquote>
+<p><strong>New problem evaluation key</strong></p>
+</blockquote></th>
+<th colspan="2"><blockquote>
+<p>Dept.: [redacted-person]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="11"><blockquote>
+<p><strong><u>Problem evaluation key</u></strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Problem weight</p>
+</blockquote></td>
+<td colspan="3"><blockquote>
+<p>Rejection</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Borderline</p>
+</blockquote></td>
+<td colspan="5"><blockquote>
+<p>Acceptance</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Grade</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>1</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>3</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>4</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>5</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>7</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>8</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>9</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>10</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Problem evaluation</p>
+</blockquote></td>
+<td><blockquote>
+<p>Safety risk, breakdown</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Not acceptable, will definitely lead to customer complaints</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Unpleasant, objectionable, customer complaints expected</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Needs improvement, complaints expected from critical customers</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Good to very good, hardly any complaints expected, even from critical
+customers</p>
+</blockquote></td>
+<td><blockquote>
+<p>Excellent, no problems</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="11"><blockquote>
+<p><strong>Auxiliary problem evaluation criteria</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Occurrence of the complaint</p>
+</blockquote></td>
+<td><blockquote>
+<p>Continuous</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Clearly reproducible</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Occurs frequently</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Isolated, cannot be reproduced in every case</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Occurs rarely, cannot be reproduced</p>
+</blockquote></td>
+<td><blockquote>
+<p>Never occurs</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Can be detected by</p>
+</blockquote></td>
+<td><blockquote>
+<p>All customers</p>
+</blockquote></td>
+<td colspan="3"><blockquote>
+<p>Average customers</p>
+</blockquote></td>
+<td colspan="3"><blockquote>
+<p>Critical customers</p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p>Trained observers</p>
+</blockquote></td>
+<td><blockquote>
+<p>No customers</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Figure 6.1 : NVH team
+evaluation key</p>
+</blockquote>
+<h1 id="overview-of-load-cases-for-testing-and-simulation">Overview of
+load cases for testing and simulation</h1>
+<h2 id="shaker">Shaker</h2>
+<p>Excitation profile:</p>
+<ul>
+<li><p>Excitation in Z-axis direction as per "excitation in Z-axis
+direction" TL 82500 excitation profile</p>
+<ul>
+<li><p>Noise: 40 to 100 Hz</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>4.9 m/s² RMS / PSD 0.4 (m/s²)² / Hz</p>
+</blockquote>
+<ul>
+<li><p>Analogously, an excitation profile with noise within a range of
+15 to 60 Hz can be used following consultation with the appropriate
+department.</p>
+<ul>
+<li><p>If necessary, the RMS value must be varied and discussed and
+agreed upon with the appropriate department.</p></li>
+</ul></li>
+<li><p>Excitation in Y-axis direction:</p>
+<ul>
+<li><p>The excitation profile must be discussed and agreed upon with the
+appropriate department. –</p></li>
+</ul></li>
+<li><p>Excitation in the X-axis direction:</p>
+<ul>
+<li><p>The excitation profile must be discussed and agreed upon with the
+appropriate department. –</p></li>
+</ul></li>
+</ul>
+<h2 id="rough-roads">Rough roads</h2>
+<blockquote>
+<p>Excitation profile:</p>
+</blockquote>
+<ul>
+<li><p>Track 4: Grass pavers, USW, undulations, asphalt, TE (equivalent
+to Belgian block 1</p></li>
+</ul>
+<blockquote>
+<p>+ 2)</p>
+</blockquote>
+<ul>
+<li><p>Track 5: [redacted-addr] train station (equivalent to cobblestone
+pavement)</p></li>
+<li><p>Track 8: Weinzierl</p></li>
+</ul>
+<h2 id="slamming-the-doors-and-tailgate-shut">Slamming the doors and
+tailgate shut</h2>
+<blockquote>
+<p>Excitation profile:</p>
+</blockquote>
+<ul>
+<li><p>Door and tailgate excitation profile: Slamming speeds of 1.1 m/s
+and 1.4 m/s</p></li>
+</ul>
+<h2 id="sound-excitation">Sound excitation</h2>
+<blockquote>
+<p>Excitation profile:</p>
+</blockquote>
+<ul>
+<li><p>Wideband excitation of 30 – 150 Hz for subwoofer on rear
+shelf</p></li>
+<li><p>A corresponding test CD can be requested from [redacted-id] via the
+appropriate department.</p></li>
+</ul>
+<h1 id="documentation-and-data-exchange">Documentation and data
+exchange</h1>
+<blockquote>
+<p>The contractor must prepare all documentation in German.</p>
+<p>The technical documents must be submitted as per OEM
+specifications.</p>
+<p><strong>The supplier must submit all the tests (measured curves,
+videos, analyses, results, presentations, test parts) and simulations
+(models with test environment such as retaining plates, rear shelf,
+numerical simulations, analyses, presentations, includes, load case
+parameter files, results) required in the [redacted-person] NVH [redacted-person] to the OEM.</strong></p>
+<p>The underlying validation data must be submitted together with the
+validated whole model. The supplier must import corresponding data into
+the OEM database (Volkswagen: [redacted](KVS);
+[redacted-co]: LoCo, CAE-Bench2 [simulations], Visverdi or Falcon [testing]).</p>
+</blockquote>
+<h2 id="non-disclosure">Non-disclosure</h2>
+<blockquote>
+<p>All data (simulation models, test data, etc.) is subject to the
+non-disclosure obligation for confidential documents as per the relevant
+development agreements and will be available to the [redacted-person]
+without restrictions within the latter's processes.</p>
+</blockquote>
+<h2 id="simulation">Simulation</h2>
+<blockquote>
+<p>If it is necessary to disclose the models or submodels to third
+parties (e.g., due to the planned use of carry-over parts (COPs) in
+other vehicle models), the OEM will notify the partner of the planned
+disclosure. This duty to notify will expire 36 months after the project
+ends.</p>
+<p>This restriction does not apply if the models are disclosed to
+engineering partners that will be using this data exclusively in their
+work for the OEM. In this case, disclosure without any requirements is
+permissible.</p>
+<p>Upon request, all numerical simulation results must be presented
+interactively on-site at the OEM's facilities or to the general
+developer on a workstation. The numerical simulation models and the
+results must be sent in advance to the OEM or to the general developer's
+department for this purpose. If this is not possible due to the
+numerical simulation being performed on short notice, the data must be
+brought on appropriate data storage devices. If the data is sent, it is
+necessary to ensure that the transfer is secure. In particular, sending
+data with unencrypted e-mails is impermissible.</p>
+<p>The relevant simulation results must be kept ready, in such a way
+that they can be used for presentations and animations, for the
+functional meetings held on a regular basis.</p>
+<p>Additional details regarding the workflow, conventions, scope, and
+formats for required information and for documentation must be discussed
+with the OEM/general developer department before the project starts.</p>
+<p>In addition, an Excel list with an overview of all simulation results
+must be maintained. To this end, the OEM/general developer department
+can provide a basic variant. In addition, a virtual part history that
+documents the various model versions must be prepared.</p>
+<p>The version of the components used must be documented with
+documentation in the include that must be kept up to date. In addition
+to the component designation, this documentation</p>
+<p>must list the state of development, the date of production, the
+coordinator, and the underlying part number and versions.</p>
+<p>Differences between the numerical simulation results and the test
+data must be disclosed to the OEM/general developer department at all
+times so that they can be compared to existing experience.
+<strong>Implausible results point to erroneous modeling and must be
+immediately checked, with this check leading to improvements to the
+model.</strong></p>
+<p><strong>No</strong> encrypted data will be accepted for the internal
+OEM/general developer department process. The OEM/general developer
+department is ultimately responsible for all the work performed by the
+supplier. Because of this, the OEM/general developer department must be
+able to check the work performed and the models put together for
+correctness.</p>
+<p>The models will be used exclusively for the internal OEM/general
+developer department process (including development partners that are
+subject to a non-disclosure agreement).</p>
+<p>If models are provided to project partners that are not part of the
+internal OEM/general developer department process, encryption is
+permissible. In this case, the creator of the encrypted data, rather
+than the users, is responsible for these models.</p>
+</blockquote>
+<h2 id="testing">Testing</h2>
+<blockquote>
+<p>The test results must be presented to the appropriate [redacted-person], Simulation, and Testing departments. The tests must be
+documented with images and provided to the OEM/general developer
+department.</p>
+</blockquote>
+<h2 id="documentation-at-the-end-of-the-project">Documentation at the
+end of the project</h2>
+<blockquote>
+<p>The following is required at the end of the project:</p>
+</blockquote>
+<ul>
+<li><p>Final, complete project status</p></li>
+<li><p>Simulation data must be updated and completed</p></li>
+<li><p>The last simulation status must be compared with crash and sled
+tests</p></li>
+<li><p>A project review must be prepared as per the OEM's/general
+developer department's specifications</p></li>
+<li><p>"Lessons learned" for subsequent projects must be
+prepared</p></li>
+<li><p>Release recommendation for all load cases</p></li>
+</ul>
+<h1 id="applicable-documents1">Applicable documents<a href="#_bookmark35"><sup>1</sup></a></h1>
+<blockquote>
+<p>- TL 82500</p>
+</blockquote>
+<ul>
+<li><p>LAH.DUM.857.T: [redacted]for
+[redacted-person] Pretensioner</p></li>
+<li><p>LAH.DUM.857.D: [redacted]for [redacted-person] Systems</p></li>
+<li><p>LAH.DUM.857.BB: [redacted-person] for [redacted-person]</p></li>
+<li><p>[redacted-person] standard TL 471: [redacted-person] System ASSYs and
+[redacted-person]; Functional and [redacted-person]</p></li>
+<li><p>CORA Analysis: Doku_Cora</p></li>
+</ul>
+<blockquote>
+<p>1 Please only refer to
+standard/document numbers since the document titles may vary.</p>
+</blockquote>
+</body>
+</html>

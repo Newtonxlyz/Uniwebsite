@@ -1,0 +1,1963 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>ENTWURF_E_Freigabe_1_LAH.85D.880.B_AU416_2_Cx_BL_Gesamtlastenheft-Fahrzeugsicherheit</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+<p>Telefon: [redacted-phone]</p>
+<p><strong>[redacted-co]</strong></p>
+<p>[redacted-person]</p>
+<p><img alt="Audi-Bild" src="./00_Overall-entwurf-e-freigabe-1-lah-85d-880-b-au416-media/media/image1.png" style="width:2.91667in;height:2.4375in"/></p>
+<p><strong>[redacted-person]
+Fahrzeugsicherheit</strong></p>
+<p><strong>LAH.85D.880.B</strong></p>
+<p>[redacted-prj]/2_Cx_BL, [redacted-prj]/3_Cx_BL</p>
+<p><strong><u>Check - UPDATE KW49/2024 ER-4 Fachbereiche für
+E-Freigabe:</u></strong></p>
+<ul>
+<li><p><em>Front ([redacted]) i.O.</em></p></li>
+<li><p><em>Seite i.O. ([redacted])</em></p></li>
+<li><p><em>FGS i.O. - [redacted]</em></p></li>
+<li><p><em>Sensorik i.[redacted-person] Änderung ([redacted])</em></p></li>
+<li><p><em>Si-Elektronik inkl. AB-SG -&gt; [redacted-person] ER-43 i.O.
+[redacted-phone]</em></p></li>
+<li><p><em>C-FPV [redacted-person] i.O.? -&gt; [redacted-phone]</em></p></li>
+<li><p><em>SYS TL i.O. ! [redacted-person] ([redacted-person].5 erfolgt)</em></p></li>
+<li><p><em>[redacted-person] : BTV i.O.</em></p></li>
+<li><p><em>Gurte i.O. / Airbags i.O.</em></p></li>
+<li><p><em>[redacted-person] i.O. -&gt; relev. Funktionsvar. ergänzt! -&gt; i.O.
+[redacted-phone]</em></p></li>
+</ul>
+<p><em><strong>-&gt; Update siehe blaue Markierungen</strong></em></p>
+<p>Freigabe:</p>
+<p>Verteiler:</p>
+<table>
+<tbody>
+
+<tr>
+<td style="text-align: center;">[redacted-person]
+Sicherheitssystem</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] passive
+Sicherheitsfunktionen, Gesamtfzg.Crash</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person]
+Partnerschutz/Unfallerkennung</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted]Heck</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] Airbags</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person]
+Sicherheitselektronik</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] Gurtsysteme</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Inhaltsverzeichnis</strong></p>
+<p><a href="#_Toc351451732">1 Vorwort <span>7</span></a></p>
+<p><a href="#_Toc351451733">2 [redacted-person] und Randbedingungen
+<span>7</span></a></p>
+<p><a href="#projektlaufzeit">2.1 <em>Projektlaufzeit</em>
+<span>7</span></a></p>
+<p><a href="#technik">2.2 <em>Technik</em> <span>7</span></a></p>
+<p><a href="#begriffe-und-abkürzungen">2.3 <em>Begriffe und
+Abkürzungen</em> <span>7</span></a></p>
+<p><a href="#_Toc184818065">3 Gesamtfahrzeug: <span>9</span></a></p>
+<p><a href="#_Toc184818066">Gesetze, Selbstverpflichtung, [redacted-person]
+und interne Anforderungen <span>9</span></a></p>
+<p><a href="#frontalaufprall">3.1 Frontalaufprall
+<span>10</span></a></p>
+<p><a href="#anforderungen-gesetz">3.1.1 [redacted-person]
+<span>11</span></a></p>
+<p><a href="#anforderungen-consumertest">3.1.2 [redacted-person] <span>11</span></a></p>
+<p><a href="#interne-anforderungen">3.1.3 [redacted-person]
+<span>12</span></a></p>
+<p><a href="#seitenaufprall">3.2 Seitenaufprall <span>12</span></a></p>
+<p><a href="#anforderungen-gesetz-1">3.2.1 [redacted-person]
+<span>13</span></a></p>
+<p><a href="#anforderungen-consumertest-1">3.2.2 [redacted-person] <span>13</span></a></p>
+<p><a href="#seitenaufprall-interne-anforderungen-für-alle-märkte">3.2.3
+Seitenaufprall interne Anforderungen für alle Märkte
+<span>13</span></a></p>
+<p><a href="#heckaufprall">3.3 Heckaufprall <span>13</span></a></p>
+<p><a href="#anforderungen-gesetz-2">3.3.1 [redacted-person]
+<span>14</span></a></p>
+<p><a href="#interne-anforderungen-1">3.3.2 [redacted-person]
+<span>14</span></a></p>
+<p><a href="#partnerschutz">3.4 Partnerschutz <span>15</span></a></p>
+<p><a href="#sonstige-versuche-v">3.5 [redacted-person] (V)
+<span>15</span></a></p>
+<p><a href="#sonstige-versuche-gesetz">3.5.1 [redacted-person] Gesetz
+<span>15</span></a></p>
+<p><a href="#sonstige-versuche-consumer">3.5.2 [redacted-person]
+Consumer <span>15</span></a></p>
+<p><a href="#generelle-entwicklungsvorschriften">3.6 [redacted-person] <span>16</span></a></p>
+<p><a href="#_Toc274133775">4 [redacted-person]/Komponenten
+<span>17</span></a></p>
+<p><a href="#gesetze-struktur-fahrzeug-komponenten">4.1 [redacted-person]
+Fahrzeug / Komponenten <span>17</span></a></p>
+<p><a href="#generelle-entwicklungsvorgaben-struktur-fahrzeug">4.2
+[redacted]<span>17</span></a></p>
+<p><a href="#system--und-bauteil-lastenhefte-struktur-fahrzeug">4.3
+System- und Bauteil-[redacted-person] Fahrzeug
+<span>17</span></a></p>
+<p><a href="#_Toc423015509">5 Innenraum <span>18</span></a></p>
+<p><a href="#gesetze-innenraumkomponenten">5.1 [redacted-person] <span>18</span></a></p>
+<p><a href="#generelle-entwicklungsvorgaben-innenraum">5.2 [redacted-person] Innenraum <span>18</span></a></p>
+<p><a href="#system--und-bauteil-lastenhefte-innenraum">5.3 System- und
+Bauteil-[redacted-person] <span>19</span></a></p>
+<p><a href="#_Toc423015513">6 Sicherheitselektronik
+<span>20</span></a></p>
+<p><a href="#für-die-entwicklung-von-au4162_cx_bl-au4163_cx_b-gelten-die-folgenden-in-kvs-verfügbaren-lastenhefte">6.1
+Für die Entwicklung von [redacted-prj]/2_Cx_BL, [redacted-prj]/3_Cx_B gelten die folgenden
+in KVS verfügbaren Lastenhefte <span>20</span></a></p>
+<p><a href="#_Toc184818093">7 Kraftstoff / Elektrik / Betriebsstoffe /
+HV <span>22</span></a></p>
+<p><a href="#_Toc274133785">8 Berechnung <span>23</span></a></p>
+<p><a href="#_Toc274133786">9 Prüffeldtechnik <span>23</span></a></p>
+<p><a href="#_Toc500400150">10 [redacted-person]
+<span>23</span></a></p>
+<p><a href="#_Toc184818097">11 [redacted-person]
+<span>23</span></a></p>
+<p><strong>Änderungsdokumentation</strong></p>
+<ol type="1">
+<li><p><strong>Vorwort</strong></p></li>
+</ol>
+<p>Das vorliegende Lastenheft beschreibt Leistungen, Anforderungen sowie
+Prüf- und Erprobungsbedingungen der Fahrzeugsicherheit, die das Produkt
+erfüllen muss.</p>
+<p>Zusätzlich zu diesem Lastenheft gelten die Entwicklungsbedingungen
+der Norm [redacted-co]99000.</p>
+<p>Inhalte dieses Lastenheftes dürfen Dritten ohne ausdrückliche
+Genehmigung durch die [redacted-co] nicht zugänglich gemacht werden.</p>
+<ol start="2" type="1">
+<li><p><strong>[redacted-person] und Randbedingungen</strong></p></li>
+</ol>
+<h2 id="projektlaufzeit"><em>Projektlaufzeit</em></h2>
+<p>[redacted-person] und die relevanten Termine sind im
+projektspezifischen Projektplan/Dach-Lastenheft LAH.85D.800.A
+dokumentiert.</p>
+<h2 id="technik"><em>Technik</em></h2>
+<p>Erfüllung der Projektziele mit den Technikinhalten nach der gültigen
+technischen Produktbeschreibung (Bsp. Motorisierungen).</p>
+<p>[redacted-person] siehe [redacted-co]99000</p>
+<h2 id="begriffe-und-abkürzungen"><em>Begriffe und Abkürzungen</em></h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Abkürzung</strong></th>
+<th style="text-align: center;"><strong>Bedeutung</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>A</strong></td>
+</tr>
+<tr>
+<td><strong>B</strong></td>
+</tr>
+<tr>
+<td>B</td>
+<td>Bestätigung durch Berechnung</td>
+</tr>
+<tr>
+<td>BFS</td>
+<td>Beifahrerseite</td>
+</tr>
+<tr>
+<td>BT</td>
+<td>Bauteil</td>
+</tr>
+<tr>
+<td><strong>C</strong></td>
+</tr>
+<tr>
+<td>C</td>
+<td>Bestätigung durch Crashversuch</td>
+</tr>
+<tr>
+<td>COP</td>
+<td>[redacted-person] Part</td>
+</tr>
+<tr>
+<td>C-NCAP</td>
+<td>[redacted]Program</td>
+</tr>
+<tr>
+<td>C-IASI</td>
+<td>[redacted]Index</td>
+</tr>
+<tr>
+<td><strong>D</strong></td>
+</tr>
+<tr>
+<td>DIN</td>
+<td>[redacted]eV</td>
+</tr>
+<tr>
+<td>DUM</td>
+<td>[redacted-person], projektübergreifend</td>
+</tr>
+<tr>
+<td><strong>E</strong></td>
+</tr>
+<tr>
+<td>ECE</td>
+<td>[redacted-person] for Europe</td>
+</tr>
+<tr>
+<td>EG</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>EOP</td>
+<td>End of Production</td>
+</tr>
+<tr>
+<td><strong>F</strong></td>
+</tr>
+<tr>
+<td>FS</td>
+<td>Fahrerseite</td>
+</tr>
+<tr>
+<td><strong>H</strong></td>
+</tr>
+<tr>
+<td>hi</td>
+<td>hintere Sitzreihe</td>
+</tr>
+<tr>
+<td>HIII</td>
+<td>Hybrid III</td>
+</tr>
+<tr>
+<td><strong>I</strong></td>
+</tr>
+<tr>
+<td>ISO</td>
+<td>[redacted]</td>
+</tr>
+<tr>
+<td><strong>K</strong></td>
+</tr>
+<tr>
+<td><strong>L</strong></td>
+</tr>
+<tr>
+<td>LAH</td>
+<td>Lastenheft</td>
+</tr>
+<tr>
+<td>LL</td>
+<td>Linkslenker</td>
+</tr>
+<tr>
+<td><strong>M</strong></td>
+</tr>
+<tr>
+<td>mdb</td>
+<td>[redacted-person] Barrier</td>
+</tr>
+<tr>
+<td>mpdb</td>
+<td>[redacted]</td>
+</tr>
+<tr>
+<td><strong>N</strong></td>
+</tr>
+<tr>
+<td><strong>R</strong></td>
+</tr>
+<tr>
+<td>RdW</td>
+<td>Rest der Welt</td>
+</tr>
+<tr>
+<td>RL</td>
+<td>Rechtslenker</td>
+</tr>
+<tr>
+<td><strong>S</strong></td>
+<td>Bestätigung durch Schlittenversuch</td>
+</tr>
+<tr>
+<td>SAE</td>
+<td>Society of [redacted-person]</td>
+</tr>
+<tr>
+<td>SC</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>SER</td>
+<td>Serienübernahmeteile</td>
+</tr>
+<tr>
+<td><strong>T</strong></td>
+</tr>
+<tr>
+<td>TPB</td>
+<td>[redacted-person] Beschreibung</td>
+</tr>
+<tr>
+<td><strong>V</strong></td>
+</tr>
+<tr>
+<td>vo</td>
+<td>vordere Sitzreihe</td>
+</tr>
+<tr>
+<td>V</td>
+<td>Bestätigung durch sonstigen Versuch</td>
+</tr>
+<tr>
+<td>VW…</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><strong>W</strong></td>
+</tr>
+<tr>
+<td>WS</td>
+<td>WorldSID</td>
+</tr>
+</tbody>
+</table>
+<ol start="3" type="1">
+<li><p><strong>Gesamtfahrzeug:</strong></p></li>
+</ol>
+<p><strong>Gesetze,
+Selbstverpflichtung, [redacted-person] und interne
+Anforderungen</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><p><strong>Verant-</strong></p>
+<p><strong>wortlich</strong></p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><p>Prämissen</p>
+<p>und Rand-</p>
+<p>bedingungen</p></td>
+<td><ul>
+<li><p>Die zum Einsatztermin geltenden Gesetze und Behördenvorschriften
+sind sicher zu erfüllen. Zu erwartende Verschärfungen über den
+Einsatztermin hinaus, sowie die wichtigen Sicherheitsratingverfahren
+(Erfüllung im Spitzenfeld der Wettbewerber bzw. „In [redacted-person]“ incl.
+möglicher Verschärfungen) sind zu berücksichtigen (die Ziele werden im
+Einzelfall von der Fahrzeugsicherheit definiert, falls nicht in diesem
+LAH beschrieben).</p></li>
+<li><p>[redacted-person] hat zu prüfen, welche Gesetze zur Erfüllung der
+Anforderungen für die beschriebenen Bauteile zum und über den
+Einsatztermin hinaus relevant sind.</p></li>
+<li><p>Bei sicherheitsrelevanten Bauteilen/Komponenten, welche als
+Serienübernahmeteile (SER) oder COP-Umfänge vorgesehen sind, muss ggf.
+mit einer fahrzeugspezifischen Anpassung gerechnet werden.<br/>
+[redacted-person] :<br/>
+- [redacted-person] für Kopf-/Seitenairbag<br/>
+- [redacted-person]<br/>
+- Sitzanpassung etc.</p></li>
+<li><p>[redacted-person] der durch die TPB geforderten Umfänge, sind die
+jeweiligen Konstruktions- bzw. Entwicklungslastenhefte mit den hier
+angezogenen Liefervorschriften, Prüfvorschriften und
+Verfahrensanweisungen heranzuziehen.</p></li>
+<li><p>Grundsätzlich sind als Entwicklungsziel alle gesetzlichen
+Grenzwerte sowie alle Anforderungen bzgl. Selbstverpflichtung mit einer
+20%-igen Sicherheit zu erfüllen = sichere Erfüllung der jeweiligen
+Gesetze.<br/>
+Dies dient der Absicherung von Produktionsschwankungen (bzgl.
+Verbindungstechnik, Materialgüte, Materialstärke) sowie
+Versuchsstreuungen und soll eine sichere Erfüllung aller Anforderungen
+(Gesetz, Selbstverpflichtung) in der Serienfertigung über die gesamte
+Laufzeit sicherstellen.<br/>
+Abweichungen vom Entwicklungsziel sind im Einzelfall bei Nachweis einer
+entsprechend notwendigen Robustheitsbewertung oder serienbegleitender
+Qualitätsprüfungen im Herstellungsprozess möglich, erfordern jedoch
+zwingend die Genehmigung durch die Fahrzeugsicherheit ggfls. unter
+Einbeziehung der zuständigen Qualitätssicherungsabteilungen.</p></li>
+<li><p>Berücksichtigung der [redacted]</p></li>
+<li><p>[redacted-person] ist das Bestehen von Verbrauchertests „in best
+class“ im Wettbewerbsumfeld. Details regelt die Anlage 5 des LAH;
+Dokumentennummer LAH.85D.880.C</p></li>
+<li><p>Generell ist der „Stand der Technik“ bis EOP des Fahrzeuges
+sicherzustellen.</p></li>
+<li><p>Für die Freigabe sind die spezifischen Dokumente nach Vorgabe
+auszufüllen und abzulegen. Die zugehörigen Simulations- &amp;
+Versuchsdaten sind entsprechend zu klassifizieren und zu
+dokumentieren.</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th><strong>Umfang</strong></th>
+<th><strong>Inhalt</strong></th>
+<th><strong>Quelle</strong></th>
+<th><strong>Verantwortlich</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><p>Prämissen und</p>
+<p>Randbedingungen</p>
+<p>EDL/Generalentwickler</p></td>
+<td>[redacted-person] und Randbedingungen zur gebündelten Gewerkvergabe und
+GE-Vergabe sind im separaten Vergabe-LAH der Fahrzeugsicherheit
+zusammengefasst.</td>
+<td>LAH.85D.880.D</td>
+<td>Hr.Dohmen</td>
+</tr>
+</tbody>
+</table>
+<p>Es sind die zutreffenden Gesetzesanforderungen verbindlich.</p>
+<p>Neben den beschriebenen Fahrzeuganforderungen sind auch die der
+Lastenhefte aus den Abschnitten 3 bis 10 zu berücksichtigen bzw. zu
+erfüllen.</p>
+<p>[redacted-person] ist die Erfüllung für alle relevanten Varianten
+(Antrieb, Türen,</p>
+<p>etc.) nachzuweisen.</p>
+<p>Die folgenden Tabellen beziehen sich auf die
+Gesamtfahrzeuganforderungen.</p>
+<p>[redacted-person] sind in den jeweiligen
+Funktions- und</p>
+<p>Bauteillastenheften definiert.</p>
+<h2 id="frontalaufprall">Frontalaufprall</h2>
+<p>In diesem Kapitel sind die für das Fahrzeugprojekt relevanten
+Lastfälle für den Frontaufprall dokumentiert. Die detaillierten
+Anforderungen für die einzelnen Lastfälle sind in den nachfolgenden
+Lastenheften beschrieben. Die in den Lastenheften beschriebenen
+Anforderungen sind für alle Lastfälle gültig.</p>
+<p>Bei den Gesetzeslastfällen ist eine „sichere Erfüllung“ der Gesetze
+zu gewährleisten.</p>
+<p>Die genauen Ziele der Consumer-Lastfälle sind in Anlage 5 zu diesem
+Lastenheft beschrieben.</p>
+<p>LAH.DUM.880.KG <em>V3</em> Anlage 2 [redacted-person] China</p>
+<p>LAH.85D.880.C Anlage 5 [redacted-person]</p>
+<p>LAH.DUM.880.AS Hybrid- und Elektrofahrzeuge <em>(Update läuft im
+Konzern!)</em></p>
+<p>LAH.DUM.857.DG [redacted-person] und
+[redacted-person]</p>
+<p>LAH.[redacted-phone]Kraftstoff, Elektrik und Betriebsstoffe</p>
+<p>LAH.DUM.880.KJ [redacted]</p>
+<p>LAH.DUM.880.KH [redacted-person] China</p>
+<h3 id="anforderungen-gesetz">[redacted-person]</h3>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Relev.
+Funktions-Varianten</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Frontaufprall GB[redacted-phone]</p>
+<p>dynamische Bereichsermittlung</p></td>
+<td style="text-align: center;">n.a.</td>
+<td style="text-align: center;">-18° / 0° / +18°</td>
+<td style="text-align: center;"><p>ECE-R16 Puls</p>
+<p>(48,3 km/h)</p></td>
+<td style="text-align: center;">5% / 50% / 95% auf allen
+Sitzplätzen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Frontalaufprall, GB[redacted-phone],</p>
+<p>Lenkanlage</p></td>
+<td style="text-align: center;">n.a.</td>
+<td style="text-align: center;">0º</td>
+<td style="text-align: center;">48,3 – 53,1 km/h</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Frontalaufprall, GB[redacted-phone],</p>
+<p>Insassenschutz, Kraftstoffanlage</p></td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">0º</td>
+<td style="text-align: center;">50 km/h</td>
+<td style="text-align: center;">2 x 50% HIII vo</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>GB/T 31498 [redacted-person] für
+elektrifizierte Fahrzeuge</p>
+<p>(in Verbindung mit GB [redacted-phone])</p></td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1577745</p></td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">50 km/h</td>
+<td style="text-align: center;">2 x 50% HIII vo</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Frontalaufprall, GB[redacted-phone],</p>
+<p>40% ODB</p>
+<p>Insassenschutz, Kraftstoffanlage</p></td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">0º</td>
+<td style="text-align: center;">56 km/h</td>
+<td style="text-align: center;">2 x 50% HIII vo</td>
+</tr>
+</tbody>
+</table>
+<h3 id="anforderungen-consumertest">[redacted-person]</h3>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Relev.
+Funktions-Varianten</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] NCAP, mPDB</td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">0º</td>
+<td style="text-align: center;">50 km/h</td>
+<td style="text-align: center;"><p>THOR 50%FS</p>
+<p>5% HIII BFS</p>
+<p>5% HIII hi FS</p>
+<p>Q10 hi BFS</p></td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] NCAP, Wand</td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">56 km/h</td>
+<td style="text-align: center;"><p>2x 50% HIII vo</p>
+<p>5% HIII hi</p>
+<p>Q3 hi</p></td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall C-IASI MPDB links</td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">50 km/h</td>
+<td style="text-align: center;"><p>THOR 50% FS</p>
+<p>50% HIII BFS</p>
+<p>Q6 hi FS</p>
+<p>Q10 hi BFS</p></td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall C-IASI small overlap
+links</td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">64 km/h</td>
+<td style="text-align: center;"><p>50% HIII FS</p>
+<p>5% HIII hi FS</p></td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall C-IASI small overlap
+rechts</td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">64 km/h</td>
+<td style="text-align: center;"><p>50% HIII FS</p>
+<p>50% HIII BFS</p>
+<p>5% HIII hi FS</p></td>
+</tr>
+<tr>
+<td style="text-align: center;">Kneemapping (China-NCAP)</td>
+<td style="text-align: center;">n.a.</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">56 km/h</td>
+<td style="text-align: center;">5%/50%/95% HIII</td>
+</tr>
+<tr>
+<td style="text-align: center;">Kneemapping (CIASI)</td>
+<td style="text-align: center;">n.a.</td>
+<td style="text-align: center;">0°</td>
+<td>[redacted-person]</td>
+<td style="text-align: center;">5%/50%/95% HIII</td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted]</td>
+<td style="text-align: center;">n.a.</td>
+<td style="text-align: center;">0°</td>
+<td>[redacted-person]</td>
+<td style="text-align: center;">T3</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interne-anforderungen">[redacted-person]</h3>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Relev.
+Funktions-Varianten</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+<td style="text-align: center;"><strong>Entwicklungsziel</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall, 40% ODB li</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">56 km/h</td>
+<td style="text-align: center;">2 x 95% HIII vo</td>
+<td rowspan="4" style="text-align: center;"><p>Anlage 5:
+LAH.85D.880.C</p>
+<p>Anlage 2: LAH.DUM.880.KG V3</p>
+<p>(Sensorik, elektrische</p>
+<p>Sicherheit, Insassenwerte</p>
+<p>RdW &lt; 80%)</p>
+<p><em>wird für jede Antriebsvariante gefahren</em></p></td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall, 40% ODB li</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">56 km/h</td>
+<td style="text-align: center;">2 x 5% HIII vo</td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">50 km/h</td>
+<td style="text-align: center;">2 x 95% HIII vo</td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">50 km/h</td>
+<td style="text-align: center;">2 x 5% HIII vo</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Frontalaufprall ODB links und
+rechts</p>
+<p>Struktur worst case</p></td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0º</td>
+<td style="text-align: center;">64 km/h</td>
+<td style="text-align: center;">2 x 50% HIII vo</td>
+<td style="text-align: center;"><p>Anlage 5: LAH.85D.880.C</p>
+<p>Anlage 2: LAH.DUM.880.KG V3</p>
+<p>Strukturintegrität,</p>
+<p>elektrische Sicherheit,</p>
+<p>[redacted-person] + kein</p>
+<p>Bottoming out nach Euro NCAP-</p>
+<p>Definition </p>
+<p><em>Konfiguration wird von</em></p>
+<p><em>[redacted-person] definiert, schwerste</em></p>
+<p><em>Fzg. mit größtem Blockbildner</em></p></td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] Overlap links</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">64 km/h</td>
+<td style="text-align: center;">50% HIII Fahrer</td>
+<td style="text-align: center;"><p>Anlage 2: LAH.DUM.880.KG V3</p>
+<p>Anlage 5: LAH.85D.880.C</p></td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] Overlap
+rechts</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">64 km/h</td>
+<td style="text-align: center;"><p>50% HIII Fahrer</p>
+<p>50% HIII Beifahrer</p></td>
+<td style="text-align: center;"><p>Anlage 2: LAH.DUM.880.KG V3</p>
+<p>Anlage 5: LAH.85D.880.C</p></td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;"><p>-30°</p>
+<p>+30°</p></td>
+<td style="text-align: center;">32 km/h</td>
+<td style="text-align: center;">2 x 5% HIII vo</td>
+<td style="text-align: center;"><p>[redacted-person],</p>
+<p>elektr. Sicherheit, Sensorik</p></td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">27km/h</td>
+<td style="text-align: center;">2 x 5% HIII vo</td>
+<td rowspan="5" style="text-align: center;"><p>[redacted-person],</p>
+<p>elektr. Sicherheit, Sensorik</p></td>
+</tr>
+<tr>
+<td style="text-align: center;">Frontalaufprall ODB links oder
+rechts</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0º</td>
+<td style="text-align: center;">40 km/h</td>
+<td style="text-align: center;">2 x 5% HIII vo</td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] 10“ mittig</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">35 km/h</td>
+<td style="text-align: center;">2 x 5% HIII vo</td>
+</tr>
+<tr>
+<td style="text-align: center;">LKW-Unterfahrer</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">30 km/h</td>
+<td style="text-align: center;">2 x 5% HIII vo</td>
+</tr>
+<tr>
+<td style="text-align: center;">Leitplanke (Multikollisionsbremse)</td>
+<td style="text-align: center;">FV 4126142</td>
+<td style="text-align: center;">15°</td>
+<td style="text-align: center;">80 km/h</td>
+</tr>
+</tbody>
+</table>
+<h2 id="seitenaufprall">Seitenaufprall</h2>
+<p>In diesem Kapitel sind die für das Fahrzeugprojekt relevanten
+Lastfälle für den Seitenaufprall dokumentiert. Die detaillierten
+Anforderungen für die einzelnen Lastfälle sind in den nachfolgenden
+Lastenheften beschrieben. Die in den Lastenheften beschriebenen
+Anforderungen sind für alle Lastfälle gültig.</p>
+<p>Bei den Gesetzeslastfällen ist eine „sichere Erfüllung“ der Gesetze
+zu gewährleisten.</p>
+<p>Die genauen Ziele der Consumerlastfälle sind in Anlage 5 zu diesem
+Lastenheft beschrieben.</p>
+<p>LAH.85D.880.E v20241106 Anlage 3 [redacted-person]</p>
+<p>LAH.85D.880.M v20241106 Anlage 4 [redacted-person]</p>
+<p>LAH.85D.880.C Anlage 5 [redacted-person]</p>
+<p>LAH.[redacted-phone]Kraftstoff, Elektrik und Betriebsstoffe</p>
+<p>LAH.DUM.880.AS Hybrid- und Elektrofahrzeuge</p>
+<p>LAH.DUM.959.E Crashreaktionen</p>
+<h3 id="anforderungen-gesetz-1">[redacted-person]</h3>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Relev.
+Funktions-Varianten</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>[redacted-person] GB
+[redacted-phone],</p>
+<p>Insassenschutz</p>
+<p>(vgl. ECE-R95 [redacted-person]. 2)</p></td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">90º</td>
+<td style="text-align: center;">50 km/h</td>
+<td style="text-align: center;">50% ES2 vo FS</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>GB/T 31498 [redacted-person] für
+elektrifizierte Fahrzeuge</p>
+<p>(in Verbindung mit GB [redacted-phone])</p></td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1577745</p></td>
+<td style="text-align: center;">90°</td>
+<td style="text-align: center;">50 km/h</td>
+<td style="text-align: center;">50% ES2 vo FS</td>
+</tr>
+<tr>
+<td style="text-align: center;">GB/T [redacted-phone]Pfahlaufprall</td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">75°</td>
+<td style="text-align: center;">32km/h</td>
+<td style="text-align: center;"><p>50% ES2 vo FS</p>
+<p>oder</p>
+<p>50% WS vo FS</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="anforderungen-consumertest-1">[redacted-person]</h3>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Relev.
+Funktions-Varianten</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>China NCAP 2024</p>
+<p>SC-MDB</p>
+<p>(1700kg; 350mm Bodenhöhe)</p></td>
+<td style="text-align: center;"><p>FV 1742983,</p>
+<p>FV 1576648</p></td>
+<td style="text-align: center;">90º</td>
+<td style="text-align: center;">60 km/h</td>
+<td style="text-align: center;"><p>50% WS vo FS</p>
+<p>5% SID-IIs hi FS</p></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>China NCAP 2024</p>
+<p>Pfahl inkl. Occupant to Occupant</p></td>
+<td style="text-align: center;">FV 1742983,</td>
+<td style="text-align: center;">75°</td>
+<td style="text-align: center;">32 km/h</td>
+<td style="text-align: center;"><p>50% WS vo FS</p>
+<p>50% WS vo BFS</p>
+<p>Q3 hi FS</p></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>China NCAP 2024</p>
+<p>[redacted-person] FarSide</p></td>
+<td style="text-align: center;">FV 1742983,</td>
+<td style="text-align: center;">75°</td>
+<td style="text-align: center;">32 km/h</td>
+<td style="text-align: center;"><p>50% WS</p>
+<p>und</p>
+<p>5% SID-IIs</p></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>C-IASI v3.0</p>
+<p>AC-MDB</p>
+<p>(1650kg; 400mm Bodenhöhe)</p></td>
+<td style="text-align: center;">FV 1742983,</td>
+<td style="text-align: center;">90°</td>
+<td style="text-align: center;">50 km/h</td>
+<td style="text-align: center;"><p>SID-IIs vo FS</p>
+<p>50% WS vo BFS (Monitoring)</p>
+<p>SID-IIs hi FS</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="seitenaufprall-interne-anforderungen-für-alle-märkte">Seitenaufprall
+interne Anforderungen für alle Märkte</h3>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Relev.
+Funktions-Varianten</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] hinten 2. SR</td>
+<td style="text-align: center;">FV 1742983,</td>
+<td style="text-align: center;">90º</td>
+<td style="text-align: center;">29 km/h</td>
+<td style="text-align: center;"><p>1 x 5% SID-IIs</p>
+<p>1 x 50% ES2 (simulativ)</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="heckaufprall">Heckaufprall</h2>
+<p>In diesem Kapitel sind die für das Fahrzeugprojekt relevanten
+Lastfälle für den Heckaufprall dokumentiert. Die detaillierten
+Anforderungen für die einzelnen Lastfälle sind in den nachfolgenden
+Lastenheften beschrieben. Die in den Lastenheften beschriebenen
+Anforderungen sind für alle Lastfälle gültig.</p>
+<p>Bei den Gesetzeslastfällen ist eine „sichere Erfüllung“ der Gesetze
+zu gewährleisten.</p>
+<p>Die genauen Ziele der Consumerlastfälle sind in Anlage 5 zu diesem
+Lastenheft beschrieben.</p>
+<p>LAH.[redacted-phone]D [redacted-person]</p>
+<p>LAH.[redacted-phone]Kraftstoff, Elektrik und Betriebsstoffe</p>
+<p>LAH.DUM.880.AS Hybrid- und Elektrofahrzeuge <em>(Update läuft im
+Konzern!)</em></p>
+<h3 id="anforderungen-gesetz-2">[redacted-person]</h3>
+<table style="width:100%;">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Relev.
+Funktions-Varianten</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">Heckaufprall GB [redacted-phone],
+Kraftstoffanlage</td>
+<td style="text-align: center;">FV 1742983</td>
+<td style="text-align: center;">180º</td>
+<td style="text-align: center;">50 +2 km/h</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h3 id="interne-anforderungen-1">[redacted-person]</h3>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Heckaufprall wie TRIAS 15-J[redacted-phone]</p>
+<p>bzw. FMVSS 301 alt</p>
+<p>Konventionelle und elektrische Antriebe</p></td>
+<td style="text-align: center;">180º</td>
+<td style="text-align: center;">50 +2 km/h</td>
+<td style="text-align: center;">-</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Heckaufprall [redacted-co] intern</p>
+<p>80km/h_ODB_0°_70%_1368kg</p></td>
+<td style="text-align: center;">0°</td>
+<td style="text-align: center;">80km/h</td>
+<td style="text-align: center;">-</td>
+</tr>
+</tbody>
+</table>
+<h2 id="partnerschutz">Partnerschutz</h2>
+<p>[redacted-person] zu den Anforderungen des Fußgängerschutzes
+sind im</p>
+<p>Funktionslastenheft LAH.85D.880.G beschrieben.</p>
+<h2 id="sonstige-versuche-v">[redacted-person] (V)</h2>
+<h3 id="sonstige-versuche-gesetz">[redacted-person] Gesetz</h3>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+<td style="text-align: center;"><strong>Entwicklungsziel</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Türeindrückung, statisch</p>
+<p>GB [redacted-phone]</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"><p>[redacted-person]</p>
+<p>LAH.DUM.880.KR</p>
+<p>Version 20210108</p></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Sicherheitsgurtverankerung</p>
+<p>GB [redacted-phone]</p>
+<p>GB [redacted-phone]</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">Wird abgedeckt durch ECE-R 14, R16,
+R145</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Dacheindrückung, statisch</p>
+<p>GB [redacted-phone]</p>
+<p>(gültig ab [redacted-phone])</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"><p>[redacted-person]</p>
+<p>LAH.DUM.857.DH</p>
+<p>Version 20221129</p></td>
+</tr>
+</tbody>
+</table>
+<h3 id="sonstige-versuche-consumer">[redacted-person] Consumer</h3>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Versuchsart</strong></td>
+<td style="text-align: center;"><strong>Winkel</strong></td>
+<td style="text-align: center;"><strong>Geschwindigkeit</strong></td>
+<td style="text-align: center;"><strong>Dummy</strong></td>
+<td style="text-align: center;"><strong>Entwicklungsziel</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Dacheindrückung, statisch</p>
+<p>C-IASI v.3.0 [redacted-person]</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"><p>[redacted-person]</p>
+<p>LAH.DUM.857.DH</p>
+<p>Version 20221129</p></td>
+</tr>
+</tbody>
+</table>
+<h2 id="generelle-entwicklungsvorschriften">[redacted-person]</h2>
+<table style="width:100%;">
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><strong>Verantwortlich</strong></th>
+</tr>
+<tr>
+<th rowspan="5"><p>Prüfvorschriften,</p>
+<p>Liefervorschriften,</p>
+<p>Verfahrens-</p>
+<p>anweisung</p></th>
+<th>Prüf- und Freigabeprogramm für Crash-, Schlitten- ,Komponenten- und
+OoP-Versuche</th>
+</tr>
+<tr>
+<th><p>Übergeordnet [redacted-co]80151</p>
+<p>VW99000 (ersetzt [redacted-co]01 154)</p>
+<p>[redacted-co]TL 1010, TL 1011, US[redacted-phone]</p></th>
+<th><p>[redacted-person],</p>
+<p>[redacted-person]-S4;</p>
+<p>[redacted-person],</p>
+<p>[redacted-person]-S4</p></th>
+</tr>
+<tr>
+<th><p>Innenraum, Sicherheitsgurtsysteme, Kinderrückhaltesysteme</p>
+<p>[redacted-co]TL 471, [redacted-co]TL [redacted]TL [redacted]TL [redacted-phone],</p>
+<p>[redacted-co]TL 82503, [redacted-co]TL [redacted-phone], , [redacted-co]TL [redacted]TL [redacted-phone]</p></th>
+<th>GURT</th>
+</tr>
+<tr>
+<th><p>Seitencrash, Seitentüren</p>
+<p>[redacted-co]TL 855, [redacted-co]TL [redacted]TL 82 418, [redacted-co]TL 82 419</p></th>
+<th>Hr.[redacted]</th>
+</tr>
+<tr>
+<th><p>[redacted-person] zur Messung der Gaskonzentration</p>
+<p>(Ergänzung zur [redacted-co]80151)</p></th>
+<th>LAH.DUM.880.JG</th>
+<th>[redacted]S6; [redacted]S4</th>
+</tr>
+<tr>
+<th><p>Typprüfung,</p>
+<p>Vorschriften,</p>
+<p>Gesetze</p></th>
+<th><p>[redacted-person] der Prüftermine, Umfänge und Parameter erfolgt
+in</p>
+<p>Absprache mit der [redacted-co] Typprüfung ([redacted-person]-G)</p>
+<p>Berücksichtigung aller Ländervorgaben.</p>
+<p>weitere Vorgaben für [redacted-person]-G:</p>
+<ul>
+<li><p>Bereitstellen der Daten zur Erstellung der [redacted-person], landesspezifischen Formblätter und
+Zulassungsunterlagen</p></li>
+<li><p>Beschaffung / Logistik von Versuchsteilen, Karossen/Teilkarossen
+und Prüffahrzeugen</p></li>
+</ul>
+<p>Übernahme der Kosten für die Durchführung der Versuche, sowie Aufwand
+des [redacted-person] vor Ort (Arbeitszeit, Reisezeit, Reisekosten
+und sonst. Aufwände des technischen Dienstes, die in direktem
+Zusammenhang mit dem Typprüfversuch stehen)</p></th>
+<th>[redacted-person]-G</th>
+<th>[redacted-person]-G</th>
+</tr>
+</thead>
+</table>
+<ol start="4" type="1">
+<li><p><strong>[redacted-person]/Komponenten</strong></p></li>
+</ol>
+<h2 id="gesetze-struktur-fahrzeug-komponenten">[redacted-person] Fahrzeug
+/ Komponenten</h2>
+<table style="width:100%;">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Ä</strong></td>
+<td style="text-align: center;"><strong>Umfang</strong></td>
+<td style="text-align: center;"><strong>Inhalt</strong></td>
+<td style="text-align: center;"><strong>Quelle</strong></td>
+<td style="text-align: center;"><strong>Verantwortlich</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Schlösser,</p>
+<p>Scharniere</p></td>
+<td style="text-align: center;">GB 20071/ 2006</td>
+<td style="text-align: center;">Hr.[redacted]</td>
+</tr>
+<tr>
+<td style="text-align: center;">[redacted-person] Recorder</td>
+<td style="text-align: center;"><p>GB [redacted-phone]</p>
+<p>GB XXXX-EDR (Draft)</p></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="generelle-entwicklungsvorgaben-struktur-fahrzeug">[redacted]</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><strong>Verantwortlich</strong></th>
+</tr>
+<tr>
+<th rowspan="2"><p>Karosseriestruktur:</p>
+<p>Generelle</p>
+<p>Entwicklungs-</p>
+<p>vorgaben</p></th>
+<th>[redacted-person] 2 [redacted-person] Frontcrash</th>
+<th>LAH.DUM.880.KG V3</th>
+<th>[redacted-id]</th>
+</tr>
+<tr>
+<th>[redacted-person] Fußgängerschutz</th>
+<th>LAH.85D.880.G</th>
+<th>[redacted-id]</th>
+</tr>
+</thead>
+</table>
+<h2 id="system--und-bauteil-lastenhefte-struktur-fahrzeug">System- und
+Bauteil-[redacted-person] Fahrzeug</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><strong>Verantwortlich</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="7"><p>Karosseriestruktur:</p>
+<p>System- und</p>
+<p>Bauteillastenhefte</p></td>
+<td>[redacted-person] Achsträger vorn</td>
+<td>LAH.[redacted-phone]K</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person] Stoßfängersystem</td>
+<td>LAH.[redacted-phone]A</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted]</td>
+<td>LAH.[redacted-phone]D</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>LAH.[redacted-phone]B</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person] Frontklappensystem</td>
+<td>LAH.[redacted-phone]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person] Batteriebefestigung im
+Crash</td>
+<td>LAH.DUM.880.BL</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person] Modulquerträger</td>
+<td>LAH.[redacted-phone]M</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Notruf</td>
+<td>[redacted-person]</td>
+<td>LAH.DUM.035.B</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<ol start="5" type="1">
+<li><p><strong>Innenraum</strong></p></li>
+</ol>
+<h2 id="gesetze-innenraumkomponenten">[redacted-person]</h2>
+<table style="width:100%;">
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Ä</strong></td>
+<td style="text-align: center;"><strong>Umfang</strong></td>
+<td style="text-align: center;"><strong>Inhalt</strong></td>
+<td style="text-align: center;"><strong>Quelle</strong></td>
+<td style="text-align: center;"><strong>Verantwortlich</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Sicherheitsgurt-</p>
+<p>system:</p>
+<p>Gurtaufroller,</p>
+<p>pyrotechnischer</p>
+<p>Gurtstraffer,</p>
+<p>Gurtschlösser,</p>
+<p>Gurthöhenversteller</p></td>
+<td style="text-align: center;">GB [redacted-phone], GS[redacted-phone], QC[redacted-phone]</td>
+<td style="text-align: center;">[redacted-person]-S6</td>
+</tr>
+<tr>
+<td style="text-align: center;">Lenkrad</td>
+<td style="text-align: center;">GB [redacted-phone]</td>
+<td style="text-align: center;">[redacted-person]-42</td>
+</tr>
+<tr>
+<td style="text-align: center;">Seitenairbags</td>
+<td style="text-align: center;">TWG-ISO 14933</td>
+<td style="text-align: center;">[redacted-person]-S4</td>
+</tr>
+<tr>
+<td style="text-align: center;">Innenraum</td>
+<td style="text-align: center;">GB [redacted-phone]</td>
+</tr>
+</tbody>
+</table>
+<h2 id="generelle-entwicklungsvorgaben-innenraum">[redacted-person] Innenraum</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><strong>Verantwortlich</strong></th>
+</tr>
+<tr>
+<th>Rückhaltesystementwicklung-Frontschutz CHINA</th>
+<th>LAH.DUM.880.KH</th>
+<th>[redacted-person]</th>
+</tr>
+<tr>
+<th>[redacted-person] Front</th>
+<th>LAH.DUM.880.KJ</th>
+<th>[redacted-person]</th>
+</tr>
+</thead>
+</table>
+<h2 id="system--und-bauteil-lastenhefte-innenraum">System- und
+Bauteil-[redacted-person]</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><strong>Verantwortlich</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="5">Airbags</td>
+<td>Fahrerairbag</td>
+<td><p>LAH.DUM.880.AT</p>
+<p>LAH.85D.880.K</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Beifahrerairbag</td>
+<td>LAH.DUM.880.BA</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Seitenairbag vorn</td>
+<td>LAH.5Q0.880.</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><p>Seitenairbag hinten</p>
+<p>Centerairbag</p></td>
+<td><p>LAH.5Q0.880.</p>
+<p>LAH.[redacted-phone]A</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Kopfairbag</td>
+<td>LAH.5Q4.880 V13</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td rowspan="7">Sicherheitsgurte</td>
+<td>Lastenheft ANO Gurthöhenverstellung</td>
+<td>LAH.DUM.857.AA</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted]</td>
+<td>LAH.4CG.857.T</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted]</td>
+<td>LAH.DUM.857.D</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted]</td>
+<td>LAH.DUM.857.BB</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Lastenheft mechanische ZSB Gurthöhenverstellung</td>
+<td>LAH.4M0.857.AE</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-prj] Sicherheitsgurtführungen</td>
+<td>LAH.DUM.857.AE</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><p>[redacted]NVH</p>
+<p>Lastenheft „[redacted-person]</p>
+<p>[redacted-person] Gurtstraffer</p></td>
+<td><p>LAH.DUM.857.BL</p>
+<p>LAH DUM.857.BJ</p>
+<p>LAH.DUM.857.T</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Cockpit</td>
+<td>Rückhaltesystemanforderungen an das Cockpit CHINA</td>
+<td>LAH.DUM.880.KK</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Lenksäule</td>
+<td>Fahrzeugsicherheitsanforderungen an die Lenksäule</td>
+<td>LAH.DUM.880.BC</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td rowspan="3"><p>Kindersicherheit</p>
+<p>Kindersitz-</p>
+<p>verankerung ISOFIX</p></td>
+<td>Lastenheft ISOFIX Beifahrersitz</td>
+<td>LAH.8P0.881.A</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Lastenheft ISOFIX Hintersitz</td>
+<td>LAH.8P0.885</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person] und Kindersicherheit</td>
+<td>LAH.DUM.857.DG</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<ol start="6" type="1">
+<li><p><strong>Sicherheitselektronik</strong></p></li>
+</ol>
+<h2 id="für-die-entwicklung-von-au4162_cx_bl-au4163_cx_b-gelten-die-folgenden-in-kvs-verfügbaren-lastenhefte">Für
+die Entwicklung von [redacted-prj]/2_Cx_BL, [redacted-prj]/3_Cx_B gelten die folgenden in
+KVS verfügbaren Lastenhefte</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><strong>Verantwortlich</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Crashsensorik</td>
+<td>[redacted-person]</td>
+<td>LAH.85D.880.J</td>
+<td>Böhmländer, Chiapedi ([redacted-person])</td>
+</tr>
+<tr>
+<td><p>Crashsensorik:</p>
+<p>Konstruktion/</p>
+<p>Integration</p></td>
+<td><p>Designguideline_Position_Upfrontsensor</p>
+<p>Integrationsrichtlinie_fuer_Airbagsteuergeräte</p>
+<p>Integrationsrichtlinie_Türdrucksensoren</p>
+<p>Integrationsrichtinie_Beschleunigungssensoren</p>
+<p>Freigabecheckliste_Integration_Crashsensorik</p>
+<p>AA.12.20_Integration_Crashsensorik</p></td>
+<td><p>LAH.89D.880.N</p>
+<p>LAH.89D.880.K</p>
+<p>LAH.89D.907</p>
+<p>LAH.89D.907.A</p>
+<p>LAH.89D.880.M</p>
+<p>LAH.89D.880.L</p></td>
+<td><p>Böhmländer,</p>
+<p>Chiapedi ([redacted-person])</p></td>
+</tr>
+<tr>
+<td rowspan="13"><p>SC2</p>
+<p>Bauteillastenhefte</p></td>
+<td>01_BT-LAH_Airbag-Steuergeraet_PPE_Mai[redacted-ext]</td>
+<td rowspan="13">[redacted-person] der Sicherheits- elektronik ([redacted-person] E³ high) sind komplett auf A[redacted-co]zu finden
+(avw-prod1.wob.vw.vwg, Port 4430)</td>
+<td>Smykalla, [redacted-person] ([redacted-person]-43)</td>
+</tr>
+<tr>
+<td>02_BT-LAH_Airbag-Steuergeraet_PPE_Modul_Erprobung</td>
+<td>Broeg, Andreas ([redacted-person]-I61)</td>
+</tr>
+<tr>
+<td>03_BT-LAH_Airbag-Steuergeraet_PPE_Modul-EMV-V2.9</td>
+<td>Wiechmann, Heiko ([redacted-person]-I21)</td>
+</tr>
+<tr>
+<td>09_BT-LAH_Airbag-Steuergeraet_PPE_Modul-EE
+Qualitaetssicherung_Mai[redacted-ext]</td>
+<td>Kress, Petra ([redacted-person]-43)</td>
+</tr>
+<tr>
+<td>04_BT-LAH_Airbag-Steuergeraet_PPE_Modul-Dia-Allg-V23.0_Nov[redacted-ext]</td>
+<td>Muellner, Marie, Dr.rer.nat. ([redacted-person]-43)</td>
+</tr>
+<tr>
+<td>05_BT-LAH_Airbag-Steuergeraet_PPE_Modul-Dia-Komp-V23.0_Nov[redacted-ext]</td>
+<td>Muellner, Marie, Dr.rer.nat. ([redacted-person]-43)</td>
+</tr>
+<tr>
+<td>BT-LAH Ausstattungsmatrix</td>
+<td>Smykalla, [redacted-person] ([redacted-person]-43)</td>
+</tr>
+<tr>
+<td>BT-LAH Bauteilmatrix</td>
+<td>Smykalla, [redacted-person] ([redacted-person]-43)</td>
+</tr>
+<tr>
+<td>BT-LAH Sicherheitselektronik - Diagnose</td>
+<td>Muellner, Marie, Dr.rer.nat. ([redacted-person]-43)</td>
+</tr>
+<tr>
+<td>BT-LAH Sicherheitselektronik - Elektronik</td>
+<td>Kurz, Albert ([redacted-person]-43)</td>
+</tr>
+<tr>
+<td>BT-LAH Sicherheitselektronik - Mechanik</td>
+<td>[redacted-person], Rafael ([redacted-id])</td>
+</tr>
+<tr>
+<td>BT-LAH Sicherheitselektronik - Software</td>
+<td>Benz, Rene ([redacted-person]-43)</td>
+</tr>
+<tr>
+<td>BT-LAH Vergabeumfänge kommerziell</td>
+<td>Smykalla, [redacted-person] ([redacted-person]-43)</td>
+</tr>
+</tbody>
+</table>
+<p>[redacted-person] und Inhalte sind in den angeführten LAHen,
+Designeguidelines, Checklisten und den darin referenzierten Dokumenten
+beschrieben.</p>
+<p>[redacted-person] werden für die Entwicklung einer
+Algorithmus-Applikation benötigt.</p>
+<p><strong>Basis-[redacted-person]</strong></p>
+<table>
+<thead>
+<tr>
+<th>Versuchsart</th>
+<th>Versuchsgrund</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>15 km/h RCAR (AZT) </td>
+<td>Typschadenklasse C-IASI</td>
+</tr>
+<tr>
+<td>26 km/h 0° Wand</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>32 km/h 0° Wand</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>50 km/h 0° Wand</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>56 km/h 0° Wand</td>
+<td>[redacted-person] C-NCAP</td>
+</tr>
+<tr>
+<td>32 km/h 30° li/re</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>40 km/h ODB</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>56 km/h ODB</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>30 km/h LKW Unterfahrt</td>
+<td>Feld: [redacted-person]</td>
+</tr>
+<tr>
+<td>35 km/h [redacted-person]</td>
+<td>Feld: [redacted-person]</td>
+</tr>
+<tr>
+<td>64 km/h [redacted-person]</td>
+<td>[redacted-person] Frontalaufprall C-IASI small overlap</td>
+</tr>
+<tr>
+<td>80 km/h 15° [redacted-person]</td>
+<td>MKB-Versuch</td>
+</tr>
+<tr>
+<td>50 km/h MPDB li/re </td>
+<td>[redacted-person] C-NCAP </td>
+</tr>
+</tbody>
+</table>
+<p><strong>Basis-[redacted-person]</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Versuchsart</td>
+<td style="text-align: center;">Winkel</td>
+<td style="text-align: center;">Geschwindigkeit</td>
+</tr>
+<tr>
+<td>US Barrier No Fire</td>
+<td style="text-align: center;">27°</td>
+<td style="text-align: center;">13 km/h</td>
+</tr>
+<tr>
+<td>[redacted-person] GB [redacted-phone]</td>
+<td style="text-align: center;">90°</td>
+<td style="text-align: center;">50 km/h</td>
+</tr>
+<tr>
+<td>GB/T [redacted-phone]Pfahlaufprall</td>
+<td style="text-align: center;">75°</td>
+<td style="text-align: center;">32km/h</td>
+</tr>
+<tr>
+<td>China NCAP SC-MDB 2024</td>
+<td style="text-align: center;">90°</td>
+<td style="text-align: center;">60 km/h</td>
+</tr>
+<tr>
+<td>China NCAP Pfahl 2024</td>
+<td style="text-align: center;">75°</td>
+<td style="text-align: center;">32 km/h</td>
+</tr>
+<tr>
+<td>Pfahl mit 50%-il</td>
+<td style="text-align: center;">75°</td>
+<td style="text-align: center;">Ab 16km/h</td>
+</tr>
+<tr>
+<td>Pfahl mit 5%-il SID-2s-Dummy</td>
+<td style="text-align: center;">75°</td>
+<td style="text-align: center;">Ab 16km/h</td>
+</tr>
+<tr>
+<td>C-IASI v3.0 AC-MDB</td>
+<td style="text-align: center;">90°</td>
+<td style="text-align: center;">50 km/h</td>
+</tr>
+<tr>
+<td>[redacted-person] hinten 2. SR</td>
+<td style="text-align: center;">90°</td>
+<td style="text-align: center;">29 km/h</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Basis-[redacted-person]</strong></p>
+<table>
+<tbody>
+<tr>
+<td>Versuchsart</td>
+<td>Winkel</td>
+<td>Geschwindigkeit</td>
+</tr>
+<tr>
+<td>RCAR (AZT)</td>
+<td style="text-align: center;">10°</td>
+<td style="text-align: center;">15 km/h</td>
+</tr>
+<tr>
+<td>Heckaufprall GB [redacted-phone], Kraftstoffanlage</td>
+<td style="text-align: center;">180º</td>
+<td style="text-align: center;">50 +2 km/h</td>
+</tr>
+<tr>
+<td><p>Heckaufprall wie TRIAS 15-J[redacted-phone]</p>
+<p>bzw. FMVSS 301 alt</p>
+<p>Konventionelle und elektrische Antriebe</p></td>
+<td style="text-align: center;">180º</td>
+<td style="text-align: center;">50 +2 km/h</td>
+</tr>
+</tbody>
+</table>
+<p>Die zu erreichenden Zündzeiten (min/opt/max) in den Lastfällen sind
+zwischen Sensorik und Insassenschutz im Projekt fortlaufend abzustimmen
+und zu dokumentieren.</p>
+<ol start="7" type="1">
+<li><p><strong>Kraftstoff
+/ Elektrik / Betriebsstoffe / HV</strong></p></li>
+</ol>
+<table style="width:100%;">
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><strong>Verantwortlich</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td>LAH Kraftstoff / Elektrik und Betriebsstoffe</td>
+<td>LAH.[redacted-phone]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><p>LAH [redacted-person]</p>
+<p>Hybrid-/ Elektrofahrzeuge – Crashanforderung</p></td>
+<td>LAH.DUM.880.AS</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><p>[redacted-co] interne [redacted-person]</p>
+<p>Hybrid-/ Elektrofahrzeuge – Crashanforderung</p>
+<p>Erweiterung 4-stufiges Absicherungskonzept für elektrifizierte
+Fahrzeuge</p></td>
+<td><p>mitgeltende</p>
+<p>Unterlage</p>
+<p>(Anhang)</p></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<ol start="8" type="1">
+<li><p><strong>Berechnung</strong></p></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><strong>Verantwortlich</strong></th>
+</tr>
+<tr>
+<th>Rückhaltesystementwicklung-Frontschutz CHINA</th>
+<th>LAH.DUM.880.KH</th>
+<th>[redacted-person]</th>
+</tr>
+<tr>
+<th>Konzern-LAH [redacted-person]</th>
+<th>LAH.DUM.880.EM</th>
+<th>[redacted-person]</th>
+</tr>
+<tr>
+<th>VW-[redacted-person] Airbag</th>
+<th>VW82036</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="3">[redacted-person] sind in Funktionslastenheften
+enthalten</td>
+</tr>
+</tbody>
+</table>
+<ol start="9" type="1">
+<li><p><strong>Prüffeldtechnik</strong></p></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Ä</strong></th>
+<th style="text-align: center;"><strong>Umfang</strong></th>
+<th style="text-align: center;"><strong>Inhalt</strong></th>
+<th style="text-align: center;"><strong>Quelle</strong></th>
+<th style="text-align: center;"><strong>Verantwortlich</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Anforderungen einer Filmauswertung bei externen Prüflaboren</td>
+<td>LAH DUM 880 BE</td>
+<td>Singer, Alexander/ [redacted-id]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>LAH.[redacted-phone]J</td>
+<td>Hohage, Björn, [redacted-id]</td>
+</tr>
+</tbody>
+</table>
+<ol start="10" type="1">
+<li><p><strong>[redacted-person]</strong></p></li>
+</ol>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Ä</strong></td>
+<td style="text-align: center;"><strong>Umfang</strong></td>
+<td style="text-align: center;"><strong>Inhalt</strong></td>
+<td style="text-align: center;"><strong>Quelle</strong></td>
+<td style="text-align: center;"><strong>Verantwortlich</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;">Anlage 5 Verbraucherschutz</td>
+<td style="text-align: center;">LAH.85D.880.C</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<ol start="11" type="1">
+<li><p><strong>[redacted-person]</strong></p></li>
+</ol>
+<p>[redacted-person] für dieses Projekt wurde analog der
+FBU Fahrzeuge im release42 dokumentiert und freigegeben.</p>
+</body>
+</html>

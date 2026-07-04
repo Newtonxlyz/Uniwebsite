@@ -1,0 +1,859 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>3_4_LAH_Seitencrash</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p><img alt="LH" src="./07_Components-3-4-lah-seitencrash-media/media/image1.wmf" style="width:5.49236in;height:4.60833in"/></p>
+<p>[redacted-person]</p>
+<p><strong>Änderungsdokumentation</strong></p>
+<table>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>Änderungs-stand</strong></td>
+<td style="text-align: center;"><strong>Beschreibung der
+Änderung</strong></td>
+<td style="text-align: center;"><strong>Ersteller</strong></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;">Erstausgabe</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;">Update 2015</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><p>[redacted-person]:</p>
+<ul>
+<li><p>Zusammenfassen der LAH Barriere, Pfahl, Dachstabilität und
+Überrollschutz</p></li>
+<li><p>Lastfälle für „buest guess“ ab 2020</p></li>
+</ul></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><p>Anpassung quasistatische
+Lastfälle:</p>
+<ul>
+<li><p>Ratescale</p></li>
+<li><p>Reibparameter</p></li>
+<li><p>strainrate</p></li>
+</ul></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;">[redacted-person] Türdichtung zu
+Karosse</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>INHALTSVERZEICHNIS</strong></p>
+<h3 class="toc-3" id="allgemeines-3"><a href="#allgemeines"><strong>3.4.1</strong> <strong>Allgemeines</strong>
+<span>3</span></a></h3>
+<h3 class="toc-3" id="modellierung-3"><a href="#modellierung"><strong>3.4.2</strong>
+<strong>Modellierung</strong> <span>3</span></a></h3>
+<h3 class="toc-3" id="auswertungdokumentation-5"><a href="#auswertungdokumentation"><strong>3.4.3</strong>
+<strong>Auswertung/Dokumentation</strong> <span>5</span></a></h3>
+<h3 class="toc-3" id="lastfälle-allgemein-6"><a href="#lastfälle-allgemein"><strong>3.4.4</strong> <strong>Lastfälle
+allgemein</strong> <span>6</span></a></h3>
+<h3 class="toc-3" id="barrierenlastfälle-7"><a href="#barrierenlastfälle"><strong>3.4.5</strong>
+<strong>Barrierenlastfälle</strong> <span>7</span></a></h3>
+<h3 class="toc-3" id="pfahllastfälle-7"><a href="#pfahllastfälle"><strong>3.4.6</strong>
+<strong>Pfahllastfälle</strong> <span>7</span></a></h3>
+<h3 class="toc-3" id="türeindrückung-9"><a href="#türeindrückung"><strong>3.4.7</strong>
+<strong>Türeindrückung</strong> <span>9</span></a></h3>
+<h3 class="toc-3" id="dacheindrückung-14"><a href="#dacheindrückung"><strong>3.4.8</strong>
+<strong>Dacheindrückung</strong> <span>14</span></a></h3>
+<h3 class="toc-3" id="lastfall-bei-überrollschutzsystem-15"><a href="#lastfall-bei-überrollschutzsystem"><strong>3.4.9</strong>
+<strong>Lastfall bei Überrollschutzsystem</strong>
+<span>15</span></a></h3>
+<h3 id="allgemeines"><strong>Allgemeines</strong></h3>
+<p>Im Modellierungs- und Crashlastenheft
+(2_1_LAH_Crash_Modellaufbau_allgemein_plus_BM1-3) wird der Aufbau des
+allgemein gültigen Crashmodell beschrieben. In diesem Abschnitt werden
+die zusätzlichen seitencrashspezifischen Umfänge für die Auslegung im
+Seitencrash dargestellt.</p>
+<p>Für die Entwicklung ist ein gemeinsames Seitencrash und
+Seitenschutzbasismodell zu pflegen. Spätestens zu den
+Meilensteinstatusberichten müssen die Modelle abgeglichen sein. Hierbei
+gibt es eine klare Verantwortungsaufteilung für den Aufbau der
+unterschiedlichen Komponenten. Der spezifische Verantwortungsbereich für
+die [redacted-person] wird in dem Lastenheft
+spezifiziert.</p>
+<h3 id="modellierung"><strong>Modellierung</strong></h3>
+<p>Ein gemeinsames Seitencrash und [redacted-person] muss
+gepflegt werden. Im allgemeinen Seitencrashmodell soll enthalten
+sein:</p>
+<ul>
+<li><p>[redacted-person] mit den relevanten
+Motor-Getriebekombinationen</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>[redacted-person] für Seitencrash</p></li>
+<li><p>Frontscheibe samt Kleber nach Minimodell</p></li>
+<li><p>Seiten-/Heckscheiben nach Glasart (Verbundglas/Einfachglas/…) und
+Lastfall</p></li>
+<li><p>Türverkleidung (gestellt von [redacted-person])</p></li>
+<li><p>Greenhouse (gestellt von [redacted-person])</p></li>
+<li><p>Cockpit (gestellt von [redacted-person])</p></li>
+<li><p>Vordersitze (gestellt von [redacted-person], lastfallspezifisch)</p></li>
+<li><p>Rücksitzbank (gestellt von [redacted]teilweise
+lastfallspezifisch wegen Insassen)</p></li>
+<li><p>Dummies (gestellt von [redacted-person], lastfallspezifisch)</p></li>
+<li><p>Schutzsysteme (gestellt von [redacted-person], Airbags, Gurte, etc.,)</p></li>
+<li><p>Barriere (Referenz-LoCo-Pool)</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Die meisten Modellbestände stehen zur Verfügung. In frühen
+Projektphasen muss sich evtl. mit Bauteilen aus Vorgängerprojekten
+beholfen werden.</p>
+<p>Ein etwaiges Weglassen von Komponente ist möglich, Bedarf aber der
+Abstimmung mit der Fachabteilung.</p>
+<p>[redacted-person] sind folgende Modellbestandteile gegebenenfalls
+spezifisch zu modellieren:</p>
+<h4 id="barrieren"><strong>Barrieren</strong></h4>
+<p>Der aktuellste Stand der Barrieren ist aus LoCo anzuziehen. [redacted-person] des Kompetenzteams ist verbindlich. Deswegen kann ein Wechsel
+der Barrierenversion im Laufe des Projektes erforderlich sein. [redacted-person] eines Wechsels müssen analysiert und berichtet werden. [redacted-person] können hier auch abweichende Barrieren z.[redacted-person] „strong“
+genutzt werden.</p>
+<p>[redacted-person] erfolgt lastfallspezifisch. [redacted-person] und zur Kontrolle kann das [redacted-person] genutzt
+werden. Die genauen Positionen sind in dem lastfallspezifischen Teil
+beschrieben. [redacted-person] ist zu dokumentieren. [redacted-person] ist die Barriere exakt auf der Versuchslage zu
+positionieren und die tatsächliche Versuchsgeschwindigkeit ist exakt
+einzustellen. [redacted-person] ist für die Auslegung aber
+beizubehalten.</p>
+<h4 id="türen"><strong>Türen</strong></h4>
+<p>[redacted-person] spielen im Seitencrash eine zentrale Rolle. Falls das
+Basismodell die für den Seitencrash wichtigen türspezifischen
+Detailmodelle nicht mittragen möchte und diese deswegen im Basismodell
+nicht ausmodelliert sind, müssen diese Detailmodelle im Rahmen der
+Seitencrashentwicklung erstellt werden. Diese detaillierten Türmodelle
+müssen für alle Seitencrashberechnungen (Barrieren-, Pfahl- und
+Türlastfälle) angezogen werden.</p>
+<p>Für die Modellabbildung gibt es ein Beispieldeck (Minimodell) und
+eine Modellierungsanweisung zum Minimodell.</p>
+<p>Kernpunkte sind:</p>
+<ul>
+<li><p>Abbildung der [redacted-person]-Karosserie</p>
+<ul>
+<li><p>Spezialkontakt (C33) mit Kontaktdicke 8mm und Reibung 0,5 auf ca.
+15mm breiter Elementreihe (Dichtungsbreite je nach Projekt) am
+Türausschnitt (Türdichtung innen) und am Türinnenblech (Türdichtung
+aussen) z.B. [redacted-prj]:</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image2.png" style="width:6.27986in;height:1.61319in"/></p>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image3.png" style="width:6.27986in;height:2.8875in"/></p>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image4.png" style="width:3.52381in;height:3.13765in"/></p>
+</blockquote>
+<ul>
+<li><p>Schloss ([redacted-person] kinematisch
+abgebildet)</p></li>
+<li><p>Türpackage (Lautsprechersystem, Fensterheber etc.)</p></li>
+<li><p>Türgriff und Lagerbügel (kinematisch abgebildet)</p></li>
+<li><p>Türscharniere (ohne RBodies mit Vorspannung)</p></li>
+<li><p>Verbindungspunkte (Niete/Schweißpunkte etc.) werden über
+MPC-Links dargestellt</p></li>
+</ul>
+<h4 id="massentrimm"><strong>Massentrimm</strong></h4>
+<p>Die versuchsspezifischen Crashmassen und die Achslastverteilungen
+werden von der Fahrzeugsicherheit vorgegeben und in einer
+Übersichtstabelle von der Fachabteilung zur Verfügung gestellt. Die
+eingestellten Crashmassen und Achslastverteilungen sind bei den
+Statusberichten für jeden Lastfall zu dokumentieren.</p>
+<p>[redacted-person] und die Achslastverteilung muss möglichst genau nach
+Vorschrift der Fahrzeugsicherheit eingestellt werden. [redacted-person]
+müssen genau da verschmiert werden, wo die Bauteile/Massen fehlen, so
+dass sich realistische Verhältnisse automatisch einstellen.
+[redacted-person], Trägheiten und Momenteneinleitungen
+sind nicht zulässig. [redacted-person] im crashrelevanten
+Deformationsbereich ist zu vermeiden. [redacted-person] ist zu
+dokumentieren.</p>
+<p>Für die Versuchsbegleitung und die Versuchsvalidierung sind die
+Massen an den Versuch anzupassen. Einflüsse müssen analysiert und
+dokumentiert werden. Die offizielle Versuchsdefinition ist für
+Serienauslegung aber beizubehalten.</p>
+<h4 id="sensoren"><strong>Sensoren</strong></h4>
+<h4 id="überwachungspunkte-analog-der-im-versuch-gesetzten-sensoren-werden-mit-würfel-modelliert-wegen">Überwachungspunkte,
+analog der im Versuch gesetzten Sensoren, werden mit Würfel modelliert,
+wegen</h4>
+<ul>
+<li><p>Sichtbarkeit</p></li>
+<li><p>Abgreifen der lokalen Geschwindigkeiten für
+Validierungszwecke</p></li>
+</ul>
+<p>[redacted-person] werden nicht mit <u>Tieds</u> sondern mit <u>OTMCOs</u>
+angebunden. So haben die Würfel keine aussteifende Wirkung und keine
+unrealistischen Effekte im Nahfeld der Messwürfel.</p>
+<p>[redacted-person] wird in der Regel von [redacted-person] gestellt. Anpassungen im
+laufenden Projekt sind möglich.</p>
+<h3 id="auswertungdokumentation"><strong>Auswertung/Dokumentation</strong></h3>
+<p>Die allgemeine Standardseitencrashauswertung muss bei jeder Rechnung
+angezogen werden. [redacted-person] ist eine Hilfe um einen
+schnellen Überblick zu bekommen. [redacted-person] kann nicht
+jedes Detail erfassen und ersetzt deswegen eine spezifische
+projektbezogene Auswertung nicht.</p>
+<p>[redacted-person] und Erklärung der Standardauswertung inkl. Skripte
+ist zu finden unter:</p>
+<p>S:\EK_Aufbau\Pro_Simu\3000_Kompetenzteams\3B00_SC_DE\3BF0_Lastenheft_Modellierungsrichtlinie\Standardauswertung</p>
+<p>bzw.</p>
+<p>Status.E – 2018_01_31_Standardauswertung_Seitencrash_V1.5.0.zip</p>
+<p>Zusätzlich zu den allgemeinen Qualitätschecks soll für jeden Lastfall
+folgendes berichtet werden:</p>
+<ul>
+<li><p>Datenquellen mit Datum (CAD Karosserie, Tür, Interieur,
+Massentrimm, Crashmassen, etc.)</p></li>
+<li><p>Bild mit Lagen der Massenverschmierung</p></li>
+<li><p>Barrierenvariante und Trefferlage</p></li>
+<li><p>Material-/Wandstärkenzuordnung aller karosserierelevanten
+Seitencrashstrukturlastpfade (Konzeptabhängig)</p>
+<ul>
+<li><p>B-Säule (komplett)</p></li>
+<li><p>A-Säule oben (komplett)</p></li>
+<li><p>Dachverstärkungen (Dachrahmen vorne, mitte, hinten)</p></li>
+<li><p>Dachsystem</p></li>
+<li><p>Schweller</p></li>
+<li><p>Bodenquerverstärkungen (Sitzquerträgern, etc.)</p></li>
+</ul></li>
+<li><p>Material-/Wandstärkenzuordnung der Türen (Konzeptabhängig)</p>
+<ul>
+<li><p>Türaufprallträger</p></li>
+<li><p>Schachtverstärkungen</p></li>
+<li><p>etc.</p></li>
+</ul></li>
+<li><p>[redacted-person] vom allgemeinen Crashmodell (falls
+erforderlich)</p></li>
+</ul>
+<p>[redacted-person] sind die obigen Punkte und alle Lastfallziele
+(vy, Strukturintegrität, Robustheit, etc.) zu berichten. In diesen
+Auswertungen müssen aussagekräftige Kommentare und ein Fazit
+dokumentiert werden. [redacted-person] müssen die Auswertungen
+nach Absprache mit der Fachabteilung so kurz wie möglich, aber
+aussagekräftig aufgearbeitet werden.</p>
+<p>Erwartet wird eine sichere, robuste Auslegung bei minimalsten
+Gewicht. [redacted-person] (Strukturintegrität, Intrusionen und
+Eindringgeschwindigkeiten) in den Auslegungslastfällen werden von der
+Fahrzeugsicherheit definiert. Um den besten Kompromiss für das Fahrzeug
+sicher zu stellen, ist eine Vermischung der Ziele nicht zulässig.</p>
+<p>[redacted-person] der Auslegung ist sicherzustellen und bei Meilensteine
+zu dokumentieren. [redacted-person] bzw. Arbeitsanweisung für
+Robustheitsanalysen ist bei den einzelnen Lastfällen dokumentiert.</p>
+<h3 id="lastfälle-allgemein"><strong>Lastfälle allgemein</strong></h3>
+<p>[redacted-person] sind teilweise marktspezifisch. Um den
+Aufwand in der Auslegung zu reduzieren, können nach Absprache mit der
+Fachabteilung einige Lastfälle zusammengefasst werden.</p>
+<p>Im Status ist das komplette Lastfallportfolie zu bewerten.</p>
+<p>Um den besten Kompromiss (Funktion, Kosten, Gewicht) für das Fahrzeug
+sicher zu stellen, ist eine Zusammenfassung, oder eine Vermischung der
+fahrzeugspezifischen Ziele ([redacted-person], Gesetze,
+Strukturintegrität, Robustheit) nicht zulässig.</p>
+<p>[redacted-person] der möglichen Lastfälle sieht man in der unteren
+Tabelle.</p>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image5.png" style="width:6.28125in;height:4.17708in"/></p>
+<p>[redacted-person] im Detail, soweit als Auslegungslastfall
+definiert, wird in den folgenden Abschnitten beschrieben.</p>
+<h3 id="barrierenlastfälle"><strong>Barrierenlastfälle</strong></h3>
+<h4 id="ece-r95-96-27-ec"><strong>ECE-R95; 96-27-EC</strong></h4>
+<p>[%STATUS.E LOADCASE ECE-R95; 96-27-EC%]</p>
+<h4 id="rdw-strukturintegriät_mdb"><strong>RdW
+Strukturintegriät_MDB</strong></h4>
+<p>[%STATUS.E LOADCASE RdW Strukturintegriät MDB%]</p>
+<h4 id="australien_ncap-ae-mdb"><strong>Australien_NCAP
+AE-MDB</strong></h4>
+<p>[%STATUS.E LOADCASE Australien_NCAP AE-MDB%]</p>
+<h4 id="euro_ncap-ae-mdb"><strong>Euro_NCAP AE-MDB</strong></h4>
+<p>[%STATUS.E LOADCASE Euro_NCAP AE-MDB%]</p>
+<h4 id="japan_ncap-ae-mdb"><strong>Japan_NCAP AE-MDB</strong></h4>
+<p>[%STATUS.E LOADCASE Japan_NCAP AE-MDB%]</p>
+<h4 id="china_ncap-ae-mdb"><strong>China_NCAP AE-MDB</strong></h4>
+<p>[%STATUS.E LOADCASE China_NCAP AE-MDB%]</p>
+<h4 id="korea_ncap-ae-mdb"><strong>Korea_NCAP AE-MDB</strong></h4>
+<p>[%STATUS.E LOADCASE Korea_NCAP AE-MDB%]</p>
+<h4 id="us_ncap-mdb"><strong>US_NCAP MDB</strong></h4>
+<p>[%STATUS.E LOADCASE US_NCAP MDB%]</p>
+<h4 id="iihs-mdb"><strong>IIHS MDB</strong></h4>
+<p>[%STATUS.E LOADCASE IIHS MDB%]</p>
+<h4 id="fmvss214-mdb"><strong>FMVSS214 MDB</strong></h4>
+<p>[%STATUS.E LOADCASE FMVSS214 MDB%]</p>
+<h4 id="rdw-feldrelevanz-fmvss214-mdb"><strong>RdW Feldrelevanz
+(FMVSS214 MDB)</strong></h4>
+<p>[%STATUS.E LOADCASE RdW Feldrelevanz (FMVSS214 MDB)%]</p>
+<h3 id="pfahllastfälle"><strong>Pfahllastfälle</strong></h3>
+<h4 id="ece-r135-pfahl"><strong>ECE-R135 Pfahl</strong></h4>
+<p>[%STATUS.E LOADCASE ECE-R135 Pfahl%]</p>
+<h4 id="euro_ncap-pfahl"><strong>Euro_NCAP Pfahl</strong></h4>
+<p>[%STATUS.E LOADCASE Euro_NCAP Pfahl%]</p>
+<h4 id="korea_ncap-pfahl"><strong>Korea_NCAP Pfahl</strong></h4>
+<p>[%STATUS.E LOADCASE Korea_NCAP Pfahl%]</p>
+<h4 id="australien_ncap-pfahl"><strong>Australien_NCAP
+Pfahl</strong></h4>
+<p>[%STATUS.E LOADCASE Australien_NCAP Pfahl%]</p>
+<h4 id="latin_ncap-pfahl"><strong>Latin_NCAP Pfahl</strong></h4>
+<p>[%STATUS.E LOADCASE Latin_NCAP Pfahl%]</p>
+<h4 id="fmvss214_es2-pfahl"><strong>FMVSS214_ES2 Pfahl</strong></h4>
+<p>[%STATUS.E LOADCASE FMVSS214 Pfahl ES2%]</p>
+<h4 id="fmvss214_sid2s-pfahl"><strong>FMVSS214_Sid2s Pfahl</strong></h4>
+<p>[%STATUS.E LOADCASE FMVSS214 Pfahl Sid2s%]</p>
+<h4 id="us_ncap-pfahl-ws50"><strong>US_NCAP Pfahl WS50</strong></h4>
+<p>[%STATUS.E LOADCASE US_NCAP Pfahl WS50%]</p>
+<h4 id="pfahl-2.3.sitzreihe"><strong>Pfahl 2./3.Sitzreihe</strong></h4>
+<p>[%STATUS.E LOADCASE Pfahl 2./3.Sitzreihe%]</p>
+<h3 id="türeindrückung"><strong>Türeindrückung</strong></h3>
+<h4 id="allgemeine-beschreibung"><strong>[redacted-person]</strong></h4>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image6.png" style="width:6.53472in;height:4.13958in"/>Ausgangspunkt für die
+Positionierung des Stempels ist eine Horizontale durch den tiefsten
+Punkt der Türunterkante. Zu dieser Horizontalen wird nun eine Parallele
+im Abstand von 5“ (127 mm) in positiver z-Richtung (Fahrzeughochachse)
+gelegt. [redacted-person] wird nun mit seiner Unterkante mittig zwischen den
+beiden Schnittpunkten dieser Parallele mit der vorderen und hinteren
+Türkante positioniert. [redacted-person] des Stempels muss mindestens 0,5“
+(12,7 mm) den höchsten Punkt der Türoberkante überragen, jedoch darf der
+Stempel den Dachrahmen nicht berühren.</p>
+<p>Anforderung: Türeindrückung</p>
+<p>Barriere: Tuereindrueck_Stempel</p>
+<p>Fahrzeug: RdW und NAR Konfiguration (SOL-Rohr)</p>
+<p>Barrierenmitte: siehe obige Detailbeschreibung</p>
+<p>Barrierenhöhe: siehe obige Detailbeschreibung</p>
+<p>Geschwindigkeit: 1m/s</p>
+<p>Trefferlagentoleranz: -</p>
+<p>Rechenzeit [ms] TIME 400.1</p>
+<p>Dehnratenabhängigkeit STRAINRATE YES + RateScale setzen z.[redacted-person] in Simulation 1m/s vs. Versuch 0,005m/s --&gt;
+Ratescale 0.005</p>
+<p>Outputintervall THP [ms] 0.1</p>
+<p>Outputintervall DSY [ms] 5</p>
+<p>Pamcrash SP (single precision) ist, wenn gleiche Ergebnisse wie
+DP</p>
+<blockquote>
+<p>(double precision) vorzuziehen.</p>
+</blockquote>
+<p>Besonderheiten in der Modellerstellung</p>
+<ul>
+<li><p>…</p></li>
+</ul>
+<p>[redacted-person] ist mit den [redacted-co] Fachabteilungen abzustimmen.</p>
+<p>Prinzipiell werden folgende Themen beleuchtet:</p>
+<p>Belastungen in der Rohkarosserie</p>
+<ul>
+<li><p>[redacted-person] Scharniere und Schlosshaken</p></li>
+<li><p>[redacted-person]</p></li>
+</ul>
+<p>Belastung der Türen</p>
+<ul>
+<li><p>[redacted-person] (TAT)</p></li>
+<li><p>Anbindung TAT an Türrohbau</p></li>
+<li><p>[redacted-person] (kleine/große Bassbox) etc.</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>…</p></li>
+</ul>
+<p>Belastung von HV-Komponenten und Steuergeräten falls im
+beaufschlagten Bereich</p>
+<h4 id="lastfälle"><strong>Lastfälle</strong></h4>
+<h5 id="fmvss214-türeindrückung"><strong>FMVSS214
+Türeindrückung</strong></h5>
+<p>[%STATUS.E LOADCASE FMVSS214 Türeindrückung%]</p>
+<h5 id="rdw-türeindrückung"><strong>RdW Türeindrückung</strong></h5>
+<p>[%STATUS.E LOADCASE RdW Türeindrückung%]</p>
+<h5 id="is-120091995-indien-türeindrückung"><strong>IS [redacted]</strong></h5>
+<p>[%STATUS.E LOADCASE IS[redacted]%]</p>
+<h4 id="lagerung-fzg."><strong>[redacted-person].</strong></h4>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image7.png" style="width:6.27917in;height:3.8375in"/></p>
+<p>[redacted-person] wird über einen RBODY, dessen COG in allen 6
+DOF gesperrt ist, realisiert. Der RBODY beinhaltet die [redacted-person] stempelseitig sowie die Fahrwerksanbindepunkte vorn
+und hinten stempelgegenseitig.</p>
+<h4 id="erläuterung-zur-standardauswertung"><strong>Erläuterung zur
+Standardauswertung</strong></h4>
+<p>Die standardisierte Auswertung erfolgt analog Abschnitt 3.4.3.</p>
+<p>Hier werden die Hintergründe der Auswertung nochmals kurz erklärt, um
+sie auch manuell durchführen zu können.</p>
+<p>[redacted-person] der Auswertung ist die Aufzeichnung der
+Stempelkraft bzw. des Eindrückwiderstandes in einem Kraft (kN) – Weg
+(mm)-Diagramm (Beispiel siehe unten).</p>
+<p>Bei der Auswertung der Kraft-Weg-Kurve sind drei Bereiche
+hervorzuheben, bei deren Auswertung folgende Zielwerte zu
+berücksichtigen sind:</p>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image8.png" style="width:6.27917in;height:3.13958in"/></p>
+<ol type="1">
+<li><p><em>[redacted-person] von 0 mm – 152 mm</em></p></li>
+</ol>
+<blockquote>
+<p>Die durchschnittliche Kraft ergibt sich durch die Integration der
+Kraftkurve (Eindrückwiderstandskurve) über den Weg und muss durch 152mm
+geteilt werden.</p>
+<p><span class="math display">$$\overline{F} =
+\frac{\int_{0}^{152}{f(s)ds}}{f(s = 152)}$$</span></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><em>[redacted-person] von 0 mm – 305 mm</em></p></li>
+</ol>
+<blockquote>
+<p>Die durchschnittliche Kraft ergibt sich durch die Integration der
+Kraftkurve (Eindrückwiderstandskurve) über den Weg und muss durch 305mm
+geteilt werden</p>
+<p><span class="math display">$$\overline{F} =
+\frac{\int_{0}^{305}{f(s)ds}}{f(s = 305)}$$</span></p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>[redacted-person] muss bis max. 450 mm erreicht werden
+(Versuchsstopp nach 305 mm wenn max. Kraft früher erreicht
+wird)</p></li>
+</ol>
+<p>Für das maximal zu erreichende Kraftniveau gelten marktspezifische
+Zielwerte. Diese sind im Einzelnen mit der Fahrzeugsicherheit
+abzustimmen.</p>
+<p>[redacted-person] zum Erreichen dieser marktspezifischen Zielwerte
+erfolgt ohne verbauten Sitz. Sollten dabei die Zielwerte der
+Türeindrückung mit Sitz nicht erreicht werden, ist eine gesonderte
+Berechnung mit eingebautem Sitz durchzuführen.</p>
+<p>Werden auch mit Sitz die Zielwerte nicht erreicht, sind geeignete
+Maßnahmen zu entwickeln.</p>
+<h4 id="entwicklungsprozess-tat"><strong>Entwicklungsprozess
+TAT</strong></h4>
+<p>In diesem Abschnitt soll auf den Entwicklungsprozess des
+Türaufprallträgers (TAT) kurz eingegangen werden. Grundsätzlich werden
+die seitencrashspezifischen Anforderungen an den TAT im [redacted-person] Seitencrash (Beispiel: AU370 --&gt; LAH 8V0 880)
+beschrieben.</p>
+<p>Das zur Entwicklung eines TATs erforderliche Versuchsprogramm umfasst
+im Wesentlichen 2 unterschiedliche Versuche, erstens die Türeindrückung
+als Bestandteil der FMVSS214 und zweitens die
+Einzelteilbiegeversuche.</p>
+<p>Bei der <strong>Türeindrückung</strong> müssen länderspezifische
+Grenzwerte für den anfänglichen, mittleren und
+Spitzeneindrückwiederstand erreicht werden. Dabei darf es nicht zum
+Bruch oder Abreißen des Bauteils kommen.</p>
+<p>Die <strong>Einzelteilbiegeversuche</strong> (3-Punkt-Biegeversuche)
+werden beim Lieferanten / Entwickler durchgeführt. Im Rahmen der
+Vorauslegung wird - abgeleitet von der FMVSS214 - die Kraft-Wegkurve für
+den TAT von [redacted-co] als Grenzkurve vorgegeben. Die folgenden Bilder zeigen
+den prinzipiellen Aufbau des 3-Punkt-Biegeversuches sowie beispielhaft
+die Kraft-Wegkurve für den TAT. [redacted-person]-Wegkurve ist projektabhängig
+und kann sich im Projektfortschritt ändern.</p>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image9.png" style="width:2.86042in;height:2.31389in"/><img src="./07_Components-3-4-lah-seitencrash-media/media/image10.png" style="width:2.88403in;height:1.73264in"/></p>
+<p>Wichtig für die Einzelteilbiegeversuche ist:</p>
+<ul>
+<li><p>Es darf nicht zum Bruch oder Abreißen des Bauteils
+kommen</p></li>
+<li><p>[redacted-person] ist das Verhalten bei
+Karosserie- und Gesamtfahrzeugversuchen</p></li>
+<li><p>[redacted-person] ermittelt in eigenen Versuchsreihen mit
+hoher Stückzahl das Toleranzband für F = f(s).</p></li>
+<li><p>[redacted-person] ist möglichst gering zu halten, um
+sicherzustellen, dass auch TAT der Unter- und Obergrenze die
+Anforderungen - OHNE separate Untersuchungen – erfüllen</p></li>
+<li><p>Grundsätzlich ist sicherzustellen, dass der TAT sich in den
+Einzelteilversuchen bei gleicher aber dynamischer Belastung nicht
+ungünstiger verhält, als dies bei quasistatischer Belastung der Fall
+ist</p></li>
+<li><p>[redacted-person] ist für jede neue Baustufe im Projekt erneut
+und frühzeitig abzuarbeiten</p></li>
+</ul>
+<h3 id="dacheindrückung"><strong>Dacheindrückung</strong></h3>
+<h4 id="lastfallbeschreibung"><strong>Lastfallbeschreibung</strong></h4>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image11.png" style="width:6.27986in;height:2.91911in"/></p>
+<p>Fahrzeug: Zielvorgabe marktspezifisch nach [redacted-person]</p>
+<p>Dummies: Vorgabe seitens [redacted-person] zur [redacted-person]</p>
+<p>Barrierenmitte: Positionierung siehe Detailbeschreibung</p>
+<p>Geschwindigkeit: 1m/s</p>
+<p>Trefferlagentoleranz: --</p>
+<p>Rechenzeit [ms] TIME 200.1 für IIHS und RdW</p>
+<blockquote>
+<p>für FMVSS216a projektspezifisch</p>
+<p>1. Seite bis Zielkraftniveau, 2. Seite 200ms</p>
+</blockquote>
+<p>Dehnratenabhängigkeit STRAINRATE YES + RateScale setzen z.[redacted-person] in Simulation 1m/s vs. Versuch 0,005m/s --&gt;
+Ratescale 0.005</p>
+<p>Outputintervall THP [ms] 0.1</p>
+<p>Outputintervall DSY [ms] 5</p>
+<p>Pamcrash SP (single precision)</p>
+<p>Besonderheiten in der Modellerstellung</p>
+<ul>
+<li><p><strong>Reibfaktor zwischen Stempel und Fahrzeug auf 0.2
+gesetzt</strong></p></li>
+</ul>
+<p>[redacted-person] ist mit den [redacted-co] Fachabteilungen abzustimmen.</p>
+<p>Prinzipiell werden folgende Themen beleuchtet:</p>
+<p>Belastungen in der Rohkarosserie</p>
+<ul>
+<li><p>Knicken der Säule B</p></li>
+<li><p>Belastungen in der Säule A oben/ Dachrahmen / Dachspriegel -&gt;
+Intrusion in Fahrgastzelle</p></li>
+<li><p>[redacted-person]-C</p></li>
+</ul>
+<p>Belastung der Türen</p>
+<p>[redacted-person] (PSD/PAD+ etc.)</p>
+<p>Belastung von HV-Komponenten und Steuergeräten falls im
+beaufschlagten Bereich.</p>
+<h4 id="lastfälle-1"><strong>Lastfälle</strong></h4>
+<h5 id="dacheindrückung-rdw"><strong>Dacheindrückung RdW</strong></h5>
+<p>[%STATUS.E LOADCASE RdW Dacheindrückung%]</p>
+<h5 id="iihs"><strong>IIHS</strong></h5>
+<p>[%STATUS.E LOADCASE IIHS Dacheindrückung%]</p>
+<h5 id="fmvss216a"><strong>FMVSS216a</strong></h5>
+<p>[%STATUS.E LOADCASE FMVSS216a Dacheindrückung%]</p>
+<h5 id="dachfalltest"><strong>Dachfalltest</strong></h5>
+<p>[%STATUS.E LOADCASE Dachfalltest%]</p>
+<h3 id="lastfall-bei-überrollschutzsystem"><strong>Lastfall bei
+Überrollschutzsystem</strong></h3>
+<p>Abkürzungen die verwendet werden:</p>
+<p>GE = [redacted-person]</p>
+<p>SDL = Systementwickler ROPS/ÜRSS</p>
+<p>ROPS = [redacted-person] System</p>
+<p>ÜRSS = Überrollschutzsystem</p>
+<p>[redacted-person] sind auszulegen:</p>
+<h4 id="vertikaler-druck-in--z-platte-und-zug-in-z-seil"><strong>[redacted-person] in -Z (Platte) und Zug in +Z (Seil)</strong></h4>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image12.png" style="width:2.57874in;height:1.64567in"/></p>
+<h4 id="horizontaler-druck-in-y-zur-fahrzeugmitte-hin"><strong>[redacted-person] in Y zur Fahrzeugmitte hin</strong></h4>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image13.png" style="width:2.57874in;height:1.64567in"/></p>
+<h4 id="schräger-druck-analog-fmvss216"><strong>[redacted-person] analog
+FMVSS216</strong> </h4>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image14.png" style="width:2.57874in;height:1.64567in"/></p>
+<h4 id="zug-in-x-nach-vorne"><strong>Zug in –X (nach
+vorne)</strong></h4>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image15.png" style="width:2.58268in;height:1.64961in"/></p>
+<h4 id="zug-in-x-nach-hinten"><strong>Zug in +X (nach
+hinten)</strong></h4>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image16.png" style="width:2.57874in;height:1.64567in"/></p>
+<p>Entwicklungsseite ist die linke Fahrzeugseite. Von oben nach vorne
+betrachtet.</p>
+<p>Die FEM Modell sind auf dieser Seite zu positionieren und zu
+übergeben!</p>
+<p>[redacted-person] ob auf der linken oder rechten Fahrzeugseite
+simuliert wird ist von den Verhältnissen abhängig. Es wird immer der
+„worst case“ untersucht. Im Zweifelsfall werden beide Seiten
+bewertet.</p>
+<p>Ist der Überrollschutz als Lieferumfang ausgeführt, so ist ein
+reduziertes Simulationsmodell abzuleiten in dem die Umgebung des
+Überrollschutzes ausreichend dargestellt ist. In diesem Modellstand sind
+sowohl Toleranzlagen des ROPS-Modul zum Rohbau als auch das
+Verschraubungskonzept detailiert darzustellen. [redacted-person] des
+reduzierten Modells ist vor der Weitergabe an den Lieferanten mit der
+[redacted-co] Fachabteilung abzusprechen.</p>
+<p>Rechenzeit [ms] TIME 200.1</p>
+<p>Dehnratenabhängigkeit STRAINRATE NO</p>
+<p>Outputintervall THP [ms] 0.1</p>
+<p>Outputintervall DSY [ms] 10</p>
+<p>Pamcrash SP (single precision)</p>
+<p>Besonderheiten in der Modellerstellung</p>
+<ul>
+<li><p>ROPS / ÜRSS Nummerierungsvorschrift</p></li>
+</ul>
+<p>(nicht spezifiziert in der [redacted-person])</p>
+<p>Property IDs [redacted]</p>
+<p>Knoten/Element IDs, etc. [redacted]</p>
+<h4 id="audi-interne-anforderung"><strong>[redacted-co] interne
+Anforderung:</strong></h4>
+<p>[redacted-person] für das Berechnungsmodell gilt für +
+- X, +Z</p>
+<p>Die einzuleitende Kraft steigt über eine Zeitspanne von 7s (100ms)
+an, bis zu einem fahrzeugspezifischen Wert von
+F<strong><sub>Lastenheft.</sub></strong></p>
+<p>Danach wird die Kraft über einen Zeitraum von (75ms) konstant
+gehalten.</p>
+<p>[redacted-person] darf auch innenhalb dieser Zeitspanne die Zielkriterien
+(F, Sx, Sz, …) nicht verletzten.</p>
+<p>Danach wird NUR IN DER SIMULATION die Kraft nochmals um 3kN innerhalb
+(25ms) angehoben, um die Systemrobustheit/Schwachstellen durch die
+Simulation zu bewerten.</p>
+<p>([redacted-person] sind mit [redacted-person] abzustimmen (LAH
+[redacted-person])).</p>
+<h4 id="anbindungskonzept"><strong>Anbindungskonzept</strong> </h4>
+<p>Verschraubungskonzept des ÜRSS in der Karosserie:</p>
+<p>[redacted-person] Empfehlung:</p>
+<ul>
+<li><p>4 x M10 10.9 Durchgangsschrauben mit 55Nm Anzugsmoment.</p></li>
+<li><p>[redacted-person] sind in Verantwortung vom SDL
+und an</p></li>
+</ul>
+<p>„a/b“ und mit [redacted-co]/GE an „c“ (siehe Entwicklungsschema unter 3.4.9.8)
+frei zu prüfen und zu belegen.</p>
+<h4 id="entwicklungsschema-beispielhaft-am-au495"><strong>Entwicklungsschema
+beispielhaft am AU495</strong></h4>
+<p>[redacted-person] der Auslegungsverantwortung und zu
+betrachtende Modellumfänge</p>
+<p><img src="./07_Components-3-4-lah-seitencrash-media/media/image17.png" style="width:5.96852in;height:2.76824in"/></p>
+<p><em>(Entwicklungsschema AU495)</em></p>
+<p>[redacted-person] im Ersatzrückwandmodell sind in enger
+Abstimmung mit der [redacted-co] Fachabteilung zu klären. Im starren Bock und
+Ersatzrückwandmodell ist für eine robuste Systemauslegung eine
+Zielerfüllung von 110% gemäß Fahrzeugsicherheitsanforderungen zu
+erfüllen.</p>
+<h4 id="auswertung-überrollschutz"><strong>[redacted-person]</strong></h4>
+<p>Auszuwerten sind die Zielgrößen, die dem entspr. Lastenheft der
+Fahrzeugsicherheit und diesem zu entnehmen sind. [redacted-person] sind im
+Gesamtmodell sicher zu erfüllen.</p>
+<p>[redacted-person] beziehen sich auf (gilt für alle Lastfälle unter
+7.2.3):</p>
+<ul>
+<li><p>Kraft/Weg/Zeit/[redacted-person]</p></li>
+<li><p>Schraubenbelastung/Verbindungsbelastung (Nachweis über Robustheit
+und</p></li>
+</ul>
+<blockquote>
+<p>Systemfunktionsfähigkeit sind in der Komponente, in der
+Ersatzrückwand und im</p>
+<p>Karosseriegesamtmodell zu belegen)</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person],</p></li>
+<li><p>kritische Bereiche,</p></li>
+<li><p>Sensitivität der Lastfälle auf Versagen an den kritischen Stellen
+prüfen und aufzeigen</p></li>
+<li><p>[redacted-person] der Hardwareversuche sind aussagefähige Vergleiche
+durchzuführen und zu dokumentieren.</p></li>
+</ul>
+<blockquote>
+<p>Ein ständiger Abgleich der Simulationen in den reduzierten Modellen
+und im Gesamtmodell ist sicherzustellen.</p>
+</blockquote>
+<h4 id="sonstige-lastfälle"><strong>sonstige Lastfälle</strong></h4>
+<p>Komponenten- und Gesamtfahrzeugsimulationen sind nach Bedarf zur
+Versuchsbegleitung durchzuführen.</p>
+<h5 id="auswertung-sonstige-lastfälle"><strong>Auswertung sonstige
+Lastfälle</strong></h5>
+<p>Erfolgt je nach Bedarf in enger Absprache mit der
+[redacted-co]-Fachabteilung.</p>
+<h4 id="anforderungen"><strong>Anforderungen</strong></h4>
+<p>Bezüglich der Auslegungsziele gelten die entsprechenden
+Lastenheftvorgaben der Fahrzeugsicherheit, wobei zusätzlich folgende
+Maximallastniveaus im starren Bock über den gesamten Verformungsbereich
+nicht zu überschreiten sind:</p>
+<p>FMVSS216:
+F<sub>max</sub>=<strong>1,3</strong>*(2,5*m<sub>leer</sub>*g)</p>
+<p>Z-Druck:
+F<sub>max</sub>=<strong>1,8</strong>*(2,2*m<sub>leer</sub>*g)</p>
+<p>Y-Druck:
+F<sub>max</sub>=<strong>1,8</strong>*(1,15*m<sub>leer</sub>*g)</p>
+<p>[redacted-person] der Fahrzeuge muss robust, das heißt unempfindlich
+gegenüber Schwankungen und Änderungen von verschiedenen Randbedingungen,
+wie z.B.: Toleranzen (insb. Dummyposition), Massen, Geschwindigkeit und
+verschiedenen Ausstattungsvarianten (z.B.: Normaldach, Schiebedach und
+Open-Sky etc.), ausgelegt werden.</p>
+<p>[redacted-person] sind zu berücksichtigen:</p>
+<ul>
+<li><p>[redacted-person] sollen immer sicher (+10% im starren Bock) über
+den modellspezifischen, im Lastenheft der Fahrzeugsicherheit definierten
+Grenzlinien liegen.</p></li>
+<li><p>[redacted-person] der erforderlichen Widerstandskraft darf kein
+Bauteil des Fahrzeuges (Verkleidungen, Dachhaltegriffe etc.) den
+Dummykopf berühren (FMVSS216nprm). Dabei sind die Toleranzen bei der
+Positionierung des Dummykopfes zu berücksichtigen.</p></li>
+<li><p>Bei tragenden Strukturteilen darf während des Versuchs kein Bruch
+auftreten.</p></li>
+<li><p>[redacted-person] hin kantige Strukturdeformationen sind zu
+unterbinden.</p></li>
+</ul>
+</body>
+</html>

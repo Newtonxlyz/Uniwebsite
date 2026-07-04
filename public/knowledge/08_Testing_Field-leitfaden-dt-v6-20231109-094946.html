@@ -1,0 +1,3312 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Table of Contents</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Table of Contents</h1>
+</header>
+<ol type="1">
+<li><p><a href="#einführung-dt">Einführung DT 6</a></p></li>
+<li><p><a href="#zulassungsprozess">Zulassungsprozess 7</a></p>
+<ol type="1">
+<li><p><a href="#anbindung-an-die-audi-it-infrastruktur">Anbindung an
+die [redacted-co] IT-Infrastruktur 7</a></p></li>
+<li><p><a href="#nt-user">NT-User 7</a></p></li>
+<li><p><a href="#visverdi0">VisVerdi0 7</a></p></li>
+<li><p><a href="#account-für-den-windows-terminal-server-wts">Account
+für den Windows-Terminal-Server (WTS) 8</a></p></li>
+<li><p><a href="#engineering-portal">[redacted-person] 8</a></p></li>
+<li><p><a href="#lokaler-sftp-user-und-sftp-client-programm">Lokaler
+SFTP-User und SFTP-Client-Programm 8</a></p></li>
+<li><p><a href="#falcon-zugang">[redacted-person] 8</a></p></li>
+</ol></li>
+<li><p><a href="#anlegen-eines-versuchs-in-visverdi">Anlegen eines
+Versuchs in VisVerdi 10</a></p></li>
+<li><p><a href="#versuchsdurchführung">Versuchsdurchführung 11</a></p>
+<ol type="1">
+<li><p><a href="#channel">Channel 11</a></p></li>
+<li><p><a href="#document">Document 11</a></p></li>
+<li><p><a href="#movie">Movie 11</a></p></li>
+<li><p><a href="#photo">Photo 11</a></p></li>
+<li><p><a href="#static">Static 11</a></p></li>
+</ol></li>
+<li><p><a href="#isomme-konforme-datenaufbereitung">ISOMME-konforme
+Datenaufbereitung 12</a></p>
+<ol type="1">
+<li><p><a href="#erstellen-einer-verzeichnisstruktur">Erstellen einer
+Verzeichnisstruktur 12</a></p></li>
+<li><p><a href="#einpflegen-von-daten-in-die-isomme-verzeichnisstruktur">Einpflegen
+von Daten in die ISOMME-Verzeichnisstruktur 12</a></p>
+<ol type="1">
+<li><p><a href="#a.-channel">[redacted-person] 12</a></p></li>
+<li><p><a href="#b.-document">[redacted-person] 13</a></p></li>
+<li><p><a href="#c.-movie">[redacted-person] 13</a></p></li>
+<li><p><a href="#d.-photo">[redacted-person] 13</a></p></li>
+<li><p><a href="#e.-static">[redacted-person] 13</a></p></li>
+</ol></li>
+<li><p><a href="#hilfreiche-tools">[redacted-person] 13</a></p></li>
+</ol></li>
+<li><p><a href="#datenüberprüfung-und--übertragung">Datenüberprüfung und
+-übertragung 14</a></p></li>
+<li><p><a href="#anhänge">Anhänge 15</a></p>
+<ol type="1">
+<li><p><a href="#anbindung-an-das-cax-supplier-network-csn">Anbindung an
+das CAx [redacted-person] (CSN) 15</a></p></li>
+<li><p><a href="#beantragen-eines-nt-users">Beantragen eines NT-Users
+15</a></p></li>
+<li><p><a href="#beantragen-eines-visverdi-accounts">Beantragen eines
+VisVerdi-Accounts 16</a></p></li>
+<li><p><a href="#_bookmark30">Berechtigungen für Versuchsdaten
+16</a></p></li>
+<li><p><a href="#anmelden-an-visverdi-innerhalb-des-audi-netzes">Anmelden an
+VisVerdi innerhalb des [redacted-co] Netzes 17</a></p></li>
+<li><p><a href="#Beantragen_eines_WTS-Accounts">Beantragen eines
+WTS-Accounts 17</a></p></li>
+<li><p><a href="#anmelden-an-visverdi-außerhalb-des-audi-netzes">Anmelden an
+VisVerdi außerhalb des [redacted-co] Netzes 17</a></p></li>
+<li><p><a href="#berechtigungen-allgemein">... [redacted-person]
+18</a></p></li>
+<li><p><a href="#zugang-zum-sftp-server">Zugang zum SFTP-Server
+18</a></p></li>
+<li><p><a href="#falcon-zugang-1">Falcon-Zugang 19</a></p></li>
+<li><p><a href="#isomme-dokumentationen">ISOMME-Dokumentationen
+20</a></p></li>
+<li><p><a href="#erstellen-einer-isomme-verzeichnisstruktur">Erstellen
+einer ISOMME-Verzeichnisstruktur 20</a></p>
+<ol type="1">
+<li><p><a href="#erstellen-einer-mme-headerdatei">Erstellen einer
+MME-Headerdatei 21</a></p></li>
+</ol></li>
+<li><p><a href="#channel-daten">Channel-Daten 23</a></p>
+<ol type="1">
+<li><p><a href="#anforderungen-an-channel-daten">Anforderungen an
+Channel-Daten 23</a></p></li>
+<li><p><a href="#ablegen-von-channel-daten-nach-isomme-standard">Ablegen
+von Channel-Daten nach ISOMME-Standard 26</a></p></li>
+<li><p><a href="#erstellen-einer-chn-headerdatei">Erstellen einer
+CHN-Headerdatei 27</a></p></li>
+</ol></li>
+<li><p><a href="#document-daten">Document-Daten 29</a></p>
+<ol type="1">
+<li><p><a href="#formelle-anforderungen">[redacted-person]
+29</a></p></li>
+<li><p><a href="#erstellen-einer-attribute-datei">Erstellen einer
+attribute-Datei 29</a></p></li>
+</ol></li>
+<li><p><a href="#movie-daten">Movie-Daten 32</a></p>
+<ol type="1">
+<li><p><a href="#technische-anforderungen">[redacted-person]
+32</a></p></li>
+<li><p><a href="#kamerapositionen">Kamerapositionen 33</a></p></li>
+<li><p><a href="#standardpositionen-für-alle-versuche-stand-08_2012">Standardpositionen
+für alle Versuche (Stand 08_2012) 34</a></p></li>
+<li><p><a href="#ablegen-von-movie-daten-nach-isomme">Ablegen von
+Movie-Daten nach ISOMME 34</a></p></li>
+<li><p><a href="#anforderungen-an-eine-mmi-headerdatei">Anforderungen an
+eine MMI-Headerdatei 34</a></p></li>
+<li><p><a href="#erstellen-einer-mii-headerdatei">Erstellen einer
+MII-Headerdatei 37</a></p></li>
+</ol></li>
+<li><p><a href="#photo-daten">Photo-Daten 39</a></p>
+<ol type="1">
+<li><p><a href="#anforderungen-an-photo-daten">Anforderungen an
+Photo-Daten 39</a></p></li>
+<li><p><a href="#ablegen-von-photo-daten">Ablegen von Photo-Daten
+39</a></p></li>
+<li><p><a href="#erstellen-einer-pho-headerdatei">Erstellen einer
+PHO-Headerdatei 41</a></p></li>
+</ol></li>
+<li><p><a href="#static-daten">Static-Daten 43</a></p>
+<ol type="1">
+<li><p><a href="#anforderungen-an-static-daten">Anforderungen an
+Static-Daten 43</a></p></li>
+<li><p><a href="#aufbau-einer-static-datei">Aufbau einer Static-Datei
+45</a></p></li>
+</ol></li>
+<li><p><a href="#installation-von-isomme-check">Installation von
+ISOMME-Check 46</a></p></li>
+<li><p><a href="#datenüberprüfung-mit-isomme-check">Datenüberprüfung mit
+ISOMME-Check 48</a></p>
+<ol type="1">
+<li><p><a href="#fehlermeldungen-bei-isomme-check">Fehlermeldungen bei
+ISOMME-Check 49</a></p></li>
+<li><p><a href="#fehlermeldungen-für-attribute-dateien">Fehlermeldungen
+für attribute-Dateien 49</a></p></li>
+</ol></li>
+<li><p><a href="#datenübertragung-als-interner-mitarbeiter">Datenübertragung als
+interner Mitarbeiter 49</a></p></li>
+<li><p><a href="#datenübertragung-als-mitarbeiter-eines-externen-partners">Datenübertragung
+als Mitarbeiter eines externen Partners 49</a></p>
+<ol type="1">
+<li><p><a href="#datenübertragung-mit-winscp">Datenübertragung mit
+WinSCP 50</a></p></li>
+<li><p><a href="#fehlerfreie-und-fehlerhafte-übertragung">Fehlerfreie
+und fehlerhafte Übertragung 50</a></p>
+<ol type="1">
+<li><p><a href="#stufe-1-übertragungsprozess">Stufe 1:
+Übertragungsprozess 50</a></p></li>
+<li><p><a href="#stufe-2-datenqualität">Stufe 2: Datenqualität
+52</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#prozessübersicht-für-datenersteller">Prozessübersicht
+für Datenersteller 55</a></p></li>
+<li><p><a href="#informationen-für-administratoren">Informationen für
+Administratoren 56</a></p></li>
+<li><p><a href="#zuordnungstabelle-isomme-inhalte-zu-visverdi-attribute">Zuordnungstabelle
+ISOMME Inhalte zu VisVerdi-Attribute 56</a></p></li>
+</ol></li>
+<li><p><a href="#anlagen">Anlagen 62</a></p></li>
+</ol>
+<h6 id="leitfaden-zum-datentransfer-bei-versuchen-der-fahrzeugsicherheit">Leitfaden
+zum Datentransfer bei Versuchen der Fahrzeugsicherheit</h6>
+<h6 id="bitte-beachten-sie-dieses-dokument-enthält-alle-informationen-die-nach-aktuellem-kenntnisstand-für-eine-einwandfreie-datenübertragung-notwendig-sind.-dies-schließt-nicht-aus-dass-sich-seit-erstellung-des-leitfadens-einzelne-prozessschritte-verändert-haben-können-die-eine-inhaltliche-anpassung-notwendig-machen.-sollten-sie-anmerkungen-hierzu-haben-richten-sie-ihre-rückmeldung-bitte-an-visverdi.supportaudi.de1.">Bitte
+beachten Sie: [redacted-person] enthält alle Informationen, die nach
+aktuellem Kenntnisstand für eine einwandfreie Datenübertragung notwendig
+sind. Dies schließt nicht aus, dass sich seit Erstellung des Leitfadens
+einzelne Prozessschritte verändert haben können, die eine inhaltliche
+Anpassung notwendig machen. [redacted-person] Anmerkungen hierzu haben,
+richten [redacted-person] Rückmeldung bitte an: <a href="mailto:VisVerdi.Support@audi.de">[redacted-email]</a><sup>1</sup>.</h6>
+<h6 id="kindly-note-this-document-contains-all-information-that-is-necessary-for-a-faultless-data-transfer-according-to-current-state-of-knowledge.-this-does-not-exclude-that-some-process-steps-may-have-changed-since-the-creation-of-this-guideline-so-that-an-adjustment-concerning-the-content-might-be-necessary.-for-this-purpose-please-send-your-remarks-and-feedback-to-visverdi.supportaudi.de2.">Kindly
+note: This document contains all information that is necessary for a
+faultless data transfer according to current state of knowledge. This
+does not exclude that some process steps may have changed since the
+creation of this guideline – so that an adjustment concerning the
+content might be necessary. For this purpose, please, send your remarks
+and feedback to: <a href="mailto:VisVerdi.Support@audi.de">[redacted-email]</a><sup>2</sup>.</h6>
+<h6 id="version-1.1">Version: 1.1</h6>
+<h6 id="stand-juli-2013">Stand: Juli 2013</h6>
+<h6 id="verantwortlicher-fachbereich-iek-532-änderungshistorie">[redacted]Änderungshistorie</h6>
+<blockquote>
+<p><a href="mailto:VisVerdi.Support@audi.de">1
+mailto:[redacted-email]</a></p>
+<p><a href="mailto:VisVerdi.Support@audi.de">2
+mailto:[redacted-email]</a></p>
+</blockquote>
+<h1 id="einführung-dt">Einführung DT</h1>
+<blockquote>
+<p>[redacted-person] der Fahrzeugsicherheit beginnt nicht erst auf der
+Versuchsbahn. Ein großer Teil der Arbeit findet vor und nach dem
+eigentlichen Crash statt: Zugänge und Benutzerkonten müssen
+eingerichtet, Software installiert und bedient, Versuche vorbereitet und
+durchgeführt, Daten ausgewertet und nach ISOMME-Norm aufbereitet werden
+… <strong>ein Prozess, der die Beteiligung mehrerer Kompetenzen
+erfordert,</strong> wie beispielsweise Projektleiter,
+Versuchsdurchführer oder System-Administratoren. Aber nicht nur diese
+Kompetenzvielfalt, auch die Unterscheidung, ob es sich bei den
+Beteiligten um [redacted-co] interne Mitarbeiter oder externe Partner handelt,
+hat maßgeblich Einfluss auf den Prozessablauf. [redacted-person] jedoch ist
+und bleibt für alle gleich: eine korrekte Datenbereitstellung.</p>
+<p>Wie aber lassen sich Datenerhebung und -transfer unter diesen
+unterschiedlichen Voraussetzungen einwandfrei abschließen? [redacted-person] dieser Frage beginnt bereits mit der Beauftragung. Denn wer
+schon von Anfang an einige wichtige Punkte berücksichtigt, wird am Ende
+<strong>schneller ein qualitativ hochwertiges Ergebnis
+abliefern</strong> und so gleichzeitig wichtige Kapazitäten sparen.</p>
+<p>[redacted-person] sich daher zu [redacted-person] Arbeit bewusst, dass nicht nur
+eine einwandfreie Versuchsdurchführung sondern auch die anschließende
+<strong>qualifizierte Datenpflege,</strong></p>
+<p><strong>-aufbereitung und -import als Maßstab</strong> für eine
+gelungene Projektdurchführung gelten. [redacted-person] folglich für jeden
+Projektabschnitt ausreichend Kapazitäten ein und berücksichtigen Sie,
+dass für die jeweils notwendigen Arbeitsschritte ggf. unterschiedliche
+Kompetenzen innerhalb [redacted-person] bzw. Ihrer [redacted-co] OE benötigt
+werden.</p>
+<p>[redacted-person] all diesen Anforderungen gerecht werden, hilft Ihnen der
+nachfolgende Leitfaden, Stolpersteine auf dem Weg zum Prozessabschluss
+aus dem Weg zu räumen. Er bietet z. [redacted-person]
+<strong>Informationen zu allen relevanten Prozessschritten</strong> und
+macht Hintergründe sowie Zusammenhänge verständlich.</p>
+<p>So erfahren Sie beispielsweise,</p>
+</blockquote>
+<ul>
+<li><p>welche technischen und rechtlichen Voraussetzungen erfüllt sein
+müssen</p></li>
+<li><p>wie Sie die Versuchssoftware VisVerdi erhalten und
+handhaben</p></li>
+<li><p>wie Sie einen Versuch in der Versuchssoftware VisVerdi korrekt
+anlegen</p></li>
+<li><p>welche Anforderungen an die Messstellen gestellt werden</p></li>
+<li><p>was „ISO-Norm-gerechte Aufbereitung von Versuchsdaten"
+bedeutet</p></li>
+<li><p>wie Daten korrekt übertragen werden</p></li>
+<li><p>uvm.</p></li>
+</ul>
+<blockquote>
+<p>Innerhalb des Leitfadens finden Sie sich folgendermaßen zurecht: [redacted-person] I-V beschreiben den Prozess (von der Berechtigung bis zum
+Datentransfer) an sich. Um diesen so stringent wie möglich darzustellen,
+sind alle Informationen, die die konkrete Ausführung einzelner Schritte
+beschreiben, im Anhang abgelegt. Dort finden Sie auch eine Vielzahl an
+begleitenden Grafiken und Prozessbildern.</p>
+<p>Darüber hinaus sind zur besseren rollenspezifischen Orientierung
+diejenigen Stellen im Text besonders hervorgehoben, wenn diese Sie
+speziell als <em><strong>externen Partner</strong></em> oder
+<em><strong>internen Mitarbeiter</strong></em> betreffen. Eine
+entsprechend farbige Kennzeichnung finden Sie auch im Anhang jeweils am
+Seitenrand.</p>
+<p>Zudem erhalten Sie im gesamten Leitfaden hilfreiche Tipps und
+wichtige Hinweise, die es zu berücksichtigen</p>
+<p>gilt. Den ersten lesen Sie gleich hier:</p>
+</blockquote>
+<h6 id="hinweis">Hinweis:</h6>
+<blockquote>
+<p>[redacted-person] an die zu liefernden Daten, wie sie in diesem
+Leitfaden genannt werden, sind <strong>verbindliche Vorgaben, die Sie
+einhalten müssen.</strong> [redacted-person] dies bewerkstelligen, obliegt Ihnen
+selbst. Die [redacted-co] spricht Ihnen jedoch für alle relevanten
+[redacted-person] aus und nennt Ihnen im Rahmen dieses
+Leitfadens auch immer eine mögliche Vorgehensweise, mittels derer Sie
+die Vorgaben erfüllen können.</p>
+</blockquote>
+<h1 id="zulassungsprozess">Zulassungsprozess</h1>
+<blockquote>
+<p>[redacted-person] erklärt, welche technischen und rechtlichen
+[redacted-person] zur Durchführung des Projektes erfüllen müssen.</p>
+</blockquote>
+<h6 id="hinweis-1">Hinweis:</h6>
+<blockquote>
+<p>Bitte beachten Sie, dass eine Anbindung an die [redacted-co] IT-Infrastruktur
+für Sie als <em><strong>externen Partner</strong></em> verpflichtend
+ist, um das Projekt „Datentransfer" durchführen zu können. Der
+notwendige Zulassungsprozess kann jedoch bis zu acht Wochen und mehr in
+Anspruch nehmen. [redacted-person] ihn daher rechtzeitig ein und ziehen Sie
+ggf. den IT- bzw. [redacted-person] Unternehmens hinzu.</p>
+</blockquote>
+<h2 id="anbindung-an-die-audi-it-infrastruktur">Anbindung an die [redacted-co]
+IT-Infrastruktur</h2>
+<blockquote>
+<p>[redacted-person] für alle weiteren Prozessschritte muss der Zugang zur [redacted-co]
+IT-Infrastruktur gewährleistet sein. <em><strong>[redacted-person]</strong></em> verfügen über diesen Zugang automatisch,
+sobald ihr PC-Arbeitsplatz nach [redacted-co] Standard eingerichtet wurde.</p>
+<p><em><strong>[redacted-person]</strong></em> erreichen den Zugang zur
+[redacted-co] IT-Infrastruktur über eine Anbindung an das CAx [redacted-person]
+(CSN). [redacted-person] hierzu erhalten Sie im Anhang ab Seite
+.</p>
+</blockquote>
+<h2 id="nt-user">NT-User</h2>
+<blockquote>
+<p>Wer sich im [redacted-co] Umfeld an die Windows-NT-Domäne anmelden möchte,
+benötigt einen NT-User – also</p>
+<p>einen Windows NT-Benutzernamen und -Passwort.</p>
+<p><em><strong>[redacted-person]</strong></em> erhalten diesen im Zuge
+ihres Arbeitsantritts.</p>
+<p><em><strong>Mitarbeiter externer Partner</strong></em> müssen einen
+NT-User beantragen, sofern sie nicht schon im Besitz eines solchen sind
+(beispielsweise durch eine frühere Zusammenarbeit mit [redacted-co]).
+[redacted-person] zur Beantragung eines NT-Users erhalten Sie
+im Anhang ab Seite .</p>
+</blockquote>
+<h2 id="visverdi0">VisVerdi0</h2>
+<blockquote>
+<p>VisVerdi ist die Anwendung, mit der Sie alle Versuche der
+Fahrzeugsicherheit planen, definieren und dokumentieren müssen.
+Informationen dazu, wie [redacted-person] zu VisVerdi bzw. einen
+VisVerdi-Account erhalten, lesen Sie im Anhang ab Seite .</p>
+<p>[redacted-person] Ihren VisVerdi-Account beantragt, können Sie sich an die
+Anwendung anmelden. [redacted-person] dabei vorgehen müssen, hängt davon ab, ob
+Sie innerhalb des [redacted-co] Netzes arbeiten oder sich außerhalb des
+Werkgeländes und somit auch außerhalb des [redacted-co] Netzes befinden:</p>
+<p><strong>Innerhalb des [redacted-co] Netzes</strong> können Sie direkt auf
+VisVerdi zugreifen. Dies gilt sowohl für <em><strong>interne
+Mitarbeiter</strong></em> als auch für <em><strong>Mitarbeiter externer
+Partner</strong></em>, die bei [redacted-co] vor Ort arbeiten. [redacted-person] zur Anmeldung an VisVerdi innerhalb des [redacted-co] Netzes
+erhalten Sie im Anhang ab Seite .</p>
+<p><strong>Außerhalb des [redacted-co] Netzes</strong> benötigen Sie einen
+Windows-Terminal-Server-Zugang, um auf die Anwendung VisVerdi zugreifen
+zu können. Dies gilt nur für <em><strong>Mitarbeiter externer
+Partner</strong></em>, die nicht bei [redacted-co] vor Ort arbeiten.
+Informationen hierzu erhalten Sie im Anhang ab Seite .</p>
+</blockquote>
+<h2 id="account-für-den-windows-terminal-server-wts">Account für den
+Windows-Terminal-Server (WTS)</h2>
+<blockquote>
+<p>[redacted-person] VisVerdi und Falcon (siehe Punkt 10) sind auf einem
+Windows-Terminal-Server installiert. Das bedeutet: VisVerdi und Falcon
+laufen auf einem zentralen Rechner bei [redacted-co], mit dem [redacted-person] PC über
+einen sogenannten Terminal verbinden müssen. [redacted-person] hat die
+Aufgabe, die Anwendungen VisVerdi und [redacted-person] Bildschirm
+anzuzeigen und gleichzeitig [redacted-person] an den Zentralrechner zu
+senden. Dadurch können Sie die Programme ausführen, als wären sie „ganz
+normal" auf Ihrem lokalen Rechner installiert, auch wenn Sie lokal de
+facto nur mit der Benutzeroberfläche arbeiten. Um jedoch als
+<em><strong>Mitarbeiter eines externen Partners</strong></em>, der nicht
+bei [redacted-co] vor Ort und somit auch außerhalb des [redacted-co] Netzes arbeitet, auf
+den Windows-Terminal-Server zugreifen zu können, benötigen Sie einen
+Windows-Terminal-Server-Account. Bitte beachten Sie, dass hierzu auch
+ein [redacted-person] auf [redacted-person] installiert sein muss. Dies ist in
+den meisten Fällen ohnehin der Fall. Falls nicht, wenden Sie sich bitte
+an [redacted-person], damit dieser auch einen [redacted-person] für
+Sie installiert.</p>
+<p>[redacted-person] einen WTS-Account beantragen, erfahren Sie im Anhang ab Seite
+.</p>
+</blockquote>
+<h2 id="engineering-portal">[redacted-person]</h2>
+<blockquote>
+<p>Um als <em><strong>externer Partner</strong></em> Daten an [redacted-co]
+übertragen zu können, benötigen [redacted-person] zum SFTP-Server, dem
+Datentransfer-Server, der sich in der sogenannten RAS-Zone – also
+außerhalb des [redacted-co] Netzwerks – befindet. [redacted-person] zu dieser Zone
+ermöglicht Ihnen das [redacted]– eine zentrale Plattform
+[redacted-co] mit Anwendungen (CAx), Diensten und Informationen für die
+Fahrzeugentwicklung. Darüber hinaus erhalten Sie über das [redacted]auch Zugriff auf das Tool <em>ISOMME-Check</em> sowie
+auf aktuelle Datenbanken, die <em>ISOMME-Check</em> beiliegen.</p>
+<p>Als externer Partner müssen Sie daher für das [redacted]berechtigt sein. [redacted-person] zur Berechtigung für das [redacted]erhalten Sie im Anhang ab Seite .</p>
+<p><a href="https://engineering-portal.audi.web.vwg/">Ist die
+Autorisierung erfolgt, erreichen Sie das [redacted]unter:
+https://engineering- portal.audi.web.vwg. [redacted-person] erfolgt über
+Ihren [redacted]User, den Sie im</a> Zuge der Berechtigung
+erhalten.</p>
+</blockquote>
+<h2 id="lokaler-sftp-user-und-sftp-client-programm">Lokaler SFTP-User
+und SFTP-Client-Programm</h2>
+<blockquote>
+<p>Neben der Berechtigung für das [redacted-person], die Ihnen den
+Zugang zur RAS-Zone ermöglicht, in der sich der Datentransfer-Server
+befindet, benötigen Sie als <em><strong>externer Partner</strong></em>
+auch einen Zugang zu diesem Server selbst. Dies erreichen Sie mit einen
+SFTP-Client-Programm und einem lokalen SFTP-User.</p>
+<p>[redacted-person] hierzu erhalten Sie im Anhang ab Seite
+.</p>
+</blockquote>
+<h2 id="falcon-zugang">[redacted-person]</h2>
+<blockquote>
+<p>Über den Datentransfer-Server gelangen [redacted-person] in das Zielsystem
+„Falcon". Um die Daten dort sichten und prüfen zu können, benötigen Sie
+sowohl als <em><strong>interner Mitarbeiter</strong></em> als auch als
+<em><strong>Mitarbeiter eines externen Partners</strong></em> einen
+eigenen Falcon-Zugang. Informationen, wie Sie diesen erhalten, lesen Sie
+ab Seite .</p>
+<p>[redacted-person] Sie benötigen, sehen Sie noch einmal in der folgenden
+Matrix zusammengefasst:</p>
+</blockquote>
+<table style="width:100%;">
+<thead>
+<tr>
+<th>Zugang/ Antrag</th>
+<th>CS N</th>
+<th><blockquote>
+<p>NT-User im Konzern</p>
+</blockquote></th>
+<th><blockquote>
+<p>VisVerdi- User</p>
+</blockquote></th>
+<th><blockquote>
+<p>WTS-</p>
+<p>Zugang</p>
+</blockquote></th>
+<th><blockquote>
+<p>Engineering- Portal-Zugriff</p>
+</blockquote></th>
+<th><blockquote>
+<p>SFTP-</p>
+<p>User</p>
+</blockquote></th>
+<th><blockquote>
+<p>Falcon- Zugang</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VisVerdi von Extern</td>
+<td><strong>x</strong></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td>VisVerdi von Intern</td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td>WTS von Extern</td>
+<td><strong>x</strong></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Datentransfer von Extern</td>
+<td><strong>x</strong></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Falcon von Extern</td>
+<td><strong>x</strong></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Falcon von Intern</td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>x</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h6 id="tipp">Tipp:</h6>
+<blockquote>
+<p>[redacted-person] den Zulassungsprozess abgeschlossen, führen Sie gemeinsam
+mit dem IT- bzw. [redacted-person] Unternehmens eine
+Funktionsprüfung aller relevanten Systeme und Anwendungen durch, bevor
+Sie mit dem Anlegen eines Versuchs in VisVerdi beginnen.</p>
+</blockquote>
+<h1 id="anlegen-eines-versuchs-in-visverdi">Anlegen eines Versuchs in
+VisVerdi</h1>
+<blockquote>
+<p>VisVerdi ist die Anwendung, mit der Sie sowohl als
+<em><strong>interner Mitarbeiter</strong></em> als auch als
+<em><strong>Mitarbeiter eines externen Partners</strong></em> alle
+Versuche der Fahrzeugsicherheit planen, definieren und dokumentieren
+müssen. So folgt nach dem korrekt abgeschlossenen Zulassungsprozess das
+Anlegen eines Versuches in VisVerdi.</p>
+<p>Informationen zur Anmeldung an VisVerdi innerhalb des [redacted-co] Netzes
+erhalten Sie im Anhang ab Seite . Informationen zur Anmeldung an
+VisVerdi außerhalb des [redacted-co] Netzes erhalten Sie im Anhang ab Seite . [redacted-person] der Anwendung geben [redacted-person] VisVerdi-Benutzernamen und [redacted-person] ein, welche Sie im Rahmen des Zulassungsprozesses erhalten
+haben.</p>
+</blockquote>
+<h6 id="hinweis-2">Hinweis:</h6>
+<blockquote>
+<p>[redacted-person] für VisVerdi ist nicht Bestandteil dieses
+Leitfandens. Ein ausführliches Handbuch zur Benutzung von VisVerdi
+finden Sie jedoch im [redacted]unter</p>
+</blockquote>
+<p class="heading" id="anwendungen-cat-visverdi-kurzanleitung-handbuch.">&gt;&gt;
+Anwendungen &gt;&gt; CAT &gt;&gt; VisVerdi &gt;&gt; Kurzanleitung /
+Handbuch.</p>
+<blockquote>
+<p>Sie können auch direkt auf das Handbuch zugreifen, indem Sie auf
+diesen Direktlink zum VisVerdi-Handbuch<sup>3</sup> klicken. Bitte
+beachten Sie, dass [redacted-person] auf Laufwerk S haben müssen, um den
+Direktlink aufrufen zu können. [redacted-person] zu dieser
+Freischaltung erhalten Sie ab Seite .</p>
+<p>3
+file:////audiintepro.in.audi.vwg//ProjectS//EK_Aufbau//Pro_FzgSi//7000_CA_Technik_FSI//
+7300_CAT_Systeme_EK5//7350_Dokumentation//7353_Datentransfer//Dokumentation//Anlagen_Links//Handbuch_VisVerdi.pdf</p>
+</blockquote>
+<h1 id="versuchsdurchführung">Versuchsdurchführung</h1>
+<blockquote>
+<p>Ist ein Versuch in VisVerdi angelegt und definiert, können Sie mit
+der Versuchsdurchführung beginnen. Dabei gelten für alle
+Messeinrichtungen und -kanäle sowie die sich daraus ergebenden Daten und
+Dateien konkrete Anforderungen, die vom Auftraggeber vorgegeben werden.
+Im Folgenden sind alle relevanten Messeinrichtungen aufgelistet:</p>
+</blockquote>
+<h2 id="channel">Channel</h2>
+<blockquote>
+<p>Welche verbindlichen Vorgaben für Channel-Daten gelten, erfahren Sie
+im Anhang ab Seite .</p>
+</blockquote>
+<h2 id="document">Document</h2>
+<blockquote>
+<p>Welche verbindlichen Vorgaben für die im Ordner <em>Document</em>
+abgelegten Dateien gelte, erfahren Sie im Anhang ab Seite .</p>
+</blockquote>
+<h2 id="movie">Movie</h2>
+<blockquote>
+<p>Welche verbindlichen Vorgaben für Movie-Daten gelten, erfahren Sie im
+Anhang ab Seite .</p>
+</blockquote>
+<h2 id="photo">Photo</h2>
+<blockquote>
+<p>Welche verbindlichen Vorgaben für Photo-Daten gelten, erfahren Sie im
+Anhang ab Seite .</p>
+</blockquote>
+<h2 id="static">Static</h2>
+<blockquote>
+<p>Welche verbindlichen Vorgaben für Static-Daten gelten, erfahren Sie
+im Anhang ab Seite .</p>
+</blockquote>
+<h1 id="isomme-konforme-datenaufbereitung">ISOMME-konforme
+Datenaufbereitung</h1>
+<blockquote>
+<p>Sowohl für <em><strong>interner Mitarbeiter</strong></em> als auch
+für <em><strong>Mitarbeiter eines externen Partners</strong></em>
+erfolgt nach der Versuchsdurchführung die Aufbereitung der gewonnenen
+Massendaten (bspw. Film- und Photo-Dateien) sowie der zugehörigen
+Metadaten. Diese geben Auskunft über Art und Umfang der Massendaten.</p>
+<p>Es empfiehlt sich, dass der Schritt der Datenaufbereitung von
+derselben Person durchgeführt wird, die die Daten schließlich auch
+überträgt. So ist gewährleistet, dass der Bearbeiter bei Fehlermeldungen
+im Zuge des Übertragungsprozesses (siehe ab Seite ) alle zur Korrektur
+nötigen Informationen selbst per E-Mail erhält.</p>
+<p>[redacted-person], dass alle Daten vor der Übertragung nach
+ISOMME-Standard aufbereitet sein müssen (das ISO EGV Format wird nicht
+akzeptiert). Zulässig sind dabei die Versionen 1.3 bis 1.6, wobei die
+Version 1.6 bevorzugt wird. Zwei ausführliche Dokumentationen von
+iso.org, die das ISOMME-Format beschreiben, finden Sie ab Seite .</p>
+</blockquote>
+<h6 id="hinweis-3">Hinweis:</h6>
+<blockquote>
+<p>[redacted-person] von iso.org im Anhang, die das ISOMME-Format
+beschreiben, sind bei iso.org kostenpflichtig und dürfen nur verwendet
+werden, wenn es innerhalb des Projekts geschieht. [redacted-person] an
+Dritte ist nicht gestattet. [redacted-person]-Bestimmungen von iso.org sind
+in jedem Fall zu befolgen. [redacted-person] entnehmen Sie bitte bei
+iso.org.</p>
+<p>[redacted-person] noch weitere Informationen zur ISOMME-Norm benötigen,
+erhalten Sie diese kostenpflichtig unter:</p>
+<p><a href="http://www.iso-mme.org/">www.iso-mme.org</a><sup>4</sup></p>
+</blockquote>
+<h6 id="tipp-1">Tipp:</h6>
+<blockquote>
+<p>[redacted-person] auf der Website in das Feld „Suche" folgenden Suchbegriff
+ein, um direkt zum Produkt zu</p>
+<p>gelangen: TS 13499:2003</p>
+</blockquote>
+<h2 id="erstellen-einer-verzeichnisstruktur">Erstellen einer
+Verzeichnisstruktur</h2>
+<blockquote>
+<p>Sie müssen [redacted-person] innerhalb einer ISOMME-Verzeichnisstruktur
+ablegen, die die Ordner <em>Channel</em>, <em>Document</em>,
+<em>Movie</em>, <em>Photo</em> und <em>Static</em> sowie eine
+MME-Headerdatei enthält. [redacted-person] eine solche Verzeichnisstruktur sowie
+die geforderte MME-Datei erstellen, lesen Sie im Anhang ab Seite .</p>
+</blockquote>
+<h2 id="einpflegen-von-daten-in-die-isomme-verzeichnisstruktur">Einpflegen
+von Daten in die ISOMME-Verzeichnisstruktur</h2>
+<blockquote>
+<p>[redacted-person] eine ISOMME-konforme Verzeichnisstruktur erstellt, pflegen
+[redacted-person] Versuchsdaten in die jeweiligen Ordner <em>Channel</em>,
+<em>Document</em>, <em>Movie</em>, <em>Photo</em> und <em>Static</em>
+ein. [redacted-person] diesen Prozess nicht ohnehin schon automatisiert haben,
+gehen Sie bitte wie folgt vor:</p>
+</blockquote>
+<h3 id="a.-channel">[redacted-person]</h3>
+<blockquote>
+<p>[redacted]Daten im Ordner <em>Channel</em> ab.
+[redacted-person] hierzu erhalten Sie im Anhang ab Seite .</p>
+</blockquote>
+<h3 id="b.-document">[redacted-person]</h3>
+<blockquote>
+<p>[redacted-person], die Sie über [redacted-person] hinaus übertragen
+möchten wie z. [redacted-person], legen Sie im Ordner <em>Document</em> ab.
+[redacted-person] dieses Ordners muss die attribute-Datei sein.
+[redacted-person] hierzu erhalten Sie im Anhang ab Seite .</p>
+</blockquote>
+<h3 id="c.-movie">[redacted-person]</h3>
+<blockquote>
+<p>[redacted-person] zunächst einen Schnitt auf notwendige Inhalte durch. Das
+heißt: [redacted-person] z. [redacted-person], Pausen und Nachlauf. [redacted]anschließend als AVI und flach (ohne Unterordner) im Ordner
+<em>Movie</em> ab. [redacted-person] hierzu erhalten Sie im
+Anhang ab Seite .</p>
+</blockquote>
+<h3 id="d.-photo">[redacted-person]</h3>
+<blockquote>
+<p>[redacted-person] alle Bilder flach (ohne Unterordner) im Ordner
+<em>Photo</em> ab. [redacted-person] hierzu erhalten Sie im
+Anhang ab Seite .</p>
+</blockquote>
+<h3 id="e.-static">[redacted-person]</h3>
+<blockquote>
+<p>[redacted]Daten im Ordner <em>Static</em> ab.
+[redacted-person] zum Aufbau einer Static-Datei erhalten Sie im
+Anhang ab Seite .</p>
+</blockquote>
+<h2 id="hilfreiche-tools">[redacted-person]</h2>
+<blockquote>
+<p>Für einige Schritte, wie beispielsweise das Ablegen von Photo-Dateien
+nach ISOMME-Norm, empfiehlt Ihnen [redacted-co] das Tool <em>ISOMME-Check</em>.
+Bitte beachten Sie, dass die Verwendung von <em>ISOMME-Check</em> stets
+optional ist, da es Ihnen freigestellt ist, auf welchem [redacted-person] die
+Anforderungen erfüllen, solange die Daten am Ende korrekt vorliegen.
+[redacted-person] sich für <em>ISOMME-Check</em> entschieden haben, können Sie
+über das [redacted]<em><strong>&gt;&gt; Anwendungen
+&gt;&gt; CAT &gt;&gt; Datentransfer &gt;&gt; Projektraum &gt;&gt;
+CAT_Datentransfer &gt;&gt; Infos_Tools</strong></em> darauf zugreifen.
+[redacted-person] dafür noch nicht freigeschaltet sein, wenden Sie sich bitte
+an: <a href="mailto:VisVerdi.Support@audi.de">[redacted-email]</a><sup>5</sup></p>
+<p>[redacted-person] das Tool installieren, lesen Sie im Anhang ab Seite .</p>
+</blockquote>
+<h1 id="datenüberprüfung-und--übertragung">Datenüberprüfung und
+-übertragung</h1>
+<blockquote>
+<p>Sie sind verpflichtet, zu prüfen, ob alle [redacted-person], die Sie
+abgelegt haben, die ISOMME-Norm sowie die zugehörigen [redacted-co]
+Spezifikationen erfüllen. Zu diesem Zweck empfiehlt Ihnen [redacted-co] ebenfalls
+das Tool <em>ISOMME-Check</em>. Dieses erhalten Sie, wenn Sie im [redacted]<em><strong>&gt;&gt; Anwendungen &gt;&gt; CAT
+&gt;&gt; Datentransfer &gt;&gt; Projektraum &gt;&gt;
+CAT_Datentransfer_Infos_Tools</strong></em> wählen.</p>
+<p>[redacted-person] dafür noch nicht freigeschaltet sein, wenden Sie sich
+bitte an: <a href="mailto:VisVerdi.Support@audi.de">[redacted-email]</a><sup>6</sup></p>
+<p>[redacted-person] das Tool installieren, lesen Sie im Anhang ab Seite .
+Informationen, wie Sie mit <em>ISOMME-Check</em> eine</p>
+<p>Datenüberprüfung durchführen, erhalten Sie im Anhang ab Seite .</p>
+<p>[redacted-person] die Überprüfung der Daten ohne Fehlermeldung abgeschlossen,
+können Sie damit beginnen, diese zu importieren:</p>
+<p>Informationen wie Sie als <em><strong>interner
+Mitarbeiter</strong></em> Daten importieren, erhalten Sie im Anhang ab
+Seite . Informationen wie Sie als <em><strong>Mitarbeiter eines externen
+Partners</strong></em> Daten importieren, erhalten Sie im Anhang ab
+Seite .</p>
+</blockquote>
+<h1 id="anhänge">Anhänge</h1>
+<h2 id="anbindung-an-das-cax-supplier-network-csn">Anbindung an das CAx
+[redacted-person] (CSN)</h2>
+<blockquote>
+<p>[redacted-person] muss über eine Anbindung an das CSN verfügen, damit
+der Zugang zur [redacted-co] Infrastruktur überhaupt erst möglich wird. Das
+bedeutet:</p>
+<p><strong>[redacted-person] einen CSN-Vertrag mit der operational services
+GmbH &amp; Co. KG</strong> (Bitte beachten Sie, das durch einen
+[redacted-person] entstehen können). Anschließend organisiert
+das [redacted-person] Center der operational services GmbH &amp; Co. KG
+(SSC os) für Sie die Anbindung an das CSN sowie die Freischaltung der
+Firewall. [redacted-person] sowie alle weiteren Informationen zu
+diesem Schritt erhalten Sie bei:</p>
+</blockquote>
+<h6 id="operational-services-gmbh-co.-kg">operational services GmbH
+&amp; Co. KG</h6>
+<blockquote>
+<p>Rudolf-Ehrlich-Straße 7</p>
+<p>08058 [redacted-addr]</p>
+<p>Tel. 1: [redacted-phone]</p>
+<p>Tel. 2: [redacted-phone]</p>
+<p>Fax: [redacted-phone]</p>
+<p>(0,14 €/Min. aus dem Festnetz, Mobilfunk max. 0,42/Min. (für
+[redacted-addr])) –</p>
+<p>Stand: Mai 2016. [redacted-person]. E-Mail: <a href="mailto:csn.service@o-s.de">[redacted-email]</a></p>
+<p>Web: <a href="http://www.operational-services.de/CSN">http://www.operational-services.de/CSN</a></p>
+</blockquote>
+<h6 id="hinweis-4">Hinweis:</h6>
+<blockquote>
+<p>[redacted-person] in Absprache mit dem [redacted-person] Firma
+sowie der operational services GmbH &amp; Co. KG Ihre IP und
+DNS-Konfiguration für die CSN-Verbindung vor. [redacted-person] ist die
+Basis für das Installieren und Konfigurieren eines SFTP-Client-Programms
+(siehe Punkt 9) für Ihre spätere Datenübertragung.</p>
+<p>Entscheidend dabei ist, dass die Hostnamen des [redacted](siehe Punkt 8) aufgelöst werden können und Port 22 in [redacted-person] freigeschaltet ist. [redacted-person] hierzu die Informationen für
+Administratoren auf Seite .</p>
+</blockquote>
+<h2 id="beantragen-eines-nt-users">Beantragen eines NT-Users</h2>
+<blockquote>
+<p>[redacted-person] eines <em><strong>externen Partners</strong></em>
+beantragen Sie einen NT-User wie folgt:</p>
+<p><a href="https://group-wiki.wob.vw.vwg/wikis/display/EFS/VisVerdi%2B-%2BDer%2BWeg%2Bzum%2Berfolgreichen%2BDatenimporteur">VisVerdi
+- [redacted-person] zum erfolgreichen Datenimporteur</a><sup>7</sup></p>
+</blockquote>
+<h2 id="beantragen-eines-visverdi-accounts">Beantragen eines
+VisVerdi-Accounts</h2>
+<blockquote>
+<p>Sowohl als <em><strong>interner Mitarbeiter</strong></em> wie auch
+als <em><strong>Mitarbeiter eines externen Partners</strong></em>
+benötigen Sie einen</p>
+<p>VisVerdi-Zugang:</p>
+<p><a href="https://group-wiki.wob.vw.vwg/wikis/display/EFS/VisVerdi%2B-%2BDer%2BWeg%2Bzum%2Berfolgreichen%2BDatenimporteur">VisVerdi
+- [redacted-person] zum erfolgreichen Datenimporteur</a><sup>8</sup></p>
+</blockquote>
+<h2 id="berechtigungen-für-versuchsdaten">Berechtigungen für
+Versuchsdaten</h2>
+<blockquote>
+<p>Als <em><strong>interner Mitarbeiter außerhalb von [redacted-person]</strong></em>
+sowie als <em><strong>Mitarbeiter eines externen Partners</strong></em>
+müssen Sie dem VisVerdi-Zugangskoordinator in Ihrer E-Mail außerdem
+mitteilen, auf welches Projekt oder welche [redacted-person] konkret
+zugreifen müssen.</p>
+<p>Dabei gibt es folgende Optionen:</p>
+</blockquote>
+<ul>
+<li><p>Freischaltung für einzelne Versuchsarten, z. [redacted-person] alle
+Frontal-Schlitten-Versuche</p>
+<ul>
+<li><p>Bestätigung durch signierte E-Mail des zuständigen [redacted-person]
+OE-Leiters erforderlich</p></li>
+</ul></li>
+<li><p>Freischaltung für einzelne Projekte, z. [redacted-person] AU573-Versuche</p>
+<ul>
+<li><p>Bestätigung durch signierte E-Mail des zuständigen [redacted-person]
+Projektleiters erforderlich</p></li>
+</ul></li>
+<li><p>Freischaltung für einzelne Versuchsarten in Projekten, z. [redacted-person]
+Sitz-Komponenten-Versuche in AU484</p>
+<ul>
+<li><p>Bestätigung durch signierte E-Mail des [redacted-co] Betreuers bzw. des
+verantwortlichen [redacted-co] Mitarbeiters erforderlich</p></li>
+</ul></li>
+</ul>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image1.jpeg" style="width:6.21256in;height:3.56479in"/></p>
+<blockquote>
+<p>Nach der jeweiligen schriftlichen Bestätigung (wird über den
+VisVerdi-Zugangskoordinator initiiert) werden Sie auf das Projekt bzw.
+die Versuchsart freigeschaltet.</p>
+<p>Als <em><strong>interner Mitarbeiter der
+Fahrzeugsicherheit</strong></em> sind Sie standardmäßig auf alle
+Versuche berechtigt.</p>
+</blockquote>
+<h2 id="anmelden-an-visverdi-innerhalb-des-audi-netzes">Anmelden an
+VisVerdi innerhalb des [redacted-co] Netzes</h2>
+<blockquote>
+<p>[redacted-person] bei [redacted-co] vor Ort und somit innerhalb des [redacted-co] Netzes
+arbeiten, können Sie wie folgt auf VisVerdi zuzugreifen:</p>
+<p>[redacted-person] einmalig auf Laufwerk S zum Installationsverzeichnis
+<strong>S:</strong></p>
+<p><strong>\Software\[redacted-co]_VisVerdi\2000_Install\2100_Produktiv</strong>
+und führen Sie durch Doppelklick die Batchdatei vv_p.bat aus.
+Anschließend befindet sich die Anwendung auf [redacted-person] und kann
+gestartet werden. Alternativ können Sie auch direkt folgenden Link
+aufrufen, um VisVerdi zu starten:</p>
+<p>\\audiintepro.in.audi.vwg\projectS\software\[redacted-co]_VisVerdi\2000_Install\2100_Produktiv\start_VisVerdi.lnk<sup>9</sup>
+[redacted-person] der Anwendung geben [redacted-person] VisVerdi-Benutzernamen und [redacted-person] ein, welche Sie im Rahmen des Zulassungsprozesses erhalten
+haben.</p>
+</blockquote>
+<h6 id="hinweis-5">Hinweis:</h6>
+<blockquote>
+<p>[redacted-person], nachdem Sie einen der beiden oben genannten Schritt
+ausgeführt haben, dennoch keinen Zugriff auf VisVerdi haben, wenden Sie
+sich bitte an den VisVerdi-Zugangskoordinator:</p>
+<p>E-Mail: <a href="mailto:VisVerdi.Support@audi.de">[redacted-email]</a><sup>10</sup></p>
+</blockquote>
+<h2 id="beantragen-eines-wts-accounts">Beantragen eines
+WTS-Accounts</h2>
+<blockquote>
+<p><a href="https://group-wiki.wob.vw.vwg/wikis/display/EFS/VisVerdi%2B-%2BDer%2BWeg%2Bzum%2Berfolgreichen%2BDatenimporteur">VisVerdi
+- [redacted-person] zum erfolgreichen Datenimporteur</a><sup>11</sup></p>
+</blockquote>
+<h2 id="anmelden-an-visverdi-außerhalb-des-audi-netzes">Anmelden an
+VisVerdi außerhalb des [redacted-co] Netzes</h2>
+<blockquote>
+<p>[redacted-person] einen WTS-Account beantragt, können Sie sich mit Ihrem
+NT-User am WTS anmelden – und zwar,</p>
+<p>indem Sie folgende Web-Adresse aufrufen:</p>
+<p><a href="https://wts.ras.audi.vwg/">https://wts.ras.audi.vwg</a></p>
+</blockquote>
+<h6 id="hinweis-6">Hinweis:</h6>
+<blockquote>
+<p>Hierzu muss ein [redacted-person] auf [redacted-person] installiert sein.
+Falls dieser nicht vorhanden ist, erhalten Sie hierzu eine
+Fehlermeldung, wenn Sie sich am WTS anmelden wollen. In diesem Fall
+wenden Sie sich bitte an [redacted-person], damit dieser einen
+[redacted-person] für Sie installiert.</p>
+</blockquote>
+<ol start="9" type="1">
+<li><p>file:////audiintepro.in.audi.vwg//projectS//software//[redacted-co]_VisVerdi//2000_Install//2100_Produktiv//start_VisVerdi.lnk</p></li>
+<li><p><a href="mailto:VisVerdi.Support@audi.de">mailto:[redacted-email]</a></p></li>
+<li><p><a href="https://group-wiki.wob.vw.vwg/wikis/display/EFS/VisVerdi%2B-%2BDer%2BWeg%2Bzum%2Berfolgreichen%2BDatenimporteur">https://group-wiki.wob.vw.vwg/wikis/display/EFS/VisVerdi+-+Der+Weg+zum+erfolgreichen+Datenimporteur</a></p></li>
+</ol>
+<blockquote>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image2.jpeg" style="width:6.28121in;height:2.2124in"/></p>
+<p>[redacted-person] anschließend auf der WTS-Oberfläche das
+Fahrzeugsicherheitsterminal ([redacted-co] WTS Desktops FzgS) aus, das Ihnen den
+Zugriff auf VisVerdi ermöglicht.</p>
+<p>[redacted-person] der Anwendung geben [redacted-person] VisVerdi-Benutzernamen und
+[redacted-person] ein, welche Sie im Rahmen des Zulassungsprozesses erhalten
+haben.</p>
+</blockquote>
+<h6 id="hinweis-7">Hinweis:</h6>
+<blockquote>
+<p>Der WTS dient nicht dazu, um den vorgeschriebenen Prozess des
+Datentransfers zu umgehen. Es ist daher nicht zulässig, Daten von einem
+lokalen Rechner in die WTS-Ansicht zu übertragen.</p>
+</blockquote>
+<h2 id="berechtigungen-allgemein">... [redacted-person]</h2>
+<h2 id="zugang-zum-sftp-server">Zugang zum SFTP-Server</h2>
+<blockquote>
+<p>[redacted-person] ein SFTP-Client-Programm auf [redacted-person].
+Folgendes SFTP-Client-Programm wird von [redacted-co] empfohlen: WinSCP. Hierbei
+handelt es sich um ein [redacted-person] Programm, das Sie kostenfrei aus dem
+Web herunterladen können – z. [redacted-person]:</p>
+<p><a href="http://winscp.net/eng/download.php">http://winscp.net/eng/download.php</a></p>
+<p>[redacted-person] sich zudem mit Ihrem [redacted-co] Betreuer in Verbindung und
+beantragen Sie bei ihm einen lokalen SFTP-User, mit dem Sie sich am
+SFTP-Server anmelden können.</p>
+<p>[redacted-person] anschließend bei der Anmeldung an WinSCP folgende
+Punkte (ggf. in Absprache mit dem [redacted-person]
+Firma):</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] die IP-Adresse des SFTP-Servers in WinSCP ein (siehe
+Seite ).</p></li>
+<li><p>[redacted-person] Port 22</p></li>
+<li><p>[redacted-person] sich mit Ihrem lokalen SFTP-User an</p></li>
+</ul>
+<blockquote>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image3.jpeg" style="width:5.47654in;height:4.85156in"/></p>
+</blockquote>
+<h2 id="falcon-zugang-1">Falcon-Zugang</h2>
+<blockquote>
+<p>[redacted-person] einen NT-User besitzen, haben Sie als <em><strong>interner
+Mitarbeiter</strong></em> automatisch Zugang zu Falcon. Allerdings muss
+das System lokal auf [redacted-person] installiert werden. [redacted-person] finden Sie unter folgendem Pfad:</p>
+</blockquote>
+<h6 id="ssoftwarefalcon_db_client">S:\Software\FalCon_DB_Client</h6>
+<blockquote>
+<p>[redacted-person] noch nicht mit dem System <em>Falcon</em> vertraut sind,
+melden Sie sich zu einer Falcon-Schulung an. [redacted-person] sich dazu bitte
+an den Falcon-Systemverantwortlichen ([redacted-person] oder in
+[redacted-person] Redlich) unter <a href="mailto:VisVerdi.Support@audi.de">[redacted-email]</a><sup>12</sup>.</p>
+<p>Als <em><strong>Mitarbeiter eines externen Partners</strong></em>
+müssen [redacted-person] Falcon-Zugang zuerst beantragen.</p>
+<p>[redacted-person] zu Falcon ist Rechner- und nicht Anwendergebunden. Um
+einen Zugang für [redacted-person] zu erhalten, kontaktieren Sie den
+Falcon-Systemverantwortlichen ([redacted-person] oder in [redacted-person] Redlich) unter <a href="mailto:VisVerdi.Support@audi.de">[redacted-email]</a><sup>13</sup>
+und beantragen Sie die [redacted-person] Rechners für das
+Falcon-System.</p>
+</blockquote>
+<ol start="12" type="1">
+<li><p><a href="mailto:VisVerdi.Support@audi.de">mailto:[redacted-email]</a></p></li>
+<li><p><a href="mailto:VisVerdi.Support@audi.de">mailto:[redacted-email]</a></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] sich an Falcon anmelden, ohne dass [redacted-person] für Falcon
+freigeschaltet ist, erhalten Sie folgende Fehlermeldung:</p>
+</blockquote>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image4.jpeg" style="width:3.93755in;height:2.73875in"/></p>
+<blockquote>
+<p>In diesem Fall senden Sie diese Fehlermeldung an den
+Falcon-Applikationsverantwortlichen unter <a href="mailto:VisVerdi.Support@audi.de">[redacted-email]</a><sup>14</sup>.
+Sie enthält [redacted-person]-Adresse, die der Applikationsverantwortliche
+zur [redacted-person] Rechners für Falcon benötigt.</p>
+</blockquote>
+<h6 id="hinweis-8">Hinweis:</h6>
+<blockquote>
+<p>Um in Falcon auf Projekte zugreifen zu können, müssen Sie für diese
+Projekte auch in VisVerdi freigeschaltet sein. [redacted-person] also im Zuge
+der VisVerdi-Authentifizierung für ein bestimmtes Projekt/Versuchsart
+freigeschaltet, sind Sie dafür automatisch auch in Falcon
+freigeschaltet. Freischaltungen für weitere Projekte müssen separat in
+VisVerdi erfolgen.</p>
+</blockquote>
+<h2 id="isomme-dokumentationen">ISOMME-Dokumentationen</h2>
+<blockquote>
+<p>Auszüge aus der ISOMME-Dokumentation finden Sie am Ende des
+Leitfadens als Anlage ab Seite .</p>
+</blockquote>
+<h2 id="erstellen-einer-isomme-verzeichnisstruktur">Erstellen einer
+ISOMME-Verzeichnisstruktur</h2>
+<blockquote>
+<p>[redacted-person] einer ISOMME-Verzeichnisstruktur ist verpflichtend und
+geschieht wie folgt: [redacted-person] einen Ordner an, der nach [redacted-person] benannt ist und der die Ordner <em>Channel</em>,
+<em>Document</em>, <em>Movie</em>, <em>Photo</em> und <em>Static</em>
+enthält:</p>
+</blockquote>
+<ol start="14" type="1">
+<li><p><a href="mailto:VisVerdi.Support@audi.de">mailto:[redacted-email]</a></p></li>
+</ol>
+<blockquote>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image5.jpeg" style="width:5.22655in;height:2.66406in"/></p>
+<p>[redacted-person] der ISOMME-Struktur ist eine MME-Headerdatei.
+Diese muss ebenfalls nach der Versuchsnummer benannt sein (siehe
+Beispiel oben).</p>
+</blockquote>
+<h6 id="hinweis-9">Hinweis:</h6>
+<blockquote>
+<p>Für die Benennung von Datei- und Ordnernamen innerhalb der
+MME-Struktur sind Leerzeichen, Umlaute und Sonderzeichen nicht zulässig.
+Bitte beachten Sie darüber hinaus: <u>ASCII-Dateien</u> müssen am Ende
+jeder Zeile mit CRLF abgeschlossen werden (ASCII 13 + ASCII 10).</p>
+</blockquote>
+<h3 id="erstellen-einer-mme-headerdatei">Erstellen einer
+MME-Headerdatei</h3>
+<blockquote>
+<p>MME ist die Abkürzung für „[redacted]Tests, ISO TS 13499" und ermöglicht den multimedialen Austausch von
+Daten bei Fahrzeugsicherheitsversuchen. Im Datensatz der MME-Headerdatei
+können also Meta-Informationen sowohl zu Film- und Photo-Dateien als
+auch zu anderen Dokumenten enthalten sein. [redacted-person] für eine
+MME-Headerdatei sehen Sie hier:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image6.jpeg" style="width:6.28121in;height:3.75479in"/></p>
+<p>[redacted-person] Ihre MME-Headerdatei wie folgt:</p>
+<p>[redacted-person] in VisVerdi den Menüpunkt <em><strong>Datei &gt;&gt;
+Export &gt;&gt; ISOMME-Datei</strong>.</em> Dadurch wird eine
+ISOMME-Datei erstellt, die Sie nun in Ihrem ISOMME-Verzeichnis speichern
+können.</p>
+</blockquote>
+<h6 id="hinweis-10">Hinweis:</h6>
+<blockquote>
+<p>[redacted-person] vor dem Erstellen der MME-Headerdatei in VisVerdi nicht alle
+Pflichtfelder ausgefüllt haben, bevor Sie die oben genannte
+Export-Funktion anwenden, müssen Sie diese nachträglich von Hand in die
+txt-Datei eintragen. [redacted-person] gelten folgende Felder:</p>
+</blockquote>
+<ul>
+<li><p>Laboratory contact email</p></li>
+<li><p>Customer test engineer email</p></li>
+<li><p>Date of the test</p></li>
+<li><p>Reference temperature (in Kelvin)</p></li>
+<li><p>Relative air humidity</p></li>
+<li><p>Velocity test object 1</p></li>
+<li><p>Mass test object 1</p></li>
+<li><p>Velocity test object 2</p></li>
+<li><p>Mass test object 2</p></li>
+</ul>
+<blockquote>
+<p>Bitte beachten Sie:</p>
+<p>[redacted-person] werden nur akzeptiert, wenn statt eines
+konkreten Wertes NOVALUE eingetragen wurde (Pflichtfelder
+ausgenommen).</p>
+<p>[redacted-person] aus VisVerdi ist die empfohlene Vorgehensweise zum
+Erstellen einer MME-Headerdatei und daher an dieser Stelle auch explizit
+beschrieben. [redacted-person] über das dafür notwendige Know-how, können [redacted-person] MME-Headerdatei auch händisch erstellen, wodurch jedoch zu den
+zuvor genannten Pflichtfeldern folgender hinzukommen:</p>
+</blockquote>
+<ul>
+<li><p>Laboratory contact email</p></li>
+<li><p>Customer engineer email</p></li>
+<li><p>Type of the test</p></li>
+<li><p>Subtype of the test</p></li>
+<li><p>Velocity test object 1</p></li>
+<li><p>Velocity test object 2</p></li>
+</ul>
+<blockquote>
+<p>Alle weitere Kriterien und Kenntnisse zum händischen Erstellen einer
+MME-Headerdatei sind im Rahmen dieses Leitfadens nicht erfasst.
+Entscheidend ist letztlich, dass alle Angaben, die Ihre MME-Headerdatei
+enthält, beim Datentransfer mit den in VisVerdi hinterlegten Werten
+übereinstimmen, da dieser ansonsten abgebrochen wird.</p>
+</blockquote>
+<h2 id="channel-daten">Channel-Daten</h2>
+<blockquote>
+<p>[redacted-person] an die zu liefernden Daten, wie sie im Folgenden
+genannt werden, sind <strong>verbindliche Vorgaben, die Sie einhalten
+müssen.</strong></p>
+</blockquote>
+<h3 id="anforderungen-an-channel-daten">Anforderungen an
+Channel-Daten</h3>
+<blockquote>
+<p>[redacted-person] gelten für [redacted-person]-Daten:</p>
+</blockquote>
+<ul>
+<li><p>Abtastzeit von -100 [redacted-person] 500 ms</p></li>
+<li><p>Abtastfrequenz bis 10/20 kHz Standard, bis 100 kHz für
+Körperschallsensoren (unterschiedliche Abtastraten in einem Messfile
+sind möglich)</p></li>
+<li><p>Es sind nur ädquidistante Zeitkanäle erlaubt. [redacted-person] und Kanallängen in einem Test sind möglich.</p></li>
+<li><p>CAN-Bus-Messdaten werden im Ordner „Dokumente" abgelegt und wie
+folgt benannt:</p></li>
+</ul>
+<blockquote>
+<p>„Versuchsnummer_CAN.zip" =&gt; Beispiel: CC12344_CAN.zip</p>
+</blockquote>
+<ul>
+<li><p>Daten von zuliefererbezogenen Steuergeräten, z. B.:
+Spiderbox-Bosch oder TEDR-Continental werden im Ordner „Dokumente"
+abgelegt und wie folgt benannt: „Verssuchnummer_spider.zip" oder bei
+TEDR- Conti „Versuchsnummer_ECU.zip" =&gt; Beispiel: CC12344_spider.zip
+oder CC12344_ECU.zip</p></li>
+<li><p>ECU – Daten, Werte oder sonstige Dateien werden im Ordner
+„Dokumente" abgelegt mit</p></li>
+</ul>
+<blockquote>
+<p>„Versuchsnummer_ECU.zip" =&gt; Beispiel: CC12344_ECU.zip</p>
+</blockquote>
+<ul>
+<li><p>Messdatendaten für Hochvoltfahrzeuge, z. [redacted-person] oder
+Messprotokolle werden ebenfalls im</p></li>
+</ul>
+<blockquote>
+<p>Ordner „Dokumente" mit Versuchsnummer_HV.zip abgelegt =&gt; Beispiel:
+CC12344_HV.zip</p>
+</blockquote>
+<ul>
+<li><p>Units sind grundsätzlich in SI-Einheiten anzugeben. [redacted-person]
+hierzu bitte auch folgende Tabelle:</p></li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>MME_PHYSICAL_DIM ENSIONS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PHYSICAL_DIMENSIO N</td>
+<td><strong>TEXT_L1</strong></td>
+<td><strong>TEXT_L2</strong></td>
+<td><strong>DEFAULT_UNIT</strong></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>DC</th>
+<th>Distance</th>
+<th>Abstand</th>
+<th>m</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DS</td>
+<td>Displacement</td>
+<td>Verschiebung</td>
+<td>m</td>
+</tr>
+<tr>
+<td>AD</td>
+<td>[redacted-co]tory [redacted-person] (ADU)</td>
+<td>ADU</td>
+<td>dB</td>
+</tr>
+<tr>
+<td>YV</td>
+<td>[redacted-person]</td>
+<td>Drehgeschwindigkeit</td>
+<td>rad/s</td>
+</tr>
+<tr>
+<td>PV</td>
+<td>[redacted-person]</td>
+<td>Neigungsgeschwindigkeit</td>
+<td>rad/s</td>
+</tr>
+<tr>
+<td>RV</td>
+<td>[redacted-person]</td>
+<td>Kippgeschwindigkeit</td>
+<td>rad/s</td>
+</tr>
+<tr>
+<td>YA</td>
+<td>[redacted-person]</td>
+<td>Drehwinkel</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>PA</td>
+<td>[redacted-person]</td>
+<td>Neigungswinkel</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>RA</td>
+<td>[redacted-person]</td>
+<td>Kippwinkel</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>??</td>
+<td>Undefined</td>
+<td>Undefiniert</td>
+<td>1</td>
+</tr>
+<tr>
+<td>00</td>
+<td>Others</td>
+<td>Andere</td>
+<td>0</td>
+</tr>
+<tr>
+<td>1?</td>
+<td>[redacted]</td>
+<td>[redacted]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>2?</td>
+<td>[redacted]</td>
+<td>[redacted]</td>
+<td>?</td>
+</tr>
+<tr>
+<td>AA</td>
+<td>[redacted-person]</td>
+<td>Winkelbeschleunigung</td>
+<td>rad/(s*s)</td>
+</tr>
+<tr>
+<td>AC</td>
+<td>Acceleration</td>
+<td>Beschleunigung</td>
+<td>m/(s*s)</td>
+</tr>
+<tr>
+<td>AN</td>
+<td>Angle</td>
+<td>Winkel</td>
+<td>rad</td>
+</tr>
+<tr>
+<td>AV</td>
+<td>[redacted-person]</td>
+<td>Winkelgeschwindigkeit</td>
+<td>rad/s</td>
+</tr>
+<tr>
+<td>CH</td>
+<td>Charge</td>
+<td>Ladung</td>
+<td>C</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>CU</th>
+<th>Current</th>
+<th>[redacted-person]</th>
+<th>A</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>DB</td>
+<td>Decibel</td>
+<td>Schalldruck</td>
+<td>dB</td>
+</tr>
+<tr>
+<td>DV</td>
+<td>Displacement, integrated from Velocity</td>
+<td>Verschiebung, Integriert aus Geschwindigkeit</td>
+<td>m</td>
+</tr>
+<tr>
+<td>EN</td>
+<td>Energy</td>
+<td>Energie</td>
+<td>J</td>
+</tr>
+<tr>
+<td>EV</td>
+<td>Event</td>
+<td>Ereignis</td>
+<td>1</td>
+</tr>
+<tr>
+<td>FO</td>
+<td>Force</td>
+<td>Kraft</td>
+<td>N</td>
+</tr>
+<tr>
+<td>FR</td>
+<td>Frequency</td>
+<td>Frequenz</td>
+<td>1/s</td>
+</tr>
+<tr>
+<td>HU</td>
+<td>Humidity</td>
+<td>Feuchtigkeit</td>
+<td>%</td>
+</tr>
+<tr>
+<td>IL</td>
+<td>Illuminance</td>
+<td>Beleuchtungsstärke</td>
+<td>lx</td>
+</tr>
+<tr>
+<td>IM</td>
+<td>Impulse</td>
+<td>Impuls</td>
+<td>kg*m/s</td>
+</tr>
+<tr>
+<td>LE</td>
+<td>[redacted-person]</td>
+<td>Hebelarm</td>
+<td>m</td>
+</tr>
+<tr>
+<td>LF</td>
+<td>luminous flux</td>
+<td>Lichtstrom</td>
+<td>lm</td>
+</tr>
+<tr>
+<td>LI</td>
+<td>[redacted-person]</td>
+<td>Lichtstärke</td>
+<td>cd</td>
+</tr>
+<tr>
+<td>LU</td>
+<td>Luminance</td>
+<td>Beleuchtungsstärke</td>
+<td>cd/(m*m)</td>
+</tr>
+<tr>
+<td>MA</td>
+<td>Mass</td>
+<td>Masse</td>
+<td>kg</td>
+</tr>
+<tr>
+<td>MO</td>
+<td>Moment</td>
+<td>Moment</td>
+<td>Nm</td>
+</tr>
+<tr>
+<td>PO</td>
+<td>Power</td>
+<td>Energie</td>
+<td>W</td>
+</tr>
+<tr>
+<td>PR</td>
+<td>Pressure</td>
+<td>Druck</td>
+<td>Pa</td>
+</tr>
+<tr>
+<td>RE</td>
+<td>Resistance</td>
+<td>Widerstand</td>
+<td>V/A</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>SA</th>
+<th>Solid angle (steradiant)</th>
+<th>Raumwinkel</th>
+<th>sr</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SE</td>
+<td>Sensitivity</td>
+<td>Empfindlichkeit</td>
+<td>(Unit) / (Unit)</td>
+</tr>
+<tr>
+<td>SP</td>
+<td>[redacted](SPL)</td>
+<td>Spitzenlautstärke</td>
+<td>dB</td>
+</tr>
+<tr>
+<td>ST</td>
+<td>Strain</td>
+<td>Belastung</td>
+<td>m/m</td>
+</tr>
+<tr>
+<td>TE</td>
+<td>Temperature</td>
+<td>Temperatur</td>
+<td>K</td>
+</tr>
+<tr>
+<td>TI</td>
+<td>Time</td>
+<td>Zeit</td>
+<td>s</td>
+</tr>
+<tr>
+<td>VA</td>
+<td>Velocity, Integr. from Acc.</td>
+<td>Geschwindigkeit, integriert aus Beschleunigung</td>
+<td>m/s</td>
+</tr>
+<tr>
+<td>VD</td>
+<td>Velocity, Diff. from Displ.</td>
+<td>Geschwindigkeit, differenziert aus Strecke</td>
+<td>m/s</td>
+</tr>
+<tr>
+<td>VE</td>
+<td>Velocity</td>
+<td>Geschwindigkeit</td>
+<td>m/s</td>
+</tr>
+<tr>
+<td>VO</td>
+<td>Voltage</td>
+<td>[redacted-person]</td>
+<td>V</td>
+</tr>
+<tr>
+<td>VU</td>
+<td>Volume</td>
+<td>Volumen</td>
+<td>m*m*m</td>
+</tr>
+</tbody>
+</table>
+<h3 id="ablegen-von-channel-daten-nach-isomme-standard">Ablegen von
+Channel-Daten nach ISOMME-Standard</h3>
+<blockquote>
+<p>[redacted]Daten im Ordner <em>Channel</em> ab. [redacted-person] sind darüber hinaus nicht erlaubt. [redacted-person] dabei die
+einzelnen Dateien wie folgt: Versuchsnummer.Kanalnummer</p>
+<p>[redacted-person] – es darf lediglich der Antialiasingfilter bzw. die
+Offsetkorrektur angewandt werden.</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image7.jpeg" style="width:5.6251in;height:2.20312in"/></p>
+<p>Bei diesem Beispiel mit der fiktiven Versuchsnummer CC12344 würde die
+korrekte Bezeichnung des ersten Channels also wie folgt lauten:
+CC[redacted-phone]</p>
+<p>Eine vollständige Liste ist in ISOMMECheck.mdb in der [redacted-person] erhältlich.</p>
+</blockquote>
+<h3 id="erstellen-einer-chn-headerdatei">Erstellen einer
+CHN-Headerdatei</h3>
+<blockquote>
+<p>[redacted-person] <em>Channel</em> muss eine zusätzliche CHN-Headerdatei
+enthalten, die die einzelnen Kanäle genau beschreibt. Dies geschieht
+anhand 16-stelliger Channelcodes:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image8.jpeg" style="width:4.31256in;height:2.5875in"/></p>
+<p>In diesem Beispiel lautet der Channelcode für Channel 001 wie folgt:
+10BATT000001VO0P</p>
+<p>Dabei dürfen Sie ausschließlich Channelcodes verwenden, die Ihnen von
+[redacted-co] vorgegeben werden. [redacted-person] akzeptiert werden, sind im
+Wesentlichen in VisVerdi im Bereich „Messauftrag" ersichtlich, wie
+dieses Beispiel zeigt:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image9.jpeg" style="width:5.71876in;height:4.15562in"/></p>
+</blockquote>
+<h6 id="tipp-2">Tipp:</h6>
+<blockquote>
+<p>Channelcodes können Sie wie folgt interpretieren:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Stelle</th>
+<th>gibt Auskunft über</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Versuchsobjekt</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Positions</td>
+</tr>
+<tr>
+<td>3, 4, 5, 6</td>
+<td>Transducer, [redacted-person]</td>
+</tr>
+<tr>
+<td>7, 8</td>
+<td>[redacted-person] 1</td>
+</tr>
+<tr>
+<td>9, 10</td>
+<td>[redacted-person] 2</td>
+</tr>
+<tr>
+<td>11, 12</td>
+<td>[redacted-person] 3</td>
+</tr>
+<tr>
+<td>13, 14</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>15</th>
+<th>Directions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>16</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[redacted-person] zu den einzelnen Stellen erhalten Sie in der
+Datei ISO_MME_Code.mdb, die Sie im Rahmen des Erwerbs der ausführlichen
+ISOMME-Dokumentation bei iso.org erhalten. Siehe hierzu auch</p>
+<p>Seite . Darüber hinaus ist die Datei auch Bestandteil von
+<em>ISOMME-Check</em>. [redacted-person] hierzu finden Sie auf Seite
+.</p>
+</blockquote>
+<h2 id="document-daten">Document-Daten</h2>
+<blockquote>
+<p>[redacted-person] an die zu liefernden Daten, wie sie im Folgenden
+genannt werden, sind <strong>verbindliche Vorgaben, die Sie einhalten
+müssen.</strong></p>
+</blockquote>
+<h3 id="formelle-anforderungen">[redacted-person]</h3>
+<blockquote>
+<p>Dateien, die Sie im Ordner <em>Document</em> ablegen, benennen Sie
+wie folgt: Versuchsnummer_Firmenname_Dateibeschreibung.Dateiendung</p>
+<p>Hier einige Beispiele zu Channel-Daten, die im Ordner
+<em>Document</em> abgelegt werden ([redacted-person] CC12344 ist
+beispielhaft und nicht relevant für [redacted-person]):</p>
+</blockquote>
+<ul>
+<li><p>Beispiel CAN-Bus-Messdaten:
+„CC12344_Musterfirma_CAN.zip"</p></li>
+<li><p>Daten von zuliefererbezogenen Steuergeräten, z. B.:
+Spiderbox-Bosch oder TEDR-Continental:</p></li>
+</ul>
+<blockquote>
+<p>„CC12344_Musterfirma_spider.zip" oder bei TEDR-Conti
+„CC12344_Musterfirma_ECU.zip"</p>
+</blockquote>
+<ul>
+<li><p>ECU – Daten, Werte oder sonstige Dateien:
+„CC12344_Musterfirma_ECU.zip"</p></li>
+<li><p>Messdatendaten für Hochvoltfahrzeuge, z. [redacted-person] oder
+Messprotokolle:</p></li>
+</ul>
+<blockquote>
+<p>„CC12344_Musterfirma_HV.zip"</p>
+</blockquote>
+<h6 id="hinweis-11">Hinweis:</h6>
+<blockquote>
+<p>Bitte beachten Sie darüber hinaus, dass dieser Ordner <u>nicht</u>
+zur Ablage von Daten dient, die Sie ohne Aufbereitung nach ISOMME-Norm
+übertragen wollen.</p>
+</blockquote>
+<h3 id="erstellen-einer-attribute-datei">Erstellen einer
+attribute-Datei</h3>
+<blockquote>
+<p>[redacted-person] <em>Document</em> muss eine attribute-Datei enthalten.
+[redacted-person] einer attribute-Datei handelt es sich um einen [redacted-co]
+spezifischen Prozessschritt, der über den ISOMME-Standard hinausgeht.
+Die attribute-Datei enthält diejenigen Attribute und deren Werte, die
+Sie in VisVerdi automatisiert eintragen möchten. [redacted-person] für eine
+attribute-Datei erhalten Sie über die Export-Funktion in VisVerdi.
+[redacted-person] dafür in VisVerdi den gewünschten Versuch und wählen Sie den
+Menüpunkt <em><strong>Datei &gt;&gt; Export &gt;&gt;
+.attribute-Datei</strong></em> aus. Dadurch können Sie eine
+attribute-Datei mit den in VisVerdi bereits hinterlegten Werten
+erstellen, z. B.:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image10.jpeg" style="width:6.28121in;height:1.8076in"/></p>
+<p>Um eine zum Datenimport geeignete attribute-Datei zu erstellen,
+müssen Sie diese händisch anlegen. Die dafür notwendigen Informationen
+erhalten Sie wie folgt: [redacted-person] in VisVerdi alle relevanten
+Komponenten aus und übertragen Sie deren Isocode (Klick auf rechte
+Maustaste =&gt; angezeigten Isocode in Zwischenablage kopieren =&gt;
+einfügen) in eine Text-Datei:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image11.jpeg" style="width:6.28137in;height:3.63615in"/></p>
+<p><em>Ausschnitt aus VisVerdi</em></p>
+<p>Dadurch erhalten Sie eine attribute-Datei (also solche abspeichern!)
+mit den Komponenten aus VisVerdi, denen nun noch die entsprechenden
+Werte zugeordnet werden müssen. <strong>Wichtig in diesem
+Zusammenhang:</strong> Es ist nicht korrekt, die Werte mit den in
+VisVerdi verwendeten Begrifflichkeiten zu übertragen, da es sich hier um
+eine Systemschnittstelle handelt. Daher muss für die attribute-Datei die
+korrekte Systemsprache verwendet werden. Sprich: Es ist nicht korrekt,
+für die Bezeichnung „Rechtlenker/Linkslenker" die in VisVerdi
+verwendeten Kürzel „RL" bzw. „LL" zu übernehmen. Vielmehr lauten die
+korrekten Werte in der entsprechenden Systemsprache „1" bzw. „3".</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image12.jpeg" style="width:6.28121in;height:3.73385in"/></p>
+<p>Um an die jeweiligen Werte in Systemsprache zu gelangen, führen Sie
+mit der bis dato vorhandenen attribute- Datei einen ISOMME-Check durch
+(siehe Seite ). Die sich daraus ergebende Log-Datei zeigt Ihnen dann
+nicht nur den falsch übertragenen Wert, sondern auch all diejenigen
+Systemwerte an, die für die jeweilige [redacted-person] möglich sind
+(in diesem Fall „3" für „RL" und „1" für „LL"):</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image13.jpeg" style="width:6.28134in;height:1.675in"/></p>
+<p>[redacted-person] über das entsprechende Know-how, können Sie die
+jeweiligen Systemwerte auch aus ISOMMECheck.mdb unter
+<em>Attribute-Wertelisten</em> herauslesen:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image14.png" style="width:6.65625in;height:3.905in"/></p>
+</blockquote>
+<h2 id="movie-daten">Movie-Daten</h2>
+<blockquote>
+<p>[redacted-person] an die zu liefernden Daten, wie sie im Folgenden
+genannt werden, sind <strong>verbindliche Vorgaben, die Sie einhalten
+müssen.</strong></p>
+</blockquote>
+<h3 id="technische-anforderungen">[redacted-person]</h3>
+<h6 id="highspeedfilme"><u>Highspeedfilme:</u></h6>
+<ul>
+<li><p>[redacted-person] für Ausschnitt 1.000 fps mind. 1.280 x
+1.024</p></li>
+<li><p>[redacted-person] für Totale (Crash) 1.000 fps mind. 1.504 x 1.024
+Pixel, Optional 1.920 x 1.080 (Full- HD) Shuttertime &lt; 500
+µs</p></li>
+<li><p>Default für Onboard 1.000 fps mind. 1.280 x 1.024 Pixel, kleinere
+Auflösung nur nach Freigabe durch</p></li>
+</ul>
+<blockquote>
+<p>Auftraggeber!</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] 2.000 fps mind. 1.280 x 1.024 Pixel, Belichtung
+möglichst &lt; 100 µs; Optional 10.000 bis 20.000 fps mit 1.024 x 768
+bzw. 768 x 576 Pixel</p></li>
+<li><p>Keine interpolierte Auflösungen</p></li>
+<li><p>[redacted]müssen synchron zueinander betrieben
+werden</p></li>
+<li><p>[redacted-person] Kameras müssen synchron zueinander betrieben
+werden</p></li>
+<li><p>Offset T0 zu Bild 1 muss ermittelt und dokumentiert
+werden</p></li>
+<li><p>[redacted-person] (auch abgetastet; z.B. 16mm Film) ist
+nicht zulässig</p></li>
+<li><p>[redacted-person].-Time bei Crash, Schlitten (sofern nicht anders
+gefordert ) -20 [redacted-person] 300 ms</p></li>
+<li><p>[redacted-person].-Time bei Airbag (sofern nicht anders gefordert ) 0 –
+150 ms</p></li>
+<li><p>Rec.-Time sonstiger Komponentenversuche nach Anforderung</p></li>
+<li><p>Headereinträge auf korrekte FalCon-Wiedergabe prüfen bzw.
+anpassen (z.[redacted-person] „Modisara") sowie</p></li>
+</ul>
+<blockquote>
+<p>*.mii Datei korrekt befüllen!</p>
+</blockquote>
+<ul>
+<li><p>Alle AVI's mit X264-Codec (Version und Einstellung wie von
+AK-Bildtechnik empfohlen)</p></li>
+<li><p>Einblendung der [redacted-co] Versuchsnummer in Video links oben, Zeit
+(ms) rechts oben - ggf. mit Nachkommstelle - angepasst an Abtastrate.
+Abweichung von Position nur zulässig wenn eine Verdeckung wichtiger
+Bildinhalte zu erwarten ist. Größe ist Relativ zu Kameraauflösung
+anzupassen; Richtwert, [redacted-person] ca. 4-5 % der vertikalen Auflösung.
+Es ist ein schwarzer Hintergrund mit weißer- oder silberfarbener Schrift
+zu wählen, Einblendung muss über vollständige Länge des Video sichtbar
+sein.</p></li>
+</ul>
+<h6 id="lowspeedfilme-bei-statischen-versuchen"><u>Lowspeedfilme bei
+statischen Versuchen:</u></h6>
+<ul>
+<li><p>Default mind. 1.280 x 720 progressiv bei 25 fps</p></li>
+<li><p>Default mind. 640 x 480 progressiv &gt; 25 bis 150 fps</p></li>
+<li><p>Codec X264 wie Highspeed; außer Versuchsdoku &gt; 1 min./Film
+([redacted-person] auf 26, min. GOP size 50, max. GOP size
+100)</p></li>
+<li><p>Headereinträge auf korrekte FalCon-Wiedergabe prüfen bzw.
+anpassen (z.[redacted-person] „Modisara") sowie</p></li>
+</ul>
+<blockquote>
+<p><strong><u>Zwingend</u></strong> *.mii korrekt erstellen (time zero +
+frame rate)</p>
+</blockquote>
+<ul>
+<li><p>Einblendung der [redacted-co] Versuchsnummer in Video links oben, Zeit in
+Sekunden mit mind. zwei Nachkommastellen, rechts oben. Abweichung von
+Position nur zulässig wenn eine Verdeckung wichtiger Bildinhalte zu
+erwarten ist. Größe ist Relativ zu Kameraauflösung anzupassen;
+Richtwert, [redacted-person] ca. 4-5 % der vertikalen Auflösung. Es ist ein
+schwarzer Hintergrund mit weißer- oder silberfarbener Schrift zu wählen,
+Einblendung muss über vollständige Länge des Video sichtbar
+sein.</p></li>
+<li><p>Kameras müssen synchron zueinander betrieben werden</p></li>
+<li><p>Synchronisierter t0 mit Messtechnik</p></li>
+</ul>
+<h3 id="kamerapositionen">Kamerapositionen</h3>
+<blockquote>
+<p>ALLE zulässigen und möglichen Kameraansichten sind innerhalb des
+VW-Konzern abgestimmt und harmonisiert.</p>
+<p>Wie welche Ansicht zu benennen ist ist dem Versuchsauftrag zu
+entnehmen (ggf. auch aus Katalog den Auftraggeber zur Verfügung stellen
+kann). [redacted-person] macht Zusammensetzung der Ansichtsnamen
+transparent; eigenen Benennungen - auch im Rahmen der Beschreibung
+erstellte - sind <strong>nicht zulässig</strong> und können nicht
+verwendet werden. Sofern eine häufig genutzte Ansicht nicht abgebildet
+ist kann über [redacted-person] auf Definition eines
+zusätzlichen Namen gestellt werden.</p>
+</blockquote>
+<h3 id="standardpositionen-für-alle-versuche-stand-08_2012">Standardpositionen
+für alle Versuche (Stand 08_2012)</h3>
+<blockquote>
+<p>Informationen zu aktuell gültigen Standard-Positionsnamen finden Sie
+als Anlage ab Seite .</p>
+</blockquote>
+<h6 id="hinweis-12">Hinweis:</h6>
+<blockquote>
+<p>Es dürfen <strong>nur von [redacted-co] zur Verfügung gestellte
+Positionsnamen</strong> verwendet werden. Sollte keiner der
+aufgelisteten [redacted-person] Position entsprechen, wählen Sie ggf.
+denjenigen Namen, der [redacted-person] am nächsten kommt oder die Funktion
+„Sonderposition".</p>
+</blockquote>
+<h6 id="tipp-3">Tipp:</h6>
+<blockquote>
+<p>Der jeweiligen Positionsname ist auch in VisVerdi unter
+<em><strong>&gt;&gt; Film- und Fotoauftrag &gt;&gt; stationäre Kamera
+&gt;&gt; Position</strong></em> ersichtlich. [redacted-person], der dies
+verdeutlicht, finden Sie als Anlage ab Seite .</p>
+</blockquote>
+<h3 id="ablegen-von-movie-daten-nach-isomme">Ablegen von Movie-Daten
+nach ISOMME</h3>
+<blockquote>
+<p>Um Ihre AVIs ISOMME-konform im Ordner <em>Movie</em> abzulegen,
+benennen Sie sie wie folgt: Versuchsnummer_Positionsname. [redacted-person] und Positionsname steht also immer ein "Underline" _
+(ASCII-Zeichen 95) .</p>
+<p>=&gt; Beispiel: CC12344_T6CAM0MI_13HEAD00.AVI</p>
+<p>Kalibrierdateien für die filmmesstechnisch auszuwertenden Kameras
+sind im ISOMME-Format (*.cor) zu liefern. Zudem müssen Sie zu Ihren AVIs
+eine MII-Headerdatei mitliefern, die die Metadaten zu den im Ordner
+<em>Movie</em> enthaltenen Filmen enthält.</p>
+</blockquote>
+<h3 id="anforderungen-an-eine-mmi-headerdatei">Anforderungen an eine
+MMI-Headerdatei</h3>
+<blockquote>
+<p>[redacted-person] werden an Ihre MMI-Headerdatei gestellt:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>MII-Einträge</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Number of movies</td>
+<td>:3</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Comments</td>
+<td>:by ImagerControl (FalCon eXtra [redacted-phone])</td>
+<td>SOLL</td>
+</tr>
+<tr>
+<td>ID-number 1</td>
+<td>:1</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Origin 1</td>
+<td>:SA1706600</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Description 1</td>
+<td>:AUSSCHNITT VORNE RECHTS FRONTDUMMY, SV</td>
+<td>SOLL</td>
+</tr>
+<tr>
+<td>Camera ID-number 1</td>
+<td>:1086</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Camera type 1</td>
+<td>:Memrecam GX-1 NAC [redacted-person].</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Lens ID-number 1</td>
+<td>:Nikon15</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Lens type 1</td>
+<td>:F-Mount</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Focus 1</td>
+<td>:NOVALUE</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Lens focal length1</td>
+<td>:50.000000</td>
+<td>SOLL</td>
+</tr>
+<tr>
+<td>Number of images 1</td>
+<td>:601</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Film speed 1</td>
+<td>:[redacted-phone]</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Shutter time 1</td>
+<td>:0.000003</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Aperture 1</td>
+<td>:5.6</td>
+<td>SOLL</td>
+</tr>
+<tr>
+<td>Time zero 1</td>
+<td>:0</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Time vector file name 1</td>
+<td>:NO</td>
+<td>KANN</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Reference system 1</th>
+<th>:NOVALUE</th>
+<th>KANN</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Location X 1</td>
+<td>:NOVALUE</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Location Y 1</td>
+<td>:NOVALUE</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Location Z 1</td>
+<td>:NOVALUE</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Theta X 1</td>
+<td>:NOVALUE</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Theta Y 1</td>
+<td>:NOVALUE</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Theta Z 1</td>
+<td>:NOVALUE</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Width of image 1</td>
+<td>:768</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Height of image 1</td>
+<td>:512</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Aspect ratio of pixels 1</td>
+<td>:1.000000</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Colour 1</td>
+<td>:RGB</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Name of movie file 1</td>
+<td><p>:C:</p>
+<p>\ImagerControlData\SA1706600\ Movie\SA1706600-1F-M30-
+MFF.AVI</p></td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Format of movie file 1</td>
+<td>:AVI</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Keyframes 1</td>
+<td>:1</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Codec used 1</td>
+<td><p>:x264vfw - H.264/MPEG-4 AVC</p>
+<p>codec</p></td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Compression 1</td>
+<td>:100 %</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>Distortion index 1</td>
+<td>:NOVALUE</td>
+<td>KANN</td>
+</tr>
+<tr>
+<td>Movie images corrected 1</td>
+<td>:NO</td>
+<td>SOLL</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Correction parameter file 1</th>
+<th>:NOVALUE</th>
+<th><strong>KANN</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Image history filename 1</td>
+<td>:SA1706600-1F-M30-MFF.imh</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>.Movie offset 1</td>
+<td>:0</td>
+<td><strong>MUSS</strong></td>
+</tr>
+<tr>
+<td>ID-number 2</td>
+<td>:2</td>
+</tr>
+<tr>
+<td>Origin 2</td>
+<td>:SA1706600</td>
+</tr>
+<tr>
+<td>…</td>
+</tr>
+<tr>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<h6 id="hinweis-13">Hinweis:</h6>
+<blockquote>
+<p>Grundsätzlich gilt: [redacted-person] müssen vollständig sein. [redacted-person] behält sich dabei vor, eine „Kann"- oder „Soll"-Anforderung
+ggf. zu einer verpflichtenden „Muss"-Anforderung zu erweitern.</p>
+</blockquote>
+<h3 id="erstellen-einer-mii-headerdatei">Erstellen einer
+MII-Headerdatei</h3>
+<blockquote>
+<p>Immer vorausgesetzt, dass Ihre AVI-Dateien korrekt erstellt wurden,
+können Sie zum Erstellen einer MII- Headerdatei das Tool
+<em>ISOMME-Check</em> nutzen (Hinweis: [redacted-person] noch nicht über
+<em>ISOMME-Check</em> verfügen, erhalten Sie hierzu ab Seite weitere
+Informationen):</p>
+<p>[redacted-person] in <em>ISOMME-Check</em> den Menüpunkt
+<em><strong>Optionen &gt;&gt; Tools &gt;&gt; MII-Datei
+erstellen</strong></em> aus.</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image16.jpeg" style="width:3.18753in;height:1.79208in"/></p>
+<p>[redacted-person] anschließend aus dem Verzeichnis denjenigen Ordner, in dem
+Ihre AVI-Dateien abgelegt sind.</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image17.jpeg" style="width:5.06246in;height:2.84625in"/></p>
+<p>[redacted-person] auf „OK" und geben Sie anschließend [redacted-person]
+ein.</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image18.jpeg" style="width:5.15623in;height:2.89896in"/></p>
+<p>[redacted]korrekt eingegeben haben, klicken Sie
+auf <em>OK</em>.</p>
+<p>Sie erhalten nun eine Bestätigung, dass Ihre MII-Datei erfolgreich
+erstellt wurde. [redacted-person] auf „OK".</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image19.jpeg" style="width:4.96871in;height:2.79354in"/></p>
+<p>Die MII-Datei befindet sich nun in dem von Ihnen gewählten Ordner.
+[redacted-person], dass die Datei letztlich im Ordner <em>Movie</em>
+vorliegen muss.</p>
+<p>Sollten einige der unter Punkt e genannten Informationen noch nicht
+in Ihre MMI-Headerdatei eingetragen sein, tragen Sie sie händisch mit
+Hilfe des txt-Editors nach.</p>
+</blockquote>
+<h2 id="photo-daten">Photo-Daten</h2>
+<h3 id="anforderungen-an-photo-daten">Anforderungen an Photo-Daten</h3>
+<blockquote>
+<p>[redacted-person] gelten für [redacted-person]-Daten:</p>
+</blockquote>
+<ul>
+<li><p>Auflösung: max. 6 Megapixel für Detail bzw. 10 MP für „Gesamt"
+sollten nicht überschritten werden.</p></li>
+<li><p>Ausschließlich JPEG-Format (Norm ISO/IEC 10918-1 bzw. CCIT T.81),
+mittlere Kompression = ca. 1 MB bei 6 MPix bzw. ca. 1,4 MB bei 10 MPix
+(Verlustbehaftung wird akzeptiert)</p></li>
+</ul>
+<h3 id="ablegen-von-photo-daten">Ablegen von Photo-Daten</h3>
+<blockquote>
+<p>Um [redacted-person]-Dateien ISOMME-konform im Ordner <em>Photo</em>
+abzulegen, können Sie das Tool <em>ISOMME-Check</em> nutzen – immer
+vorausgesetzt, Sie haben die jpg-Dateien korrekt erstellt (Hinweis:
+[redacted-person] noch nicht über <em>ISOMME-Check</em> verfügen, erhalten Sie
+hierzu ab Seite weitere Informationen).</p>
+<p>[redacted-person] in <em>ISOMME-Check</em> den Vorgang „BilderExport",
+indem Sie im Menüpunkt <em><strong>Optionen &gt;&gt; Tools &gt;&gt;
+Bilder benennen</strong></em> auswählen.</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image20.jpeg" style="width:2.5313in;height:0.97875in"/></p>
+<p>Hinweis: [redacted-person] an dieser Stelle eine Fehlermeldung erhalten,
+benötigen Sie ein [redacted]Pack. Dieses ist
+kostenlos als Download im Web erhältlich unter:</p>
+<p><a href="http://msdn.microsoft.com/en-us/vstudio/bb735936.aspx">http://msdn.microsoft.com/en-us/vstudio/bb735936.aspx</a></p>
+<p>Nach der Installation des [redacted]Packs starten
+Sie <em>ISOMME-Check</em> neu und wählen Sie erneut im Menüpunkt
+<em><strong>Optionen &gt;&gt; Tools &gt;&gt; Bilder
+benennen</strong></em> aus.</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>Schritt:</strong> [redacted-person] eine Vorlage, indem Sie
+auf „Ausführen" klicken. Daraufhin öffnet sich folgende</p></li>
+</ol>
+<blockquote>
+<p>Eingabemaske:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image22.jpeg" style="width:2.81251in;height:1.97187in"/></p>
+<p>[redacted]ein und wählen Sie aus der Vorlage, um
+welche Versuchsart es sich handelt. Sind alle Angaben korrekt
+eingetragen, klicken Sie auf „Ausführen". Sie erhalten daraufhin eine
+Bestätigung, dass [redacted-person] korrekt erstellt wurde:</p>
+<p>[redacted-person] auf „OK" und öffnen Sie in [redacted-person]
+<strong>C:_Bilder</strong> den Ordner, der nach der von Ihnen genannten
+Versuchsnummer benannt wurde (Hinweis: Die hier angegebenen
+Versuchsnummer „CC12344" ist ein Beispiel und nicht relevant für [redacted-person]).</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><strong>Schritt:</strong> Was zeigen [redacted-person]?
+Verschieben bzw. kopieren Sie die Bilder ihrem Motiv entsprechend in die
+jeweils dafür vorgesehenen Unterordner der Ordnerstruktur. Beispiel: [redacted-person], das den Versuchsaufbau <u>vor</u> einem Crashversuch zeigt,
+verschieben bzw. kopieren Sie in den Unterordner VORHER</p></li>
+</ol>
+<blockquote>
+<p>&gt;&gt; VERSUCHSAUFBAU. Sie müssen [redacted-person] dabei nicht von Hand
+umbenennen. Dies erfolgt automatisch in Schritt 3.</p>
+<p><strong>Schritt 3:</strong> Sind alle Versuchsbilder korrekt
+abgelegt, benennen Sie die Bilder um, indem Sie auf „Ausführen"</p>
+<p>klicken. Daraufhin erscheint erneut eine Eingabemaske.</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image24.jpeg" style="width:3.56246in;height:2.49771in"/></p>
+<p>[redacted]und klicken Sie auch hier auf
+„Ausführen". Sie erhalten nun eine</p>
+<p>Bestätigung, dass [redacted-person] erfolgreich erstellt wurde:</p>
+<p>[redacted-person] auf „OK" und beenden Sie abschließend den Vorgang
+„BilderExport", indem Sie auf „Beenden"</p>
+<p>klicken.</p>
+<p>Nun befindet sich im Verzeichnis C:_Bilder unter dem Ordner mit [redacted-person] der Ordner <em>Photo</em>, in dem [redacted-person]
+ISOMME-konform benannt und abgelegt wurden.</p>
+</blockquote>
+<h6 id="hinweis-14">Hinweis:</h6>
+<blockquote>
+<p>[redacted]nicht mit Hilfe von <em>ISOMME-Check</em> in
+die Verzeichnisstruktur einpflegen, beachten Sie bitte, dass das Ablegen
+von Dateien nur am Ende aller Ordnerstrukturen zulässig ist.</p>
+</blockquote>
+<h6 id="tipp-4">Tipp:</h6>
+<blockquote>
+<p>Oftmals erstellt der Explorer im Hintergrund unsichtbare
+Thumb-Dateien. Diese sind jedoch im ISOMME- Zusammenhang verboten.
+[redacted]daher so ein, dass keine Thumb-Dateien
+generiert werden. [redacted-person], wie dies funktioniert, erhalten Sie
+als Anlage ab Seite . Bitte beachten Sie: Um die in der Anleitung
+beschriebene Einstellung vornehmen zu können, benötigen [redacted-person]-Administrationsrechte.</p>
+</blockquote>
+<h3 id="erstellen-einer-pho-headerdatei">Erstellen einer
+PHO-Headerdatei</h3>
+<blockquote>
+<p>Zu [redacted-person]-Daten müssen Sie eine PHO-Headerdatei mitliefern, die
+alle relevanten Informationen zu den Versuchsbildern noch einmal
+zusammenfasst. [redacted]Dateien mit <em>ISOMME-Check</em>
+benannt, wurde diese Headerdatei automatisch im Ordner <em>Photo</em>
+erstellt. [redacted-person] jedoch ggg. fehlende Angaben händisch mit Hilfe
+des txt-Editors. [redacted-person] im Speziellen gefordert werden, sehen
+Sie hier:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Photo-Einträge</th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th>Number of photos</th>
+<th>:28</th>
+<th><blockquote>
+<p>MUSS</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ID-number 1</td>
+<td>:1</td>
+<td><blockquote>
+<p>MUSS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Test object number 1</td>
+<td>:NOVALUE</td>
+<td><blockquote>
+<p>SOLL</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Camera type 1</td>
+<td>:NOVALUE</td>
+<td><blockquote>
+<p>SOLL</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Post-test / Pre-test 1</td>
+<td>:POST</td>
+<td><blockquote>
+<p>SOLL</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Description 1</td>
+<td>:NOVALUE</td>
+<td><blockquote>
+<p>KANN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Direction 1</td>
+<td>:NOVALUE</td>
+<td><blockquote>
+<p>KANN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Aperture 1</td>
+<td>:NOVALUE</td>
+<td><blockquote>
+<p>KANN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Exposure time 1</td>
+<td>:NOVALUE</td>
+<td><blockquote>
+<p>KANN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Width of image 1</td>
+<td>:1280</td>
+<td><blockquote>
+<p>MUSS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Height of image 1</td>
+<td>:960</td>
+<td><blockquote>
+<p>MUSS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Aspect ratio of pixels 1</td>
+<td>:NOVALUE</td>
+<td><blockquote>
+<p>KANN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Colour 1</td>
+<td>:RGB</td>
+<td><blockquote>
+<p>SOLL</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Name of photo file 1</td>
+<td>:A-CC14534_00001.JPG</td>
+<td><blockquote>
+<p>MUSS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Format of photo file 1</td>
+<td>:jpg</td>
+<td><blockquote>
+<p>MUSS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>Compression 1</td>
+<td>:NOVALUE</td>
+<td><blockquote>
+<p>SOLL</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ID-number 2</td>
+<td>:2</td>
+</tr>
+<tr>
+<td>Test object number 2</td>
+<td>:NOVALUE</td>
+</tr>
+<tr>
+<td>Camera type 2</td>
+<td>:NOVALUE</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Post-test / Pre-test 2</th>
+<th>:POST</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Description 2</td>
+<td>:NOVALUE</td>
+</tr>
+<tr>
+<td>Direction 2</td>
+<td>:NOVALUE</td>
+</tr>
+<tr>
+<td>Aperture 2</td>
+<td>:NOVALUE</td>
+</tr>
+<tr>
+<td>Exposure time 2</td>
+<td>:NOVALUE</td>
+</tr>
+<tr>
+<td>Width of image 2</td>
+<td>:1280</td>
+</tr>
+<tr>
+<td>Height of image 2</td>
+<td>:960</td>
+</tr>
+<tr>
+<td>Aspect ratio of pixels 2</td>
+<td>:NOVALUE</td>
+</tr>
+<tr>
+<td>Colour 2</td>
+<td>:NOVALUE</td>
+</tr>
+<tr>
+<td>Name of photo file 2</td>
+<td>:A-CC14534_00002.JPG</td>
+</tr>
+<tr>
+<td>…</td>
+</tr>
+</tbody>
+</table>
+<h2 id="static-daten">Static-Daten</h2>
+<blockquote>
+<p>[redacted-person] an die zu liefernden Daten, wie sie im Folgenden
+genannt werden, sind <strong>verbindliche Vorgaben, die Sie einhalten
+müssen.</strong></p>
+</blockquote>
+<h3 id="anforderungen-an-static-daten">Anforderungen an
+Static-Daten</h3>
+<blockquote>
+<p>Für den Fall, dass Sie die 3D-Filmauswertung selbst vornehmen, müssen
+Sie innerhalb des Ordners <em>Static</em> zu</p>
+<p>folgenden Positionen …</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>Position</strong></th>
+<th><strong>Links</strong></th>
+<th><strong>Rechts</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A-Säule oben</td>
+<td>11APILUP […]</td>
+<td>13APILUP […]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Kotflügel hinten</th>
+<th>17FENDMI […]</th>
+<th>19FENDMI […]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Schweller vorne</td>
+<td>14SILBFR […]</td>
+<td>16SILBFR […]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>14SILBMI […]</td>
+<td>16SILBMI […]</td>
+</tr>
+<tr>
+<td>Schweller hinten</td>
+<td>14SILBRE […]</td>
+<td>16SILBRE […]</td>
+</tr>
+<tr>
+<td>Dach vorne</td>
+<td>12ROFRLE […]</td>
+<td>12ROFRRI […]</td>
+</tr>
+<tr>
+<td>Dach hinten</td>
+<td>18ROFRLE […]</td>
+<td>18ROFRRI […]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>… folgende Kanäle liefern:</p>
+</blockquote>
+<ul>
+<li><p>Geschwindigkeiten</p></li>
+<li><p>Beschleunigungen</p></li>
+<li><p>in x-, y-, und z-Richtung</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] dabei die korrekten Kanalbezeichnungen, so wie sie in
+der mittleren und rechten Spalte der Tabelle angegeben sind. [redacted-person]
+Videokanäle mit der Endung <strong>V</strong> kenntlich.</p>
+</blockquote>
+<h6 id="hinweis-15">Hinweis:</h6>
+<blockquote>
+<p>Auch wenn Sie nicht selbst 3D auswerten und daher nicht die
+gewünschten Kanäle bzw. Static-Dateien liefern, müssen Sie dennoch
+folgende Daten bereitstellen und übertragen:</p>
+</blockquote>
+<ul>
+<li><p>Movies und avi-Formate entsprechend der Anforderungen ab
+S.</p></li>
+<li><p>Mindestens zwei Ansichten pro Fahrzeugseite, Filmmarker müssen in
+je zwei Filmen gleichzeitig zu sehen sein.</p></li>
+<li><p>Kalibrierdaten der Kamera (Kamerakonstante, Bildhauptpunkt,
+Verzeichnung): idealerweise als CamFolder Datei (FalCon) oder als *.cal,
+*.cor oder *.txt Datei</p></li>
+<li><p>Kamerapositionen ([redacted-person]): Passpunktübersicht mit
+Bezeichnung und Koordinaten. [redacted-person] während dem Versuch nicht
+zu sehen sind, muss die Aufnahme mitgeliefert werden, die eine
+Berechnung der äußeren Orientierung der Kameras zulässt.</p></li>
+</ul>
+<h3 id="aufbau-einer-static-datei">Aufbau einer Static-Datei</h3>
+<blockquote>
+<p>Wie eine Static-Datei zum ISOMME-konform aufgebaut ist, sehen Sie
+hier:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image26.jpeg" style="width:6.31837in;height:2.89708in"/></p>
+<p>Zusätzlich sehen Sie hier den entsprechenden Ausschnitt aus der
+Dokumentation von iso.org:</p>
+</blockquote>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image27.jpeg" style="width:5.00518in;height:3.77812in"/></p>
+<blockquote>
+<p>[redacted-person] der hier dargestellten Beispiele erhalten Sie als
+Anlage ab Seite .</p>
+</blockquote>
+<h6 id="hinweis-16">Hinweis:</h6>
+<blockquote>
+<p>[redacted-person] der Static-Datei darf keine Sonder- oder Leerzeichen
+enthalten.</p>
+</blockquote>
+<h2 id="installation-von-isomme-check">Installation von
+ISOMME-Check</h2>
+<blockquote>
+<p>Im [redacted]finden Sie <em>ISOMME-Check</em> als
+zip-Datei in der Version 3.0.1.1 vor. [redacted-person] diese <strong>auf
+[redacted-person]</strong>, entpacken Sie sie und führen Sie anschließend
+ISOMME.exe aus („Doppelklick").</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image28.jpeg" style="width:4.49996in;height:2.53in"/></p>
+<p>Sie erhalten nun den Hinweis „Software not registered".</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image29.jpeg" style="width:3.46877in;height:1.95021in"/></p>
+<p>[redacted-person] auf „Ok". Danach erscheint eine
+Software-Registration-Eingabemaske, die einen E-Mail-Link und</p>
+<p>eine [redacted-person] Nummer enthält.</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image30.jpeg" style="width:3.63in;height:3.48in"/></p>
+<p>[redacted-person] auf den Link. Dadurch öffnet sich eine neue E-Mail mit
+dem Betreff „ISOMME-Check: Request for</p>
+<p>a Serialnumber":</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image31.jpeg" style="width:5.53121in;height:3.10979in"/></p>
+<p>[redacted-person] die in der E-Mail verlangten Kontaktinformationen sowie die
+<u>[redacted-person] Nummer</u> an und senden Sie die E-Mail ab ([redacted-person] ist bereits automatisch angelegt. Falls nicht, verwenden Sie
+den Empfänger aus der Software-Registration-Eingabemaske).</p>
+<p>Nach dem Absenden der E-Mail erhalten Sie den Hinweis „Software
+successfully registered. [redacted-person]".</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image32.jpeg" style="width:2.24996in;height:1.265in"/></p>
+<p>[redacted-person] auf „Ok". Im Anschluss daran erhalten Sie eine E-Mail mit
+[redacted-person] Key.</p>
+<p>[redacted-person] nun ISOMME.exe noch einmal öffnen und in Folge zur
+Software-Registration-Eingabemaske gelangen, tragen [redacted]dort in die Eingabefelder ein.</p>
+</blockquote>
+<h6 id="tipp-5">Tipp:</h6>
+<blockquote>
+<p>[redacted-person] es, den [redacted-person] lediglich aus der E-Mail in die
+Eingabefelder zu kopieren, da Leerzeichen</p>
+<p>i.d.[redacted-person] werden und somit den Key verfälschen. [redacted-person] den
+Key stattdessen Stelle für Stelle ein. [redacted-person] anschließend auf
+„Register". [redacted-person] den [redacted-person] korrekt eingegeben, startet nun
+<em>ISOMME- Check</em>:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image33.jpeg" style="width:3.84377in;height:2.16104in"/></p>
+</blockquote>
+<h2 id="datenüberprüfung-mit-isomme-check">Datenüberprüfung mit
+ISOMME-Check</h2>
+<blockquote>
+<p>[redacted-person] und [redacted-person] Daten in Hinblick auf die
+Erfüllung der ISOMME-Norm ist verpflichtend. In welcher [redacted-person] dies
+bewerkstelligen, bleibt Ihnen überlassen. Daher ist die Verwendung von
+<em>ISOMME- Check</em> optional. [redacted-person] sich für das Tool
+entschieden haben, starten Sie die Datenüberprüfung mit
+<em>ISOMME-Check</em>, indem Sie im Menüpunkt <em><strong>Datei &gt;&gt;
+Laden</strong></em> auswählen.</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image34.jpeg" style="width:3.93756in;height:1.5225in"/></p>
+<p>[redacted-person] nun die von Ihnen generierte mme-Datei in Ihrem
+ISOMME-Verzeichnis aus, und klicken Sie auf</p>
+<p>„Öffnen". Daraufhin startet <em>ISOMME-Check</em> mit dem Überprüfen
+der Verzeichnisinhalte und erstellt gleichzeitig in [redacted-person]
+eine LOG-Datei, in der die Ergebnisse der Überprüfung dokumentiert
+werden. Diese LOG-Datei kann ebenfalls Bestandteil des ZIP-Files sein,
+das Sie an [redacted-co] übertragen.</p>
+<p>[redacted-person] nun der LOG-Datei, ob alle [redacted-person] ISOMME-konform
+aufbereitet wurden und bessern Sie ggf. nach. Dies gilt auch für die
+.attribute-Datei, die im Rahmen von ISOMME-Check ebenfalls geprüft wird
+<strong>Hinweis:</strong></p>
+<p>xml-Dateien werden durch ISOMME-Check nicht geprüft.</p>
+</blockquote>
+<h3 id="fehlermeldungen-bei-isomme-check">Fehlermeldungen bei
+ISOMME-Check</h3>
+<blockquote>
+<p>Die LOG-Datei gibt Ihnen über die Statusmeldungen INFO Auskunft
+darüber, welches Attribut geprüft wurde. Darüber hinaus erfahren Sie
+über die Statusmeldungen ERROR bzw. FATAL, ob bzw. welcher fehlerhafte
+Wert für dieses Attribut vorliegt.</p>
+<p>[redacted-person] die entsprechenden Werte in VisVerdi und erstellen
+Sie eine neue mme-Datei. Sind alle Korrekturen ausgeführt, führen Sie
+ISOMME-Check erneut durch. [redacted-person] gilt als erfolgreich abgeschlossen,
+wenn keine Statusmeldungen ERROR oder FATAL mehr erzeugt werden.</p>
+</blockquote>
+<h3 id="fehlermeldungen-für-attribute-dateien">Fehlermeldungen für
+attribute-Dateien</h3>
+<blockquote>
+<p>Die LOG-Datei gibt Ihnen über die Statusmeldungen ERROR bzw. FATAL
+Auskunft darüber, in welcher Zeile der attribute-[redacted-person] Korrekturen
+vornehmen müssen. Darüber hinaus erhalten [redacted-person], welche
+Werte korrekterweise eingesetzt werden müssen.</p>
+<p>[redacted-person] die entsprechenden Werte in VisVerdi und erstellen
+Sie eine neue attribute-Datei. Sind alle Korrekturen ausgeführt, führen
+Sie ISOMME-Check erneut durch. [redacted-person] gilt als erfolgreich
+abgeschlossen, wenn keine Statusmeldungen ERROR oder FATAL mehr erzeugt
+werden.</p>
+</blockquote>
+<h2 id="datenübertragung-als-interner-mitarbeiter">Datenübertragung als
+interner Mitarbeiter</h2>
+<blockquote>
+<p>Als <em><strong>interner Mitarbeiter</strong></em> können [redacted-person]
+Daten auf zwei verschiedene Wege übertragen:</p>
+</blockquote>
+<ol type="a">
+<li><p>Über das Bilderimport-Tool „Bildimport"</p></li>
+<li><p>Über die Skripte auf den Prüfständen</p></li>
+</ol>
+<h2 id="datenübertragung-als-mitarbeiter-eines-externen-partners">Datenübertragung
+als Mitarbeiter eines externen Partners</h2>
+<blockquote>
+<p>[redacted]als <em><strong>Mitarbeiter eines externen
+Partners</strong></em> in einer ISOMME-konformen Verzeichnisstruktur
+übertragen, müssen Sie diese zu einem ZIP-File packen. [redacted-person]
+dabei, dass Sie das ZIP-File ausgehend</p>
+<p>vom obersten Verzeichnis erstellen und nicht nur die Unterordner
+„zippen". [redacted-person] dieses ZIP-File anschließend wie folgt:
+Versuchsnummer_Firmenname.zip =&gt; Beispiel: CC12344_Musterfirma.zip
+<strong>Tipp:</strong></p>
+<p>[redacted-person] für diesen [redacted-person].</p>
+</blockquote>
+<h3 id="datenübertragung-mit-winscp">Datenübertragung mit WinSCP</h3>
+<blockquote>
+<p>Um den Datentransfer vorzunehmen, melden Sie sich mit Ihrem lokalen
+SFTP-User am Datentransfer-Server an. Sie werden daraufhin mit dem
+SFTP-Datentransfer-Server verbunden und erhalten folgende Maske:</p>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image35.jpeg" style="width:6.28121in;height:1.73083in"/></p>
+<p>Auf der linken Seite sehen Sie die [redacted-person] lokalen
+Rechners. Auf der rechten Seite befindet sich die Verzeichnis-Struktur
+des Datentransfer-Servers. [redacted-person] nun Ihr ZIP-File zur [redacted-co],
+indem Sie es von Ihrem lokalen Speicherplatz in den Ordner DWS
+verschieben.</p>
+</blockquote>
+<h6 id="hinweis-17">Hinweis:</h6>
+<blockquote>
+<p>Es besteht ein direkter Zusammenhang zwischen dem Bearbeitungsstatus
+in VisVerdi und dem Datentransfer. Demnach lassen sich Daten nur für den
+Datentransfer einstellen, wenn als Bearbeitungsstatus</p>
+<p>„durchgeführt" angegeben wurde. Im Anschluss an die Übertragung
+werden [redacted-person] in zwei Stufen durch</p>
+<p>die [redacted-co] geprüft.</p>
+</blockquote>
+<h3 id="fehlerfreie-und-fehlerhafte-übertragung">Fehlerfreie und
+fehlerhafte Übertragung</h3>
+<blockquote>
+<p>Sie sind verpflichtet, [redacted-person] vor der Übertragung zu prüfen.
+Dennoch kann die Übertragung fehlerhaft sein und/oder wird unter
+Umständen sogar abgebrochen. Dies kann entweder am Übertragungsprozess
+(Stufe 1) oder an der Datenqualität (Stufe 2) liegen. In beiden Fällen
+werden Sie über den Erfolg bzw. Misserfolg per E-
+Mail-Benachrichtigungen informiert. Nachfolgend sind Beispiele für alle
+möglichen E-Mail- Benachrichtigungen abgebildet. So können Sie genau
+abgleichen, welcher Status in [redacted-person] vorliegt
+(relevante Passagen sind farbig markiert):</p>
+</blockquote>
+<h4 id="stufe-1-übertragungsprozess">Stufe 1: Übertragungsprozess</h4>
+<blockquote>
+<p>In Stufe 1 wird der Uploader der Dateien über Erfolg bzw. Misserfolg
+des Uploads an sich informiert. [redacted-person] bezieht sich
+ausschließlich auf den Übertragungsprozess selbst und enthält keinerlei
+Aussage über die Qualität der Daten.</p>
+</blockquote>
+<h6 id="fehlerfreie-übertragung">[redacted-person]</h6>
+<blockquote>
+<p>Hat die Übertragung fehlerfrei stattgefunden, erhält der Uploader
+folgende E-Mail, die ihn über die erfolgreiche Transaktion informiert
+(Die hier angegebenen Werte sind beispielhaft und nicht relevant für
+[redacted-person]):</p>
+</blockquote>
+<ol type="1">
+<li><p>Rückmeldung OK</p></li>
+</ol>
+<blockquote>
+<p>----<del>[redacted-person]</del>----</p>
+<p>Von: <a href="mailto:support.engineering-portal@audi.de">[redacted-email]</a><sup>15</sup>
+[<a href="mailto:support.engineering-portal@audi.de">mailto:[redacted-email]</a>]
+Gesendet: Wochentag, XX. Monat 20XX XX:XX Uhr</p>
+<p>An: Mueller, Peter-Paul ([redacted-person])</p>
+<p>Betreff: Import-Status: OK
+Versuch:/storage/Fachbereiche/IMPORT_Int/KN3801201.zip Prozess:DT-
+DWSINTIMPORT ID:'45864' (extern)</p>
+<p>Sehr geehrter [redacted-person],</p>
+<p>Sie haben über den Engineering-[redacted-person] folgende Daten zu
+[redacted-co] übertragen: <del>Status</del></p>
+<p>Datei/Auftragsnummer:
+/storage/Fachbereiche/IMPORT_Int/ABC123_Muster.zip [redacted]ist: OK</p>
+<p>(OK=Lieferung erfolgreich, NOK/TIMEOUT=Fehler bei der Lieferung,
+siehe Protokoll unten.)</p>
+<p>Ihr interner Betreuer ist: <a href="mailto:peter-paul.mueller@audi.de">[redacted-email]</a><sup>16</sup></p>
+<p>[redacted-person] Fragen zu dieser Email, wenden Sie sich bitte an den
+[redacted-person] Support oder den verantwortlichen Betreuer bei [redacted-co].
+Nennen</p>
+<p>Sie dem Support bitte die folgenden Daten:</p>
+</blockquote>
+<ol type="1">
+<li><p>Prozess: DT-DWSINTIMPORT</p></li>
+<li><p>Prozessnummer: 12345</p></li>
+<li><p>[redacted-person]: 123456</p></li>
+</ol>
+<blockquote>
+<p>Informationen zum Engineering-Portal finden Sie unter der folgenden
+Adresse: <a href="https://engineering-portal.audi.web.vwg/">https://engineering-portal.audi.web.vwg/</a></p>
+<p>Protokoll #########################</p>
+<p>[redacted-phone]:19:55 INFO FILECHECK Datei(en) erfolgreich geprüft.</p>
+<p>[redacted-phone]:20:19 INFO FILECOPY Datei erfolgreich in den
+Fachbereich kopiert.</p>
+<p>[redacted-phone]:20:28 INFO PROCESSCALL Fachbereichsprozesskette
+erfolgreich gestartet.
+#############################################################</p>
+<p>Diese E-Mail wurde automatisch generiert.</p>
+<p>Erhält der Uploader diese E-Mail, folgt die Überprüfung der
+Datenqualität (weiter ab „Stufe 2: Datenqualität").</p>
+</blockquote>
+<h6 id="fehlerhafte-übertragung">[redacted-person]</h6>
+<blockquote>
+<p>Sollte bei der Übertragung ein Fehler entstanden sein, lautet die
+E-Mail an den Uploader wie folgt (Die hier</p>
+<p>angegebenen Werte sind beispielhaft und nicht relevant für [redacted-person]):</p>
+</blockquote>
+<ol type="1">
+<li><p>Rückmeldung NOK</p></li>
+</ol>
+<blockquote>
+<p>----<del>[redacted-person]</del>----</p>
+<p>Von: <a href="mailto:support.engineering-portal@audi.de">[redacted-email]</a>
+<a href="mailto:support.engineering-portal@audi.de">[mailto:[redacted-email]]</a>
+Gesendet: Wochentag, XX. Monat 20XX XX:XX Uhr</p>
+<p>An: Mueller, Peter-Paul ([redacted-id])</p>
+<p>Betreff: Import-Status: NOK Versuch: ABC123 Prozess:DWS ID:'12345'
+(intern) Sehr geehrter [redacted-person],</p>
+<p>Über den Engineering-[redacted-person] wurde der 'DWS' Prozess mit
+der ID '12345' und dem Status NOK beendet.</p>
+<p>Der externe Anwender mit der User-Id 'mustermax' und der</p>
+<p>E-Mail-Adresse '[redacted-email]' hat Daten bereitgestellt.
+Datei-/Versuchs-Info:</p>
+</blockquote>
+<ol start="15" type="1">
+<li><p><a href="mailto:support.engineering-portal@audi.de">mailto:[redacted-email]</a></p></li>
+<li><p><a href="mailto:peter-paul.mueller@audi.de">mailto:[redacted-email]</a></p></li>
+</ol>
+<blockquote>
+<p>ABC123</p>
+<p>[redacted-person]:</p>
+<p>12345</p>
+<p>[redacted-person] Fragen zu dieser
+E-Mail, wenden Sie sich bitte an den [redacted-person] Support.
+Informationen zum Engineering-Portal finden Sie unter der folgenden
+Adresse: <a href="https://engineering-portal.audi.web.vwg/">https://engineering-portal.audi.web.vwg/</a></p>
+<p>Diese E-Mail wurde automatisch generiert.</p>
+<p>[redacted-person] diese E-Mail erhalten, wurde der Übertragungsprozess
+abgebrochen und die übertragene ZIP-Datei gelöscht, da die Struktur
+nicht ISOMME-konform aufgebaut war und/oder [redacted-person] nicht nach
+ISOMME- Norm benannt waren. In diesem Fall korrigieren Sie die
+Struktur/Dateien und übertragen Sie diese erneut.</p>
+</blockquote>
+<h4 id="stufe-2-datenqualität">Stufe 2: Datenqualität</h4>
+<blockquote>
+<p>War der Upload der Daten erfolgreich, erfolgt eine Überprüfung der
+Daten durch [redacted-co]. Über das Ergebnis dieses Datenchecks werden sowohl der
+[redacted-co] Betreuer als auch der Versuchsverantwortliche des externen Partners
+per E-Mail in Kenntnis gesetzt.</p>
+</blockquote>
+<h6 id="fehlerfreie-daten">[redacted-person]</h6>
+<blockquote>
+<p>Gibt es bzgl. der Daten keine Beanstandung, erhalten der [redacted-co]
+Betreuer und der Versuchsverantwortliche des externen Partners folgende
+E-Mail-Benachrichtigung mit einem Protokoll im Anhang (Hinweis: Die hier
+angegebenen Werte sind beispielhaft und nicht relevant für [redacted-person]):</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>Rückmeldung: OK mit Meldungen im Anhang</p></li>
+</ol>
+<blockquote>
+<p>----<del>[redacted-person]</del>----</p>
+<p>Von: <a href="mailto:support.engineering-portal@audi.de">[redacted-email]</a><sup>17</sup>
+[<a href="mailto:support.engineering-portal@audi.de">mailto:[redacted-email]</a>]
+Gesendet: Wochentag, XX. Monat 20XX XX:XX Uhr</p>
+<p>An: Mueller, Peter-Paul ([redacted-person])</p>
+<p>Betreff: Import-Status: OK Versuch:ABC123 Prozess:DWSINTIMPORT
+ID:'12345' (extern) Sehr geehrter [redacted-person],</p>
+<p>Sie haben über den Engineering-[redacted-person] folgende Daten zu
+[redacted-co] übertragen: <del>Status</del></p>
+<p>Datei/Auftragsnummer: ABC123 [redacted]ist: OK</p>
+<p>(OK=Lieferung erfolgreich, NOK/TIMEOUT=Fehler bei der Lieferung,
+siehe Protokoll unten.)</p>
+<p>Ihr interner Ansprechpartner ist: <a href="mailto:peter-paul.mueller@audi.de18">[redacted-email]<sup>18</sup></a></p>
+<p>[redacted-person] Fragen zu dieser E-Mail, wenden Sie sich bitte an den
+[redacted-person] Support oder den verantwortlichen Ansprechpartner bei
+[redacted]dem Support bitte die folgenden Daten:</p>
+</blockquote>
+<ol type="1">
+<li><p>Prozess: DWSINTIMPORT</p></li>
+<li><p>Prozessnummer: 12345</p></li>
+</ol>
+<ol start="17" type="1">
+<li><p><a href="mailto:support.engineering-portal@audi.de">mailto:[redacted-email]</a></p></li>
+<li><p>mailto:[redacted]</p></li>
+</ol>
+<ol start="3" type="1">
+<li><p>[redacted-person]: 123456</p></li>
+</ol>
+<blockquote>
+<p>Informationen zum Engineering-Portal finden Sie unter der folgenden
+Adresse: <a href="https://engineering-portal.audi.web.vwg/">https://engineering-portal.audi.web.vwg/</a></p>
+<p>Diese E-Mail wurde automatisch generiert.</p>
+</blockquote>
+<h6 id="massendaten-fehlerfrei-metadaten-fehlerhaft">Massendaten
+fehlerfrei, Metadaten fehlerhaft</h6>
+<blockquote>
+<p>[redacted-person] Massendaten korrekt vor, aber die Metadaten fehlen,
+erhalten der [redacted-co] Betreuer und der Versuchsverantwortliche des externen
+Partners folgende E-Mail-Benachrichtigung (Die hier angegebenen Werte
+sind beispielhaft und nicht relevant für [redacted-person]):</p>
+<p>2. Rückmeldung : OK aber schwerwiegende Probleme</p>
+<p>----<del>[redacted-person]</del>----</p>
+<p>Von: [redacted-co] IN support.engineering-portal Gesendet: Wochentag, XX.
+Monat 20XX XX:XX Uhr An: mustermax</p>
+<p>Betreff: Import-Status: OK Versuch: ABC123 Prozess:DWS ID:'12345'
+(extern) Sehr geehrter [redacted-person],</p>
+<p>Sie haben über den Engineering-[redacted-person] folgende Daten zu
+[redacted-co] übertragen: <del>Status</del></p>
+<p>Datei/Auftragsnummer: ABC123 [redacted]ist: OK</p>
+<p>(OK=Lieferung erfolgreich, NOK/TIMEOUT=Fehler bei der Lieferung,
+siehe Protokoll unten.)</p>
+<p>Ihr interner Ansprechpartner ist: <a href="mailto:peter-paul.mueller@audi.de19">[redacted-email]<sup>19</sup></a></p>
+<p>[redacted-person] Fragen zu dieser Email, wenden Sie sich bitte an den
+[redacted-person] Support oder den verantwortlichen Ansprechpartner bei
+[redacted]dem Support bitte die folgenden Daten:</p>
+</blockquote>
+<ol type="1">
+<li><p>Prozess: DWS</p></li>
+<li><p>Prozessnummer: 12345</p></li>
+<li><p>[redacted-person]: 123456</p></li>
+</ol>
+<blockquote>
+<p>Informationen zum Engineering-Portal finden Sie unter der folgenden
+Adresse: <a href="https://engineering-portal.audi.web.vwg/">https://engineering-portal.audi.web.vwg/</a></p>
+</blockquote>
+<ol start="19" type="1">
+<li><p>mailto:[redacted]</p></li>
+</ol>
+<blockquote>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image37.png" style="width:6.17371in;height:2.49562in"/></p>
+<p>Diese E-Mail wurde automatisch generiert.</p>
+<p>Liegen die Massendaten korrekt vor, aber die Metadaten fehlen oder
+sind fehlerhaft, müssen diese nachgebessert werden. [redacted-person] dafür
+entweder die fehlenden Daten in</p>
+<p>VisVerdi nach oder korrigieren Sie die mme- sowie die
+.attribute-Datei und übertragen Sie diese erneut.</p>
+</blockquote>
+<h6 id="massendaten-fehlerhaft">Massendaten fehlerhaft</h6>
+<blockquote>
+<p>Sind die Massendaten
+fehlerhaft, erhalten der [redacted-co] Betreuer und der Versuchsverantwortliche
+des externen Partners folgende E-Mail-Benachrichtigung mit einem
+Protokoll im Anhang (Die hier angegebenen Werte sind beispielhaft und
+nicht relevant für [redacted-person]):</p>
+<p>2. Rückmeldung : NOK mit Fehlermeldung im Anhang</p>
+<p>----<del>[redacted-person]</del>----</p>
+<p>Von: <a href="mailto:support.engineering-portal@audi.de">[redacted-email]</a><sup>20</sup>
+[<a href="mailto:support.engineering-portal@audi.de">mailto:[redacted-email]</a>]
+Gesendet: Wochentag, XX. Monat 20XX XX:XX Uhr</p>
+<p>An: Mueller, Peter-Paul ([redacted-person])</p>
+<p>Betreff: Import-Status: NOK Versuch: ABC123 Prozess:DWSINTIMPORT
+ID:'12345' (extern) Sehr geehrter [redacted-person],</p>
+<p>Sie haben über den Engineering-[redacted-person] folgende Daten zu
+[redacted-co] übertragen: <del>Status</del></p>
+<p>Datei/Auftragsnummer: ABC123 [redacted]ist: NOK</p>
+<p>(OK=Lieferung erfolgreich, NOK/TIMEOUT=Fehler bei der Lieferung,
+siehe Protokoll unten.)</p>
+<p>Ihr interner Ansprechpartner ist: <a href="mailto:peter-paul.mueller@audi.de21">[redacted-email]<sup>21</sup></a></p>
+<p>[redacted-person] Fragen zu dieser E-Mail, wenden Sie sich bitte an den
+[redacted-person] Support oder den verantwortlichen Ansprechpartner bei
+[redacted]dem Support bitte die folgenden Daten:</p>
+</blockquote>
+<ol type="1">
+<li><p>Prozess: DWSINTIMPORT</p></li>
+<li><p>Prozessnummer: 12345</p></li>
+</ol>
+<ol start="20" type="1">
+<li><p><a href="mailto:support.engineering-portal@audi.de">mailto:[redacted-email]</a></p></li>
+<li><p>mailto:[redacted]</p></li>
+</ol>
+<ol start="3" type="1">
+<li><p>[redacted-person]: 123456</p></li>
+</ol>
+<blockquote>
+<p>Informationen zum Engineering-Portal finden Sie unter der folgenden
+Adresse: <a href="https://engineering-portal.audi.web.vwg/">https://engineering-portal.audi.web.vwg/</a></p>
+<p>Diese E-Mail wurde automatisch generiert.</p>
+<p>In diesem Fall werden die Daten vollständig gelöscht. Dies bedeutet
+für Sie: [redacted-person] dem Protokoll im Anhang, welche Daten fehlerhaft
+geliefert wurden, korrigieren Sie diese und stellen Sie sie erneut ein
+(Dies beinhaltet auch das Erstellen einer neuen mme- und
+.attribute-Datei).</p>
+</blockquote>
+<h2 id="prozessübersicht-für-datenersteller">Prozessübersicht für
+Datenersteller</h2>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image39.png" style="width:5.53121in;height:5.51281in"/></p>
+<h2 id="informationen-für-administratoren">Informationen für
+Administratoren</h2>
+<p><img src="./08_Testing_Field-leitfaden-dt-v6-20231109-094946-media/media/image40.jpeg" style="width:6.49692in;height:3.33375in"/></p>
+<blockquote>
+<p>[redacted-person] zum Datentransferserver : <a href="https://group-wiki.wob.vw.vwg/wikis/display/DWS/SFTP-Server">SFTP-Server</a><sup>22</sup></p>
+<p>Alias : cat-datatransfer.ras.audi.vwg IP-Adresse : [redacted-phone].239</p>
+</blockquote>
+<h2 id="zuordnungstabelle-isomme-inhalte-zu-visverdi-attribute">Zuordnungstabelle
+ISOMME Inhalte zu VisVerdi-Attribute</h2>
+<table>
+<thead>
+<tr>
+<th><strong>Attribut_MME- Datei</strong></th>
+<th><strong>Attribut_VisVerdi</strong></th>
+<th><strong>ISO-Code_VisVerdi</strong></th>
+<th><strong>Komponente_ VisVerdi</strong></th>
+<th><strong>Sonstiges</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Laboratory name</td>
+<td>Name des Versuchslabors</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_LAB ORATORY_NAME</p></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<ol start="22" type="1">
+<li><p><a href="https://group-wiki.wob.vw.vwg/wikis/display/DWS/SFTP-Server">https://group-wiki.wob.vw.vwg/wikis/display/DWS/SFTP-Server</a></p></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Laboratory contact name</th>
+<th>[redacted-person]</th>
+<th><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_LAB ORATORY_CONTACT</p>
+<p>_NAME</p></th>
+<th>[redacted-person]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Laboratory contact phone</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>wird aus den Stammdaten von "[redacted-person]"
+befüllt</td>
+</tr>
+<tr>
+<td>Laboratory contact fax</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>wird aus den Stammdaten von "[redacted-person]"
+befüllt</td>
+</tr>
+<tr>
+<td>Laboratory contact email</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>wird aus den Stammdaten von "[redacted-person]"
+befüllt</td>
+</tr>
+<tr>
+<td>Laboratory test ref. Number</td>
+<td>Versuchsnummer des Versuchslabors</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_LAB ORATORY_TEST_REF</p>
+<p>_NUMBER</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Customer name</td>
+<td>Firmenname des Versuchsauftragg ebers</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_CUS TOMER_NAME</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Customer test ref. Number</td>
+<td>Versuchsnummer</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_CUS TOMER_TEST_REF_N UMBER</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Customer project ref. Number</td>
+<td>Projekt</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_CUS TOMER_PROJECT_R EF_NUMBER</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Customer order number</td>
+<td>EA/FA/WA-Nr.</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_BUD GET_REF_NR</p></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Customer cost unit</th>
+<th>Kostenstelle</th>
+<th><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_COS T_CENTER</p></th>
+<th>[redacted-person]</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Customer test engineer name</td>
+<td>Kontaktperson [redacted-co]</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_CUS TOMER_TEST_ENGIN EER_NAME</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Customer test engineer phone</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>wird aus den Stammdaten von "Kontaktperson [redacted-co]" befüllt</td>
+</tr>
+<tr>
+<td>Customer test engineer fax</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>wird aus den Stammdaten von "Kontaktperson [redacted-co]" befüllt</td>
+</tr>
+<tr>
+<td>Customer test engineer email</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>wird aus den Stammdaten von "Kontaktperson [redacted-co]" befüllt</td>
+</tr>
+<tr>
+<td>Title</td>
+<td>Titel</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_TITL E</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Medium No./ number of media</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>immer vorbefüllt mit dem Wert "1/1"</td>
+</tr>
+<tr>
+<td>Timestamp</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>aktueller Zeitstempel der Erzeugung der MME-Datei</td>
+</tr>
+<tr>
+<td>Type of the test</td>
+<td>Versuchsart</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_TES T_MODE</p></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Subtype of the test</th>
+<th>-</th>
+<th>-</th>
+<th>-</th>
+<th>wird aus den Stammdaten der Versuchsunterart gezogen. Kann bei
+Versuch neu anlegen überprüft werden.</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Regulation</td>
+<td>Richtlinie</td>
+<td><p>0.0.00.D.[redacted-person]</p>
+<p>_INFORMATION_DIR ECTIVE</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Reference temperature</td>
+<td>Ist-Temperatur</td>
+<td><p>0.0.00.R.[redacted-person]</p>
+<p>_INFORMATION_REF ERENCE_TEMPERAT URE</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Relative air humidity</td>
+<td>relative Luftfeuchtigkeit</td>
+<td><p>0.0.00.R.[redacted-person]</p>
+<p>_INFORMATION_REL ATIVE_AIR_HUMIDIT Y</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Date of the test</td>
+<td>IST-Termin des Versuchs / Durchführungsdat um</td>
+<td><p>0.0.00.R.[redacted-person]</p>
+<p>_INFORMATION_DAT E_OF_TEST_ACTUAL</p>
+<p>_VALUE</p></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>Number of test objects</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Anzahl der Testobjekte im Versuch, Normalerweise 2 es gibt aber auch
+ein paar Versuche mit 3</td>
+</tr>
+<tr>
+<td>Name of test object 1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Name des ersten Versuchsobjektes welches in den Stammdaten der
+Versuchsunterart konfiguriert ist</td>
+</tr>
+<tr>
+<td>Velocity test object 1</td>
+<td>Istgeschwindigkeit</td>
+<td style="text-align: left;">&lt;Kürzel_Versuchsobj
+ekt&gt;.0.00.R.O.&lt;Versu chsobjekt&gt;_SPEED_A CTUAL_VALUE</td>
+<td>Versuchsobje kt</td>
+<td><p>ISO-Code "1.0.00.R.[redacted-person]_S PEED_ACTUAL_VALUE</p>
+<p>" bei Versuchsobjekt "Fahrzeug"</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Mass test object 1</th>
+<th>[redacted-person]</th>
+<th style="text-align: left;">&lt;Kürzel_Versuchsobj
+ekt&gt;.0.00.R.O.&lt;Versu chsobjekt&gt;_ACTUAL_ TOTAL_MASS</th>
+<th>Versuchsobje kt</th>
+<th><p>ISO-Code "1.0.00.R.[redacted-person]_A CTUAL_TOTAL_MASS"</p>
+<p>bei Versuchsobjekt "Fahrzeug"</p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Driver position object 1</td>
+<td>Linkslenker/ Rechtslenker</td>
+<td>&lt;Kürzel_Versuchsobj ekt&gt;.0.00.D.O.&lt;Versu
+chsobjekt&gt;_LEFT_RI GHT_HAND_DRIVE</td>
+<td>Versuchsobje kt</td>
+<td><p>ISO-Code "1.0.00.D.[redacted-person]_L EFT_RIGHT_HAND_DRI</p>
+<p>VE" bei Versuchsobjekt "Fahrzeug"</p></td>
+</tr>
+<tr>
+<td>Impact side test object 1</td>
+<td>Belastungsseite</td>
+<td style="text-align: left;">&lt;Kürzel_Versuchsobj
+ekt&gt;.0.00.D.O.&lt;Versu chsobjekt&gt;_SIDE_OF_ IMPACT</td>
+<td>Versuchsobje kt</td>
+<td><p>ISO-Code "1.0.00.D.[redacted-person]_S IDE_OF_IMPACT" bei</p>
+<p>Versuchsobjekt "Fahrzeug"</p></td>
+</tr>
+<tr>
+<td>Type of test object 1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>ISO-Kürzel des ersten Versuchsobjektes welches in den Stammdaten für
+Versuchsobjekte konfiguriert ist</td>
+</tr>
+<tr>
+<td>Class of test object 1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>keine Verwendung bei [redacted-co], Defaultwert immer NOVALUE</td>
+</tr>
+<tr>
+<td>Code of test object 1</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>keine Verwendung bei [redacted-co], Defaultwert immer NOVALUE</td>
+</tr>
+<tr>
+<td>Ref. number of test object 1</td>
+<td>FzgSi Schlüsselnummer</td>
+<td>&lt;Kürzel_Versuchsobj ekt&gt;.0.00.D.O.&lt;Versu
+chsobjekt&gt;_IEK5_VE HICLE_IDENTIFIER</td>
+<td>Versuchsobje kt</td>
+<td><p>ISO-Code "1.0.00.D.[redacted-person]_I EK5_VEHICLE_IDENTIF</p>
+<p>IER" bei Versuchsobjekt "Fahrzeug"</p></td>
+</tr>
+<tr>
+<td>Name of test object 2</td>
+<td>-</td>
+<td>-</td>
+<td>-</td>
+<td>Name des zweiten Versuchsobjektes welches in den Stammdaten der
+Versuchsunterart konfiguriert ist</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Velocity test object 2</th>
+<th>Istgeschwindigkeit</th>
+<th style="text-align: left;">&lt;Kürzel_Versuchsobj
+ekt&gt;.0.00.R.O.&lt;Versu chsobjekt&gt;_SPEED_A CTUAL_VALUE</th>
+<th>Versuchsobje kt</th>
+<th><p>ISO-Code "1.0.00.R.[redacted-person]_S PEED_ACTUAL_VALUE</p>
+<p>" bei Versuchsobjekt "Fahrzeug"</p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mass test object 2</td>
+<td>[redacted-person]</td>
+<td style="text-align: left;">&lt;Kürzel_Versuchsobj
+ekt&gt;.0.00.R.O.&lt;Versu chsobjekt&gt;_ACTUAL_ TOTAL_MASS</td>
+<td>Versuchsobje kt</td>
+<td><p>ISO-Code "1.0.00.R.[redacted-person]_A CTUAL_TOTAL_MASS"</p>
+<p>bei Versuchsobjekt "Fahrzeug"</p></td>
+</tr>
+<tr>
+<td>Driver position object 2</td>
+<td>Linkslenker/ Rechtslenker</td>
+<td style="text-align: left;">&lt;Kürzel_Versuchsobj
+ekt&gt;.0.00.D.O.&lt;Versu chsobjekt&gt;_LEFT_RI GHT_HAND_DRIVE</td>
+<td>Versuchsobje kt</td>
+<td><p>ISO-Code "1.0.00.D.[redacted-person]_L EFT_RIGHT_HAND_DRI</p>
+<p>VE" bei Versuchsobjekt "Fahrzeug"</p></td>
+</tr>
+<tr>
+<td>Impact side test object 2</td>
+<td>Belastungsseite</td>
+<td style="text-align: left;">&lt;Kürzel_Versuchsobj
+ekt&gt;.0.00.D.O.&lt;Versu chsobjekt&gt;_SIDE_OF_ IMPACT</td>
+<td>Versuchsobje kt</td>
+<td><p>ISO-Code "1.0.00.D.[redacted-person]_S IDE_OF_IMPACT" bei</p>
+<p>Versuchsobjekt "Fahrzeug"</p></td>
+</tr>
+<tr>
+<td>Type of test object 2</td>
+<td>-</td>
+<td style="text-align: left;">-</td>
+<td>-</td>
+<td>ISO-Kürzel des zweiten Versuchsobjektes welches in den Stammdaten
+für Versuchsobjekte konfiguriert ist</td>
+</tr>
+<tr>
+<td>Class of test object 2</td>
+<td>-</td>
+<td style="text-align: left;">-</td>
+<td>-</td>
+<td>keine Verwendung bei [redacted-co], Defaultwert immer NOVALUE</td>
+</tr>
+<tr>
+<td>Code of test object 2</td>
+<td>-</td>
+<td style="text-align: left;">-</td>
+<td>-</td>
+<td>keine Verwendung bei [redacted-co], Defaultwert immer NOVALUE</td>
+</tr>
+<tr>
+<td>Ref. number of test object 2</td>
+<td>FzgSi Schlüsselnummer</td>
+<td style="text-align: left;">&lt;Kürzel_Versuchsobj
+ekt&gt;.0.00.D.O.&lt;Versu chsobjekt&gt;_IEK5_VE HICLE_IDENTIFIER</td>
+<td>Versuchsobje kt</td>
+<td><p>ISO-Code "1.0.00.D.[redacted-person]_I EK5_VEHICLE_IDENTIF</p>
+<p>IER" bei Versuchsobjekt "Fahrzeug"</p></td>
+</tr>
+</tbody>
+</table>
+<h1 id="anlagen">Anlagen</h1>
+</body>
+</html>

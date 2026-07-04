@@ -1,0 +1,913 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>3_10_LAH_Gurtzug_v1.1</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p><img alt="LH" src="./07_Components-3-10-lah-gurtzug-v1-1-media/media/image1.wmf" style="width:3.42708in;height:2.875in"/></p>
+<p><strong>Lastenheft</strong></p>
+<p><strong>Gurtzug</strong> </p>
+<p><strong>Änderungsdokumentation</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><strong>Änderungs-stand</strong></th>
+<th style="text-align: left;"><strong>Beschreibung der
+Änderung</strong></th>
+<th style="text-align: left;"><strong>Ersteller</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;">Erstfassung nach Reorganisation</td>
+<td style="text-align: left;">Bertrandt</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;">Aktualisierung für Status E</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h6 id="inhaltsverzeichnis">Inhaltsverzeichnis</h6>
+<ol type="1">
+<li><ol type="1">
+<li><p><strong>Allgemeines</strong> <strong>4</strong></p></li>
+<li><p><strong>Lastfälle</strong> <strong>4</strong></p>
+<ol type="1">
+<li><p>Gurtzug 4</p></li>
+<li><p>Kindersitzverankerungspunkte 4</p></li>
+<li><p>[redacted-person] und Durchführung 7</p></li>
+</ol></li>
+<li><p><strong>Anforderungen</strong> <strong>8</strong></p></li>
+<li><p><strong>[redacted-person]</strong>
+<strong>8</strong></p>
+<ol type="1">
+<li><p>Gurtzug 8</p></li>
+<li><p>Kindersitzverankerungen 9</p></li>
+</ol></li>
+<li><p><strong>[redacted-person]</strong>
+<strong>9</strong></p></li>
+<li><p><strong>[redacted-person]</strong> 9</p></li>
+</ol></li>
+</ol>
+<p><strong>Anhang</strong></p>
+<ul>
+<li><p>Allgemein gültige Abkürzungen</p></li>
+</ul>
+<p><strong>3.10.1</strong> <strong>Allgemeines</strong></p>
+<p>Alle allgemein gültigen Richtlinien sind in den allgemeinen
+Lastenheften
+„1_2_Allgemeines_Lastenheft_Vernetzung_und_Modellerstellung“ und
+„2_1_LAH_Crash_ Modellaufbau_allgemein“ beschrieben.</p>
+<p>[redacted-person] dient als lastfallbezogene Konfiguration bzw. als
+Ergänzung zu den allgemeinen Lastenheften und ist nur in Verbindung mit
+diesen gültig.</p>
+<p><strong>3.10.2 Lastfälle</strong></p>
+<blockquote>
+<p>3.10.2.1</p>
+</blockquote>
+<p>Gurtzug</p>
+<p>Gesetze sind ähnlich und unterscheiden sich nur in der Haltezeit
+(vier Gesetze werden zu einem Lastfall zusammengefasst, da der Einfluss
+der Haltezeit nicht berücksichtigt wird - statischer Lastfall).</p>
+<table style="width:100%;">
+<thead>
+<tr>
+<th style="text-align: center;"><p><strong>Gurtkraft vorder- und
+Hintersitze</strong></p>
+<p><strong>Gesetzt / [redacted-co] (+20%)</strong></p></th>
+<th style="text-align: center;"><strong>Kraftanstiesgzeit</strong></th>
+<th style="text-align: center;"><strong>Haltezeit</strong></th>
+<th style="text-align: center;"><strong>Zusatzmasse für [redacted-person]</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;">ECE-R14</td>
+<td style="text-align: center;">13.5kN / 16.2kN</td>
+<td style="text-align: center;">1s</td>
+<td style="text-align: center;">0.2s</td>
+<td style="text-align: center;">20-fache Sitz- / Lehnenmasse*</td>
+</tr>
+<tr>
+<td style="text-align: center;">FMVSS 210</td>
+<td style="text-align: center;">13.5kN / 16.2kN</td>
+<td style="text-align: center;">1s</td>
+<td style="text-align: center;">10s</td>
+<td style="text-align: center;">20-fache Sitz- / Lehnenmasse*</td>
+</tr>
+<tr>
+<td style="text-align: center;">ADR 5</td>
+<td style="text-align: center;">13.5kN / 16.2kN</td>
+<td style="text-align: center;">1s</td>
+<td style="text-align: center;">1s</td>
+<td style="text-align: center;">20-fache Sitz- / Lehnenmasse*</td>
+</tr>
+<tr>
+<td style="text-align: center;">TRIAS 37</td>
+<td style="text-align: center;">13.5kN / 16.2kN</td>
+<td style="text-align: center;">1s</td>
+<td style="text-align: center;">0.2s</td>
+<td style="text-align: center;">20-fache Sitz- / Lehnenmasse*</td>
+</tr>
+</tbody>
+</table>
+<p><strong>* Nur an den Sitzen/Lehnen,</strong> <strong>woran das
+Gurtsystem</strong> <strong>befestigt</strong> <strong>ist, soll mit der
+20-fachen</strong></p>
+<p><strong>Sitz/Lehnenmasse gezogen werden.</strong></p>
+<ol start="2" type="1">
+<li><p>Kindersitzverankerungspunkte</p></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Gesetz/<u>Norm</u></strong></th>
+<th style="text-align: center;"><strong>[redacted](+20%)</strong></th>
+<th style="text-align: center;"><strong>Max. Vorverlagerung in
+Zugrichtung</strong></th>
+<th style="text-align: center;"><strong>Feldrelevanz</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><strong>FMVSS 225</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix</p>
+<p>Geradzug 0°</p></td>
+<td style="text-align: center;"><p>11kN / 13,2kN </p>
+<p>untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">175mm</td>
+<td style="text-align: center;">10°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix</p>
+<p>Schrägzug +-75°</p></td>
+<td style="text-align: center;"><p>5kN / 6kN</p>
+<p>untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">150mm</td>
+<td style="text-align: center;">0°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix, [redacted-person], Latch.</p>
+<p>Geradzug 0°</p></td>
+<td style="text-align: center;"><p>15kN / 18kN</p>
+<p>obere +untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">10°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>CMVSS 210.1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix , [redacted-person]</p>
+<p>Geradzug 0°</p></td>
+<td style="text-align: center;"><p>10kN / 12kN</p>
+<p>obere + untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">10°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>CMVSS 210.2</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix , [redacted-person]</p>
+<p>Geradzug 0°</p></td>
+<td style="text-align: center;"><p>15kN / 18kN</p>
+<p>untere und ggf. obere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">10°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix , [redacted-person]</p>
+<p>Schrägzug 75°</p></td>
+<td style="text-align: center;"><p>5kN / 6kN</p>
+<p>untere und ggf. obere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">0°+-20° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong><u>ISO 13216</u></strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix</p>
+<p>Geradzug 0°</p></td>
+<td style="text-align: center;"><p>8kN / 9,6kN</p>
+<p>untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">125mm</td>
+<td style="text-align: center;">10°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix</p>
+<p>Schrägzug +-75°</p></td>
+<td style="text-align: center;"><p>5kN / 6kN</p>
+<p>untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">125mm</td>
+<td style="text-align: center;">0°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix, [redacted-person], Latch.</p>
+<p>Geradzug 0°</p></td>
+<td style="text-align: center;"><p>8kN / 9,6kN</p>
+<p>obere + untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;">10°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>ECE-R14</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix</p>
+<p>Geradzug 0°</p></td>
+<td style="text-align: center;"><p>8kN / 9,6kN</p>
+<p>untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">125mm</td>
+<td style="text-align: center;">10°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix</p>
+<p>Schrägzug +-75°</p></td>
+<td style="text-align: center;"><p>5kN / 6kN</p>
+<p>untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">125mm</td>
+<td style="text-align: center;">0°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>Isofix, [redacted-person], Latch.</p>
+<p>Geradzug 0°</p></td>
+<td style="text-align: center;"><p>8kN / 9,6kN</p>
+<p>obere + untere Kindersitzverankerungen</p></td>
+<td style="text-align: center;">125mm</td>
+<td style="text-align: center;">10°+-5° zur Horizontalen</td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>ADR 34</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><p>[redacted-person]</p>
+<p>Geradzug 0°</p></td>
+<td style="text-align: center;"><p>3,4kN/4,1kN</p>
+<p>obere Haltegurtverankerungen</p></td>
+<td style="text-align: center;">-</td>
+<td style="text-align: center;"><ul>
+<li><p>+-20° Abweichung von konstruktiver Wirkungslinie</p></li>
+<li><p>bzw. +-5° von der Horizontalen, wenn Zugband von Rückenlehne
+umgelenkt wird</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<p><img src="./07_Components-3-10-lah-gurtzug-v1-1-media/media/image6.emf" style="width:6.29167in;height:3.3125in"/> <img src="./07_Components-3-10-lah-gurtzug-v1-1-media/media/image7.png" style="width:5.76389in;height:6.41667in"/></p>
+<p><strong>Die ECE-R14.06 ist ohne mittleren</strong>
+<strong>Sitzplatz</strong> <strong>zu prüfen.</strong></p>
+<p><img src="./07_Components-3-10-lah-gurtzug-v1-1-media/media/image9.emf" style="width:6.08333in;height:2.76042in"/></p>
+<ol start="2" type="1">
+<li><p>[redacted-person] und Durchführung</p></li>
+</ol>
+<p>[redacted-person] besteht aus einer Karosse mit Sitzen und
+Gurtsystemen.</p>
+<p>[redacted-person] ist an ihren Achsanbindepunkten hinten und vorne
+gelagert, sowie an den Feder-Dämpferaufnahmen an der Karosserie.</p>
+<p>Im Versuch wird mit Hilfe von Thorax- und Beckenprüfkörpern an den
+Sicherheitsgurten gezogen, die die Lasten in den Rohbau bzw. in Sitz und
+Rohbau einleiten. Gleichzeitig und abhängig von den
+Gurtschlossanbindepunkten bzw. Gurtautomatlagen, wird die 20-fache
+Lehnenmasse in das Lehnensystem eingeleitet.</p>
+<p>Die 20-fache Sitz- bzw. Lehnenmasse ist nur einzuleiten, wenn
+irgendeiner der Gurtankerpunkte an der Sitzstruktur bzw. Lehne
+angebracht ist (z.[redacted-person] klappbarer Lehne ist der Gurtautomat in der
+Lehne angebracht). [redacted-person] wird im Schwerpunkt des [redacted-person]/Sitz-Lehne eingebracht.</p>
+<p>Die 20-fache Sitz/Lehnenmasse wird von der [redacted-co] Sachbearbeitern
+vorgegeben.</p>
+<p>[redacted-person] sind für die Körperblöcke 10° und für die 20-fache
+Sitz/Lehnenmassen 0°.</p>
+<p>Bei einem Versuch werden alle Anbindepunkte einer Sitzreihe
+abgeprüft.</p>
+<p><em><strong>[redacted-person] und Gurthöhenverstellungen werden
+in den Lastfall abgeprüft:</strong></em></p>
+<table style="width:89%;">
+<tbody>
+<tr>
+<td colspan="10"><table>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>Sitzposition im
+Lastfall</strong></em></th>
+<th style="text-align: center;"><em><strong>Längseinstellung</strong></em></th>
+<th style="text-align: center;"><em><strong>Höheneinstellung</strong></em></th>
+<th style="text-align: center;"><em><strong>Gurthöheversteller/Umlenker</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em><strong>FMVSS210</strong></em></td>
+<td style="text-align: center;"><em><strong>Hinten</strong></em></td>
+<td style="text-align: center;"><em><strong>Unten</strong></em></td>
+<td style="text-align: center;"><em><strong>Mitte</strong></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em><strong>ECE-R14</strong></em></td>
+<td style="text-align: center;"><em><strong>Vorne</strong></em></td>
+<td style="text-align: center;"><em><strong>Oben</strong></em></td>
+<td style="text-align: center;"><em><strong>Unten</strong></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em><strong>Hinten</strong></em></td>
+<td style="text-align: center;"><em><strong>Unten</strong></em></td>
+<td style="text-align: center;"><em><strong>Oben</strong></em></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<p><em><strong>Verfügt der Sitz nicht über eine Höhenverstellung, sind
+nur</strong></em> <em><strong>die verschiedenen Längspositionen zu
+testen:</strong></em></p>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><em><strong>[redacted-person]</strong></em></th>
+<th style="text-align: center;"><em><strong>Fahrer</strong></em></th>
+<th style="text-align: center;"><em><strong>Beifahrer</strong></em></th>
+<th style="text-align: center;"><em><strong>Gurthöhenversteller/Umlenker</strong></em></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><em><strong>USA</strong></em></td>
+<td style="text-align: center;"><em><strong>Hinten</strong></em></td>
+<td style="text-align: center;"><em><strong>Hinten</strong></em></td>
+<td style="text-align: center;"><em><strong>Mitte</strong></em></td>
+</tr>
+<tr>
+<td style="text-align: center;"><em><strong>EG/ECE</strong></em></td>
+<td style="text-align: center;"><em><strong>Vorne</strong></em></td>
+<td style="text-align: center;"><em><strong>Hinten</strong></em></td>
+<td style="text-align: center;"><em><strong>oben</strong></em></td>
+</tr>
+</tbody>
+</table></td>
+</tr>
+</tbody>
+</table>
+<ol start="2" type="1">
+<li><p><strong>Anforderungen</strong></p></li>
+</ol>
+<p>Zielvorgaben / Grenzwerte / Anforderungen sind den Lastenheft der
+Fahrzeugsicherheit (Gurtverankerung LAH [redacted-phone]B) zu entnehmen sowie
+der [redacted-person] Fahrzeugsicherheit (LAH [redacted-phone]J).</p>
+<p>[redacted-person] soll abgeprüft werden, dass:</p>
+<ul>
+<li><p>[redacted-person] der Zugkräfte während der Haltezeit
+stattfindet</p></li>
+<li><p>[redacted-person] von Bauteilen zu erwarten ist</p></li>
+<li><p>die maximal horizontale Lehnenvorverlagerung des R-Punkts jedes
+Sitzes unter 100mm bleibt</p></li>
+</ul>
+<p><strong>3.10.4</strong></p>
+<p><strong>[redacted-person]</strong></p>
+<p>FE-Modelle im Pamcrash-Format für Hauptdeck und Includes sind nach
+den Richtlinien des
+1_2_Allgemeines_Lastenheft_Vernetzung_und_Modellerstellung
+(Änderungsstand [redacted-phone]) zu erstellen.</p>
+<p>[redacted-person] ist aus der Crashdisziplin (z.[redacted-person]) zur
+verwenden und kann von der [redacted-person] Karosserie
+([redacted-person]) übernommen werden.</p>
+<p>Für die Sitzanlagen/Gurtsysteme sind, wenn vorhanden, die Modelle von
+der [redacted-person] Interieur ([redacted-person]) zur verwenden.</p>
+<p>In einem ersten Schritt kann die Abbildung einer Gurtverankerung, so
+wie im Modell einer Crashdisziplin abgebildet, übernommen werden
+("grobe" Modellierung im Crashmodell - [redacted-person] ca. 5-10 mm).
+Dadurch kann ein Überblick über die Hauptdeformation in dem Bereich
+verschafft werden.</p>
+<p>Um mehr Genauigkeit bzgl. Versagen und Stabilität der Verankerung zu
+gewinnen, ist im Bereich der Gurtverankerungen eine Modellverfeinerung
+notwendig.</p>
+<p>Alle relevanten Komponenten/Bauteile der Befestigung/Verankerung sind
+abzubilden und zwar nach [redacted-person] (Bleche und
+Gussteile), Verstärkungen und Haltewinkeln für Sitze und Gurte, Löcher,
+Bolzen/Schrauben/Nietmüttern, Unterlegscheiben, ... .</p>
+<p>[redacted-person] zu Modellierung und Zusammenbau einiger dieser
+Komponenten im Fahrzeug, stehen die „Minimodelle“ für Sitz- und
+Gurtverankerungen in den [redacted-person] und Frontcrash zur Verfügung
+und sind hierbei zu berücksichtigen.</p>
+<p>[redacted-person] bzw. Beschreibung der Umfänge ist in der Doku
+3_10_LAH_Gurtzug__2014_04_03_Minimodelle_für_Gurtzug_und_Frontcrash.pptx</p>
+<p>zu finden.</p>
+<p>Hierfür ist die Abbildung der "Kontakt und Wandstärke"-Situation der
+einzelnen Komponenten sehr wichtig, so dass der zusammengebaute Zustand
+aller relevanten Komponenten und Bauteile kompakt (realitätsnah) und
+ohne Spiel bleibt.</p>
+<p>[redacted-person] darf bei einer solchen Modellierungsart (in
+den relevanten Bereichen) bis zu 2-3 mm betragen. </p>
+<p>[redacted-person] und Definition der FE-Parameter für Pamcrash ist
+aus den Minimodellen zu entnehmen ggf. mit der [redacted-person] Karosserie abzustimmen.</p>
+<p>Abweichend vom [redacted-person], das für alle Crashdisziplinen
+gilt und im 2_1_LAH_Crash_Modellaufbau_allgemein beschrieben ist, sind
+für diesen Lastfall folgende Erweiterungen/Anpassungen im Modell
+notwendig:</p>
+<blockquote>
+<p>3.10.4.1 G</p>
+</blockquote>
+<p>urtzug</p>
+<ul>
+<li><p>Header (RUNEND)</p></li>
+<li><p>CNTAC (Bodyblocks, Sitze, Karosserie, Gurte, Verriegelungsbolzen,
+Schienen)</p></li>
+<li><p>ACFLD (Beschleunigungsfeld)</p></li>
+<li><p>Sitzmodelle (werden von der Fachabteilung ([redacted-person]) zur Verfügung
+gestellt)</p></li>
+<li><p>Gurtsysteme (werden von der Fachabteilung ([redacted-person]) zur Verfügung
+gestellt)</p></li>
+<li><p>Zugkörper (Thorax und Becken) (werden von der Fachabteilung
+(EK-14x)zur Verfügung gestellt)</p></li>
+</ul>
+<p>3.10.4.2</p>
+<p>Kindersitzverankerungen</p>
+<p>Basismodelle wie Gurtzug mit Änderung der</p>
+<ul>
+<li><p>Sitzmodelle (werden von der Fachabteilung zur Verfügung
+gestellt)</p></li>
+<li><p>[redacted-person] Haken</p></li>
+<li><p>Gurtsysteme (werden von der Fachabteilung zur Verfügung
+gestellt)</p></li>
+<li><p>Zugkörper (Thorax und Becken)-(werden von der Fachabteilung zur
+Verfügung gestellt)</p></li>
+</ul>
+<p>Gurtankerpunkte sollen dem Projektstand bzw. CAD-Fahrzeugstand
+entsprechen (oder, wenn noch nicht vorhanden, aus FE-Vorgängermodellen
+übernommen werden).</p>
+<p>[redacted-person], Top-[redacted-person] und Körperblöcke werden in der
+Regel von der Fachabteilung zur Verfügung gestellt (evtl. auch von der
+[redacted]).</p>
+<p>Wenn das Modell neu aufzubauen ist, sollen die Körperblöcke über
+Pre-Prozessor und Pre-Simulation mit geringer Zugkraft (&lt;1 kN) auf
+die richtige Ausgangslage im Fahrzeug positioniert werden.</p>
+<p>[redacted-person] wird zum Zeitpunkt des Modellaufbaus für
+Gurtzugsimulation in Form von Koordinaten/Lage im Fahrzeug zur Verfügung
+gestellt.</p>
+<p><strong>3.10.5 [redacted-person]</strong></p>
+<p>Außer den für CAE-Bench festgelegten Standardauswertedefinitionen in
+der Karosserie, sollen folgende Ausgabegrößen aus dem Gurtzugmodell mit
+dokumentiert werden:</p>
+<blockquote>
+<p>- Kräfte in den "Zugbars" aus allen Prüfkörpern</p>
+<p>- Kraftverteilung über die Gurtenden</p>
+<p>- Krafteinleitung in die Karosserie (Größe und Richtung)</p>
+<p>- Krafteinleitung in den Sitzen (Größe und Richtung)</p>
+<p>- Kraftverläufe über die Gurtumlenker in die Karosserie (Größe und
+Richtung)</p>
+<p>- Lokale und globale Deformationen der Karosserie und
+Strukturbauteilen (Dehnungen)</p>
+<p>- Belastung der Verbindungstechnik (Prognose für Versagen über Zug-
+und Schubkräfte)</p>
+<p>- Vorverlagerung der Sitzanlagen (Sitz und Lehne – R-[redacted-person])</p>
+<p>- auffällige Problemstellen ermitteln und dokumentieren.</p>
+</blockquote>
+<p>[redacted-person]/Prognose des Versagens der Verbindungstechnik werden
+die aktuellen Auswerte-Tools bei [redacted-co] (zum [redacted]PAM.EL.A, Trefftz, -BM3-) verwendet.</p>
+<p>[redacted-person] aus der Simulationen werden mit der Fachabteilung
+besprochen; dabei wird geklärt, ob im Einzelnen bestimmte
+Auswertungsziele berichtet werden oder zur Fahrzeugsicherheit
+weitergeleitet werden sollen.</p>
+<p><strong>3.10.6 [redacted-person]</strong></p>
+<p>[redacted-person] erfolgt nach den im allgemeinen Crashlastenheft
+beschriebenen Richtlinien.</p>
+<p>Eine ausführliche Dokumentation bzgl. der Punkte unter 3.10.5 ist der
+Fachabteilung zur Verfügung zu stellen sowie die Ergebnisse aus der
+Simulation.</p>
+<p>[redacted-person] aus der Simulation werden in CAE-Bench abgelegt und
+freigeschaltet.</p>
+<p><strong>Allgemein gültige</strong> <strong>Abkürzungen</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>ADR</strong></th>
+<th>[redacted-person] Rule</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>AK-LV</strong></td>
+<td>Arbeitskreis – Lieferbedingung (vom AK Airbagkomponenten)</td>
+</tr>
+<tr>
+<td><strong>AK-ZV</strong></td>
+<td>Arbeitskreis – Zielvereinbarung (vom AK Airbagkomponenten)</td>
+</tr>
+<tr>
+<td><strong>AÖ</strong></td>
+<td>Ausströmöffnung (im Luftsack)</td>
+</tr>
+<tr>
+<td><strong>AV</strong></td>
+<td>Arbeitsanweisung</td>
+</tr>
+<tr>
+<td><strong>BAM</strong></td>
+<td>Bundesanstalt für Materialprüfung</td>
+</tr>
+<tr>
+<td><strong>BF</strong></td>
+<td>Beifahrer</td>
+</tr>
+<tr>
+<td><strong>CMVSS</strong></td>
+<td>[redacted]Standard</td>
+</tr>
+<tr>
+<td><strong>COP</strong></td>
+<td>[redacted-person] Part</td>
+</tr>
+<tr>
+<td><strong>DMU</strong></td>
+<td>[redacted-person] up</td>
+</tr>
+<tr>
+<td><strong>DOT/HS</strong></td>
+<td>Department of Transportation/[redacted-person]</td>
+</tr>
+<tr>
+<td><strong>ECE R</strong></td>
+<td>[redacted-person] for [redacted-person]</td>
+</tr>
+<tr>
+<td><strong>F</strong></td>
+<td>Fahrer</td>
+</tr>
+<tr>
+<td><strong>FEM</strong></td>
+<td>[redacted-person] Methode</td>
+</tr>
+<tr>
+<td><strong>FFC</strong></td>
+<td>[redacted-person] Criterion</td>
+</tr>
+<tr>
+<td><strong>FMEA</strong></td>
+<td>Failure mode and effects analysis (Fehler-Möglichkeits- und
+Einfluß-Analyse)</td>
+</tr>
+<tr>
+<td><strong>FMVSS</strong></td>
+<td>[redacted]Standards</td>
+</tr>
+<tr>
+<td><strong>HIC</strong></td>
+<td>[redacted-person] Criterion</td>
+</tr>
+<tr>
+<td><strong>HS</strong></td>
+<td>High-Speed</td>
+</tr>
+<tr>
+<td><strong>HSK</strong></td>
+<td>Handschuhkasten</td>
+</tr>
+<tr>
+<td><strong>HT</strong></td>
+<td>Hochtemperatur</td>
+</tr>
+<tr>
+<td><strong>KF</strong></td>
+<td>Kniefänger</td>
+</tr>
+<tr>
+<td><strong>KD</strong></td>
+<td>Kundendienst</td>
+</tr>
+<tr>
+<td><strong>LAH</strong></td>
+<td>Lastenheft</td>
+</tr>
+<tr>
+<td><strong>LL</strong></td>
+<td>Linkslenker</td>
+</tr>
+<tr>
+<td><strong>LS</strong></td>
+<td>Luftsack</td>
+</tr>
+<tr>
+<td><strong>NAR/USA</strong></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><strong>NCAP</strong></td>
+<td>[redacted]</td>
+</tr>
+<tr>
+<td><strong>NIC</strong></td>
+<td>[redacted-person] Criterion</td>
+</tr>
+<tr>
+<td><strong>NT</strong></td>
+<td>Niedrigtemperatur</td>
+</tr>
+<tr>
+<td><strong>ODB</strong></td>
+<td>Offset gegen deformierbare Barriere</td>
+</tr>
+<tr>
+<td><strong>OGG</strong></td>
+<td>Gasgenerator, geladen auf die obere Grenze des Kennfeldes</td>
+</tr>
+<tr>
+<td><strong>OOP</strong></td>
+<td>Out Of Position</td>
+</tr>
+<tr>
+<td><strong>PDM</strong></td>
+<td>[redacted-person] Montageanleitung</td>
+</tr>
+<tr>
+<td><strong>PGP</strong></td>
+<td>[redacted-person] Privacy (Software zur sicheren Übertragung von
+E-Mails)</td>
+</tr>
+<tr>
+<td><strong>PV</strong></td>
+<td>Prüfvorschrift</td>
+</tr>
+<tr>
+<td><strong>PVS</strong></td>
+<td>Produktionsversuchsserie</td>
+</tr>
+<tr>
+<td><strong>RdW</strong></td>
+<td>Rest der Welt</td>
+</tr>
+<tr>
+<td><strong>RL</strong></td>
+<td>Rechtslenker</td>
+</tr>
+<tr>
+<td><strong>RT</strong></td>
+<td>Raumtemperatur</td>
+</tr>
+<tr>
+<td><strong>TCC</strong></td>
+<td>[redacted-person] Criterion</td>
+</tr>
+<tr>
+<td><strong>TCFC</strong></td>
+<td>[redacted]</td>
+</tr>
+<tr>
+<td><strong>TI</strong></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><strong>TL</strong></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><strong>TLD</strong></td>
+<td>[redacted-person] für Dokumentationen</td>
+</tr>
+<tr>
+<td><strong>UGG</strong></td>
+<td>Gasgenerator, geladen auf die untere Grenze des Kennfeldes</td>
+</tr>
+<tr>
+<td><strong>UGG<sub>10m</sub></strong></td>
+<td>Kannendruck abgestimmt auf den Wert bei t = 10 ms</td>
+</tr>
+<tr>
+<td><strong>USA/NAR</strong></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><strong>UWS</strong></td>
+<td>Umweltsimulations-Prüfung</td>
+</tr>
+<tr>
+<td><strong>VDA</strong></td>
+<td>Verband der Automobilindustrie</td>
+</tr>
+<tr>
+<td><strong>VC</strong></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><strong>ZSB</strong></td>
+<td>Zusammenbau</td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

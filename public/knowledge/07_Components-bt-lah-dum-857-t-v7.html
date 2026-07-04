@@ -1,0 +1,4761 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>BT-LAH.DUM.857.T.v7</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<h2 id="bt-lah.dum.t.v7">BT-LAH.DUM.T.v7</h2>
+<blockquote>
+<p><strong>Version:</strong></p>
+</blockquote>
+<h5 id="lastenheft-nummer">Lastenheft-Nummer:</h5>
+<blockquote>
+<p><strong>[redacted-person]:</strong> Komponenten</p>
+</blockquote>
+<blockquote>
+<p>INTERNAL</p>
+<p>© [redacted]</p>
+<p>[redacted-person] an diesem Dokument verbleiben bei [redacted-co]. Vervielfältigung
+oder Bekanntgabe an Dritte ist nur mit schriftlicher Genehmigung von
+[redacted-co] zulässig. [redacted-person] oder Auslassungen sowie für dadurch eventuell
+entstehende Schäden wird von [redacted-co] keine Haftung übernommen.</p>
+</blockquote>
+<p>Inhaltsverzeichnis</p>
+<ol type="1">
+<li><p><strong><a href="#_bookmark0">VORWORT</a> <a href="#_bookmark0">7</a></strong></p>
+<ol type="1">
+<li><p><strong><a href="#_bookmark1">[redacted-person]</a> <a href="#_bookmark1">8</a></strong></p></li>
+</ol></li>
+<li><p><strong><a href="#allgemeine-projektvorgaben">ALLGEMEINE
+PROJEKTVORGABEN</a> <a href="#allgemeine-projektvorgaben">9</a></strong></p>
+<ol type="1">
+<li><p><strong><a href="#kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges</a> <a href="#kurzbeschreibung-des-entwicklungsumfanges">9</a></strong></p></li>
+<li><p><strong><a href="#zielsetzung">Zielsetzung</a> <a href="#zielsetzung">9</a></strong></p></li>
+<li><p><strong><a href="#zuordnung-der-komponente">Zuordnung der
+Komponente</a> <a href="#zuordnung-der-komponente">9</a></strong></p>
+<ol type="1">
+<li><p><a href="#zielfahrzeuge">Zielfahrzeug(e)</a> <a href="#zielfahrzeuge">9</a></p></li>
+<li><p><a href="#einsatzort-und-zielmarkt">Einsatzort und Zielmarkt</a>
+<a href="#einsatzort-und-zielmarkt">9</a></p></li>
+<li><p><a href="#variantenmanagement">Variantenmanagement</a> <a href="#variantenmanagement">9</a></p></li>
+</ol></li>
+<li><p><strong><a href="#entwicklungs--und-lieferumfang">Entwicklungs-
+und Lieferumfang</a> <a href="#entwicklungs--und-lieferumfang">9</a></strong></p></li>
+<li><p><strong><a href="#_bookmark10">Angebotsumfang</a> <a href="#_bookmark10">10</a></strong></p></li>
+<li><p><strong><a href="#_bookmark11">Entwicklungsablauf</a> <a href="#_bookmark11">11</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark12">Terminplan und Meilensteine</a> <a href="#_bookmark12">11</a></p></li>
+<li><p><a href="#_bookmark13">Metriken zur Projektverfolgung</a> <a href="#_bookmark13">13</a></p></li>
+<li><p><a href="#_bookmark14">Musterstände und Musterstückzahlen</a> <a href="#_bookmark14">13</a></p></li>
+<li><p><a href="#_bookmark15">Typprüfung und Zertifizierung</a> <a href="#_bookmark15">15</a></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark16">Qualität und Zuverlässigkeit</a>
+<a href="#_bookmark16">16</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark17">Qualitätskonzepte</a> <a href="#_bookmark17">16</a></p></li>
+<li><p><a href="#_bookmark18">Risikomanagement (FMEA und FTA)</a> <a href="#_bookmark18">16</a></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark19">Fachbereichs- bzw.
+projektspezifische DMU-Richtlinien</a> <a href="#_bookmark19">16</a></strong></p></li>
+<li><p><strong><a href="#_bookmark20">Für [redacted-co] gilt: Anforderungen an
+Kenntnisse im Produktdaten-Management</a> <a href="#_bookmark20">17</a></strong></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark21">PROJEKTMANAGEMENT UND
+-ORGANISATION</a> <a href="#_bookmark21">17</a></strong></p>
+<ol type="1">
+<li><p><strong><a href="#_bookmark22">Verantwortlichkeiten im Projekt
+und Projektstrukturplan</a> <a href="#_bookmark22">17</a></strong></p></li>
+<li><p><strong><a href="#_bookmark23">Dokumentation</a> <a href="#_bookmark23">17</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark24">Mustermappe</a> <a href="#_bookmark24">17</a></p></li>
+<li><p><a href="#_bookmark25">Datenaustausch</a> <a href="#_bookmark25">18</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark26">SYSTEMUMGEBUNG</a> <a href="#_bookmark26">19</a></strong></p>
+<ol type="1">
+<li><p><strong><a href="#_bookmark27">[redacted-person]</a> <a href="#_bookmark27">19</a></strong></p></li>
+<li><p><strong><a href="#_bookmark28">[redacted-person]</a> <a href="#_bookmark28">20</a></strong></p></li>
+<li><p><strong><a href="#_bookmark29">Systemschaltbild</a> <a href="#_bookmark29">20</a></strong></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark30">TECHNISCHE ANFORDERUNGEN</a> <a href="#_bookmark30">20</a></strong></p>
+<ol type="1">
+<li><p><strong><a href="#_bookmark31">Benennung und Teilnummer</a> <a href="#_bookmark31">20</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark32">Prüfanforderungen</a> <a href="#_bookmark32">21</a></p></li>
+<li><p><a href="#_bookmark33">Data-Matrix-Code</a> <a href="#_bookmark33">21</a></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark34">Block- und Prinzipschaltbild</a>
+<a href="#_bookmark34">22</a></strong></p></li>
+<li><p><strong><a href="#_bookmark35">Funktionen</a> <a href="#_bookmark35">22</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark36">Funktionsbeschreibung</a> <a href="#_bookmark36">22</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark37">Gurtlosereduktion</a> <a href="#_bookmark37">24</a></p></li>
+<li><p><a href="#_bookmark38">Push2Pass-Straffung</a> <a href="#_bookmark38">25</a></p></li>
+<li><p><a href="#_bookmark39">ACA-Straffung</a> <a href="#_bookmark39">25</a></p></li>
+<li><p><a href="#_bookmark40">Gurtparken</a> <a href="#_bookmark40">26</a></p></li>
+<li><p><a href="#_bookmark41">Straffung</a> <a href="#_bookmark41">26</a></p></li>
+<li><p><a href="#_bookmark42">NGU / PCx-High</a> <a href="#_bookmark42">27</a></p></li>
+<li><p><a href="#_bookmark43">Haltestromadaptivität (adaptive
+Haltephase, in Voll-/Teilstraffung/ [redacted-person]</a> <a href="#_bookmark43">PreSense integriert)</a> <a href="#_bookmark43">27</a></p></li>
+<li><p><a href="#_bookmark44">Gurt-Lösen</a> <a href="#_bookmark44">29</a></p></li>
+<li><p><a href="#_bookmark45">4-Punkt-Gurt-Mode</a> <a href="#_bookmark45">29</a></p></li>
+<li><p><a href="#_bookmark46">[redacted-person]</a> <a href="#_bookmark46">29</a></p></li>
+<li><p><a href="#_bookmark47">[redacted-person]</a> <a href="#_bookmark47">30</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark48">Fehlbedienung</a> <a href="#_bookmark48">30</a></p></li>
+<li><p><a href="#_bookmark49">Notbetrieb</a> <a href="#_bookmark49">30</a></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark50">Architektur</a> <a href="#_bookmark50">30</a></strong></p></li>
+<li><p><strong><a href="#_bookmark51">Steuergerätekonzept</a> <a href="#_bookmark51">31</a></strong></p></li>
+<li><p><strong><a href="#_bookmark52">[redacted-person]</a> <a href="#_bookmark52">31</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark53">Schnittstelle für den pyrotechnischen
+Antrieb</a> <a href="#_bookmark53">32</a></p></li>
+<li><p><a href="#_bookmark54">Schnittstelle für elektromotorischen
+Antrieb</a> <a href="#_bookmark54">32</a></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark55">[redacted-person]</a> <a href="#_bookmark55">32</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark56">Straffkraftprofile</a> <a href="#_bookmark56">33</a></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark57">Sicherheitsanforderungen</a> <a href="#_bookmark57">34</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark58">Personen- und Insassensicherheit</a> <a href="#_bookmark58">34</a></p></li>
+<li><p><a href="#_bookmark59">Fahrzeugsicherheit</a> <a href="#_bookmark59">34</a></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark60">Alternativen und künftige
+Varianten</a> <a href="#_bookmark60">35</a></strong></p></li>
+<li><p><strong><a href="#_bookmark61">Gewichtsziele</a> <a href="#_bookmark61">35</a></strong></p></li>
+<li><p><strong><a href="#_bookmark62">Einbau</a> <a href="#_bookmark62">35</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark63">Einbauorte und Einbaulage</a> <a href="#_bookmark63">35</a></p></li>
+<li><p><a href="#_bookmark64">Montagekonzept</a> <a href="#_bookmark64">35</a></p></li>
+<li><p><a href="#_bookmark65">Geometrie</a> <a href="#_bookmark65">36</a></p></li>
+<li><p><a href="#_bookmark66">Toleranzen</a> <a href="#_bookmark66">36</a></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark67">Formgestaltung und Design</a> <a href="#_bookmark67">36</a></strong></p></li>
+<li><p><strong><a href="#_bookmark68">Ergonomie</a> <a href="#_bookmark68">36</a></strong></p>
+<ol type="1">
+<li><p><a href="#_bookmark69">Optik und Haptik</a> <a href="#_bookmark69">36</a></p></li>
+<li><p><a href="#_bookmark70">Akustik</a> <a href="#_bookmark70">37</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark71">Geräusche im Fahrzeug</a> <a href="#_bookmark71">37</a></p></li>
+<li><p><a href="#_bookmark72">Geräusche der Komponente</a> <a href="#_bookmark72">38</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark73">Handling</a> <a href="#_bookmark73">39</a></p></li>
+</ol></li>
+<li><p><strong><a href="#_bookmark74">[redacted-person]</a> <a href="#_bookmark74">39</a></strong></p></li>
+<li><p><strong><a href="#_bookmark75">Elastomere</a> <a href="#_bookmark75">40</a></strong></p></li>
+<li><p><a href="#_bookmark76">Medienbeständigkeit und chemische
+Anforderungen</a> <a href="#_bookmark76">40</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark76">Sauberkeitsanforderungen</a> <a href="#_bookmark77">40</a></p></li>
+<li><p><a href="#_bookmark78">Reinigung</a> <a href="#_bookmark78">40</a></p></li>
+<li><p><a href="#_bookmark79">Korrosionsschutz</a> <a href="#_bookmark79">40</a></p></li>
+<li><p><a href="#_bookmark80">Schutzklassen</a> <a href="#_bookmark80">41</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark81">Umweltverträglichkeit</a> <a href="#_bookmark81">41</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark82">Werkstoffauswahl</a> <a href="#_bookmark82">41</a></p></li>
+<li><p><a href="#_bookmark83">Recyclingkonzept</a> <a href="#_bookmark83">41</a></p></li>
+<li><p><a href="#_bookmark84">Ökobilanz</a> <a href="#_bookmark84">41</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark85">[redacted-person]</a> <a href="#_bookmark85">41</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark86">Last</a> <a href="#_bookmark86">41</a></p></li>
+<li><p><a href="#_bookmark87">Schwingungsverhalten</a> <a href="#_bookmark87">42</a></p></li>
+<li><p><a href="#_bookmark88">Steifigkeit und Federeigenschaften</a> <a href="#_bookmark88">42</a></p></li>
+<li><p><a href="#_bookmark89">Verformung und Deformation</a> <a href="#_bookmark89">42</a></p></li>
+<li><p><a href="#_bookmark90">Druck</a> <a href="#_bookmark90">42</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark91">Lebensdauer</a> <a href="#_bookmark91">42</a></p></li>
+<li><p><a href="#_bookmark92">[redacted-person]</a> <a href="#_bookmark92">43</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark93">Beschreibung der allgemeinen
+Anforderungen</a> <a href="#_bookmark93">43</a></p></li>
+<li><p><a href="#_bookmark94">Anforderungen an den elektromotorischen
+Straffantrieb</a> <a href="#_bookmark94">43</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark95">[redacted-person]</a> <a href="#_bookmark95">44</a></p></li>
+<li><p><a href="#_bookmark96">Kundendienst- und [redacted-person]
+Anforderungen</a> <a href="#_bookmark96">44</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark97">Kundendienstanforderungen</a> <a href="#_bookmark97">44</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark98">[redacted-person] Anforderungen</a> <a href="#_bookmark98">44</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#_bookmark99">Transportschutz</a> <a href="#_bookmark99">44</a></p></li>
+<li><p><a href="#_bookmark100">Logistikanforderungen</a> <a href="#_bookmark100">45</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark101">Verpackung</a> <a href="#_bookmark101">45</a></p></li>
+<li><p><a href="#_bookmark102">Teileschutz</a> <a href="#_bookmark102">45</a></p></li>
+<li><p><a href="#_bookmark103">Für [redacted-co] gilt: Gefahrgut</a> <a href="#_bookmark103">45</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark104">Qualitätssicherungsanforderungen</a> <a href="#_bookmark104">45</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark105">Produkt- und Prozessüberwachung</a> <a href="#_bookmark105">46</a></p></li>
+<li><p><a href="#_bookmark106">Schadensteil-Analyse</a> <a href="#_bookmark106">46</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#_bookmark107">ANFORDERUNGEN AN ERPROBUNG</a> <a href="#_bookmark107">46</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark108">Prüfmittel / Erprobungsträger</a> <a href="#_bookmark108">46</a></p></li>
+<li><p><a href="#_bookmark109">Erfüllungsnachweise</a> <a href="#_bookmark109">46</a></p></li>
+<li><p><a href="#_bookmark110">Erprobungsplan</a> <a href="#_bookmark110">46</a></p></li>
+<li><p><a href="#_bookmark111">Prüfungen</a> <a href="#_bookmark111">47</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark112">Dauerversuch</a> <a href="#_bookmark112">47</a></p></li>
+<li><p><a href="#_bookmark113">Straffleistungsversuch</a> <a href="#_bookmark113">48</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark114">Testparameter und Zyklen</a> <a href="#_bookmark114">49</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark115">Lebensdauerbeständigkeit</a> <a href="#_bookmark115">49</a></p></li>
+<li><p><a href="#_bookmark116">Funktionsdauerlauf</a> <a href="#_bookmark116">50</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark117">Beschaffenheit des zu testenden
+Musterstandes</a> <a href="#_bookmark117">51</a></p></li>
+<li><p><a href="#_bookmark118">Betriebszustände</a> <a href="#_bookmark118">51</a></p></li>
+<li><p><a href="#_bookmark119">[redacted-person] und Simulation</a> <a href="#_bookmark119">51</a></p></li>
+<li><p><a href="#_bookmark120">Fahrzeugerprobung</a> <a href="#_bookmark120">51</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark121">DEFINITIONEN, BEGRIFFE, ABKÜRZUNGEN</a>
+<a href="#_bookmark121">52</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark122">Begriffe</a> <a href="#_bookmark122">52</a></p></li>
+<li><p><a href="#_bookmark123">Abkürzungen</a> <a href="#_bookmark123">52</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark124">MITGELTENDE UNTERLAGEN</a> <a href="#_bookmark124">55</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark125">Zeichnungen, Pläne, Skizzen;
+Variantenbaum</a> <a href="#_bookmark125">55</a></p></li>
+<li><p><a href="#_bookmark126">[redacted-person]</a> <a href="#_bookmark126">55</a></p></li>
+<li><p><a href="#_bookmark127">Typprüfunterlagen, Vorschriften,
+Gesetze</a> <a href="#_bookmark127">57</a></p></li>
+<li><p><a href="#_bookmark128">Querschnittslastenhefte</a> <a href="#_bookmark128">58</a></p></li>
+<li><p><a href="#_bookmark129">Zu beachtende Schutzrechte und
+Lizenzen</a> <a href="#_bookmark129">59</a></p></li>
+<li><p><a href="#_bookmark130">[redacted-person] 59</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark131">ANHANG</a> <a href="#_bookmark131">59</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark132">Funktionsbeschreibung auf Fahrzeugebene
+des reversiblen Gurtstraffer</a> <a href="#_bookmark132">59</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark133">Teilstraffung</a> <a href="#_bookmark133">59</a></p></li>
+<li><p><a href="#_bookmark134">[redacted-person] PreSense Straffung
+(PCF-High)</a> <a href="#_bookmark134">60</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark135">Prüfmatrix</a> <a href="#_bookmark135">60</a></p></li>
+<li><p><a href="#_bookmark136">Abwicklung von Baumusterfreigaben</a> <a href="#_bookmark136">60</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark137">Durchführungsbestimmungen:</a> <a href="#_bookmark137">61</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark138">Geräuschanforderungen -
+Komponentenversuche</a> <a href="#_bookmark138">61</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark139">[redacted-person]- und
+Teilstraffungen</a> <a href="#_bookmark139">61</a></p></li>
+<li><p><a href="#_bookmark140">[redacted-person]
+und Gurtparken</a> <a href="#_bookmark140">62</a></p></li>
+<li><p><a href="#_bookmark141">Geräuschprüfstände</a> <a href="#_bookmark141">63</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark142">Prüfstand für Vollstraffung und Lösen
+nach der Vollstraffung</a> <a href="#_bookmark142">63</a></p></li>
+<li><p><a href="#_bookmark143">Prüfstand für Gurtlosereduktion und
+Gurtparken</a> <a href="#_bookmark143">64</a></p></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>[redacted-co]: ER-43 Baumgaertner, Christian</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Bentley: EKSS [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co]: EKF 1 [redacted-person] EKS 4 [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat: [redacted-person] Javier Luzón</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Skoda: EKS/3 [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Volkswagen: EK/SR Pedro Da [redacted-person] de Almeida</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co]Nutzfahrzeuge: NE-KC [redacted-person]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+<p><u>Information : 3461471</u></p>
+</blockquote>
+<p class="heading" id="änderungsdokumentation">Änderungsdokumentation</p>
+<blockquote>
+<p><u>Information : 3461473</u></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Stand</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung der Änderung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Ersteller / Bearbeiter (Name, OE)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Version</p>
+<p>Änderungsdatum: [redacted-phone]</p>
+</blockquote></th>
+<th><blockquote>
+<p>BT-LAH.DUM.T.v7</p>
+</blockquote></th>
+<th><blockquote>
+<p>Seite: 6 von 66</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>[redacted-phone]</p>
+</blockquote></th>
+<th><blockquote>
+<p><u>Version 3.0</u></p>
+<p>[redacted-person] des Lastenheftes</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-person] ([redacted])</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Version 3.1 [redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Version 4.0</p>
+<p>[redacted]1, 4 - 9</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Hinzufügen</p>
+<p>Allgemein [redacted-prj]: 2.8, 3.2.2, 6.8,</p>
+<p>8</p>
+<p>Anpassung</p>
+<p>5.3 Funktion (Straffprofile)</p>
+<p>5.7 Funktion</p>
+<p>5.18 Lebensdauer</p>
+<p>5.20 [redacted-person] (Temperaturkompensation)</p>
+<p>9. Anhang</p>
+<p>[redacted-person]</p>
+<p>[redacted-person] PreSense Straffung</p>
+<p>Haltestromadaptivität</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] auf max. 400N</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<p><u>Information : 3461475</u></p>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>Das vorliegende Bauteil-Lastenheft (BT-LAH) ist angelehnt an die
+Struktur des VDA-</p>
+<p>[redacted-person] 2 (<u><a href="http://www.vda-qmc.de/">www.vda-qmc.de</a>) und beschreibt
+komponentenspezifische</u> <u>Anforderungen. Das VDA-Modul 1 wird durch
+die [redacted-co]99000 abgebildet und beschreibt</u> <u>komponentenübergreifende
+allgemeine Anforderungen zur Leistungsbringung im Rahmen der</u>
+<u>Bauteilentwicklung.</u></p>
+<p><u>Information : 3461477</u></p>
+<p>Die vom Auftragnehmer zu erfüllenden Anforderungen sind in der
+Identifikationsnummer (z. B: [A: BT- LAH-1]) grundsätzlich durch ein "A"
+gekennzeichnet. Textteile, die durch ein "I" gekennzeichnet sind, sind
+Informationen zum besseren Verständnis des BT-LAH. Gibt es keine
+Identifikationsnummer oder keine Kennzeichnung mit "A" bzw. "I", so
+handelt es sich ebenfalls um eine Anforderung.</p>
+<p><u>Information : 3461479</u></p>
+<p>[redacted-person] ist zu befolgen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461480</u></p>
+</blockquote>
+<h4 id="allgemeine-anforderungen">[redacted-person]</h4>
+<blockquote>
+<p>Dieses BT-LAH beschreibt Leistungen, Anforderungen, Prüf- und
+Erprobungsbedingungen, die das zu entwickelnde Produkt und der
+Auftragnehmer erfüllen müssen.</p>
+</blockquote>
+<p><u>Information : 3461574</u></p>
+<blockquote>
+<p>Das vorliegende Bauteil-Lastenheft und die Norm [redacted-co]99000 inkl. Teil 1
+bis Teil 4 sind zusammen Grundlage des zu erbringenden Leistungsumfangs
+des Auftragnehmers.</p>
+<p>Es gelten die Bauteilanforderungen an das Gurtsystem des
+LAH.DUM.857.D.</p>
+<p><u>Information : 3461573</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461575</u></p>
+<p>[redacted-person] umfasst Steuergeräte und Steuergerätesoftware
+oder Software für Steuergeräte, die in Fahrzeuge der [redacted-person]
+Elektrik ([redacted-prj]) zum Einsatz kommen werden.</p>
+</blockquote>
+<p><u>Information : 3461576</u></p>
+<blockquote>
+<p>Im Rahmen der Homologation von Fahrzeugen gewinnt Software zunehmend
+an Bedeutung. Gesetzeskonforme, den Anforderungen aus den Einsatzmärkten
+entsprechende Software steht insbesondere in den Zukunftsprojekten der
+[redacted-prj] im Fokus. Daher gehen wir davon aus, dass es auch [redacted-person]
+an einem mangelfreien Angebots-/Lieferumfang entspricht, dass im Falle
+einer [redacted]Leistungen diesen
+Anforderungen entsprechen. Im weiteren Verlauf der Anfrage und –soweit
+[redacted-person] mit Leistungen beauftragt wird –werden wir mit Ihnen
+gemeinsam unsere Detailanforderungen an die Dokumentation und
+Information rund um die Thematik gesetzeskonforme Software u.[redacted-person]
+Rahmen der Homologation unserer Fahrzeuge besprechen und
+vereinbaren.</p>
+</blockquote>
+<p><u>Information : 3461577</u></p>
+<blockquote>
+<p>[redacted-person] muss identisch mit dem
+Serienunterlieferant sein für alle in der Serien eingesetzten
+Unterbauteile. Somit darf es zwischen DV und PV keinen
+Unterlieferantenwechsel bei dem nominierten Produkt geben.</p>
+<p><u>Nicht-funktionale Anforderung : 3461578</u></p>
+<p>Zudem ist die Entwicklung des Grundmoduls zur Angebotsfreigabe
+abgeschlossen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461579</u></p>
+<p>[redacted-person] der Entwicklung der RGS-Elektronik sowie ein detaillierter
+Entwicklungsplan sind dem Auftraggeber zur Angebotsfreigabe
+offenzulegen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461580</u></p>
+<p>[redacted-person] sind vor der Angebotsfreigabe umzusetzen,
+sodass sich der DV-Stand technisch nicht vom PV-Stand oder dem
+Serienstand unterscheidet.</p>
+<p><u>Nicht-funktionale Anforderung : 3461581</u></p>
+<p>Ausgenommen hierbei sind Änderungen, die aufgrund technischer
+Herausforderungen im Projekt auftreten und nicht planbar zur
+Angebotsfreigabe sind.</p>
+<p><u>Nicht-funktionale Anforderung : 3461582</u></p>
+<p>Eine grobe Planung der durchzuführenden Prüfungen muss hinsichtlich
+Verfügbarkeit der Prüfeinrichtungen zur Angebotsfreigabe verfügbar
+sein.</p>
+<p><u>Nicht-funktionale Anforderung : 3461583</u></p>
+<p>[redacted-person] von Musteranfragen der Konzernmarken wird ein
+Abarbeitungsplan erstellt und mit dem Konzern abgestimmt.</p>
+<p><u>Nicht-funktionale Anforderung : 3461584</u></p>
+<p>Für die Fertigstellung von Standardmustern aus dem bestehenden
+Komponentenportfolio wird als Ziel eine Bearbeitungszeit von 15
+Arbeitstagen ab Bestellzeitpunkt vereinbart, 20 Arbeitstage dürfen nicht
+überschritten werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3461585</u></p>
+<p>Wenn durch Verschulden des Lieferanten ein Terminverzug entsteht,
+werden alle dadurch entstehenden Folgekosten beim OEM (Verschiebung/
+Ausfall von Versuchen, Zusatzversuche, administrativer Aufwand usw.) dem
+Lieferanten in Rechnung gestellt und durch den Lieferanten
+beglichen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461586</u></p>
+</blockquote>
+<h1 id="allgemeine-projektvorgaben">[redacted-person]</h1>
+<h4 id="kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges</h4>
+<blockquote>
+<p>Das vorliegende Modullastenheft beschreibt die Anforderungen an die
+Entwicklung eines reversiblen Gurtstraffers (RGS).</p>
+</blockquote>
+<p><u>Information : 3461589</u></p>
+<blockquote>
+<p>Dieser kann vor einer drohenden Fahrzeugkollision – unabhängig von
+der pyrotechnischen Strafffunktion – den Sicherheitsgurt des Insassen
+durch einen elektromotorischen Antrieb straffen und diese
+Gurtvorspannung ggf. wieder lösen.</p>
+</blockquote>
+<p><u>Information : 3461591</u></p>
+<blockquote>
+<p>[redacted-person] des Systems erfolgt von einem externen Steuergerät,
+welches durch die Bewertung verschiedener Fahrzeugkenndaten ein
+bevorstehendes Kollisionsrisiko prognostiziert. [redacted-person] ist
+nicht Umfang dieses Lastenheftes</p>
+</blockquote>
+<h4 id="zielsetzung">Zielsetzung</h4>
+<blockquote>
+<p><u>Information : 3461592</u></p>
+<p>Der reversible Gurtstraffer soll die Insassen vor einer
+bevorstehenden Fahrzeugkollision konditionieren, indem er die
+Gurttragelose mittels elektromotorischer Straffung des Gurtbandes
+reduziert und somit den Insassen im Sitz stabilisiert.</p>
+</blockquote>
+<p><u>Information : 3461596</u></p>
+<blockquote>
+<p>Hierdurch soll die Verlagerung des Insassen bei kritischen
+Fahrzuständen (z.[redacted-person], Schleudern etc.) reduziert werden.</p>
+</blockquote>
+<h4 id="zuordnung-der-komponente">Zuordnung der Komponente</h4>
+<h4 id="zielfahrzeuge">Zielfahrzeug(e)</h4>
+<blockquote>
+<p>Bezeichnung des Zielfahrzeuges: siehe Lieferumfangslastenheft.</p>
+<p>Entwicklungsauftragsnummer: siehe Lieferumfangslastenheft.</p>
+</blockquote>
+<h4 id="einsatzort-und-zielmarkt">Einsatzort und Zielmarkt</h4>
+<blockquote>
+<p>Zielmarkt: projektspezifisch siehe Lieferumfangslastenheft.</p>
+<p>Die relevanten Gesetzesanforderungen der Zielmärkte sind zu
+erfüllen.</p>
+</blockquote>
+<p><u>Information : 3461597</u></p>
+<p><u>[redacted-person] : 3462010</u></p>
+<p><u>[redacted-person] : 3462011</u></p>
+<p><u>[redacted-person] : 3462013</u></p>
+<h4 id="variantenmanagement">Variantenmanagement</h4>
+<blockquote>
+<p>Target: siehe Lieferumfangslastenheft</p>
+</blockquote>
+<h4 id="entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang</h4>
+<p><u>Nicht-funktionale Anforderung : 3462014</u></p>
+<p><u>[redacted-person] : 3462016</u></p>
+<blockquote>
+<p>Es gelten die Anforderungen des Kapitels "Entwicklungs- und
+Lieferumfang" der [redacted-co]99000.</p>
+<p><u>Nicht-funktionale Anforderung : 3461605</u></p>
+<p>[redacted-person] verpflichtet sich bei der Integration des Bauteiles
+beim Auftraggeber mitzuwirken.</p>
+<p><u>Nicht-funktionale Anforderung : 3461606</u></p>
+<p>Im Rahmen der Forward-[redacted-person] wird über das
+Neuteilinformationsblatt die KV-Quote vorgegeben, welche im Rahmen der
+Vergabeverhandlungen vereinbart wird.</p>
+<p>(Gilt nicht für [redacted-co].)</p>
+<p>Für [redacted-co] gilt:</p>
+<p><u>Information : 3461607</u></p>
+<p>Es gelten die Anforderungen der Konzeptverantwortungsvereinbarung.
+Für das / die Bauteil(e) gilt folgende Konzept-Verantwortungs-Quote:
+90%</p>
+</blockquote>
+<h4 id="angebotsumfang">Angebotsumfang</h4>
+<blockquote>
+<p><u>[redacted-person] : 3461608</u></p>
+<p>[redacted-person] verpflichtet sich, alle Anforderungen dem Angebot
+als vereinbarte Beschaffenheit zugrunde zu legen. Abweichungen vom
+BT-LAH sind dem Angebot beizufügen und zu dokumentieren.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461610</u></p>
+<blockquote>
+<p>[redacted-person] eines Auftragnehmers muss dieser nach den konzernweit
+abgestimmten Bewertungskriterien des Auftraggebers (bauteilbezogene
+Beurteilung von Entwicklungspartnern) auditiert und zugelassen sein.</p>
+</blockquote>
+<p><u>Information : 3461611</u></p>
+<blockquote>
+<p>Mit dem Angebot sind vom Auftragnehmer folgende Unterlagen den
+technischen oder zuständigen Fachabteilungen des Auftraggebers zur
+Prüfung vorzulegen:</p>
+<p><u>[redacted-person] : 3461612</u></p>
+</blockquote>
+<ul>
+<li><p>Liste der offenen Punkte und Abweichungen vom BT-LAH (analog zur
+Struktur des BT-LAH)</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462024</u></p>
+</blockquote>
+<ul>
+<li><p>Pflichtenheft</p></li>
+<li><p>Erfahrungsnachweis aus ähnlichen Projekten</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462025</u></p>
+<p><u>[redacted-person] : 3462026</u></p>
+</blockquote>
+<ul>
+<li><p>Nachweis über ausreichende Entwicklungskompetenz bzw.
+Entwicklungskapazitäten</p></li>
+</ul>
+<p><u>[redacted-person] : 3462027</u></p>
+<ul>
+<li><p>Nachweis über die geforderte Ausrüstung im Versuch, Labor,
+CAD-Bereich</p></li>
+</ul>
+<p><u>[redacted-person] : 3462028</u></p>
+<ul>
+<li><p>Erfahrungsnachweis im Prototypenbau (insbesondere bei
+sicherheitskritischen Bauteilen)</p></li>
+</ul>
+<p><u>[redacted-person] : 3462029</u></p>
+<ul>
+<li><p>[redacted-person], die auch Engpässe bei
+anderen Aufträgen des Auftragnehmers berücksichtigt</p></li>
+<li><p>Projektstrukturplan gemäß [redacted-co]99000</p></li>
+<li><p>Projektterminplan gemäß [redacted-co]99000</p></li>
+<li><p>Montage- und Befestigungskonzept</p></li>
+<li><p>Angaben zu Eigen- und Fremdanteil (Entwicklung,
+Produktion)</p></li>
+<li><p>Erprobungsplan/Testmanagement</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462030</u></p>
+<p><u>[redacted-person] : 3462031</u></p>
+<p><u>[redacted-person] : 3462032</u></p>
+<p><u>[redacted-person] : 3462033</u></p>
+<p><u>[redacted-person] : 3462034</u></p>
+<p><u>[redacted-person] : 3462035</u></p>
+</blockquote>
+<ul>
+<li><p>Werkstoffkonzept aller Einzelbauteile (nur Werkstoffe, keine
+Reinstoffangaben erforderlich)</p></li>
+</ul>
+<p><u>[redacted-person] : 3462036</u></p>
+<ul>
+<li><p>[redacted-person] durchzuführende Simulationen</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462037</u></p>
+<p>Für [redacted-co] gilt:</p>
+<p>Es ist der Nachweis zu erbringen, dass das in Kapitel "2.9
+Anforderungen an Kenntnisse im Produktdaten- Management" geforderte
+Anforderungsprofil bereits erfüllt ist oder zum Zeitpunkt der
+Beauftragung erfüllt sein wird, z. [redacted-person] entsprechende
+Qualifizierungsnachweise.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461613</u></p>
+<h4 id="entwicklungsablauf">Entwicklungsablauf</h4>
+<h4 id="terminplan-und-meilensteine">Terminplan und Meilensteine</h4>
+<blockquote>
+<p>Der aktuelle Terminplan wird von der Beschaffung des Auftraggebers
+den Anfrageunterlagen beigefügt.</p>
+</blockquote>
+<p><u>Information : 3462040</u></p>
+<blockquote>
+<p>Folgende vom Auftraggeber vorgegebenen Termine sind vom Auftragnehmer
+nach [redacted-co]99000 im Projektterminplan zu berücksichtigen.</p>
+</blockquote>
+<ul>
+<li><p>KW <strong>x</strong> : Verfügbarkeit A-Muster</p></li>
+<li><p>KW <strong>x</strong> : 3D-CAD-Datensatz</p></li>
+<li><p>KW <strong>x</strong> : [redacted-person]</p></li>
+<li><p>KW <strong>x</strong> : DDKM ([redacted-person]-Kontroll-Modell)</p></li>
+<li><p>KW <strong>x</strong> : Verfügbarkeit B-Muster</p></li>
+<li><p>KW <strong>x</strong> : Verfügbarkeit C-Muster</p></li>
+<li><p>KW <strong>x</strong> : Erstmuster</p></li>
+<li><p>KW <strong>x</strong> : Erstmuster-Prüfbericht</p></li>
+<li><p>KW <strong>x</strong> : Typprüfungsunterlagen (z. [redacted-person]'s,
+CCC,...)</p></li>
+<li><p>KW <strong>x</strong> : Baumustergenehmigung</p></li>
+<li><p>KW <strong>x</strong> : P-Freigabetermin</p></li>
+<li><p>KW <strong>x</strong> : B-Freigabetermin</p></li>
+<li><p>KW <strong>x</strong> : 2-Tagesproduktion</p></li>
+<li><p>KW <strong>x</strong> : SOP</p></li>
+</ul>
+<blockquote>
+<p>Für definierte Terminen: siehe Lieferumfangslastenheft.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462041</u></p>
+<p><u>[redacted-person] : 3462639</u></p>
+<p><u>[redacted-person] : 3462640</u></p>
+<p><u>[redacted-person] : 3462641</u></p>
+<p><u>[redacted-person] : 3462642</u></p>
+<p><u>[redacted-person] : 3462643</u></p>
+<p><u>[redacted-person] : 3462644</u></p>
+<p><u>[redacted-person] : 3462645</u></p>
+<p><u>[redacted-person] : 3462646</u></p>
+<p><u>[redacted-person] : 3462647</u></p>
+<p><u>[redacted-person] : 3462648</u></p>
+<p><u>[redacted-person] : 3462649</u></p>
+<p><u>[redacted-person] : 3462650</u></p>
+<p><u>[redacted-person] : 3462651</u></p>
+<p><u>[redacted-person] : 3462652</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462042</u></p>
+<blockquote>
+<p>Für allgemein bauartgenehmigungspflichtige Bauteile (ABG's) sind vom
+[redacted-person] inkl. Testreport (z. [redacted-person] ECE,
+CCC, Taiwan) an den jeweiligen</p>
+<p>bauteileverantwortlichen Konstrukteur zu liefern, der es an die
+Typprüfabteilung der Marke (siehe auch [redacted-co]01155) weiterleitet.</p>
+</blockquote>
+<ul>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für ECE</p></li>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für Taiwan</p></li>
+<li><p>KW x: Vorlage der ABG-Antragsnummer für China (CCC)</p></li>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für China (CCC)</p></li>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für Indien</p></li>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für Brasilien</p></li>
+<li><p>KW <strong>x</strong>: Vorlage der ABG für Japan</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462043</u></p>
+<p><u>[redacted-person] : 3462655</u></p>
+<p><u>[redacted-person] : 3462656</u></p>
+<p><u>[redacted-person] : 3462657</u></p>
+<p><u>[redacted-person] : 3462658</u></p>
+<p><u>[redacted-person] : 3462659</u></p>
+<p><u>[redacted-person] : 3462660</u></p>
+<p><u>[redacted-person] : 3462661</u></p>
+<p>[redacted-person] der Terminpläne des Einkaufs sind Terminpläne für die
+Bauteilentwicklung zu erstellen, die folgende Kerntermine
+berücksichtigen:</p>
+<p><u>Nicht-funktionale Anforderung : 3462044</u></p>
+</blockquote>
+<ul>
+<li><p>Für die Baustufen müssen funktionsgerechte Teile vorliegen mit
+Nachweis der Anbindungsmaße und Auslieferprüfungen für
+Grundfunktionen.</p></li>
+<li><p>VFF erste Teile aus Serienwerkzeugen</p></li>
+<li><p>1 Jahr vor SOP/Teile für Freibewitterung</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462663</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462664</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462665</u></p>
+</blockquote>
+<ul>
+<li><p>Zur PVS werkzeugfallende- und grundvermessene Teile aus
+Serienwerkzeugen in freigegebenen Serienwerkstoffen. Für PAG gilt die
+[redacted-person] 3 zur PVS.</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462666</u></p>
+</blockquote>
+<ul>
+<li><p>16 Wochen vor 0-Serie müssen die Bauteile mit Note 3 und
+Erstmusterprüfbericht für die BMG- Prüfungen vorliegen ([redacted-person]
+sind für die Prüfung 12 Wochen vorgesehen)</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462667</u></p>
+</blockquote>
+<ul>
+<li><p>4 Wochen vor der 0-Serie müssen alle für die Baumustergenehmigung
+erforderlichen Prüfungen abgeschlossen sein und die BMG
+vorliegen</p></li>
+</ul>
+<blockquote>
+<p>Für [redacted-co] gilt: Für [redacted-co] gilt:</p>
+<p><u>Nicht-funktionale Anforderung : 3462668</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462045</u></p>
+</blockquote>
+<ul>
+<li><p>4 Wochen vor der PVS müssen alle für die Baumustergenehmigung
+erforderlichen Prüfungen abgeschlossen sein und die
+Baumustergenehmigungsempfehlung vorliegen ([redacted-person] sind für die
+Prüfung 12 Wochen vorgesehen)</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462670</u></p>
+</blockquote>
+<ul>
+<li><p>6 Wochen vor 0-Serie muss der Erstmusterprüfbericht mit mind.
+Note 3 vorliegen</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462671</u></p>
+</blockquote>
+<h4 id="metriken-zur-projektverfolgung">Metriken zur
+Projektverfolgung</h4>
+<blockquote>
+<p>[redacted-person] liefert im Rahmen der Fortschrittsberichte die
+erforderlichen Daten für folgende Metriken:</p>
+</blockquote>
+<ul>
+<li><p>Meilensteintrendanalyse basierend auf den vereinbarten
+Meilensteinen</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462047</u></p>
+<p><u>[redacted-person] : 3462673</u></p>
+</blockquote>
+<ul>
+<li><p>Vergleich der geplanten und der tatsächlichen Dauer der
+Aktivitäten und Arbeitspakete basierend auf dem
+Projektterminplan</p></li>
+<li><p>Fehlerverfolgung inkl. Priorisierung und
+Bearbeitungsstatus</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462674</u></p>
+<p><u>[redacted-person] : 3462675</u></p>
+<p>Weitere projektspezifische technische Metriken, die kritische Aspekte
+messen, werden zwischen den Projektverantwortlichen des Auftragnehmers
+und des Auftraggebers abgestimmt.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462048</u></p>
+<h4 id="musterstände-und-musterstückzahlen">Musterstände und
+Musterstückzahlen</h4>
+<blockquote>
+<p>[redacted-person] des jeweiligen Fahrzeugprojekts.</p>
+<p><u>Nicht-funktionale Anforderung : 3462050</u></p>
+<p>Zur B-Freigabe sind dem Auftraggeber zwei komplette Sätze des
+Gurtsystems inkl. aller benötigten Gurt- Komponenten in inerter
+Ausführung zu Verfügung zu stellen.</p>
+</blockquote>
+<ul>
+<li><p><strong>x -</strong> Teile für Funktionsprüfungen</p></li>
+</ul>
+<p><u>Nicht-funktionale Anforderung : 3462051</u></p>
+<p><u>[redacted-person] : 3462679</u></p>
+<ul>
+<li><p><strong>x</strong> - Teile für Gesamtintegrationstest (inklusive
+der Teile für Verbauvorschrift, HILs, Referenzfahrzeug und weitere
+Prüforte)</p></li>
+<li><p><strong>x</strong> - Teile für Einbauuntersuchungen</p></li>
+<li><p><strong>x</strong> - Teile für Kundendienstlösungen</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462680</u></p>
+<p><u>[redacted-person] : 3462681</u></p>
+<p><u>[redacted-person] : 3462682</u></p>
+</blockquote>
+<ul>
+<li><p><strong>x -</strong> Teile für Erprobungen (z. [redacted-person], Korrosion, Festigkeit, Akustik)</p></li>
+</ul>
+<p><u>[redacted-person] : 3462683</u></p>
+<ul>
+<li><p><strong>x -</strong> Teile für Fahrversuch</p></li>
+<li><p><strong>x</strong> - Teile für Dauererprobungen</p></li>
+<li><p><strong>x -</strong> Teile für Fahrzeugdauerlauf</p></li>
+<li><p><strong>x</strong> - Teile für Laboranalyse</p></li>
+<li><p><strong>x</strong> - Teile für Vorbau/Vorderwagen</p></li>
+<li><p><strong>x</strong> - Teile für Unterflurmodelle</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462684</u></p>
+<p><u>[redacted-person] : 3462685</u></p>
+<p><u>[redacted-person] : 3462686</u></p>
+<p><u>[redacted-person] : 3462687</u></p>
+<p><u>[redacted-person] : 3462688</u></p>
+<p><u>[redacted-person] : 3462689</u></p>
+</blockquote>
+<ul>
+<li><p>x - Teile für [redacted-person]-Matrix-Code (die Lesbarkeit und der
+Inhalt des Codes müssen verifiziert werden; die Musterteile sind der
+Qualitätssicherung des Auftraggebers kostenlos zur Verfügung zu
+stellen.)</p></li>
+</ul>
+<p><u>[redacted-person] : 3462690</u></p>
+<blockquote>
+<p>[redacted-person] von Mustern sind die Musterstände für ZSB bzw. Systeme,
+Einzelteile, Komponenten mit dem Auftraggeber abzustimmen.</p>
+<p><u>[redacted-person] : 3462052</u></p>
+<p>[redacted-person] muss mit dem aktuellen Stand (HW, SW, EEPROM,
+Mechanik) gekennzeichnet werden.</p>
+<p><u>[redacted-person] : 3462053</u></p>
+<p>Zusätzlich sind alle auszuliefernden Musterteile mit einer
+fortlaufenden Nummer zu versehen und dokumentieren, um während der
+Entwicklungsphase die Rückverfolgbarkeit von Teileständen,
+Herstellungsdatum, Monteur etc. zu gewährleisten.</p>
+<p><u>Nicht-funktionale Anforderung : 3462055</u></p>
+<p>Bei der Lieferung von Musterteilen mit inerten, pyrotechnischen
+Komponenten sind die Vorgaben zur Bauteilkennzeichnung gemäß
+Produkt-Prozessstandard <em>PP_Fzg_5_Inerte Airbag und
+Gurtstraffeinheiten verbauen</em> einzuhalten.</p>
+<p><u>Nicht-funktionale Anforderung : 3462057</u></p>
+<p>[redacted-person] von 3D-CAD-Daten (digitaler Prototyp) hat zu einem
+definierten Zeitpunkt vor Lieferung der Musterteile zu erfolgen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462058</u></p>
+<blockquote>
+<p>Mindestens für alle geplanten Baustufen und Erprobungsfahrzeuge ist
+jeweils ein [redacted-person] anzuliefern.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462059</u></p>
+<blockquote>
+<p>[redacted-person] über Fahrzeug-Anzahl und Aufbautermin (virtuell und
+physisch) sind unter Abschnitt "Terminplan und Meilensteine" festgelegt
+bzw. dem Prototypenbauplan zu entnehmen.</p>
+</blockquote>
+<p><u>Information : 3462060</u></p>
+<blockquote>
+<p>Über die Projektlaufzeit sind Zusammenbauten für Sondererprobungen
+der [redacted-person] kostenfrei zur Verfügung zu stellen nach
+Spezifikationen in den jeweiligen Projektlastenheften.</p>
+<p>Liefertermine und genaue Ausführungen der Teile werden gemeinsam mit
+der Fachabteilung festgelegt.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462061</u></p>
+<blockquote>
+<p>Zu berücksichtigen sind auch Musterteile für Vorbau/Vorderwagen und
+Unterflurmodelle, falls packagerelevante Änderungen (laut [redacted-co]99000
+Kapitel "Änderungsmanagement") an dort verbauten Bauteilen vorgenommen
+werden.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462062</u></p>
+<blockquote>
+<p>[redacted-person] können sein:</p>
+</blockquote>
+<ul>
+<li><p>Geometrieänderungen</p></li>
+<li><p>Schlauchmarkierungen</p></li>
+<li><p>Wechsel des Werkzeugentwicklungsstandes (Prototypen-Werkzeug,
+Serien-Werkzeug)</p></li>
+</ul>
+<p><u>Information : 3462063</u></p>
+<blockquote>
+<p>Die genannte Anzahl an Teilen ist Bestandteil des
+Entwicklungsumfanges und der Entwicklungskosten. Musterteile sind dem
+Auftraggeber frei Haus anzuliefern.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462064</u></p>
+<blockquote>
+<p>Für die Bauteile ist eine Kennzeichnung mit einem RFID-Transponder
+nach [redacted-co]01067 „Einsatz von Auto- ID zur eindeutigen Objektkennzeichnung“
+gefordert.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462065</u></p>
+<blockquote>
+<p>[redacted-person] übernimmt das Beschaffen, Beschreiben und Montieren
+der Transponder, sowie die elektronische Bereitstellung des geforderten
+Dokumentationsumfangs.</p>
+</blockquote>
+<h4 id="typprüfung-und-zertifizierung">Typprüfung und
+Zertifizierung</h4>
+<blockquote>
+<p><u>[redacted-person] : 3462066</u></p>
+<p>[redacted-person] muss Fahrzeugteile und [redacted-person] (z. [redacted-person], After-[redacted-person]), welche nach weltweiten Gesetzen, z. [redacted-person], EG , Inmetro (Brasilien) und CCC ([redacted-person] Certification),
+eine Bauartgenehmigung und/oder einen Konformitätsnachweis (für
+funkbasierte Systeme) benötigen, zertifizieren und mit der
+entsprechenden Identifizierung nach Gesetzesvorgabe kennzeichnen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462068</u></p>
+<blockquote>
+<p>Für kennzeichnungs- und bauartgenehmigungspflichtige Märkte erfolgt
+die Zertifizierung und Kennzeichnung unter Verwendung eines
+Typisierungsnamens. Die gesetzlichen Anforderungen für den [redacted-person]
+(CNCA-C11-01:2014) sind in der Konzernnorm VW10511 beschrieben. Falls
+eine Nennung des Bauteilverwendungsbereichs („Typabgrenzung“) in den
+Bauartgenehmigungsdokumenten erforderlich ist, erfolgt diese
+ausschließlich durch den „[redacted-person]“ und/oder die verkürzte
+Konzernprojektbezeichnung.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462069</u></p>
+<blockquote>
+<p>[redacted-person] muss die Zertifikate vor Ablauf ihrer jeweiligen
+Gültigkeit sowie bei Gesetzesänderungen aktualisieren und rechtzeitig
+unaufgefordert an den Auftraggeber liefern. Dies gilt über den gesamten
+Produktlebenszyklus, der auch den Zeitraum der Versorgungs-verpflichtung
+von [redacted-person] beinhaltet.</p>
+<p>[redacted-person] ist typprüfpflichtig: <strong>Ja</strong></p>
+<p><u>[redacted-person] : 3462070</u></p>
+<p><u>[redacted-person] : 3462071</u></p>
+<p>Bei typprüfpflichtigen Bauteilen sind zum Erfüllungsnachweis der
+gesetzlichen [redacted-person] in Absprache mit der zuständigen
+Typprüfabteilung des Auftraggebers ggf. in Anwesenheit des [redacted-person] bzw. der Behörde durchzuführen und zu dokumentieren.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462072</u></p>
+<blockquote>
+<p>[redacted-person] Sicherheitsgurte gemeinsam mit der
+Sicherheitsgurt-Höhenverstellung und den Gurtschlössern muss für die
+jeweiligen Zielmärkte beim Hersteller des Sicherheitsgurtes
+erfolgen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462073</u></p>
+<blockquote>
+<p>Die CE-Zulassungsnummer für den Gasgenerator der Gurtkomponente muss
+von Lieferanten spätestens zur B-Freigabe an die Fachabteilung
+übermittelt werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3462074</u></p>
+<p>[redacted-person] nach ECE-R16 muss vom Lieferanten 10 Wochen vor
+der PVS an die Fachabteilung der [redacted-person] sowie der
+Typprüfung übermittelt werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3462075</u></p>
+<p>[redacted-person] ist selbstzertifizierungsrelevant:
+<strong>Ja</strong></p>
+<p><u>[redacted-person] : 3462076</u></p>
+<p>Für selbstzertifizierungsrelevante Teile muss eine gesetzeskonforme
+Dokumentation der geforderten meist experimentellen Nachweise der
+Gesetzeserfüllung durchgeführt werden.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462077</u></p>
+<blockquote>
+<p>[redacted-person] ist ERC-pflichtig: Nein</p>
+<p><u>[redacted-person] : 13851127</u></p>
+<p>[redacted-person] muss Fahrzeugteile, welche nach den südkoreanischen
+gesetzlichen Vorgaben ERC- pflichtig sind, mit einem [redacted-person] Code
+(DMC) nach der Konzernnorm VW01064 versehen.</p>
+</blockquote>
+<p><u>[redacted-person] : 13851156</u></p>
+<blockquote>
+<p>[redacted-person] der [redacted-person] Code-Beschriftung muss nach
+VW01064 für Teileverbauprüfung (TVP) und Bauzustandsdokumentation (BZD)
+umgesetzt werden.</p>
+</blockquote>
+<p><u>[redacted-person] : 13851698</u></p>
+<blockquote>
+<p>[redacted-person] ist ein Zusammenbau und enthält als Unterkomponente ein
+ERC-pflichtiges</p>
+<p>Bauteil: Nein</p>
+<p><u>[redacted-person] : 13851855</u></p>
+<p>Für ERC-pflichtige Bauteile im Zusammenbau (ZSB) hat der
+Auftragnehmer eine Teileverbauprüfung und Bauzustandsdokumentation nach
+VW01064 für jede einzelne ERC-pflichtige Komponente durchzuführen.</p>
+</blockquote>
+<p><u>[redacted-person] : 13851869</u></p>
+<blockquote>
+<p>[redacted-person] als Ganzes muss ebenfalls einen [redacted-person] Code nach
+VW01064 erhalten, über welchen die Teileverbauprüfung und
+Bauzustandsdokumentations-Daten der Unterkomponenten zurückverfolgt
+werden können.</p>
+<p><u>[redacted-person] : 13851880</u></p>
+<p>[redacted-person] sind diese Daten dem Auftraggeber zur Verfügung zu
+stellen.</p>
+<p><u>[redacted-person] : 13851900</u></p>
+</blockquote>
+<h4 id="qualität-und-zuverlässigkeit">Qualität und Zuverlässigkeit</h4>
+<blockquote>
+<p>Es gelten die Anforderungen und Verfahren bezüglich Qualität der
+Formel-Q-Reihe und der [redacted-co]99000.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461620</u></p>
+<h4 id="qualitätskonzepte">Qualitätskonzepte</h4>
+<blockquote>
+<p>Es gelten die Formel-Q Dokumente mit ihren Unterdokumenten. [redacted-person] muss sich der Auftragnehmer mit dem zuständigen QS-BTV oder
+QS-Produkttechniker abstimmen.</p>
+<p><u>[redacted-person] : 3462080</u></p>
+<p>[redacted-person]: 0 Liegenbleiber (LB) und 0 Schadensfälle (SF)
+sowie 0-km-Ausfälle mit 0 ppm</p>
+<p><u>[redacted-person] : 3462081</u></p>
+<p>Für [redacted-co] gilt:</p>
+<p>Es gelten die Anforderungen des Qualitätslastenheftes [redacted-co]
+(LAH [redacted-phone]).</p>
+</blockquote>
+<p><u>[redacted-person] : 3462082</u></p>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p>[redacted-person] und Planung muss vom Auftraggeber vorgegebene
+Prüftechnologien und -Konzepte berücksichtigen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462083</u></p>
+<blockquote>
+<p>[redacted-person] des Bauteils ist mit einer Design-Validierung am
+B-Musterstand und einer Produkt- Validierung am C-Musterstand
+nachzuweisen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462084</u></p>
+<blockquote>
+<p>Es ist über eine 2-Tages-Produktion gemäß den Regelungen der Formel
+Q-Konkret die Stabilität der Qualität unter Serienbedingungen
+nachzuweisen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462085</u></p>
+<blockquote>
+<p>[redacted-person] sind Fähigkeitsnachweise aller
+gesetzesrelevanten Grenzwerte zu liefern.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462086</u></p>
+<h4 id="risikomanagement-fmea-und-fta">Risikomanagement (FMEA und
+FTA)</h4>
+<blockquote>
+<p>[redacted-person] der FMEA sind vom Auftragnehmer zu der P-Freigabe
+vorzustellen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462088</u></p>
+</blockquote>
+<h4 id="fachbereichs--bzw.-projektspezifische-dmu-richtlinien">Fachbereichs-
+bzw. projektspezifische DMU-Richtlinien</h4>
+<blockquote>
+<p>[redacted-person]</p>
+<p><u>Nicht-funktionale Anforderung : 3461624</u></p>
+<p>Abweichend dazu ist im Projekt [redacted-prj] die mitgeltende Unterlage
+„Rahmenbedingungen PDM für [redacted-prj]“</p>
+<p>dringend zu beachten.</p>
+<p><u>Nicht-funktionale Anforderung : 3461625</u></p>
+</blockquote>
+<h4 id="für-audi-gilt-anforderungen-an-kenntnisse-im-produktdaten--management">Für
+[redacted-co] gilt: Anforderungen an Kenntnisse im Produktdaten- Management</h4>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p>Zur prozesssicheren Einsteuerung von Entwicklungsergebnissen in die
+Systeme des Auftraggebers sind Grundkenntnisse über das
+Produktdaten-Management ([redacted]) unerlässlich.</p>
+<p>Für [redacted-co] gilt:</p>
+<p><u>Information : 3461627</u></p>
+<p>[redacted-person] des LAH.[redacted-phone]AF „Anforderungsprofil für die
+Beauftragung von technischen Regeln</p>
+<p>zur Aufnahme im System MBT“ sind zu erfüllen.</p>
+</blockquote>
+<h1 id="projektmanagement-und--organisation">Projektmanagement und
+-organisation</h1>
+<blockquote>
+<p><u>[redacted-person] : 3461628</u></p>
+</blockquote>
+<h4 id="verantwortlichkeiten-im-projekt-und-projektstrukturplan">Verantwortlichkeiten
+im Projekt und Projektstrukturplan</h4>
+<blockquote>
+<p>[redacted-person] stellt ständige Applikationsingenieure nur für das
+beschriebene Einzelprojekt im eigenen Hause, sowie Residentingenieure am
+jeweiligen Entwicklungsstandort beim Auftraggeber<strong>.</strong></p>
+</blockquote>
+<p><u>[redacted-person] : 3461630</u></p>
+<blockquote>
+<p>Sowohl für die Applikations- als auch die Residentingenieure sind
+durch den Auftragnehmer die notwendigen Mess- und Applikationssysteme zu
+stellen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461631</u></p>
+<blockquote>
+<p>[redacted-person] sollen in Absprache mit dem Auftraggeber
+an den Erprobungsfahrten des Auftraggebers teilnehmen.</p>
+</blockquote>
+<h4 id="dokumentation">Dokumentation</h4>
+<blockquote>
+<p><u>[redacted-person] : 3461632</u></p>
+<p>Die gesamte Dokumentation ist vom Auftragnehmer in deutscher Sprache
+auf muttersprachlichem Niveau (korrekte Rechtschreibung, Grammatik und
+Verständlichkeit) zu erstellen.</p>
+<p>Eine englische Version der Dokumentation ist je nach Konzern-Marke
+zulässig.</p>
+<p><u>[redacted-person] : 3461634</u></p>
+<p>[redacted-person] von im internet verfügbaren maschinellen
+Übersetzungsdienste ist aus Gründen der Geheimhaltung, des Datenschutzes
+und Schutz des geistigen Eigentums untersagt.</p>
+<p><u>[redacted-person] : 3461635</u></p>
+<p>Die jeweils aktuelle Dokumentation des Entwicklungsstandes ist nach
+vorheriger Absprache mindestens alle <strong>4</strong> Wochen dem
+Auftraggeber auszuhändigen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461636</u></p>
+<blockquote>
+<p>[redacted-person] ist dem Auftraggeber in folgendem Dateiformat
+auszuhändigen:</p>
+</blockquote>
+<ul>
+<li><p>DOORS</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>PDF</p></li>
+</ul>
+<p><u>[redacted-person] : 3461637</u></p>
+<blockquote>
+<p>Für alle Applikationsprojekte ist eine detaillierte Dokumentation
+anzufertigen, welche Bauteile aus der Grundentwicklung übernommen werden
+und welche Bauteile spezifisch für diese Applikation sind.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461638</u></p>
+<h4 id="mustermappe">Mustermappe</h4>
+<blockquote>
+<p>Zu jeder Lieferung eines neuen Standes des Bauteiles (Hardware,
+Software und Mechanik) muss den zuständigen Fachabteilungen des
+Auftraggebers eine Mustermappe in einem vom Auftraggeber vorgegebenen
+FOrmat und Übertragungsweg übergeben werden.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462102</u></p>
+<blockquote>
+<p>Mit mindestens folgenden Inhalten:</p>
+</blockquote>
+<ul>
+<li><p>Deckblatt mit folgendem Inhalt: Deckblatt mit folgendem Inhalt:
+[redacted-person], Teilebezeichnung, [redacted]Mechanik-Stand (z. [redacted-person]),
+Projektleitername des Auftragnehmers, Unterlageninhaltsverzeichnis,
+Stand des Lastenheftes, Stand des Pflichtenheftes</p></li>
+<li><p>Kurzbeschreibung bzw. Informationen mit folgenden
+Angaben:</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462103</u></p>
+<p>alle Änderungen gegenüber vorherigem Stand, die Notwendigkeit der
+Änderung, die Auswirkung der Änderung</p>
+</blockquote>
+<p><u>[redacted-person] : 3462724</u></p>
+<ul>
+<li><p>Teilelebenslauf, Pflichtenheft, Mess- und Prüfberichte (inkl.
+Toleranzanalyse, Simulationsergebnis, Prüfbericht über
+Werkstoffanforderungen, Herstellungsverfahren)</p></li>
+</ul>
+<p><u>[redacted-person] : 3462725</u></p>
+<blockquote>
+<p>[redacted-person] der Mustermappe ist in Form einer ausgefüllten Checkliste
+nachzuweisen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462104</u></p>
+<blockquote>
+<p>[redacted-person] sind innerhalb von 5 Arbeitstagen nach zu
+reichen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462105</u></p>
+<h4 id="datenaustausch">Datenaustausch</h4>
+<blockquote>
+<p>[redacted-person].</p>
+<p>Es gelten die "Rahmenbedingungen PDM für [redacted-prj]"</p>
+<p>Für [redacted-co] gilt:</p>
+<p><u>Nicht-funktionale Anforderung : 3462107</u></p>
+<p>Es gelten die Anforderungen der Querschnittslastenhefte "TE DMU" LAH
+DUM 000 A und "TE CATIA V5" LAH DUM 000.</p>
+<p>Bei einem Intern verwendungsbeschränkten Bauteil:</p>
+<p><u>Nicht-funktionale Anforderung : 3462108</u></p>
+<p>Intern verwendungsbeschränkte Bauteile ent-halten Know-How des
+Auftraggebers. [redacted-person] zu intern verwendungsbeschränkten
+Bauteilen sind ausschließlich zur Verwendung durch den Auftragnehmer an
+dessen Entwicklungsstandort bestimmt. [redacted-person] von Daten an
+andere Standorte des Auftragnehmers kann nur nach vorheriger
+schriftlicher Zustimmung durch den Auftraggeber erfolgen und ist auf
+solche Daten zu beschränken, die für die reine Fertigung notwendig sind.
+Im Falle von Zuwiderhandlungen erhebt der Auftraggeber eine
+Vertragsstrafe in Höhe von EUR 50.000,--. [redacted-person] wird auf
+eine eventuelle Schadenersatzverpflichtung angerechnet.</p>
+<p>Sollte ein Datenaustausch mit anderen Standorten notwendig werden,
+hat der Auftragnehmer einen Ansprechpartner zu benennen, der einen
+Datenaustausch mit dem Bauteilverantwortlichen des Auftraggebers
+abstimmt.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462109</u></p>
+<h6 id="der-auftragnehmer-muss-sicherstellen-dass-daten-nicht-ohne-vorherige-zustimmung-des-auftraggebers-an-andere-standorte-des-auftragnehmers-weitergegeben-werden.">[redacted-person] muss sicherstellen, dass Daten nicht, ohne vorherige
+Zustimmung des Auftraggebers, an andere Standorte des Auftragnehmers
+weitergegeben werden.</h6>
+<p><u>Nicht-funktionale Anforderung : 3462110</u></p>
+<blockquote>
+<p>[redacted-person] an andere Standorte des Auftragnehmers weitergegeben
+werden müssen, muss der Auftragnehmer zuvor die schriftliche Zustimmung
+des Auftraggebers einholen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462111</u></p>
+<blockquote>
+<p>[redacted-person] muss die Weitergabe der Daten an andere Standorte
+auf solche Daten beschränken welche für die reine Fertigung notwendig
+sind</p>
+<p><u>Nicht-funktionale Anforderung : 3462112</u></p>
+<p>Im Falle von Zuwiderhandlungen erhebt der Auftraggeber eine
+Vertragsstrafe in Höhe von EUR 50.000,--. [redacted-person] wird auf
+eine eventuelle Schadenersatzverpflichtung angerechnet.</p>
+<p><u>Nicht-funktionale Anforderung : 3462113</u></p>
+</blockquote>
+<h6 id="sollte-ein-datenaustausch-mit-anderen-standorten-notwendig-werden-muss-der-auftragnehmer-einen-ansprechpartner-benennen-der-einen-datenaustausch-mit-dem-bauteilverantwortlichen-des-auftraggebers-abstimmt.">Sollte
+ein Datenaustausch mit anderen Standorten notwendig werden, muss der
+Auftragnehmer einen Ansprechpartner benennen, der einen Datenaustausch
+mit dem Bauteilverantwortlichen des Auftraggebers abstimmt.</h6>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462114</u></p>
+</blockquote>
+<h1 id="systemumgebung">Systemumgebung</h1>
+<h4 id="funktionale-systemumgebung">[redacted-person]</h4>
+<blockquote>
+<p>Der elektromotorische, reversible Gurtstraffer stellt eine
+Erweiterung des Funktionsumfangs des pyrotechnischen, irreversiblen
+Gurtstraffers dar und darf diesen in seiner Funktion nicht
+beeinflussen.</p>
+<p><u>[redacted-person] : 3461642</u></p>
+<p>Alle möglichen Zustandsübergänge in die Crashphase (ohne
+Vorstraffung, mit abgeschlossener Vorstraffung, Übergang während
+Straffung…) müssen robust ohne Beeinflussung von Pyrotechnikstraffung
+oder Kraftbegrenzung sowie ungewolltes RGS-Aufkuppeln sichergestellt
+werden.</p>
+<p><u>[redacted-person] : 3461643</u></p>
+<p>[redacted-person] der elektromechanischen Baugruppe erfolgt vom
+Master-Steuergerät über eine Schnittstelle, die projektspezifisch (siehe
+Lieferumfangslastenheft) ist und im elektronischen Lastenheft definiert
+wird.</p>
+</blockquote>
+<p><u>Information : 3461644</u></p>
+<blockquote>
+<p>[redacted-person] des erforderlichen Leistungsstromes sowie der
+Straff- und Lösekurve erfolgt in der Steuereinheit des
+Aufrollermoduls.</p>
+</blockquote>
+<p><u>Information : 3461645</u></p>
+<blockquote>
+<p>[redacted-person]-Steuergerät diagnostiziert über diese Schnittstelle die
+Funktionsbereitschaft des reversiblen Gurtstraffers.</p>
+<p>[redacted-person] fordert Fahrzeugseitig die jeweiligen
+Funktionsanteile an. (Anforderungszeitpunkt und Zeitraum, über den die
+Anforderung besteht).</p>
+<p>[redacted-person] gilt:</p>
+<p><u>Information : 3461646</u></p>
+<p><u>Information : 3461647</u></p>
+<p>[redacted-person] fordert die jeweiligen Funktionsanteile so
+lange an, wie sie benötigt werden.</p>
+</blockquote>
+<p><u>Information : 3461648</u></p>
+<blockquote>
+<p>[redacted-person] gilt:</p>
+<p>[redacted-person] fordert die jeweiligen Funktionsanteile
+einmalig an. Die darauffolgende Durchführung obliegt dem reversiblen
+Gurtstraffer.</p>
+</blockquote>
+<p><u>Information : 3461649</u></p>
+<blockquote>
+<p>[redacted-person] der Anforderung bzw. Ende der Komfortstraffung liegt es in
+der Verantwortung des Lieferanten des Gurtstraffers, eine umgehende
+Freigängigkeit des Gurtbandes herzustellen (Lösen).</p>
+</blockquote>
+<p><u>[redacted-person] : 3461650</u></p>
+<blockquote>
+<p>[redacted-person] wird ein Zustandssignal „Fahrzustand
+stabil/instabil“ zur Verfügung gestellt, das den resultierenden
+Beschleunigungszustand des Fahrzeugs widerspiegelt und vom RGS in die
+Löseentscheidung einbezogen wird.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461651</u></p>
+<blockquote>
+<p>Es sind entsprechende Funktionsmodule oder Überwachungen vorzusehen,
+um in allen möglichen Fahrsituationen ein sicheres Lösen zu
+gewährleisten und eine Interaktion mit der mechanischen
+Sperrverriegelung zu verhindern.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461652</u></p>
+<blockquote>
+<p>Das genutzte Funktionskonzept muss dem Auftraggeber offengelegt
+werden (white-box).</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461653</u></p>
+<blockquote>
+<p>Es ist sicherzustellen, dass zwischen Ende der Anforderung und Beginn
+des Lösens kein Gurtbandauszug stattfindet zur Verhinderung einer
+ungewollten Verriegelung des Gurtes.</p>
+</blockquote>
+<p class="heading" id="abbildung-4.1-systemumgebung-rgs-master-steuergerät">Abbildung 4.1:
+Systemumgebung RGS, Master-Steuergerät</p>
+<blockquote>
+<p><u>[redacted-person] : 3461654</u></p>
+<p><img alt="mks|3461655/Text%20Attachments/1853_2_1.png|3461655/Text%20Attachments/1853_2_1.docx|" src="./07_Components-bt-lah-dum-857-t-v7-media/media/image3.jpeg" style="width:4.92159in;height:3.05833in"/></p>
+</blockquote>
+<h4 id="physische-systemumgebung">[redacted-person]</h4>
+<blockquote>
+<p>[redacted-person] wird über zwei Befestigungspunkte starr mit der
+Karosserie verbunden.</p>
+<p><u>Information : 3461655</u></p>
+</blockquote>
+<p><u>[redacted-person] : 3461657</u></p>
+<blockquote>
+<p>Um zu umliegenden Bauteilen (Kunststoffverkleidungen, Verkabelungen
+etc.) einen konstruktiv erforderlichen Mindestabstand einzuhalten, darf
+das Aufrollermodul den unter Punkt 5.11.3 beschriebenen Bauraum an
+keiner Stelle durchdringen.</p>
+</blockquote>
+<h4 id="systemschaltbild">Systemschaltbild</h4>
+<p class="heading" id="abbildung-4.3-systemschaltbild">Abbildung 4.3:
+Systemschaltbild</p>
+<blockquote>
+<p><u>[redacted-person] : 3461658</u></p>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+</blockquote>
+<h1 id="technische-anforderungen">[redacted-person]</h1>
+<h4 id="benennung-und-teilnummer">Benennung und Teilnummer</h4>
+<blockquote>
+<p>Benennung: [redacted-person] (RGS)</p>
+<p><u>Information : 3461660</u></p>
+<p><u>Information : 3461661</u></p>
+<p>Modulkennzeichnung:</p>
+<p>KCC 20 (RGS mit schaltbarem Gurtkraftbegrenzer) KCC 25 (RGS mit
+konstantem Gurtkraftbegrenzer)</p>
+</blockquote>
+<p><u>[redacted-person] : 3461663</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461664</u></p>
+<blockquote>
+<p>Die später verwendete Benennung „Steuergerät“ beschreibt das
+Steuergerät des RGS.</p>
+<p>Teilenummer: siehe Lieferumfangslastenheft</p>
+</blockquote>
+<p><u>Information : 3461665</u></p>
+<h4 id="prüfanforderungen">Prüfanforderungen</h4>
+<blockquote>
+<p><u>[redacted-person] : 3461666</u></p>
+<p>[redacted-person] müssen alle im LAH genannten Spezifikationen
+(siehe auch Prüfmatrix im Anhang) erfüllen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462140</u></p>
+<blockquote>
+<p>Für alle Applikationsprojekte ist eine fahrzeugspezifische
+Deltaqualifikation vorzusehen und die Inhalte auf Basis der COP-Struktur
+mit dem jeweiligen Kunden abzustimmen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462141</u></p>
+<p>[redacted-person] sind in den fahrzeugspezifischen Lastenheften
+definiert.</p>
+<p><u>Nicht-funktionale Anforderung : 3462142</u></p>
+<p>[redacted-person] und deren Interpretation sind schriftlich und
+in elektronischer Form anhand von Versuchsberichten mit Fotos zu
+dokumentieren und an die Fachabteilung zu übergeben.</p>
+<p><u>Nicht-funktionale Anforderung : 3462143</u></p>
+<p>[redacted-person] im Fahrzeug sind zu berücksichtigen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462144</u></p>
+<p>Die im nachfolgenden Text aufgeführten Messstellen sind in der
+folgenden Prinzipdarstellung verdeutlicht.</p>
+</blockquote>
+<p><u>Information : 3462145</u></p>
+<blockquote>
+<p><strong>Abbildung:</strong> [redacted-person]-Messstellen
+am Gurtsystem (gemäß ISO TS13499 – RED C: 2007 E, [redacted-phone])</p>
+</blockquote>
+<p><u>Information : 3462739</u></p>
+<h4 id="data-matrix-code">Data-Matrix-Code</h4>
+<blockquote>
+<p>Siehe §5.1.1.3 im Konzern-[redacted-person]
+(LAH.DUM.857.D)</p>
+<p><u>Nicht-funktionale Anforderung : 3462147</u></p>
+</blockquote>
+<h4 id="block--und-prinzipschaltbild">Block- und Prinzipschaltbild</h4>
+<blockquote>
+<p>[redacted-person]- und Prinzipschaltbild ist im Systemlastenheft RGS präziser
+definiert. Hier wird ein vereinfachtes Schaltbild dargestellt:</p>
+<p><strong>Abbildung:</strong> Prinzipschaltbild des RGS</p>
+</blockquote>
+<h4 id="funktionen">Funktionen</h4>
+<h4 id="funktionsbeschreibung">Funktionsbeschreibung</h4>
+<blockquote>
+<p><u>Information : 3461670</u></p>
+<p><u>Information : 3462149</u></p>
+<p>Für das zugrunde liegende, pyrotechnische Gurtstraffermodul (KCC 2X)
+gelten die Anforderungen des Konzern-[redacted-person]
+LAH.DUM.857.D.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462151</u></p>
+<blockquote>
+<p>Darüber hinaus sind von der elektromotorischen Straffeinheit folgende
+Funktionen zu erfüllen:</p>
+</blockquote>
+<p><u>[redacted-person] : 3462152</u></p>
+<ul>
+<li><p>Vorspannen des Sicherheitsgurtes nach Anforderung vom
+Master-Steuergerät.</p></li>
+</ul>
+<p><u>[redacted-person] : 3462744</u></p>
+<ul>
+<li><p>[redacted-person] ist für 25 Kundenprofile auszulegen (Straff- und
+Löseprofile), bei denen Maximalkraft und Kraftanstiegsgradient für jedes
+Fahrzeugprojekt frei parametrierbar sind.</p></li>
+</ul>
+<p><u>[redacted-person] : 3462745</u></p>
+<ul>
+<li><p>Für jedes Profil ist eine Zielkraft sowie eine
+Geschwindigkeitsregelung bzw. Stromregelung vorzusehen (Zielkraft
+unabhängig von Einzugsgeschwindigkeit; siehe auch
+Elektronik-LAH).</p></li>
+</ul>
+<p><u>[redacted-person] : 3462746</u></p>
+<blockquote>
+<p>Die genaue Anzahl ist projektspezifisch und wird von der
+Fachabteilung zur B-Freigabe definiert.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462747</u></p>
+<ul>
+<li><p>[redacted-person] sind inhaltlich zu unterscheiden:</p></li>
+</ul>
+<blockquote>
+<p><strong>Tabelle:</strong> Profiltypen</p>
+<p><u>[redacted-person] : 3462748</u></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Profil</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung des Profils</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Straffung</strong></p>
+</blockquote></th>
+<th><ul>
+<li><p>[redacted-person] für eine reaktive Auslösung z.[redacted-person] eine
+Bremsreaktion</p></li>
+<li><p>Es sind ca. 15 Straffungsprofile umzusetzen.</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Niedrig- Geschwindigkeits- Unfall (NGU)</strong></p>
+</blockquote></td>
+<td><ul>
+<li><p>[redacted-person] und Kraft für eine reaktive Aktivierung in einem
+low-speed-Crash</p></li>
+<li><p>Es sind bis zu vier Straffprofile umzusetzen.</p></li>
+</ul></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><ul>
+<li><p>[redacted-person] wird nach Ausführung bis zu 70 s gehalten zur
+dynamischen Unterstützung</p></li>
+<li><p>Es ist bis zu zwei Straffprofil umzusetzen.</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Gurtlosereduktion (GLR)</strong></p>
+</blockquote></td>
+<td><ul>
+<li><p>Komfortorientierter, wertiger Einzug von Gurtband mit geringer
+Kraft und Geschwindigkeit</p></li>
+<li><p>Es ist ein Straffprofil umzusetzen.</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Beltparking (BP)</strong></p>
+</blockquote></td>
+<td><ul>
+<li><p>[redacted-person] von Gurtband zur Unterstützung der Rückzugsfeder
+in definierten Situationen</p></li>
+<li><p>Es sind bis zu zwei Straffprofile umzusetzen (Tür auf/ Tür
+zu)</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] (HW)</strong></p>
+</blockquote></td>
+<td><ul>
+<li><p>[redacted-person] als haptische Warnschnittstelle zum
+Insassen</p></li>
+<li><p>Es ist ein Straffprofil umzusetzen.</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><p>[redacted-person] des Systems darf konstruktiv nicht begrenzt
+sein.</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3463127</u></p>
+<p><u>[redacted-person] : 3462749</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] muss in der Lage sein, den maximal möglichen
+Gurtbandvorrat in der Anlageposition einzuziehen (ausreichende
+Maximalaktivierungszeit)</p></li>
+</ul>
+<p><u>[redacted-person] : 3462750</u></p>
+<ul>
+<li><p>[redacted-person] muss mechanisch oder durch ein geeignetes
+Stromprofil solange gehalten werden, wie die Anforderung vom
+Mastersteuergerät vorliegt.</p></li>
+</ul>
+<p><u>[redacted-person] : 3462751</u></p>
+<ul>
+<li><p>Während der Haltephase ist auf Hochreibwert (µhigh) mit maximalem
+Insassenperzentil kein Auszug von Gurtband zulässig in Abhängigkeit vom
+Straffprofil.</p></li>
+</ul>
+<p><u>[redacted-person] : 3462752</u></p>
+<ul>
+<li><p>[redacted-person] der Anforderung bzw, nach Beenden der Funktion führt
+der RGS einen Vorgang zum sicheren Lösen der Gurtvorspannung
+aus.</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462753</u></p>
+</blockquote>
+<ul>
+<li><p>Der RGS führt unter Einbeziehen des durch das Mastersteuergerät
+übermittelten Fahrzeugzustandes selbstständig ein sicheres Lösen der
+Gurtvorspannung zu einem passenden Zeitpunkt durch. Dazu bewertet er die
+Lösefähigkeit, um eine Blockade der Sperrklinken sicher zu vermeiden.
+Ggf. wird das Lösen somit bis zum Vorliegen der Lösefähigkeit verzögert.
+[redacted-person] sind dem Abschnitt 8.3.1.11 zu
+entnehmen.</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462754</u></p>
+</blockquote>
+<ul>
+<li><p>Ggf. wird das Lösen somit bis zum Vorliegen der Lösefähigkeit
+verzögert.</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462755</u></p>
+</blockquote>
+<ul>
+<li><p>In jedem Fall muss ein gerade ausgeführtes Profil durch die
+Anforderung eines Profils mit höherer Priorität umgehend abgebrochen und
+ohne Lösen bzw. Zeitverzug in die Ausführung des neu angeforderten
+Profils übergegangen werden.</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462756</u></p>
+</blockquote>
+<ul>
+<li><p>Im Falle einer pyrotechnischen Straffung empfängt der RGS das
+Signal, dass eine [redacted-person] erfolgt ist. In diesem Fall
+wird die Straffung umgehend abgebrochen (=Crashabschaltung).</p></li>
+</ul>
+<p><u>[redacted-person] : 3462757</u></p>
+<ul>
+<li><p>In jedem Fall muss ein gerade ausgeführtes Profil durch die
+Anforderung eines anderen Profils umgehend abgebrochen und ohne Lösen
+bzw. Zeitverzug in die Ausführung des neu angeforderten Profils
+übergegangen werden.</p></li>
+</ul>
+<p><u>[redacted-person] : 3462758</u></p>
+<ul>
+<li><p>Während der Ausführung eines Profils wird eine mögliche
+Anforderung eines Profils mit niedrigerer Priorität nicht
+umgesetzt.</p></li>
+<li><p>[redacted-person] muss vom Steuergerät diagnostizierbar
+sein.</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462759</u></p>
+<p><u>[redacted-person] : 3462760</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] zu Profile sind dem Anhang 9.1 zu
+entnehmen. Die genaue Ausprägung der Profile wird im Rahmen der
+Entwicklung abgestimmt.</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462761</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] ist projektspezifisch und wird im
+Lieferumfangslastenheft definiert.</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462762</u></p>
+<p>Die elektromotorische Antriebseinheit darf die Funktionen des
+Grundmoduls – z.[redacted-person] und Rückzugskräfte oder die pyrotechnische
+Aktivierung sowie Kraftbegrenzung/ Gurtkraftumschaltung im Crashverlauf
+– nicht beeinflussen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462153</u></p>
+<blockquote>
+<p>Alle sicherheitsrelevanten oder gesetzlich vorgeschriebenen
+Eigenschaften müssen vollwertig ausgeführt werden unabhängig von der
+RGS-Funktionalität.</p>
+</blockquote>
+<p><u>[redacted-person] : 13852441</u></p>
+<blockquote>
+<p>Für sämtliche Normen und TLs gelten die zum Vergabezeitpunkt gültigen
+Stände.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462154</u></p>
+<blockquote>
+<p>[redacted-person] des Gurtsystems ist hinsichtlich der Rückhaltewirkung
+mit den Anforderungen für Frontairbag und Sitze abzustimmen (siehe
+projektspezifisches Systementwicklungslastenheft).</p>
+<p><u>Nicht-funktionale Anforderung : 3462155</u></p>
+</blockquote>
+<h6 id="gurtlosereduktion">Gurtlosereduktion</h6>
+<blockquote>
+<p>[redacted-person] wird einmalig beim Losfahren durchgeführt.
+Dabei muss der Insassen angeschnallt sein. Ziel ist die Entnahme der
+Gurtlose aus dem System zur besseren Anbindung des Insassen.</p>
+</blockquote>
+<p><u>Information : 3462950</u></p>
+<blockquote>
+<p>Es ergibt sich 2 Möglichkeiten für die Auslösung der Funktion:</p>
+</blockquote>
+<ol type="1">
+<li><p>bei der Überschreitung einer Geschwindigkeitsschwelle</p></li>
+<li><p>nach einer festgelegten Zeit, bei Geschwindigkeit ≠ 0</p></li>
+</ol>
+<blockquote>
+<p><u>[redacted-person] : 3462951</u></p>
+<p><u>[redacted-person] : 3462952</u></p>
+<p><u>[redacted-person] : 3462953</u></p>
+<p>[redacted-person] soll nominal bei RT bzgl. der Kraft in einem Bereich von
+10 bis 30 N parametrierbar sein (siehe Abb. 9.1.1).</p>
+<p>[redacted-person]-Kraft wird von der Fachabteilung im Projekt festgelegt.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462954</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462955</u></p>
+<blockquote>
+<p>[redacted-person] der Soll-Kraft darf im Neuzustand nicht mehr als ± 10%
+betragen (siehe Kapitel 8.7).</p>
+</blockquote>
+<p><u>[redacted-person] : 3462956</u></p>
+<blockquote>
+<p>[redacted-person] wird nur kurzzeitig vom Mastersteuergerät angefordert
+(Flankentriggerung).</p>
+</blockquote>
+<p><u>Information : 3462957</u></p>
+<blockquote>
+<p>Solange die Sollkraft und die maximale Dauer der Durchführung der
+Funktion nicht erreicht sind, führt der RGS die Funktion weiter.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462958</u></p>
+<blockquote>
+<p>[redacted-person] bis zur Haltekraft muss auch bei langsamem Einzug
+homogen erfolgen, um eine hohe haptische Wertigkeit zu garantieren.</p>
+<p><u>[redacted-person] : 3462959</u></p>
+<p>[redacted-person] sowie die Einzugsgeschwindigkeit müssen unabhängig
+parametrierbar sein.</p>
+<p><u>[redacted-person] : 3462960</u></p>
+<p>Die oben genannten Kräfte werden am Aufroller gemessen.</p>
+<p><strong>Abbildung 9.1.1:</strong> Korridor für die Nominal-Kräfte der
+GLR</p>
+</blockquote>
+<h6 id="push2pass-straffung">Push2Pass-Straffung</h6>
+<blockquote>
+<p><u>Information : 3462961</u></p>
+<p><u>Information : 3462962</u></p>
+<p>Die Push2Pass Straffung wird angesteurt in der [redacted-person] wenn
+das Fahrzeug beschleunigt und für parametrierbar für eine Dauer von 5
+bis 15 Sekunden.</p>
+<p><u>Information : 4824279</u></p>
+<p>Push2Pass Profil ist eine stärkere [redacted-person] (Kraftniveau
+ca. bis 100N) das Profil müsste langsam anlaufen</p>
+</blockquote>
+<h6 id="aca-straffung">ACA-Straffung</h6>
+<blockquote>
+<p><u>Information : 4827134</u></p>
+<p>Die ACA ([redacted-person] Assist ) wird beim Autopilot verwendet um
+den Fahrer zum [redacted-person] zu animieren</p>
+<p>[redacted-person] muss ca. 100N betragen</p>
+</blockquote>
+<h6 id="gurtparken">Gurtparken</h6>
+<blockquote>
+<p><u>Information : 4824219</u></p>
+<p>[redacted-person] unterstützt das Aufrollen des Gurtbands nach dem
+Abschnallen zur Erhöhung des Tragekomforts sowie zur Verbesserung des
+Aufrollverhaltens bei älteren Gurten.</p>
+</blockquote>
+<p><u>Information : 3462964</u></p>
+<blockquote>
+<p>[redacted-person] schnallt sich ab und bei der Betätigung des
+Gurtschlosses (Status von „gesteckt“ auf „nicht gesteckt“), rollt der
+RGS das Gurtband auf.</p>
+<p>Es gibt 2 unterschiedliche Ablaufprofile für die Durchführung der
+Funktion:</p>
+<p>Fall 1: bei Fahrzeugtür „auf“ Fall 2: bei Fahrzeugtür „zu“</p>
+<p><u>Information : 3462965</u></p>
+<p><u>Information : 3462966</u></p>
+<p><u>Information : 3462967</u></p>
+<p><u>Information : 3462968</u></p>
+<p>Der RGS beendet die Funktion umgehend, wenn das Gurtband durch ein
+externes Ereignis gestoppt wird oder ein erneuter Anschnallwunsch
+besteht.</p>
+<p><u>[redacted-person] : 3462969</u></p>
+<p>Wenn das Gurtband sich wieder in der Park-Position befindet, wird die
+Funktion regulär beendet.</p>
+<p><u>[redacted-person] : 3462970</u></p>
+<p>[redacted-person] der Parkposition ist fahrzeugspezifisch und muss zur
+Kalibrierung des Gurtbandwegsensors im RGS-Datensatz parametrierbar
+definiert sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462971</u></p>
+<blockquote>
+<p>[redacted-person] soll sichergestellt werden, dass auch bei
+vorübergehender Blockade des Gurtbands die Parkposition zuverlässig
+erreicht wird.</p>
+<p><u>[redacted-person] : 3462972</u></p>
+<p>[redacted-person] der Funktion wird erst nach einer bestimmten [redacted-person] gestartet.</p>
+<p><u>[redacted-person] : 3462973</u></p>
+</blockquote>
+<h6 id="straffung">Straffung</h6>
+<blockquote>
+<p>Um die Position der Insassen in definierten gefährlichen
+Fahrsituationen zu verbessern, soll bei angeschnalltem Passagier das
+Gurtsystem eine reversible Straffung auf hohem Kraftniveau (Straffung)
+durchführen.</p>
+</blockquote>
+<p><u>Information : 3462980</u></p>
+<blockquote>
+<p>[redacted-person] der Straffung sollen sich innerhalb dem folgenden Korridor
+(Abb. 9.1.4) befinden.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462981</u></p>
+<blockquote>
+<p>[redacted-person] beginnt, nachdem die Straffanforderung vom RGS
+empfangen wurde.</p>
+<p>[redacted-person] werden an der B3-Stelle auf dem AK-Sitz gemessen.</p>
+</blockquote>
+<p><u>Information : 3462982</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462983</u></p>
+<blockquote>
+<p>Speziell bei Applikationen mit hoher Dynamik ist auf eine kurze
+Reaktionszeit zu achten und die Latenz zu minimieren.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462984</u></p>
+<blockquote>
+<p>[redacted-person] der Verzögerung sind mit der jeweiligen Fachabteilung
+abzustimmen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462985</u></p>
+<blockquote>
+<p><strong>Abbildung 9.1.4:</strong> Korridor für die Nominal-Kräfte der
+VS</p>
+</blockquote>
+<h6 id="ngu-pcx-high">NGU / PCx-High</h6>
+<blockquote>
+<p><u>[redacted-person] : 3462986</u></p>
+<p>Um eine Gurtstrafferfunktion auch unterhalb der pyrotechnischen
+Auslöseschwelle zur Verfügung zu stellen wird das Low-Speed-Crash-Profil
+(NGU) als reaktive Aktivierung vom Airbagalgorithmus im Crash
+ausgelöst.</p>
+</blockquote>
+<p><u>Information : 3462988</u></p>
+<h6 id="die-straffleistung-pcx_high-findet-bei-unvermeidbarkeit-von-unfällen-sensiert-durch-die-fahreugumfeldsensorik-ihren-einsatz.">[redacted-person] PCx_High findet bei Unvermeidbarkeit von Unfällen
+sensiert durch die Fahreugumfeldsensorik ihren Einsatz.</h6>
+<blockquote>
+<p>Im RGS ist dazu eine Straffung mit maximaler Kraft und Dynamik
+auszuführen.</p>
+<p><u>Information : 3462989</u></p>
+</blockquote>
+<p><u>[redacted-person] : 3462990</u></p>
+<blockquote>
+<p>[redacted-person] der Stromaufnahme und Geräuschgrenzen ist für
+dieses Profil zulässig (siehe Kapitel 9.4.2).</p>
+</blockquote>
+<p><u>[redacted-person] : 3462991</u></p>
+<blockquote>
+<p>Es ist eine B3-Kraft auf dem AK-Sitz von c.a. 150 - 400 N in 50ms
+applizierbar zu erreichen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462992</u></p>
+<h6 id="geeignete-systeme-wie-boosterschaltung-elektronische-ladungspumpe-oder-auch-energiespeicher-können-dazu-genutzt-werden-und-sind-mit-dem-auftraggeber-abzustimmen.">[redacted-person] wie Boosterschaltung, elektronische Ladungspumpe oder auch
+Energiespeicher können dazu genutzt werden und sind mit dem Auftraggeber
+abzustimmen.</h6>
+<p><u>[redacted-person] : 3462993</u></p>
+<h6 id="haltestromadaptivität-adaptive-haltephase-in-voll-teilstraffung-hohe-dynamik-presense-integriert">Haltestromadaptivität
+(adaptive Haltephase, in Voll-/Teilstraffung/ [redacted-person] PreSense
+integriert)</h6>
+<blockquote>
+<p>[redacted-person] einer Straffanforderung (Voll-/Teilstraffung/ [redacted-person] PreSense) bei bereits vorverlagerten Insassen ermöglicht die
+Haltestromadaptivität eine situative Anhebung des Haltestromniveaus, um
+eine optimierte Refixierung der Insassen darzustellen.</p>
+</blockquote>
+<p><u>Information : 3462995</u></p>
+<blockquote>
+<p>In einem Funktionsmodul im RGS wird die eingenommene Sitzposition
+nach optional durchgeführter Gurtlosereduktion durch eine geeignete
+Mittelwertbildung des Gurtbandauszugs (z.[redacted-person] Durchschnitt,
+mehrfache Filterung, …) ermittelt (siehe Abbildung 877510).</p>
+</blockquote>
+<p><u>[redacted-person] : 3462996</u></p>
+<blockquote>
+<p>[redacted-person] soll ständig gebildet und angepasst (Nominalwert „in
+position“) werden, um eine</p>
+<p>Sitzplatzverstellung, Fahrerwechsel, Kleidungswechsel zu
+kompensieren.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462997</u></p>
+<blockquote>
+<p>Durch einen parametrierbaren Offsetwert wird ein in-position-Korridor
+definiert.</p>
+<p><u>[redacted-person] : 3462998</u></p>
+<p>Nach dem Ende jeder Straffung ist die Mittelwertbildung neu zu
+initialisieren.</p>
+<p><u>[redacted-person] : 3462999</u></p>
+<p>Bei einer vorverlagerten Gurtbandposition bei einer Straffanforderung
+wird die Stromgrenze auf ein zweites Halteplateau angehoben.</p>
+<p><u>[redacted-person] : 3463000</u></p>
+<p>Befindet sich die ermittelte Gurtbandposition im Zielkorridor oder
+erreicht es diesen wieder (i.[redacted-person] Vorverlagerung z.[redacted-person]), so ist das untere "normale" Haltekraftniveau
+abzubilden.</p>
+<p><u>[redacted-person] : 3463001</u></p>
+<p>[redacted-person] für die Stromgrenzenüberschreitung zur Umsetzung
+dieser Funktion sind applikationsspezifisch mit der jeweiligen
+Fachabteilung festzulegen.</p>
+<p>[redacted-person] ist parametrierbar auszulegen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3463002</u></p>
+<p><u>[redacted-person] : 3463003</u></p>
+<blockquote>
+<p>Näheres zu der Funktion ist zudem im Elektronik-LAH RGS
+spezifiziert.</p>
+<p><strong>Abbildung:</strong> In-[redacted-person]</p>
+<p><u>Information : 3463004</u></p>
+</blockquote>
+<p><u>Information : 3463005</u></p>
+<blockquote>
+<p>[redacted-person] zeigt einen Gurtbandauszug bedingt durch einen
+Anschnallvorgang sowie anschließendem Gurtbandein/-auszug durch
+Insassenbewegungen. [redacted-person] sollten bei „In position“ in dem
+grün hinterlegten Korridor liegen (bzw. unterhalb). Wie dieser Korridor
+zu spezifieren ist, wird applikationsabhängig von den Fachabteilungen
+festgelegt.</p>
+<p>[redacted-person] für die Profile können folgende Szenarien
+gelten:</p>
+<p><strong>Abbildung:</strong> Haltestrom nominal und adaptiv</p>
+<p><u>Information : 3463006</u></p>
+<p><u>Information : 3463007</u></p>
+</blockquote>
+<p><u>Information : 3463008</u></p>
+<blockquote>
+<p>In Situation 1) ist der Gurtbandauszug durchgehend im grünen Bereich
+und somit im spezifizierten „In position“ Bereich. Deswegen wird bei
+einer Straffanforderung die „normale“ Straffkurve ausgeführt.</p>
+<p>Deswegen wird bei einer Straffanforderung die „normale“ Straffkurve
+ausgeführt.</p>
+<p><u>Information : 3463009</u></p>
+<p><u>Information : 3463010</u></p>
+<p>In Situation 2) liegt der Gurtbandauszug bei Straffanforderung höher
+als der spezifizierte Bereich. Somit gilt die Annahme, dass der Insasse
+sich bei Straffanforderung out of position befindet und der Haltestrom
+wird adaptiv erhöht.</p>
+</blockquote>
+<p><u>Information : 3463011</u></p>
+<blockquote>
+<p>Somit gilt die Annahme, dass der Insasse sich bei Straffanforderung
+out of position befindet und der Haltestrom wird adaptiv erhöht.</p>
+</blockquote>
+<h6 id="gurt-lösen">Gurt-Lösen</h6>
+<blockquote>
+<p><u>Information : 3463012</u></p>
+<p>[redacted-person] „Lösen“ beendet alle Straff- und Komfortprofile und
+koppelt das elektro-mechanische Getriebe von der Aufrollermechanik des
+RGS ab.</p>
+<p>Es ergibt sich 2 Möglichkeiten für den Start des Gurt-Lösens:</p>
+<p><u>[redacted-person] : 3463014</u></p>
+<p><u>[redacted-person] : 3463015</u></p>
+</blockquote>
+<ol type="1">
+<li><p>[redacted-person] wird vom Airbag-Steuergerät zurückgenommen
+und das Fahrzeug ist stabil</p></li>
+</ol>
+<blockquote>
+<p><u>[redacted-person] : 3463016</u></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>Der RGS hat die Funktion (Gurtparken, Gurtlosereduktion) beendet
+und das Fahrzeug ist stabil</p></li>
+</ol>
+<blockquote>
+<p><u>[redacted-person] : 3463017</u></p>
+<p>[redacted-person] darf vom Kunden an der Schulter (RGS) nicht spürbar sein.
+Abweichungen müssen im Fahrzeug dargestellt werden und mit der
+Fachabteilung abgestimmt werden.</p>
+<p><u>[redacted-person] : 3463018</u></p>
+</blockquote>
+<h6 id="punkt-gurt-mode">4-Punkt-Gurt-Mode</h6>
+<blockquote>
+<p>[redacted-person] „4-Punkt-Gurt-Mode“ muss technisch umsetzbar sein und
+entspricht einer dauerhaften</p>
+<p>Blockierung des Gurtes für sportliche Fahrweisen.</p>
+</blockquote>
+<h6 id="dynamische-unterstützung">[redacted-person]</h6>
+<blockquote>
+<p><u>[redacted-person] : 3463020</u></p>
+<p>Dabei handelt es sich um eine durch den RGS umgesetzte Unterstützung
+des Insassens bei dynamischer Fahrt nach Auswahl eines [redacted-person] oder
+bei Aktivierung einer speziellen Fahrfunktion durch den Fahrer.</p>
+</blockquote>
+<p><u>Information : 3463022</u></p>
+<blockquote>
+<p>[redacted-person] ruft eine Straffung und eine verlängerte Haltephase des
+Aufrollers hervor.</p>
+</blockquote>
+<p><u>[redacted-person] : 3463023</u></p>
+<blockquote>
+<p>[redacted-person] ist parametrierbar.</p>
+<p><u>[redacted-person] : 3463024</u></p>
+<p>[redacted-person] ist umzusetzen als eine Form der Teilstraffung, die für
+mind. 30 s gehalten wird, um dem Insassen beim Wählen eines bestimmten
+[redacted-person] ein haptisches Feedback im Sinne einer Straffung und
+anschließender Haltung zu geben.</p>
+</blockquote>
+<p><u>[redacted-person] : 3463025</u></p>
+<blockquote>
+<p>Hierbei ist zu beachten, dass die Haltezeit verkürzt werden kann,
+falls die Funktion durch eine höher priorisierte Straffung überschrieben
+wird.</p>
+<p>[redacted-person] des Motors sind hier zu
+berücksichtigen.</p>
+<p><u>[redacted-person] : 3463026</u></p>
+<p><u>[redacted-person] : 3463027</u></p>
+<p>Für die Funktion kann alternativ ein elektrischer Sensor im Einsatz
+kommen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3463028</u></p>
+<blockquote>
+<p>[redacted-person] des Sensors erfolgt dann über die RGS-interne ECU
+(bestückbar auf der Platine).</p>
+</blockquote>
+<p><u>Information : 3463029</u></p>
+<h6 id="haptische-warnung">[redacted-person]</h6>
+<blockquote>
+<p>[redacted-person] „[redacted-person]“ entspricht einer mehrmaligen
+hintereinander Straffung und wird bei</p>
+<p>einer Gefahrensituation eingesetzt, als Warnung für den Insassen.</p>
+<p>[redacted-person] der Straffung, die Anzahl der Pulse und die Frequenz sind
+parametrierbar.</p>
+<p><u>Information : 3463031</u></p>
+</blockquote>
+<p><u>[redacted-person] : 3463032</u></p>
+<blockquote>
+<p>Es ist sowohl ein möglicher Kraftanstieg pro Pulsabfolge vorzusehen
+als auch ein gleiches Kraftniveau über die Zeit unabhängig der Anzahl
+der Pulse.</p>
+</blockquote>
+<p><u>[redacted-person] : 3463033</u></p>
+<blockquote>
+<p>Die genaue Applizierung der Funktion ist mit dem Auftraggeber
+abzustimmen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3463034</u></p>
+<blockquote>
+<p>Es ist bei Bedarf auch ein Vibrationsprofil umzusetzen.</p>
+<p><u>[redacted-person] : 3463035</u></p>
+<p>[redacted-person] erfolgt vom Mastersteuergerät nur kurzzeitig
+(Flankentrigger, Abgleich mit Systemlastenheft erforderlich), der RGS
+führt die Funktion bis zum regulären Funktionsende (abh. von Pulsanzahl)
+oder bis zu einem Abbruch durch.</p>
+</blockquote>
+<h4 id="fehlbedienung">Fehlbedienung</h4>
+<blockquote>
+<p><u>[redacted-person] : 3463036</u></p>
+<p>[redacted-person] der elektromotorischen Straffeinheit vor mechanischer
+Beschädigung sind 10 Vollstraffungen in Ghostposition am Fahrzeugsitz
+ohne Öffnen des Gurtschlosses während des Vorgangs als Überlast-/
+Misuse-Versuch durchzuführen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462167</u></p>
+<blockquote>
+<p>Mit dem finalen Parametersatz bzw. einem Worst-Case-Parametersatz ist
+dieser Versuch zu wiederholen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462168</u></p>
+<blockquote>
+<p>Hierbei darf es zu keinem Ausfall oder sonstiger Beeinflussung des
+Systems kommen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462169</u></p>
+<blockquote>
+<p>Bei der Gurtlosereduktion oder Gurtparken ist sicherzustellen, dass
+bei Gurtbandauszug während der Durchführung dieser Funktion die Funktion
+sofort abgebrochen wird und ein sicheres, geräuscharmes Lösen garantiert
+wird.</p>
+</blockquote>
+<h4 id="notbetrieb">Notbetrieb</h4>
+<blockquote>
+<p><u>[redacted-person] : 3462170</u></p>
+<p>[redacted-person] der elektromotorischen Straffeinheit muss vom Steuergerät
+diagnostizierbar sein und darf die</p>
+<p>Grundfunktionen des Grundmoduls „Gurtaufroller“ nicht
+beeinflussen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462172</u></p>
+<blockquote>
+<p>Alle sicherheitsrelevanten oder gesetzlich vorgeschriebenen
+Eigenschaften müssen vollwertig ausgeführt werden unabhängig von der
+RGS-Funktionalität.</p>
+</blockquote>
+<h4 id="architektur">Architektur</h4>
+<blockquote>
+<p><u>[redacted-person] : 3461675</u></p>
+<p>[redacted-person]-Steuergerät erhält über seine Anbindung an den
+Kommunikation-[redacted-person] von verschiedenen externen Steuergeräten bzw.
+Sensoren (z.[redacted-person], ACC, SWA etc.) über den fahrdynamischen Zustand des
+Fahrzeugs und wertet diese aus.</p>
+<p><u>Information : 3461677</u></p>
+<p>[redacted-person] einer vorgegebenen Kritikalitätsstufe und in
+Abhängigkeit vom Gurtschlossstatus (gesteckt/ nicht gesteckt) sendet das
+Master-Steuergerät eine Straffanforderung an den RGS.</p>
+<p><u>Information : 3461678</u></p>
+<p>Der RGS ist hierzu über eine Schnittstelle mit dem Master-Steuergerät
+verbunden.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461679</u></p>
+<blockquote>
+<p>[redacted-person] der Straffanforderung erfolgt im RGS die Umsetzung in
+eine zugehörige Kennlinie (Profile 1 bis 25).</p>
+</blockquote>
+<p><u>[redacted-person] : 3461680</u></p>
+<blockquote>
+<p>[redacted-person] des kritischen Fahrzustandes nimmt das
+Mastersteuergerät die Anforderung des jeweiligen Straffprofils
+zurück.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461681</u></p>
+<blockquote>
+<p>Der RGS führt daraufhin einen geeigneten Lösevorgang aus, bei dem
+sicherzustellen ist, dass auch potentielle, mechanische
+Systemverriegelungen sicher gelöst werden.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461682</u></p>
+<blockquote>
+<p>[redacted-person] der Lösefähigkeit bzw. sicheren Umsetzung der
+Lösefunktion überwacht der RGS mit einem geeigneten Funktionsmodell und
+ggf. ergänzender Sperrsensierung das mechanische Verhalten der
+Sperreinrichtung und passt den Lösevorgang ggf. entsprechend an.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461683</u></p>
+<blockquote>
+<p>Dazu soll die Information über den Stabilitätszustand des Fahrzeugs
+(vom Mastersteuergerät) mit zur Bewertung der Lösefähigkeit genutzt
+werden.</p>
+</blockquote>
+<h4 id="steuergerätekonzept">Steuergerätekonzept</h4>
+<blockquote>
+<p><u>[redacted-person] : 3461684</u></p>
+<p>Siehe projektspezifische Lastenhefte für das Steuergerät (Elektronik
+und Software)</p>
+<p><u>Information : 3461686</u></p>
+<p>Für einen vereinfachten Erprobungsbetrieb sowie zur
+Variantenreduktion ist neben dem Auslieferzustand auch eine
+Softwareaktualisierung/ Flashen sowie Bedatungsänderung
+(Straffparametersatz) mit gängigen Diagnosetools beim OEM (Entwicklung)
+sowie über Bandende (Serie) sicherzustellen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461687</u></p>
+<p>Hierzu ist die Vorgehensweise mit der Fachabteilung abzustimmen durch
+die Abhängigkeit der Auslegung des Masters.</p>
+</blockquote>
+<h4 id="elektrische-schnittstellen">[redacted-person]</h4>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461688</u></p>
+<p>Der RGS verfügt über (mindestens) zwei getrennte, elektrische
+Schnittstellen für die pyrotechnische und die elektromotorische
+Straffeinheit.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461690</u></p>
+<blockquote>
+<p>Die möglichen Positionen der Anschlüsse an das Gerät sind in
+Bauraummodelle von KCC 20 bzw. KCC25 dargestellt.</p>
+<p><u>Nicht-funktionale Anforderung : 3461691</u></p>
+<p>Lage, Art und Ausführung der Steckverbindungen sind mit den
+zuständigen Fachabteilungen sowie der Elektrik/Elektronik abzustimmen
+und werden im projektspezifischen Lieferumfangslastenheft
+vorgegeben.</p>
+<p><u>Nicht-funktionale Anforderung : 3461692</u></p>
+<p>Am Gurtaufroller sind geeignete Maßnahmen (Kabelführungen)
+vorzusehen, um ein Scheuern der Zuleitungen am Gurtband/ Gurtführung/
+Verkleidung zu vermeiden.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461693</u></p>
+<blockquote>
+<p>[redacted-person] der Teilevielfalt pflegt die [redacted-person]/
+Elektronik eine Übersicht über alle verfügbaren und für Neuentwicklungen
+freigegebenen Steckergehäuse und Kontakte.</p>
+<p>Diese sind vorzugsweise einzusetzen, z.[redacted-person]
+(AK2).</p>
+</blockquote>
+<p><u>Information : 3461694</u></p>
+<p><u>[redacted-person] : 3461695</u></p>
+<blockquote>
+<p>Hierdurch wird sichergestellt, dass die Steckverbindungen den aktuell
+gültigen, technischen und qualitativen Anforderungen des
+Volkswagenkonzerns entsprechen.</p>
+</blockquote>
+<p><u>Information : 3461696</u></p>
+<blockquote>
+<p>[redacted-person] verantwortet die Funktion und Qualität des
+Geräteanschlusses im Zusammenwirken mit dem Steckverbinder. Hierbei sind
+Bauraum- und Montageeinflussgrößen zu beachten.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461697</u></p>
+<blockquote>
+<p>Grundsätzlich ist die Norm [redacted-co]80106 (Steckeranschluss an Elektrik-
+und Elektronik-Komponenten im Kfz) anzuwenden.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461698</u></p>
+<blockquote>
+<p>Es gelten die Anforderungen der [redacted-co]60330 „Crimpverbindungen; Lötfreie
+elektrische Verbindungen“.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461699</u></p>
+<blockquote>
+<p>Für alle Crimpverbindungen in Elektrik/Elektronik-Komponenten ist
+neben der Messung und Dokumentation von Crimphöhe, Crimpbreite und
+Leiterauszugswerten ein Schliffbild anzufertigen und zu archivieren.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461700</u></p>
+<blockquote>
+<p>[redacted-person] der Crimpdaten und Schliffbilder in der Mustermappe
+ist Voraussetzung für die Erteilung der Baumusterfreigabe.</p>
+</blockquote>
+<h4 id="schnittstelle-für-den-pyrotechnischen-antrieb">Schnittstelle für
+den pyrotechnischen Antrieb</h4>
+<blockquote>
+<p><u>Kontaktierung bei der Pyrotechnik:</u> [redacted-person]:</p>
+<p>[redacted-person]</p>
+<p><u>[redacted-person] : 3461701</u></p>
+<p><u>[redacted-person] : 3462197</u></p>
+<p><u>[redacted-person] : 3462772</u></p>
+<p>:- Gasgeneratorschnittstelle: WSK.[redacted-phone]DC* / WSK.[redacted-phone]HN* (11
+mm AK2, Kojiri-sicher)</p>
+</blockquote>
+<p><u>[redacted-person] : 3463143</u></p>
+<blockquote>
+<p>[redacted-person] der Stecker (Index) wird im Lieferumfangslastenheft
+festgelegt bzw. bei Ausfüllung der VOBES-Datenblätter für den
+Projekt.</p>
+<p>- Stecker bordnetzseitig: wird von der Fachabteilung festgelegt</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3463144</u></p>
+<p><u>Information : 3463145</u></p>
+<h4 id="schnittstelle-für-elektromotorischen-antrieb">Schnittstelle für
+elektromotorischen Antrieb</h4>
+<blockquote>
+<p>[redacted-person] für die ECU ist wie folgt definiert: Geräteaufnahme
+modulseitig: 4M[redacted-phone]D (5-polig)</p>
+<p>Stecker bordnetzseitig: 4M[redacted-phone](Flachkontaktgehäuse 5-polig)</p>
+</blockquote>
+<h4 id="spezifische-kenndaten">[redacted-person]</h4>
+<blockquote>
+<p><u>[redacted-person] : 3462199</u></p>
+<p><u>[redacted-person] : 3462774</u></p>
+<p><u>[redacted-person] : 3462775</u></p>
+<p>Die im Folgenden festgelegten [redacted-person] des Systems sind auf
+dem AK-Leistungsprüfstand für Standversuche gemäß [redacted-co]TL 82501, Abschnitt
+6, nachzuweisen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461705</u></p>
+<p>Hierzu werden Versuche mit und ohne Gurtlose bei
+Nenn-Bordnetzspannung durchgeführt.</p>
+<p><u>Nicht-funktionale Anforderung : 3461706</u></p>
+<p>Näheres zu den Versuchen sowie der Definition der Gurtlose findet
+sich in Kapitel 6.4.2.</p>
+</blockquote>
+<p><u>Information : 3461707</u></p>
+<blockquote>
+<p>[redacted-person] beziehen sich auf eine maximale Stromaufnahme von
+20A nach 5ms.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461708</u></p>
+<h4 id="straffkraftprofile">Straffkraftprofile</h4>
+<blockquote>
+<p>Für alle festgelegten Nenn-Kraftverläufe sind Hüllkurven in den
+Grenzen einzuhalten (siehe Tabelle).</p>
+</blockquote>
+<p><u>[redacted-person] : 3462205</u></p>
+<blockquote>
+<p>[redacted-person] sind bei wiederholter Aktivierung der Straffprofile sowie
+über das Temperaturband und einer Teil- zu Teil-Streuung
+sicherzustellen.</p>
+<p><strong>Tabelle:</strong> Grenzen der Hüllkurven für
+Nenn-Kraftverläufe</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Profil</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-person] (nach L01)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Vollstraffung (VS)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 15 %</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 20 %</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Teilstraffung (TS)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 15 %</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 20 %</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Niedrig- Geschwindigkeits- Unfall (NGU)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 15 %</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 20 %</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] PreSense Straffung (PCF- High)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 15 %</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 20 %</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>± 15 %</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 20 %</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Gurtlosereduktion (GLR)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 10 %</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 15 %</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Beltparking (BP)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 10 %</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 15 %</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] (HW)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 15 %</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>± 20 %</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[redacted-person] im Neuzustand:</p>
+</blockquote>
+<p><u>[redacted-person] : 3462206</u></p>
+<p><u>[redacted-person] : 3462777</u></p>
+<blockquote>
+<p>Hierzu sind die [redacted-person] der Nominalkraftverläufe
+zu beachten. Näheres ist im Kapitel 9.1 beschrieben.</p>
+</blockquote>
+<ul>
+<li><p>[redacted]</p>
+<ul>
+<li><p>350 N (über Temperaturband)</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3461710</u></p>
+<p><u>[redacted-person] : 3461711</u></p>
+<p><u>[redacted-person] : 3462209</u></p>
+</blockquote>
+<ul>
+<li><p>bis zu 400 N, der aktuelle Wert ist bei der Fachabteilung zu
+erfragen</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462210</u></p>
+</blockquote>
+<ul>
+<li><p>Ausnahme: ca. bis zu 500 N (über Temperaturband) für die NGU
+Straffung sowie die hohe [redacted-person] PreSense; diese maximale
+Straffkraft darf alleinig in Applikationen mit NGU- Straffung oder der
+hohen [redacted-person] PreSense auftreten, wenn dies ausdrücklich von
+der jeweiligen Fachabteilung des Fahrzeugprojekts gewünscht und
+spezifiziert ist.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person]:</p>
+<p><u>[redacted-person] : 3462211</u></p>
+<p>Die zum Lösen des gestrafften Systems ggf. erforderliche Kraft darf
+aus Komfortgründen die Straffkraft nicht überschreiten.</p>
+<p>Haltedauer der Gurtvorspannung:</p>
+<p><u>[redacted-person] : 3461712</u></p>
+<p>Der RGS muss eine maximale Straffzyklusdauer von mindestens 70 s
+ermöglichen und darf nicht durch den Thermoschutz des Elektromotors
+begrenzt werden</p>
+<p>[redacted-person]: siehe [redacted-person] Anlaufstrom des
+Elektromotors: siehe [redacted-person] Betriebs-Temperaturbereich:
+siehe [redacted-person]</p>
+</blockquote>
+<h4 id="sicherheitsanforderungen">Sicherheitsanforderungen</h4>
+<h4 id="personen--und-insassensicherheit">Personen- und
+Insassensicherheit</h4>
+<p><u>[redacted-person] : 3461713</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461714</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461715</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461716</u></p>
+<blockquote>
+<p>[redacted-person] Fahrzeugsicherheit für das betreffende
+Projekt.</p>
+<p><u>Nicht-funktionale Anforderung : 3462218</u></p>
+</blockquote>
+<h4 id="fahrzeugsicherheit">Fahrzeugsicherheit</h4>
+<blockquote>
+<p>M-Nummer/I-Nummer: Im Fahrzeugumfeld muss eine übereinstimmende
+Rückhalteperformance</p>
+<p>(Straffleistung, Kraftaufbau, Kraftbegrenzerverhalten…) nachgewiesen
+werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3462220</u></p>
+<p>Für den RGS muss im Schlittenversuch der Nachweis geführt werden,
+dass die Rückhaltewirkung (Straffleistung, Kraftaufbau,
+Kraftbegrenzerverhalten, etc.) sowohl ohne als auch mit vorausgehender
+Aktivierung der reversiblen Strafffunktion vergleichbar ist. Die
+relevanten Systemzustände/ Konstellationen sind dazu darzulegen und die
+relevanten Konfigurationen für die Nachweisführung mit dem Auftraggeber
+abzustimmen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462221</u></p>
+<p>[redacted-person] der pyrotechnischen Strafferaktivierung muss das
+reversible System sicher abgekuppelt werden und damit außer Kraft
+treten, sodass eine Beeinflussung der passiven Rückhaltefunktionen
+während des Crashverlaufs ausgeschlossen ist.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462222</u></p>
+<blockquote>
+<p>Dies ist in ausreichender Stückzahl versuchstechnisch nachzuweisen
+unter Abstimmung mit dem Auftraggeber.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462223</u></p>
+<blockquote>
+<p>Ggf. sind entsprechende Maßnahmen (mechanische Elemente oder
+Funktionsanteile) umzusetzen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462224</u></p>
+<h4 id="alternativen-und-künftige-varianten">Alternativen und künftige
+Varianten</h4>
+<blockquote>
+<p>[redacted-person] RGS (KCC 20 und KCC25) ist so zu entwickeln, dass es
+jederzeit über die in Kapitel 8.3.1 beschriebenen Grundfunktionen hinaus
+erweitert werden kann.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461721</u></p>
+<blockquote>
+<p>Zu einem erweiterten Funktionsumfang zählen insbesondere
+Komfortfunktionen wie situationsgerechtes Lösen der Gurtvorspannung
+(ohne Löseimpuls), Reduzierung der Gurttragelose zu Fahrtbeginn oder
+elektromotorisch unterstütztes Aufrollen des Gurtbandes in die
+Parkposition.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461722</u></p>
+<blockquote>
+<p>[redacted-person] sind zusätzliche Warnfunktionen wie zum [redacted-person]-of-Position-Erkennung der Insassen oder weitere Straffprofile in der
+Konzeptauslegung vorzuhalten. [redacted-person] 1.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461723</u></p>
+<blockquote>
+<p>[redacted-person] werden vom Auftraggeber bei einer
+möglichen Serienumsetzung separat angefragt und sind dann vom
+Auftragnehmer bezüglich Entwicklungsaufwand und gegebenenfalls
+entstehender Mehrkosten getrennt zu bewerten.</p>
+<p><u>Nicht-funktionale Anforderung : 3461724</u></p>
+<p>Die möglichen Zusatzfunktionen müssen aber bauraumneutral angeboten
+werden und sollen entsprechend der Master-Slave-Architektur entwickelt
+werden.</p>
+</blockquote>
+<h4 id="gewichtsziele">Gewichtsziele</h4>
+<blockquote>
+<p>[redacted-person] ist gewichtsoptimiert zu entwickeln.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461725</u></p>
+<p><u>[redacted-person] : 3461727</u></p>
+<blockquote>
+<p>Für das Grundmodul (ohne Konfektion) gelten folgende
+Maximalgewichte:</p>
+<p><strong>Tabelle:</strong> [redacted-person]</p>
+<p><u>[redacted-person] : 3461728</u></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Modul</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Baugruppe ohne Konfektion</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>KCC 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Aufroller stehend, mit pyrotechnischer und reversibler Straffeinheit,
+GKB schaltbar</p>
+</blockquote></td>
+<td><blockquote>
+<p>1800 g</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>KCC 25</p>
+</blockquote></td>
+<td><blockquote>
+<p>Aufroller stehend, mit pyrotechnischer und reversibler Straffeinheit,
+GKB konstanter</p>
+</blockquote></td>
+<td><blockquote>
+<p>1490 g</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h4 id="einbau">Einbau</h4>
+<h4 id="einbauorte-und-einbaulage">Einbauorte und Einbaulage</h4>
+<blockquote>
+<p>Der RGS kann auf alle Sitzplätze angebracht werden.</p>
+<p>Der finale Einbauort ist im Lieferumfangslastenheft beschrieben.</p>
+</blockquote>
+<h4 id="montagekonzept">Montagekonzept</h4>
+<p><u>[redacted-person] : 3462232</u></p>
+<p><u>[redacted-person] : 3462234</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462235</u></p>
+<blockquote>
+<p>Teile sind grundsätzlich so zu konstruieren, dass ein Falscheinbau
+(z. [redacted-person], seitenverkehrt, Fehlfunktion bei Falscheinbau)
+nicht möglich ist.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462237</u></p>
+<blockquote>
+<p>Teile, bei denen ein Falscheinbau verhindert werden muss, müssen
+mechanisch codiert oder mittels Diagnose im Fahrzeug überprüfbar
+sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462238</u></p>
+<blockquote>
+<p>[redacted-person] („Verbauprüfung“), Dokumentation und
+Rückverfolgung („Bauzustandsdokumentation“) des reversiblen
+Gurtstraffers ist eine Kennzeichnung mittels 2-D-Matrix- Code gemäß [redacted]vorzusehen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462239</u></p>
+<p>Die genaue Positionierung der Bauteilkennzeichnung ist
+projektspezifisch mit den zuständigen Fachabteilungen des Auftraggebers
+abzustimmen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462240</u></p>
+<p>Die geplante Reihenfolge und Ausrichtung der Teile beim Verbau sowie
+der zu verwendenden Vorrichtungen muss in allen 6 Freiheitsgraden
+eindeutig beschrieben sein.</p>
+<p><u>[redacted-person] : 3462241</u></p>
+<p>Das RGS-Modul wird über zwei Befestigungspunkte fest mit der
+Karosserie verbunden.</p>
+<p><u>[redacted-person] : 3462242</u></p>
+<p>Hierzu wird der Aufroller zunächst mit dem Fixierhaken an der
+Gehäuserückwand in die B-Säule eingehängt und ausgerichtet.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462243</u></p>
+<blockquote>
+<p>[redacted-person] der Aufrollerbasis erfolgt mittels
+dokumentationspflichtiger Verschraubung mit einer Gewindegröße
+7/16''.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462244</u></p>
+<blockquote>
+<p>[redacted-person] der zweiten Anschraubpunkt wird
+projektspezifisch mit der jeweiligen Fachabteilung des Auftraggebers
+abgestimmt.</p>
+<p><u>Nicht-funktionale Anforderung : 3462245</u></p>
+</blockquote>
+<h4 id="geometrie">Geometrie</h4>
+<blockquote>
+<p>[redacted-person] steht folgender Bauraum zur Verfügung:</p>
+<p><u>ENT.[redacted-phone], Alternative=20</u> bzw ENT.[redacted-phone], Alternative=25,
+bei dem der aktuellste Konstruktionsstand bindend ist.</p>
+<p><u>[redacted-person] : 3462247</u></p>
+<p>[redacted-person] muss die äußere Geometrie der Baugruppe und
+insbesondere die Lage und Ausführung der Befestigungspunkte (falls
+vorhanden) mit den zuständigen Fachabteilungen des Auftraggebers, unter
+Zugrundelegung des vom Auftraggeber definierten Bauraumes,
+abstimmen.</p>
+<p><u>[redacted-person] : 3462248</u></p>
+</blockquote>
+<h4 id="toleranzen">Toleranzen</h4>
+<blockquote>
+<p>Die erforderlichen Bauteiltoleranzen sowie Referenzpunkte sind in der
+jeweiligen Bauteilzeichnung festgelegt.</p>
+</blockquote>
+<h4 id="formgestaltung-und-design">Formgestaltung und Design</h4>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462250</u></p>
+<p>Für alle Strakbauteile gilt: Die vom Auftraggeber gelieferten
+Strakdaten sind verbindlich.</p>
+<p><u>[redacted-person] : 3461735</u></p>
+<p>Änderungen der Strakoberfläche sind ausschließlich über den
+Strakprozess des Auftraggebers zulässig.</p>
+<p><u>[redacted-person] : 3461736</u></p>
+</blockquote>
+<h4 id="ergonomie">Ergonomie</h4>
+<h4 id="optik-und-haptik">Optik und Haptik</h4>
+<blockquote>
+<p>Bauteile mit äußeren optischen Funktionselementen sind so auszulegen,
+dass es im Betrieb auch unter extremen Bedingungen nicht zu einer
+Funktionsbeeinträchtigung kommt.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462254</u></p>
+<blockquote>
+<p>[redacted-person] ist nach Vorgabe des Auftraggebers auszuführen und
+muss umlaufend gleichmäßig sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462255</u></p>
+<h4 id="akustik">Akustik</h4>
+<blockquote>
+<p>Geräusche dürfen im oder am Fahrzeug nicht betriebsuntypisch
+auffallen oder störend wahrnehmbar sein.</p>
+<p>Für [redacted-co] gilt</p>
+<p><u>[redacted-person] : 3462257</u></p>
+<p>Akustik-Bauteilprüfungen beim Auftragnehmer müssen die kritischen
+späteren Betriebszustände im Fahrzeug vor Kunde abdecken. [redacted-person]-Beurteilung des Bauteils erfolgt durch die Fachabteilung des
+Auftraggebers im oder am Fahrzeug im Stand- und Fahrbetrieb.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462258</u></p>
+<blockquote>
+<p>[redacted-person] erfolgt durch die Fachabteilung des Auftraggebers im
+Fahrzeug mit den Innengeräuschbedingungen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462259</u></p>
+<p>Sollten diese Anforderungen nicht erfüllt werden, muss der
+Auftragnehmer, zu seinen Lasten, Maßnahmen zur Erfüllung der
+Anforderungen ergreifen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462260</u></p>
+<blockquote>
+<p>[redacted-person] sind in Absprache mit dem [redacted-person] (z.[redacted-person]) vorzusehen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462261</u></p>
+<blockquote>
+<p>[redacted-person] sind dem Modullastenheft LAH.DUM.857.D zu
+entnehmen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462262</u></p>
+<blockquote>
+<p>[redacted-person] muss die Vorgaben der TL82500 einhalten.</p>
+</blockquote>
+<h6 id="geräusche-im-fahrzeug">Geräusche im Fahrzeug</h6>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462263</u></p>
+<p>Für die Gesamtkomponente gelten gemäß der <em>Richtlinie für
+Mechatronikbauteile im Innenraum</em> beim reversiblen Straff- bzw.
+Lösevorgang die auf der nächsten Abbildung dargestellten
+Anforderungsprofile.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462811</u></p>
+<blockquote>
+<p>Grundsätzlich ist bei vom Insassen nicht bewusst veranlasster
+Betätigung von Aktuatoren – z.[redacted-person] des RGS – das Profil „kaum
+wahrnehmbar“ einzuhalten.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462812</u></p>
+<blockquote>
+<p>Für die Straffvorgänge ist mindestens das Profil „wertige Akustik“ zu
+erreichen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462813</u></p>
+<blockquote>
+<p>[redacted-person] erfolgt zur Baumustergenehmigung im Fahrzeugumfeld mit
+allen beeinflussenden An- und Einbauteilen der B-Säule und wird mit
+einem Belegmuster dokumentiert.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462814</u></p>
+<blockquote>
+<p>[redacted-person] ist grundsätzlich bei dem Fahrzeughersteller
+durchzuführen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462815</u></p>
+<blockquote>
+<p><strong>Abbildung:</strong> Grenzkurven für die Akustik im
+Fahrzeug</p>
+</blockquote>
+<blockquote>
+<p>Falls die Messung bei dem Auftragnehmer durchgeführt werden soll,
+sind folgende Berechnungsparameter für die Auswertung zur Abbildung
+erforderlich:</p>
+<p><u>Information : 3462816</u></p>
+</blockquote>
+<ul>
+<li><p>FFT</p></li>
+<li><p>Abtastrate 48kHz</p></li>
+<li><p>DFT-Länge 4096</p></li>
+<li><p>50% Überlappung</p></li>
+<li><p>Hanningfenster</p></li>
+<li><p>A-bewertet</p></li>
+<li><p>beide Ohren gemittelt</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462817</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463156</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463157</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463158</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463159</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463160</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463161</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463162</u></p>
+<p>Hierzu sind auch die Anforderungen des Lastenhefts LAH.DUM.857.BL zu
+beachten.</p>
+<p><u>Nicht-funktionale Anforderung : 3462818</u></p>
+</blockquote>
+<h6 id="geräusche-der-komponente">Geräusche der Komponente</h6>
+<blockquote>
+<p>Es sind 5 unterschiedliche Geräuschentwicklungen zu untersuchen:</p>
+</blockquote>
+<ol type="1">
+<li><p>bei einer Vollstraffung</p></li>
+</ol>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462820</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463165</u></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>bei einer Teilstraffung</p></li>
+<li><p>das Lösen nach einer Voll- und Teilstraffung</p></li>
+<li><p>bei der Gurtlosereduktion (inkl. Lösen)</p></li>
+<li><p>beim Gurtparken (inkl. Lösen)</p></li>
+</ol>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3463166</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463167</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463168</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463169</u></p>
+<p>[redacted-person] von den jeweiligen Konfigurationen und den
+dazugehörigen Prüfständen befinden sich im Anhang 9.4.</p>
+</blockquote>
+<p><u>Information : 3462821</u></p>
+<blockquote>
+<p>Die für die Geräuschmessungen verwendeten Profile (Straffungen, GLR,
+GP, Lösekurven) entsprechen dem Serienstand.</p>
+</blockquote>
+<p><u>Information : 3462822</u></p>
+<blockquote>
+<p>Bei verschiedenen Straffprofilen einer Klasse (z.[redacted-person]
+Ausprägungen einer Vollstraffung) ist für das Fahrzeugprojekt der
+geräuschtechnische worst-case zu betrachten.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462823</u></p>
+<blockquote>
+<p>[redacted-person] der Geräusche findet erstmalig zur Angebotsfreigabe
+gemeinsam mit den zuständigen Fachabteilungen des VW-Konzerns statt und
+ist projektspezifisch für verwendete Straffprofile nachzuweisen.</p>
+</blockquote>
+<h4 id="handling">Handling</h4>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462824</u></p>
+<p>[redacted-person] der Steckerschnittstellen muss so erfolgen, dass ein
+An- oder Abstecken der Zuleitungen im verbauten Zustand des Aufrollers
+erfolgen kann.</p>
+<p>[redacted-person] gilt für alle Stecker (Pyro- und ECU-Stecker).</p>
+<p><u>[redacted-person] : 3462267</u></p>
+<p><u>[redacted-person] : 3462268</u></p>
+<p>Die für die Identifikation des Bauteils vorgesehenen Mittel sollten
+nach Möglichkeit im eingebauten Zustand lesbar bzw. scanbar sein.</p>
+</blockquote>
+<h4 id="technische-materialanforderungen">[redacted-person]</h4>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462269</u></p>
+<p>[redacted-person], welche im Außenbereich oder an Stellen mit erhöhter
+Umweltbelastung (z. [redacted-person] und Spritzwasser, Salznebel,
+Tauchbereich) verbaut werden, ist die Verwendung von Schmelzwerkstoffen
+(Hotmelts) nicht zulässig.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461742</u></p>
+<blockquote>
+<p>[redacted-person] von Schmelzwerkstoffen zur Umspritzung von bestückten
+Bauelementeträgern ist nicht zulässig.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461743</u></p>
+<blockquote>
+<p>[redacted-person] von Schmelzwerkstoffen zur Abdichtung und zum Schutz
+gegen Feuchtigkeit ist nicht zulässig.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461744</u></p>
+<blockquote>
+<p>Abweichungen vom dargestellten Grundsatz bedürfen eines
+Eignungsnachweises unter allen relevanten
+Fahrzeugeinsatzbedingungen.</p>
+<p>[redacted-person] gemäß [redacted-co]52000.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461745</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461746</u></p>
+<h4 id="elastomere">Elastomere</h4>
+<blockquote>
+<p>Bei silikonhaltigen Werkstoffen (Dichtungen, Kleber, Vergussmassen,
+Kühlpads, etc…) und silikonhaltigen Prozesshilfsmitteln, z. [redacted-person], ist zu beachten, dass darin vorhandene niedermolekulare
+Siloxane (siehe PV 3055) aus dem Material diffundieren (ausgasen) und
+sich auf elektrische Kontakte niederschlagen können.</p>
+</blockquote>
+<p><u>Information : 3461990</u></p>
+<blockquote>
+<p>[redacted-person] elektrischer/thermischer Energie (Kontaktfunken,
+Bürstenfeuer, Nernst-Sonden (Lambda-</p>
+<p>/NOx-Sensoren) etc…) kann es zum Abbau des Siloxans kommen, das
+daraufhin oxidbildend den Kontakt</p>
+<p>isoliert.</p>
+</blockquote>
+<p><u>[redacted-person] : 13852515</u></p>
+<blockquote>
+<p>Ausgasungen von Silikon bzw. silikonhaltigen Materialien und
+Prozesshilfsmitteln dürfen elektrische oder elektronische Bauteile in
+der unmittelbaren Umgebung nicht schädigen.</p>
+</blockquote>
+<p><u>[redacted-person] : 13852523</u></p>
+<blockquote>
+<p>[redacted-person] muss den Einsatz von Silikon bzw. silikonhaltigen
+Materialien und Prozesshilfsmitteln im Bauteil anzeigen und mit dem
+Auftraggeber abstimmen.</p>
+</blockquote>
+<p><u>[redacted-person] : 13852530</u></p>
+<blockquote>
+<p>Der einzuhaltende Grenzwert für die Gesamtmenge an ausgasungsfähigen
+volatilen Siloxanen ist mit dem Auftraggeber abzustimmen und vom
+Auftraggeber freizugeben.</p>
+</blockquote>
+<p><u>[redacted-person] : 13852539</u></p>
+<blockquote>
+<p>[redacted-person] an ausgasungsfähigen volatilen Siloxanen ist nach PV
+3055 "Gehaltsbestimmung extrahierbarer Siloxane" zu messen und mit dem
+Auftraggeber abzustimmen.</p>
+</blockquote>
+<p><u>[redacted-person] : 13852548</u></p>
+<blockquote>
+<p>Falls der einzuhaltende Grenzwert nicht erreicht wird, sind die
+eingesetzten silikonhaltigen Materialien nach Herstellervorgaben
+(Temper-Verfahren, -Temperatur, -Zeit, -Druck, etc.) zu tempern,
+mindestens jedoch für vier Stunden bei 200°C und in Abstimmung mit dem
+Auftraggeber.</p>
+</blockquote>
+<p><u>[redacted-person] : 13852560</u></p>
+<blockquote>
+<p>Nach dem Tempern ist der Anteil der ausgasungsfähigen
+Silikonbestandteile erneut nach PV 3055 zu messen und mit dem
+Auftraggeber zu bewerten.</p>
+</blockquote>
+<p><u>[redacted-person] : 13852579</u></p>
+<h4 id="medienbeständigkeit-und-chemische-anforderungen">Medienbeständigkeit
+und chemische Anforderungen</h4>
+<blockquote>
+<p>Bauteile, welche mit Kraftstoff oder Kraftstoffdämpfen/-kondensat in
+Berührung kommen, müssen Ethanol sowie Methanol verträglich sein.</p>
+</blockquote>
+<h4 id="sauberkeitsanforderungen">Sauberkeitsanforderungen</h4>
+<blockquote>
+<p>[redacted-person] muss geruchsneutral sein.</p>
+</blockquote>
+<h4 id="reinigung">Reinigung</h4>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h4 id="korrosionsschutz">Korrosionsschutz</h4>
+<p><u>[redacted-person] : 3461748</u></p>
+<p><u>[redacted-person] : 3462277</u></p>
+<p><u>Information : 3462279</u></p>
+<blockquote>
+<p>[redacted-person] an die Korrosionsbeständigkeit der Bauteile sind
+dem Konzern-[redacted-person] LAH.DUM.857.D zu entnehmen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462281</u></p>
+<p>Für die Steuerelektronik des RGS gelten die Anforderungen gemäß
+Elektroniklastenheft (siehe DOORS).</p>
+<p><u>Nicht-funktionale Anforderung : 3462282</u></p>
+</blockquote>
+<h4 id="schutzklassen">Schutzklassen</h4>
+<blockquote>
+<p>Für die RGS-Elektronik gilt gemäß [redacted-co]80000 mindestens die Schutzart
+IP-5K1 (DIN 40050-9) im eingebauten Zustand.</p>
+<p><u>Nicht-funktionale Anforderung : 3462284</u></p>
+<p>Abweichungen hierzu sind gegebenenfalls im Elektroniklastenheft
+beschrieben.</p>
+<p><u>Nicht-funktionale Anforderung : 3462285</u></p>
+</blockquote>
+<h4 id="umweltverträglichkeit">Umweltverträglichkeit</h4>
+<blockquote>
+<p>Es gelten die Richtlinien der Konzernnorm [redacted-co]99000.</p>
+</blockquote>
+<h4 id="werkstoffauswahl">Werkstoffauswahl</h4>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461754</u></p>
+<p>Die eingesetzten Werkstoffe haben den Richtlinien gemäß [redacted-co]99000 zu
+entsprechen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462288</u></p>
+</blockquote>
+<h4 id="recyclingkonzept">Recyclingkonzept</h4>
+<blockquote>
+<p>Es muss vom Auftragnehmer eine Entsorgungsvorschrift und eine
+Handhabungsvorschrift für den Umgang mit Gurtstraffern zur
+Baumusterfreigabe erstellt und der Fachabteilung ausgehändigt
+werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3462290</u></p>
+</blockquote>
+<h4 id="ökobilanz">Ökobilanz</h4>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h4 id="mechanische-anforderungen">[redacted-person]</h4>
+<h4 id="last">Last</h4>
+<blockquote>
+<p><u>Information : 3462292</u></p>
+<p>[redacted-person] der Straffkennlinien des RGS werden im Laufe der
+Applikationsentwicklung je Fahrzeugprojekt mit der Fachabteilung des
+Auftraggebers festgelegt und zur Erteilung der Baumustergenehmigung
+endgültig auf der Lieferumfangszeichnung dokumentiert.</p>
+<p><u>Nicht-funktionale Anforderung : 3462294</u></p>
+<p>[redacted-person] ist verpflichtet, für jede Fahrzeugapplikation eine
+Systemfreigabeempfehlung zu erteilen, die eine einwandfreie
+Funktionsweise des Aufrollers mit der fahrzeugspezifischen
+Parametrierung/ Applikation gewährleistet.</p>
+<p><u>Nicht-funktionale Anforderung : 3462295</u></p>
+<p>Hierzu sind auch interne Diagnosedienste, mechanische
+Verschleißaspekte etc. zu berücksichtigen, die projektspezifisch oder
+mit einem geeigneten worst-case-Ansatz nachzuweisen sind.</p>
+<p><u>Nicht-funktionale Anforderung : 3462296</u></p>
+<p>[redacted-person] der dynamischen Festigkeit des Gurtsystems gemäß [redacted-co]TL
+471, Pkt. 8.2, sind die Schlittenversuche zusätzlich zur pyrotechnischen
+Aktivierung mit vorgestrafftem RGS durchzuführen (siehe Prüfmatrix).</p>
+<p><u>Nicht-funktionale Anforderung : 3462297</u></p>
+<p>Im Schlittenversuch ist ein vergleichender Nachweis zu führen, dass
+die Gurtkraftbegrenzung mit und ohne zuvor aktivierter RGS-Straffung
+identisch arbeitet.</p>
+<p>[redacted-person] des Grundaufrollers darf nicht beeinflusst werden.</p>
+<p><u>[redacted-person] : 3462298</u></p>
+<p><u>[redacted-person] : 3462299</u></p>
+<p>Das mechatronische System muss in allen vorgesehenen reversiblen
+Systemzuständen, die nicht zu einer pyrotechnischen Aktivierung führen,
+vor Kunde beschädigungsfrei sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462300</u></p>
+<blockquote>
+<p>[redacted-person] der dynamischen Festigkeit des Gurtsystems und der
+RGS-Baurguppe sind dazu insbesondere folgende Nachweise im Versuch zu
+führen:</p>
+</blockquote>
+<p><u>[redacted-person] : 3462301</u></p>
+<ul>
+<li><p>Beschädigungsfreiheit im AZT-Lastfall sowie im worst-case
+nofire-Puls ohne RGS-Aktivierung (siehe Prüfmatrix)</p></li>
+</ul>
+<p><u>[redacted-person] : 3462845</u></p>
+<ul>
+<li><p>Beschädigungsfreiheit im AZT-Lastfall sowie im worst-case
+nofire-Puls mit vorausgegangener RGS- Aktivierung (RGS in [redacted-person]-/Teilstraffung)</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462846</u></p>
+</blockquote>
+<ul>
+<li><p>Bei NGU-Profil: Beschädigungsfreiheit im worst-case-Puls für die
+Funktion „NGU“ mit in-Crash- Aktivierung des NGU-Straffprofils
+(Auslösezeiten in Abstimmung mit Auftraggeber)</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462847</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] ist nach Versuch jeweils durch
+Funktions- und Parametertests nachzuweisen.</p></li>
+</ul>
+<p><u>[redacted-person] : 3462848</u></p>
+<blockquote>
+<p>Sofern interne Beschädigungen am Getriebe bzw. am RGS-Antrieb nicht
+auszuschließen sind, ist ein entsprechendes Diagnosekonzept aufzuzeigen
+und auszuarbeiten.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462302</u></p>
+<blockquote>
+<p>Hierbei darf es zu keinem Brechen oder Separieren lasttragender
+Bauteile kommen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462303</u></p>
+<blockquote>
+<p>Wenn es erforderlich ist, soll eine Überlastkupplung bauraumneutral
+umgesetzt werden können.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462304</u></p>
+<blockquote>
+<p>Zudem sind hier Mehrfachaktivierungen bei nofire-Situationen zu
+berücksichtigen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462305</u></p>
+<h4 id="schwingungsverhalten">Schwingungsverhalten</h4>
+<blockquote>
+<p>Im Gurtsystem dürfen keine Schwingungen entstehen, welche zu
+Ermüdungsbruch des Gurtsystems und/oder deren Verankerung, sowie zu
+Geräuschen führen.</p>
+</blockquote>
+<h4 id="steifigkeit-und-federeigenschaften">Steifigkeit und
+Federeigenschaften</h4>
+<blockquote>
+<p><u>[redacted-person] : 3462307</u></p>
+<p>[redacted-person]-/Rückzugskennlinie des Grundaufrollers im Tragebereich
+und im abgelegten Zustand ist mit der Fachabteilung abzustimmen und wird
+auf der Lieferumfangszeichnung festgelegt.</p>
+<p><u>Nicht-funktionale Anforderung : 3462309</u></p>
+</blockquote>
+<h4 id="verformung-und-deformation">Verformung und Deformation</h4>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h4 id="druck">Druck</h4>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h4 id="lebensdauer">Lebensdauer</h4>
+<blockquote>
+<p><u>Information : 3462311</u></p>
+<p><u>Information : 3462313</u></p>
+<p>Bauteile müssen auf eine Lebensdauerforderung von 300000 km
+Laufleistung statistisch ausgelegt sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461765</u></p>
+<blockquote>
+<p>Bei der Umsetzung der Forderung ist darauf zu achten, dass zur
+Einhaltung gesetzlicher Vorschriften für abgasbeeinflussende und
+kraftstoffführende Bauteile eine Lebensdauer von 15 Jahren bzw. 150000
+Meilen zu erfüllen ist.</p>
+<p>[redacted-person] ist bis zur B-Freigabe zu erbringen.</p>
+<p><u>[redacted-person] : 3461766</u></p>
+<p><u>[redacted-person] : 3461767</u></p>
+<p>Zusätzlich zu der im Konzern-[redacted-person]
+(LAH.DUM.857.D) beschriebenen Lebensdauerprüfung für den Grundaufroller,
+sind von der elektromotorischen Straffeinheit folgende Anforderungen zu
+erfüllen (nach VW80000 L01):</p>
+</blockquote>
+<p><u>[redacted-person] : 3461768</u></p>
+<ul>
+<li><p>Insg. 2000 Straffzyklen der Voll- und Teilstraffung (die
+Verteilung wird von der Fachabteilung festgelegt)</p></li>
+<li><p>Insg. 8000 [redacted-person] Warning</p></li>
+</ul>
+<blockquote>
+<p><u>[redacted-person] : 3462318</u></p>
+<p><u>[redacted-person] : 3462319</u></p>
+</blockquote>
+<ul>
+<li><p>Insg. [redacted-phone]Zyklen für Gurtparken/ Gurtlosereduktion (die
+Verteilung wird von der Fachabteilung festgelegt)</p></li>
+</ul>
+<p><u>[redacted-person] : 3462320</u></p>
+<ul>
+<li><p>Max. 50 Straffzyklen für das low-speed-Crash-Profil sowie die
+Profile der hohen Dynamik PreSense (PCF-High) (die Anzahl kann abhängig
+vom Applikationsprojekt geringer sein.)</p></li>
+</ul>
+<p><u>[redacted-person] : 3462321</u></p>
+<ul>
+<li><p>insg. 6000 Aktivierungen der dynamischen Unterstützung
+ACA-Straffung</p></li>
+</ul>
+<p><u>[redacted-person] : 3462322</u></p>
+<ul>
+<li><p>insg. 3000 Aktivierungen der dynamischen Unterstützung
+Push2Pass-Straffung</p></li>
+</ul>
+<p><u>[redacted-person] : 4819852</u></p>
+<ul>
+<li><p>10 aufeinanderfolgende Aktivierungen der dynamischen
+Unterstützung mit je 30 s Haltezeit</p></li>
+</ul>
+<p><u>[redacted-person] : 3462323</u></p>
+<blockquote>
+<p>Nur die in der Applikation des jeweiligen Fahrzeugprojekts benötigten
+Profile werden im Rahmen des L01-Dauerlaufs abgeprüft.</p>
+<p>Die maximalen Straffzähler sind nach den Elektronik-LAH
+auszulegen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461769</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461770</u></p>
+<p>[redacted-person] der Prüfung ist im Kapitel 6.5.1 sowie in der
+Prüfmatrix beschrieben.</p>
+<p><u>Nicht-funktionale Anforderung : 3461771</u></p>
+<p>Crashlastfälle ohne pyrotechnische Aktivierung müssen schadensfrei
+ertragbar sein, sowohl mit als auch ohne vorausgehende Aktivierung des
+reversiblen Straffers.</p>
+<p><u>[redacted-person] : 3461772</u></p>
+<p>Einmalig abscherende Kupplungselemente oder Beschädigungen von
+Getriebeanteilen sind nicht zulässig.</p>
+<p><u>[redacted-person] : 3461773</u></p>
+<p>Die in Abhängigkeit der Lebensdauer ausgelegten Straffzähler zum
+Schutz der Funktionsfähigkeit des RGS sind für Entwicklungsversuche beim
+OEM so zu gestalten, dass eine Erprobung im Fahrzeug ohne Spezialtools
+über die definierten Straffzähler hinaus möglich ist.</p>
+</blockquote>
+<h4 id="elektrische-anforderungen">[redacted-person]</h4>
+<blockquote>
+<p><u>[redacted-person] : 3461774</u></p>
+</blockquote>
+<h4 id="beschreibung-der-allgemeinen-anforderungen">Beschreibung der
+allgemeinen Anforderungen</h4>
+<blockquote>
+<p>[redacted-person] sind im [redacted-person] beschrieben.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462331</u></p>
+<blockquote>
+<p>[redacted-person] mit Bordnetzschnittstellen, d. [redacted-person] Vorverkabelungen
+und Adapterleitungen, Bauteile mit Anschlussleitungen, und Leitungen in
+Komponenten, die als ZSB geliefert werden, gelten die Anforderungen des
+Querschnittslastenheftes LAH 5Q0.971 „[redacted-person]-Anforderungen“.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462332</u></p>
+<h4 id="anforderungen-an-den-elektromotorischen-straffantrieb">Anforderungen
+an den elektromotorischen Straffantrieb</h4>
+<blockquote>
+<p>[redacted-person] an die Steuerelektronik des RGS sowie dessen
+[redacted-person] (EMV) sind im [redacted-person]
+(siehe DOORS) beschrieben.</p>
+<p><u>Nicht-funktionale Anforderung : 3462334</u></p>
+<p>Für die Auslegung des Systems sind die im [redacted-person]
+definierte Spannungs-/Stromgrenzen einzuhalten.</p>
+</blockquote>
+<h4 id="klimatische-anforderungen">[redacted-person]</h4>
+<blockquote>
+<p>Betriebstemperaturbereich: -35°C bis +85°C</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462335</u></p>
+<p><u>[redacted-person] : 3461779</u></p>
+<blockquote>
+<p>Im Bereich von -20°C bis +65°C müssen die definierten Straffkräfte
+gewährleistet werden.</p>
+<p><u>[redacted-person] : 3461780</u></p>
+<p>Für jedes definierte Nennprofil ist eine adäquate
+Temperaturkompensation vorzusehen, die die genannten Toleranzen sowohl
+für die Zielkraft als auch für die Zieleinzugsgeschwindigkeit
+sicherstellt.</p>
+<p><u>[redacted-person] : 3461781</u></p>
+<p>[redacted-person] der Temperaturkompensation müssen Bestandteile der
+fahrzeugspezifischen Bedatung sein, um Einflüsse der Einbauumgebung im
+Fahrzeug zu berücksichtigen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461782</u></p>
+<blockquote>
+<p>[redacted-person] der Motortemperatur ist anhand der Stromgrenzen
+(Haltestrom) der Straffprofile zu ermitteln.</p>
+<p>Eine feste Definition z.[redacted-person] der Software ist nicht zulässig.
+Lagertemperaturbereich: -40°C bis +105°C</p>
+</blockquote>
+<h4 id="kundendienst--und-after-sales-anforderungen">Kundendienst- und
+[redacted-person] Anforderungen</h4>
+<h4 id="kundendienstanforderungen">Kundendienstanforderungen</h4>
+<blockquote>
+<p><u>[redacted-person] : 3461783</u></p>
+<p><u>[redacted-person] : 3461784</u></p>
+<p><u>[redacted-person] : 3461785</u></p>
+<p>[redacted-person] muss Lösungen entwickeln, die eine Inbetriebnahme
+oder Verifikation im Reparaturfall ohne Probe- und Adaptionsfahrt
+ermöglicht.</p>
+<p><u>Nicht-funktionale Anforderung : 3462611</u></p>
+</blockquote>
+<h6 id="prüf--oder-verifikationsverfahren-können-beispielweise-in-form-einer-adaption-diverser-parameter-z.-b.-anfahren-der-endanschläge-oder-durch-ein-herbeiführen-eines-definierten-systemzustandessystemverhaltens-z.-b.-serviceregeneration-dpf-gemischadaption-umgesetzt-werden.">Prüf-
+oder Verifikationsverfahren können beispielweise in Form einer Adaption
+diverser Parameter (z. [redacted-person] der Endanschläge) oder durch ein
+Herbeiführen eines definierten Systemzustandes/Systemverhaltens (z. [redacted-person] DPF, Gemischadaption) umgesetzt werden.</h6>
+<p><u>Information : 3462612</u></p>
+<h6 id="falls-der-auftragnehmer-keine-lösungen-findet-die-eine-inbetriebnahme-oder-verifikation-im-reparaturfall-ohne-probe--oder-adaptionsfahrt-ermöglicht-ist-er-verpflichtet-sich-die-abweichung-durch-den-auftraggeber-genehmigen-zu-lassen.">Falls
+der Auftragnehmer keine Lösungen findet, die eine Inbetriebnahme oder
+Verifikation im Reparaturfall ohne Probe- oder Adaptionsfahrt
+ermöglicht, ist er verpflichtet, sich die Abweichung durch den
+Auftraggeber genehmigen zu lassen.</h6>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462613</u></p>
+<p>Die minimale Lagerfähigkeit ist mit dem Auftraggeber zu
+Angebotsvergabe gemeinsam zu definieren und zu dokumentieren.</p>
+<p><u>Nicht-funktionale Anforderung : 3462614</u></p>
+<p>Nach der Lagerzeit müssen alle Anforderungen einschließlich
+Lebensdauer erfüllt werden.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462615</u></p>
+<h6 id="after-sales-anforderungen">[redacted-person] Anforderungen</h6>
+<blockquote>
+<p>Für alle Bauteile gelten die Anforderungen des
+Querschnittlastenheftes LAH DUM 000 K „Lastenheft für [redacted-person]“.</p>
+</blockquote>
+<h4 id="transportschutz">Transportschutz</h4>
+<blockquote>
+<p><u>[redacted-person] : 3463073</u></p>
+<p>[redacted-person] des RGS müssen so beschaffen sein, dass sie
+während des Transportes nicht beschädigt werden können.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461789</u></p>
+<blockquote>
+<p>[redacted-person] sind vom Lieferanten mit den
+Fachabteilungen der Logistik festzulegen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461790</u></p>
+<blockquote>
+<p>Kabel müssen fest am Aufroller fixiert sein, um „Transportschlaufen“
+und somit Beschädigungen an den</p>
+<p>Kabellitzen zu verhindern.</p>
+<p>An den Kabelenden sind Zugentlastungen vorzusehen.</p>
+<p><u>[redacted-person] : 3461791</u></p>
+<p><u>[redacted-person] : 3461792</u></p>
+<p>Um die Funktionsfähigkeit des reversiblen Gurtstraffers bis zum
+Verbau im Fahrzeug sicherzustellen, ist der Falltest gemäß [redacted-co]TL 82500
+Kapitel 5.1 nachzuweisen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461793</u></p>
+<blockquote>
+<p>Insbesondere ist hierbei zu berücksichtigen, dass auch die
+elektrischen Funktionen der Steuereinheit vollständig erhalten bleiben
+bzw. ein Defekt von außen, vor dem Verbau, eindeutig erkennbar ist.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461794</u></p>
+<blockquote>
+<p>Es sind gegebenenfalls geeignete Maßnahmen mit den
+Konzern-Fachabteilungen der Qualitätssicherung und Logistik abzustimmen,
+um einen sicheren Umgang mit dem Produkt zu gewährleisten</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461795</u></p>
+<h4 id="logistikanforderungen">Logistikanforderungen</h4>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h4 id="verpackung">Verpackung</h4>
+<blockquote>
+<p><u>Information : 3461797</u></p>
+<p>[redacted-person] des RGS müssen so verpackt werden, dass sie
+während des Transports nicht beschädigt werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3462352</u></p>
+<p>[redacted-person] sind vom Lieferanten mit den
+Fachabteilungen der Logistik festzulegen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462353</u></p>
+<p>[redacted-person] der elektromotorischen Einheit ist zu
+achten.</p>
+<p><u>Nicht-funktionale Anforderung : 3462354</u></p>
+</blockquote>
+<h4 id="teileschutz">Teileschutz</h4>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h4 id="für-audi-gilt-gefahrgut">Für [redacted-co] gilt: Gefahrgut</h4>
+<blockquote>
+<p><u>Information : 3462356</u></p>
+<p>[redacted-person] hat alle notwendigen Informationen zur Abwicklung von
+Transporten im Sinne des Gefahrgutrechts zu übermitteln. Insbesondere
+hat er mitzuteilen, ob das [redacted-person] auf Basis der
+einschlägigen nationalen und internationalen Vorschriften und Regelungen
+enthält und das entsprechende Formblatt „[redacted-person]“
+auszufüllen.</p>
+<p>[redacted-person] ist auf der B2B Plattform unter „Start &gt;&gt;
+Informationen &gt;&gt; Geschäftsbereiche &gt;&gt;</p>
+<p>Forschung und Entwicklung &gt;&gt; Produktentwicklung“
+hinterlegt.</p>
+</blockquote>
+<h4 id="qualitätssicherungsanforderungen">Qualitätssicherungsanforderungen</h4>
+<blockquote>
+<p><u>[redacted-person] : 3462358</u></p>
+<p>Es gelten die Vorgaben der [redacted-co]99000 und der Formel Q-Dokumente zur
+Verantwortung des Auftragnehmers und dessen Unterauftragnehmer für
+eingebaute Kaufteile.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461802</u></p>
+<blockquote>
+<p>[redacted-person] muss das Prüfkonzept für Schadensteile dem
+Bauteilverantwortlichen vorstellen und mit ihm bis PVS abstimmen.</p>
+<p>[redacted-person] ist BZD-pflichtig (Bauzustandsdokumentation):
+<strong>Ja</strong></p>
+<p><u>[redacted-person] : 3461803</u></p>
+</blockquote>
+<p><u>[redacted-person] : 3461804</u></p>
+<blockquote>
+<p>Bauteile müssen entsprechend der Anforderungen zur
+Dokumentationspflicht der Qualitätssicherung und in Abstimmung mit der
+Fertigungsplanung des Auftraggebers für die Bauzustandsdokumentation,
+Teileverbauprüfung und Prozessabsicherung bei möglichem Falschverbau und
+eventueller Varianz mit einem RFID-Transponder nach [redacted-co]01067 und einem
+[redacted-person] Code nach [redacted-co]01064 versehen sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461805</u></p>
+<blockquote>
+<p>Die geltenden Vorgaben für die Ausführung, Eigenschaften und Leistung
+der RFID-Kennzeichnung sind definiert unter:</p>
+<p>https://lso.volkswagen.de/one-kbp/content/de/kbp_private/information_1/divisions/produc-
+tion/radio_frequency_identification rfid /radio_frequency_identification
+rfid .jsp</p>
+</blockquote>
+<p><u>[redacted-person] : 3461806</u></p>
+<blockquote>
+<p>[redacted-person] mittels RFID-Transponder und [redacted-person] Code muss
+ab PVS enthalten sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461807</u></p>
+<h4 id="produkt--und-prozessüberwachung">Produkt- und
+Prozessüberwachung</h4>
+<blockquote>
+<p>Es gelten die Vorgaben der [redacted-co]99000 und der Formel Q-Konkret (Kap.
+"Produktsicherheit, Produkthaftung" und "Verpflichtung zur eigenen
+Feldbeobachtung mit Meldepflicht") zur Verantwortung des Lieferanten und
+dessen Unterlieferanten für eingebaute Kaufteile.</p>
+<p><u>Nicht-funktionale Anforderung : 3462366</u></p>
+<p>[redacted-person] behält sich das Recht einer stichprobenartigen
+Qualitätsprüfung vor.</p>
+<p><u>Nicht-funktionale Anforderung : 3462367</u></p>
+</blockquote>
+<h4 id="schadensteil-analyse">Schadensteil-Analyse</h4>
+<blockquote>
+<p>[redacted-person] muss das Prüfkonzept für Schadensteile dem
+Bauteilverantwortlichen vorstellen und mit ihm bis PVS abstimmen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462369</u></p>
+<p>[redacted-person] der laufenden Serienproduktion sind vom Auftragnehmer
+zusammen mit den Fachbereichen der Qualitätssicherung und der
+[redacted-person] des Auftraggebers geeignete Vereinbarungen zu
+treffen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462370</u></p>
+</blockquote>
+<h1 id="anforderungen-an-erprobung">Anforderungen an Erprobung</h1>
+<h4 id="prüfmittel-erprobungsträger">Prüfmittel / Erprobungsträger</h4>
+<blockquote>
+<p>[redacted-person] spricht mit dem Auftraggeber ab, ob und wie viele
+Fahrzeuge der Auftragnehmer mit Mess- und Applikationsgeräten
+auszurüsten und für die Dauer der Entwicklung (bis 3 Monate nach SOP)
+bereitzustellen hat.</p>
+</blockquote>
+<h4 id="erfüllungsnachweise">Erfüllungsnachweise</h4>
+<blockquote>
+<p><u>[redacted-person] : 3461811</u></p>
+<p>Sämtliche unten aufgeführten Erprobungen sind nach den zitierten
+Vorschriften durchzuführen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461813</u></p>
+<h4 id="erprobungsplan">Erprobungsplan</h4>
+<blockquote>
+<p>[redacted-person] der Freigabeprüfungen ist vom Auftragnehmer mit den
+Entwicklungsabteilungen des Auftraggebers ein Erprobungsplan
+abzustimmen, der eine statistische Bewertung der Prüfergebnisse
+zulässt.</p>
+<p><u>Nicht-funktionale Anforderung : 3461815</u></p>
+<p>Ersatzweise sind vom Auftragnehmer – zum Beispiel für
+Lebensdauerprüfungen – Prüfmethoden aufzuzeigen, die eine robuste
+Erfüllung der Prüfanforderungen gewährleisten.</p>
+<p><u>Nicht-funktionale Anforderung : 3461816</u></p>
+<p>[redacted-person] ist eine entsprechende Deltaqualifikation unter
+Berücksichtigung der fahrzeugspezifischen Umfänge auszuarbeiten und
+abzustimmen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461817</u></p>
+</blockquote>
+<h4 id="prüfungen">Prüfungen</h4>
+<blockquote>
+<p>Die technischen Grundanforderungen des gesamten Gurtsystems sind in
+der TL 471 und für den Falltest in der TL 82500 definiert.</p>
+<p><u>Nicht-funktionale Anforderung : 3461819</u></p>
+<p>[redacted-person] des Prüfplans ist der dem Lastenheft LAH.DUM.857.D
+beigefügten Prüfmatrix zu entnehmen.</p>
+<p>Ferner gelten die folgenden TLs:</p>
+</blockquote>
+<ul>
+<li><p>TL 1010 Innenausstattungs-Materialien</p></li>
+<li><p>TL 52454 Gurtbänder für Sicherheitsgurte</p></li>
+<li><p>TL 82501 Gurtstraffer</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461820</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461821</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462379</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462380</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462381</u></p>
+</blockquote>
+<ul>
+<li><p>TL 82504 Gasgenerator und elektrische Zündeinheit für
+Gurtstraffer</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462382</u></p>
+</blockquote>
+<ul>
+<li><p>TL 80150 [redacted-person] von Airbageinheiten und
+Gurtstraffer</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462383</u></p>
+<p>Die geforderte Kraftkennung des Kraftbegrenzers ist vom Auftragnehmer
+mit Schlittenversuchen nachzuweisen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461822</u></p>
+<p>[redacted-person] sind zu dokumentieren und dem Auftraggeber
+vorzulegen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461823</u></p>
+<p>[redacted-person] muss sicherstellen, dass alle relevanten,
+weltweit gültigen Gesetzgebungen mit einer Sicherheit von mindestens 20
+% erfüllt werden, soweit sie nur sein Bauteil betreffen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461824</u></p>
+<p>Darüber hinaus ist zu gewährleisten, dass alle im Lastenheft
+aufgeführten, internen Anforderungen des VW-Konzerns erfüllt werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3461825</u></p>
+<p>[redacted-person] sind schriftlich und in elektronischer Form
+anhand von Versuchsberichten mit Fotos zu dokumentieren und an die
+Fachabteilung zu übergeben.</p>
+</blockquote>
+<h4 id="dauerversuch">Dauerversuch</h4>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461826</u></p>
+<p>[redacted-person]- und Temperaturlagerung (EP [redacted-phone]),
+Sonnenlichtsimulation nach DIN 75220, 1 [redacted-person] feucht /
+heiß (Florida), 1 Jahr trocken / heiß (Kalahari / Arizona), [redacted]Dauerlauf EVP (Ehra-verschärfter Kurs-PKW,
+8.000 km), Dauerlauf EWP (Ehra-Wechselkurs-PKW, [redacted-phone]km), Hydropuls
+(EP [redacted]) müssen alle Teile schadensfrei sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462392</u></p>
+<blockquote>
+<p>[redacted-person] der Auslösesensorik bzw. Funktion sowie
+Rotrostbildung sind auszuschließen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462393</u></p>
+<blockquote>
+<p>[redacted-person] müssen auch nach den Dauerversuchen die entsprechenden
+TLs erfüllen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462394</u></p>
+<blockquote>
+<p>[redacted-person] der Freibewitterung und der Dauerläufe
+übernimmt die Fachabteilung.</p>
+</blockquote>
+<p><u>Information : 3462395</u></p>
+<h4 id="straffleistungsversuch">Straffleistungsversuch</h4>
+<blockquote>
+<p>[redacted-person] der Leistungskenndaten des RGS sind Standversuche auf
+dem AK-Leistungsprüfstand gemäß [redacted-co]TL 82501, Abschnitt 6,
+durchzuführen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462397</u></p>
+<p>[redacted-person] werden mit und ohne Gurtlose durchgeführt, wobei diese
+durch das Einbringen von Schaumstoffzylindern in den Schulter- und
+Beckengurt herzustellen ist.</p>
+<p><u>Nicht-funktionale Anforderung : 3462398</u></p>
+<p>Abweichungen zum Prüfaufbau gem. TL 82501:</p>
+<p><u>Nicht-funktionale Anforderung : 3462399</u></p>
+</blockquote>
+<ul>
+<li><p>Vor jeder Messung ist das Gurtband einmal vollständig ab- und
+langsam wieder aufzurollen, um einen gleichmäßigen Filmspuleffekt im
+Aufroller zu gewährleisten</p></li>
+<li><p>Klemmenspannung am Motor: 13,5 V</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462889</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462890</u></p>
+</blockquote>
+<ul>
+<li><p>Maximale (Netz-)Stromaufnahme: 20 A (nach 5 ms) (ohne
+NGU-Straffung; Abweichungen der Fachabteilungen der einzelnen
+Fahrzeugprojekte sind zulässig und müssen explizit im jeweiligen Projekt
+genannt werden.). Hierbei sind die Anforderungen der
+Elektronik-Lastenhefte zu beachten.</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462891</u></p>
+</blockquote>
+<ul>
+<li><p>Gurtlosesimulation mit Schaumstoffzylindern PUR-E 23 kg/m³,
+umhüllt mit unbeschichtetem Luftsackgewebe, PA 6.6, 700 F 105:</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462892</u></p>
+</blockquote>
+<ul>
+<li><p>im Schultergurt: 1 x ∅ 120 mm x L 120 mm, [redacted-person] des
+Dummies</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3463183</u></p>
+</blockquote>
+<ul>
+<li><p>im Beckengurt: 2 x ∅ 80 mm x L 120 mm, links und rechts am
+Dummy-Becken</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3463184</u></p>
+</blockquote>
+<ul>
+<li><p>Durch die Gurtlosesimulation reduziert sich der geforderte
+Restwickel von 750 mm um ca. 200 mm</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462893</u></p>
+<p>Es sind die Straffleistungskenndaten gemäß Kapitel 8.7 zu
+erreichen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462400</u></p>
+<p>[redacted-person] dieser Kenndaten sind folgende Messstellen über der
+Zeit auszuwerten:</p>
+<p><u>Nicht-funktionale Anforderung : 3462401</u></p>
+</blockquote>
+<ul>
+<li><p>Kraft am Aufroller, gemessen unterhalb des Gurtwicklers</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462896</u></p>
+</blockquote>
+<ul>
+<li><p>Gurtbandkraft im Schultergurt, zwischen Dummyschulter und
+Umlenker</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462897</u></p>
+</blockquote>
+<ul>
+<li><p>Gurtbandkraft im Beckengurt, zwischen Dummybecken und
+Halter</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462898</u></p>
+</blockquote>
+<ul>
+<li><p>Einzugsweg des Gurtbandes in den Aufroller</p></li>
+<li><p>Stromaufnahme in der Zuleitung des RGS</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462899</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462900</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] während der Entwicklung ist
+zusätzlich die Stromaufnahme des Elektromotors aufzuzeichnen</p></li>
+</ul>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462901</u></p>
+<p>Für die Messung von Gurtkräften sind geeignete Kraftaufnehmer mit
+einem geeigneten Messbereich zu verwenden mit folgenden Einstellungen:
+SAE-Filterklasse CFC 600 und Grenzfrequenz 1000 Hz.</p>
+<p><u>Nicht-funktionale Anforderung : 3462402</u></p>
+</blockquote>
+<h4 id="testparameter-und-zyklen">Testparameter und Zyklen</h4>
+<h4 id="lebensdauerbeständigkeit">Lebensdauerbeständigkeit</h4>
+<blockquote>
+<p>[redacted-person] des RGS muss die Anforderungen des
+Konzern-[redacted-person] LAH.DUM.857.D ([redacted-co]TL 471, Pkt. 6)
+erfüllen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462404</u></p>
+<blockquote>
+<p>[redacted-person] der Lebensdauerprüfung (Neuzustand) sind die
+Leistungskennlinien der elektromechanischen Straffeinheit
+aufzunehmen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462405</u></p>
+<p>Zusätzlich sind vor und nach dem Lebensdauertest des [redacted-person]- und Komfortzyklen der reversiblen Straffeinheit gemäß Abschnitt
+8.19 hinzuzufügen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462406</u></p>
+<p>Diese enthalten Funktionsprüfungen vor und nach der Alterung sowie
+Geräusch- und Fehlbedienungstests.</p>
+<p><u>Nicht-funktionale Anforderung : 3462407</u></p>
+<p>[redacted-person] der Neuzustandsmessungen sind innerhalb der
+Hüllkurven (siehe Kapitel 8.7) einzuhalten.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462408</u></p>
+<blockquote>
+<p>[redacted-person] zwischen den Mittelwerten des Neuzustandes und
+des gealterten Zustandes darf die geforderten Grenzwerte nicht
+überschreiten.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462409</u></p>
+<blockquote>
+<p>[redacted-person] sowie die Reproduzierbarkeit nach Alterung muss
+einen Kraftkorridor von ±20% (bzw. ±15%; siehe Kapitel 8.7) auf die
+Nominalkennung erfüllen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462410</u></p>
+<blockquote>
+<p>[redacted-person]- und Korrosionsprüfungen sind die elektrischen
+Schnittstellen mit dem Originalstecker inklusive Kabel zu kontaktieren,
+sodass Fahrzeugumgebungsbedingungen hergestellt werden.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462411</u></p>
+<blockquote>
+<p>Parallel zu dem Prüfablauf nach [redacted-co]TL 471 mit zugehörigen
+Funktionsprüfungen der elektromechanischen Straffeinheit ist ein
+weiterer Prüfablauf in Anlehnung an [redacted-co]80000 § 16.1 durchzuführen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462412</u></p>
+<p>Dieser beinhaltet die Lebensdauerprüfung mittels mechanischem
+Dauerlauf bei verschiedenen Funktionstemperaturen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462413</u></p>
+<p>[redacted-person] der Straffzyklen ist in Anlehnung an [redacted-co]80000 Anhang
+B.1 Temperaturkollektiv 1 abgestimmt.</p>
+<p><u>Nicht-funktionale Anforderung : 3462414</u></p>
+<p>Zwischen den Straffzyklen werden Parametertests zur
+Funktionsüberprüfung durchgeführt.</p>
+<p><u>Nicht-funktionale Anforderung : 3462415</u></p>
+<p>Das genaue Vorgehen ist durch die Prüfmatrix beschrieben.</p>
+<p><u>Nicht-funktionale Anforderung : 3462416</u></p>
+<p>Zu Beginn und nach jedem Straffblock sind jeweils die
+Straffleistungskennlinien zu bestimmen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462417</u></p>
+<p>[redacted-person] der Lebensdauerbeständigkeit ist erstmalig bis zur
+B-Freigabe zu erbringen und Voraussetzung zur Erteilung der
+Baumustergenehmigung.</p>
+<p>Ein reversibler Straffzyklus besteht prinzipiell aus folgendem
+Ablauf:</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462418</u></p>
+<p><u>Information : 3462419</u></p>
+<blockquote>
+<p><strong>Abbildung:</strong> Beispiel schematischer Prüfzyklus für
+Lebensdauerprüfung RGS</p>
+</blockquote>
+<blockquote>
+<p><u>Information : 3462919</u></p>
+<p>Für die Alterung nach VW80000 L01 ist kein Austausch oder
+Modifikation der Steuergeräte zulässig; für die Funktionsbewertung nach
+mechanischer Alterung für Gurtsysteme ist ein Tausch der
+Steuerelektronik zulässig.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462420</u></p>
+<blockquote>
+<p>Zusätzlich ist mit gemäß VW80000 vollständig gealterten
+Steuerelektroniken zu gewährleisten, dass es weder zu einem Ausfall des
+RGS-Systems noch zu Störungen anderer Fahrzeugsysteme kommt.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462421</u></p>
+<blockquote>
+<p>[redacted-person] darf durch die oben beschriebenen Straff- und
+Komfortzyklen nicht beschädigt werden.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462422</u></p>
+<blockquote>
+<p>Hierzu sind Prüfungen mit dem für die Serie vorgesehenen Gurtumlenker
+(falls gebraucht) durchzuführen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462423</u></p>
+<p>[redacted-person] sind mit dem Auftraggeber so abzustimmen, dass der
+Thermoschutz des Motors nicht bei den Prüfungen anschlägt.</p>
+</blockquote>
+<h4 id="funktionsdauerlauf">Funktionsdauerlauf</h4>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462424</u></p>
+<p>Während der Entwicklungsphase des RGS kann eine verkürzte
+Dauerprüfung der elektromechanischen Baugruppe, ohne Überlagerung von
+Verschleißzyklen des Basisaufrollers, durchgeführt werden, um
+Entwicklungsänderungen kurzfristig beurteilen zu können.</p>
+<p><u>Nicht-funktionale Anforderung : 3462426</u></p>
+<p>Hierbei werden in Absprache mit den Fachabteilungen des
+Auftraggebers, je nach Funktionsumfang, verschiedene Straffblöcke im
+Temperaturband durchgeführt.</p>
+<p><u>Nicht-funktionale Anforderung : 3462427</u></p>
+<p>Zu Beginn und nach jedem Straffblock sind jeweils die
+Straffleistungskennlinien zu bestimmen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462428</u></p>
+<p>[redacted-person] der Neuzustandsmessungen sind innerhalb der
+Hüllkurven (siehe Kapitel 8.7) einzuhalten.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462429</u></p>
+<blockquote>
+<p>[redacted-person] zwischen den Mittelwerten des Neuzustandes und
+des gealterten Zustandes darf die geforderten Grenzwerte nicht
+überschreiten.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462430</u></p>
+<h4 id="beschaffenheit-des-zu-testenden-musterstandes">Beschaffenheit
+des zu testenden Musterstandes</h4>
+<blockquote>
+<p>Prüfmuster zum Nachweis physikalischer Produkteigenschaften müssen so
+beschaffen sein, dass die Eigenschaften späterer Serienwerkzeuge und
+-prozesse abgebildet werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3461833</u></p>
+<p>Hierzu sind vom Auftragnehmer gegebenenfalls entsprechende
+Prototypenwerkzeuge/-anlagen zu erstellen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461834</u></p>
+<p>Bei der Herstellung von Prüfmustern sind ebenso die Einflüsse von
+extremen Bauteil- und Prozesstoleranzen zu berücksichtigen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461835</u></p>
+<p>Um die Robustheit des Systems nachzuweisen, sind vom [redacted-person] mit Grenztoleranzen durchzuführen.</p>
+</blockquote>
+<h4 id="betriebszustände">Betriebszustände</h4>
+<blockquote>
+<p>[redacted-person] Lastenheft</p>
+</blockquote>
+<h4 id="virtuelle-erprobung-und-simulation">[redacted-person] und
+Simulation</h4>
+<blockquote>
+<p>Siehe LAH.DUM.857.BB</p>
+<p><u>Nicht-funktionale Anforderung : 3461836</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461838</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461840</u></p>
+<p>[redacted-person] und Simulationen sind die festgelegten Verfahren und
+Systeme anzuwenden. [redacted-person] erfolgt gemäß den Anforderungen
+der [redacted-co]99000, Abschnitt "Produktdatenmanagement".</p>
+</blockquote>
+<p><u>[redacted-person] : 3461841</u></p>
+<blockquote>
+<p>[redacted-person] erfolgt gemäß den Anforderungen der [redacted-co]99000,
+Abschnitt "Produktdatenmanagement".</p>
+</blockquote>
+<p><u>[redacted-person] : 3461842</u></p>
+<blockquote>
+<p>An dieser Stelle wird auf die Vereinbarungen im Projekt [redacted-prj]
+verwiesen, welche dringend zu</p>
+<p>berücksichtigen sind, siehe mitgeltende Unterlage „Rahmenbedingungen
+PDM für [redacted-prj]“.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461843</u></p>
+<h4 id="fahrzeugerprobung">Fahrzeugerprobung</h4>
+<blockquote>
+<p>[redacted-person] der Bauteile ist durch Einbauuntersuchungen zu
+überprüfen, die vom Auftraggeber veranlasst werden.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461845</u></p>
+<blockquote>
+<p>Bei den in der technischen Produktbeschreibung des jeweiligen
+Fahrzeugprojekts unter</p>
+<p>„Gesetzesanforderungen“ und „Consumer-Test“, externe und interne
+Anforderungen aufgeführten Crash- Versuchen darf es zu keinem Bruch
+eines Bauteiles des Sicherheitsgurtsystems kommen, welches zu einer
+negativen Beeinflussung der Rückhaltewirkung des Insassen führen
+könnte.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461846</u></p>
+<blockquote>
+<p>Ferner muss das Gurtschloss während des ganzen Versuches sicher
+verrastet sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461847</u></p>
+<blockquote>
+<p>Nach dem Versuch müssen die Schlossöffnungskräfte innerhalb der in
+der TL 471 bzw. TL 82503 angegebenen Grenzen sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461848</u></p>
+<blockquote>
+<p>[redacted-person] ist verpflichtet im jeweiligen Zielfahrzeug die
+entsprechenden Untersuchungen durchzuführen, um damit den Nachweis der
+Funktionsfähigkeit des Produktes zu erbringen. [redacted-person] hierzu
+sind dem Auftraggeber offen zu legen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461849</u></p>
+<blockquote>
+<p>Teile aus Fahrzeugdauerläufen sind auf Anforderung vom Auftragnehmer
+zu analysieren.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461850</u></p>
+<blockquote>
+<p>Wenn zur Durchführung von Versuchstätigkeiten das Bewegen von
+Fahrzeugen des Auftraggebers vorgeschrieben wird, dann stellt der
+Auftraggeber die Fahrzeuge z. [redacted-person] Leihvertragsregelung zur
+Verfügung. Fahrer von Erprobungsfahrzeugen benötigen neben der
+erforderlichen Fahrlizenz ein vom Auftraggeber anerkanntes
+Fahrsicherheitstraining.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461851</u></p>
+<blockquote>
+<p>Die für die Applikation des RGS erforderlichen
+Versuchsfahrzeuge/Technikträger werden vom Auftraggeber zur Verfügung
+gestellt.</p>
+</blockquote>
+<p><u>Information : 3461852</u></p>
+<blockquote>
+<p>[redacted-person] sind vom Auftragnehmer entsprechende Ersatzfahrzeuge
+eigenständig zu beschaffen.</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461853</u></p>
+<blockquote>
+<p>[redacted-person] verpflichtet sich, bei Bedarf die Erprobungs- und
+Abnahmefahrten des Auftraggebers (Sommer-/Wintererprobungen) personell
+zu unterstützen und hierzu notwendige Dokumentationen und
+Anschauungsmuster zur Verfügung zu stellen.</p>
+</blockquote>
+<h1 id="definitionen-begriffe-abkürzungen">Definitionen, Begriffe,
+Abkürzungen</h1>
+<h4 id="begriffe">Begriffe</h4>
+<p class="heading" id="a--b--und-c-musterstand">A-, B- und
+C-Musterstand:</p>
+<blockquote>
+<p>[redacted-person] für Produktentwicklung.</p>
+</blockquote>
+<p class="heading" id="baumustergenehmigung">Baumustergenehmigung:</p>
+<blockquote>
+<p>siehe [redacted-co]99000-4</p>
+</blockquote>
+<p class="heading" id="erprobung">Erprobung:</p>
+<blockquote>
+<p>Gesamtumfang aller Tests und/oder Prüfungen</p>
+</blockquote>
+<p class="heading" id="erstmuster">Erstmuster:</p>
+<blockquote>
+<p>siehe Formel-Q-Konkret</p>
+</blockquote>
+<p class="heading" id="tages-produktion">2-Tages-Produktion</p>
+<blockquote>
+<p>siehe Formel-Q-Konkret</p>
+</blockquote>
+<h4 id="abkürzungen">Abkürzungen</h4>
+<p class="heading" id="d">3D</p>
+<blockquote>
+<p>Dreidimensional</p>
+</blockquote>
+<p class="heading" id="abg-bauteile">ABG-Bauteile</p>
+<blockquote>
+<p>Allgemein bauartgenehmigungspflichtige Bauteile</p>
+</blockquote>
+<p class="heading" id="bt-lah">BT-LAH</p>
+<blockquote>
+<p>Bauteil-Lastenheft</p>
+</blockquote>
+<p class="heading" id="btv">BTV</p>
+<blockquote>
+<p>Bauteilverantwortliche</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461854</u></p>
+<p><u>Information : 3461856</u></p>
+<p><u>Information : 3461857</u></p>
+<p><u>Information : 3461858</u></p>
+<p><u>Information : 3461859</u></p>
+<p><u>Information : 3461860</u></p>
+<p><u>Information : 3461862</u></p>
+<p><u>Information : 3461863</u></p>
+<p><u>Information : 3461864</u></p>
+<p><u>Information : 3461865</u></p>
+<p class="heading" id="bzd">BZD</p>
+<blockquote>
+<p>Bauzustandsdokumentation</p>
+</blockquote>
+<p class="heading" id="cad">CAD</p>
+<blockquote>
+<p>[redacted-person] Design</p>
+</blockquote>
+<p class="heading" id="ccc">CCC</p>
+<blockquote>
+<p>[redacted-person] Certification</p>
+</blockquote>
+<p class="heading" id="dmu">DMU</p>
+<blockquote>
+<p>[redacted-person]-Up</p>
+</blockquote>
+<p class="heading" id="ece">ECE</p>
+<blockquote>
+<p>[redacted-person] for Europe</p>
+</blockquote>
+<p class="heading" id="eeprom">EEPROM</p>
+<blockquote>
+<p>[redacted]</p>
+</blockquote>
+<p class="heading" id="enti">eNTI</p>
+<blockquote>
+<p>elektronisches Neuteileinformationsblatt</p>
+</blockquote>
+<p class="heading" id="eg">EG</p>
+<blockquote>
+<p>[redacted-person]</p>
+</blockquote>
+<p class="heading" id="fmea">FMEA</p>
+<blockquote>
+<p>Failure mode and effects analysis</p>
+</blockquote>
+<p class="heading" id="fta">FTA</p>
+<blockquote>
+<p>[redacted-person] Analysis</p>
+</blockquote>
+<p class="heading" id="glr">GLR</p>
+<blockquote>
+<p>Gurtlosereduktion</p>
+</blockquote>
+<p class="heading" id="gp-bzw.-bp">GP bzw. BP</p>
+<blockquote>
+<p>Gurtparken (bzw. Beltparking)</p>
+</blockquote>
+<p class="heading" id="hil">HiL</p>
+<blockquote>
+<p>Hardware in the Loop</p>
+</blockquote>
+<p class="heading" id="ht">HT</p>
+<blockquote>
+<p>Hochtemperatur</p>
+</blockquote>
+<p class="heading" id="hw">HW</p>
+<blockquote>
+<p>Hardware</p>
+</blockquote>
+<p class="heading" id="hw-1">HW</p>
+<blockquote>
+<p>[redacted-person] ([redacted-person])</p>
+<p><u>Information : 3461866</u></p>
+<p><u>Information : 3461867</u></p>
+<p><u>Information : 3461868</u></p>
+<p><u>Information : 3461869</u></p>
+<p><u>Information : 3461870</u></p>
+<p><u>Information : 3461871</u></p>
+<p><u>Information : 3461872</u></p>
+<p><u>Information : 3461873</u></p>
+<p><u>Information : 3461874</u></p>
+<p><u>Information : 3461875</u></p>
+<p><u>Information : 3461876</u></p>
+<p><u>Information : 3461877</u></p>
+<p><u>Information : 3461878</u></p>
+<p><u>Information : 3461879</u></p>
+<p><u>Information : 3461880</u></p>
+</blockquote>
+<p class="heading" id="kw">KW</p>
+<blockquote>
+<p>Kalenderwoche</p>
+</blockquote>
+<p class="heading" id="lt">LT</p>
+<blockquote>
+<p>[redacted-person] / Niedrigtemperatur</p>
+</blockquote>
+<p class="heading" id="mbt">MBT</p>
+<blockquote>
+<p>[redacted-person]</p>
+</blockquote>
+<p class="heading" id="ngu">NGU</p>
+<blockquote>
+<p>Niedrig-Geschwindigkeits-Unfall</p>
+</blockquote>
+<p class="heading" id="ppm">ppm</p>
+<blockquote>
+<p>Parts per Million</p>
+</blockquote>
+<p class="heading" id="pdm">PDM</p>
+<blockquote>
+<p>Produktdatenmanagement</p>
+</blockquote>
+<p class="heading" id="pvs">PVS</p>
+<blockquote>
+<p>Produktionsversuchsserie</p>
+</blockquote>
+<p class="heading" id="qm">QM</p>
+<blockquote>
+<p>Qualitätsmanagement</p>
+</blockquote>
+<p class="heading" id="rgs">RGS</p>
+<blockquote>
+<p>[redacted-person]</p>
+</blockquote>
+<p class="heading" id="rfid">RFID</p>
+<blockquote>
+<p>Radio-[redacted-person]</p>
+</blockquote>
+<p class="heading" id="rt">RT</p>
+<blockquote>
+<p>Raumtemperatur</p>
+</blockquote>
+<p class="heading" id="sc">SC</p>
+<blockquote>
+<p>[redacted-person]</p>
+</blockquote>
+<p class="heading" id="se">SE</p>
+<blockquote>
+<p>[redacted-person]</p>
+</blockquote>
+<p class="heading" id="sg">SG</p>
+<blockquote>
+<p>Steuergerät</p>
+</blockquote>
+<p class="heading" id="sop">SOP</p>
+<blockquote>
+<p>Start of Production</p>
+<p><u>Information : 3461881</u></p>
+<p><u>Information : 3461882</u></p>
+<p><u>Information : 3461883</u></p>
+<p><u>Information : 3461884</u></p>
+<p><u>Information : 3461885</u></p>
+<p><u>Information : 3461886</u></p>
+<p><u>Information : 3461887</u></p>
+<p><u>Information : 3461888</u></p>
+<p><u>Information : 3461889</u></p>
+<p><u>Information : 3461890</u></p>
+<p><u>Information : 3461891</u></p>
+<p><u>Information : 3461892</u></p>
+<p><u>Information : 3461893</u></p>
+<p><u>Information : 3461894</u></p>
+<p><u>Information : 3461895</u></p>
+<p><u>Information : 3461896</u></p>
+</blockquote>
+<p class="heading" id="sw">SW</p>
+<blockquote>
+<p>Software</p>
+</blockquote>
+<p class="heading" id="tl">TL</p>
+<blockquote>
+<p>[redacted-person]</p>
+</blockquote>
+<p class="heading" id="ts">TS</p>
+<blockquote>
+<p>Teilstraffung</p>
+</blockquote>
+<p class="heading" id="vda">VDA</p>
+<blockquote>
+<p>Verband der Automobilindustrie e.V.</p>
+</blockquote>
+<p class="heading" id="vs">VS</p>
+<blockquote>
+<p>Vollstraffung</p>
+</blockquote>
+<p class="heading" id="zsb">ZSB</p>
+<blockquote>
+<p>Zusammenbau</p>
+</blockquote>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p><u>Information : 3461897</u></p>
+<p><u>Information : 3461898</u></p>
+<p><u>Information : 3461899</u></p>
+<p><u>Information : 3461900</u></p>
+<p><u>Information : 3461901</u></p>
+<p><u>Information : 3461902</u></p>
+<p>Es gelten die am Ausgabedatum des BT-LAH gültigen mitgeltenden
+Unterlagen, sowie die darin genannten Dokumente.</p>
+</blockquote>
+<p><u>[redacted-person] : 3461545</u></p>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den für dieses BT-LAH
+gültigen mitgeltenden Unterlagen zu arbeiten.</p>
+</blockquote>
+<p class="heading" id="bezugsquelle">Bezugsquelle:</p>
+<blockquote>
+<p><u>[redacted-person] : 3461547</u></p>
+<p>Dokumente können über die B2B-Lieferantenplattform des [redacted-person] unter der Internetadresse: <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+<u>mit einer Zugangsberechtigung abgerufen werden (Kontakt</u> <u>B2B
+Support: Tel.: +49 5361 9-33099 Mail: <a href="http://www.vwgroupsupply.com/portal01/portlet/RedirectServlet/redirectServlet?url=mailto%3Ab2bteam%40vwgroupsupply.com">[redacted-email]</a>).</u></p>
+</blockquote>
+<p><u>Information : 3461548</u></p>
+<blockquote>
+<p>Im Rahmen einer Zusammenarbeit im Projekt [redacted-prj] ist die mitgeltende
+Unterlage „Rahmenbedingungen PDM für [redacted-prj]“ dringend zu
+berücksichtigen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461906</u></p>
+</blockquote>
+<h4 id="zeichnungen-pläne-skizzen-variantenbaum">Zeichnungen, Pläne,
+Skizzen; Variantenbaum</h4>
+<blockquote>
+<p>Siehe projektspezifische Dokumentationen.</p>
+</blockquote>
+<h4 id="technische-spezifikationen">[redacted-person]</h4>
+<blockquote>
+<p><strong>Formel Q Dokumentenreihe</strong></p>
+</blockquote>
+<p class="heading" id="vw-01064">[redacted-co]01064</p>
+<p><u>Nicht-funktionale Anforderung : 3461908</u></p>
+<p><u>[redacted-person] : 3461910</u></p>
+<blockquote>
+<p>Baugruppenkennzeichnung an Serienfahrzeugen; BZD-Codierung an
+mechanischen Fahrzeugteilen</p>
+</blockquote>
+<p><u>[redacted-person] : 3462499</u></p>
+<p class="heading" id="vw-01067">[redacted-co]01067</p>
+<blockquote>
+<p>Einsatz von Auto-ID zur eindeutigen Objektkennzeichnung</p>
+</blockquote>
+<p class="heading" id="vw-01155">[redacted-co]01155</p>
+<blockquote>
+<p>Fahrzeug-Zulieferteile; Genehmigung von Erstlieferung und
+Änderung</p>
+<p><u>[redacted-person] : 3462500</u></p>
+</blockquote>
+<p class="heading" id="vw-52000">[redacted-co]52000</p>
+<blockquote>
+<p>[redacted-person]; Prüfung und Dokumentation</p>
+</blockquote>
+<p class="heading" id="vw-91102">[redacted-co]91102</p>
+<blockquote>
+<p><u>[redacted-person] : 3462501</u></p>
+<p><u>[redacted-person] : 3462502</u></p>
+<p>[redacted-person], Fahrzeugteile, Werkstoffe, Betriebsstoffe;
+Recyclinganforderungen, Rezyklateinsatz</p>
+</blockquote>
+<p class="heading" id="vw-99000">[redacted-co]99000</p>
+<blockquote>
+<p><u>[redacted-person] : 3462503</u></p>
+<p>[redacted-person] zur Leistungserbringung im Rahmen der
+Bauteilentwicklung</p>
+</blockquote>
+<p><u>[redacted-person] : 3462504</u></p>
+<p class="heading" id="vw-99000-1">[redacted-co]99000-1</p>
+<blockquote>
+<p>Teil 1: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Planungsfreigabe</p>
+</blockquote>
+<p class="heading" id="vw-99000-2">[redacted-co]99000-2</p>
+<blockquote>
+<p><u>[redacted-person] : 3462505</u></p>
+<p>Teil 2: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Beschaffungsfreigabe</p>
+</blockquote>
+<p class="heading" id="vw-99000-3">[redacted-co]99000-3</p>
+<blockquote>
+<p><u>[redacted-person] : 3462506</u></p>
+<p>Teil 3: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Konstruktionsfreigabe</p>
+</blockquote>
+<p class="heading" id="vw-99000-4">[redacted-co]99000-4</p>
+<blockquote>
+<p><u>[redacted-person] : 3462507</u></p>
+<p>Teil 4: [redacted-person] zur Leistungserbringung im Rahmen
+der [redacted-person]</p>
+</blockquote>
+<p class="heading" id="vw-80150">[redacted-co]80150</p>
+<blockquote>
+<p>[redacted-person] von pyrotechnischen Einheiten</p>
+</blockquote>
+<p class="heading" id="vw-80152">[redacted-co]80152</p>
+<p><u>[redacted-person] : 3462508</u></p>
+<p><u>Information : 3462509</u></p>
+<blockquote>
+<p>[redacted-person] für pyrotechnische Systeme; Anforderungen und
+Prüfbedingungen</p>
+</blockquote>
+<p><u>Information : 3462510</u></p>
+<p class="heading" id="vw-80000">[redacted-co]80000</p>
+<blockquote>
+<p>Elektrische und elektronische Komponenten in Kraftfahrzeugen -
+[redacted-person], Prüfbedingungen und Prüfungen</p>
+</blockquote>
+<p class="heading" id="vw-80106">[redacted-co]80106</p>
+<blockquote>
+<p><u>Information : 3462511</u></p>
+<p>Steckanschluss an und in Elektrik- und Elektronik-Komponenten im Kfz;
+Anforderungen</p>
+</blockquote>
+<p><u>Information : 3462512</u></p>
+<p class="heading" id="pv-3590">PV 3590</p>
+<blockquote>
+<p>Serienprüfung von Zündelementen; Prüfung des Zündverhalten von
+Anzündern aus Kunststoff</p>
+</blockquote>
+<p><u>Information : 3462513</u></p>
+<p class="heading" id="tl471">TL471</p>
+<blockquote>
+<p>ZSB Sicherheitsgurtsysteme und [redacted-person]- und
+Funktionsanforderungen</p>
+</blockquote>
+<p class="heading" id="tl82500">TL82500</p>
+<blockquote>
+<p>[redacted-person], Anforderungen und Prüfungen</p>
+<p><u>Information : 3462514</u></p>
+</blockquote>
+<p class="heading" id="tl82501">TL82501</p>
+<blockquote>
+<p>[redacted-person], Anforderungen und Prüfungen</p>
+<p>sowie die darin genannten Dokumente.</p>
+</blockquote>
+<h4 id="typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen,
+Vorschriften, Gesetze</h4>
+<blockquote>
+<p><u>Information : 3462515</u></p>
+<p><u>Information : 3462516</u></p>
+<p><u>Information : 3462517</u></p>
+<p>Aufgeführt sind hier nur die wichtigsten Typprüfungen, Vorschriften
+und Gesetze. Selbstverständlich gelten auch alle anderen relevanten
+weltweiten Anforderungen.</p>
+<p>[redacted-person] der Gesetze erfolgt nach dem Schema</p>
+<p><strong>Gesetznummer</strong> - Geltungsbereich / Thema</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461912</u></p>
+<p><u>Information : 3461913</u></p>
+<blockquote>
+<p><strong>EG 77, ECE-R16</strong> - EG und ECE / [redacted-person] und Si Gurte</p>
+<p><u>Nicht-funktionale Anforderung : 3461914</u></p>
+<p><strong>FMVSS 208 und 209</strong> - USA / [redacted-person]
+und Si Gurte</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461915</u></p>
+<blockquote>
+<p><strong>SR S 208 und 209</strong> - Canada / [redacted-person]
+und Si Gurte</p>
+<p><u>Nicht-funktionale Anforderung : 3461916</u></p>
+<p><strong>ADR 4</strong> - Australien / Gesetz Si Gurte</p>
+<p><strong>EG 76, ECE-R 14</strong> - EG und ECE / [redacted-person] Si
+Gurte</p>
+<p><strong>FMVSS 210</strong> - USA / [redacted-person] Si Gurte</p>
+<p><strong>SR S 210 (CMVSS)</strong> - Canada / [redacted-person] Si
+Gurte</p>
+<p><strong>ADR 5</strong> - Australien / [redacted-person] Si Gurte</p>
+<p><strong>FMVSS 225</strong> - USA / [redacted-person]</p>
+<p><strong>SR S 210.2 (CMVSS)</strong> - Canada / [redacted-person]</p>
+<p><strong>ADR 34</strong> - Australien / [redacted-person]</p>
+<p><u>Nicht-funktionale Anforderung : 3461917</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461918</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461919</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461920</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461921</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461922</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461923</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461924</u></p>
+<p><strong>EG 74/60, ECE-R21</strong> - EG und ECE / [redacted-person] und Kanten</p>
+<p><u>Nicht-funktionale Anforderung : 3461925</u></p>
+<p><strong>FMVSS 201</strong> - USA / [redacted-person]</p>
+<p><strong>SR S 201 (CMVSS)</strong> - Canada / [redacted-person]</p>
+<p><strong>FMVSS 302</strong> - USA / [redacted-person]</p>
+<p><strong>SR S 302</strong> - Canada / [redacted-person]</p>
+<p><u>Nicht-funktionale Anforderung : 3461926</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461927</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461928</u></p>
+<p><strong>TL 1010</strong> - alle Märkte / [redacted-person]</p>
+<p><strong>UL94 V-0</strong> - alle Märkte / [redacted-person] von
+Bauteilen</p>
+<p><strong>EU–Richtlinie [redacted-phone]EG</strong> - EU / Richtlinie zur
+Altautoverordnung sowie die darin genannten Dokumente.</p>
+</blockquote>
+<h4 id="querschnittslastenhefte">Querschnittslastenhefte</h4>
+<p class="heading" id="lah-5q0.971">LAH 5Q0.971</p>
+<blockquote>
+<p>[redacted-person]-Anforderungen</p>
+</blockquote>
+<p class="heading" id="lah-dum-000-k">LAH DUM 000 K</p>
+<blockquote>
+<p>Lastenheft für [redacted-person]</p>
+<p>Für [redacted-co] gilt:</p>
+</blockquote>
+<p class="heading" id="lah-893.010">LAH [redacted-phone]</p>
+<blockquote>
+<p>Qualitätslastenheft</p>
+<p>Für [redacted-co] gilt:</p>
+</blockquote>
+<p class="heading" id="lah.893.880.af">LAH.[redacted-phone]AF</p>
+<p><u>Nicht-funktionale Anforderung : 3461929</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461930</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461931</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461932</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461933</u></p>
+<p><u>[redacted-person] : 3461935</u></p>
+<p><u>[redacted-person] : 3461936</u></p>
+<p><u>[redacted-person] : 3461937</u></p>
+<blockquote>
+<p>Anforderungsprofil für die Beauftragung von technischen Regeln zur
+Aufnahme im System MBT</p>
+</blockquote>
+<p><u>[redacted-person] : 3461938</u></p>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+</blockquote>
+<p class="heading" id="lah-dum-000-a">LAH DUM 000 A</p>
+<blockquote>
+<p>TE DMU</p>
+<p>Für [redacted-co] gilt: <strong>LAH DUM 000</strong> TE CATIA V5</p>
+<p>Für [redacted-co] gilt:</p>
+</blockquote>
+<p class="heading" id="lah.893.880.af-1">LAH.[redacted-phone]AF</p>
+<p><u>Information : 3461939</u></p>
+<p><u>[redacted-person] : 3461940</u></p>
+<blockquote>
+<p>Anforderungsprofil für die Beauftragung von technischen Regeln zur
+Aufnahme im System MBT</p>
+</blockquote>
+<p><u>[redacted-person] : 3461941</u></p>
+<p class="heading" id="lah.dum.857.d">LAH.DUM.857.D</p>
+<blockquote>
+<p>[redacted-person] Gurtsysteme</p>
+</blockquote>
+<p class="heading" id="lah.dum.857.bb">LAH.DUM.857.BB</p>
+<blockquote>
+<p>[redacted]</p>
+</blockquote>
+<p class="heading" id="lah.dum.857.bl">LAH.DUM.857.BL</p>
+<blockquote>
+<p>[redacted-person] NVH</p>
+<p><u>Nicht-funktionale Anforderung : 3461942</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461943</u></p>
+<p><u>Nicht-funktionale Anforderung : 3461944</u></p>
+<p><strong>[redacted-person]</strong> im Doors (Bauteillastenhefte
+und Funktionslastenhefte)</p>
+<p><u>Nicht-funktionale Anforderung : 3461945</u></p>
+<p><strong>Lastenhefte der Qualitätssicherung</strong></p>
+</blockquote>
+<h4 id="zu-beachtende-schutzrechte-und-lizenzen">Zu beachtende
+Schutzrechte und Lizenzen</h4>
+<blockquote>
+<p>Nicht belegt.</p>
+</blockquote>
+<h4 id="sonstige-unterlagen">[redacted-person]</h4>
+<p><u>Nicht-funktionale Anforderung : 3461946</u></p>
+<p><u>Information : 3461948</u></p>
+<blockquote>
+<p>Es gilt die Prüfmatrix (Test procedure) sowie allgemeine
+Anforderungen und die darin genannten Dokumente.</p>
+<p><u>Nicht-funktionale Anforderung : 3461950</u></p>
+<p>Sich widersprechende Anforderungen aus der Prüfmatrix und den TLs
+sind dem Auftraggeber darzustellen. Priorität der Dokumente besitzen die
+jeweiligen Prüfmatrizen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461951</u></p>
+<p>Siehe im HyperKVS beigefügte Excel-Datei zum LAH.DUM.857.T.</p>
+<p><u>Nicht-funktionale Anforderung : 3461952</u></p>
+<p>Bei abweichenden Ständen ist der unter oben genannter
+Lastenheftnummer archivierte Stand der Prüfmatrix gültig.</p>
+<p><u>Nicht-funktionale Anforderung : 3461953</u></p>
+<p><strong>Prüfmatrix:</strong> [redacted-person]
+Gurtstraffer zu LAH.DUM.857.T</p>
+<p><strong>Datum:</strong> [redacted-phone]</p>
+</blockquote>
+<p class="heading" id="version-5">Version: 5</p>
+<blockquote>
+<p><strong>Datei-Name:</strong> LAH.DUM.857.T_Pruefmatrix.xlsm</p>
+<p><u>Nicht-funktionale Anforderung : 3461954</u></p>
+<p>Die aktuelle Version der Prüfmatrix ist muss vom Auftragnehmer beim
+Auftraggeber angefragt werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3461955</u></p>
+</blockquote>
+<h1 id="anhang">Anhang</h1>
+<h4 id="funktionsbeschreibung-auf-fahrzeugebene-des-reversiblen-gurtstraffer">Funktionsbeschreibung
+auf Fahrzeugebene des reversiblen Gurtstraffer</h4>
+<h4 id="teilstraffung">Teilstraffung</h4>
+<blockquote>
+<p>Um die Position der Insassen in definierten gefährlichen
+Fahrsituationen zu verbessern, soll bei angeschnalltem Passagier das
+Gurtsystem bei entsprechender Anforderung durch das Mastersteuergerät
+eine reversible Straffung auf mittlerem Kraftniveau (Teilstraffung)
+durchführen.</p>
+</blockquote>
+<p><u>Information : 3462556</u></p>
+<blockquote>
+<p>[redacted-person] der Teilstraffung (TS) sollen sich innerhalb dem folgenden
+typischen Korridor (Abb. 9.1.3) befinden.</p>
+<p>[redacted-person] sind an der B3-Stelle auf dem AK-Sitz gemessen.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462557</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462558</u></p>
+<blockquote>
+<p>Änderungen des Korridors durch Parametrierung müssen nach Absprache
+mit der Fachabteilung umsetzbar sein.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462559</u></p>
+<blockquote>
+<p><strong>Abildung 9.1.3:</strong> Korridor für die Nominal-Kräfte der
+TS</p>
+</blockquote>
+<h4 id="hohe-dynamik-presense-straffung-pcf-high">[redacted-person] PreSense
+Straffung (PCF-High)</h4>
+<blockquote>
+<p><u>[redacted-person] : 3462978</u></p>
+<p>[redacted-person] „[redacted-person] PreSense Straffung (PCF-High)“ wird in
+Gefahrensituationen angefordert,</p>
+<p>die eine hohe Dynamik aufweisen.</p>
+<p>Somit ist der RGS mit maximaler Dynamik und Geschwindigkeit
+anzusteuern.</p>
+<p><u>Information : 3462561</u></p>
+</blockquote>
+<p><u>[redacted-person] : 3462562</u></p>
+<blockquote>
+<p>[redacted-person] ist analog zu einer Vollstraffung bzw.
+fahrzeugspezifisch wie eine NGU-Straffung zu applizieren.</p>
+</blockquote>
+<p><u>[redacted-person] : 3462563</u></p>
+<h4 id="prüfmatrix">Prüfmatrix</h4>
+<h4 id="abwicklung-von-baumusterfreigaben">Abwicklung von
+Baumusterfreigaben</h4>
+<p class="heading" id="bei-änderung-des-fertigungsortes-von-werkzeugen-bauteilen-werkstoffen-usw.-auf-wunsch-eines-lieferanten">bei
+Änderung des Fertigungsortes, von Werkzeugen, Bauteilen, Werkstoffen
+usw. auf Wunsch eines Lieferanten</p>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461961</u></p>
+<p>Alle geplanten Änderungen sind zu bündeln und zum Modelljahreswechsel
+zum Einsatz zu bringen.</p>
+<p><u>Nicht-funktionale Anforderung : 3461962</u></p>
+<p>[redacted-person] ist einzuhalten:</p>
+</blockquote>
+<ol type="1">
+<li><p>[redacted-person] der geplanten Maßnahme an die
+Beschaffung,</p></li>
+</ol>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3461963</u></p>
+<p>Entwicklung und Qualitätssicherung zur Sicherstellung der
+termingerechten Baumusterfreigabe unter Berücksichtigung der notwendigen
+Prüfzeiträume und Durchführungsbestimmungen.</p>
+<p><em>Verantwortlich:</em> Lieferant</p>
+<p><u>Nicht-funktionale Anforderung : 3462571</u></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>[redacted-person] zwischen Beschaffung, Entwicklung,
+Qualitätssicherung und Lieferant zur Abstimmung der erforderlichen
+Aufwendungen und terminlichen Abarbeitungszeit.</p></li>
+</ol>
+<blockquote>
+<p><em>Verantwortlich:</em> Konzernmarke</p>
+<p><u>Nicht-funktionale Anforderung : 3462572</u></p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Alle festgelegten Maßnahmen dürfen erst nach schriftlicher
+Genehmigung seitens [redacted-co]umgesetzt werden.</p></li>
+</ol>
+<blockquote>
+<p><em>Verantwortlich:</em> Lieferant, Konzernmarke</p>
+<p><u>Nicht-funktionale Anforderung : 3462573</u></p>
+</blockquote>
+<h4 id="durchführungsbestimmungen">Durchführungsbestimmungen:</h4>
+<ol type="1">
+<li><p>[redacted-person] führt die festgelegten Prüfungen entsprechend der
+TLs sowie der beigefügten Prüfmatrix durch. Für jedes Zielfahrzeug ist
+eine Deltaqualifikation durchzuführen.</p></li>
+</ol>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462575</u></p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>[redacted-person] erstellt in deutscher Sprache einen kompletten
+Prüfbericht über die gemäß der TLs durchgeführten Versuche und stellt
+die Versuchsergebnisse in schriftlicher und elektronischer Form zur
+Verfügung.</p></li>
+</ol>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462576</u></p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>[redacted-person] erstellt und übergibt einen Prüfbericht, eine
+Fotodokumentation der geprüften Teile mit den Werkstoffangaben der
+einzelnen Teile und Belegmuster an die Fachabteilung.</p></li>
+</ol>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462577</u></p>
+</blockquote>
+<ol start="4" type="1">
+<li><p>[redacted-person] sendet der Fachabteilung eine
+Baumusterfreigabeempfehlung auf Basis der Prüfergebnisse.</p></li>
+<li><p>[redacted-person] erhält Teile für Stichprobenprüfungen.</p></li>
+<li><p>[redacted-person] hat das Recht, bei Prüfungen anwesend zu
+sein.</p></li>
+</ol>
+<blockquote>
+<p><u>Nicht-funktionale Anforderung : 3462578</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462579</u></p>
+<p><u>Nicht-funktionale Anforderung : 3462580</u></p>
+</blockquote>
+<ol start="7" type="1">
+<li><p>[redacted-person] erstellt ggf. einen Bericht zur Dokumentation
+und erteilt die Baumusterfreigabe.</p></li>
+</ol>
+<p><u>Information : 3462581</u></p>
+<h4 id="geräuschanforderungen---komponentenversuche">Geräuschanforderungen -
+Komponentenversuche</h4>
+<h4 id="geräuschanforderungen-voll--und-teilstraffungen">[redacted-person]- und Teilstraffungen</h4>
+<blockquote>
+<p>[redacted-person] gilt sowohl für Voll- als auch
+Teilstraffungen.</p>
+<p><u>Nicht-funktionale Anforderung : 3462583</u></p>
+<p>[redacted-person] außerhalb der Korridore muss ein Nachweis über die
+Erfüllung der Anforderungen über die verschiedenen Straffprofile mit
+jeweiliger worst-case-Parametrierung erbracht werden.</p>
+<p><u>Nicht-funktionale Anforderung : 3462584</u></p>
+<p><strong>Abbildung 9.4.1 :</strong> Geräuschanforderung bei der
+Vollstraffung</p>
+</blockquote>
+<p><img alt="mks|3462585/Text%20Attachments/1844_2_1.png|3462585/Text%20Attachments/1844_2_1.docx|" src="./07_Components-bt-lah-dum-857-t-v7-media/media/image14.jpeg" style="width:4.96274in;height:2.46667in"/></p>
+<p><u>[redacted-person] : 3462585</u></p>
+<blockquote>
+<p><strong>Abbildung 9.4.2 :</strong> Geräuschanforderung bei dem
+Lösen</p>
+</blockquote>
+<p><img alt="mks|3462586/Text%20Attachments/1845_2_1.png|3462586/Text%20Attachments/1845_2_1.docx|" src="./07_Components-bt-lah-dum-857-t-v7-media/media/image15.jpeg" style="width:4.92992in;height:2.375in"/></p>
+<p><u>[redacted-person] : 3462586</u></p>
+<h4 id="geräuschanforderungen-gurtlosereduktion-und-gurtparken">[redacted-person] und Gurtparken</h4>
+<blockquote>
+<p><strong>Abbildung 9.4.3 :</strong> Geräuschanforderung bei
+Gurtlosereduktion</p>
+</blockquote>
+<p><img alt="mks|3462588/Text%20Attachments/1846_2_1.png|3462588/Text%20Attachments/1846_2_1.docx|" src="./07_Components-bt-lah-dum-857-t-v7-media/media/image16.jpeg" style="width:4.97156in;height:2.625in"/></p>
+<blockquote>
+<p><strong>Abbildung 9.4.4 :</strong> Geräuschanforderung bei
+Gurtparken</p>
+<p><u>[redacted-person] : 3462588</u></p>
+<p><img alt="mks|3462589/Text%20Attachments/1847_2_1.png|3462589/Text%20Attachments/1847_2_1.docx|" src="./07_Components-bt-lah-dum-857-t-v7-media/media/image17.jpeg" style="width:4.97156in;height:3in"/></p>
+</blockquote>
+<h4 id="geräuschprüfstände">Geräuschprüfstände</h4>
+<blockquote>
+<p><u>[redacted-person] : 3462589</u></p>
+</blockquote>
+<h6 id="prüfstand-für-vollstraffung-und-lösen-nach-der-vollstraffung">Prüfstand
+für Vollstraffung und Lösen nach der Vollstraffung</h6>
+<blockquote>
+<p><img alt="mks|3463057/Text%20Attachments/1848_2_1.png|3463057/Text%20Attachments/1848_2_1.docx|" src="./07_Components-bt-lah-dum-857-t-v7-media/media/image18.jpeg" style="width:4.70586in;height:3.60406in"/><strong>Abbildung:</strong>
+[redacted-person] (Teil 1)</p>
+<p><strong>Abbildung:</strong> [redacted-person] (Teil 2)</p>
+<p><u>Nicht-funktionale Anforderung : 3463057</u></p>
+<p><u>Nicht-funktionale Anforderung : 3463058</u></p>
+</blockquote>
+<h6 id="prüfstand-für-gurtlosereduktion-und-gurtparken">Prüfstand für
+Gurtlosereduktion und Gurtparken</h6>
+<blockquote>
+<p><strong>Abbildung:</strong> [redacted-person], Gurtparken
+(Teil 1)</p>
+</blockquote>
+<blockquote>
+<p><strong>Abbildung:</strong> [redacted-person], Gurtparken
+(Teil 2)</p>
+<p><u>Nicht-funktionale Anforderung : 3463060</u></p>
+</blockquote>
+<h2 id="review-report"><strong>Review-Report</strong></h2>
+<h3 id="baseline-0.0"><strong>Baseline 0.0</strong></h3>
+<blockquote>
+<p>Erstellung des LAH-Moduls in ESG Doors</p>
+</blockquote>
+<p><u>Nicht-funktionale Anforderung : 3463061</u></p>
+<p><u>Information : 3461563</u></p>
+<p><u>Information : 3461562</u></p>
+<p><u>Information : 3461970</u></p>
+<blockquote>
+<p>Import des Word-Dokuments (Konvertierung in RTF-File;
+Doors-RTF-Import)</p>
+</blockquote>
+<h3 id="baseline-0.1"><strong>Baseline 0.1</strong></h3>
+<blockquote>
+<p>Import der Typen und Attribute aus dem Template-[redacted-person] der
+Deckblatt-/Modul-Attribute</p>
+<p>Anlegen des Review-Report-[redacted-person] des Deckblatts</p>
+<p>Löschen des [redacted-person] der Ebenen</p>
+<p>[redacted-person] gelöscht und OLE-Objekt eingefügt [redacted-person] gelöscht und OLE-Objekt eingefügt</p>
+<p>[redacted-person] gelöscht und OLE-Objekt eingefügt
+Bilder und Tabellen wurden gelöscht und durch OLE-Objekte ersetzt</p>
+</blockquote>
+<h3 id="baseline-0.1.a"><strong>Baseline 0.1.A</strong></h3>
+<blockquote>
+<p><u>Information : 3461971</u></p>
+<p><u>Information : 3461564</u></p>
+<p><u>Information : 3461973</u></p>
+<p><u>Information : 3461974</u></p>
+<p><u>Information : 3461975</u></p>
+<p><u>Information : 3461976</u></p>
+<p><u>Information : 3461977</u></p>
+<p><u>Information : 3461978</u></p>
+<p><u>Information : 3461979</u></p>
+<p><u>Information : 3461980</u></p>
+<p><u>Information : 3461981</u></p>
+<p><u>Information : 3461982</u></p>
+<p><u>Information : 3461565</u></p>
+<p>[redacted-person] der Ebenen (Unterpunkte, Unterüberschriften ohne
+Nummerierung)</p>
+</blockquote>
+<p><u>Information : 3461984</u></p>
+<blockquote>
+<p>Löschung von fehlerhaften Leerzeichen/Tabs</p>
+</blockquote>
+<h3 id="baseline-0.2"><strong>Baseline 0.2</strong></h3>
+<blockquote>
+<p>Script transfere ausgeführt: BT-LAH ID+Kategorie gesetzt Script
+delete ausgeführt: BT-LAH Nummern gelöscht</p>
+<p><u>Information : 3461985</u></p>
+<p><u>Information : 3461566</u></p>
+<p><u>Information : 3461567</u></p>
+<p><u>Information : 3461568</u></p>
+</blockquote>
+<h5 id="variantenübersicht-lastenheftebene"><u>Variantenübersicht
+(Lastenheftebene)</u></h5>
+<blockquote>
+<p>Nachfolgend werden die Varianten aufgelistet, die für das Lastenheft
+über die Konzern-, Projekt-, BsM-, Diagnose- oder [redacted-person]
+vergeben wurden.</p>
+<p><strong>Konzernvarianten: Projektvarianten: [redacted-person] (BsM):
+Diagnose-Varianten: [redacted-person]:</strong></p>
+</blockquote>
+</body>
+</html>

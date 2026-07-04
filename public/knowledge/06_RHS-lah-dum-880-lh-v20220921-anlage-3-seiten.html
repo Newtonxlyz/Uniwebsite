@@ -1,0 +1,3466 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_DUM_880_LH_v20220921_Anlage_3_Seitencrash_Insassen_China</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<h3 id="gesamtlastenheft-anlage-3-sicherheitsanforderungen-insassenschutz-seitencrash-china">[redacted-person] 3 [redacted]</h3>
+<h3 id="lah.dum.880.lh_v20220921">LAH.DUM.880.LH_v20220921</h3>
+<h1 id="änderungsdokumentation">Änderungsdokumentation</h1>
+<h1 id="abstimmung">Abstimmung</h1>
+<h1 id="inhaltsverzeichnis">Inhaltsverzeichnis</h1>
+<p><a href="#änderungsdokumentation">Änderungsdokumentation 2</a><a href="#abstimmung">Abstimmung 3</a><a href="#inhaltsverzeichnis">Inhaltsverzeichnis 4</a><a href="#vorwort">Vorwort 5</a><a href="#anforderungen">Anforderungen
+6</a><a href="#gesetze">Gesetze 6</a><a href="#anforderungen-ratingverfahren-verbraucherschutz-wettbewerb">[redacted-person] / Verbraucherschutz / Wettbewerb 7</a><a href="#feldanforderungen">Feldanforderungen 8</a><a href="#zielwerte-für-die-insassenbelastung">Zielwerte für die
+Insassenbelastung 10</a><a href="#zielwerte-für-die-insassenbelastung-china">Zielwerte für die
+[redacted-person]: 11</a></p>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>[redacted-person] des Lastenheftes beschreibt Leistungen, Anforderungen
+sowie Prüf- und Erprobungsbedingungen an das Gesamtfahrzeug, die das
+Produkt bei Abschluss der Entwicklung erfüllen muss und ist eine
+Ergänzung des [redacted-person].</p>
+<p>Inhalte dieses Anhanges dürfen Dritten ohne ausdrückliche Genehmigung
+durch die [redacted-co] nicht zugänglich gemacht werden.</p>
+<p><strong>Grundsätzlich sind als Entwicklungsziel alle gesetzlichen
+Grenzwerte,</strong> sowie alle Anforderungen bzgl. Selbstverpflichtung
+<strong>mit einer 20%-igen Sicherheit</strong> zu erfüllen.</p>
+<p>Dies dient der Absicherung von Produktionsschwankungen (bzgl.
+Verbindungstechnik, Materialgüte, Materialstärke) sowie
+Versuchsstreuungen, und gewährleistet eine sichere Erfüllung aller
+Anforderungen (Gesetz, Selbstverpflichtung) in der Serienfertigung über
+die gesamte Laufzeit.</p>
+</blockquote>
+<h3 id="abweichungen-vom-entwicklungsziel-sind-im-einzelfall-bei-nachweis-einer-entsprechend-notwendigen-prozessgüte-und-serienbegleitender-qualitätsprüfungen-im-herstellungsprozess-möglich-erfordern-jedoch-zwingend-die-genehmigung-durch-die-fahrzeugsicherheit-unter-einbeziehung-der-zuständigen-qualitätssicherungsabteilungen.">Abweichungen
+vom Entwicklungsziel sind im Einzelfall bei Nachweis einer entsprechend
+notwendigen Prozessgüte und serienbegleitender Qualitätsprüfungen im
+Herstellungsprozess möglich, erfordern jedoch zwingend die Genehmigung
+durch die Fahrzeugsicherheit unter Einbeziehung der zuständigen
+Qualitätssicherungsabteilungen.</h3>
+<h1 id="anforderungen">Anforderungen</h1>
+<blockquote>
+<p>Die genannten Gesetze, Richtlinien und Vorgaben sind in ihrem
+jeweiligen aktuellen Stand einzuhalten, und absehbare Änderungen in
+Gesetzen und Verbraucherschutztests sind entsprechend zu
+berücksichtigen. [redacted-person] werden von der Fahrzeugsicherheit
+vorgegeben. Grundsätzlich sind die Lastfälle in der Auslegung beidseitig
+zu betrachten. Bei unsymmetrischem Verhalten sind Nachweise ([redacted-person], Simulation oder Test) notwendig.</p>
+</blockquote>
+<h2 id="gesetze">Gesetze</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"><p><strong>Märkte</strong></p>
+<p><strong>→</strong></p>
+<blockquote>
+<p><strong>Lastfall</strong></p>
+<p><strong>↓</strong></p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p><strong>China GB</strong></p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p><strong>Bemerkung</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Seitencrash mit Defo-Barriere</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>GB[redacted-phone]</p>
+<p><em>(vergleichbar mit ECE-R95 /Türverriegelung im Projekt zu
+prüfen)</em></p>
+<p><em>Update zu 2025 (AEMDB)</em></p>
+</blockquote></td>
+<td><blockquote>
+<p>Hinweise in Klammern entsprechen den bisherigen Erkenntnissen /
+Abstimmungen mit Behörden</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>GB/T[redacted-phone]</p>
+<p>(Pfahl 75° WS50 oder ES2re)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Hochvolt (HV)</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>GB/T [redacted-phone]</p>
+<p>[redacted]</p>
+<p><em>(vergleichbar mit ECE-R100)</em></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Siehe LAH.DUM.880.AS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Kraftstoffdichtigkeit</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>GB[redacted-phone]</p>
+<p><em>Update zu 2025 (AEMDB)</em></p>
+</blockquote></td>
+<td><blockquote>
+<p>Siehe LAH.[redacted-phone]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>CNG / LPG</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Siehe LAH „[redacted-person] (CNG/LPG) RdW/China“</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>eCall</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Siehe LAH.DUM.035.B</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Selbstverpflichtung</strong></p>
+</blockquote></td>
+<td>-</td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Türeindrückung</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>GB[redacted-phone]</p>
+<p><em>(vgl. FMVSS)</em></p>
+</blockquote></td>
+<td><blockquote>
+<p>Siehe LAH.DUM.880.KR</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Dacheindrückung</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>GB[redacted-phone]</p>
+<p><em>(entspr. FMVSS216)</em></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Siehe LAH.DUM.857.DH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Schlösser &amp; Scharniere</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>GB[redacted-phone]</p>
+<p>(vgl. GTR)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Siehe LAH.DUM.837.A</p>
+<p>LAH.DUM.837</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Legende: schwarze Schrift = für Insassenschutz relevante Gesetze |
+blaue Schrift = [redacted-person], keine direkte Anforderung an
+Insassenschutz</p>
+</blockquote>
+<h2 id="anforderungen-ratingverfahren-verbraucherschutz-wettbewerb">[redacted-person] / Verbraucherschutz / Wettbewerb</h2>
+<blockquote>
+<p>[redacted-person] des Gesamtziels kann mit Zustimmung der Fachabteilung
+im Einzelfall von den Vorgaben abgewichen werden.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p><strong>Test</strong></p>
+</blockquote></th>
+<th colspan="2" style="text-align: left;"><blockquote>
+<p><strong>Spezifikation</strong></p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p><strong>Dies sind Startwerte der Ziele zu Projektstart</strong></p>
+<p>🡪 <strong>Abgestimmte und verbindliche Ziele sind der Anlage5 des
+jeweiligen Projektes zu entnehmen</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="3" style="text-align: left;"><blockquote>
+<p><strong>China NCAP 2021</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Barriere</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>AE-MDB 1400 kg 90°; 50 km/h,</p>
+<p>350mm Bodenhöhe (links oder rechts)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Verbrenner</strong>:</p>
+<p>16/16 Punkte (1. SR) + 4/4 Punkte (2. SR)</p>
+<p><strong>BEV / PHEV</strong> (interne Anforderung):</p>
+<p>Monitoring in Simulation: Keine roten Körperregionen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>AE-MDB</p>
+<p>[redacted-person]: Stoßabgewandt ES-II [redacted-person] / Mitte</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Nur <strong>Verbrenner</strong>: Monitoring</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Pfahl</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Ø254 mm 75°; 32 km/h</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Nur <strong>BEV und PHEV</strong></p>
+<p>16/16 Punkte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="3" style="text-align: left;"><blockquote>
+<p><strong>China NCAP 2025</strong></p>
+<p>(Best guess)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Barriere</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>New SC-MDB 1700 kg 90°; 60 km/h, 350mm Bodenhöhe (links od. rechts)
+[redacted-person]: Sid2s hinten (Stoßseite)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p>20/20 Punkte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>Barriere und Pfahl</p>
+<p>[redacted-person]: Stoßabgewandt ES-II</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p>4+4 Punkte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Pfahl</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Ø254 mm 75°; 32 km/h [redacted-person]: Q3 hinten</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p>16/16 Punkte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>C-IASI V3.0 (2024)</strong></p>
+<p>(Best guess)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Barriere</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>AC-MDB 1650 kg; 50 km/h 400mm Bodenhöhe</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Bewertung “overall good”</p>
+<p>B-Säule "good" (20cm nominal, 18,5cm Toleranz)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="feldanforderungen">Feldanforderungen</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"><blockquote>
+<p><strong>Test / Vorschrift</strong></p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p><strong>Bemerkung / Referenz</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><p>Pfahlaufprall Ø254 mm 90°; 29 km/h</p>
+<ul>
+<li><p>2. Sitzreihe; Car-to-Pole (CtP)</p></li>
+<li><p>3. Sitzreihe; Car-to-Pole (CtP)</p></li>
+</ul></td>
+<td style="text-align: left;"><blockquote>
+<p>Nach EP [redacted-phone]</p>
+<p>Versuch auf Seite des Tankeinfüllstutzens oder worst case Tank.
+Trefferlage CoG Dummykopf.</p>
+<p>[redacted-person], ohne [redacted-person]</p>
+<p>[redacted-person], mit Seitenairbag nur wenn Seriensetzung; Ausnahme
+offene Fahrzeuge</p>
+<p>Fahrzeugausstattung nach Volumen (ChinaNCAP) SID-IIs in Versuch,
+SID-IIs / ES-2 in Simulation</p>
+<p>Soll der SID-IIs Dummy in die 2. oder 3. Sitzreihe nicht</p>
+<p>reinpassen, ist der Lastfall mit dem Q10 Dummy in Versuch und
+Simulation zu erfüllen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Pfahl hinten intern zur Kopfairbagauslegung (nur Simulation) Ø254 mm
+90°; 29 km/h</p>
+<p>Nur wenn längsverstellbare Rücksitzbank</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Fahrzeugausstattung nach Volumen</p>
+<p>ohne Seitenairbag, mit Seitenairbag nur, wenn Seriensetzung;
+SID-IIs</p>
+<p>[redacted-person] in vorderster [redacted-person]
+ergibt sich aus Konstruktionslage</p>
+<p>(auch bei verstellbarer Lehnenneigung),</p>
+<p>Kopfwinkel möglichst 0° nur über neck bracket</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p><strong>Anlage 3</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p>Anlage 3</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Abteilung: [redacted-id]</p>
+</blockquote></th>
+</tr>
+<tr>
+<th><blockquote>
+<p>[redacted]</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Blatt: <strong>9</strong> von <strong>13</strong></p>
+</blockquote></th>
+</tr>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>LAH.DUM.880.LH_v20220921</p>
+</blockquote></th>
+<th><blockquote>
+<p>Projektübergreifend</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Änderungsstand: [redacted-phone]</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>Pfahlaufprall vorne intern zur Kopfairbagauslegung (nur Simulation)
+Ø254 mm 75°; 32 km/h</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Fahrzeugausstattung nach Volumen (ChinaNCAP) 1x SID-IIs in
+Sitzposition nach FMVSS214 Pfahl 1x ES2-re in Sitzposition nach FMVSS214
+Pfahl</p>
+<p>1x WS50 in Sitzposition nach ENCAP Einsitzprozedur 1x SID-IIs mittig
+zwischen Vorne/unten und Mitte/unten, Torsowinkel 25°, Kopfwinkel
+möglichst 0° (nur über neck</p>
+<p>bracket)</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Barriere intern zur Kopfairbagauslegung (nur Simulation) AE-MDB v3.9
+analog EuroNCAP 60 km/h</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Fahrzeugausstattung nach Volumen (ChinaNCAP)</p>
+<p>Nur WS50 Pos 1 in Sitzposition mit Kopfschwerpunkt vor
+Gurthöhenversteller (GHV)</p>
+<p>GHV in ENCAP Position (50% Dummy = GHV ganz oben) Schritt 1:
+Dummyposition analog EuroNCAP</p>
+<p>Schritt 2: Längs- und Höhenverstellung bis Kopf möglichst vor GHV</p>
+<p>Schritt 3: Falls nötig, Lehnenverstellung bis Kopf vor GHV</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] China (Crash oder Simulation*): Barriere intern zur
+[redacted-person] hinten ChinaNCAP Barriere 60km/h</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Fahrzeugausstattung nach Volumen (ChinaNCAP) 1x SID-IIs in der 2.
+Sitzreihe</p>
+<p>Sitzeinstellung analog ChinaNCAP</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>(*) In mindestens einem Lastfall muss ein Doku-Versuch mit
+Seitenairbag hinten zur Korrelation der Simulation und Freigabe der
+Komponente durchgeführt werden.</p>
+</blockquote>
+<h1 id="zielwerte-für-die-insassenbelastung">Zielwerte für die
+Insassenbelastung</h1>
+<blockquote>
+<p>Nachfolgend werden für die Fahrzeug-[redacted-person] genannt,
+die je nach Entwicklungsverlauf bzw. –randbedingungen in Absprache mit
+der Fahrzeugsicherheit angepasst werden können.</p>
+<p>Für interne Lastfälle und den C-IASI Seitencrash sind im Falle einer
+Überschreitung der Kopfbeschleunigung (a3ms) eine reine HIC Betrachtung
+zulässig, sofern der Aufschlag auf eine FMVSS201 ausgelegte Fläche
+erfolgt. [redacted-person] ist mit der Fachabteilung abzustimmen.</p>
+</blockquote>
+<h2 id="zielwerte-für-die-insassenbelastung-china">Zielwerte für die
+[redacted-person]:</h2>
+<blockquote>
+<p>Die sichere Erfüllung der gesetzlichen Anforderungen ist
+sicherzustellen.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="2" rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>China</strong></p>
+<p><strong>Arbeitsstand 15.6.2022 Bestätigung AKS tbd</strong></p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>Gesetz GB [redacted-phone]</strong></p>
+<p><strong>analog ECE-R 95</strong></p>
+<p>50 km/h Adv.2000</p>
+<p>950kg</p>
+<p>300mm Bodenhöhe</p>
+<p>1 x ES2 1.SR</p>
+</blockquote></th>
+<th colspan="2" rowspan="3" style="text-align: left;"><blockquote>
+<p><strong>GB/T Standard analog GTR 14 (PSI) oder FMVSS214</strong></p>
+<p>32km/h</p>
+<p><strong>Pfahl 75°</strong></p>
+<p>eine von beiden Konfigurationen muss erfüllt w erden</p>
+</blockquote></th>
+<th colspan="3" rowspan="3" style="text-align: left;"><blockquote>
+<p><strong>ChinaNCAP ab 2025</strong></p>
+<p>60 km/h new SC-MDB</p>
+<p>1700kg 350mm Bodenhöhe</p>
+</blockquote></th>
+<th colspan="2" rowspan="3" style="text-align: left;"><blockquote>
+<p><strong>ChinaNCAP 2025</strong></p>
+<p>32 km/h</p>
+<p><strong>Pfahl 75°</strong></p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>ChinaNCAP 2025 occupant to occupant protection</strong></p>
+<p>60 km/h AE-MDB;</p>
+<p>32 km/h</p>
+<p>Pfahl 75°</p>
+<p>1.SR ES2</p>
+<p>[redacted-person]</p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>ChinaNCAP 2025</strong></p>
+<p><strong>virtual [redacted-person] Side (symmetric</strong></p>
+<p>60 km/h AE-MDB;</p>
+<p>32 km/h</p>
+<p>Pfahl 75°</p>
+<p>1.SR WS50%</p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>Pfahl hinten intern</strong></p>
+<p><strong>2. + 3. SR</strong></p>
+<p>254mm Pfahl 90° 29 km/h</p>
+<p>1 x ES2 / SIDIIs</p>
+<p>2.SR/SR3</p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>Pfahl hinten intern 2.SR</strong></p>
+<p>254mm Pfahl 90° 29 km/h</p>
+<p>bei längsverstellbarer Rücksitzbank in vorderster Position</p>
+<p>1 x SIDIIs 2.SR</p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>C-IASI <sup>(10)</sup></strong></p>
+<p>50 km/h new AC-MDB</p>
+<p>1650 kg</p>
+<p>400 mm Bodenhöhe</p>
+<p>2 x SID II s BLD</p>
+<p>(vo. + hi.)</p>
+</blockquote></th>
+<th colspan="3" style="text-align: left;"><blockquote>
+<p><strong>Pfahl vorn intern</strong></p>
+</blockquote></th>
+<th rowspan="2" style="text-align: left;"><blockquote>
+<p><strong>Barriere intern</strong></p>
+<p>60km/h AE-MDB V3.9</p>
+<p>analog EuroNCAP</p>
+</blockquote></th>
+</tr>
+<tr>
+<th colspan="2" style="text-align: left;"><blockquote>
+<p>254mm Pfahl 75° 32 km/h</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>254mm Pfahl 75° 32 km/h</p>
+</blockquote></th>
+</tr>
+<tr>
+<th colspan="2" style="text-align: left;"><blockquote>
+<p>Sitzposition analog FMVSS214</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Sitzposition unten, Torso 25°</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Kopfschw er- punkt vor GHV</p>
+</blockquote></th>
+</tr>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>WS50% 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>ES2-RE 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 1.SR: WS50%</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 2.SR: SID-2s BLD</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 2.SR</p>
+<p>stoßabgewandt: Q6</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 1.SR: WS50%</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 2.SR:Q3</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>ES2re 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>SID-2s BLD 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>SID-2s BLD 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>WS50% 1.SR</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" style="text-align: left;"><blockquote>
+<p><strong>Ziel</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person] <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person] <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person] <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>16 Punkte <sup>(2)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>4 Punkte <sup>(2)</sup></strong></p>
+<p><strong>mit SAB 2. SR:</strong></p>
+<p><strong>Pjoint mit SAB</strong></p>
+<p><strong>&lt; Pjoint [redacted-person]</strong></p>
+<p><strong>(13)(14)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>4 Punkte <sup>(2)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>16 Punkte <sup>(2)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>4 Punkte <sup>(2)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Overall „Good“</strong></p>
+<p><strong>(2)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: left;"><blockquote>
+<p><strong>Gilt für</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenm.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenm.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenm.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenm.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Einstiegsmodell</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="5" style="text-align: left;"><blockquote>
+<p><strong>Kopf</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>HIC 36</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 800</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;800</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 800</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1000</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1000</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1000</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1000</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1000</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1000</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>HPC</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>HIC 15</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 500 <sup>(5)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 500</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 500</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 500 <sup>(5)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 500</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 560</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 500</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 623</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>a3ms</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;80g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;80g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 80g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;64g<sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 60g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;64g<sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 60g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;64g <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 80g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 80g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 70g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;80g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 80g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 80g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;80g</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>amax</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 64g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="5" style="text-align: left;"><blockquote>
+<p><strong>Hals</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Zugkraft</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 3,0 kN <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 2,1 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Druckkraft</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 2,5 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>res. Kraft</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 2,08 kN ( 15)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 162 Nm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>res. Kraft</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1,92 kN <sup>(16)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 40 Nm <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>Hals unten</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Zugkraft Fz</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 3,0 kN <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Druckkraft</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Moment MxTO</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 162 Nm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Moment MyTO</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 80 Nm <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="9" style="text-align: left;"><blockquote>
+<p><strong>Brust</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Schulterweg</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 60 mm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Schulterkraft</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;2,4 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;2,4 kN <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;2,4 kN <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="2" style="text-align: left;"><blockquote>
+<p><strong>Brust T4 a3ms</strong></p>
+<p><strong>TTI</strong></p>
+<p>Brustkorbtrauma</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 57 g (16)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 57 g (15)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>VC</strong></p>
+<p>Brusteindr.</p>
+<p>geschw indigkeit</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,8 m/s</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,8 m/s</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,8 m/s <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,8 m/s <sup>(3)</sup> <sup>(7)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,8 m/s <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,32 m/s</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1,0 m/s</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Deflection rate</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 8,2 m/s</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>RDC</strong> Brustein-drückung</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 34 mm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt;44mm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 35 mm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 28 mm lat.</strong></p>
+<p><strong>Kompression</strong></p>
+<p><strong>(5)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 31mm <sup>(7)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 28 mm</strong></p>
+<p><strong>lat. Kompression <sup>(5)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 22 mm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 28 mm lat.</strong></p>
+<p><strong>Kompression</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 51 mm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Average rib deflection</strong></p>
+<p>(Brust+Bauch)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 28 mm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>BPF [redacted-person]</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="2" rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>China</strong></p>
+<p><strong>Arbeitsstand 15.6.2022 Bestätigung AKS tbd</strong></p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>Gesetz GB [redacted-phone]</strong></p>
+<p><strong>analog ECE-R 95</strong></p>
+<p>50 km/h Adv.2000</p>
+<p>950kg</p>
+<p>300mm Bodenhöhe</p>
+<p>1 x ES2 1.SR</p>
+</blockquote></th>
+<th colspan="2" rowspan="3" style="text-align: left;"><blockquote>
+<p><strong>GB/T Standard analog GTR 14 (PSI) oder FMVSS214</strong></p>
+<p>32km/h</p>
+<p><strong>Pfahl 75°</strong></p>
+<p>eine von beiden Konfigurationen muss erfüllt w erden</p>
+</blockquote></th>
+<th colspan="3" rowspan="3" style="text-align: left;"><blockquote>
+<p><strong>ChinaNCAP ab 2025</strong></p>
+<p>60 km/h new SC-MDB</p>
+<p>1700kg 350mm Bodenhöhe</p>
+</blockquote></th>
+<th colspan="2" rowspan="3" style="text-align: left;"><blockquote>
+<p><strong>ChinaNCAP 2025</strong></p>
+<p>32 km/h</p>
+<p><strong>Pfahl 75°</strong></p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>ChinaNCAP 2025 occupant to occupant protection</strong></p>
+<p>60 km/h AE-MDB;</p>
+<p>32 km/h</p>
+<p>Pfahl 75°</p>
+<p>1.SR ES2</p>
+<p>[redacted-person]</p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>ChinaNCAP 2025</strong></p>
+<p><strong>virtual [redacted-person] Side (symmetric</strong></p>
+<p>60 km/h AE-MDB;</p>
+<p>32 km/h</p>
+<p>Pfahl 75°</p>
+<p>1.SR WS50%</p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>Pfahl hinten intern</strong></p>
+<p><strong>2. + 3. SR</strong></p>
+<p>254mm Pfahl 90° 29 km/h</p>
+<p>1 x ES2 / SIDIIs</p>
+<p>2.SR/SR3</p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>Pfahl hinten intern 2.SR</strong></p>
+<p>254mm Pfahl 90° 29 km/h</p>
+<p>bei längsverstellbarer Rücksitzbank in vorderster Position</p>
+<p>1 x SIDIIs 2.SR</p>
+</blockquote></th>
+<th rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>C-IASI <sup>(10)</sup></strong></p>
+<p>50 km/h new AC-MDB</p>
+<p>1650 kg</p>
+<p>400 mm Bodenhöhe</p>
+<p>2 x SID II s BLD</p>
+<p>(vo. + hi.)</p>
+</blockquote></th>
+<th colspan="3" style="text-align: left;"><blockquote>
+<p><strong>Pfahl vorn intern</strong></p>
+</blockquote></th>
+<th rowspan="2" style="text-align: left;"><blockquote>
+<p><strong>Barriere intern</strong></p>
+<p>60km/h AE-MDB V3.9</p>
+<p>analog EuroNCAP</p>
+</blockquote></th>
+</tr>
+<tr>
+<th colspan="2" style="text-align: left;"><blockquote>
+<p>254mm Pfahl 75° 32 km/h</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>254mm Pfahl 75° 32 km/h</p>
+</blockquote></th>
+</tr>
+<tr>
+<th colspan="2" style="text-align: left;"><blockquote>
+<p>Sitzposition analog FMVSS214</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Sitzposition unten, Torso 25°</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Kopfschw er- punkt vor GHV</p>
+</blockquote></th>
+</tr>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>WS50% 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>ES2-RE 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 1.SR: WS50%</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 2.SR: SID-2s BLD</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 2.SR</p>
+<p>stoßabgewandt: Q6</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 1.SR: WS50%</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Insasse 2.SR:Q3</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>ES2re 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>SID-2s BLD 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>SID-2s BLD 1.SR</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>WS50% 1.SR</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" style="text-align: left;"><blockquote>
+<p><strong>Ziel</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person] <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person] <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person] <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>16 Punkte <sup>(2)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>4 Punkte <sup>(2)</sup></strong></p>
+<p><strong>mit SAB 2. SR:</strong></p>
+<p><strong>Pjoint mit SAB</strong></p>
+<p><strong>&lt; Pjoint [redacted-person]</strong></p>
+<p><strong>(13)(14)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>4 Punkte <sup>(2)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>16 Punkte <sup>(2)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>4 Punkte <sup>(2)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung <sup>(1)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Overall „Good“</strong></p>
+<p><strong>(2)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Erfüllung</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="2" style="text-align: left;"><blockquote>
+<p><strong>Gilt für</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenm.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenm.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenm.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenm.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Einstiegsmodell</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Volumenmod.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="3" style="text-align: left;"><blockquote>
+<p><strong>Bauch</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>APF</strong></p>
+<p>Bauchbelast.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 2,0 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 2,0 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1,0 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>RDC</strong></p>
+<p>Eindrückung</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 52 mm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 47 mm lat.</strong></p>
+<p><strong>Kompression</strong></p>
+<p><strong>(5)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 38mm <sup>(8)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 47 mm</strong></p>
+<p><strong>lat. Kompression <sup>(5)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 47 mm lat.</strong></p>
+<p><strong>Kompression</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 51mm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>VC</strong> Geschw .</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,8 m/s</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,8 m/s <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,8 m/s <sup>(3)</sup> <sup>(7)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 0,8 m/s <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="11" style="text-align: left;"><strong>Becken</strong></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>PSPF</strong></p>
+<p>Beckenbelast.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 4,8 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 2,69kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 4,8 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1,7 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1,7 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 3,0 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 2,24 kN (3)</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>[redacted-person]/</strong></p>
+<p><strong>Acetabulum</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Combined</strong></p>
+<p><strong>Acet./Illium</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 3,5 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 4,0 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 60 g</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>aBecken</strong></p>
+<p>Beckenbeschl.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Lumbar Fy</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1,6 kN <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Lumbar Fz</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 2,8 kN <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Lumbar Mx</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 96 Nm <sup>(3)</sup></strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>T12 Fy</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 1,5 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>T12 Mx</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 150 Nm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>T12res</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="4" style="text-align: left;"><blockquote>
+<p><strong>Oberschenkel</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>Force</strong></p>
+<p><strong>A-P 3ms</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 3,9 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Force</strong></p>
+<p><strong>L-M 3ms</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 3,9 kN</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Moment</strong></p>
+<p><strong>A-P 3 ms</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 356 Nm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p><strong>Moment</strong></p>
+<p><strong>L-M 3ms</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>&lt; 356 Nm</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<ol type="1">
+<li><p><strong>sichere Erfüllung: 20% ige Sicherheit ist in den
+Grenzwerten abgebildet</strong></p></li>
+<li><p><strong>[redacted-person] des Gesamtziels kann mit Zustimmung der
+Fachabteilung im Einzelfall von den Vorgaben abgewichen
+werden</strong></p></li>
+<li><p><strong>[redacted-person]/Modifier bei Überschreitung, deshalb
+20% Sicherheit</strong></p></li>
+<li><p><strong>[redacted-person] Pfahl an AE-MDB angeglichen -
+[redacted-phone]</strong></p></li>
+<li><p><strong>Änderungen EuroNCAP vom April 2014</strong></p></li>
+<li><p><strong>GB/T - Pfahlcrash hinzugefügt</strong></p></li>
+<li><p><strong>[redacted-person] C-NCAP 2018 hinterer [redacted]</strong></p></li>
+<li><p><strong>Protocol changes vom [redacted-phone]</strong></p></li>
+<li><p><strong>ChinaNCAP 2015 entfernt - [redacted-phone]</strong></p></li>
+<li><p><strong>C-IASI analog IIHS 2.0 NAR hinzugefügt</strong></p></li>
+<li><p><strong>ChinaNCAP Pfahlcrash 2021 hinzugefügt</strong></p></li>
+<li><p><strong>Monitoring</strong></p></li>
+<li><p><strong>[redacted-person] mit SAB &lt;= 0,2 muss keine Verbesserung
+gegenüber Pjoint [redacted-person] nachgewiesen werden</strong></p></li>
+<li><p><strong>[redacted-person]: siehe unten</strong></p></li>
+<li><p><strong>Vermeidung roter Körperregionen, 20% bzw. 10g Sicherheit
+bei Nackenkraft bzw. Brustbeschleunigung</strong></p></li>
+<li><p><strong>[redacted-person]/Modifier bei Überschreitung, deshalb
+10% Sicherheit für [redacted-person] occupant to occupant protection (entspricht
+higher performance limit head)</strong></p></li>
+<li><p><strong>Grenzwerte entsprechend higher performance limit EuroNCAP
+FarSide Assessment</strong></p></li>
+</ol>
+</body>
+</html>

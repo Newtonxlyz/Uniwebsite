@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>230503_LAH_FGS_Simulation_mitSensorikLAH.8v0.880.AS</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>[redacted]/OE [redacted-id]</p>
+<p>Telefon [redacted-phone]</p>
+<p>579677</p>
+<p>Telefax [redacted-phone]-</p>
+<p>579677</p>
+<p>E-Mail <a href="mailto:christian.teichmann@audi.de">[redacted-email]</a></p>
+<p>Erstausgabe [redacted-phone]</p>
+<p>Änderungsstand [redacted-phone]</p>
+</blockquote>
+<p><img src="./04_Crash_Sensoric-230503-lah-fgs-simulation-mitsensoriklah-media/media/image2.jpeg"/></p>
+<p>[redacted-person] Fußgängerschutz</p>
+<blockquote>
+<p>LAH.8V0.880.AS</p>
+<p>Verteiler:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Abt./OE</p>
+</blockquote></th>
+<th><blockquote>
+<p>Kostenstelle</p>
+</blockquote></th>
+<th><blockquote>
+<p>Name</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches [redacted-co] verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h3 id="inhaltsverzeichnis">Inhaltsverzeichnis</h3>
+<ol type="1">
+<li><p><a href="#allgemeines">Allgemeines 6</a></p></li>
+<li><p><a href="#anforderungen-an-entwicklungspartner">Anforderungen an
+Entwicklungspartner 6</a></p></li>
+<li><p><a href="#lastfälle">Lastfälle 7</a></p></li>
+</ol>
+<p><a href="#fußgängerschutz-lastfälle">Fußgängerschutz-Lastfälle 7</a></p>
+<p><a href="#lastfälle-fgs-sensorik">Lastfälle FGS-Sensorik 7</a></p>
+<ol type="1">
+<li><p><a href="#must-fire-lastfälle">Must-Fire-Lastfälle 8</a></p></li>
+<li><p><a href="#misuse-lastfälle">Misuse-Lastfälle 8</a></p></li>
+</ol>
+<p><a href="#lastfälle-frontklappensteifigkeit">[redacted-person] 8</a></p>
+<ol type="1">
+<li><p><a href="#lastfall-windlast-entspricht-ep-81601.18">[redacted-person] (entspricht EP [redacted-phone]) - NEU 9</a></p></li>
+<li><p><a href="#abheben-aus-der-straklage-entspricht-ep-81601.23">Abheben aus der
+Straklage (entspricht EP [redacted-phone]) 10</a></p></li>
+<li><p><a href="#lastfall-torsion">[redacted-person] 10</a></p></li>
+<li><p><a href="#zug-am-scharnier-ep-81-601.19">Zug am Scharnier (EP [redacted-phone]) - NEU 11</a></p></li>
+<li><p><a href="#lastfall-einseitiges-frontklappenschließen">Lastfall
+einseitiges Frontklappenschließen - NEU 12</a></p></li>
+<li><p><a href="#beul--und-poliersteifigkeit">Beul- und
+Poliersteifigkeit [Welche EP-Norm?] 13</a></p></li>
+<li><p><a href="#frontklappenschließen">Frontklappenschließen
+14</a></p></li>
+<li><p><a href="#quersteifigkeit">Quersteifigkeit [welche LP Norm???
+/Lastfall korrekt?] 14</a></p></li>
+</ol>
+<ol start="4" type="1">
+<li><p><a href="#berechnungsmodell">Berechnungsmodell 15</a></p></li>
+</ol>
+<p><a href="#impaktormodelle">Impaktormodelle 15</a></p>
+<p><a href="#vorderwagenmodell">Vorderwagenmodell 15</a></p>
+<p><a href="#testpunktbezeichnung">Testpunktbezeichnung 16</a></p>
+<ol type="1">
+<li><p><a href="#testpunktbezeichnung-für-die-disziplin-kopfaufprall">Testpunktbezeichnung
+für die [redacted-person] 16</a></p></li>
+<li><p><a href="#testpunktbezeichnung-für-die-disziplin-bein--und-hüftaufprall">Testpunktbezeichnung
+für die [redacted-person]- und Hüftaufprall 17</a></p></li>
+</ol>
+<p><a href="#kopfaufprallsimulation">Kopfaufprallsimulation 17</a></p>
+<p><a href="#beinaufprall-und-hüftaufprall">Beinaufprall und Hüftaufprall
+18</a></p>
+<p><a href="#fgs-sensorik">FGS-Sensorik 19</a></p>
+<ol type="1">
+<li><p><a href="#modellierung-der-sensoren">Modellierung der Sensoren
+19</a></p></li>
+<li><p><a href="#ausstattung-der-modelle-mit-messsensoren">Ausstattung
+der Modelle mit Messsensoren 20</a></p></li>
+</ol>
+<p><a href="#prüffelder">Prüffelder 23</a></p>
+<p><a href="#validierung">Validierung 23</a></p>
+<ol start="5" type="1">
+<li><p><a href="#allgemeine-modellierungsrichtlinien">[redacted-person] 24</a></p></li>
+</ol>
+<p><a href="#materialkarten">Materialkarten 25</a></p>
+<p><a href="#einheiten-und-koordinatensysteme">Einheiten und
+Koordinatensysteme 25</a></p>
+<p><a href="#elementgüte">Elementgüte 25</a></p>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#allgemeine-elementgüte-für-schalenelemente">[redacted-person] für Schalenelemente 26</a></p></li>
+<li><p><a href="#elementgüte-für-schalenelemente">Elementgüte für
+Schalenelemente 26</a></p></li>
+<li><p><a href="#elementgüte-für-solid-elemente-empfohlen">Elementgüte
+für SOLID Elemente (empfohlen) 27</a></p></li>
+<li><p><a href="#elementgrößen">Elementgrößen 27</a></p></li>
+</ol>
+<ol start="6" type="1">
+<li><p><a href="#auswertung"><strong>Auswertung 27</strong></a></p></li>
+</ol>
+<blockquote>
+<p><a href="#kopfaufprall">Kopfaufprall 28</a></p>
+<p><a href="#beinaufprall-wg17-trl">Beinaufprall WG17 TRL 28</a></p>
+<p><a href="#beinaufprall-flexpli-und-apli">Beinaufprall FlexPLI und aPLI
+28</a></p>
+<p><a href="#hüftaufprall">Hüftaufprall 28</a></p>
+<p><a href="#fgs-sensorik-1">FGS-Sensorik 28</a></p>
+<p><a href="#umgang-mit-den-ergebnisfiles">Umgang mit den Ergebnisfiles
+29</a></p>
+<p><a href="#qualitätsmanagement">Qualitätsmanagement 29</a></p>
+</blockquote>
+<ol start="7" type="1">
+<li><p><a href="#dokumentation"><strong>Dokumentation
+30</strong></a></p></li>
+<li><p><a href="#mitgeltende-unterlagen"><strong>[redacted-person]
+30</strong></a></p></li>
+</ol>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h3 id="änderungsdokumentation">Änderungsdokumentation</h3>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Änderungs- stand</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung der Änderung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Ersteller</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person], die im Masterlastenheft ent- halten sind,
+entfernt</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Anpassung an gemeinsames Format</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Zusatzlastfälle für aktive FKL</p>
+<p>[redacted-person] Anforderungen an EDL</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] eingearbeitet</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Anpassung der neuen Modellaufbau-Konventionen</p>
+<p>Anpassung der Beschreibung des Simulationsmo- dells wegen CAVit</p>
+<p>Abgleich mit anderen LAH [redacted-person] Simulations LAH [redacted-person]
+hinzugefügt</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person]-Steifigkeit eingeführt</p>
+<p>[redacted-person] Frontklappen-Steifigkeit</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Prüfpunkt-[redacted-person] aktualisiert</p>
+<p>FlexPLI Lastfall eingeführt</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>FGS-Sensorik hinzugefügt [redacted]</p>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Input-Deck-Beschreibung angepasst ESI-Check als Modellgüte
+hinzugefügt Löschkonzept CAE-Bench angepasst</p>
+<p>Materialanforderungen eingefügt</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] in Kapitel 4.6 Ergänzung FGS-[redacted-person] aPLI</p>
+<p>Aktualisierung notwendige Infrastruktur in Kapitel 2</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches [redacted-co] verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h3 id="änderungsdokumentation-1">Änderungsdokumentation</h3>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Änderungs- stand</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung der Änderung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Ersteller</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><ul>
+<li><p>Dopplungen zum Funktions-LAH FGS entfernt</p></li>
+<li><p>LoCo Verwendung und Tauglichkeit ergänzt</p></li>
+<li><p>[redacted-person] Steifigkeitslast- fälle analog
+Versuch</p></li>
+</ul></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>- [redacted-person] von Teilergebnissen an N/P3 in 3.3.1
+Windlast</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>Ergänzung FGS Lastfälle für aufstellende Front- klappe
+(Aufstellsimulation im Gesamtfahrzeug) in Ka- pitel 3.1.1</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] 2 des Windlastfall ([redacted-person] 2 und
+KFL-Abdeckung zusätzlich) in Kapitel 3.3.1</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h2 id="allgemeines">Allgemeines</h2>
+<blockquote>
+<p>[redacted-person] beschreibt Anforderungen an Modellierungs- und
+Simulationstechniken, wel- che bei der [redacted-person] und Frontklappensteifigkeit eingesetzt wer- den. [redacted-person] bildet die Grundlage für den zu erbringenden Leistungsumfang
+des Auftrag- nehmers.</p>
+<p>In diesem Lastenheft wird die anzuwendende Methodik detailliert
+beschrieben. [redacted-person] resultiert aus der Entwicklungserfahrung der
+[redacted-co] und ist deshalb für den Entwicklungspro- zess bindend. [redacted-person] der Simulationsergebnisse auf hohem Niveau soll damit
+si- chergestellt werden. [redacted-person] sind nur dann
+zulässig, wenn sie in [redacted-person] besser oder bei gleicher Exaktheit
+effektiver sind und dies der [redacted-co]-Fachabteilung ein- deutig bewiesen und
+von dieser akzeptiert wurde.</p>
+<p>[redacted-person] zu fußgängerschutzrelevanten Prüfvorschriften,
+Prüfkörpern und Grenz- werten sind dem projektspezifischen
+[redacted-person] zu entnehmen. [redacted-person] für das Fahrzeugprojekt sind dem typbezogenen
+Lastenheft der Fahrzeug- sicherheit zu entnehmen.</p>
+<p>Abweichungen von diesem Lastenheft sind während der Angebotsphase mit
+der [redacted-person]- tionsauslegung Fußgängerschutz abzustimmen und
+schriftlich (mit Unterschrift [redacted-co]) festzuhalten. Dieses gilt für
+vom Entwicklungspartner ausgeschlossene Teilumfänge, und für, aus dessen
+Sicht, zusätzliche erforderliche Umfänge.</p>
+<p>Inhalte dieses Lastenheftes dürfen Dritten ohne ausdrückliche
+Genehmigung durch die [redacted-co] nicht zugänglich gemacht werden. Sollte
+durch Nichtbeachtung des [redacted-person] entstehen, behält sich
+die [redacted-co] das Recht vor, den Auftrag zu stornieren oder zu Lasten des
+Auftragnehmers, einen Dritten zu beauftragen um dies auszugleichen.</p>
+</blockquote>
+<h2 id="anforderungen-an-entwicklungspartner">Anforderungen an
+Entwicklungspartner</h2>
+<blockquote>
+<p>Leistungsportfolio</p>
+</blockquote>
+<ul>
+<li><p>Vernetzung</p></li>
+<li><p>Modellierung</p></li>
+<li><p>Modellaufbau</p></li>
+<li><p>Analysen</p></li>
+<li><p>Dokumentation</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person]</p>
+</blockquote>
+<ul>
+<li><p>Preprocessor: ANSA, Generator, LoCo</p></li>
+<li><p>Solver: PamCrash explizit und implizit</p></li>
+<li><p>Postprocessor: Animator4, CAE-Bench, CAViT, LoCo</p></li>
+</ul>
+<blockquote>
+<p>Bearbeiter:</p>
+</blockquote>
+<ul>
+<li><p>kurzfristige Meetings (innerhalb von 30 Minuten) möglich</p></li>
+<li><p>erfahrene Mitarbeiter</p></li>
+</ul>
+<h2 id="lastfälle">Lastfälle</h2>
+<h4 id="fußgängerschutz-lastfälle">Fußgängerschutz-Lastfälle</h4>
+<blockquote>
+<p>Bei der Fußgängerschutz-Auslegung werden grundsätzlich drei
+unterschiedliche Impaktor-ar- ten bzw. Prüfkörperarten eingesetzt:</p>
+</blockquote>
+<ul>
+<li><p>Kopf ([redacted-person]) 3.5kg und 4.5kg,</p></li>
+<li><p>Bein ([redacted-person]): WG17-Impaktor, FlexPLI, aPLI</p></li>
+<li><p>Hüfte (Oberschenkel, [redacted-person]).</p></li>
+</ul>
+<blockquote>
+<p>Mit diesen Impaktoren wird der Vorderwagen auf seine
+Fußgängerschutzfreundlichkeit hin un- tersucht. Dabei wird das Bein
+gegen das Stoßfängersystem, die Hüfte gegen die Motorhauben- vorderkante
+und der Kopf gegen die Frontklappe und die Frontscheibe geschossen.</p>
+</blockquote>
+<h4 id="zusatzlastfälle-aufstellende-frontklappe">Zusatzlastfälle
+aufstellende Frontklappe</h4>
+<blockquote>
+<p>[redacted-person] des Deformationsraums beim Kopfaufschlag kann eine
+aufstellende Front- klappe zum Einsatz kommen, welche angehoben wird und
+somit den Abstand zu harten Motor- bauteilen vergrößert. Daraus
+resultieren zusätzliche Auslegungslastfälle:</p>
+</blockquote>
+<ul>
+<li><p>Ermittlung der notwendigen Anstellhöhe der aufstellenden
+Haube</p></li>
+<li><p>Menschmodellsimulationen (HBM), Simulationen mit
+Lower-Limit-Impaktoren</p></li>
+<li><p>Frontklappenaktivierung im Gesamtfahrzeug</p>
+<ul>
+<li><p>Festigkeitsauslegung der Frontklappenstruktur (keine
+Plastifizierung der Haube beim Anstellen)</p></li>
+<li><p>Reduzierung der Frontklappenschwingungen beim Aufstellen</p></li>
+<li><p>Bestimmen der notwendigen Randbedingungen für Aktuatoren</p></li>
+<li><p>[redacted-person] zu Peripherie prüfen und „Verhaken“
+reduzieren</p></li>
+<li><p>[redacted-person] Aufstellung der Frontklappe und Beinanprall
+(getriggert unter Verwendung der Zündzeitvorgabe) zur Sicherstellung
+einer funktionierenden und zeitgerechten Aufstellung</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Verwendung eines Ersatzmodell auf komponentenebene (FKL + Scharniere)
+in früher Projektphase möglich, falls kein ausreichendes Fahrzeugmodell
+zur Verfügung steht</p>
+</blockquote>
+<ul>
+<li><p>Abstimmen einer FGS-Sensor-tauglichen Fahrzeugfront</p></li>
+<li><p>gegebenenfalls, FGS-Airbag-Simulation</p></li>
+</ul>
+<h4 id="lastfälle-fgs-sensorik">Lastfälle FGS-Sensorik</h4>
+<blockquote>
+<p>Für die Auslegung der FGS-Sensorik werden grundsätzlich 2
+Impaktorarten verwendet. Es wird unterschieden zwischen Mustfire- und
+Misuse-Impaktoren. [redacted-person] des Vorderwagens erfolgt so, dass bei
+Anprall der Mustfire-Objekte ausreichend Signal der Kontaktsensorik vor-
+handen ist. Zudem soll eine Trennung der Signale von Mustfire- und
+Misuse-Objekten gegeben sein.</p>
+<p>Für diese Untersuchungen können folgende Impaktoren berücksichtigt
+werden.</p>
+</blockquote>
+<h4 id="must-fire-lastfälle">Must-Fire-Lastfälle</h4>
+<ul>
+<li><p>Lower-Leg WG-17 (TRL)</p></li>
+<li><p>Lower-Leg FlexPli</p></li>
+<li><p>PDI-Impactor</p></li>
+<li><p>PDI2-Impactor</p></li>
+</ul>
+<h4 id="misuse-lastfälle">Misuse-Lastfälle</h4>
+<ul>
+<li><p>Kleintier</p></li>
+<li><p>Basketball</p></li>
+</ul>
+<h4 id="lastfälle-frontklappensteifigkeit">[redacted-person]</h4>
+<blockquote>
+<p>Im Folgenden werden die Standard- und Missbrauchslastfälle zur
+Auslegung der Frontklappen- steifigkeit beschrieben.</p>
+<p><u>Standardumfänge:</u></p>
+<p>[redacted]</p>
+<p>[redacted-person] am Scharnier <u>Komfortlastfälle</u>:</p>
+<p>einseitiges [redacted-person]- und [redacted]Quersteifigkeit</p>
+<p><u>[redacted-person]:</u></p>
+<p>Abheben aus der Straklage.</p>
+<p>[redacted-person] bei der Einarbeitung wird von der betreuenden
+Berechnungsabteilung ein FE- Modell aus einem Vorgängerprojekt zur
+Verfügung gestellt. Mit der betreuenden Berechnungs- abteilung ist in
+Absprache mit der zuständigen Versuchsabteilung vorab zu klären, ob die
+Origi- nalscharniere oder die steiferen Prüfscharniere verwendet werden
+(Adapter für Eingelenk-, Mehrgelenkscharniere nach Konzernnorm PV
+3551).</p>
+<p>[redacted-person] der Steifigkeitslastfälle mit [redacted-person] Implizit ist
+die Verwendung von Material- typ 100 nicht zulässig.</p>
+<p>[redacted-person] zu den jeweiligen Lastfällen sind den
+zugrundeliegenden Prüfvorschriften zu entnehmen bzw. bei der
+[redacted-person] einzuholen.</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h4 id="lastfall-windlast-entspricht-ep-81601.18">[redacted-person]
+(entspricht EP [redacted-phone])</h4>
+<p><img src="./04_Crash_Sensoric-230503-lah-fgs-simulation-mitsensoriklah-media/media/image27.png"/></p>
+<blockquote>
+<p>Für diesen Lastfall sind immer die Originalscharniere zu
+verwenden.</p>
+<p>[redacted-person] der Scharniere ist abzubilden. [redacted-person] der
+Scharniere erfolgt an den Schraubpunkten mit der Karosserie.</p>
+<p>Zusätzlich werden die Schließbügel in der Mitte eines lokalen
+Koordinatensystems so einge- spannt, dass die y- und z-Verschiebungen
+und die um x und z-Rotationen gesperrt sind.</p>
+<p>Aufeinanderfolgend werden folgende Randbedingungen und Lasten als
+Einzelsteps auf dem Modell eingebracht:</p>
+</blockquote>
+<ul>
+<li><p>Step 1: Gravitation</p></li>
+<li><p>Step 2:</p>
+<ul>
+<li><p>Step 2a: [redacted-person]</p></li>
+<li><p>Step 2b: ggf. Vorspannkraft der Schlieβbügel</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<ul>
+<li><p>Step 2c: [redacted-person]</p></li>
+<li><p>Step 2d: [redacted-person] (Wasserkastendichtung
+inkl. [redacted-person], ggf. Frunk-Dichtung, ggf.
+FKL-[redacted-person] oder Auf- schlagschutz SFÜ)</p></li>
+</ul>
+<ul>
+<li><p>Step 3: Einbringen des Aussendrucks</p></li>
+<li><p>Step 4: Einbringen des Aussendrucks und des Innendrucks.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] an der geschlossenen Fronthaube wird durch
+Strömungssimulation ermittelt. [redacted-person]- und Innendruck-Werte,
+die elementweise ausschließlich am Außenblech gemit- telt werden, werden
+von der Strömungssimulationsabteilung zur Verfügung gestellt.</p>
+<p>Ausgewertet werden die z-Verschiebungen der Klappe, relativ gemessen
+zwischen Step 2 (bzw. 2d) und Step 4.</p>
+<p>Für die weitere Interpretation der Ergebnisse durch andere
+Fachabteilungen (u.a. N/P3-B14/15 und N/P3-B24) ist die verformte
+Geometrie jeweils nach Step 1, Step 2a, Step 2b, Step 2c und Step 2d
+sowie die undeformierte Geometrie (CAD0) im STL-Datenformat der
+Abteilung N/P3- M5x (Geometrieanalyse) zur Verfügung zu stellen. Die
+weitere Verarbeitung der Daten obliegt der P Fachabteilung. [redacted-person] sind bei Projektbeginn bei der Führungskraft N/P3- M5x
+zu erfragen bzw. von der [redacted-co]-Fachabteilung zur Verfügung zu
+stellen.</p>
+</blockquote>
+<h4 id="abheben-aus-der-straklage-entspricht-ep-81601.23">Abheben aus
+der Straklage (entspricht EP [redacted-phone])</h4>
+<blockquote>
+<p>Am Ende des Step 2 der [redacted-person] wird die Position in z des
+Außenblechs relativ zur Straklage verglichen.</p>
+</blockquote>
+<h4 id="lastfall-torsion">[redacted-person]</h4>
+<blockquote>
+<p><strong>&lt;123456&gt;</strong></p>
+</blockquote>
+<p><strong>&lt;123456&gt;</strong></p>
+<p><strong>N</strong></p>
+<blockquote>
+<p><strong>&lt;123456&gt;</strong></p>
+<p>[redacted-person] ist mit den Originalscharnieren durchzuführen. Diese
+werden an den Karosse- rie-Anschraubstellen fest (Freiheitsgrade 1 bis 6
+gesperrt) definiert.</p>
+<p>[redacted-person] wird an einem Puffer fest eingespannt (Freiheitsgrade 1
+bis 6 gesperrt).</p>
+<p>Eine in negative z-Richtung wirkende Kraft von 150 N ist am
+gegenüberliegenden Puffer aufzu- bringen.</p>
+<p>Ausgewertet wird die z-Verschiebung am Lastangriffspunkt am
+Innenblech.</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h4 id="zug-am-scharnier-ep-81-601.19">Zug am Scharnier (EP [redacted-phone])</h4>
+<blockquote>
+<p><img src="./04_Crash_Sensoric-230503-lah-fgs-simulation-mitsensoriklah-media/media/image27.png"/><strong>&lt;123456&gt;</strong></p>
+</blockquote>
+<h1 id="f">F</h1>
+<blockquote>
+<p><strong>&lt;-3&gt;</strong></p>
+</blockquote>
+<p><strong>&lt;23&gt;</strong></p>
+<blockquote>
+<p><strong>&lt;123456&gt;</strong></p>
+<p><strong>Scharnier</strong></p>
+</blockquote>
+<p><strong>&lt;23&gt;</strong></p>
+<blockquote>
+<p><strong>Schlossbügel</strong></p>
+<p><strong>&lt;-3&gt;</strong></p>
+<p><strong>Puffer</strong> (Nur in negative z-Richtung gesperrt. Ein
+abheben ist möglich)</p>
+<p><strong>Legende</strong></p>
+<p>F Kraftrichtung</p>
+<p>X Abstand MP38/39 (Krafteinleitung) bis MP40/41, X=20mm</p>
+<p>MP38/39 Messpunkte 38/39 zur Krafteinleitung an der [redacted-person] MP40/41 Messpunkte 40/41 im Abstand zur [redacted-person]</p>
+<p>MP42/43 Messpunkte 42/43 mittig zwischen den klappenseitigen
+Scharnierbefestigungspunkten</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+<p>Die geschlossene Frontklappe muss im Scharnierbereich eine
+ausreichende Aushebesteifigkeit besitzen. [redacted-person] darf sich durch
+aerodynamische Kräfte während der Fahrt, insbesondere Windschattenfahrt
+(Abrissströmung), simuliert durch eine Vorspannkraft F nur bis zu einem
+fest- gelegten Wert (Vergleich mit als ausreichend steif beurteilten
+Frontklappen) ändern.</p>
+<p>[redacted-person] ist mit den Originalscharnieren durchzuführen. Diese
+werden an den Karosserie- Anschraubstellen fest (Freiheitsgrade 1 bis 6
+gesperrt) definiert. Zusätzlich werden die Schließ- bügeln in der Mitte
+eines lokalen Koordinatensystems so eingespannt, dass die y- und z-Ver-
+schiebungen und die z-Rotationen gesperrt sind. [redacted-person] wird ebenso
+an beiden Puffer in Z- Richtung eingespannt (Freiheitsgrad 3
+gesperrt).</p>
+<p>Eine in positive z-Richtung wirkende Kraft von 200N bzw. 300N ist am
+Punkt MP38/MP39 aufzu- bringen.</p>
+<p>Ausgewertet wird die z-Verschiebung an den Messpunkten MP40/41 bzw.
+MP42/43.</p>
+</blockquote>
+<h4 id="lastfall-einseitiges-frontklappenschließen">Lastfall einseitiges
+Frontklappenschließen</h4>
+<p><img src="./04_Crash_Sensoric-230503-lah-fgs-simulation-mitsensoriklah-media/media/image53.png"/></p>
+<blockquote>
+<p><strong>&lt;123456&gt;</strong></p>
+</blockquote>
+<p><strong>&lt;123456&gt;</strong></p>
+<p><strong>F</strong></p>
+<blockquote>
+<p>Vorspannung lösen).</p>
+<p>[redacted-person] wird an den Kugelzapfen der Gasfedern (FKL seitig) in
+z-Richtung gesperrt.</p>
+<p>Eine in negative z-Richtung wirkende Kraft am vorderen Puffer ist
+aufzubringen. [redacted-person] wird im Versuch ermittelt. Solange keine
+projekt-spezifische Kraft ermittelt werden kann (keine Proto- typen),
+soll die Kraft des Vorgängerfahrzeugs genommen werden.</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h4 id="beul--und-poliersteifigkeit">Beul- und Poliersteifigkeit</h4>
+<blockquote>
+<p>Stahl</p>
+<p>EPDM</p>
+</blockquote>
+<p><strong>[redacted-person]</strong></p>
+<blockquote>
+<p>Kontaktfläche gerundet Kontaktfläche plan,</p>
+</blockquote>
+<p><img src="./04_Crash_Sensoric-230503-lah-fgs-simulation-mitsensoriklah-media/media/image58.png"/></p>
+<p>d=50mm d=70mm</p>
+<p>d=50mm d=70mm</p>
+<blockquote>
+<p>Es wird an mehreren Positionen geprüft. [redacted-person] werden
+mit der Versuchsabteilung bzw. mit dem Frontklappen-Konstrukteur
+fahrzeugspezifisch abgestimmt.</p>
+<p>Auslegungskriterien für Poliersteifigkeit und Grifffestigkeit:</p>
+</blockquote>
+<ul>
+<li><p>Prüfkraft maximal 200N</p></li>
+<li><p>Keine bleibenden, sichtbaren Deformationen</p></li>
+<li><p>[redacted-person] in der Kraft-Weg-Kurve unter 80N
+(„Knackfroscheffekt“)</p></li>
+<li><p>Wendepunkt bei 80N&lt;F&lt;120N nur mit positiver Steigung im
+Wendepunkt</p></li>
+<li><p>Wendepunkt bei F&gt;120N nur mit Steigung &gt;=0 im
+Wendepunkt</p></li>
+</ul>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h4 id="frontklappenschließen">Frontklappenschließen</h4>
+<blockquote>
+<p>Ziel des Lastfalls ist es sicherzustellen, dass beim Schließen der
+Frontklappe genügend Freigang vorhanden ist.</p>
+<p>[redacted-person] findet im Gesamt-Vorderwagenmodell statt. Dabei wird
+die Frontklappe mit der realen Scharnierkinematik soweit aufgedreht,
+dass die Schließbügel vollständig über dem Fang- haken stehen.</p>
+</blockquote>
+<p><img src="./04_Crash_Sensoric-230503-lah-fgs-simulation-mitsensoriklah-media/media/image65.jpeg"/></p>
+<blockquote>
+<p>Es soll dann auf die FKL eine Winkelgeschwindigkeit aufgegeben
+werden, sodass die Front- klappenvorderkante bei Y0 eine
+Schließgeschwindigkeit von 2,5m/s besitzt.</p>
+<p>Eine detaillierte Modellierungsrichtlinie ist bei der Fachabteilung
+zu erfragen.</p>
+</blockquote>
+<h4 id="quersteifigkeit">Quersteifigkeit</h4>
+<blockquote>
+<p>[redacted-person] müssen bei geöffneter Frontklappe eine ausreichende
+Quersteifigkeit besitzen. Durch eine seitlich eingeleitete Kraft ist
+eine Gesamtverformung nur bis zu einem festgelegten Wert zulässig.</p>
+<p>[redacted-person] ist mit den Originalscharnieren und ohne Gasfeder
+durchzuführen. Kraftangriffspunkt ist an der Frontklappe am [redacted-person]-Kotflügel-Frontklappe. Gedrückt wird konstant mit 200N
+in Y [redacted-person].</p>
+<p><img src="./04_Crash_Sensoric-230503-lah-fgs-simulation-mitsensoriklah-media/media/image67.jpeg"/>F=200N
+in Y</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+<p><u>Randbedingungen:</u></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] zu Scharnier/Frontklappe: Verschiebungen z
+gesperrt</p></li>
+<li><p>Scharniergelenke: [redacted-person] gesperrt (zur Stabilität des
+Modells)</p></li>
+<li><p>[redacted-person] zur Karosserie: [redacted-person]
+gesperrt Eine detaillierte Modellierungsrichtlinie ist bei der
+Fachabteilung zu erfragen.</p></li>
+</ul>
+<h2 id="berechnungsmodell">Berechnungsmodell</h2>
+<blockquote>
+<p>Grundsätzlich ist jedes Berechnungsmodell LoCo-tauglich aufzubauen.
+Sodass in LoCo alle Modelle aufgebaut und alle Simulationen
+standardmäßig aus LoCo heraus gestartet werden. Das heißt die
+Modulstrategie von LoCo muss eingehalten werden und die aktuell gültigen
+Checks des Inputchecker müssen erfüllt werden.</p>
+<p>Das FGS-Berechnungsmodell setzt sich aus folgenden Teilen
+zusammen:</p>
+</blockquote>
+<ul>
+<li><p>Impaktormodell,</p></li>
+<li><p>komplettes Vorderwagenmodell (inkl. FGS-Sensorik)</p></li>
+<li><p>Prüffelder für Gesetz und EuroNCAP.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] wird entwicklungsbegleitend durchgeführt. Änderungen
+an der Fahrzeugfront sind rechnerisch zu bewerten.</p>
+</blockquote>
+<h4 id="impaktormodelle">Impaktormodelle</h4>
+<blockquote>
+<p>[redacted-person] sind die Modelle, die im Volkswagen-Konzern verwendet
+werden, einzusetzen. Diese sind der Impaktoren-Datenbank bzw. LoCo
+Impaktoren-Pool zu entnehmen. [redacted-person] von eigenen Impaktoren ist
+nur zulässig, wenn das entsprechende Modell aus Lizenzgründen nicht
+direkt vom Volkswagen-Konzern zur Verfügung gestellt werden kann. In
+diesem Fall muss der ent- sprechende Impaktor selbständig beschafft
+werden, wobei die zu verwendende Version durch die [redacted]festgelegt wird.</p>
+<p>[redacted-person] der Impaktorendatenbank und des LoCo Impaktoren-Pools
+darf ausschließlich für Pro- jekte des Volkswagen-Konzerns erfolgen.</p>
+</blockquote>
+<h4 id="vorderwagenmodell">Vorderwagenmodell</h4>
+<blockquote>
+<p>Das komplette Vorderwagenmodell enthält mindestens:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person],</p></li>
+<li><p>Frontscheibe,</p></li>
+<li><p>Kotflügel,</p></li>
+<li><p>Frontklappe,</p></li>
+<li><p>Scharniere,</p></li>
+</ul>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<ul>
+<li><p>Motorraumpackage (nur bei der Kopfaufprall-Simulation),</p></li>
+<li><p>Wasserkastenpackage (nur bei der
+Kopfaufprall-Simulation),</p></li>
+<li><p>Frontend inkl. Kühlersysteme,</p></li>
+<li><p>Scheinwerfer,</p></li>
+<li><p>Stossfängersystem,</p></li>
+<li><p>Crashmanagementsystem.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] des [redacted-person] ist bauteil- / baugruppenorientiert in
+Include-Files zu gestalten. In LoCo ist die Änderungshistorie der
+Poolversionen und Includes aussagekräftig zu pflegen.</p>
+<p>[redacted-person] Vorderwagen wird, sofern vorhanden, von der zuständigen
+[redacted-co] Fachabteilung über LoCo zur Verfügung gestellt.</p>
+<p>Für den reibungslosen Ablauf zwischen den Simulationsbereichen liegt
+eine Konvention bei den [redacted-co] Fachabteilungen vor. [redacted-person]-IDs,
+Element-IDs und PART-IDs müssen die im VW- Konzern abgestimmte
+Nummerierungskonvention einhalten.</p>
+<p>Alle FGS-Modelle müssen eine geeignete Include-File-Struktur
+aufweisen, welcher der Modul- strategie von LoCo entspricht. Die
+entsprechenden Vorgaben werden durch die [redacted-co] Fachabtei- lung zur
+Verfügung gestellt. Jedes der Includes muss dabei in sich abgeschlossen
+sein, d.[redacted-person] Bezüge auf andere Includes haben.</p>
+<p>Weiterhin müssen die aktuell gültigen Checks des Inputchecker für
+jedes Include und auch das Gesamtberechnungsmodell erfüllt werden.</p>
+<p>Die PART-Namen sollen die Teilenummer und den Stand (Datum) der dem
+FE-Netz zugrunde liegenden CAD-Geometrie enthalten.</p>
+<p>Durch die [redacted-person] werden
+Modellierungsrichtlinien zur Verfügung ge- stellt. Bei jedem
+Modellaufbau sind diese Richtlinien nach aktuellstem Stand zu beachten
+und anzuwenden. [redacted-person] sind nur dann zulässig, wenn
+sie in [redacted-person] besser oder bei gleicher Exaktheit effektiver
+sind und dies der [redacted-co]-Fachabteilung eindeutig be- wiesen und von dieser
+akzeptiert wurde.</p>
+<p>Es soll grundsätzlich mit wahren Kontakt-Dicken simuliert werden.</p>
+</blockquote>
+<h4 id="testpunktbezeichnung">Testpunktbezeichnung</h4>
+<h4 id="testpunktbezeichnung-für-die-disziplin-kopfaufprall">Testpunktbezeichnung
+für die [redacted-person]</h4>
+<blockquote>
+<p><u>[redacted-person] EuroNCAP Grid</u></p>
+<p>[redacted-person] werden entsprechend ihrer Lage im EuroNCAP Prüffeld
+(siehe aktuelles EuroN- CAP-Protokoll: [redacted-person]) zur
+Definition der Grid-Punkte (ohne Berücksichtigung von
+Fahrwerk-Toleranzen) entsprechend der Abbildung unten bezeichnet.</p>
+<p>[redacted-person] erhalten zusätzlich einen Index L oder R zur
+Bezeichnung der Fahrzeugseite.</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+<p>[redacted-person] der Prüfpunkte ist in Erprobung und Simulation
+einheitlich.</p>
+<p>Die ersten zwei Stellen beschreiben X-Position der Reihe. 99 Reihen
+sind möglich. Die erste Reihe (WAD1000 bei Y=0) fängt mit 00 an.</p>
+<p>[redacted-person] 3 und 4 beschreiben Y-Position des Punktes (Spalte). 99
+Punkte pro Reihe möglich. [redacted-person] (bei Y-0) fängt mit 00 an.</p>
+<p>[redacted-person] Kopf EuroNCAP Grid</p>
+</blockquote>
+<p><img src="./04_Crash_Sensoric-230503-lah-fgs-simulation-mitsensoriklah-media/media/image72.png"/></p>
+<blockquote>
+<p><u>[redacted-person] Gesetz</u></p>
+<p>[redacted-person] der Prüfpunkte und die entsprechende Bezeichnung sind
+im FGS-Funktions- LAH definiert.</p>
+</blockquote>
+<h4 id="testpunktbezeichnung-für-die-disziplin-bein--und-hüftaufprall">Testpunktbezeichnung
+für die [redacted-person]- und Hüftaufprall</h4>
+<blockquote>
+<p>[redacted-person] der Prüfpunkte und die entsprechende Bezeichnung sind
+im FGS-Funktions- LAH definiert.</p>
+</blockquote>
+<h4 id="kopfaufprallsimulation">Kopfaufprallsimulation</h4>
+<blockquote>
+<p>[redacted-person], die bei der Kopfaufprallsimulation relevant sind, sind
+möglichst realistisch bezüglich Kontakten, Steifigkeit und Geometrie zu
+modellieren. Das sind Bauteile die mit dem Kopf-Impak- tor direkt in
+Kontakt treten, oder indirekt in Kontakt mit anderen deformierbaren
+Bauteilen kom- men.</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+<p>Bauteile, die nicht anhand von CAD-Zeichnungen erstellt werden
+können, müssen (insbesondere in frühen Konzeptphasen) aus ähnlichen,
+bereits bekannten Bauteilen anderer Fahrzeuge mo- delliert werden.</p>
+<p>[redacted-person] der Frontklappe müssen im Frontklappen-Modell
+enthalten sein:</p>
+</blockquote>
+<ul>
+<li><p>Innenblech</p></li>
+<li><p>Außenblech</p></li>
+<li><p>Stützkleber</p></li>
+<li><p>Fanghakenverstärkungen</p></li>
+<li><p>Schlossbügel</p></li>
+<li><p>Scharnierverstärkungen</p></li>
+<li><p>Scharniere mit richtig abgebildeter Kinematik</p></li>
+<li><p>Frontklappenpuffer</p></li>
+<li><p>Frontklappendichtung</p></li>
+</ul>
+<blockquote>
+<p>Im Folgenden wird auf die Schusspunkte eingegangen:</p>
+<p>Für die Erstellung eines Status soll eine Schusspunktdichte
+entsprechend dem FGS Funktions- LAH verwendet werden, insbesondere für
+die Ermittlung von Flächenverteilungen zum Gesetz sowie der
+Gesamtpunktzahl EuroNCAP.</p>
+<p>Darüber hinaus sind die für diesen Lastfall problematischen
+Schusspunkte in Abstimmung mit der Fachabteilung und in Abhängigkeit von
+der vorliegenden Konstruktion festzulegen.</p>
+<p>[redacted-person] können aufgrund von Modelländerungen oder neuen
+Erkenntnissen jederzeit hin- zukommen. Um den Aufwand für die
+Untersuchungen zu minimieren sind bei lokalen Änderungen nur die
+Bereiche zu prüfen, die von der Änderung beeinflusst werden.</p>
+</blockquote>
+<h4 id="beinaufprall-und-hüftaufprall">Beinaufprall und
+Hüftaufprall</h4>
+<blockquote>
+<p>Besonders sorgfältig sollen folgende Bauteile abgebildet werden:</p>
+</blockquote>
+<ul>
+<li><p>komplettes Stoßfängersystem (Überzüge mit Schließteilen,
+Kühlerschutzgitter, Crashboxen, Querträger, FGS-Schaum),</p></li>
+<li><p>Scheinwerfer (inkl. Innenleben),</p></li>
+<li><p>eventuelle [redacted-person] (z.[redacted-person], ACC- Sensoren, oder APS-Sensoren, Kamera,
+…)</p></li>
+<li><p>Frontend</p></li>
+</ul>
+<blockquote>
+<p>Verbindungen, insbesondere am Stoßfängerüberzug müssen möglichst real
+abgebildet werden, um ein [redacted-person] der Verbindungen
+darstellen zu können. [redacted-person] sollten weitestgehend vermieden
+werden.</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+<p>Bei der Platzierung des Lower-Leg-Impaktors ist die korrekte
+Fahrzeuglage zu betrachten. [redacted-person] (z.[redacted-person] Hochniveau
+im Fall eines Fahrzeugs mit Luftfahrwerk) sind ebenso zu
+berücksichtigen.</p>
+<p>Bei der Aufnahme eines Status sind im [redacted-person] alle 50mm in
+y zu setzen. Die für diesen Lastfall problematischen Schusspunkte sind
+in Abstimmung mit der Fachabteilung und in Abhängigkeit von der
+vorliegenden Konstruktion festzulegen. [redacted-person] können aufgrund
+von Modelländerungen oder neuen Erkenntnissen jederzeit hinzukommen. Um
+den Aufwand für die Untersuchungen zu minimieren sind bei lokalen
+Änderungen nur die Bereiche zu prüfen, die von der Änderung beeinflusst
+werden.</p>
+<p>Insbesondere beim [redacted-person]- und Hüftaufprall ist häufig ein
+Versagen zu beobachten. Des- halb ist bei der Modellierung darauf zu
+achten, dass das Versagen der betroffenen Bauteile richtig abgebildet
+wird. Die hierfür gültige Methode wird durch die Fachabteilung
+vorgegeben.</p>
+</blockquote>
+<h4 id="fgs-sensorik">FGS-Sensorik</h4>
+<blockquote>
+<p>Grundsätzlich ist darauf zu achten, dass alle für die Sensorik
+relevanten Bauteile in den Modellen abgebildet sind. Bestmöglich ist das
+Bein-Simulationsmodell mit dem FGS-Sensorik-Modell zu
+vereinheitlichen.</p>
+</blockquote>
+<h4 id="modellierung-der-sensoren">Modellierung der Sensoren</h4>
+<blockquote>
+<p>[redacted-person] besteht aus einem Sensorgrundkörper und einer
+Fläche für die Tied An- bindung. [redacted-person]-Fläche für die
+Umgebungsanbindung befindet sich in einen separaten In- clude, deren
+Geometrie angepasst werden muss. [redacted-person] werden als Starrkörper
+modelliert. Für die Materialdefinition wird Nullmaterial verwendet. [redacted-person] für die Tied An- bindung und die Fläche für die
+Umgebungsanbindung sind mittels eines TIED – Kontakts ver- bunden
+(maximalle Länge 1.5 mm). [redacted-person] muss nachträglich im Sensor
+analog CAD-Daten/Zeichnung positioniert werden. Eine detaillierte
+Modellierungsrichtlinie ist bei der Fachabteilung einzuholen.</p>
+<p>[redacted-person] für die Positionierung des Sensorwürfels ist
+anschließend gezeigt:</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<p><img src="./04_Crash_Sensoric-230503-lah-fgs-simulation-mitsensoriklah-media/media/image82.jpeg" style="width:4.27862in;height:2.38125in"/></p>
+<h4 id="ausstattung-der-modelle-mit-messsensoren">Ausstattung der
+Modelle mit Messsensoren</h4>
+<blockquote>
+<p>Um eine Vergleichbarkeit über die Fahrzeugprojekte zu gewährleisten
+sind die Namen der Mess- stellen entsprechend der ISO Festlegung
+auszuwählen. Die nachfolgende Liste stellt den Mini- malumfang dar.
+Zusätzlich neben dem ISO Code gibt es noch einen eindeutigen
+Beschreibungs- namen.</p>
+</blockquote>
+<h4 id="sensornamen-und-konfigurationen-in-pamcrash">Sensornamen und
+Konfigurationen in PAMCRASH</h4>
+<blockquote>
+<p>In PAMCRASH werden die Messstellen für die unterschiedlichen Sensoren
+und Konfigurationen (Positionen) nach folgendem Schema definiert.</p>
+</blockquote>
+<h3 id="absefrle00-s101_ufsl_p0">10ABSEFRLE00 S101_UFSL_P0</h3>
+<ul>
+<li><p><strong>0</strong> ist die Standard-Position, d.[redacted-person] Position
+entsprechend aktuellem Projektstand</p></li>
+<li><p><strong>10ABSEFRLE00</strong></p></li>
+</ul>
+<blockquote>
+<p>Standard-ISO-Code der Messstelle erweitert um die Positionsnummer
+0</p>
+</blockquote>
+<h4 id="s101_ufsl_p0">S101_UFSL_P0</h4>
+<blockquote>
+<p>Standard-Beschreibungsname.</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+<p>Die zwei hinteren Stellen der Sensor-Nummer Sx<strong>01</strong>
+entsprechen der Nummer, wie diese im Stipulator verwendet wird.</p>
+<p><strong>P = Position</strong></p>
+<p>Aktuell sind folgende Messstellen für die Standard-Crashsensor
+festgelegt.</p>
+</blockquote>
+<ul>
+<li><p><strong>10ABSEFRLE20</strong> S101_UFSL_P0 [redacted-person]
+X</p></li>
+<li><p><strong>10ABSEFRMI20</strong> S102_UFSM_P0 [redacted-person]
+X</p></li>
+<li><p><strong>10ABSEFRRI20</strong> S103_UFSR_P0 [redacted-person]
+X</p></li>
+<li><p><strong>10ABSE000001</strong> S104_ZAE_P0 Airbagsensor
+ZAE</p></li>
+<li><p><strong>10FRENFRLE20</strong> S113_FGSL_P0 FGS [redacted-person]
+X</p></li>
+<li><p><strong>10FRENMILE20</strong> S119_FGSML_P0 FGS [redacted-person]
+links X</p></li>
+<li><p><strong>10FRENFRMI20</strong> S114_FGSM_P0 FGS [redacted-person]
+X</p></li>
+<li><p><strong>10FRENMIRI20</strong> S120_FGSMR_P0 FGS [redacted-person]
+rechts X</p></li>
+<li><p><strong>10FRENFRRI20</strong> S115_FGSR_P0 FGS [redacted-person]
+X</p></li>
+<li><p><strong>10FRENFRLE00</strong> S121_FGSPL_P0 FGS Kontakt-Sensor
+links</p></li>
+<li><p><strong>10FRENFRRI00</strong> S122_FGSPR_P0 FGS Kontakt-Sensor
+rechts</p></li>
+</ul>
+<blockquote>
+<p>Nach der Konviertierung in ISO-MME-Format sollte die folgende No-
+menklatur verwendet werden.</p>
+</blockquote>
+<ul>
+<li><p>10ABSEFRLE20ACX0 S101 UFSL_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSEFRLE20ACX0 [redacted-person] X</p>
+</blockquote>
+<ul>
+<li><p>10ABSEFRMI20ACX0 S102 UFSM_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSEFRMI20ACX0 [redacted-person] X</p>
+</blockquote>
+<ul>
+<li><p>10ABSEFRRI20ACX0 S103 UFSR_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSEFRRI20ACX0 [redacted-person] X</p>
+</blockquote>
+<ul>
+<li><p>10ABSE000001ACX0 S104 ZAEX_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSE000001ACX0 Airbagsensor ZAE X</p>
+</blockquote>
+<ul>
+<li><p>10ABSE000001ACY0 S105 ZAEY_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSE000001ACY0 Airbagsensor ZAE Y</p>
+</blockquote>
+<ul>
+<li><p>10FRENFRLE20ACX0 S113 FGSL_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENFRLE20ACX0 FGS [redacted-person] X</p>
+</blockquote>
+<ul>
+<li><p>10FRENFRMI20ACX0 S114 FGSM_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENFRMI20ACX0 FGS [redacted-person] X</p>
+</blockquote>
+<ul>
+<li><p>10FRENFRRI20ACX0 S115 FGSR_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENFRRI20ACX0 FGS [redacted-person] X</p>
+</blockquote>
+<ul>
+<li><p>10FRENMILE20ACX0 S125 FGSML_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENMILE20ACX0 FGS [redacted-person] links X</p>
+</blockquote>
+<ul>
+<li><p>10FRENMIRI20ACX0 S126 FGSMR_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENMIRI20ACX0 FGS [redacted-person] rechts X</p>
+</blockquote>
+<ul>
+<li><p>10FRENFRLE00PR00 S127_FGSPL_P0</p></li>
+</ul>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+<p>Channel code: 10FRENFRLE00PR00 FGS Kontakt-Sensor links</p>
+</blockquote>
+<ul>
+<li><p>10FRENFRRI00PR00 S128_FGSPR_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENFRRI00PR00 FGS Kontakt-Sensor rechts</p>
+</blockquote>
+<h4 id="sensornamen-und-konfigurationen-für-daten-systemlieferanten">Sensornamen und
+Konfigurationen für [redacted-person]</h4>
+<blockquote>
+<p>[redacted-person] aus Animator 4 werden bei der Konvertierung in
+ISO-MME-Format um die physikali- sche Größe ([redacted-person]), die
+Messrichtung (Direction) und die Filterklasse ([redacted-person])
+erweitert.</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+</ul>
+<blockquote>
+<p>AC = Acceleration, Default-Einheit = m/(s*s) PR = Pressure,
+Default-Einheit = Pa</p>
+</blockquote>
+<ul>
+<li><p>Direction</p></li>
+</ul>
+<blockquote>
+<p>X = Longitudinal Y = Lateral</p>
+<p>0 = Ohne</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+</ul>
+<blockquote>
+<p>0 = [redacted-person] (Referenz-Signal mit 20KHz)</p>
+<p>[redacted-person] werden daher für die Weitergabe der Signale an die
+Systemlieferanten im ISO MME Format verwendet.</p>
+</blockquote>
+<ul>
+<li><p>10ABSEFRLE20ACX0 S101 UFS-L_X</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSEFRLE20ACX0 [redacted-person] X Name of the channel:
+S101 UFS-L_X</p>
+</blockquote>
+<ul>
+<li><p>10ABSEFRMI20ACX0 S102 UFS-M_X</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSEFRMI20ACX0 [redacted-person] X Name of the channel:
+S102 UFS-M_X</p>
+</blockquote>
+<ul>
+<li><p>10ABSEFRRI20ACX0 S103 UFS-R_X</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSEFRRI20ACX0 [redacted-person] X Name of the channel:
+S103 UFS-R_X</p>
+</blockquote>
+<ul>
+<li><p>10ABSE000001ACX0 S104 ZAE_X</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSE000001ACX0 Airbagsensor ZAE X Name of the
+channel: S104 ZAE_X</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<ul>
+<li><p>10ABSE000001ACY0 S105 ZAE_Y</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10ABSE000001ACY0 Airbagsensor ZAE Y Name of the
+channel: S105 ZAE_Y</p>
+</blockquote>
+<ul>
+<li><p>Name of the channel: S112 TAT-R_Y</p></li>
+<li><p>10FRENFRLE20ACX0 S113 PIS-L_X</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENFRLE20ACX0 FGS [redacted-person] X Name of the
+channel: S113 PIS-L_X</p>
+</blockquote>
+<ul>
+<li><p>10FRENFRMI20ACX0 S114 PIS-M_X</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENFRMI20ACX0 FGS [redacted-person] X Name of the
+channel: S114 PIS-M_X</p>
+</blockquote>
+<ul>
+<li><p>10FRENFRRI20ACX0 S115 PIS-R_X</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENFRRI20ACX0 FGS [redacted-person] X Name of the
+channel: S115 PIS-R_X</p>
+</blockquote>
+<ul>
+<li><p>10FRENMILE20ACX0 S125 FGSML_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENMILE20ACX0 FGS [redacted-person] links X Name of the
+channel: S125 FGSML_P0</p>
+</blockquote>
+<ul>
+<li><p>10FRENMIRI20ACX0 S126 FGSMR_P0</p></li>
+</ul>
+<blockquote>
+<p>Channel code: 10FRENMIRI20ACX0 FGS [redacted-person] rechts X Name of the
+channel: S126 FGSMR_P0</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><ul>
+<li><p>10FRENFRLE00PR00 S127_FGSPL_P0</p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Channel code: 10FRENFRLE00PR00 Name of the channel: S127_FGSPL_P0</p>
+</blockquote></td>
+<td><blockquote>
+<p>FGS</p>
+</blockquote></td>
+<td style="text-align: right;">Kontakt-Sensor</td>
+<td style="text-align: right;">links</td>
+</tr>
+<tr>
+<td><ul>
+<li><p>10FRENFRRI00PR00 S128_FGSPR_P0</p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Channel code: 10FRENFRRI00PR00 Name of the channel: S128_FGSPR_P0</p>
+</blockquote></td>
+<td><blockquote>
+<p>FGS</p>
+</blockquote></td>
+<td style="text-align: right;">Kontakt-Sensor</td>
+<td style="text-align: right;">rechts</td>
+</tr>
+</tbody>
+</table>
+<h4 id="prüffelder">Prüffelder</h4>
+<blockquote>
+<p>Basierend auf Strakdaten oder Designabtastungen werden die relevanten
+Prüffelder zum Kopf- aufprall, Beinaufprall und Hüftaufprall mit der
+aktuellsten von der Fachabteilung freigegebenen Version der [redacted-person] erstellt.</p>
+<p>Bei der Erstellung der Prüffelder ist die korrekte Fahrzeuglage
+festzustellen. [redacted-person]- Trimmlagen (z.[redacted-person] Hochniveau in
+dem Fall eines Fahrzeugs mit Luftfahrwerk) sind ebenso zu
+betrachten.</p>
+<p>[redacted-person] im Prüffeld sind gegebenenfalls aufzuzeigen.
+Speziell im Bereich A-Säulen- knoten und für die Beinprüffeldbestimmung
+(„Brettchenmethode“) soll das erzeugte Prüffeld stich- probenartig mit
+CATIA geprüft werden.</p>
+</blockquote>
+<h4 id="validierung">Validierung</h4>
+<blockquote>
+<p>Um eine einwandfreie, realistische Funktion der Gesamtmodelle
+sicherzustellen, ist für jeden Lastfall eine Validierung durchzuführen
+und deren Verlauf zu dokumentieren.</p>
+<p>[redacted-person] ist anhand von Schlüsselversuchen vorzunehmen.</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+<p>Aufgabe des Engineeringdienstleisters ist die Optimierung von
+Methodenschwächen nach der Validierung mit Versuchen.</p>
+<p>[redacted-person] wird zudem erwartet, dass er die
+Gültigkeit seiner Modelle selb- ständig nachweist. [redacted-person] nicht verfügbar sind, sind Plausibilisierungen an-
+hand vergleichbarer Modelle zulässig. [redacted-person] können bei Bedarf
+von der Fachabteilung zur Verfügung gestellt werden.</p>
+</blockquote>
+<h2 id="allgemeine-modellierungsrichtlinien">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] sind im PAM CRASH Format zu erstellen.</p>
+<p>Es muss stets die neuste seitens [redacted-co] zugelassene Version von
+PAM-CRASH verwendet werden. (<strong>Modellupdate jährlich</strong>)</p>
+<p>[redacted-person] von Modellen ist die korrekte Platzierung im
+fahrzeugeigenen Koordina- tensystem zu prüfen und Mängel gegebenenfalls
+umgehend anzuzeigen.</p>
+<p>Stets muss das aktuellste Simualtionsmodell den ESI-Check der aktuell
+gültigen Version, welche in LOCO verwendet wird, ohne NoGos und Errors
+erfüllen.</p>
+<p>[redacted-person] der Richtlinien zur Modellerstellung ist vor jeder
+Ergebnisfreigabe in CAE-Bench zu kontrollieren und in einer Checkliste
+zu dokumentieren.</p>
+<p>Die folgenden Modellierungsrichtlinien beschreiben grundlegende
+Richtlinien, die bei dem Mo- dellaufbau einzuhalten sind.</p>
+<p>Zudem muss die Fachabteilung bezüglich Bauteil- und
+Lastfall-spezifischen Modellierungsrichtli- nien abgefragt werden.</p>
+<p>Bei der Nummerierung der Entities ist darauf zu achten, dass die [redacted-co]
+Nummerierungskonven- tionen eingehalten werden, die von der
+[redacted-co]-Fachabteilung einzufordern sind.</p>
+<p>Es bestehen folgende Anforderungen an die PamCrash Modelle:</p>
+</blockquote>
+<ul>
+<li><p>anzustrebender Berechnungszeitschritt ist 0.5x10-3 ms</p></li>
+<li><p>In Fall von Zeitschrittmanipulation durch Stiffness-Scale oder
+Mass-Scale ist ein Massenreport zu erstellen und der Einfluss der
+Skalierungen zu bewerten.</p></li>
+<li><p>Anbindungen und Kontakte zwischen Includes über Groups
+definieren</p></li>
+<li><p>Anbindungen und Kontakte innerhalb des untergeordneten
+Include-Files</p></li>
+<li><p>[redacted-person]-File muss einzeln mit dem pc-File,
+Karosserieinclude und evtl. dem Material- Include-File rechenbar
+sein.</p></li>
+</ul>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<ul>
+<li><p>Unnötig und doppelt definierte Kontakte sind zu
+vermeiden</p></li>
+<li><p>KJOINTs nur für RBODY Verbindungen verwenden</p></li>
+<li><p>[redacted-person] sind: 17 statt 11, 24 statt 20, 45 statt
+21, 103 statt 102, 106 statt 105,</p></li>
+</ul>
+<blockquote>
+<p>204 statt 203 und 212 statt 202</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] sind darauf zu kontrollieren, dass die zu
+verbindenden Bauteile wirklich miteinander verbunden sind (PLINKs,
+TIEDs, etc.), auch durch optische Kontrolle nach der
+Berechnung.</p></li>
+</ul>
+<blockquote>
+<p>Die numerische Stabilität und die Aussagequalität der Modelle sind
+sicherzustellen. [redacted-person]- ten von Instabilitäten sind diese zu
+untersuchen und zu beheben. [redacted-person] ausgewählter Modellparameter
+ist die Stabilität nachzuweisen.</p>
+</blockquote>
+<h4 id="materialkarten">Materialkarten</h4>
+<blockquote>
+<p>Es sind grundsätzlich nur Materialkarten im Simulationsmodell zu
+verwenden, welche sich in der CrashDB (bzw. Material-Pool in LoCo) der
+[redacted-co] befinden.</p>
+<p>Verwendung von abweichenden Materialkarten ist stets mit der [redacted-co]
+Fachabteilung abzustim- men.</p>
+<p>Ist in der CrashDB keine Materialkarte zu dem benötigten Material des
+ZSB Stoßfänger vorhan- den, so ist dieses Material von dem
+Stoßfängerlieferanten zu erstellen und [redacted-co] zur Verfügung zu
+stellen.</p>
+</blockquote>
+<h4 id="einheiten-und-koordinatensysteme">Einheiten und
+Koordinatensysteme</h4>
+<blockquote>
+<p>Es gelten folgende Einheiten:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="2"><blockquote>
+<p>Maßeinheiten</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><em>Weg</em></p>
+</blockquote></td>
+<td><blockquote>
+<p><em><strong>S</strong></em></p>
+</blockquote></td>
+<td><blockquote>
+<p>Millimeter</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>[mm]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><em>Masse</em></p>
+</blockquote></td>
+<td><blockquote>
+<p><em><strong>M</strong></em></p>
+</blockquote></td>
+<td><blockquote>
+<p>Kilogramm</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>[kg]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><em>Zeit</em></p>
+</blockquote></td>
+<td><blockquote>
+<p><em><strong>T</strong></em></p>
+</blockquote></td>
+<td><blockquote>
+<p>Millisekunde</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>[ms]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><em>Kraft</em></p>
+</blockquote></td>
+<td><blockquote>
+<p><em><strong>F</strong></em></p>
+</blockquote></td>
+<td><blockquote>
+<p>Kilonewton</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>[kN]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><em>Spannung</em></p>
+</blockquote></td>
+<td><blockquote>
+<p><em><strong>σ</strong></em></p>
+</blockquote></td>
+<td><blockquote>
+<p>Gigapascal</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>[kN/mm2]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><em>Energie</em></p>
+</blockquote></td>
+<td><blockquote>
+<p><em><strong>E</strong></em></p>
+</blockquote></td>
+<td><blockquote>
+<p>Joule</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>[kN*mm]</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[redacted-person] erfolgt im Fahrzeugkoordinatensystem. Zusätzliche
+lokale Koordinatensysteme sind zulässig.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>X Richtung :</p>
+</blockquote></th>
+<th><blockquote>
+<p>Fahrzeuglängsachse, positive Richtung vom Vorbau zum Heck</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Y Richtung :</p>
+</blockquote></td>
+<td><blockquote>
+<p>Fahrzeugquerachse, positive Richtung vom Fahrer zum Beifahrer
+(LL)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Z Richtung :</p>
+</blockquote></td>
+<td><blockquote>
+<p>Fahrzeughochachse, positive Richtung vom Boden zum Dach des
+Fahrzeuges</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Ursprung:</p>
+</blockquote></td>
+<td><blockquote>
+<p>Gemäß [redacted-co] Konvention für das entsprechende Fahrzeugprojekt.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h4 id="elementgüte">Elementgüte</h4>
+<blockquote>
+<p>[redacted-person] können als Schalen- oder Volumenelemente
+abgebildet werden. Bei schlanken Bauteilen ist die Schalenmodellierung
+vorzuziehen. Bei der Modellbildung mit</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+<p>Volumenelementen sind mindestens 2 Elemente über der Dicke
+vorzusehen. [redacted-person] von Schalen erfolgt auf neutraler Faser
+bzw. Mittelebene. [redacted-person] von Schalen zu Volumenelementen
+sind in niedrig beanspruchte, unkritische Zonen zu legen. Bei der
+gekoppel- ten Anbindung der Schalen- an Volumenelemente muss das
+Schalenelement um mindestens 1 Element ins Volumenmodell hineinragen, um
+die Momentenübertragung zu gewährleisten.</p>
+<p>Radien in hochbeanspruchten Bereichen sind mit hinreichend vielen
+Elementen zu modellieren. [redacted-person] benachbarter Elemente darf
+einen Winkel von 30° nicht überschreiten. [redacted-person] darf der
+Quotient aus Radius/Wandstärke den Wert von 1,5 nicht unterschrei-
+ten.</p>
+<p>Das FE – Modell ist weiterhin auf folgende Punkte zu überprüfen :</p>
+<p>🡺 keine doppelten Elemente</p>
+<p>🡺 keine freien inneren Kanten</p>
+<p>🡺 keine freien, nicht referenzierten Knoten</p>
+<p>🡺 einheitliche Ausrichtung der Elementnormalen pro Bauteil</p>
+<p>🡺 keine nichtverwendeten Property- bzw. Materialkarten im übergebenen
+Inputdeck</p>
+<p>🡺 keine nicht referenzierten Elemente (z.[redacted-person] ohne Anbindung)</p>
+<p>🡺 keine geometrischen Durchdringungen</p>
+<p>🡺 es ist auf homogene Netzübergänge zu achten</p>
+<p>🡺 keine Elemente mit 2 freien Kanten</p>
+</blockquote>
+<h4 id="allgemeine-elementgüte-für-schalenelemente">[redacted-person] für Schalenelemente</h4>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Kriterium</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Einheit</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Wert</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>CrashTimeStep *1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>μs</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0,5</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Anteil an Dreieckelementen je Bauteil</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>%</p>
+</blockquote></td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Anteil an Dreieckelementen im Modell</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>%</p>
+</blockquote></td>
+<td style="text-align: center;">5</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Anteil an Dreieckelementen pro Knoten</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Stk.</p>
+</blockquote></td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Anteil an Schalenelementen pro Knoten</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Stk.</p>
+</blockquote></td>
+<td style="text-align: center;">5</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>*1 Berechnungsvorschrift für den CrashTimeStep ist PAM-CRASH</p>
+</blockquote>
+<h4 id="elementgüte-für-schalenelemente">Elementgüte für
+Schalenelemente</h4>
+<table>
+<thead>
+<tr>
+<th colspan="2"><blockquote>
+<p><strong>Dreieckselemente (TRIA3)</strong></p>
+</blockquote></th>
+<th colspan="2" style="text-align: center;"><blockquote>
+<p><strong>Viereckselemente (QUAD4)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Kriterium</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><strong>Einheit</strong></td>
+<td><blockquote>
+<p><strong>Grenz- wert</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Berechnungsvorschrift</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>Grenzwert</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Berechnungsvorschrift</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Innenwinkel</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>125</p>
+</blockquote></td>
+<td><blockquote>
+<p>IDEAS</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>160</p>
+</blockquote></td>
+<td><blockquote>
+<p>IDEAS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>min. Innenwinkel</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>20</p>
+</blockquote></td>
+<td><blockquote>
+<p>IDEAS</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30</p>
+</blockquote></td>
+<td><blockquote>
+<p>IDEAS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. [redacted-person]</p>
+</blockquote></td>
+<td style="text-align: center;">5</td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+<td style="text-align: center;">5</td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Skewness</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>60</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>48</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Warping</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>11</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>min. Taper</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0,5</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h4 id="elementgüte-für-solid-elemente-empfohlen">Elementgüte für SOLID
+Elemente (empfohlen)</h4>
+<blockquote>
+<p>[redacted-person] für SOLID sind empfohlene Werte und somit nicht
+verpflichtend !</p>
+</blockquote>
+<h4 id="hexaeder-elemente-hexa8">[redacted-person] (HEXA8)</h4>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Kriterium</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Einheit</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Grenzwert</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Berechnungsvorschrift</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>min. Innenwinkel ([redacted-person])</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>PAM-CRASH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Innenwinkel ([redacted-person])</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>170</p>
+</blockquote></td>
+<td><blockquote>
+<p>PAM-CRASH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. [redacted-person]</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Skewness</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>70</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Warping</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>45</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="2"><blockquote>
+<p><strong>[redacted-person] (PENTA6)</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Kriterium</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>Einheit</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>Grenzwert</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Berechnungsvorschrift</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>min. Innenwinkel ([redacted-person])</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>PAM-CRASH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Innenwinkel ([redacted-person])</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>170</p>
+</blockquote></td>
+<td><blockquote>
+<p>PAM-CRASH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>min. Innenwinkel ([redacted-person])</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>PAM-CRASH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Innenwinkel ([redacted-person])</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>170</p>
+</blockquote></td>
+<td><blockquote>
+<p>PAM-CRASH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. [redacted-person]</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Skewness</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>70</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Warping</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>45</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="3"><blockquote>
+<p><strong>[redacted-person] (TETRA4 und TETRA10)</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Kriterium</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>Einheit</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>Grenzwert</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Berechnungsvorschrift</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>min. Innenwinkel ([redacted-person])</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+<td><blockquote>
+<p>PAM-CRASH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Innenwinkel ([redacted-person])</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>170</p>
+</blockquote></td>
+<td><blockquote>
+<p>PAM-CRASH</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Skewness</p>
+</blockquote></td>
+<td style="text-align: center;">°</td>
+<td style="text-align: center;"><blockquote>
+<p>60</p>
+</blockquote></td>
+<td><blockquote>
+<p>PATRAN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>min. Collapse</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0,25</p>
+</blockquote></td>
+<td><blockquote>
+<p>ANSA</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h4 id="elementgrößen">Elementgrößen</h4>
+<blockquote>
+<p>Für <strong>Blech- und Gussbauteile</strong> sind folgende
+Elementgrößen einzuhalten:</p>
+<p>🡺 Nenn-Elementkantenlänge: <strong>5 mm</strong></p>
+<p>🡺 [redacted-person]: 8 mm</p>
+<p>🡺 [redacted-person]: 3 mm</p>
+<p>Für <strong>[redacted-person]</strong> sind folgende Elementgrößen
+einzuhalten :</p>
+<p>🡺 Nenn-Elementkantenlänge: 4 <strong>mm</strong></p>
+<p>🡺 [redacted-person]: 6 mm</p>
+<p>🡺 [redacted-person]: 2 mm</p>
+</blockquote>
+<h2 id="auswertung">Auswertung</h2>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h4 id="kopfaufprall">Kopfaufprall</h4>
+<blockquote>
+<p>[redacted-person] sind auszuwerten und zu archivieren:</p>
+</blockquote>
+<ul>
+<li><p>Beschleunigungs-Zeit-Verlauf (ax, ay, az im lokalen
+Koordinatensystem und ares)</p></li>
+<li><p>HIC mit Integrationsgrenzen</p></li>
+<li><p>Weg-Zeit-Verlauf (Weg des Kopfauswerteknoten in z-Richtung des
+Fzg-Koordinatensystem)</p></li>
+<li><p>Beschleunigungs-Weg-Verlauf (ares-Δz)</p></li>
+<li><p>Energieplots.</p></li>
+</ul>
+<h4 id="beinaufprall-wg17-trl">Beinaufprall WG17 TRL</h4>
+<blockquote>
+<p>[redacted-person] sind auszuwerten und zu archivieren:</p>
+</blockquote>
+<ul>
+<li><p>Beschleunigungs-Zeit-Verlauf (ax)</p></li>
+<li><p>Biegewinkel-Zeit-Verlauf</p></li>
+<li><p>Scherweg-Zeit-Verlauf</p></li>
+<li><p>Energieplots</p></li>
+<li><p>Kräfte durch die 3 typischen Lastebenen, Summenkraft
+(Kraft-Zeit-Verlauf).</p></li>
+</ul>
+<h4 id="beinaufprall-flexpli-und-apli">Beinaufprall FlexPLI und
+aPLI</h4>
+<blockquote>
+<p>[redacted-person] sind auszuwerten und zu archivieren:</p>
+</blockquote>
+<ul>
+<li><p>Längung der Knie-Bänder ACL, PCL, MCL, LCL über Zeit</p></li>
+<li><p>Tibia-Momente T1, T2, T3, T4 über Zeit</p></li>
+<li><p>Femur-Momente F1, F2, F3 über Zeit</p></li>
+<li><p>Energieplots</p></li>
+</ul>
+<h4 id="hüftaufprall">Hüftaufprall</h4>
+<blockquote>
+<p>[redacted-person] sind auszuwerten und zu archivieren:</p>
+</blockquote>
+<ul>
+<li><p>Kraft-Zeit-Verlauf (für jede [redacted-person])</p></li>
+<li><p>Summenkraft-Zeitverlauf</p></li>
+<li><p>Biegemoment-Zeit-Verlauf (für jede [redacted-person])</p></li>
+<li><p>Summenmoment-Zeit-Verlauf</p></li>
+<li><p>Energieplots.</p></li>
+</ul>
+<h4 id="fgs-sensorik-1">FGS-Sensorik</h4>
+<blockquote>
+<p>[redacted-person] sind auszuwerten und zu archivieren:</p>
+</blockquote>
+<ul>
+<li><p>Druck-Zeit-Verlauf (für beide Seiten des
+Druckschlauchsensors)</p></li>
+</ul>
+<blockquote>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<ul>
+<li><p>Beschleunigungs-Zeit-Verlauf für alle relevanten
+Beschleunigungssensoren</p></li>
+<li><p>Energieplots.</p></li>
+</ul>
+<h4 id="umgang-mit-den-ergebnisfiles">Umgang mit den
+Ergebnisfiles</h4>
+<blockquote>
+<p>[redacted-person] sind im System CAE-Bench [redacted-co]
+innerhalb eines Werktages nach der Berechnung und Auswertung
+freizuschalten ([redacted-person] 1).</p>
+<p>[redacted-person] sollen in Abstimmung mit der [redacted-co] Fachabteilung nach
+dem aktuellen Löschkon- zept in CAE-Bench archiviert werden:</p>
+</blockquote>
+<ul>
+<li><p>Standardmäßig:</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] 1 + autodelete on</p>
+</blockquote>
+<ul>
+<li><p>Status-Varianten zu wichtigen Meilensteinen im Projektverlauf:
+[redacted-person] 1 + autodelete off</p></li>
+<li><p>[redacted-person]</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] 2 + autodelete off + Status-Imputdeck + [redacted-person]</p>
+</blockquote>
+<h4 id="qualitätsmanagement">Qualitätsmanagement</h4>
+<ul>
+<li><p>4 Augen-Prinzip</p></li>
+<li><p>Sichtprüfung von Animationen und Plausibilisierung</p></li>
+<li><p>Sensibilisierung der Ingenieure für die Folgekosten falscher
+Simulationen und Entscheidungs- grundlagen</p></li>
+<li><p>[redacted-person] der Mitarbeiter</p></li>
+<li><p>Abweichungen von Modellierungsstandards nur bei nachgewiesener
+Verbesserung der Ergeb- nisqualität</p></li>
+<li><p>[redacted-person] hat zu Beginn der Entwicklung einen zentralen
+hausinternen Qualitätssi- cherungsansprechpartner zu benennen, der das
+Projekt über den gesamten Entwicklungsablauf betreut. Er ist auch der
+Ansprechpartner für die Eskalation und Abstellung von Qualitätsprob-
+leme. [redacted-person] ist offen zu legen. Hierbei sind die
+Belange des Fuß- gängerschutzes gesondert herauszuarbeiten.</p></li>
+</ul>
+<blockquote>
+<p>Alle mit [redacted-co] kommunizierenden Ansprechpartner des Auftragnehmers
+beherrschen verhand- lungssicheres Auftreten sowie die deutsche Sprache
+in Wort und Schrift.</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches der Volkswa- gen AG verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p><strong></strong> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+<h2 id="dokumentation">Dokumentation</h2>
+<blockquote>
+<p>Während des Projektablaufs sind alle Inputdecks, Ergebnisfiles und
+Auswertungen durch den Berechnungslieferanten bei [redacted-co] in eine
+Datenbank (CAE-Bench) zu importieren und dort auszuwerten.</p>
+<p>[redacted-person] ist eine Excelliste mit einer Variantenübersicht zu
+führen.</p>
+<p>[redacted-person] der zur automatischen Auswertung empfohlenen Storyboards
+bzw. GECO Skripte ist mit der [redacted-co] Fachabteilung abzustimmen.</p>
+<p>[redacted-person] müssen zu jeder Variante schriftlich dokumentiert
+werden (knappe, nachvoll- ziehbare Beschreibung der Variante als pdf
+oder PowerPoint Dokument):</p>
+<p>Formulierung der Problemstellung</p>
+</blockquote>
+<ul>
+<li><p>die Basisvariante (ins Input-Deck und in die
+Variantendokumentation),</p></li>
+<li><p>die vorgenommenen Änderungen (mit Bildern),</p></li>
+<li><p>eine Liste aller Geometriefiles, die dem Modell zugrunde liegen,
+ist mitzuliefern</p></li>
+<li><p>aussagekräftige Schnitte der Prüfpunkte,</p></li>
+<li><p>die in Kapitel 6 aufgeführten Ergebnisse,</p></li>
+<li><p>das Fazit zur Untersuchung, und eine Empfehlung zum weiteren
+Vorgehen.</p></li>
+</ul>
+<h2 id="mitgeltende-unterlagen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] sind in der jeweils aktuellen Form
+mitzubeachten:</p>
+</blockquote>
+<ul>
+<li><p>projektspezifisches [redacted-person]</p></li>
+<li><p>Nummerierungskonvention CAE-Modelle im VW-Konzern.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] ist unter folgendem UNIX-Verzeichnis zu
+finden:</p>
+<p>/cae/crashdb/impactors/pedestrian</p>
+<p>Vertraulich. [redacted-person] vorbehalten. Weitergabe oder
+Vervielfältigung ohne vorherige schriftliche Zustimmung des
+Fachbereiches [redacted-co] verboten. Vertragspartner erhalten
+dieses Dokument nur über die zuständige Beschaffungsabteilung.</p>
+<p> VOLKSWAGEN [redacted-co]</p>
+</blockquote>
+</body>
+</html>

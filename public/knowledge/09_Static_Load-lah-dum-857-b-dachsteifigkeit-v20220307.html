@@ -1,0 +1,1839 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_DUM_857_B_Dachsteifigkeit_V20220307</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><img src="./09_Static_Load-lah-dum-857-b-dachsteifigkeit-v20220307-media/media/image2.jpeg" style="width:2.98819in;height:2.47847in"/>[redacted-co]</p>
+<p>D[redacted]</p>
+</blockquote>
+<p>[redacted-person]</p>
+<blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote>
+<p>LAH.DUM.857.B</p>
+<blockquote>
+<p>Version 20220307</p>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#entwicklungsziel">Entwicklungsziel 6</a></p></li>
+<li><p><a href="#technische-anforderungen-der-fahrzeugsicherheit">[redacted-person] der Fahrzeugsicherheit 6</a></p></li>
+<li><p><a href="#erprobung-prüfungen">Erprobung, Prüfungen 6</a></p>
+<ol type="1">
+<li><p><a href="#allgemeine-punkte">[redacted-person] 6</a></p></li>
+<li><p><a href="#versuchsziele">Versuchsziele 7</a></p></li>
+<li><p><a href="#dummys">Dummys 8</a></p></li>
+</ol></li>
+<li><p><a href="#dacheindrückung-an-geschlossenen-fahrzeugen">Dacheindrückung an
+geschlossenen Fahrzeugen 8</a></p>
+<ol type="1">
+<li><p><a href="#dacheindrückung-nach-fmvss-216a-cmvss-216-nar">Dacheindrückung
+nach FMVSS 216a / CMVSS 216 (NAR) 9</a></p></li>
+<li><p><a href="#dacheindrückung-nach-iihs-nar">Dacheindrückung nach
+IIHS (NAR) 10</a></p></li>
+<li><p><a href="#dacheindrückung-nach-gb-26134-china">Dacheindrückung
+nach GB 26134 (China) 11</a></p>
+<ol type="1">
+<li><p><a href="#gb-26134-2010">GB [redacted-phone]</a></p></li>
+<li><p><a href="#gb-26134-2025">GB [redacted-phone]</a></p></li>
+</ol></li>
+<li><p><a href="#dacheindrückung-nach-c-iasi-china">Dacheindrückung nach
+C-IASI (China) 13</a></p>
+<ol type="1">
+<li><p><a href="#c-iasi-v2.0">C-IASI V2.0 13</a></p></li>
+<li><p><a href="#c-iasi-v3.0-best-guess">C-IASI V3.0 ([redacted-person])
+14</a></p></li>
+</ol></li>
+<li><p><a href="#dacheindrückung-nach-kmvss-92-korea-und-gs-39-golfstaaten-rdw">Dacheindrückung
+nach KMVSS 92 (Korea) und GS 39 (Golfstaaten) – RdW 15</a></p></li>
+<li><p><a href="#kundendienst-reparaturlösung">Kundendienst-Reparaturlösung
+16</a></p></li>
+</ol></li>
+<li><p><a href="#dacheindrückung-an-offenen-fahrzeugen">Dacheindrückung
+an offenen Fahrzeugen 16</a></p></li>
+<li><p><a href="#dynamische-versuche">[redacted-person] 17</a></p>
+<ol type="1">
+<li><p><a href="#allgemeine-umfänge">[redacted-person] 17</a></p></li>
+<li><p><a href="#dachfalltest-nach-sae-j996">Dachfalltest nach SAE J[redacted-phone]</a></p></li>
+<li><p><a href="#schraubrollover-nach-ams-auto-motor-sport-adac">Schraubrollover
+nach AMS (auto motor sport) / ADAC 18</a></p></li>
+</ol></li>
+<li><p><a href="#serienüberwachung">Serienüberwachung 19</a></p></li>
+<li><p><a href="#anhang">Anhang 20</a></p>
+<ol type="1">
+<li><p><a href="#aufbau-dacheindrückung-und-randbedingungen">[redacted-person] und Randbedingungen 20</a></p></li>
+<li><p><a href="#kopfhalter">Kopfhalter 20</a></p></li>
+<li><p><a href="#steifigkeits-gewichts-verhältnis-swr-in-der-dacheindrückung">Steifigkeits-Gewichts-Verhältnis
+(SWR) in der Dacheindrückung 21</a></p></li>
+<li><p><a href="#fahrzeuggewicht">Fahrzeuggewicht 22</a></p></li>
+<li><p><a href="#übersicht-anforderungen-und-testrandbedingungen-in-der-dacheindrückung">[redacted-person] und Testrandbedingungen in der Dacheindrückung
+23</a></p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Stand</p>
+</blockquote></th>
+<th><blockquote>
+<p>Beschreibung der Änderung</p>
+</blockquote></th>
+<th><blockquote>
+<p>Ersteller</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Überarbeitung auf Basis LAH [redacted-phone]C Neue LAH Nummer</p>
+<p>textlich &amp; inhaltlich komplett überarbeitet</p>
+<p>Bezugsmasse auf mleer angepasst; [redacted-person] eingefügt</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person]</p>
+<p>Neue FMVSS 216a eingearbeitet FMVSS 208 Rollover für RdW
+entfallen</p>
+<p>Spezifikation dynamische Versuche überarbeitet</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Aktualisierung</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: left;"><blockquote>
+<p>Aktualisierung / Entfall ANCAP / [redacted-person] im
+Dachfalltest</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Anpassungen zum FMVSS208 Rollover / Hinweise zur Dokumentation /
+[redacted-person] hinzu</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] Dachreling in der statischen
+Dacheindrückung</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>V20200124 [redacted-phone])</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] C-IASI</p>
+<p>[redacted-person] RdW: Auslegungsfaktor von 2,5 auf 3,0 (AKS
+Entscheidung)</p>
+<p>Entfall maximaler Stempelweg (200 mm) für Bewertung der
+Energieaufnahme.</p>
+<p>[redacted-person] für Energieaufnahme für Stempelwege &gt; 127 mm.</p>
+<p>[redacted-person] in Lastfällen RdW Dachreling:</p>
+<p>Auslegung FMVSS216a mit und ohne Dachreling</p>
+<p>Auslegung IIHS ohne [redacted-person] RdW ohne Dachreling</p>
+<p>[redacted-person] GB26134 zu 2025 (analog FMVSS 216a)</p>
+<p>[redacted-person] für Fahrzeugmodelle nach [redacted-person]</p>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>V20220307 [redacted-phone])</p>
+</blockquote></th>
+<th><blockquote>
+<p>Entfall FMVSS 208 [redacted-person] C-IASI V3.0 [redacted-person]</p>
+<p>[redacted-person] mit schwerstem Fahrzeug</p>
+<p>[redacted-person] Consumer IIHS und C- IASI V2.0 und V3.0 mit
+Sicherheitsfaktor von 1,05 bzw. +5%</p>
+<p>[redacted-person] Säule A für offene Fahrzeuge mit SWR
+3,0 (AKS-Entscheidung)</p>
+<p>[redacted-person] und Absicherung KD- Reparaturlösungen</p>
+<p>[redacted-person] für Kopfhalter in separate AA</p>
+<p>[redacted-person] und Versuchsdokumentation</p>
+<p>[redacted-person] SWR-Faktor und Fahrzeuggewicht</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-person]</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p><strong>Vorwort</strong></p>
+<p>[redacted-person] gilt für neue Projekte. [redacted-person] der
+geänderten Anforderungen in bestehende Projekte (nach Meilenstein KF)
+kann durch eine individuelle Projektentscheidung erfolgen.</p>
+<p>[redacted-person] dient zur Ergänzung des Bauteillastenheftes der
+Konstruktion und legt die Anforderungen der Fahrzeugsicherheit
+(Crashverhalten) an die Funktionen, Leistungen, Mindestanforderungen,
+Prüf- und Erprobungsbedingungen für die Dachsteifigkeit fest.</p>
+</blockquote>
+<h1 id="entwicklungsziel">Entwicklungsziel</h1>
+<blockquote>
+<p>[redacted-person] der Entwicklung ist der Schutz der Insassen im Falle eines
+Fahrzeugüberschlages. [redacted-person] muss sämtliche gesetzliche
+Vorschriften und interne Anforderun- gen erfüllen. [redacted-person] ist das
+Bestehen von Verbrauchertests sowie [redacted-person]- gleiche während des
+gesamten Herstellzeitraumes des Fahrzeuges mit dem Ergebnis „in best
+class“ (bzw. „among leaders“).</p>
+<p>[redacted]</p>
+<p>NAR &gt; FMVSS 216a / CMVSS 216</p>
+</blockquote>
+<ul>
+<li><p>IIHS</p></li>
+</ul>
+<blockquote>
+<p>China &gt; GB 26134</p>
+</blockquote>
+<ul>
+<li><p>C-IASI</p></li>
+</ul>
+<blockquote>
+<p>Korea &gt; KMVSS 92</p>
+<p>AGCC &gt; GS 39</p>
+</blockquote>
+<h1 id="technische-anforderungen-der-fahrzeugsicherheit">[redacted-person] der Fahrzeugsicherheit</h1>
+<blockquote>
+<p>Werkstoffanforderungen, Lebensdaueranforderungen und Lagerfähigkeit
+sind dem ent- sprechenden Bauteillastenheft zu entnehmen.</p>
+</blockquote>
+<h1 id="erprobung-prüfungen">Erprobung, Prüfungen</h1>
+<h1 id="allgemeine-punkte">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] in diesem Lastenheft sind Grundlage der TE
+Freigabe.</p>
+<p>Die gesamten Erprobungsumfänge sind in entsprechend ausgestatteten
+Karossen bzw. Fahrzeugen durchzuführen. Alle verwendeten Bauteile sind
+nach PDM-Vorgaben zu montie- ren.</p>
+<p>Im Rahmen der Entwicklung sind geeignete Ersatzprüfungen zu
+erarbeiten und im Vorfeld mit der Fahrzeugsicherheit abzustimmen.</p>
+<p>Modifikationen der nachfolgend beschriebenen Testkonfigurationen
+können durch die im Ver- lauf der Entwicklung gewonnenen Erfahrungen in
+Abstimmung mit der Fahrzeugsicherheit notwendig werden.</p>
+<p>Generell gelten alle hier aufgeführten Richtlinien,
+Verfahrensanweisungen und Gesetzes- texte. Darüber hinaus gehende
+Vorgaben und Parameter zur Versuchsdurchführung, die in diesem LAH nicht
+spezifiziert sind, sind vor Versuch mit der [redacted-co] Fahrzeugsicherheit
+abzu- stimmen.</p>
+<p>Die zu berücksichtigenden Versuche ergeben sich durch das
+Fahrzeugkonzept. Im Ent- wicklungsablauf kann sich zeigen, dass
+Versuchskonfigurationen durch andere abgedeckt</p>
+<p>werden. In Rücksprache mit der Fahrzeugsicherheit kann der Nachweis
+mit den „worst-case“- Varianten erfolgen. Nachfolgend sind die
+unterschiedlichen Varianten aufgeführt:</p>
+</blockquote>
+<h2 id="zu-differenzierende-fahrzeugkonzepte">Zu differenzierende
+Fahrzeugkonzepte:</h2>
+<ul>
+<li><p>[redacted-person]: mit Dachfenster (z.[redacted-person]/Ausstell-/Panoramadach)</p></li>
+</ul>
+<blockquote>
+<p>ohne Dachfenster</p>
+<p>ggf. NAR- und RdW-Variante</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]: mit aktivem Überrollschutzsystem</p></li>
+</ul>
+<blockquote>
+<p>mit passivem Schutzsystem mit Verdeck</p>
+<p>mit Hardtop</p>
+</blockquote>
+<ul>
+<li><p>Derivate: z.[redacted-person], Großdach</p></li>
+</ul>
+<h1 id="versuchsziele">Versuchsziele</h1>
+<blockquote>
+<p>[redacted-person] der statischen Lastfälle und des Dachfalltests
+dienen der zielgerichteten Auslegung einer sicheren Erfüllung der
+Dacheindrückung und der Gewährleistung eines guten Insassenschutzes.</p>
+<p>Es ist anzustreben, zusätzlich zum jeweiligen Gesetz bzw. zur
+jeweiligen Test-Prozedur, bei allen Versuchen folgende Ziele zu
+erreichen:</p>
+</blockquote>
+<ol type="1">
+<li><p>homogenes Deformationsverhalten der Dachstruktur.</p></li>
+<li><p>keine scharfkantigen Anstoßkonturen, insbesondere bei
+Bau-/Gestängeteilen im Kopfauf- schlagsbereich.</p></li>
+<li><p>kein Einknicken in den Fahrgastraum.</p></li>
+<li><p>kein Versagen von Insassenschutz relevanten
+Bauteilverbindungen;</p></li>
+</ol>
+<blockquote>
+<p>Design-Empfehlung: keine Stumpfstöße zwischen den Bauteilen /
+Spriegeln.</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p>kein Bruch von tragenden Bauteilen.</p></li>
+<li><p>kein Öffnen der Türen.</p></li>
+<li><p>keine sich ablösenden Bauteile.</p></li>
+<li><p>Kraftstoffdichtheit (nur bei Rollover).</p></li>
+<li><p>keine Verdecköffnung, bzw. Ablösen des Hardtops bei
+Dacheindrückung, Dachfalltest und Rollover.</p></li>
+<li><p>keine offenen Spriegel in Verdecken, sondern vollflächige
+Verkleidungen, wenn die Ge- fahr von Einklemmen von Extremitäten im
+Rollover besteht.</p></li>
+<li><p>Zielwert der Intrusion des Daches bei dynamischen Versuchen ist
+ein Wert ≤ 220 mm bleibende Verformung.</p></li>
+</ol>
+<blockquote>
+<p>Alle im Lastenheft genannten Richtwerte (max. Kräfte, Intrusionen,
+etc.) gelten als Orientie- rungshilfe zum Erreichen der zuvor genannten
+Ziele in der Entwicklung.</p>
+</blockquote>
+<h1 id="dummys">Dummys</h1>
+<blockquote>
+<p>Bei den einzusetzenden Dummys wird nach der Versuchsart
+unterschieden.</p>
+<p>Dacheindrückung FMVSS 216a Kopfhalter auf der [redacted-person] GB [redacted-phone]Kopfhalter auf der [redacted-person] C-IASI V3.0 ([redacted-person]) Kopfhalter auf der Druckseite
+(Monitoring) Schraubrollover nach AMS /ADAC 2 x Ballastpuppen
+(Wassermänner) Dachfalltest nach SAE J996 ohne Dummy</p>
+<p>[redacted-person] muss der jeweils aktuell gültigen Testprozedur der
+entsprechen.</p>
+</blockquote>
+<h1 id="dacheindrückung-an-geschlossenen-fahrzeugen">Dacheindrückung an
+geschlossenen Fahrzeugen</h1>
+<h2 id="versuchsgrund">Versuchsgrund</h2>
+<blockquote>
+<p>[redacted-person] dient zur Überprüfung der Widerstandsfähigkeit des Daches
+gegen Eindrücken.</p>
+</blockquote>
+<h2 id="ausstattung-der-versuchskarossen">Ausstattung der
+Versuchskarossen</h2>
+<blockquote>
+<p>[redacted-person] muss folgende Mindestausstattung aufweisen:</p>
+</blockquote>
+<ul>
+<li><p>Frontscheibe.</p></li>
+<li><p>Heckscheibe, bei Avant und offenen Fahrzeugen nur
+Heckklappe.</p></li>
+<li><p>Seitenscheiben (nicht für offene Fahrzeuge bei Prüfung ohne
+Verdeck).</p></li>
+<li><p>Gurthöhenversteller an der Belastungsseite.</p></li>
+<li><p>Türen auf Belastungsseite komplett mit Schließsystemen; ggf. ohne
+Innenverkleidung.</p></li>
+<li><p>Modulquerträger.</p></li>
+<li><p>Ggf. ÜRSS.</p></li>
+<li><p>Himmel, Dachhaltegriffe, [redacted-person] A &amp; B (in der
+Entwicklung kann ggf. auch ohne Verkleidungen getestet werden).</p></li>
+<li><p>Verbau der Dachreling erfolgt lastfallspezifisch.</p></li>
+<li><p>Vorder- und Hinterachse (Einbau-Empfehlung für den IIHS / C-IASI
+Freigabeversuch).</p></li>
+</ul>
+<h1 id="dacheindrückung-nach-fmvss-216a-cmvss-216-nar">Dacheindrückung
+nach FMVSS 216a / CMVSS 216 (NAR)</h1>
+<h2 id="dachreling">Dachreling</h2>
+<blockquote>
+<p>[redacted-person] ist mit Dachreling durchzuführen. Stellt die Dachreling ein
+optionales Angebot dar, ist der schlechteste Fall zu ermitteln (Versuch
+und / oder Simulation) und zu dokumentieren.</p>
+<p>[redacted-person] muss sowohl mit als auch ohne Dachreling
+erfolgen.</p>
+</blockquote>
+<h2 id="versuchsdurchführung">Versuchsdurchführung</h2>
+<blockquote>
+<p>[redacted-person] erfolgt nach der aktuellen Testprozedur der
+FMVSS 216a. [redacted-person] erfolgt dabei abweichend nach dem
+aktuellen IIHS Testprotokoll. Ausnahmen sind mit der [redacted-co]-Fachabteilung
+abzustimmen.</p>
+<p>[redacted-person] ist mit Kopfhalter durchzuführen.</p>
+<p>[redacted-person] ist beidseitig durchzuführen.</p>
+<p>[redacted-person] beträgt – soweit nichts anderes vereinbart
+wurde – 5 mm/s.</p>
+</blockquote>
+<ol type="1">
+<li><p><u>Druckseite:</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] ist auf der ersten Seite bei Krafterreichung (SWR 3,3)
+abzubrechen. [redacted-person] ist hierbei bis zu einem Stempelweg
+von maximal 127 mm durchzuführen.</p>
+<p>[redacted-person] ist während des Versuchs zu dokumentieren.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><u>Druckseite:</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] ist auf der zweiten Seite bis zu einem Stempelweg von 127
+mm durchzuführen. [redacted-person] ist während des Versuchs zu
+dokumentieren.</p>
+</blockquote>
+<h2 id="versuchsziele-1">Versuchsziele</h2>
+<blockquote>
+<p>Zusätzlich zur sicheren Gesetzeserfüllung müssen die nachfolgenden
+[redacted-co]-Anforderungen erreicht werden. Grundsätzlich sind als
+Entwicklungsziel alle gesetzlichen Grenzwerte sowie alle Anforderungen
+bzgl. Selbstverpflichtung mit einer Sicherheit zu erfüllen.</p>
+<p>Auf der ersten Druckseite ist eine Sicherheit von 10 % und auf der 2.
+Seite von 20 % vorzuhalten.</p>
+<p>Dies dient der Absicherung von Produktionsschwankungen (bzgl.
+Verbindungstechnik, Materialgüte, Materialstärke und
+Versuchsstreuungen), und gewährleistet eine sichere Erfüllung aller
+Anforderungen (Gesetz, Selbstverpflichtung) in der Serienfertigung über
+die gesamte Laufzeit.</p>
+<p>Abweichungen vom Entwicklungsziel sind im Einzelfall bei Nachweis
+einer entsprechend notwendigen Prozessgüte und serienbegleitender
+Qualitätsprüfungen im Herstellungsprozess möglich, erfordern jedoch
+zwingend die Genehmigung durch die Fahrzeugsicherheit unter Einbeziehung
+der zuständigen Qualitätssicherungsabteilungen.</p>
+<p>mLG,NAR = maximales Leergewicht NAR.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>a)</p>
+</blockquote></th>
+<th><blockquote>
+<p><u>1. Seite:</u></p>
+<p>FF216a,1.Seite = 3,0 x mLG,NAR x g x 1,1.</p>
+<p>[redacted-person] FF216a,1.Seite ist vor Kopfkontakt mit dem Kopfhalter
+(50%-HIII Dummy) zu erreichen.</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>b)</p>
+</blockquote></td>
+<td><blockquote>
+<p><u>2. Seite:</u></p>
+<p>FF216a,2.Seite = 3,0 x mLG,NAR x g x 1,2.</p>
+<p>[redacted-person] FF216a,2.Seite ist vor Kopfkontakt mit dem Kopfhalter
+(50%-HIII Dummy) zu erreichen.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>c)</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] wird auf der 2. Seite bis 127 mm Gesamt-Eindrückweg (ohne
+Zwischenstopp) gefahren.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>d)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Es ist das Entwicklungsziel, dass die momentane Kraft stets größer
+ist als der Wert, der sich durch die Gerade ergibt, die durch den
+Ursprung (F = 0 kN / s = 0 mm) und</p>
+<p>durch die unter a) und b) definierten Punkte (FF216a,1.Seite bzw.
+FF216a,2.Seite ) bei 127 mm verläuft.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="dacheindrückung-nach-iihs-nar">Dacheindrückung nach IIHS
+(NAR)</h1>
+<blockquote>
+<p>[redacted-person] stellt das IIHS [redacted]Version IV
+(May 2021) dar.</p>
+</blockquote>
+<h2 id="dachreling-1">Dachreling</h2>
+<blockquote>
+<p>[redacted-person] wird ohne Dachreling durchgeführt, das Verhalten mit
+Dachreling ist zusätzlich zu ermitteln (Versuch und / oder
+Simulation).</p>
+</blockquote>
+<h2 id="versuchsdurchführung-1">Versuchsdurchführung</h2>
+<blockquote>
+<p>[redacted-person] sowie die Karossenaufnahme erfolgt nach dem
+aktuellen IIHS [redacted-person].</p>
+<p>[redacted-person] ist bis 127 mm Stempelweg zu fahren. [redacted-person] ist einseitig durchzuführen.</p>
+<p>[redacted-person] beträgt – soweit nichts anderes vereinbart
+wurde – 5 mm/s.</p>
+<p>Der IIHS Freigabeversuch ist möglichst mit Achsen und komplettem
+Greenhouse (oberhalb B-Säule) zu fahren.</p>
+</blockquote>
+<h2 id="versuchsziele-2">Versuchsziele</h2>
+<blockquote>
+<p>[redacted-person] hinsichtlich des Gesamtratings werden
+projektspezifisch definiert und sind im Projektlastenheft
+festgehalten.</p>
+<p>[redacted-person] und Antriebsart ergibt sich aus dem IIHS [redacted-person]. Es ist das maximale Leergewicht dieser Variante für den Test
+anzusetzen. Hintergrund sind die Übertragbarkeit der Werte auf schwerere
+Modelle (10% Regel), die nicht Steuerbarkeit des Testfahrzeugkaufs durch
+das Prüfinstitut und die in der Regel hohe Ausstattungsrate der
+Markteinführungsfahrzeuge.</p>
+<p>Für das Rating wird das aktuelle IIHS [redacted-person] herangezogen.
+mLG,IIHS = maximales Leergewicht IIHS-Testfahrzeug.</p>
+<p>FIIHS = 4,0 x mLG,IIHS x 1,05.</p>
+<p>[redacted-person] wird bis 127 mm Gesamt-Eindrückweg durchgeführt.</p>
+</blockquote>
+<h1 id="dacheindrückung-nach-gb-26134-china">Dacheindrückung nach GB
+26134 (China)</h1>
+<h2 id="gb-26134-2010">GB [redacted-phone]</h2>
+<blockquote>
+<p><strong>Dachreling</strong></p>
+<p>[redacted-person] ist ohne Dachreling durchzuführen.</p>
+</blockquote>
+<h2 id="versuchsdurchführung-2">Versuchsdurchführung</h2>
+<blockquote>
+<p>[redacted-person] ist bis zu einem Stempelweg von 127 mm
+durchzuführen.</p>
+<p>[redacted-person] erfolgt nach dem aktuellen IIHS [redacted-person].
+Ausnahmen sind mit der [redacted-co] Fahrzeugsicherheit abzustimmen.</p>
+<p>[redacted-person] beträgt – soweit nichts anderes vereinbart
+wurde – 5 mm/s.</p>
+</blockquote>
+<h2 id="versuchsziele-3">Versuchsziele</h2>
+<blockquote>
+<p>Zusätzlich zur sicheren Gesetzeserfüllung müssen die nachfolgenden
+[redacted-co]-Anforderungen erreicht werden. Grundsätzlich sind als
+Entwicklungsziel alle gesetzlichen Grenzwerte sowie alle Anforderungen
+bzgl. Selbstverpflichtung mit einer Sicherheit zu erfüllen.</p>
+<p>Dies dient der Absicherung von Produktionsschwankungen (bzgl.
+Verbindungstechnik, Materialgüte, Materialstärke und Versuchsstreuungen)
+und gewährleistet eine sichere Erfüllung aller Anforderungen (Gesetz,
+Selbstverpflichtung) in der Serienfertigung über die gesamte
+Laufzeit.</p>
+<p>Abweichungen vom Entwicklungsziel sind im Einzelfall bei Nachweis
+einer entsprechend notwendigen Prozessgüte und serienbegleitender
+Qualitätsprüfungen im Herstellungsprozess möglich, erfordern jedoch
+zwingend die Genehmigung durch die Fahrzeugsicherheit unter Einbeziehung
+der zuständigen Qualitätssicherungsabteilungen.</p>
+<p>mLG,China = maximales [redacted-person].</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>a)</p>
+</blockquote></th>
+<th><blockquote>
+<p>FGB = 3,0 x mLG,China x g.</p>
+<p>[redacted-person] FGB ist vor 127 mm Stempelweg zu erreichen.</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>b)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Dabei ist es das Entwicklungsziel, dass die momentane Kraft stets
+größer ist als der Wert, der sich durch die Gerade ergibt, die durch den
+Ursprung (F = 0 kN / s = 0 mm)</p>
+<p>und durch den unter a) definierten Punkt bei 127 mm verläuft.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="gb-26134-2025">GB [redacted-phone]</h2>
+<blockquote>
+<p>Die GB [redacted-phone]soll durch die Revision GB [redacted-phone]aktualisiert
+werden. Diese ist gültig für neue Typgenehmigungen („for new type“) ab
+01/2025 und für neue Zulassungen („for in-production“) ab 01/2026.</p>
+</blockquote>
+<h2 id="dachreling-2">Dachreling</h2>
+<blockquote>
+<p>[redacted-person] ist ohne Dachreling durchzuführen.</p>
+</blockquote>
+<h2 id="versuchsdurchführung-3">Versuchsdurchführung</h2>
+<blockquote>
+<p>[redacted-person] ist bis zu einem Stempelweg von 127 mm
+durchzuführen. [redacted-person] erfolgt dabei abweichend nach dem
+aktuellen IIHS Testprotokoll. Ausnahmen sind mit der [redacted-co]-Fachabteilung
+abzustimmen.</p>
+<p>[redacted-person] ist mit Kopfhalter durchzuführen.</p>
+<p>[redacted-person] ist beidseitig durchzuführen.</p>
+<p>[redacted-person] beträgt – soweit nichts anderes vereinbart
+wurde – 5 mm/s.</p>
+</blockquote>
+<ol type="1">
+<li><p><u>Druckseite:</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] ist auf der ersten Seite bei Krafterreichung (SWR 3,3)
+abzubrechen. [redacted-person] ist hierbei bis zu einem Stempelweg
+von maximal 127 mm durchzuführen.</p>
+<p>[redacted-person] ist während des Versuchs zu dokumentieren.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><u>Druckseite:</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] ist auf der zweiten Seite bis zu einem Stempelweg von 127
+mm durchzuführen. [redacted-person] ist während des Versuchs zu
+dokumentieren.</p>
+</blockquote>
+<h2 id="versuchsziele-4">Versuchsziele</h2>
+<blockquote>
+<p>Zusätzlich zur sicheren Gesetzeserfüllung müssen die nachfolgenden
+[redacted-co]-Anforderungen erreicht werden. Grundsätzlich sind als
+Entwicklungsziel alle gesetzlichen Grenzwerte sowie alle Anforderungen
+bzgl. Selbstverpflichtung mit einer Sicherheit zu erfüllen.</p>
+<p>Auf der ersten Druckseite ist eine Sicherheit von 10 % und auf der 2.
+Seite von 20 % vorzuhalten.</p>
+<p>Dies dient der Absicherung von Produktionsschwankungen (bzgl.
+Verbindungstechnik, Materialgüte, Materialstärke und
+Versuchsstreuungen), und gewährleistet eine sichere Erfüllung aller
+Anforderungen (Gesetz, Selbstverpflichtung) in der Serienfertigung über
+die gesamte Laufzeit.</p>
+<p>Abweichungen vom Entwicklungsziel sind im Einzelfall bei Nachweis
+einer entsprechend notwendigen Prozessgüte und serienbegleitender
+Qualitätsprüfungen im Herstellungsprozess möglich, erfordern jedoch
+zwingend die Genehmigung durch die Fahrzeugsicherheit unter Einbeziehung
+der zuständigen Qualitätssicherungsabteilungen.</p>
+<p>mLG,China = maximales [redacted-person].</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>a)</p>
+</blockquote></th>
+<th><blockquote>
+<p><u>1. Seite:</u></p>
+<p>FGB,1.Seite = 3,0 x mLG,China x g x 1,1.</p>
+<p>[redacted-person] FF216a,1.Seite ist vor Kopfkontakt mit dem Kopfhalter
+(50%-HIII Dummy) zu erreichen.</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>b)</p>
+</blockquote></td>
+<td><blockquote>
+<p><u>2. Seite:</u></p>
+<p>FGB,2.Seite = 3,0 x mLG,China x g x 1,2.</p>
+<p>[redacted-person] FGB,2.Seite ist vor Kopfkontakt mit dem Kopfhalter zu
+erreichen.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>c)</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] wird auf der 2. Seite bis 127 mm Gesamt-Eindrückweg (ohne
+Zwischenstopp) gefahren.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>d)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Es ist das Entwicklungsziel, dass die momentane Kraft stets größer
+ist als der Wert, der sich durch die Gerade ergibt, die durch den
+Ursprung (F = 0 kN / s = 0 mm) und</p>
+<p>durch die unter a) und b) definierten Punkte (FGB,1.Seite bzw.
+FGB,2.Seite) und 127 mm verläuft.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="dacheindrückung-nach-c-iasi-china">Dacheindrückung nach C-IASI
+(China)</h1>
+<h2 id="c-iasi-v2.0">C-IASI V2.0</h2>
+<blockquote>
+<p><strong>Dachreling</strong></p>
+<p>[redacted-person] wird ohne Dachreling durchgeführt, das Verhalten mit
+Dachreling ist zusätzlich zu ermitteln (Versuch und / oder
+Simulation).</p>
+</blockquote>
+<h2 id="versuchsdurchführung-4">Versuchsdurchführung</h2>
+<blockquote>
+<p>[redacted-person] erfolgt nach dem aktuellen C-IASI V2.0 [redacted]erfolgt dabei abweichend nach dem
+aktuellen IIHS Testprotokoll. Ausnahmen sind mit der [redacted-co]-Fachabteilung
+abzustimmen.</p>
+<p>[redacted-person] ist bis 127 mm Stempelweg zu fahren. [redacted-person] ist einseitig durchzuführen.</p>
+<p>[redacted-person] beträgt – soweit nichts anderes vereinbart
+wurde – 5 mm/s.</p>
+<p>Der C-IASI Freigabeversuch ist möglichst mit Achsen und komplettem
+Greenhouse (oberhalb B-Säule) zu fahren.</p>
+</blockquote>
+<h2 id="versuchsziele-5">Versuchsziele</h2>
+<blockquote>
+<p>[redacted-person] hinsichtlich des Gesamtratings werden
+projektspezifisch definiert und sind im Projektlastenheft
+festgehalten.</p>
+<p>[redacted-person] und Antriebsart ergeben sich aus dem [redacted-person]. Es ist das maximale Leergewicht dieser Variante für den Test
+anzusetzen. Hintergrund ist die nicht Steuerbarkeit des
+Testfahrzeugkaufs durch das Prüfinstitut und die in der Regel hohe
+Ausstattungsrate der Markteinführungsfahrzeuge.</p>
+<p>Für das Rating wird das C-IASI V2.0 [redacted-person] herangezogen.</p>
+<p>mLG,C-IASI = maximales Leergewicht C-IASI-Testfahrzeug. FC-IASI = 4,0
+x mLG,C-IASI x 1,05.</p>
+<p>[redacted-person] wird bis 127 mm Gesamt-Eindrückweg durchgeführt.</p>
+</blockquote>
+<h2 id="c-iasi-v3.0-best-guess">C-IASI V3.0 ([redacted-person])</h2>
+<blockquote>
+<p><strong>Dachreling</strong></p>
+<p>[redacted-person] wird ohne Dachreling durchgeführt, das Verhalten mit
+Dachreling ist zusätzlich zu ermitteln (Versuch und / oder
+Simulation).</p>
+</blockquote>
+<h2 id="versuchsdurchführung-5">Versuchsdurchführung</h2>
+<blockquote>
+<p>[redacted-person] erfolgt nach dem aktuellen C-IASI V3.0 [redacted]erfolgt dabei abweichend nach dem
+aktuellen IIHS Testprotokoll. Ausnahmen sind mit der [redacted-co]-Fachabteilung
+abzustimmen.</p>
+<p>[redacted-person] ist mit Kopfhalter durchzuführen (Monitoring). [redacted-person] ist beidseitig durchzuführen.</p>
+<p>[redacted-person] beträgt – soweit nichts anderes vereinbart
+wurde – 5 mm/s.</p>
+</blockquote>
+<ol type="1">
+<li><p><u>Druckseite:</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] ist auf der ersten Seite bis zu einem Stempelweg von 127
+mm durchzuführen. [redacted-person] ist während des Versuchs zu
+dokumentieren.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><u>Druckseite:</u></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] ist auf der zweiten Seite bis zu einem Stempelweg von 127
+mm durchzuführen. [redacted-person] ist während des Versuchs zu
+dokumentieren.</p>
+</blockquote>
+<h2 id="versuchsziele-6">Versuchsziele</h2>
+<blockquote>
+<p>[redacted-person] hinsichtlich des Gesamtratings werden
+projektspezifisch definiert und sind im Projektlastenheft
+festgehalten.</p>
+<p>[redacted-person] und Antriebsart ergeben sich aus dem [redacted-person]. Es ist das maximale Leergewicht dieser Variante für den Test
+anzusetzen. Hintergrund ist die nicht Steuerbarkeit des
+Testfahrzeugkaufs durch das Prüfinstitut und die in der Regel hohe
+Ausstattungsrate der Markteinführungsfahrzeuge.</p>
+<p>Für das Rating wird das C-IASI V3.0 [redacted-person] herangezogen.</p>
+<p>mLG,C-IASI = maximales Leergewicht C-IASI-Testfahrzeug.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>a)</p>
+</blockquote></th>
+<th><blockquote>
+<p><u>1. Seite:</u></p>
+<p>FC-IASI,1.Seite = 4,0 x mLG,C-IASI x g x 1,05.</p>
+<p>[redacted-person] FC-IASI,1.Seite ist vor 127 mm Gesamt-Eindrückweg zu
+erreichen.</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>b)</p>
+</blockquote></td>
+<td><blockquote>
+<p><u>2. Seite:</u></p>
+<p>FC-IASI,2.Seite = 3,0 x mLG,C-IASI x g x 1,05.</p>
+<p>[redacted-person] FC-IASI,2.Seite ist vor 127 mm Gesamt-Eindrückweg zu
+erreichen.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>c)</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] wird auf der beiden Seiten bis 127 mm Gesamt-Eindrückweg
+(ohne Zwischenstopp) gefahren.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>d)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>Es ist das Entwicklungsziel, dass die momentane Kraft stets größer
+ist als der Wert, der sich durch die Gerade ergibt, die durch den
+Ursprung (F = 0 kN / s = 0 mm) und durch die unter a) und b) definierten
+Punkte (FC-IASI,1.Seite bzw. FC-IASI,2.Seite) bei 127 mm verläuft.</p>
+<p>Aufgrund der Vorschädigung der Dachstruktur nach der ersten
+Druckseite, kann es im Auslegungsprozess sinnvoll sein, eine höhere
+Sicherheit auf der 2. Druckseite vorzuhalten.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="dacheindrückung-nach-kmvss-92-korea-und-gs-39-golfstaaten-rdw">Dacheindrückung
+nach KMVSS 92 (Korea) und GS 39 (Golfstaaten) – RdW</h1>
+<h2 id="dachreling-3">Dachreling</h2>
+<blockquote>
+<p>[redacted-person] ist ohne Dachreling durchzuführen.</p>
+</blockquote>
+<h2 id="versuchsdurchführung-6">Versuchsdurchführung</h2>
+<blockquote>
+<p>[redacted-person] ist bis zu einem Stempelweg von 127 mm
+durchzuführen.</p>
+<p>[redacted-person] erfolgt nach dem aktuellen IIHS [redacted-person].
+Ausnahmen sind mit der [redacted-co] Fahrzeugsicherheit abzustimmen.</p>
+<p>[redacted-person] beträgt – soweit nichts anderes vereinbart
+wurde – 5 mm/s.</p>
+</blockquote>
+<h2 id="versuchsziele-7">Versuchsziele</h2>
+<blockquote>
+<p>Zusätzlich zur sicheren Gesetzeserfüllung müssen die nachfolgenden
+[redacted-co]-Anforderungen erreicht werden. Grundsätzlich sind als
+Entwicklungsziel alle gesetzlichen Grenzwerte sowie alle Anforderungen
+bzgl. Selbstverpflichtung mit einer Sicherheit zu erfüllen.</p>
+<p>Dies dient der Absicherung von Produktionsschwankungen (bzgl.
+Verbindungstechnik, Materialgüte, Materialstärke und Versuchsstreuungen)
+und gewährleistet eine sichere Erfüllung aller Anforderungen (Gesetz,
+Selbstverpflichtung) in der Serienfertigung über die gesamte
+Laufzeit.</p>
+<p>Abweichungen vom Entwicklungsziel sind im Einzelfall bei Nachweis
+einer entsprechend notwendigen Prozessgüte und serienbegleitender
+Qualitätsprüfungen im Herstellungsprozess möglich, erfordern jedoch
+zwingend die Genehmigung durch die Fahrzeugsicherheit unter Einbeziehung
+der zuständigen Qualitätssicherungsabteilungen.</p>
+<p>mLG,RdW = maximales Leergewicht RdW.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>a)</p>
+</blockquote></th>
+<th><blockquote>
+<p>FRdW = 3,0 x mLG,RdW x g.</p>
+<p>[redacted-person] FRdW ist vor 127 mm Stempelweg zu erreichen.</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>b)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Dabei ist es das Entwicklungsziel, dass die momentane Kraft stets
+größer ist als der Wert, der sich durch die Gerade ergibt, die durch den
+Ursprung (F = 0 kN / s = 0</p>
+<p>mm) und durch den unter a) definierten Punkt bei 127 mm verläuft.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="kundendienst-reparaturlösung">Kundendienst-Reparaturlösung</h1>
+<blockquote>
+<p>[redacted-person] und Absicherung von Kundendienst-Reparaturlösungen
+(A-säulen, B- Säulenabschnittsreparatur und Dachaustausch) erfolgt in
+Absprache zwischen der Fahrzeugsicherheit und der Funktionsauslegung.
+Ziel ist die simulative Absicherung, kann jedoch bei gegebener
+Notwendigkeit durch Versuche ergänzt werden.</p>
+<p>Grundsätzlich liegt das Entwicklungsziel auf der sicheren
+Gesetzeserfüllung sowie einem vergleichbaren Deformationsverhalten.</p>
+</blockquote>
+<h1 id="dacheindrückung-an-offenen-fahrzeugen">Dacheindrückung an
+offenen Fahrzeugen</h1>
+<h2 id="grundsätzliche-prüfungen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] erfolgt abweichend von den geschlossenen
+Fahrzeugen. Das geforderte Kraftniveau ist bis zu einem Stempelweg von
+127 mm zu erreichen. Es müssen während der [redacted-person]
+mit offenem und geschlossenem Verdeck durchgeführt werden. [redacted-person] erfolgt mit offenem Verdeck.</p>
+<p>[redacted-person] von Kunststoffteilen, die im Belastungsbereich liegen und
+einen Einfluss auf das Versuchsergebnis haben, ist mit der
+Fahrzeugsicherheit abzustimmen (z.[redacted-person] auf Überrollschutzsystemen,
+Dichtungen an Säule A, ...).</p>
+</blockquote>
+<h2 id="versuchsziel">Versuchsziel</h2>
+<blockquote>
+<p>[redacted-person] für offene Fahrzeuge sind als Voraussetzung für
+eine gute Erfüllung der dynamischen Versuche zu sehen.</p>
+</blockquote>
+<ol type="I">
+<li><p><u>Ziele für Krafteinleitung in Pfosten A (Verdeck
+geöffnet)</u></p></li>
+</ol>
+<blockquote>
+<p>Das ÜRSS ist bei den Versuchen einzufahren oder zu demontieren,
+sofern es sonst von der Druckplatte getroffen werden sollte.</p>
+</blockquote>
+<ol type="a">
+<li><p>Foffene_Fahrzeuge = 3,0 x mLG x g bis s ≤ 127 mm Stempelweg zu
+erreichen.</p></li>
+<li><p>[redacted-person] von Pfosten A, Dachrahmen und
+Verdeck (kein Brechen oder Ablösen tragender Bauteile).</p></li>
+</ol>
+<h2 id="zug--und-druckversuche-an-fahrzeugen-mit-überrollschutzsystem-ürss">Zug-
+und Druckversuche an Fahrzeugen mit Überrollschutzsystem (ÜRSS)</h2>
+<blockquote>
+<p>Um die Funktion während eines Rollovers sicherzustellen, muss das
+Überrollschutzsystem zusätzlich durch umfangreiche Versuche an der
+Karosse überprüft werden.</p>
+<p>[redacted-person] und Anforderungen sind im [redacted-person] beschrieben.</p>
+</blockquote>
+<h1 id="dynamische-versuche">[redacted-person]</h1>
+<h1 id="allgemeine-umfänge">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] unter <a href="#dachfalltest-nach-sae-j996">6.2</a> <a href="#dachfalltest-nach-sae-j996">Dachfalltest</a> für die Freigabe
+sind in der VFF/PVS durchzuführen. [redacted-person] sollte ebenfalls als
+Entwicklungsversuch in der Baustufe durchgeführt werden. [redacted-person]
+nach <a href="#schraubrollover-nach-ams-auto-motor-sport-adac">6.3</a>
+<a href="#schraubrollover-nach-ams-auto-motor-sport-adac">Schraubrollover
+nach AMS (auto motor sport) / ADAC</a> sind, in Absprache mit der
+Fahrzeugsicherheit, nur für Cabrios in der PVS durchzuführen.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><strong>Dachfalltest nach SAE
+J996</strong></th>
+<th><blockquote>
+<p><strong>Schraub-Rollover (AMS /ADAC)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Versuchsdurchführung</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>alle Typen</p>
+</blockquote></td>
+<td><blockquote>
+<p>für offene Fahrzeuge</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Referenzfahrzeug</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Volumen-[redacted-person] NCAP</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Fahrzeuggewicht</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>m_kleinst_leer (entspricht SAE J996)</p>
+</blockquote></td>
+<td><blockquote>
+<p>m_leer_60%MA + 2 Dummys</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Insassen</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>keine</p>
+</blockquote></td>
+<td><blockquote>
+<p>2x Wassermänner</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Dachvariante (falls angeboten)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Schiebedach bzw. Dachsystem*</p>
+</blockquote></td>
+<td><blockquote>
+<p>Schiebedach bzw. Dachsystem</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Verdeck</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>geschlossen</p>
+<p>(Energiebeitrag des Verdecks eher gering; aber Verriegelung
+prüfen)</p>
+</blockquote></td>
+<td><ol type="a">
+<li><p><strong>geschlossen</strong></p></li>
+<li><p>Wenn aktives ÜRSS bei Fahrzeugen mit geschlossenem Verdeck nicht
+vollständig sein sollte, dann zweiter Test mit <strong>offenem</strong>
+Verdeck</p></li>
+</ol></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Zusätzl. Versuch, wenn Hardtop</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>ja</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Versuchsanzahl</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1x PT-Phase 1x PVS-Phase</p>
+</blockquote></td>
+<td><blockquote>
+<p>1x PVS-Phase (+ Hardtop)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="dachfalltest-nach-sae-j996">Dachfalltest nach SAE J996</h1>
+<h2 id="prüfungen">Prüfungen</h2>
+<blockquote>
+<p>Sind an den für den Dachfalltest relevanten Bauteilen (Karosserie,
+Montageteile) Konzeptunterschiede vorhanden, welche nicht durch die
+Auslegungsvariante abgedeckt werden können, so sind auch diese
+abzusichern (Versuch und ggf. Simulation). Das kann zusätzliche
+Dachfalltests für diese Variante bedeuten.</p>
+</blockquote>
+<h2 id="auslegungsvariante">Auslegungsvariante</h2>
+<ul>
+<li><p>Worst-case-Variante, z.[redacted-person] Rohbau mit Schiebedach
+(geschlossen).</p></li>
+<li><p>Dachreling (falls vorhanden).</p></li>
+<li><p>Getestet wird das kleinste Leergewicht der schwersten
+Fahrzeugvariante.</p></li>
+</ul>
+<h2 id="versuchsobjekt">Versuchsobjekt</h2>
+<blockquote>
+<p>[redacted-person] handelt es sich bevorzugt um ein
+Komplettfahrzeug. Andernfalls ist Rücksprache mit der [redacted-co]
+Fahrzeugsicherheit zu halten. Sollte das Versuchsobjekt aus einer
+Karosse mit Aggregat aufgebaut werden, ist sicherzustellen, dass die
+entsprechenden Fahrzeugradlasten erreicht werden.</p>
+</blockquote>
+<h2 id="versuchsdurchführung-7">Versuchsdurchführung</h2>
+<blockquote>
+<p>[redacted-person] erfolgt in Anlehnung an die SAE J996. [redacted-person] beträgt 500 mm.</p>
+<p>Sitze und Verkleidungsteile am Pfosten A und Dach können entfernt
+werden (Massen bleiben trotzdem im Versuchsgewicht erhalten).</p>
+<p><img src="./09_Static_Load-lah-dum-857-b-dachsteifigkeit-v20220307-media/media/image3.png" style="width:6.17876in;height:2.95312in"/>[redacted-person] ist das
+Verdeck zu schließen.</p>
+</blockquote>
+<h1 id="schraubrollover-nach-ams-auto-motor-sport-adac">Schraubrollover
+nach AMS (auto motor sport) / ADAC</h1>
+<h2 id="versuchsobjekt-1">Versuchsobjekt</h2>
+<ul>
+<li><p>Leergewicht mit 60% Mehrausstattung (Basis: Euro NCAP
+Volumenmodell).</p></li>
+<li><p>RdW Rohbau mit Schiebedach (geschlossen).</p></li>
+</ul>
+<h2 id="versuchsbeschreibung">Versuchsbeschreibung</h2>
+<blockquote>
+<p>[redacted-person] nach den Anforderungen des ADAC soll durchgeführt
+werden, um die Dachstruktur, die Rückhaltesysteme und die
+Insassenkinematik zu überprüfen.</p>
+<p>Die [redacted-co] Fahrzeugsicherheit entscheidet im Einzelfall über die
+Notwendigkeit, den Aufwand sowie die Durchführung des Versuchs.</p>
+<p>[redacted-person] ist mit aktiver Sensorik zu fahren.</p>
+<p>[redacted-person] ist das Verdeck zu schließen. Sollte sich bei dem
+Rollover ein aktives ÜRSS nicht vollständig ausfahren, so ist der
+Versuch mit offenem Verdeck zu wiederholen.</p>
+</blockquote>
+<h1 id="serienüberwachung">Serienüberwachung</h1>
+<blockquote>
+<p>[redacted-person] einer gleichbleibenden Funktionssicherheit des
+Gesamtsystems sind se- rienbegleitende Versuche bei gesetzlichen
+Anforderungen vorzusehen [vgl. auch CoP- Prüfanweisungen zu
+entsprechenden Modelljahren (MJ)].</p>
+<p>[redacted-person] in diesem Lastenheft sind zur
+Fahrzeugentwicklung gedacht. Sie sind Grundlage der TE Freigabe. [redacted-person] müssen Anforderungen von GQ ([redacted-co] Qualitätssicherung)
+erfüllt werden.</p>
+<p>Die genauen Umfänge sind mit der zuständigen Abteilung
+abzustimmen.</p>
+</blockquote>
+<h1 id="anhang">Anhang</h1>
+<h1 id="aufbau-dacheindrückung-und-randbedingungen">[redacted-person] und Randbedingungen</h1>
+<blockquote>
+<p><img src="./09_Static_Load-lah-dum-857-b-dachsteifigkeit-v20220307-media/media/image4.png" style="width:5.5541in;height:1.34312in"/>[redacted-person] der
+Randbedingungen für eine (einseitige) Dacheindrückung:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Stempelgeschwindigkeit</p>
+</blockquote></th>
+<th><blockquote>
+<p>5 mm/s</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Stempellänge</p>
+</blockquote></td>
+<td><blockquote>
+<p>1.829 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Stempelbreite</p>
+</blockquote></td>
+<td><blockquote>
+<p>762 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Stempelwinkel (Neigungswinkel)</p>
+</blockquote></td>
+<td><blockquote>
+<p>5°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Stempelwinkel (Rollwinkel)</p>
+</blockquote></td>
+<td><blockquote>
+<p>25°</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="kopfhalter">Kopfhalter</h1>
+<blockquote>
+<p>Beispiel für [redacted-person] anhand der FMVSS 216a.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p>[redacted-person] Position HRMD</p>
+<p>(HRMD – [redacted])</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>HPF 201 [redacted-person] (nach FMVSS 201)</p>
+<p>(HPF – [redacted-person] Fixture)</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><img src="./09_Static_Load-lah-dum-857-b-dachsteifigkeit-v20220307-media/media/image5.jpeg" style="width:2.07398in;height:2.04in"/></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="steifigkeits-gewichts-verhältnis-swr-in-der-dacheindrückung">Steifigkeits-Gewichts-Verhältnis
+(SWR) in der Dacheindrückung</h1>
+<blockquote>
+<p>[redacted-person]-Gewichts-Verhältnis (<em>engl.</em>
+<strong>s</strong>trength-to-<strong>w</strong>eight-<strong>r</strong>atio,
+SWR) ist ein fahrzeugspezifischer Wert, und gibt das Verhältnis zwischen
+maximaler [redacted-person] der Fahrzeugstruktur und der
+Gewichtskraft des Fahrzeugs an:</p>
+<p><u>𝐹max</u></p>
+<p>SWR =</p>
+<p>(⏟𝑚F_a_hr_zeug_∙_𝑔¸)</p>
+<p>[redacted-person]</p>
+<p>Ein hoher SWR-Faktor beschreibt eine hohe Widerstandkraft der
+Fahrzeugstruktur gegen ein Eindrücken des Daches.</p>
+<p>Beispiel der Bewertungstabelle für das IIHS- Rating im [redacted-person] (<em>engl.</em> roof crush):</p>
+<p>mit: 𝑔 = 9,81 m⁄s<sup>2</sup></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>SWR</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Rating</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>≥ 4,00</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>GOOD</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>≥ 3,25 bis &lt; 4,00</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>ACCEPTABLE</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>≥ 2,50 bis &lt; 3,25</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>MARGINAL</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 2,50</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>POOR</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>𝐹max = SWR ∙ (𝑚Fahrzeug ∙ 𝑔)</p>
+<p>Berechnung der Zielkraft lt. Protokoll FMVSS 216a:</p>
+<p>𝐹max1./2.Druckseite = 3,0 ∙ (2.278 kg ∙ 9,81 m⁄s<sup>2</sup>) = 67,0
+kN</p>
+<p>Berechnung der Zielkraft nach Lastenheft (LAH) für die erste und
+zweite Druckseite:</p>
+<p>𝐹max,1.Druckseite = 3⏟,0</p>
+<p>Faktor aus FMVSS 216a</p>
+</blockquote>
+<ul>
+<li><p>( 2⏟._278 k¸g</p></li>
+</ul>
+<blockquote>
+<p>Fzg.Gewicht</p>
+</blockquote>
+<ul>
+<li><p>9,81 m⁄s<sup>2</sup>) ∙ 1⏟,1</p></li>
+</ul>
+<blockquote>
+<p>Sicherheitsfaktor LAH</p>
+<p>= 73,7 kN</p>
+<p>𝐹max,2.Druckseite = 3,0 ∙ (2.278 kg ∙ 9,81 m⁄s<sup>2</sup>) ∙ 1,2 =
+80,4 kN</p>
+<p>Beispiel der Berechnungsbasis ist ein Fahrzeug mit maximalem
+Leergewicht (mit 100% Mehrausstattung):</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>[redacted-person] (minimum curb weight)</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p>2.112 kg</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Mehrausstattung (100%)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>+166 kg</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>maximales Leergewicht (maximum curb weight)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2.278 kg</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="fahrzeuggewicht">Fahrzeuggewicht</h1>
+<blockquote>
+<p>[redacted-person] bildet als Eingangsgröße – z.[redacted-person] die
+Bestimmung des SWR-Faktors in der Dacheindrückung – einen wichtigen
+Parameter.</p>
+<p>[redacted-person] werden i.d.[redacted-person] dem Gewicht des schwersten
+Fahrzeugs (schwerstes Modell bzw. schwerstes Aggregat) abgebildet.
+Hierzu wird das maximale Leergewicht bzw. Leergewicht mit Überlast aus
+maximaler Mehrausstattung (100% MA) gebildet.</p>
+<p>Für den Dachfalltest nach SAE J996 wird beispielsweise das minimale
+Leergewicht des schwersten Fahrzeugs (schwerstes Modell bzw. schwerstes
+Aggregat) abgebildet.</p>
+<p>Im Consumer-Lastfall der Dacheindrückung nach IIHS wird das
+Testmodell mit maximaler Mehrausstattung abgebildet.</p>
+<p>[redacted-person] in den Consumer-Lastfällen ist nicht zwingend das
+leichteste oder schwerste Aggregat, sondern das mit der höchsten
+Testwahrscheinlichkeit im jeweiligen Testinstitut (z.[redacted-person] oder
+C-IASI). Dieses gilt es anhand von Volumenausplanungen und
+Fahrzeuganläufen, sowie in enger Abstimmung mit den Fachexperten der
+jeweiligen Märkte, im Projekt zu definieren.</p>
+<p>Für die Ermittlung der Fahrzeugtestgewichte bilden jeweils die
+marktspezifischen Gewichtstabellen (ECE / RdW, NAR, China) die
+Eingangsgrößen.</p>
+<p>Beispiel einer Gewichtszusammensetzung und -verteilung eines
+Fahrzeugs:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="4"><blockquote>
+<p><img src="./09_Static_Load-lah-dum-857-b-dachsteifigkeit-v20220307-media/media/image7.png" style="width:3.76921in;height:1.17208in"/></p>
+<p>🡻 🡻</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Gesamt</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Vorderachse VA</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Hinterachse HA</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] (minimum curb weight)</p>
+</blockquote></td>
+<td><blockquote>
+<p>2.112 kg</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>989 kg</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1.123 kg</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Mehrausstattung (100%)</p>
+</blockquote></td>
+<td><blockquote>
+<p>166 kg</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>69 kg</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>97 kg</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Leergewicht mit Überlast aus maximaler Mehrausstattung bzw. maximales
+Leergewicht</p>
+<p>(maximum curb weight)</p>
+</blockquote></td>
+<td><blockquote>
+<p>2.278 kg</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1.058 kg</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1.220 kg</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] zGG</p>
+</blockquote></td>
+<td><blockquote>
+<p>2.688 kg</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1.177 kg</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1.511 kg</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="übersicht-anforderungen-und-testrandbedingungen-in-der-dacheindrückung">[redacted-person] und Testrandbedingungen in der Dacheindrückung</h1>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Lastfall</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Typ</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Test</strong></p>
+</blockquote></th>
+<th style="text-align: right;"><strong>Reling</strong></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Kopfhalter</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>SWR</strong></p>
+<p>(LAH)</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>SWR</strong></p>
+<p>(offizielles Protokoll)</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>FMVSS 216a</strong></p>
+<p>(NAR)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>gesetzlich</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>beidseitig</p>
+</blockquote></td>
+<td style="text-align: right;">mit/ohne</td>
+<td style="text-align: center;"><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3,3 / 3,6</p>
+</blockquote></td>
+<td><blockquote>
+<p>3,0</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>CMVSS 216</strong></p>
+<p>(NAR)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>gesetzlich</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>beidseitig</p>
+</blockquote></td>
+<td style="text-align: right;"><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3,3 / 3,6</p>
+</blockquote></td>
+<td><blockquote>
+<p>3,0</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>IIHS</strong></p>
+<p>(NAR)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Consumer</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>einseitig</p>
+</blockquote></td>
+<td style="text-align: right;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4,2 (4,0)</p>
+</blockquote></td>
+<td><blockquote>
+<p>4,0 (GOOD)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>GB [redacted-phone]</strong></p>
+<p>(China)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>gesetzlich</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>einseitig</p>
+</blockquote></td>
+<td style="text-align: right;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3,0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1,5</p>
+<p>(22 kN)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>GB [redacted-phone]</strong></p>
+<p>(China)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>gesetzlich</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>beidseitig</p>
+</blockquote></td>
+<td style="text-align: right;">mit/ohne</td>
+<td style="text-align: center;"><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3,3 / 3,6</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3,0</p>
+<p>(60 kN)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>C-IASI V2.0</strong></p>
+<p>(China)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Consumer</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>einseitig</p>
+</blockquote></td>
+<td style="text-align: right;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4,2</p>
+</blockquote></td>
+<td><blockquote>
+<p>4,0 (GOOD)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>C-IASI V3.0</strong></p>
+<p>(China)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Consumer</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>beidseitig</p>
+</blockquote></td>
+<td style="text-align: right;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>mit (Monitoring)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4,2 / 3,15</p>
+</blockquote></td>
+<td><blockquote>
+<p>4,0 (GOOD)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>KMVSS 92</strong></p>
+<p>(Korea)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>gesetzlich</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>einseitig</p>
+</blockquote></td>
+<td style="text-align: right;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3,0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1,5</p>
+<p>(22 kN)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>GS 39</strong></p>
+<p>(Golfstaaten)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>gesetzlich</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>einseitig</p>
+</blockquote></td>
+<td style="text-align: right;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3,0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1,5</p>
+<p>(22 kN)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

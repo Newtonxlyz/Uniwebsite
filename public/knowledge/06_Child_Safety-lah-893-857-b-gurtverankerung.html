@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH.[redacted-phone]B_Gurtverankerung</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p>Ebner, Bernhard</p>
+<blockquote>
+<p>[redacted-person] 570625</p>
+<p>570625</p>
+</blockquote>
+<p><a href="mailto:bernhard.ebner@audi.de">[redacted-email]</a></p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<blockquote>
+<p>[redacted-person]./OE</p>
+<p>Hausruf [redacted-phone]</p>
+<p>Telefax [redacted-phone] Email</p>
+<p>[redacted-person]</p>
+</blockquote>
+<p><img src="./06_Child_Safety-lah-893-857-b-gurtverankerung-media/media/image2.png" style="width:3.29in;height:2.71in"/>Gurtverankerung</p>
+<blockquote>
+<p>LAH [redacted-phone]B</p>
+<p>Verteiler:</p>
+<p>Abt./OE Name</p>
+<p>[redacted]</p>
+<p>[redacted]</p>
+<p>[redacted]</p>
+<p>[redacted]</p>
+<p>[redacted]</p>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#zielsetzung">Zielsetzung 4</a><a href="#technische-anforderungen-fahrzeugsicherheit">[redacted-person] Fahrzeugsicherheit 4</a><a href="#allgemeines">Allgemeines
+4</a><a href="#funktionsanforderungen">Funktionsanforderungen 4</a><a href="#erprobungen-fahrzeugsicherheit">[redacted-person]
+4</a><a href="#komponentenerprobung">Komponentenerprobung 4</a><a href="#fahrzeugerprobung">Fahrzeugerprobung 4</a><a href="#erprobungen-fahrzeugsicherheit-1">[redacted-person]
+5</a><a href="#allgemeines-1">Allgemeines 5</a><a href="#versuchsaufbau">Versuchsaufbau 5</a><a href="#starre-platte">starre Platte 5</a><a href="#rohkarosserie">Rohkarosserie 5</a><a href="#sitze-gurte">Sitze /
+Gurte 5</a><a href="#versuchsdurchführung">Versuchsdurchführung 7</a><a href="#allgemein">Allgemein 7</a><a href="#mehrfach-prüfungen">[redacted-person] 7</a><a href="#prüfkräfte">Prüfkräfte 8</a><a href="#kraftaufbringung">Kraftaufbringung 8</a><a href="#haltezeit">Haltezeit 8</a><a href="#sitzmasse">Sitzmasse 9</a><a href="#beurteilungskriterien">Beurteilungskriterien 9</a><a href="#allgemein-1">Allgemein 9</a><a href="#vordersitzanlage">Vordersitzanlage 9</a><a href="#hintersitzanlage">Hintersitzanlage 10</a><a href="#messstellen">Messstellen 10</a><a href="#mitgeltende-unterlagen">[redacted-person] 11</a><a href="#technische-spezifikationen-normen">[redacted-person] /
+Normen 11</a><a href="#typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen /
+Vorschriften / Gesetze 11</a><a href="#lastenhefte">Lastenhefte 11</a><a href="#sonstige-unterlagen">[redacted-person] 12</a></p>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Vorwort</strong></p>
+<p>Das vorliegende LAH dient zur Ergänzung des Bauteil-Lastenheftes der
+Konstruktion und legt die technischen Daten und Randbedingungen für die
+Gurtverankerung bezüglich den Anforderungen der Fahrzeugsicherheit
+(Crashverhalten) fest.</p>
+</blockquote>
+<h1 id="zielsetzung">Zielsetzung</h1>
+<blockquote>
+<p>[redacted-person] der Entwicklung ist der Schutz der Insassen im Falle eines
+Crashs. [redacted-person]- lungsprodukt muss dazu beitragen, daß sämtliche
+internen Anforderungen und alle gesetzli- chen Vorschriften vom
+Gesamtfahrzeug erfüllt werden. [redacted-person] ist das Bestehen von
+Verbrauchertests „in best class“, sowie Benchmark-Vergleiche während des
+gesamten Her- stellzeitraumes des Fahrzeuges.</p>
+</blockquote>
+<h1 id="technische-anforderungen-fahrzeugsicherheit">[redacted-person] Fahrzeugsicherheit</h1>
+<h2 id="allgemeines">Allgemeines</h2>
+<blockquote>
+<p>[redacted-person] dient dem Schutz des Insassen im Crashfall. Gemäß
+aktueller Ge- setzgebung und darüber hinausgehender [redacted-co] Anforderungen
+ist der Festigkeitsnachweis der Gurtverankerung in quasistatischen,
+sowie in Crash-Versuchen zu führen.</p>
+</blockquote>
+<h2 id="funktionsanforderungen">Funktionsanforderungen</h2>
+<blockquote>
+<p>[redacted-person] sind hinsichtlich der Crashfunktionen (Deformation,
+Freigang, Blockbildung, Beschleunigung, ...) im Gesamtfahrzeug zu
+entwickeln. Es gelten die Anforderungen ge- mäß [redacted-person] und TPB.</p>
+</blockquote>
+<h1 id="erprobungen-fahrzeugsicherheit">[redacted-person]</h1>
+<h2 id="komponentenerprobung">Komponentenerprobung</h2>
+<blockquote>
+<p>Vor einer Anlieferung und Abprüfung im Gesamtfahrzeug muss das
+Crashverhalten der Sitze und betroffene Sicherheitskomponenten wie
+Sicherheitsgurthöhenversteller, etc. im Einzelteilversuch beim
+Auftragnehmer geprüft werden.</p>
+<p>[redacted-person] sind mit dem Auftraggeber zu diskutieren.</p>
+<p>[redacted-person] sind ein Hilfsmittel zur Auslegung des
+Bauteils. [redacted-person] erfolgt nach positiver
+Gesamtfahrzeugerprobung.</p>
+<p>Die erforderlichen Entwicklungsversuche sind vom Systementwickler
+durchzuführen. Eine entsprechende Versuchsplanung ist den zuständigen
+Versuchsabteilungen vorzulegen, bzw. mit ihnen abzustimmen.</p>
+</blockquote>
+<h2 id="fahrzeugerprobung">Fahrzeugerprobung</h2>
+<blockquote>
+<p>[redacted-person]-Verhalten des Gesamtfahrzeugs wird bei [redacted-co] anhand von
+FE-Simulationen und durch Gesamtfahrzeug-Crashversuche beurteilt. Zeigt
+sich, daß die Ziele nicht erreicht werden, sind Optimierungen an der
+Gurtverankerung in Zusammenar- beit mit den Fachabteilungen
+durchzuführen.</p>
+</blockquote>
+<h1 id="erprobungen-fahrzeugsicherheit-1">[redacted-person]</h1>
+<h2 id="allgemeines-1">Allgemeines</h2>
+<blockquote>
+<p>Generell gelten die Richtlinien und Verfahrensanweisungen der
+betroffenen Gesetzestex- te. Darüber hinaus gehende Vorgaben und
+Parameter zur Versuchsdurchführung sind vor Versuch mit [redacted-co]
+abzustimmen.</p>
+<p>Die erforderlichen Entwicklungsversuche sind vom Systementwickler
+durchzuführen. Eine entsprechende Versuchsplanung ist den zuständigen
+Versuchsabteilungen vorzulegen, bzw. mit ihnen abzustimmen.</p>
+</blockquote>
+<h2 id="versuchsaufbau">Versuchsaufbau</h2>
+<h2 id="starre-platte">starre Platte</h2>
+<blockquote>
+<p>[redacted-person] der Vorentwicklung ist es zulässig, die Hintersitzanlage an
+den Lagerpunkten starr aufzuspannen, d. [redacted-person]
+aufzubauen.</p>
+<p>Jedoch ist es erforderlich, im späteren Entwicklungsstadium (deutlich
+vor der B-Freigabe) die tatsächlichen Bodensteifigkeiten der
+Lehnenverankerungen darzustellen und alle Sitzplätze hinten gleichzeitig
+zu prüfen.</p>
+</blockquote>
+<h2 id="rohkarosserie">Rohkarosserie</h2>
+<blockquote>
+<p>[redacted-person] ist für die Versuchszwecke grundiert oder lackiert. In
+Ausnahmefällen kann auf eine Lackierung komplett verzichtet werden, dies
+kann nur in Abstimmung mit der Fahrzeugsicherheit erfolgen. [redacted-person] – Karossen kann auf eine Grundierung oder Lackierung
+verzichtet werden. [redacted-person] bei Aluminium – Karossen ist
+aber immer zwingend notwendig. Es ist darauf zu achten, dass
+festigkeitsrelevante Klebernäh- te ausgehärtet sind.</p>
+<p>[redacted-person] ist weiterhin mit Tunnelstreben, Tank und anderen
+Boden-Verstärkungen auszurüsten.</p>
+<p><em>Aufspannung der Karosse</em></p>
+<p>[redacted-person] ist auf Böcken in der konstruktiv festgelegten
+Bauebene an den Achs- befestigungspunkten hinten, sowie den Längsträgern
+vorne aufzunehmen. Hierbei darf der Sicherheitsgurt-Verankerungsbereich
+nicht verstärkt und die normale Verformung der Karosseriestruktur nicht
+gemindert werden. (siehe auch gesetzliche Vorgaben)</p>
+</blockquote>
+<h2 id="sitze-gurte">Sitze / Gurte</h2>
+<blockquote>
+<p>Um die Gurtverankerung zu prüfen muss der ZSB Sitz mit allen
+Originalanbauteilen (Sitz- führungsschiene, Originalbeschläge,...) in
+der Rohkarosserie nach PDM verbaut sein. [redacted-person] an den
+Gurtankerpunkten sind ebenfalls Originalteile, die nach PDM verbaut
+werden.</p>
+<p>Es ist Gurtband in hochfester Ausführung (F<sub>Bruch</sub> ≥ 30 kN;
+Dehnung bei 11 kN: 15 %; Di- cke ≤ 1,5 mm; Breite: 48 mm (z.[redacted-person]
+83041 Rukaflex der [redacted-person] Berger GmbH &amp; Co.)). oder
+Seriengurtband zu verwenden.</p>
+<p>Es ist vor dem Versuch ein Festigkeitsnachweis für das Gurtband zu
+erbringen.</p>
+<p>Bei allen Gurtanlagen ist das Abrollen der Gurte während des
+Zugversuches zu verhin- dern (Kraftbegrenzung unterbinden und Gurtband
+komplett abrollen oder Kraftbegren- zung unterbinden Gurtband
+entsprechend kürzen).</p>
+<p>[redacted-person] ist für verstellbare Sitze gemäß Vorgabe zu
+variieren. Verfügt der Sitz nicht über eine Höhenverstellung, so sind
+nur die verschiedenen Längspositionen zu tes- ten.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Lfd.</p>
+<p>-nr.</p>
+</blockquote></th>
+<th colspan="2">Sitzpositionen</th>
+<th>Sicherheitsgurt- höhenversteller</th>
+<th>Gesetz</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Längseinstellung</td>
+<td>Höheneinstellung</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>I.</p>
+</blockquote></td>
+<td>hinten</td>
+<td>unten</td>
+<td>mitte</td>
+<td>FMVSS 210</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>II.</p>
+</blockquote></td>
+<td>ganz vorne; +10 mm (X)</td>
+<td>oben</td>
+<td>unten</td>
+<td>typische Typ- prüfposition ECE-R14</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>III.</p>
+</blockquote></td>
+<td>ganz hinten; –10 mm (X)</td>
+<td>unten</td>
+<td>oben</td>
+<td>typische Typ- prüfposition ECE-R14</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>IV.</p>
+</blockquote></td>
+<td>ungünstigste Posi- tion</td>
+<td>ungünstigste Po- sition</td>
+<td>ungünstigste Position</td>
+<td>ECE-R14</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Die <strong>[redacted-person]</strong> in der
+Karosserie (unverstärkt) sind mit folgenden Sitzpositionen
+durchzuführen:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Anforderungen</p>
+</blockquote></th>
+<th><blockquote>
+<p>Fahrer</p>
+</blockquote></th>
+<th><blockquote>
+<p>Beifahrer</p>
+</blockquote></th>
+<th><blockquote>
+<p>Sicherheitsgurt- höhenversteller</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>Hinten / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>hinten / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>mitte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EG / ECE</p>
+</blockquote></td>
+<td>Vorne + 10mm (X), oben</td>
+<td><blockquote>
+<p>unten</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>hinten – 10 mm (X), unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>oben</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Die <strong>[redacted-person]</strong> in der
+Karosserie sind in folgenden Positionen durchzuführen:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Anforderungen</p>
+</blockquote></th>
+<th><blockquote>
+<p>Fahrer</p>
+</blockquote></th>
+<th><blockquote>
+<p>Beifahrer</p>
+</blockquote></th>
+<th><blockquote>
+<p>Sicherheitsgurt- höhenversteller</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>Hinten / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>hinten / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>mitte</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EG / ECE</p>
+</blockquote></td>
+<td><blockquote>
+<p>Vorne / oben</p>
+</blockquote></td>
+<td><blockquote>
+<p>unten</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>hinten / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>oben</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Ungünstigste</p>
+</blockquote></td>
+<td><blockquote>
+<p>ungünstigste</p>
+</blockquote></td>
+<td><blockquote>
+<p>ungünstigste</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="versuchsdurchführung">Versuchsdurchführung</h2>
+<h2 id="allgemein">Allgemein</h2>
+<blockquote>
+<p>Vor dem Hauptversuch ist eine Vorspannung in Höhe von 500 N
+aufzubringen.</p>
+<p>[redacted-person] teilt sich der Kraftaufwand in 2 Stufen auf. Zuerst
+sind die im Gesetz geforderten Kräfte gleichzeitig und einzeln so
+schnell wie möglich aufzubringen und ge- mäß Haltezeit zu halten. Direkt
+anschließend sind die Kräfte auf das aus Toleranz- gründen geforderte
+Überlastungsniveau (Gesetz + 20 %) zu erhöhen und erneut nach Vorgabe zu
+halten. [redacted-person] ist im Anschluss ausführlich zu dokumentie-
+ren.</p>
+<p><strong>F [kN]</strong></p>
+<p>0 <strong>t [s]</strong></p>
+<p>.</p>
+</blockquote>
+<ol type="1">
+<li><p>Stufe: Gesetz</p></li>
+<li><p>Stufe: Gesetz +20%</p></li>
+</ol>
+<h2 id="mehrfach-prüfungen">[redacted-person]</h2>
+<blockquote>
+<p>Sind in einer Sitzreihe mehrere Gurtverankerung vorhanden, so sind
+diese gleichzeitig abzuprüfen.</p>
+<p>Sind mehrere Sitzreihen in einem Fahrzeug abzuprüfen, so sind die
+weiteren Sitzreihen ebenfalls in derselben Karosse abzuprüfen.</p>
+</blockquote>
+<h2 id="prüfkräfte">Prüfkräfte</h2>
+<blockquote>
+<p>Die gesetzliche Zugkraft unterscheidet sich je nach
+Gesetz/Gesetzgeber, die [redacted-co]- Vor- gabe (Gesetz + 20 %) erhöht sich
+entsprechend. Die [redacted-co] – Vorgabe ist notwendig um mögliche Streuung in
+der Serie abzufangen und zu jeder Zeit eine sichere Gesetzeserfül- lung
+sicherzustellen. Weiterhin wird empfohlen in der [redacted-person] mit 140% der gesetzlichen Zugkraft durchzuführen, dies dient
+der Ermittlung der Versagenskraft.</p>
+<p>Die zulässigen Prüfkraft-Toleranzen sind den jeweiligen Gesetzen zu
+entnehmen.</p>
+<p>[redacted-person] in dem die Prüfkraft aufzubringen ist, ist dem jeweiligen
+Gesetz zu entneh- men. Es gilt weiterhin:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Gesetz</th>
+<th><blockquote>
+<p>gesetzliche Zugkraft</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-co]- Vorgabe</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FMVSS 210</td>
+<td><blockquote>
+<p>13,4 kN</p>
+</blockquote></td>
+<td><blockquote>
+<p>16,2 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ECE-R14; 76/115/EWG</td>
+<td><blockquote>
+<p>13,5 kN ± 0,2 kN</p>
+</blockquote></td>
+<td><blockquote>
+<p>16,2 kN</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Eingeleitet werden die Kräfte mittels Körperblöcken die nach ECE-R14
+und FMVSS210 definiert sind.</p>
+</blockquote>
+<h2 id="kraftaufbringung">Kraftaufbringung</h2>
+<blockquote>
+<p>[redacted-person] ist durch den Gesetzgeber und Vorgaben [redacted-co]
+vorgegeben.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th>Gesetz</th>
+<th style="text-align: left;">Kraftanstiegs zeit (nach Gesetz)</th>
+<th><blockquote>
+<p>[redacted]</p>
+</blockquote></th>
+<th><blockquote>
+<p>maximale Kraftanstigsgesch windigkeit</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>FMVSS 210</td>
+<td>≤ 30 s</td>
+<td>2 s ± 0,5 s</td>
+<td><blockquote>
+<p>135000 N/s</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>ECE-R14; 76/115/EWG</td>
+<td>schnellst möglich</td>
+<td><blockquote>
+<p>2 s ± 0,5 s</p>
+</blockquote></td>
+<td><blockquote>
+<p>k. A.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Lässt die Gurtzuganlage die [redacted-co]-Vorgabe bezüglich der
+Kraftanstiegszeit nicht zu, so ist das weitere Vorgehen mit der [redacted-co] -
+Fahrzeugsicherheit abzustimmen.</p>
+</blockquote>
+<h2 id="haltezeit">Haltezeit</h2>
+<blockquote>
+<p>Es wird zwischen Gurtverankerung und Sitzfestigkeit
+unterschieden.</p>
+<p><em>Gurtverankerungszugversuche in der Karosserie
+(unverstärkt)</em></p>
+<p>[redacted-person].-nr. I., IV. (siehe 4.2.3), sowie Typprüfung USA :
+&gt; 10 [redacted-person] Lfd.-nr. II.,III. (siehe 4.2.3), sowie
+Typprüfung EG / ECE : &gt; 1 Sekunde</p>
+<p>[redacted-person] von mindestens 10 Sekunden ist nur von Fahrzeugen zu
+erfüllen, die auf dem amerikanischen oder kanadischen Markt verkauft
+werden, ansonsten muss hier eine Haltezeit von mindestens 1 Sekunde
+erreicht werden können.</p>
+<p><em>Sitzfestigkeit (starre Platte bzw. verstärkte
+Karosserie)</em></p>
+<p>[redacted-person] beträgt immer 10 Sekunden.</p>
+</blockquote>
+<h2 id="sitzmasse">Sitzmasse</h2>
+<blockquote>
+<p>Ist ein Teil des Sicherheitsgurtes am Sitz befestigt, muss der Sitz
+dem zwanzigfachen des vollständigen Sitzeigengewichts standhalten. Es
+ist das größt mögliche Sitzgewicht zu be- rücksichtigen und nach
+Absprache mit der [redacted-co] Fahrzeugsicherheit zu erhöhen, um zu- künftige
+Entwicklungen in der Entwicklung und Zulassung bereits mit
+abzudecken.</p>
+<p>[redacted-person] ist nach FMVSS207, ADR03/02 bzw. ECE-R14 aufzubringen.</p>
+<p><em>Gurtverankerungszugversuche in der Karosserie
+(unverstärkt)</em></p>
+<p>[redacted-person] in der Karosse ist auch bei der Zugphase 120% nur die
+20-fache Sitz- massenkraft aufzubringen. Im Gegensatzdazu wird sie bei
+der Komponentenprüfung auf starrer Platte um 20% auf die 24-fache
+Massenkraft erhöht.</p>
+<p><em>Sitzfestigkeit (starre Platte bzw. verstärkte
+Karosserie)</em></p>
+<p>Die 20-fache Sitzmasse ist während des Zugversuchs analog den
+Zugkräften an den Körperblöcken auf das 120%-Überlastniveau zu erhöhen.
+Es ergibt sich somit die 24- fache Sitzmasse.</p>
+</blockquote>
+<h2 id="beurteilungskriterien">Beurteilungskriterien</h2>
+<h2 id="allgemein-1">Allgemein</h2>
+<blockquote>
+<p>Die geforderten Kräfte dürfen während der Haltezeit nicht
+unterschritten werden. Nach dem Versuch sind die einzelnen Bauteile
+genau zu untersuchen. [redacted-person] der Riss-, Bruch- und
+Verformungsbildung auch in den angrenzenden Bauteilen, sowie der
+Sitzdeformation (Kippen, Anlage an Pfosten B, etc.) ist durchzuführen
+und mit der [redacted-co] Fahrzeugsicherheit abzustimmen.</p>
+<p>[redacted-person] aller Bedingungen aus Kapitel 4.4 muss auch bei Prüfung
+mit größtmögli- chem Sitzgewicht gewährleistet sein.</p>
+</blockquote>
+<h2 id="vordersitzanlage">Vordersitzanlage</h2>
+<blockquote>
+<p>[redacted-person] des SiGuHv ist während des Versuchs analog der ECE-R14
+auf 450 mm über R-Punkt begrenzt.</p>
+<p>Zweitürerlehnen müssen nach dem Versuch noch vorklappbar sein.</p>
+</blockquote>
+<h2 id="hintersitzanlage">Hintersitzanlage</h2>
+<blockquote>
+<p>Ist der Zugang zu der 2. und/oder 3. Sitzreihe nur über Klapplehnen
+mit Lehnenentriegelung sichergestellt, so muss deren Funktion auch nach
+dem Zugversuch mindestens noch einmal gewährleistet sein.</p>
+<p>[redacted-person]</p>
+<p>Der vertikale Abstand zwischen dem Punkt K<sub>eff</sub> und dem
+dazugehörigen R-Punkt darf 450 mm während und nach dem Versuch nicht
+unterschreiten.</p>
+<p>Ist die obere Gurtverankerung K<sub>eff</sub> an der Sitzstruktur
+befestigt, so ist eine sichere Gesetzeser- füllung zu gewährleisten. [redacted-person] dient eine horizontale Vorverlagerung von K<sub>eff</sub>
+während des Versuches zur Fahrzeugquerebene von X = 100 mm vor dem
+R-Punkt.</p>
+</blockquote>
+<h2 id="messstellen">Messstellen</h2>
+<blockquote>
+<p>Die gesetzlich vorgeschriebenen Messstellen, sowie der Zylinderweg
+sind immer mitzumessen. [redacted-person] sind je nach Gegebenheit in
+Absprache mit der Fahr- zeugsicherheit hinzuzufügen.</p>
+<p>Bei der Prüfung der Gurtverankerung sind –soweit der Bauraum dies
+zulässt– die Gurtkräf- te am Gurtautomaten, Becken- und Schultergurt zu
+messen.</p>
+<p>Wird die 20-fache Sitzmasse aufgebracht gilt:</p>
+<p>Bei den Hinterlehnen in der mittleren oder hinteren Sitzreihe ist die
+Lehnenvorverlagerung am Lehnenende (Fahrzeugmitte zugewandte Seite) und
+an den Gurtaustrittspunk- ten/Gurtautomat, falls nicht vorhanden in der
+Lehnenmitte, während des Versuchs zu mes- sen. Ausgenommen von der
+Messung sind Lehnen der mittleren oder hinteren Sitzreihe bei denen die
+Lehne starr mit der Karosse verschraubt sind.</p>
+</blockquote>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den aktuellen Unterlagen
+zu arbeiten.</p>
+<p>Es gelten die am Ausgabedatum des Lastenheftes gültigen mitgeltenden
+Unterlagen. Abweichungen sind mit den jeweiligen Fachabteilungen des
+Auftraggebers abzustimmen und im Lastenheft zu dokumentieren.</p>
+</blockquote>
+<h2 id="technische-spezifikationen-normen">[redacted-person] /
+Normen</h2>
+<blockquote>
+<p><u>VDA [redacted-phone]</u> Werkstoffklassifizierung im Kraftfahrzeugbau;
+Aufbau und Nomenklatur</p>
+<p><u>VDA 260</u> Bauteile von Kraftfahrzeugen; Kennzeichnung der Werk-
+stoffe</p>
+<p><u>[redacted]</u> Anforderungen an CAD/CAM-Daten; Darstellung
+technischer Sachverhalte</p>
+<p><u>[redacted]</u> Anforderungen an CAD/CAM-Daten; Datenqualität</p>
+<p><u>[redacted]</u> Entwicklungsbedingungen</p>
+<p><u>[redacted]</u> Fahrzeugzulieferteile allgemein</p>
+<p><u>[redacted]</u> Firmenzeichen, Teilekennzeichnung; Richtlinie für
+die An- wendung</p>
+<p>sowie die darin genannten Dokumente</p>
+</blockquote>
+<h2 id="typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen /
+Vorschriften / Gesetze</h2>
+<blockquote>
+<p><u>EU-Richtlinie [redacted-phone]EG</u> EU-Richtlinie zum
+Fahrzeugrecycling</p>
+<p>ECE-R14 Verankerung von Sicherheitsgurten in PKW</p>
+<p>ECE-R44 Kinderhaltesysteme, Verankerung</p>
+<p>76/115/EWG Verankerung von Sicherheitsgurten in PKW</p>
+<p>2000/3/EG Gurteinbau</p>
+<p>FMVSS 207 Sitzsysteme</p>
+<p>FMVSS 210 Sicherheitsgurtverankerungen</p>
+<p>CMVSS 207 Sitze</p>
+<p>CMVSS 210 Gurtverankerung</p>
+<p>ADR 03/02 Sitze und Sitzverankerungen</p>
+<p>Trias 37 Gurtverankerung sowie die darin genannten Dokumente</p>
+</blockquote>
+<h2 id="lastenhefte">Lastenhefte</h2>
+<blockquote>
+<p>LAH [redacted-phone]J Allg. [redacted-person]</p>
+<p>LAH xxx 000 [redacted-person] Fahrzeugsicherheit</p>
+<p>LAH xxx 881x Sitz – Sicherheits - LAH Vordersitzanlage</p>
+<p>LAH xxx 885 Sitz – Sicherheits - LAH Hintersitzanlage</p>
+<p>LAH [redacted-phone]Allgemeines Q-Lastenheft [redacted-co]</p>
+<p>LAH [redacted-phone]Kundendienst-Grundsatzanforderungen [redacted-co]</p>
+<p>LAH [redacted]und Humanverträglichkeit der [redacted]</p>
+<p>Umweltlastenheft <u>[redacted-person]</u> sowie die darin
+genannten Dokumente</p>
+</blockquote>
+<h2 id="sonstige-unterlagen">[redacted-person]</h2>
+<blockquote>
+<p>laboratory test procedure for FMVSS 207</p>
+<p>laboratory test procedure for FMVSS 210</p>
+<p>Testanweisung zur FMVSS 207 Testanweisung zur FMVSS 210</p>
+<p>Formel Q Konzern-Richtlinien der [redacted-person]:
+Formel <u>Q-Konkret</u>, -<u>Neuteile</u>, -<u>Fähigkeit,</u>
+-<u>Serienreife</u></p>
+<p>Logistik-[redacted-person] der Transportmittel der Logistikplanung
+des Auf-</p>
+<p>traggebers</p>
+<p>SE-Checkliste</p>
+<p>Umweltmanagement <u>VW-Umweltmanagement-Handbuch</u></p>
+<p>Prototypenteile <u>Lieferantenhandbuch für Prototypenteile des
+Versuchsbaus</u></p>
+<p><u>[redacted-co]</u> sowie die darin genannten Dokumente</p>
+</blockquote>
+</body>
+</html>

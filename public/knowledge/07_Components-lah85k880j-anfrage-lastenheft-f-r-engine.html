@@ -1,0 +1,3207 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH85K880J_Anfrage-Lastenheft für Engineering-Leistungen</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p>[redacted-person] / OE</p>
+<p>Telefon E-[redacted]</p>
+<p>[redacted]</p>
+<p><a href="mailto:Joerg.haesser@audi.de">[redacted-email]</a>
+[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+</blockquote>
+<p>LAH.85K.880.J</p>
+<blockquote>
+<p>[redacted-person]</p>
+<p>Anfrage-Lastenheft für Engineering-Leistungen</p>
+<p><strong>Verteiler:</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>Name</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Vorname</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Abteilung</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#allgemeines">Allgemeines 4</a><a href="#bedeutung-des-lastenhefts">Bedeutung des Lastenhefts 4</a><a href="#strukturierte-anfrage">[redacted-person] 4</a><a href="#geltungsbereich">Geltungsbereich 5</a><a href="#projektspezifische-auftragsinhalte">[redacted-person] 6</a><a href="#beschreibung-des-projektumfelds">Beschreibung des Projektumfelds
+6</a><a href="#zielsetzung-des-projekts">Zielsetzung des Projekts
+11</a><a href="#einzuhaltende-rahmenbedingungen-normen-technische-leitlinien-betriebsmittelvorschriften-etc.-soweit-nicht-unter-abschnitt-4.-erfasst">[redacted-person], Normen, technische Leitlinien,
+Betriebsmittelvorschriften etc. (soweit nicht unter Abschnitt 4.
+erfasst) 11</a><a href="#erforderliche-fachkenntnisse">[redacted-person] 11</a><a href="#leistungszeitraum">Leistungszeitraum
+11</a><a href="#start-ende-des-projekts">Start / Ende des Projekts
+11</a><a href="#meilensteine">Meilensteine 11</a><a href="#leistungsort">Leistungsort 11</a><a href="#beistellungen-der-audi-ag">Beistellungen [redacted-co] 11</a><a href="#it-beistellungen">IT-Beistellungen 11</a><a href="#sonstige-beistellungen">[redacted-person] 11</a><a href="#vergütung">Vergütung 11</a><a href="#nebenkosten">Nebenkosten
+11</a><a href="#fachliche-ansprechpartner-der-audi-ag">[redacted]11</a><a href="#sonstige-anforderungen">[redacted-person] 12</a><a href="#kaufmännische-rahmenbedingungen">[redacted-person]
+13</a><a href="#verantwortung-informationspflichten-und-zusammenarbeit">Verantwortung,
+Informationspflichten und Zusammenarbeit 13</a><a href="#durchführung-der-arbeiten">Durchführung der Arbeiten 13</a><a href="#leistungsfristen">Leistungsfristen 14</a><a href="#änderung-der-leistung">Änderung der Leistung 14</a><a href="#abnahme">Abnahme 15</a><a href="#vergütung-leistungsnachweis">Vergütung / Leistungsnachweis
+15</a><a href="#nutzungsrechte">Nutzungsrechte 17</a><a href="#verwendung-von-freier-software">Verwendung von [redacted-person]
+18</a><a href="#schutzrechtsrecherchen-schutzrechte-dritter">Schutzrechtsrecherchen,
+[redacted-person] 18</a><a href="#vertragslaufzeit-und-kündigung">Vertragslaufzeit und Kündigung
+18</a><a href="#allgemeines-1">Allgemeines 18</a><a href="#mitgeltende-unterlagen">[redacted-person] 20</a></p>
+<h1 id="allgemeines">Allgemeines</h1>
+<h2 id="bedeutung-des-lastenhefts">Bedeutung des Lastenhefts</h2>
+<blockquote>
+<p>Mit dem vorliegenden Lastenheft werden die kaufmännischen und
+technischen Vorgaben beschrieben, unter denen der Bieter, an den die
+Anfrage ergeht (im Folgenden „Auftragnehmer“ genannt), ein Angebot für
+den jeweils angefragten Arbeitsumfang abgeben kann.</p>
+<p>[redacted-person] beschreibt die betroffenen Schnittstellen, Prozesse,
+Rechte und die angeforderte Leistung als Grundlage für die Vergabe.</p>
+<p>[redacted-person] muss dieses Lastenheft in vollem Umfang bei seiner
+Angebotsgestaltung berücksichtigen. In seinem Angebot hat er sämtliche
+Leistungen zu berücksichtigen, die zur Erfüllung des Lastenheftes
+erforderlich sind. [redacted-person] soll sich unbedingt und ausschließlich
+auf das Lastenheft beziehen und die Art und Weise der Erbringung der
+darin geforderten Leistungen nachvollziehbar darstellen. Abweichungen
+zum Lastenheft sind im Angebot bzw. in den Bestellsystemen [redacted-co]
+unter Bezugnahme auf den jeweiligen Abschnitt ausdrücklich als solche
+kenntlich zu machen.</p>
+<p>Wird der Auftrag an den Auftragnehmer vergeben, stellt dieser sicher,
+dass die im Lastenheft beschriebene Leistung vorgabegemäß gegenüber der
+[redacted-co] erbracht wird.</p>
+<p>Die [redacted-co] behält sich das Recht vor, eine Kostenplausibilisierung
+vor der Beauftragung durchzuführen und entsprechend nachzuverhandeln.
+Die angebotenen Preise und Termine dürfen nicht überschritten werden. Im
+Angebot enthalten sind alle notwendigen Änderungen zur Erreichung der
+Zielsetzungen und Funktionserfüllung des Lastenheftes.</p>
+<p>[redacted-person] des Lastenheftes ebenso wie die weiteren zur Verfügung
+gestellten Unterlagen unterliegen der Geheimhaltung und dürfen Dritten
+nur mit ausdrücklicher Genehmigung des zuständigen Fachbereiches der
+[redacted-co] zugänglich gemacht werden. Soweit eine Weitergabe an Dritte,
+insbesondere an mit dem Auftragnehmer verbundene Unternehmen, für die
+Erstellung eines Angebots erforderlich ist und genehmigt wurde, hat der
+Auftragnehmer dafür Sorge zu tragen, dass die Vertraulichkeit
+sichergestellt ist.</p>
+</blockquote>
+<h2 id="strukturierte-anfrage">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] hat die strukturierte Anfrage [redacted-co]
+auszufüllen, also die geforderten Angaben zur Detaillierung und
+Plausibilisierung zu machen.</p>
+<p>[redacted-person] der strukturierten Anfrage erstellt der Auftragnehmer
+kostenlos ein entsprechend strukturiertes Angebot. In diesem Angebot
+müssen alle Details zur Herleitung des Angebotswertes und zur
+Plausibilisierung enthalten sein. Dies umfasst insbesondere den
+prognostizierten Aufwand</p>
+<p>an Arbeitsstunden beim Auftragnehmer. Sollten seitens [redacted-co]
+weitere Details zum Angebot gefordert werden, wird der Auftragnehmer
+diese unverzüglich und kostenlos zur Verfügung stellen.</p>
+</blockquote>
+<h2 id="geltungsbereich">Geltungsbereich</h2>
+<blockquote>
+<p>Das vorliegende Lastenheft bezieht sich ausschließlich auf Leistungen
+im Rahmen der Projektabläufe. Dies können u. [redacted-person],
+Konstruktions-, Berechnungs-, Prüfstands-, Versuchs-, Erprobungs-,
+Werkstatt- und Projektmanagementleistungen sein.</p>
+<p>Art und Umfang der Leistung richten sich nach diesem Lastenheft, es
+sei denn, ein Sachverhalt wird individuell ausgehandelt und ausdrücklich
+schriftlich abweichend geregelt.</p>
+<p><strong>[redacted-person]</strong></p>
+</blockquote>
+<h1 id="projektspezifische-auftragsinhalte">[redacted-person]</h1>
+<table style="width:100%;">
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>Auftragneh mer</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Auftraggeb er</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Airbagliefer ant</p>
+</blockquote></th>
+<th style="text-align: right;">KAB</th>
+<th style="text-align: left;"><blockquote>
+<p>CeAB</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>SAB vo</p>
+</blockquote></th>
+<th style="text-align: right;">SABhi</th>
+<th style="text-align: right;">FAB</th>
+<th style="text-align: right;">BFAB</th>
+<th style="text-align: left;"><blockquote>
+<p>KnAB</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Bauteilentwicklung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Durchführung der Airbagentwicklung mit dem Airbaglieferanten und den
+Schnittstellenpartnern anhand der Airbagkonzernlastenhefte.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Entwicklungsprämisse für Projekt sammeln und bestätigen lassen (z.[redacted-person], Cockpit, Farben, …)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted]mit Schnittstellenpartnern
+(z.[redacted-person], Auslegungsrichtlinien, …)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>OoP-Parameterstudie (Dummyposition, Öffnungsverhalten
+K(l)appe,...)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: right;">-</td>
+<td style="text-align: left;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: right;">-</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Einfordern RHS Simulationsmodelle bei AB-Lieferant</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Erstellung und [redacted-person] (Karossen, Teile,…)
+mit internen und externen Partnern für alle relevanten</p>
+<p>Versuche (Standversuche, OOP, FMVSS226...)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">x</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] falls Zielumgebung nicht verfügbar</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person], wenn keine PWZ verfügbar</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Betreuung von OOP Versuchen im [redacted-co]-Labor zur Erfüllung der LAH
+Vorgaben</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">x</td>
+<td style="text-align: right;">-</td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Steuerung / Einforderung von Analysen und Ergebnissen der Dummy-
+Belastungen in allen gesetzlich geforderten OoP-Prüfpositionen (Seite
+nach TWG) unter Berücksichtung des Toleranzbereichs von Faltungen, des
+Öffnungsverhaltens von Verkleidungsteilen sowie der</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">x</td>
+<td style="text-align: left;">-</td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>möglichen Position von Dummys ([redacted]usw.)</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Abgleich OoP Simulation zu Realversuchen ist einzufordern und zu</p>
+<p>plausibilisieren.</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Bei NAR Vergabe: Verantwortung OoP-Funktion</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] FMVSS208 (Für OoP)</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Abstimmung mit Schnittstellenpartner</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Durchführung von OoP Versuchen</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Einfordern und Archivierung von OOP-Simulationsberichten vom
+Airbaglieferanten</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Steuerung des Airbaglieferanten zu Erarbeitung einer
+Entfaltungsanalyse</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Beurteilung und Berücksichtigung von Simulationsergebnissen der
+Entwicklungspartner</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Freigabe</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Einholen der Freigabeempfehlungen beim jeweiligen Airbaglieferant,
+Integrationsverantwortlichen, Systemverantwortlichen in der jeweiligen
+Projektphase</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] Vorbereitung und [redacted-person] für Bauteile
+in Erprobungsfahrzeugen / Sonderfahrzeugen</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Freigabeempfehlung der Komponente (Auftragnehmer an Auftraggeber
+mittels EDL-Checkliste)</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] in der jeweiligen Projektphase</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Pflege der Teilenummern, Freigabetermine &amp; MBT-Regeln in
+Stücklisten</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] und Verfolgen der Freigabemeilensteine
+(siehe Checkliste) und Treiber der Freigabe.</p>
+<p>(z.[redacted-person] Liste „[redacted-person]“ oder
+Gasgeneratorencheckliste mit GQ, oder Teilnahme an Baugruppen oder
+Innenmeisterbockgesprächen)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Nachweis der vollständigen Abarbeitung der EDL Checkliste (EDL
+Checkliste gilt nur für BMG, K-Freigabe [redacted-person])</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Erstellen von BMG-Online / FGV / Avon-Begehren / (Bei FAB Jobsplit
+EF-EK beachten)</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Dokumentation</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Prüfung aller Freigabeunterlagen vor Archivierung</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>Einfordern von Freigabeberichten, die den Freigabestand gegenüber den
+LAH-Anforderungen transparent darstellen</p>
+</blockquote></th>
+<th><blockquote>
+<p>R</p>
+</blockquote></th>
+<th><blockquote>
+<p>I</p>
+</blockquote></th>
+<th><blockquote>
+<p>S</p>
+</blockquote></th>
+<th><blockquote>
+<p>x</p>
+</blockquote></th>
+<th><blockquote>
+<p>x</p>
+</blockquote></th>
+<th><blockquote>
+<p>x</p>
+</blockquote></th>
+<th><blockquote>
+<p>x</p>
+</blockquote></th>
+<th><blockquote>
+<p>x</p>
+</blockquote></th>
+<th><blockquote>
+<p>x</p>
+</blockquote></th>
+<th><blockquote>
+<p>x</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Visverdi-Datenimport vom Airbaglieferanten einfordern und</p>
+<p>Attributefüllung überprüfen</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Archivierung aller Freigabeunterlagen (siehe Richtlinie
+<em><strong><u>Archivierung</u> <u>von Freigabeunterlagen von
+Frontairbags</u></strong></em>)</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Status</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>ASL Pflege mit Teilnahme an Teil-für-[redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Erstellung von Präsentation und Statusberichten. Bereitstellen
+aktueller Statusinformationen zu Terminen, Gewicht, Funktionen</p>
+<p>bzw. Veränderungen in der Entwicklung in Zusammenarbeit mit den
+Airbag- und Schnittstellenlieferanten.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] zur Abstimmung der Arbeitsergebnisse mit
+Schnittstellenpartnern.</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Erstellung von Projektterminplänen und Präsentation bei [redacted-co]
+(Arbeitsfortschritt, Zielkonflikten). Erstellung von</p>
+<p>Gatecontrollingübersichtslisten.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] bei EK-5x zum Projektfortschritt durch den / die
+Gewerksverantwortlichen</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Bauteiltermine in [redacted-co] Systemen pflegen (TEVON, AVON, cplace)</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Datenpflege</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Erstellung VOBES Datenblätter.</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] / Befüllung, Überprüfung und ggf. Korrektur</p>
+<p>Stückliste, MBT etc.</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Beschaffen und Abgleich CAD-Daten mit Hardwareständen (auf</p>
+<p>Bauteil und Fahrzeugebene) und ständige Überprüfung auf
+Aktualität.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Check der 3D Daten ([redacted-co] CAD Richtlinien, DMU,…) zu den Freigaben</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Check 2D-Zeichnung ([redacted-co] CAD Richtlinien,…) zu den Freigaben</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Archivierung der CAD Daten und Erstellung / Verteilung der Daten über
+Publikationscockpit im Connect</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Aufzeigen von Konflikten anhand von Schnitten, CAD-Daten,
+Präsentationen</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Klärung der Packagevorgaben mit Auftraggeber. Weitergabe der
+Packagevorgaben an Schnittstellpartner.</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Technikgespräche / Projektrunden / Schnittstellen</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>Bereitstellung eines oder mehreren Gewerk-Verantwortlichen / Resident
+um die Schnittstellen bei [redacted-co] zu bedienen bzw. den Informationsfluss
+zwischen [redacted-co] und dem Auftragnehmer zu</p>
+<p>gewährleisten</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Integrationsverantwortung des Moduls in das jeweilige</p>
+<p>Fahrzeugprojekt / Derivat</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Funktionsverantwortung für die Komponente</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Überprüfung und Sicherstellung der Einhaltung aller</p>
+<p>Bauteilanforderungen</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Bei COP (carry over part) der Komponente sind die Schnittstellen
+so</p>
+<p>zu beeinflussen, dass keine Änderung der COP Komponente notwendig
+ist.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] an COP Komponenten notwendig, sind diese in</p>
+<p>Abstimmung mit dem Airbaglieferanten und Schnittstellen auszuarbeiten
+und zu bewerten</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] des Gewerkverantwortlichen an den
+Auftraggeber bei Nichterfüllung eines der Ziele (Insassenschutz,
+Gewicht, Teile- und Entwicklungskosten, Termin, Robustheit, weitere LAH
+Anforderungen). Aufzeigen und Abstimmen von möglichen</p>
+<p>Lösungswegen.</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Abstimmung mit Lieferant / Schnittstellenpartnern bzgl.</p>
+<p>Lastenheftanforderungen</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Durchführung von Technikgesprächen mit Lieferanten und
+Schnittstellenpartnern in eigenen Räumlichkeiten</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Erstellung und Vorstellung in den Gremien von ÄKO´s, AE´s</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>A</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Teilnahme an 2 Tagesproduktion und Prozessabnahmeterminen (als
+[redacted-person])</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Übertrag von Erkenntnissen aus Vorgängerprojekten sowie sich in der
+Entwicklung befindlichen Projekten auf den zu entwickelnden Airbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Verfolgung der Abarbeitung der LOP-Arbeitspunkte sowie von
+Besprechungsprotokollen</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] ist nach den vorgegebenen Randbedingungen (z. [redacted-person] Variierungsumfänge; Modulvorgaben) zu entwickeln</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] und Versand der benötigten Versuchsteile
+für die durchzuführenden Versuche beim Airbaglieferanten, [redacted-co] oder
+externen Partnern. Teilelogistik: Koordination und Verfolgung der
+Teilebestellungen/Teilelieferungen</p>
+<p>von Versuchsteile</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Auswertung aller relevanten Versuche und Dokumentation in einer</p>
+<p>Übersichtstabelle</p>
+</blockquote></td>
+<td><blockquote>
+<p>S</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>Anfrage-Lastenheft für Engineering-Leistungen</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>Änderungsstand: Seite:</p>
+</blockquote></th>
+<th style="text-align: left;"><p>[redacted-phone]</p>
+<p>10 von 20</p></th>
+</tr>
+</thead>
+</table>
+<table style="width:100%;">
+<thead>
+<tr>
+<th style="text-align: left;"><blockquote>
+<p>Planung und Durchführung von Dienstreisen (z.[redacted-person],
+Systemrunde, 2-Tagesproduktion, etc.) z.[redacted-person] Abnahme / Analyse von
+Versuchsträgern/Versuchen, [redacted-person] bei lokalisierten</p>
+<p>Bauteilen zur BMG Abnahme</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>I</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+<th style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] an Projektbesprechungen außerhab von EK- 5
+(z.[redacted-person], Technikrunde EK3x, DMU Runde…).</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>[redacted-person] an [redacted-person] Regelrunden (Systemrunde,
+Integratorenrunde, Projektrunden, SE-Sitzung).</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Mitgestaltung COP Katalog (Definition der COP Kriterien) in
+Abstimmung mit Airbaglieferanten / [redacted-co] Qualitätssicherung /
+Schnittstellenpartnern</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Sonstiges</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Beantragen von Zugriffen auf notwendige [redacted-co]tools (z. [redacted-person],
+Visverdi, Cavit, KVS, Connect) und anschließender</p>
+<p>Support bei Problemen mit diesen Tools</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>R</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>S</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+<td style="text-align: left;"><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Bennenung / Definition SPOC (single point of contact)</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>R</p>
+</blockquote></td>
+<td><blockquote>
+<p>I</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+<td><blockquote>
+<p>x</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="beschreibung-des-projektumfelds">Beschreibung des
+Projektumfelds</h2>
+<blockquote>
+<p><em>[redacted-person].85K.880.B</em></p>
+</blockquote>
+<h2 id="zielsetzung-des-projekts">Zielsetzung des Projekts</h2>
+<blockquote>
+<p><em>s. 2.</em></p>
+</blockquote>
+<h2 id="einzuhaltende-rahmenbedingungen-normen-technische-leitlinien-betriebsmittelvorschriften-etc.-soweit-nicht-unter-abschnitt-4.-erfasst">[redacted-person], Normen, technische Leitlinien,
+Betriebsmittelvorschriften etc. (soweit nicht unter Abschnitt 4.
+erfasst)</h2>
+<blockquote>
+<p>- <em>[redacted-person] Bauteil-LAHs und Zeichnungen</em></p>
+</blockquote>
+<h3 id="erforderliche-fachkenntnisse"><em>[redacted-person]</em></h3>
+<blockquote>
+<p>[redacted-person] gewährleistet, dass er die zur Abarbeitung des
+Umfangs erforderlichen Fachkenntnisse hat.</p>
+</blockquote>
+<h3 id="leistungszeitraum"><em>Leistungszeitraum</em></h3>
+<h3 id="start-ende-des-projekts"><em>Start / Ende des Projekts</em></h3>
+<blockquote>
+<p>[redacted-person].85K.880.B</p>
+</blockquote>
+<h3 id="meilensteine"><em>Meilensteine</em></h3>
+<blockquote>
+<p>[redacted-person].85K.880.B</p>
+</blockquote>
+<h2 id="leistungsort">Leistungsort</h2>
+<blockquote>
+<p><em>[redacted-person].85K.880.B</em></p>
+</blockquote>
+<h2 id="beistellungen-der-audi-ag">Beistellungen [redacted-co]</h2>
+<blockquote>
+<p><em>Nicht belegt</em></p>
+</blockquote>
+<h3 id="it-beistellungen"><em>IT-Beistellungen</em></h3>
+<blockquote>
+<p><em>Nicht belegt</em></p>
+</blockquote>
+<h3 id="sonstige-beistellungen"><em>[redacted-person]</em></h3>
+<blockquote>
+<p><em>Nicht belegt</em></p>
+</blockquote>
+<h2 id="vergütung">Vergütung</h2>
+<blockquote>
+<p><em>Nicht belegt</em></p>
+</blockquote>
+<h2 id="nebenkosten">Nebenkosten</h2>
+<p><em>Nicht belegt</em></p>
+<h2 id="fachliche-ansprechpartner-der-audi-ag">[redacted]</h2>
+<blockquote>
+<p><em>[redacted]</em></p>
+<p><em>Daniel von [redacted-person] Haesser</em></p>
+</blockquote>
+<h2 id="sonstige-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p><em>Nicht belegt</em></p>
+</blockquote>
+<h1 id="kaufmännische-rahmenbedingungen">[redacted-person]</h1>
+<h2 id="verantwortung-informationspflichten-und-zusammenarbeit">Verantwortung,
+Informationspflichten und Zusammenarbeit</h2>
+<ol type="1">
+<li><p>[redacted-person] erbringt seine Leistung selbstständig,
+eigenverantwortlich und ausschließlich mit qualifiziertem Personal. [redacted-person] erbringt seine Leistungen gemäß dem neuesten Stand von
+Wissenschaft und Technik und nach den Grundsätzen ordnungsgemäßer
+Berufsausübung einschließlich der Dokumentation. Etwaige technische,
+fachliche oder sonstige Vorgaben [redacted-co] entbinden den Auftragnehmer
+nicht von seiner Verpflichtung und Verantwortung für eine fehlerfreie
+Erbringung seiner Leistungen.</p></li>
+<li><p>[redacted-person] wird die Informationen, Unterlagen,
+projektbezogene Anweisungen, Anforderungen und ähnliche Vorgaben der
+[redacted-co] inhaltlich auf Vollständigkeit, [redacted-person] und
+Umsetzbarkeit hin überprüfen. [redacted-person] wird der
+Auftragnehmer gegenüber [redacted-co] unverzüglich schriftlich mit
+Begründung anzeigen.</p></li>
+<li><p>[redacted]wird der Auftragnehmer schriftliche und
+aussagekräftige Statusberichte verfassen.</p></li>
+<li><p>Die [redacted-co] wird dem Auftragnehmer die erforderlichen
+Informationen und Unterlagen nach Aufforderung zur Verfügung stellen.
+Darüber hinausgehende Mitwirkungsleistungen bedürfen einer gesonderten
+schriftlichen Vereinbarung.</p></li>
+<li><p>Werden von [redacted-co] insbesondere aus [redacted-person] (Hardware, Software etc.) zur Verfügung gestellt, so
+erfolgt dies leihweise. [redacted-person] sowie alle
+gegebenenfalls darauf gespeicherte Daten, Software etc. sind alleiniges
+Eigentum [redacted]sind ausschließlich für die
+Zwecke und die Dauer des beauftragten Arbeitsumfangs zu verwenden. Sie
+sind nach Abschluss des Auftrags an [redacted-co] zurückzugeben oder, im Falle
+von ohne Hardware überlassener Software, zu löschen. Speziell für den
+Bereich IT (Hardware / Software) wird auf die Geltung der
+IT-Sicherheitshandlungsleitlinien hingewiesen.</p></li>
+<li><p>[redacted-person] (AN) erbringt die vertragsgegenständlichen
+Leistungen wie z.[redacted-person] des Versenders (Shippers), Absenders,
+Verpackers, Verladers, Befüllers, Beförderers, Empfängers, Entladers,
+etc. eigenverantwortlich und auf eigenes Risiko. Er hat dabei sämtliche
+für die jeweilige Leistung einschlägigen nationalen und internationalen
+Vorschriften und Regelungen eigenverantwortlich einzuhalten. Dies gilt
+insbesondere bei der Gefahrgutabwicklung oder dem Umgang mit
+Gefahrstoffen. Er verpflichtet sich, ausschließlich entsprechend der
+anwendbaren Vorschriften geschultes und/oder unterwiesenes Personal
+einzusetzen. Insbesondere ist vom AN die Gefahrgutorganisation offen zu
+legen.</p></li>
+</ol>
+<h2 id="durchführung-der-arbeiten">Durchführung der Arbeiten</h2>
+<ol type="1">
+<li><p>[redacted-person] ist für die Projektplanung und
+Leistungsdurchführung selbst verantwortlich. Sollten für den
+[redacted-person] seitens [redacted-co] angegeben werden,
+so sind dies lediglich Schätzungen, die auf Erfahrungswerten
+basieren.</p></li>
+<li><p>[redacted-person] erbringt seine Leistung in regelmäßiger
+fachlicher Abstimmung mit [redacted-co] und benennt einen Projektleiter,
+der den Einsatz des Personals und die Erstellung des Gewerkes plant bzw.
+überwacht. [redacted-person] ist der verantwortliche Ansprechpartner
+für die [redacted-co] in Bezug auf sämtliche Belange des Projektes. [redacted-person] gegenüber kann die [redacted-co] Erklärungen mit Wirkung für
+den Auftragnehmer abgeben.</p></li>
+<li><p>Die vom Auftragnehmer eingesetzten Mitarbeiter unterliegen
+alleine dem Weisungsrecht des Auftragnehmers. [redacted-person] stellt
+sicher, dass das Weisungsrecht ausschließlich durch ihn ausgeübt wird.
+Die vom Auftragnehmer eingesetzten Personen treten in kein
+Arbeitsverhältnis zur [redacted-co], auch soweit sie Leistungen auf deren
+Betriebsflächen erbringen.</p></li>
+<li><p>Wird eine vom Auftragnehmer zur Vertragserfüllung eingesetzte
+Person durch eine andere ersetzt oder ist generell eine Einarbeitung in
+den Auftrag (z. [redacted-person] zu für die Abarbeitung des Auftrags zwingend
+erforderlichen [redacted-co] IT-Systemen) erforderlich, so gehen die Kosten einer
+solchen Einarbeitung zu Lasten des Auftragnehmers. Bei der Auswahl wird
+der Auftragnehmer die Interessen [redacted-co] angemessen berücksichtigen.
+Die [redacted-co] kann mit Begründung den Austausch von vom Auftragnehmer zur
+Vertragserfüllung eingesetzten Personen verlangen, wenn diese wiederholt
+gegen vertragliche Pflichten verstoßen haben. Die durch den Austausch
+entstehenden Kosten gehen zu Lasten des Auftragnehmers.</p></li>
+<li><p>[redacted-person] verpflichtet sich, bei den zur Erfüllung seiner
+Leistungen eingesetzten Mitarbeitern durch geeignete Maßnahmen optisch
+kenntlich zu machen, dass sie Fremdfirmenmitarbeiter sind und
+unbeteiligte Dritte dies jederzeit zweifelsfrei erkennen können.
+Insbesondere sind Ausweise sichtbar zu tragen.</p></li>
+<li><p>Nutzt der Auftragnehmer im Rahmen der [redacted-person], die von [redacted-co] gesondert angemietet worden sind
+oder zur Verfügung gestellt werden, hat der Auftragnehmer dies in der
+Kalkulation seiner Angebotspreise mindernd zu berücksichtigen. Die [redacted-co] ist berechtigt, gesondert angemietete Flächen dem Auftragnehmer zu
+vermieten und den Mietzins in Rechnung zu stellen. An den Räumlichkeiten
+ist durch geeignete Maßnahmen optisch kenntlich zu machen, welcher
+Auftragnehmer über sie verfügt. Ob eine Beistellung oder Vermietung
+erfolgt, bedarf einer Entscheidung im Einzelfall. Gleiches gilt für
+Betriebsmittel [redacted]für die Vorhaltung
+eigener Räumlichkeiten und Betriebsmittel sind bei der
+Angebotserstellung zu berücksichtigen.</p></li>
+<li><p>[redacted-person] des Auftrages oder Teilen des Auftrages an Dritte
+durch den Auftragnehmer bedarf der vorherigen schriftlichen Zustimmung
+[redacted-co]. Sollte die Lieferung und Leistung durch Dritte erfolgen,
+ist die Abrechnung nur durch den Auftragnehmer zulässig.</p></li>
+</ol>
+<h2 id="leistungsfristen">Leistungsfristen</h2>
+<ol type="1">
+<li><p>Die vereinbarten Leistungsfristen und Zeitpläne sind verbindlich
+und abschließend. In diesen Zeitplänen können gegebenenfalls
+Zwischentermine aufgenommen sein. Diese sind ebenfalls verbindlich.
+[redacted-person] können nur schriftlich und einvernehmlich geändert
+werden.</p></li>
+<li><p>Sollte der Auftragnehmer erkennen, dass er einen Termin
+möglicherweise nicht einhalten kann, unterrichtet er die [redacted-co]
+hierüber unverzüglich schriftlich. Er wird dabei Maßnahmen vorschlagen,
+wie eine Absicherung der Termine erfolgen kann. [redacted-person]
+entbindet den Auftragnehmer nicht von seiner Verpflichtung zur
+Einhaltung der Termine. Unterbleibt die Mitteilung, so hat der
+Auftragnehmer die Fristversäumnis unabhängig von der Ursache zu
+vertreten. Ist die Nichteinhaltung des Termins von [redacted-co] zu
+vertreten, so wird dieser Termin und etwaige Folgetermine auf für beide
+Seiten angemessene neue Termine festgesetzt.</p></li>
+</ol>
+<h2 id="änderung-der-leistung">Änderung der Leistung</h2>
+<ol type="1">
+<li><p>[redacted-person] ist bereit, Änderungs- und Ergänzungswünsche
+[redacted-co] für die Realisierung der in diesem Lastenheft beschriebenen
+Umfänge zu berücksichtigen. [redacted-person] wird Änderungswünsche der
+[redacted-co] nur aus wichtigem Grunde ablehnen. Als wichtiger Grund für eine
+Ablehnung gilt insbesondere, wenn nach begründeter Auffassung des
+Auftragnehmers die Leistung nicht ausführbar ist oder wenn die zur
+Durchführung der Änderung erforderlichen Ressourcen für den
+Auftragnehmer nicht verfügbar sind und auch nicht verfügbar gemacht
+werden können.</p></li>
+<li><p>[redacted-person] hat die von [redacted-co] gewünschten Änderungen
+betreffend deren Auswirkung auf Kosten, Investitionen und Termine zu
+bewerten und unter der Berücksichtigung, dass die Termine möglichst
+nicht verändert werden sollen, einen Umsetzungsvorschlag anzubieten.
+Hinsichtlich der Kosten muss dieses Angebot ebenso prüfbar sein wie das
+ursprüngliche Angebot. [redacted-person] erfolgt erst nach Verhandlung
+und finaler Vergabeentscheidung.</p></li>
+<li><p>[redacted-person] und Ergänzungen, die erforderlich sind, um die in
+diesem Lastenheft angegebenen Werte und Funktionen zu erfüllen, sind
+nach Rücksprache mit dem zuständigen [redacted-co] Fachbereich (Anforderer)
+umzusetzen. [redacted-person] sind durch die angebotene und endgültig
+vereinbarte Vergütung abgegolten. Dies gilt auch für Änderungen im
+Rahmen des Entwicklungsfortschritts einschließlich der Prototypenumfänge
+und zusätzlichen Erprobungen.</p></li>
+<li><p>Soweit der Auftragnehmer mitteilt, dass die [redacted-person] auf die Kostenstruktur und/oder den Meilensteinplan haben,
+wird der Auftragnehmer dies in einem separaten Angebot darstellen,
+dessen Annahme im freien Ermessen [redacted-co] liegt und schriftlich bzw.
+über die Bestellsysteme [redacted-co] zu erfolgen hat.</p></li>
+</ol>
+<h2 id="abnahme">Abnahme</h2>
+<ol type="1">
+<li><p>[redacted-person] kann die Feststellung, ob der
+vereinbarte Leistungsumfang des Auftragnehmers tatsächlich
+vereinbarungsgemäß erfüllt wurde, erst bei Abschluss des
+Entwicklungsprojekts und Übergabe der jeweiligen Entwicklungsergebnisse
+getroffen werden. [redacted-person] erfolgt ausschließlich durch das
+Ausstellen einer schriftlichen Abnahmeerklärung im Rahmen der förmlichen
+Endabnahme des Leistungsumfangs des Auftragnehmers durch die [redacted]</p></li>
+<li><p>Die vom Auftragnehmer erarbeiteten Ergebnisse sind in prüffähiger
+Form zu übergeben. Ist dieses Erfordernis nicht erfüllt, werden Fristen
+wegen Unmöglichkeit der Abnahme nicht in Gang gesetzt. Ist das
+Leistungsergebnis in Datensätzen verkörpert, hat der Auftragnehmer
+soweit Einblick in den Code der erbrachten Leistung zu gewähren, dass
+eine Überprüfung auf vereinbarungsgemäße Leistungserbringung möglich
+ist.</p></li>
+<li><p>[redacted-person] wird die Gesamtfertigstellung des Auftrags zur
+Abnahme anzeigen. [redacted-person] hat wie nachfolgend beschrieben zu
+erfolgen:</p>
+<ol type="a">
+<li><p>Die [redacted-co] wird die in prüffähiger Form übergebenen Leistungen
+innerhalb einer in Ansehung des Projekts angemessenen Frist
+prüfen.</p></li>
+<li><p>[redacted-person] wird auf Wunsch [redacted-co] und ohne gesonderte
+Vergütung geschultes Personal für die zur Abnahme erforderlichen
+Prüfungen zur Verfügung stellen. Die bei der Abnahmeprüfung auftretenden
+Mängel werden protokolliert.</p></li>
+<li><p>[redacted-person] ist vom Projektleiter des Auftragnehmers
+sowie den Verantwortlichen [redacted-co] nach den jeweils geltenden
+Unterschriftenregelungen abzuzeichnen.</p></li>
+<li><p>Verweigert die [redacted-co] die Abnahme aufgrund eines oder mehrerer
+Mängel, wird der Auftragnehmer den bzw. die Mängel unverzüglich
+beseitigen und seine Leistungen erneut zur Abnahme vorlegen. Die
+vorstehenden Vorschriften gelten für eine erneute Abnahme
+entsprechend.</p></li>
+</ol></li>
+<li><p>[redacted-person] hat die Pflicht und nach Abstimmung mit der
+[redacted-co] das Recht zur zweimaligen Nachbesserung. [redacted-person] verändert nicht die vereinbarten
+Fertigstellungstermine und Rechtsfolgen aus Verzug. Die [redacted-co] kann
+nach Ablauf einer von [redacted-co] gesetzten angemessenen Frist die
+Leistung zu Lasten des Auftragnehmers selbst vornehmen oder vornehmen
+lassen oder zurücktreten. Im Falle der Kündigung erhält der
+Auftragnehmer eine Vergütung nur für die als mangelfrei abgenommenen
+Leistungen und selbstständig nutzbaren Teile. [redacted-person] auf
+Schadensersatz bleibt unberührt.</p></li>
+</ol>
+<h2 id="vergütung-leistungsnachweis">Vergütung / Leistungsnachweis</h2>
+<ol type="1">
+<li><p>Für die angefragte Aufgabenstellung ist vom Auftragnehmer/Bieter
+ein Festpreis auszuweisen. Im Angebot muss die Kalkulation des
+Festpreises offengelegt werden. [redacted-person] des im Lastenheft
+beschriebenen Leistungsumfangs sollen die jeweiligen Kostenbestandteile
+einzeln aufgelistet werden. Dabei sollen u. [redacted-person] Dritter separat
+aufgeführt werden.</p></li>
+<li><p>Festpreise schließen alle Nebenkosten ein. Ebenso sind alle
+Aufwendungen und Kosten, die nicht ausdrücklich von [redacted-co] zu
+erbringen sind, vom Auftragnehmer zu tragen und mit dem vereinbarten
+Preis abgegolten. Abweichungen hiervon bedürfen einer ausdrücklichen
+Vereinbarung.</p></li>
+<li><p>Reisekosten umfassen nur Transfer und Unterbringungskosten (keine
+Verpflegungsmehraufwendungen und vergleichbare Positionen). Soweit nicht
+etwas anderes vereinbart wird, sind Reisekosten nicht im Auftragswert
+enthalten. Sie werden nur maximal bis zu den vereinbarten Sätzen und
+innerhalb der vereinbarten Grenzen gegen Nachweis vergütet. Sie sind
+quartalsweise in Rechnung zu stellen. Es gelten die jeweils im Zeitpunkt
+der Beauftragung gültigen Reisekosten-Richtlinien für
+Entwicklungsdienstleister, die auf Anfrage durch die Beschaffung der
+[redacted-co] zur Verfügung gestellt werden. Reisezeiten,
+Verpflegungsmehraufwendungen etc. werden nicht erstattet.</p></li>
+<li><p>Die erbrachte Leistung wird nach Leistungsfortschritt abgegolten.
+Hierfür ist jeweils im Vorfeld ein Leistungsnachweis vorzulegen.
+Zahlungspläne sind gesondert zu vereinbaren. [redacted-person]
+besteht nur bei tatsächlicher Erbringung der Leistung.</p></li>
+<li><p>Zahlungen erfolgen erst nach Vorlage eines Leistungsnachweises.
+[redacted-person] darf erst nach vollständiger Erbringung der
+vereinbarten Leistung bzw. Teilleistung gestellt werden. [redacted-person] muss mindestens folgende Inhalte aufweisen:</p>
+<ol type="a">
+<li><p>Stand der Arbeiten/Projektstatus,</p></li>
+<li><p>bisher erreichte Meilensteine / Teilergebnisse, Vereinbarungen
+über die weitere Vorgehensweise,</p></li>
+<li><p>Unterschrift seitens des Auftragnehmers.</p></li>
+</ol></li>
+<li><p>Für den Leistungsnachweis ist vorzugsweise das auf Anfrage beim
+Ansprechpartner [redacted-co] erhältliche Formular zu verwenden. Es ist
+darauf zu achten, dass alle Felder ordnungsgemäß ausgefüllt
+sind.</p></li>
+<li><p>Vor der Rechnungsstellung an die [redacted-co] muss der
+Leistungsnachweis für die erbrachte Leistung vom [redacted-co] Fachbereich
+(Anforderer) und dem Auftragnehmer unterzeichnet werden. Der zweifach
+(von Auftragnehmer u. [redacted-co] Ansprechpartner) unterschriebene
+Leistungsnachweis ist als Anhang mit der Rechnung an die [redacted-co] zu
+übertragen. Rechnungen ohne entsprechend unterschriebenen
+Leistungsnachweis werden abgelehnt.</p></li>
+<li><p>Die eigenhändigen Unterschriften können durch PKI-Signaturen
+ersetzt werden, wenn folgende Voraussetzungen kumulativ erfüllt
+sind:</p>
+<ol type="a">
+<li><p>Es wird das Leistungsnachweis-Formular [redacted-co]
+verwendet.</p></li>
+<li><p>[redacted-person] enthält einen expliziten Hinweis, dass eine
+Unterzeichnung mittels PKI-Signatur zulässig ist.</p></li>
+<li><p>[redacted-person] unterzeichnet den Leistungsnachweis mittels
+PKI-Signatur und übersendet dieses elektronische Dokument an den
+Anforderer.</p></li>
+<li><p>Anschließend unterzeichnet der Anforderer dieses elektronische
+Dokument mittels PKI- Signatur.</p></li>
+<li><p>[redacted-person] übersendet auf elektronischem Weg das von beiden
+Vertragsparteien mittels PKI-Signatur signierte elektronische Dokument
+an den Auftragnehmer.</p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>[redacted-person] der Form der Unterzeichnung des Leistungsnachweises
+(PKI-Signatur oder eigenhändig Unterschrift), liegt im alleinigen und
+freien Ermessen [redacted-co].</p>
+</blockquote>
+<ol start="9" type="1">
+<li><p>[redacted-person] eines Leistungsnachweises oder die Auslösung
+einer Zahlung bewirken keine Abnahme.</p></li>
+</ol>
+<h2 id="nutzungsrechte">Nutzungsrechte</h2>
+<ol type="1">
+<li><p>[redacted-person] wird die [redacted-co] über alle bei ihm im
+Zusammenhang mit der Durchführung der vertragsgegenständlichen Arbeiten
+entstehenden Neuerungen (dazu zählen insbesondere Erfindungen,
+technische Verbesserungsvorschläge, Know-how, aber auch sonstige
+individuelle geistige Leistungen) unterrichten, alle zur Bewertung der
+Neuerungen erforderlichen Unterlagen vorlegen und alle von [redacted-co]
+gewünschten Auskünfte zu den Neuerungen geben.</p></li>
+<li><p>[redacted-person] und darauf bestehende Schutz- oder
+Urheberrechte nachweislich bereits vor Beginn der
+vertragsgegenständlichen Arbeiten bei dem Auftragnehmer vorhanden waren
+(„Altschutzrechte“), bleibt der Auftragnehmer auch Inhaber derselben. Er
+erklärt sich aber bereit, [redacted-co] ein nichtausschließliches,
+zeitlich, räumlich und inhaltlich unbeschränktes und unterlizenzierbares
+Nutzungsrecht ohne Zahlung eines über den Festpreis hinausgehenden
+Entgelts einzuräumen, sofern diese Altschutzrechte in die Entwicklung
+einfließen. [redacted-person] in das Entwicklungsergebnis
+einfließen, teilt der Auftragnehmer [redacted-co] diese Altschutzrechte
+unverzüglich mit. Im Falle einer Entwicklung eines Serienlieferteiles
+teilt der Auftragnehmer die einfließenden Altschutzrechte mit Vorlage
+der Erstmuster mit.</p></li>
+<li><p>[redacted-person] überträgt [redacted-co] das ausschließliche,
+zeitlich, räumlich und inhaltlich unbeschränkte, unentgeltliche und
+übertragbare Nutzungsrecht an allen Urheberrechten (inklusive Software
+und dem zugehörigen Quellcode), die dem Auftragnehmer an den von ihm zu
+erbringenden Leistungen oder Teilleistungen zustehen. [redacted]umfasst die Befugnis, das Arbeitsergebnis, die Unterlagen
+oder Aufzeichnungen zu überarbeiten, zu verändern und/oder Dritten
+entgeltlich oder unentgeltlich zur Benutzung zu überlassen.</p></li>
+<li><p>In begründeten Einzelfällen kann der Auftragnehmer mit der [redacted-co] vereinbaren, dass die vom Auftragnehmer vertragsgemäß gelieferten
+vollständigen 2D-/3D-Daten nicht an Dritte außerhalb [redacted-co]
+und der Beteiligungsgesellschaften des VW-Konzerns weitergegeben werden
+dürfen. In diesem Fall ist der Auftragnehmer jedoch verpflichtet, auf
+eigene Kosten zusätzlich zu diesen vertraglich geschuldeten
+vollständigen 2D-/3D-Daten neutralisierte Anfragedokumente zu liefern.
+[redacted-person] sind Bauraum-
+Schnittstellendarstellungen (2D-/3D-Daten), welche die Einbausituation,
+nicht jedoch das in den zugrunde liegenden 2D-/3D-Daten verkörperte
+Alt-Know-how des Auftragnehmers darstellen. [redacted-person] räumt der
+[redacted-co] das unentgeltliche, zeitlich, räumlich und inhaltlich
+unbeschränkte Nutzungsrecht an diesen neutralisierten Anfragedokumenten
+zur Verbreitung, Vervielfältigung und Bearbeitung, sowie zur
+öffentlichen Zugänglichmachung im Rahmen der Ausschreibung von
+Leistungen gegenüber Dritten ein.</p></li>
+<li><p>Grundsätzlich stehen alle in diesem Projekt entstehenden
+Arbeitsergebnisse, erstellte Unterlagen und Leistungen usw. alleine der
+[redacted-co] zu. Soweit der [redacted-person] einschaltet,
+wird er durch entsprechende vertragliche Vereinbarungen sicherstellen,
+dass auch die Unterauftragnehmer dies als für sich verbindlich
+anerkennen. Die [redacted-co] behält sich das Recht vor, sämtliche Unterlagen
+auch an Dritte weiterzuleiten, u. [redacted-person] die Lieferantenauswahl. An
+sämtlichen Arbeitsergebnissen, insbesondere im Rahmen des Vertrages
+entstehenden Neuerungen, steht [redacted-co] ab dem Zeitpunkt ihres
+Entstehens das ausschließliche Verwertungsrecht zu.</p></li>
+<li><p>Die [redacted-co] ist alleine berechtigt, Schutzrechtsanmeldungen
+einzureichen. [redacted-person] des Auftragnehmers teilt die [redacted-co]
+schriftlich mit, ob sie im konkreten Einzelfall auf eine Anmeldung
+verzichtet. [redacted-person] ist dann zur Anmeldung des Schutzrechtes
+auf eigene Kosten berechtigt. An diesen Schutzrechten steht [redacted-co]
+ein nichtausschließliches, unentgeltliches, zeitlich, räumlich und
+inhaltlich unbeschränktes und übertragbares Nutzungsrecht zu.</p></li>
+</ol>
+<h2 id="verwendung-von-freier-software">Verwendung von [redacted-person]</h2>
+<ol type="1">
+<li><p>[redacted-person] hat [redacted-co] gegenüber zu erklären, ob das
+von ihm geschuldete [redacted-person] Software ([redacted-person] Software,
+Freeware und/oder [redacted-person] einschließlich Unterkomponenten oder
+Teilen dieser) enthält oder nicht.</p></li>
+<li><p>Verwendet der [redacted-person] Software in dem geschuldeten
+Ergebnis oder ist dies beabsichtigt, so ist der Einsatz generell nur
+dann statthaft, wenn der Auftragnehmer die [redacted-co] hierüber vor
+Entwicklungsbeginn gemäß den Vorgaben der „Regelungen zum Einsatz von
+[redacted-person]“ (mitgeltende Unterlage) informiert.</p></li>
+<li><p>Es besteht keine Verpflichtung [redacted-co], die Verwendung von
+[redacted-person] im geschuldeten Ergebnis zu akzeptieren. [redacted-person]
+durch den Auftragnehmer bewirkt keine Akzeptanz der Verwendung von
+[redacted-person] durch die [redacted]der Verwendung von
+[redacted-person] durch die [redacted-co] kann insbesondere zur Abwendung von
+Sicherheits- oder rechtlichen Risiken erfolgen.</p></li>
+<li><p>Die nachstehenden Bestimmungen, insbesondere der
+Freistellungsanspruch zu den [redacted-person], gelten
+ergänzend.</p></li>
+</ol>
+<h2 id="schutzrechtsrecherchen-schutzrechte-dritter">Schutzrechtsrecherchen,
+[redacted-person]</h2>
+<ol type="1">
+<li><p>[redacted-person] wird durch entsprechende Recherchen unter
+Beachtung branchenüblicher Sorgfalt sicherstellen, dass durch die von
+ihm zu erbringenden Leistungen und deren Ergebnisse nicht in [redacted-person] eingegriffen wird. [redacted-person] in [redacted-person] liegt auch
+dann vor, wenn die Nutzung von Bedingungen abhängt.</p></li>
+<li><p>Würden durch die beabsichtigte Gestaltung der Arbeitsergebnisse
+oder die Umsetzung der angefragten [redacted-person] Dritter verletzt
+werden, so wird der Auftragnehmer die in diesem Lastenheft benannten
+Ansprechpartner [redacted-co] unverzüglich informieren und mit ihnen
+gemeinsam nach einer anderen Gestaltung der Arbeitsergebnisse suchen.
+[redacted-person] Dritter nicht zu umgehen sind, wird die [redacted-co]
+entscheiden, ob das betroffene Schutzrecht im Wege einer Lizenz benutzt
+werden soll. Über die Verteilung der dabei anfallenden Kosten werden
+sich [redacted-co] und Auftragnehmer im Einzelfall abstimmen.</p></li>
+<li><p>Soweit der Auftragnehmer die [redacted-co] nicht über entgegenstehende
+[redacted-person] informiert, die ihm bekannt sind oder von ihm bei
+Einhaltung der branchenüblichen Sorgfalt hätten erkannt werden müssen,
+stellt der Auftragnehmer die [redacted-co] von jedweden [redacted-person]
+frei, die auf entgegenstehende Rechte an dem Entwicklungsgegenstand
+gestützt werden.</p></li>
+</ol>
+<h2 id="vertragslaufzeit-und-kündigung">Vertragslaufzeit und
+Kündigung</h2>
+<ol type="1">
+<li><p>Die [redacted-co] kann den Auftrag jederzeit ganz oder teilweise
+kündigen. Das beiderseitige Recht zur außerordentlichen Kündigung bleibt
+unberührt. [redacted-person] bedarf der Schriftform, soweit sie nicht über
+die Bestellsysteme [redacted-co] erfolgt.</p></li>
+<li><p>Sollte die [redacted-co] ordentlich kündigen, so steht dem
+Auftragnehmer die vereinbarte Vergütung für alle vertragsgemäßen
+Leistungen zu, die er bis zum Wirksamwerden der Kündigung erbracht hat,
+soweit diese selbstständig nutzbar sind, zuzüglich eines Ausgleichs in
+Höhe von fünf Prozent der auf den noch nicht erbrachten Teil der
+Leistung entfallenden vereinbarten Vergütung.</p></li>
+<li><p>Sollten die Aufwendungen, die der Auftragnehmer im Vertrauen auf
+die vollständige Vertragserfüllung getätigt hat und billigerweise
+tätigen durfte, höher sein als die nach Absatz 2 festgesetzte
+Restvergütung, so bleibt ihm der Nachweis dieser Aufwendungen
+unbenommen. In diesem Fall erhält der Auftragnehmer von [redacted-co] den so
+nachgewiesenen Betrag erstattet. [redacted-person] der Restvergütung
+nach Absatz 2 ist in diesem Fall jedoch ausgeschlossen. [redacted-person] kann nicht geltend gemacht werden.</p></li>
+<li><p>Im Falle der Kündigung bleibt die [redacted-person] für
+die bis zur Kündigung erbrachten Leistungen.</p></li>
+</ol>
+<h2 id="allgemeines-1">Allgemeines</h2>
+<ol type="1">
+<li><p>Bezüglich der Versuchs- und Prototypenwerkzeuge und -teile wird
+auf das Lieferantenhandbuch für Prototypenteile besonders
+hingewiesen.</p></li>
+<li><p>[redacted-person] von vertraglichen Rechten oder Pflichten durch
+den Auftragnehmer bedarf zu ihrer Wirksamkeit der vorherigen
+schriftlichen Zustimmung [redacted-co].</p></li>
+<li><p>Gerichtsstand ist [redacted]Die [redacted-co] ist auch
+berechtigt, jedes andere zuständige Gericht anzurufen.</p></li>
+<li><p>Sollten eine oder mehrere Bestimmungen dieses Lastenhefts und
+etwaige weitere Vereinbarungen unwirksam sein oder werden, so bleibt die
+Geltung der übrigen Bestimmungen davon unberührt.</p></li>
+<li><p>Soweit nicht anderweitig in diesem Lastenheft geregelt, gelten
+die gesetzlichen Haftungsregelungen.</p></li>
+<li><p>Eine etwaige englische Fassung dieses Anfragelastenheftes stellt
+eine reine Arbeitserleichterung dar. Die deutsche Fassung ist alleine
+maßgeblich und hat bei Widersprüchen oder Abweichungen gegenüber der
+[redacted-person]. Dies gilt für alle sonstigen hiermit
+zusammenhängenden Unterlagen wie z.[redacted-person] Unterlagen
+entsprechend.</p></li>
+<li><p>[redacted-person] an den Auftragnehmer werden die nachfolgend
+aufgeführten Regelungen und Unterlagen [redacted-co] und/oder des
+Auftragnehmers verbindlicher Vertragsbestandteil, wobei im Falle von
+Widersprüchen zwischen den Vertragsbestandteilen die nachfolgend
+angegebene Reihenfolge gilt:</p>
+<ol type="a">
+<li><p>Bestellung [redacted-co]</p></li>
+<li><p>Verhandlungsprotokolle</p></li>
+<li><p>[redacted-person] des Lastenhefts [redacted-co]</p></li>
+<li><p>[redacted-person] des Lastenhefts [redacted-co]</p></li>
+<li><p>Geheimhaltungsvereinbarungen zwischen [redacted-co] und dem
+Auftragnehmer (soweit vorhanden)</p></li>
+<li><p>Fahrzeugleihverträge (soweit vorhanden) bzw. [redacted-person] für Erprobungsfahrzeuge</p></li>
+<li><p>VW-Norm 99000</p></li>
+<li><p>Weitere in diesem Lastenheft genannte Dokumente und
+Normen</p></li>
+<li><p>[redacted]</p></li>
+<li><p>Angebot des Auftragnehmers (ohne Anerkennung der allgemeinen
+Geschäftsbedingungen des Auftragnehmers)</p></li>
+</ol></li>
+</ol>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>Es gelten die mitgeltenden Unterlagen in der am Ausgabedatum des
+Lastenhefts gültigen Fassung sowie die darin genannten Dokumente.</p>
+<p>[redacted-person] stellt sicher, jeweils mit den für das Lastenheft
+gültigen mitgeltenden Unterlagen zu arbeiten.</p>
+<p>Es sind insbesondere die nachfolgenden Dokumente und Normen zu
+berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>[redacted]</p></li>
+<li><p>[redacted-person] für Erprobungsfahrzeuge</p></li>
+<li><p>Für den Auftragsumfang einschlägige Betriebsmittelvorschriften,
+technische und kaufmännische Vorgaben [redacted-co] und einschlägige
+Normen (z.B. [redacted-co]99000 einschließlich der Teile 1 bis 4)</p></li>
+<li><p><u>Informationssicherheitshandlungsleitlinien für Partnerfirmen
+[redacted-co]</u></p></li>
+<li><p>Regelungen zum Einsatz von [redacted-person]</p></li>
+<li><p>Sicherheitsgebote für die bei [redacted-co] eingesetzten
+Fremdfirmen (falls die Auftragsbearbeitung auf Gelände [redacted-co]
+erfolgt)</p></li>
+<li><p>[redacted-co]richtlinien für Qualitätssicherung "Formel
+Q"</p></li>
+</ul>
+<h2 id="bezugsquelle">Bezugsquelle:</h2>
+<blockquote>
+<p>Dokumente können über die B2B-Lieferantenplattform des [redacted-person] unter der Internetadresse <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+(teils mit Zugangsberechtigung, teils öffentlich verfügbar) abgerufen
+werden. (Kontakt auch über [redacted]99 bzw.
+International: [redacted-phone] oder e-Mail:
+<u>[redacted-email]</u>)</p>
+</blockquote>
+</body>
+</html>

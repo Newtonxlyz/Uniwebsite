@@ -1,0 +1,1803 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_4M0_857_AE_BT_LAH_mech_ZSB_GHV_120625</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>BT-LAH-Vorlage-Basismodul-TE-V15_Stand-05.2010</p>
+</blockquote>
+<p>Bauteil-Lastenheft</p>
+<p>mechanische ZSB Gurthöhenverstellung</p>
+<blockquote>
+<p><strong>[redacted-person]: LAH.4M0.857.AE</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Verteiler</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-id], [redacted-name]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EKSR/1, [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>EKSR/1, [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>TKG, [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Only applies to English translation: [redacted-person] translation is
+believed to be accurate. In case of discrepancies the German version
+shall govern.</p>
+<p>© [redacted-person]</p>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#vorwort">Vorwort 7</a></p>
+<ol type="1">
+<li><p><a href="#allgemeine-anforderungen">[redacted-person]
+7</a></p></li>
+</ol></li>
+<li><p><a href="#allgemeine-projektvorgaben">[redacted-person]
+8</a></p>
+<ol type="1">
+<li><p><a href="#kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges 8</a></p></li>
+<li><p><a href="#zielsetzung">Zielsetzung 8</a></p></li>
+<li><p><a href="#zuordnung-der-komponente">Zuordnung der Komponente
+8</a></p>
+<ol type="1">
+<li><p><a href="#zielfahrzeuge">Zielfahrzeug(e) 8</a></p></li>
+<li><p><a href="#einsatzort-und-zielmarkt">Einsatzort und Zielmarkt
+9</a></p></li>
+<li><p><a href="#variantenmanagement">Variantenmanagement 9</a></p></li>
+</ol></li>
+<li><p><a href="#entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang 9</a></p></li>
+<li><p><a href="#angebotsumfang">Angebotsumfang 10</a></p></li>
+<li><p><a href="#entwicklungsablauf">Entwicklungsablauf 11</a></p>
+<ol type="1">
+<li><p><a href="#terminplan-und-meilensteine">Terminplan und
+Meilensteine 11</a></p></li>
+<li><p><a href="#metriken-zur-projektverfolgung">Metriken zur
+Projektverfolgung 11</a></p></li>
+<li><p><a href="#musterstände-und-musterstückzahlen">Musterstände und
+Musterstückzahlen 12</a></p></li>
+<li><p><a href="#typprüfung-und-zertifizierung">Typprüfung und
+Zertifizierung 13</a></p></li>
+</ol></li>
+<li><p><a href="#qualität-und-zuverlässigkeit">Qualität und
+Zuverlässigkeit 13</a></p>
+<ol type="1">
+<li><p><a href="#qualitätskonzepte">Qualitätskonzepte 13</a></p></li>
+<li><p><a href="#risikomanagement-fmea-und-fta">Risikomanagement (FMEA
+und FTA) 14</a></p></li>
+</ol></li>
+<li><p><a href="#fachbereichs--bzw.-projektspezifische-dmu-richtlinien">Fachbereichs-
+bzw. projektspezifische DMU-Richtlinien 14</a></p></li>
+<li><p><a href="#anforderungen-an-kenntnisse-im-produktdaten-management">Anforderungen
+an Kenntnisse im Produktdaten-Management 14</a></p></li>
+</ol></li>
+<li><p><a href="#projektmanagement-und--organisation">Projektmanagement
+und -organisation 15</a></p>
+<ol type="1">
+<li><p><a href="#verantwortlichkeiten-im-projekt-und-projektstrukturplan">Verantwortlichkeiten
+im Projekt und Projektstrukturplan 15</a></p></li>
+<li><p><a href="#dokumentation">Dokumentation 15</a></p>
+<ol type="1">
+<li><p><a href="#mustermappe">Mustermappe 15</a></p></li>
+<li><p><a href="#datenaustausch">Datenaustausch 16</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#systemumgebung">Systemumgebung 17</a></p>
+<ol type="1">
+<li><p><a href="#funktionale-systemumgebung">[redacted-person]
+17</a></p></li>
+<li><p><a href="#physische-systemumgebung">[redacted-person]
+17</a></p></li>
+<li><p><a href="#systemschaltbild">Systemschaltbild 17</a></p></li>
+</ol></li>
+<li><p><a href="#technische-anforderungen">[redacted-person]
+18</a></p>
+<ol type="1">
+<li><p><a href="#benennung-und-teilnummer">Benennung und Teilnummer
+18</a></p></li>
+<li><p><a href="#block--und-prinzipschaltbild">Block- und
+Prinzipschaltbild 18</a></p></li>
+<li><p><a href="#funktionen">Funktionen 19</a></p>
+<ol type="1">
+<li><p><a href="#funktionsbeschreibung">Funktionsbeschreibung
+19</a></p></li>
+<li><p><a href="#fehlbedienung">Fehlbedienung 20</a></p></li>
+<li><p><a href="#notbetrieb">Notbetrieb 20</a></p></li>
+</ol></li>
+<li><p><a href="#architektur">Architektur 20</a></p></li>
+<li><p><a href="#steuergerätekonzept">Steuergerätekonzept
+20</a></p></li>
+<li><p><a href="#elektrische-schnittstellen">[redacted-person]
+20</a></p></li>
+<li><p><a href="#spezifische-kenndaten">[redacted-person]
+20</a></p></li>
+<li><p><a href="#sicherheitsanforderungen">Sicherheitsanforderungen
+20</a></p>
+<ol type="1">
+<li><p><a href="#personen--und-insassensicherheit">Personen- und
+Insassensicherheit 20</a></p></li>
+<li><p><a href="#fahrzeugsicherheit">Fahrzeugsicherheit 20</a></p></li>
+</ol></li>
+<li><p><a href="#alternativen-und-künftige-varianten">Alternativen und
+künftige Varianten 20</a></p></li>
+<li><p><a href="#gewichtsziele">Gewichtsziele 20</a></p></li>
+<li><p><a href="#einbau">Einbau 21</a></p>
+<ol type="1">
+<li><p><a href="#einbauort-und-einbaulage">Einbauort und Einbaulage
+21</a></p></li>
+<li><p><a href="#montagekonzept">Montagekonzept 21</a></p></li>
+<li><p><a href="#geometrie">Geometrie 21</a></p></li>
+<li><p><a href="#toleranzen">Toleranzen 22</a></p></li>
+</ol></li>
+<li><p><a href="#formgestaltung-und-design">Formgestaltung und Design
+22</a></p></li>
+<li><p><a href="#ergonomie">Ergonomie 22</a></p>
+<ol type="1">
+<li><p><a href="#optik-und-haptik">Optik und Haptik 22</a></p></li>
+<li><p><a href="#akustik">Akustik 22</a></p></li>
+<li><p><a href="#handling">Handling 23</a></p></li>
+</ol></li>
+<li><p><a href="#technische-materialanforderungen">[redacted-person] 23</a></p></li>
+<li><p><a href="#medienbeständigkeit-und-chemische-anforderungen">Medienbeständigkeit
+und chemische Anforderungen 23</a></p>
+<ol type="1">
+<li><p><a href="#sauberkeitsanforderungen">Sauberkeitsanforderungen
+23</a></p></li>
+<li><p><a href="#reinigung">Reinigung 23</a></p></li>
+<li><p><a href="#korrosionsschutz">Korrosionsschutz 23</a></p></li>
+<li><p><a href="#schutzklassen">Schutzklassen 24</a></p></li>
+</ol></li>
+<li><p><a href="#umweltverträglichkeit">Umweltverträglichkeit 24</a></p>
+<ol type="1">
+<li><p><a href="#werkstoffauswahl">Werkstoffauswahl 24</a></p></li>
+<li><p><a href="#recyclingkonzept">Recyclingkonzept 24</a></p></li>
+<li><p><a href="#ökobilanz">Ökobilanz 24</a></p></li>
+</ol></li>
+<li><p><a href="#mechanische-anforderungen">[redacted-person]
+24</a></p>
+<ol type="1">
+<li><p><a href="#last">Last 24</a></p></li>
+<li><p><a href="#schwingungsverhalten">Schwingungsverhalten
+24</a></p></li>
+<li><p><a href="#steifigkeit-und-federeigenschaften">Steifigkeit und
+Federeigenschaften 24</a></p></li>
+<li><p><a href="#verformung-und-deformation">Verformung und Deformation
+24</a></p></li>
+<li><p><a href="#druck">Druck 25</a></p></li>
+</ol></li>
+<li><p><a href="#lebensdauer">Lebensdauer 25</a></p></li>
+<li><p><a href="#elektrische-anforderungen">[redacted-person]
+25</a></p>
+<ol type="1">
+<li><p><a href="#beschreibung-der-allgemeinen-anforderungen">Beschreibung der
+allgemeinen Anforderungen 25</a></p></li>
+</ol></li>
+<li><p><a href="#klimatische-anforderungen">[redacted-person]
+25</a></p></li>
+<li><p><a href="#serviceanforderungen">Serviceanforderungen
+25</a></p></li>
+<li><p><a href="#transportschutz">Transportschutz 25</a></p></li>
+<li><p><a href="#logistikanforderungen">Logistikanforderungen
+25</a></p></li>
+<li><p><a href="#qualitätssicherungsanforderungen">Qualitätssicherungsanforderungen
+26</a></p>
+<ol type="1">
+<li><p><a href="#schadensteil-analyse">Schadensteil-Analyse
+26</a></p></li>
+<li><p><a href="#produkt--und-prozessüberwachung">Produkt- und
+Prozessüberwachung 26</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#anforderungen-an-erprobung">Anforderungen an Erprobung
+27</a></p>
+<ol type="1">
+<li><p><a href="#prüfmittel-erprobungsträger">Prüfmittel /
+Erprobungsträger 27</a></p></li>
+<li><p><a href="#erfüllungsnachweise">Erfüllungsnachweise
+27</a></p></li>
+<li><p><a href="#erprobungsplan">Erprobungsplan 27</a></p></li>
+<li><p><a href="#prüfungen">Prüfungen 27</a></p>
+<ol type="1">
+<li><p><a href="#dauerversuch">Dauerversuch 28</a></p></li>
+</ol></li>
+<li><p><a href="#testparameter-und-zyklen">Testparameter und Zyklen
+28</a></p></li>
+<li><p><a href="#beschaffenheit-des-zu-testenden-musterstandes">Beschaffenheit des
+zu testenden Musterstandes 28</a></p></li>
+<li><p><a href="#betriebszustände">Betriebszustände 28</a></p></li>
+<li><p><a href="#virtuelle-erprobung-und-simulation">[redacted-person]
+und Simulation 28</a></p></li>
+<li><p><a href="#fahrzeugerprobung">Fahrzeugerprobung 29</a></p></li>
+</ol></li>
+<li><p><a href="#definitionen-begriffe-abkürzungen">Definitionen,
+Begriffe, Abkürzungen 30</a></p>
+<ol type="1">
+<li><p><a href="#begriffe">Begriffe 30</a></p></li>
+<li><p><a href="#_bookmark95">Abkürzungen 31</a></p></li>
+</ol></li>
+<li><p><a href="#mitgeltende-unterlagen">[redacted-person]
+33</a></p>
+<ol type="1">
+<li><p><a href="#zeichnungen-pläne-skizzen-variantenbaum">Zeichnungen,
+Pläne, Skizzen; Variantenbaum 33</a></p></li>
+<li><p><a href="#technische-spezifikationen">[redacted-person]
+33</a></p></li>
+<li><p><a href="#typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen,
+Vorschriften, Gesetze 34</a></p></li>
+<li><p><a href="#querschnittslastenhefte">Querschnittslastenhefte
+34</a></p></li>
+<li><p><a href="#zu-beachtende-schutzrechte-und-lizenzen">Zu beachtende
+Schutzrechte und Lizenzen 34</a></p></li>
+<li><p><a href="#sonstige-unterlagen">[redacted-person]
+34</a></p></li>
+</ol></li>
+</ol>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>Das vorliegende Bauteil-Lastenheft (BT-LAH) ist angelehnt an die
+Struktur des VDA-</p>
+<p><em>[I: BT-LAH-4]</em></p>
+<p>[redacted-person] 2 (<a href="http://www.vda-qmc.de/"><u>www.vda-qmc.de</u></a>) und beschreibt
+komponentenspezifische Anforderungen. Das VDA-Modul 1 wird durch die [redacted-co]99000 abgebildet und beschreibt komponentenübergreifende allgemeine
+Anforderungen zur Leistungsbringung im Rahmen der
+Bauteilentwicklung.</p>
+</blockquote>
+<p><em>[I: BT-LAH-13]</em></p>
+<blockquote>
+<p>Die vom Auftragnehmer zu erfüllenden Anforderungen sind in der
+Identifikationsnummer (z. B: [A: BT-LAH-1]) grundsätzlich durch ein "A"
+gekennzeichnet. Textteile, die durch ein "I" gekennzeichnet sind, sind
+Informationen zum besseren Verständnis des BT-LAH. Gibt es keine
+Identifikationsnummer oder keine Kennzeichnung mit "A" bzw. "I", so
+handelt es sich ebenfalls um eine Anforderung.</p>
+</blockquote>
+<h2 id="allgemeine-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p><em>[A: BT-LAH-5]</em></p>
+<p><strong>Das vorliegende Bauteil-Lastenheft und die Norm [redacted-co]99000 ff.
+sind zusammen Grundlage des zu erbringenden Leistungsumfanges des
+Auftragnehmers.</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH-6]</em></p>
+<blockquote>
+<p>Dieses BT-LAH beschreibt Leistungen, Anforderungen, Prüf- und
+Erprobungsbedingungen, die das zu entwickelnde Produkt und der
+Auftragnehmer erfüllen müssen.</p>
+</blockquote>
+<h1 id="allgemeine-projektvorgaben">[redacted-person]</h1>
+<h2 id="kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges</h2>
+<blockquote>
+<p>Vor dem Hintergrund neuer Fahrzeugprojekte, basierend auf der
+Modulstrategie, soll eine neue mechanische Gurthöhenverstellung
+entwickelt werden, welche eindeutige Verbesserungen hinsichtlich
+Sicherheit, Komfort, Gewicht, Akustik, Abmessungen und Anmutung ergeben
+soll.</p>
+</blockquote>
+<h2 id="zielsetzung">Zielsetzung</h2>
+<blockquote>
+<p>Das vorliegende BT-LAH dient zur Festlegung der technischen Daten und
+Randbedingungen für den zu beschreibenden Leistungsumfang.</p>
+<p>Im Rahmen der Entwicklung sind folgende Punkte zu
+berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>Kostenoptimierung</p></li>
+<li><p>Erfüllung FMVSS 201</p></li>
+<li><p>Qualitätsverbesserung</p></li>
+<li><p>Preiskonstanz</p></li>
+<li><p>neue gesetzliche Vorgaben</p></li>
+<li><p>Recyclingkonzept</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] entsprechen den Preisen zum SOP inklusiv der
+erforderlichen Optimierungen und Anpassungen.</p>
+<p>Die zu entwickelnde Komponente muss sämtliche gesetzliche und
+konzerninterne Anforderungen erfüllen.</p>
+<p>Entwicklungsziel ist eine neue mechanische unterputz
+Gurthöhenverstellung, die hinsichtlich der Bauhöhe, gegenüber dem
+aktuellen Stand der Technik, flacher ist.</p>
+<p>Die neue Gurthöhenverstellung muss die Anforderungen der FMVSS 201
+und der TL471 erfüllen.</p>
+</blockquote>
+<h2 id="zuordnung-der-komponente">Zuordnung der Komponente</h2>
+<h2 id="zielfahrzeuge">Zielfahrzeug(e)</h2>
+<blockquote>
+<p>Bezeichnung des Zielfahrzeuges: siehe projektspezifisches
+[redacted-person]: siehe
+projektspezifisches Lieferumfangslastenheft</p>
+<p><em>[A: BT-LAH-21]</em></p>
+<p><em>[A: BT-LAH-22]</em></p>
+</blockquote>
+<h2 id="einsatzort-und-zielmarkt">Einsatzort und Zielmarkt</h2>
+<blockquote>
+<p>Zielmarkt: alle</p>
+<p>Die relevanten Gesetzesanforderungen der Zielmärkte sind zu
+erfüllen.</p>
+</blockquote>
+<h2 id="variantenmanagement">Variantenmanagement</h2>
+<h2 id="entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang</h2>
+<blockquote>
+<p><em>[A: BT-LAH-25]</em></p>
+<p><em>[A: BT-LAH-26]</em></p>
+<p>Lieferumfang ist die [redacted]umfasst:</p>
+</blockquote>
+<ul>
+<li><p>die Ausarbeitung und Erprobung der für die einwandfreie Funktion
+notwendigen Einzelkomponenten,</p></li>
+<li><p>die Definition und Abstimmung der im Umfeld notwendigen
+Adaptionen, insbesondere die Schnittstelle zum Rohbau und zur
+Verkleidung</p></li>
+<li><p>die Erstellung einer Zeichnung, aus der alle relevanten Daten
+entnommen werden können, und den Vorgaben [redacted-co]
+genügen,</p></li>
+<li><p>die Bereitstellung von Musterteilen für die Bauteilversorgung der
+Prototypenstände (siehe Abs. 2.6.1)</p></li>
+<li><p>die komplette Ausarbeitung einer Fehlermöglichkeits- und
+Einflussanalyse (FMEA) entsprechend den Anforderungen aus dem [redacted-person] ([redacted-co]99000).</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-31]</em></p>
+<p>Es gelten die Anforderungen des Kapitels "Entwicklungs- und
+Lieferumfang" der [redacted-co]99000.</p>
+<p><em>[A: BT-LAH-714]</em></p>
+<p>[redacted-person] verpflichtet sich bei der Integration des Bauteiles
+beim Auftraggeber mitzuwirken.</p>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-936]</em></p>
+<p>Es gelten die Anforderungen der Konzeptverantwortungsvereinbarung.
+Für das / die folgende (n) Bauteil(e) wird die KV-Quote für den
+Lieferanten wie folgt vereinbart:</p>
+</blockquote>
+<ul>
+<li><p>Bauteil (Teilenummer): 4M[redacted-phone]</p></li>
+<li><p>KV-Quote: 90%</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] gilt:</p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p>Im Rahmen der Forward-[redacted-person] wird über das
+Neuteilinformationsblatt die KV-Quote vorgegeben, welche im Rahmen der
+Vergabeverhandlungen vereinbart wird.</p>
+</blockquote>
+<h2 id="angebotsumfang">Angebotsumfang</h2>
+<blockquote>
+<p>Für die mechanische Gurthöhenverstellung existiert der
+markenspezifische [redacted-person]. Für die Marken gilt
+folgende Aufteilung:</p>
+<p>4M[redacted-phone]A: GHV ohne Komfortfeder: [redacted-person] 4M[redacted-phone]: GHV
+mit Komfortfeder: Marken [redacted-co] und VW</p>
+<p>[redacted-person] verpflichtet sich, alle Anforderungen dem Angebot
+als vereinbarte</p>
+</blockquote>
+<p><em>[A: BT-LAH-33]</em></p>
+<blockquote>
+<p>Beschaffenheit zugrunde zu legen. Abweichungen vom BT-LAH sind dem
+Angebot beizufügen und zu dokumentieren.</p>
+</blockquote>
+<p><em>[A: BT-LAH-34]</em></p>
+<blockquote>
+<p>Mit dem Angebot sind vom Auftragnehmer folgende Unterlagen den
+technischen oder zuständigen Fachabteilungen des Auftraggebers zur
+Prüfung vorzulegen:</p>
+<p><em>[A: BT-LAH-35]</em></p>
+</blockquote>
+<ul>
+<li><p>Liste der offenen Punkte und Abweichungen vom BT-LAH (analog zur
+Struktur des BT-LAH)</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-36]</em></p>
+</blockquote>
+<ul>
+<li><p>Pflichtenheft</p></li>
+</ul>
+<blockquote>
+<p><em>[I: BT-LAH-837]</em></p>
+<p>[redacted-person] eines Auftragnehmers muss dieser nach den konzernweit
+abgestimmten Bewertungskriterien des Auftraggebers (bauteilbezogene
+Beurteilung von Entwicklungspartnern) auditiert und zugelassen sein.
+Dazu ist es notwendig, dass der Auftragnehmer über Erfahrung aus
+ähnlichen Projekten sowie über nachweisbar ausreichende
+Entwicklungskompetenz bzw.</p>
+<p>Entwicklungskapazitäten und über die geforderte Ausrüstung im
+Versuch, Labor, CAD-Bereich und Prototypenbau verfügt (insbesondere bei
+sicherheitskritischen Bauteilen).</p>
+</blockquote>
+<p><em>[A: BT-LAH-38]</em></p>
+<ul>
+<li><p>[redacted-person], die auch Engpässe bei anderen
+Aufträgen des Auftragnehmers berücksichtigt</p></li>
+<li><p>Projektplan gemäß [redacted-co]99000</p></li>
+<li><p>Projektzeitplan gemäß [redacted-co]99000</p></li>
+<li><p>Montage- und Befestigungskonzept</p></li>
+<li><p>Angaben zu Eigen- und Fremdanteil (Entwicklung,
+Produktion)</p></li>
+<li><p>Erprobungsplan/Testmanagement</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-41]</em></p>
+<p><em>[A: BT-LAH-42]</em></p>
+<p><em>[A: BT-LAH-43]</em></p>
+<p><em>[A: BT-LAH-44]</em></p>
+<p><em>[A: BT-LAH-45]</em></p>
+<p><em>[A: BT-LAH-46]</em></p>
+</blockquote>
+<ul>
+<li><p>Werkstoffkonzept aller Einzelbauteile (nur Werkstoffe, keine
+Reinstoffangaben erforderlich)</p></li>
+</ul>
+<p><em>[A: BT-LAH-47]</em></p>
+<ul>
+<li><p>QM-Plan</p></li>
+<li><p>Verwertungskonzepte nach [redacted-co]91102, Beiblatt 3</p></li>
+<li><p>[redacted-person] durchzuführende Simulationen</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-48]</em></p>
+<p><em>[A: BT-LAH-49]</em></p>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Nachweis, dass das Anforderungsprofil bereits erfüllt ist oder
+erfüllt sein wird, z.[redacted-person] einen Qualifizierungsnachweis über eine
+AVON-Schulung.</p>
+</blockquote>
+<h2 id="entwicklungsablauf">Entwicklungsablauf</h2>
+<h2 id="terminplan-und-meilensteine">Terminplan und Meilensteine</h2>
+<blockquote>
+<p><em>[I: BT-LAH-59]</em></p>
+<p>Der aktuelle Terminplan wird von der Beschaffung des Auftraggebers
+den Anfrageunterlagen beigefügt.</p>
+<p>[redacted-person] sind in den Projektzeitplan einzuarbeiten.</p>
+<p><em>[A: BT-LAH-60]</em></p>
+<p>Die projektspezifischen Meilensteine sind dem Terminplan der
+Anfrageunterlagen zu entnehmen</p>
+<p>[redacted-person] der Terminpläne des Einkaufs sind Terminpläne für die
+Bauteilentwicklung zu erstellen, die folgende Kerntermine
+berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>Für die 2. Baustufe müssen funktionsgerechte Teile
+vorliegen</p></li>
+<li><p>VFF erste Teile aus Serienwerkzeug</p></li>
+<li><p>1 Jahr vor SOP müssen Teile für die Freibewitterung vorhanden
+sein</p></li>
+<li><p>Zur PVS werkzeugfallende- und grundvermessene Teile aus
+Serienwerkzeugen in freigegebenen Serienwerkstoffen</p></li>
+<li><p>1 Monat vor 0-[redacted-person] mit mind. Note
+3</p></li>
+<li><p>([redacted-person] sind für die Prüfung 6 Wochen
+vorgesehen)</p></li>
+<li><p>1 Monat vor der 0-Serie müssen alle für die Baumustergenehmigung
+vorliegenden Prüfungen abgeschlossen sein und die Baumustergenehmigung
+vorliegen</p></li>
+<li><p>([redacted-person] sind für die Prüfungen 12 Wochen
+vorgesehen)</p></li>
+</ul>
+<h2 id="metriken-zur-projektverfolgung">Metriken zur
+Projektverfolgung</h2>
+<blockquote>
+<p><em>[A: BT-LAH-73]</em></p>
+<p>[redacted-person] liefert im Rahmen der Fortschrittsberichte die
+erforderlichen Daten für folgende Metriken:</p>
+</blockquote>
+<ul>
+<li><p>Meilensteintrendanalyse basierend auf den vereinbarten
+Meilensteinen</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-74]</em></p>
+<p><em>[A: BT-LAH-75]</em></p>
+</blockquote>
+<ul>
+<li><p>Vergleich der geplanten und der tatsächlichen Dauer der
+Aktivitäten und Arbeitspakete basierend auf dem Projektzeitplan</p></li>
+<li><p>Fehlerverfolgung inkl. Priorisierung und
+Bearbeitungsstatus</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-76]</em></p>
+<p><em>[A: BT-LAH-77]</em></p>
+<p>Weitere projektspezifische technische Metriken, die kritische Aspekte
+messen, werden zwischen den Projektverantwortlichen des Auftragnehmers
+und des Auftraggebers abgestimmt.</p>
+</blockquote>
+<h2 id="musterstände-und-musterstückzahlen">Musterstände und
+Musterstückzahlen</h2>
+<blockquote>
+<p>[redacted-person] mit der Fachabteilung sind zusätzlich zum Abs. 2.6.1
+je geändertem Baustand minimal 4 [redacted-person] für interne
+Erprobungszwecke bereitzustellen.</p>
+<p>In Absprache mit den zuständigen Fachabteilungen sind vom ZSB
+[redacted-person] und Folien für Präsentationszwecke zu
+erstellen.</p>
+<p><em>[A: BT-LAH-93]</em></p>
+<p>[redacted-person] müssen bei der Lieferung dem jeweils aktuellen
+Entwicklungsstand entsprechen.</p>
+<p><em>[A: BT-LAH-94]</em></p>
+<p>[redacted-person] muss mit dem aktuellen Stand (HW, SW, EEPROM,
+Mechanik) gekennzeichnet werden.</p>
+</blockquote>
+<p><em>[A: BT-LAH-838]</em></p>
+<blockquote>
+<p>[redacted-person] von 3D-CAD-Daten (digitaler Prototyp) hat zu einem
+definierten Zeitpunkt vor Lieferung der Musterteile zu erfolgen.</p>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-80]</em></p>
+<p>Mindestens für alle geplanten Baustufen und Erprobungsfahrzeuge ist
+jeweils ein [redacted-person] anzuliefern.</p>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[I: BT-LAH-839]</em></p>
+<p>[redacted-person] über Fahrzeug-Anzahl und Aufbautermin (virtuell und
+physikalisch) sind unter Abschnitt "Terminplan und Meilensteine"
+festgelegt bzw. dem Prototypenbauplan zu entnehmen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-924]</em></p>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p>[redacted-person] für Änderungen laut [redacted-co]99000 Kapitel
+"Änderungsmanagement" erforderliche Musterteile sind erforderlich
+beispielsweise bei packagerelevanten Änderungen an Bauteilen, die in
+Vorbau und Unterflurmodellen dargestellt werden.</p>
+</blockquote>
+<p><em>[I: BT-LAH-925]</em></p>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p>[redacted-person] können sein:</p>
+</blockquote>
+<ul>
+<li><p>Geometrieänderungen</p></li>
+<li><p>Wechsel des Werkzeugsentwicklungsstandes (Prototypen-Werkzeug,
+Serien-Werkzeug)</p></li>
+</ul>
+<p><em>[I: BT-LAH-81]</em></p>
+<blockquote>
+<p>[redacted-person] gilt:</p>
+<p>Im BT-LAH wird nur die Anzahl der Teile, die bis zur Erteilung der
+Baumustergenehmigung notwendig sind, aufgeführt. Ist keine
+Baumustergenehmigung erforderlich, so wird die Anzahl der bis zur
+E-Freigabe benötigten Teile aufgeführt.</p>
+<p>[redacted-person] gilt:</p>
+<p>Die genannte Anzahl an Teilen ist Bestandteil des
+Entwicklungsumfanges und der Entwicklungskosten. Musterteile sind dem
+Auftraggeber frei Haus anzuliefern.</p>
+<p>[redacted-person] gilt:</p>
+<p><em>[A: BT-LAH-91]</em></p>
+<p><em>[I: BT-LAH-92]</em></p>
+<p>Alle darüber hinaus benötigten Prototypen für dieses Fahrzeugprojekt
+werden durch die Beschaffung angefragt und verhandelt und seitens des
+Auftraggebers (Fachabteilung oder Versuchsbau) budgetiert.</p>
+</blockquote>
+<h2 id="typprüfung-und-zertifizierung">Typprüfung und
+Zertifizierung</h2>
+<blockquote>
+<p>[redacted-person] ist typprüfpflichtig: <strong>Nein</strong></p>
+<p><em>[A: BT-LAH-98]</em></p>
+<p><em>[A: BT-LAH-99]</em></p>
+<p>Bei typprüfpflichtigen Bauteilen sind zum Erfüllungsnachweis der
+gesetzlichen [redacted-person] in Absprache mit der zuständigen
+Typprüfabteilung des Auftraggebers ggf. in Anwesenheit des [redacted-person] bzw. der Behörde durchzuführen und zu dokumentieren.</p>
+<p>[redacted-person] im Fahrzeug ist mit der entsprechenden
+Fachabteilung abzusprechen.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Für selbstzertifizierungsrelevante Teile muss eine gesetzeskonforme
+Dokumentation der geforderten meist experimentellen Nachweise der
+Gesetzeserfüllung durchgeführt werden.</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Fahrzeugteile / Komponenten (z. [redacted-person], Spiegel und weitere),
+welche nach weltweiten Gesetzen, z. [redacted-person], EG, FMVSS, CMVSS und CCC
+([redacted-person] Certification), eine Bauartgenehmigung benötigen, sind
+unabhängig vom Einsatzort/Zielmarkt und Fahrzeugmodell zu zertifizieren
+und mit der entsprechenden Identifizierung nach Gesetzesvorgabe zu
+kennzeichnen. Dies gilt auch für spezielle Kundendienstteile.</p>
+</blockquote>
+<h2 id="qualität-und-zuverlässigkeit">Qualität und Zuverlässigkeit</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Es gelten die Anforderungen und Verfahren bezüglich Qualität der
+Formel-Q-Reihe und der [redacted-co]99000.</p>
+</blockquote>
+<h2 id="qualitätskonzepte">Qualitätskonzepte</h2>
+<blockquote>
+<p>[redacted-person] ist zu ermitteln und bis zum B-Musterstand
+nachzuweisen. Anzahl der Ausfälle:</p>
+<p>0 - km Ausfälle: 0 ppm (Ziel) <sup>*)</sup></p>
+<p><em>[A: BT-LAH-103]</em></p>
+<p><em>[A: BT-LAH-104]</em></p>
+<p><em>[A: BT-LAH-105]</em></p>
+<p><em>[A: BT-LAH-108]</em></p>
+<p><sup>*)</sup> Maßnahmen zur Zielerreichung (Strategiepapier usw.)
+sind bei Angebotsabgabe anzugeben.</p>
+</blockquote>
+<p><em>[A: BT-LAH-109]</em></p>
+<blockquote>
+<p>Hiervon kann im Rahmen einer separaten Qualitätsvereinbarung
+(ppm-Zielvereinbarung) nur in Abstimmung mit der Produkttechnik der
+Qualitätssicherung des Auftraggebers abgewichen werden.</p>
+<p><em>[A: BT-LAH-110]</em></p>
+<p>[redacted-person] in Auftragnehmerangeboten werden als gegenstandslos
+betrachtet.</p>
+<p><em>[A: BT-LAH-111]</em></p>
+<p>[redacted-person] der Serienlieferung wird ein ppm-Programm (für den
+0-km-Bereich) mit der Qualitätssicherung vereinbart, das eine
+fortlaufende Qualitätsverbesserung in der Serie sicherstellt.</p>
+</blockquote>
+<p><em>[A: BT-LAH-112]</em></p>
+<blockquote>
+<p>Es ist über eine 2-Tages-Produktion gemäß den Regelungen der Formel
+Q-Konkret die Stabilität der Qualität unter Serienbedingungen
+nachzuweisen.</p>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-927]</em></p>
+<p>Es gelten die Anforderungen des Querschnittslastenheftes [redacted-co]
+(LAH [redacted-phone]).</p>
+</blockquote>
+<p><em>[A: BT-LAH-928]</em></p>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p>[redacted-person] und Planung muss vom Auftraggeber vorgegebene
+Prüftechnologien und - Konzepte berücksichtigen.</p>
+</blockquote>
+<h2 id="risikomanagement-fmea-und-fta">Risikomanagement (FMEA und
+FTA)</h2>
+<blockquote>
+<p>Eine FMEA ist entsprechend den Vorgaben der [redacted]durchzuführen
+und dem Auftraggeber zur Einsicht zur Verfügung zu stellen.</p>
+</blockquote>
+<h2 id="fachbereichs--bzw.-projektspezifische-dmu-richtlinien">Fachbereichs-
+bzw. projektspezifische DMU-Richtlinien</h2>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-929]</em></p>
+<p>[redacted-person] bezüglich CAD werden im
+"CAD-Infocenter" (<a href="https://engineering-portal.audi.web.vwg/"><u>https://engineering-portal.audi.web.vwg/</u></a>)
+geregelt.</p>
+</blockquote>
+<h2 id="anforderungen-an-kenntnisse-im-produktdaten-management">Anforderungen
+an Kenntnisse im Produktdaten-Management</h2>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Zur prozesssicheren Einsteuerung von Entwicklungsergebnissen in das
+Unternehmen sind Grundkenntnisse über das Produktdaten-Management
+([redacted]) unerlässlich.</p>
+<p>[redacted-person] des LAH.[redacted-phone]AF „Anforderungsprofil für die
+Beauftragung von technischen Regeln zur Aufnahme im System MBT“ sind
+zwingend zu erfüllen.</p>
+</blockquote>
+<h1 id="projektmanagement-und--organisation">Projektmanagement und
+-organisation</h1>
+<h2 id="verantwortlichkeiten-im-projekt-und-projektstrukturplan">Verantwortlichkeiten
+im Projekt und Projektstrukturplan</h2>
+<blockquote>
+<p><em>[A: BT-LAH-122]</em></p>
+<p>[redacted-person] stellt ständige Applikationsingenieure nur für das
+beschriebene Einzelprojekt im eigenen Hause<strong>.</strong></p>
+<p><em>[A: BT-LAH-123]</em></p>
+<p>Für die Applikationsingenieure sind die notwendigen Mess- und
+Applikationssysteme zu stellen.</p>
+<p><em>[A: BT-LAH-124]</em></p>
+<p>[redacted-person] sollen in Absprache mit dem Auftraggeber
+an den Erprobungsfahrten des Auftraggebers teilnehmen.</p>
+</blockquote>
+<h2 id="dokumentation">Dokumentation</h2>
+<blockquote>
+<p><em>[A: BT-LAH-126]</em></p>
+<p>Die gesamte Dokumentation ist vom Auftragnehmer in deutscher Sprache
+zu erstellen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-127]</em></p>
+<blockquote>
+<p>Die jeweils aktuelle Dokumentation des Entwicklungsstandes ist dem
+Auftraggeber auf Anfrage auszuhändigen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-930]</em></p>
+<blockquote>
+<p>[redacted-person] ist dem Auftraggeber in folgendem Dateiformat
+auszuhändigen:</p>
+</blockquote>
+<ul>
+<li><p>PDF / PPT / PPTX / XLS / XLSX</p></li>
+</ul>
+<p><em>[I: BT-LAH-129]</em></p>
+<blockquote>
+<p>Lasten- und Pflichtenheft können mit dem [redacted-person]
+Format (RIF) ausgetauscht werden. Informationen zum Thema RIF sind zu
+finden unter: <a href="http://www.automotive-his.de/rif/doku.php"><u>http://www.automotive-</u></a>
+<a href="http://www.automotive-his.de/rif/doku.php"><u>his.de/rif/doku.php</u></a>
+oder <a href="http://www.prostep.org/de/projektgruppen/internationalization-of-the-requirements-interchange-format-intrif.html"><u>http://www.prostep.org/de/projektgruppen/internationalization-of-the-</u></a>
+<a href="http://www.prostep.org/de/projektgruppen/internationalization-of-the-requirements-interchange-format-intrif.html"><u>requirements-interchange-format-intrif.html</u></a></p>
+</blockquote>
+<h2 id="mustermappe">Mustermappe</h2>
+<blockquote>
+<p><em>[A: BT-LAH-166]</em></p>
+<p>Zu jeder Lieferung eines neuen Standes des Bauteiles (Hardware,
+Software und Mechanik) muss den zuständigen Fachabteilungen des
+Auftraggebers eine Mustermappe mit mindestens folgenden Inhalten
+übergeben werden:</p>
+</blockquote>
+<ul>
+<li><p>Deckblatt mit folgendem Inhalt:</p>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>Teilebezeichnung</p></li>
+<li><p>[redacted-person]</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-167]</em></p>
+<p><em>[A: BT-LAH-870]</em></p>
+<p><em>[A: BT-LAH-871]</em></p>
+<p><em>[A: BT-LAH-872]</em></p>
+<p><em>[A: BT-LAH-873]</em></p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>Mechanik-Stand (z. [redacted-person])</p></li>
+<li><p>Projektleitername des Auftragnehmers</p></li>
+<li><p>Unterlageninhaltsverzeichnis</p></li>
+<li><p>Stand des Lastenheftes</p></li>
+<li><p>Stand des Pflichtenheftes</p></li>
+</ul>
+<ul>
+<li><p>Kurzbeschreibung bzw. Informationen mit folgenden Angaben:</p>
+<ul>
+<li><p>alle Änderungen gegenüber vorherigem Stand</p></li>
+<li><p>die Notwendigkeit der Änderung</p></li>
+<li><p>die Auswirkungen der Änderung</p></li>
+</ul></li>
+<li><p>Teilelebenslauf</p></li>
+<li><p>Pflichtenheft</p></li>
+<li><p>Mess- und Prüfberichte (inkl. Toleranzanalyse)</p></li>
+<li><p>Simulationsergebnis</p></li>
+<li><p>Prüfbericht über Werkstoffanforderungen</p></li>
+<li><p>Herstellungsverfahren</p></li>
+</ul>
+<blockquote>
+<p><em>[A: BT-LAH-878]</em></p>
+<p><em>[A: BT-LAH-879]</em></p>
+<p><em>[A: BT-LAH-881]</em></p>
+<p><em>[A: BT-LAH-882]</em></p>
+<p><em>[A: BT-LAH-883]</em></p>
+<p><em>[A: BT-LAH-168]</em></p>
+<p><em>[A: BT-LAH-884]</em></p>
+<p><em>[A: BT-LAH-885]</em></p>
+<p><em>[A: BT-LAH-886]</em></p>
+<p><em>[A: BT-LAH-171]</em></p>
+<p><em>[A: BT-LAH-172]</em></p>
+<p><em>[A: BT-LAH-174]</em></p>
+<p><em>[A: BT-LAH-175]</em></p>
+<p><em>[A: BT-LAH-176]</em></p>
+<p><em>[A: BT-LAH-177]</em></p>
+<p><em>[A: BT-LAH-178]</em></p>
+<p>[redacted-person] der Mustermappe ist in Form einer ausgefüllten Checkliste
+nachzuweisen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-179]</em></p>
+<blockquote>
+<p>[redacted-person] sind innerhalb von 5 Arbeitstagen nach zu
+reichen.</p>
+</blockquote>
+<h2 id="datenaustausch">Datenaustausch</h2>
+<blockquote>
+<p>Für [redacted-co] gilt:</p>
+<p><em>[A: BT-LAH-932]</em></p>
+<p>Es gelten die Anforderungen der Querschnittslastenhefte "TE DMU" LAH
+DUM 000 A und "TE CATIA V5" LAH DUM 000.</p>
+</blockquote>
+<h1 id="systemumgebung">Systemumgebung</h1>
+<h2 id="funktionale-systemumgebung">[redacted-person]</h2>
+<blockquote>
+<p>Für alle Systemkomponenten gilt, dass die zu diesem Lastenheft
+gehörenden aktuellen Modulvorgaben KCB14 zugrunde gelegt werden
+müssen.</p>
+<p>Modulbauraum KCB14: ENT.[redacted-phone]B, Alternative 14</p>
+</blockquote>
+<h2 id="physische-systemumgebung">[redacted-person]</h2>
+<p><img src="./07_Components-lah-4m0-857-ae-bt-lah-mech-zsb-ghv-12062-media/media/image9.jpeg" style="width:2.23652in;height:3.13542in"/><img src="./07_Components-lah-4m0-857-ae-bt-lah-mech-zsb-ghv-12062-media/media/image10.jpeg" style="width:2.00033in;height:3.13125in"/><img src="./07_Components-lah-4m0-857-ae-bt-lah-mech-zsb-ghv-12062-media/media/image11.jpeg" style="width:1.30335in;height:3.12625in"/></p>
+<blockquote>
+<p>Bauraumvorgabe GHV</p>
+<p>[redacted-person]:</p>
+<p>[redacted-person] besitzt einen oberen Schraubpunkt (M8) zum
+Rohbau. Das untere Ende der GHV schuht mittels zweier Haken an der
+Unterseite des Schienenprofils in den Rohbau ein.</p>
+<p>Anbindung B-[redacted-person]:</p>
+<p>[redacted-person] des Verkleidungsschiebers wird über einen an
+der Schlittenoberseite angebrachten Durchbruch realisiert. Dabei schuht
+ein an dem Verkleidungsschieber befindlicher Dom in die
+Gurthöhenverstellung ein.</p>
+</blockquote>
+<h2 id="systemschaltbild">Systemschaltbild</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+<p><em>[I: BT-LAH-846]</em></p>
+</blockquote>
+<h1 id="technische-anforderungen">[redacted-person]</h1>
+<h2 id="benennung-und-teilnummer">Benennung und Teilnummer</h2>
+<blockquote>
+<p>[redacted-person]: mit Komfortfeder 4M[redacted-phone]</p>
+<p>ohne Komfortfeder 4M[redacted-phone]A</p>
+<p>[redacted-person] muss in die Schiene eingestanzt werden:
+Kennzeichnung / Identification: [redacted]</p>
+<p>Markenzeichen / Trademark: [redacted]– S4</p>
+<p>Herstellland / Country of origin: [redacted]≥ 2,5</p>
+<p>Herstellercode / Mfr.-Code: [redacted]– 1 - ≥ 2,5 Datumskennzeichnung
+/ Date identification: [redacted]– D3</p>
+<p>[redacted-person] müssen auf die Schiene aufgesprüht werden:
+Kennzeichnung / Identification: [redacted]Teilenummer; Schrift /
+Pt.-No.; Lettering: DIN 1451 – 4 – 3 Datumskennzeichnung / Date
+identification: [redacted]– D3</p>
+<p>[redacted-person] muss auf der Zeichnung dargestellt werden.</p>
+</blockquote>
+<h2 id="block--und-prinzipschaltbild">Block- und Prinzipschaltbild</h2>
+<blockquote>
+<p><strong>13,6</strong></p>
+</blockquote>
+<h2 id="funktionen">Funktionen</h2>
+<h2 id="funktionsbeschreibung">Funktionsbeschreibung</h2>
+<blockquote>
+<p>Die ZSB Gurthöhenverstellung ist für den verdeckten Einbau im
+Fahrzeug, nach kosten-, gewichts- und bauraumoptimierten Gesichtspunkten
+zu entwickeln.</p>
+<p>[redacted-person] ist seitencrashtauglich, komfort- und
+geräuschoptimiert sowie mit separater Entriegelung auszuführen.</p>
+<p>Es ist bei der geometrischen Gestaltung auf die Anforderungen der
+FMVSS201 zu achten.</p>
+<p>Die technischen Grundanforderungen des Systems sind in der TL 471 und
+der [redacted-co] Matrix zur mechanischen Gurthöhenverstellung definiert.</p>
+<p>Die GHV erfüllt die Vorgaben zum Brennverhalten gemäß TL 1010.</p>
+<p>[redacted-person] von Schmierstoffen ist gemäß TL 745 zulässig. [redacted-person]
+zwischen Schmierstoff und Gurtband ist nicht zulässig.</p>
+<p>[redacted-person] des GHV beträgt 70,5 mm und hat 4 Rastpositionen. Ein
+rastenloses Prinzip ist zulässig.</p>
+<p>Die GHV hat eine Höhe ([redacted-person] Rohbau zu [redacted-person]) von 13,6mm).</p>
+<p>[redacted-person] der Ganzmetallumlenker 4H[redacted-phone]/ 732,
+1K[redacted-phone]/ 732, 4H[redacted-phone]A / 732.A und ENT.[redacted-phone]Alt. 100 muss
+erfüllt werden.</p>
+<p>[redacted-person] besitzt rohbauseitig maximal einen Anschraubpunkt.
+Gewichtstarget: 200g</p>
+<p>Die GHV besitzt eine Komfortfeder.</p>
+<p>Optional ist eine Rastenvorfindung vorzuhalten.</p>
+<p>[redacted-person] der GHV erfolgt in unterster Position. Dazu ist eine
+Transportsicherung vorzusehen.</p>
+<p>[redacted-person] der Transportsicherung an der Oberseite der
+Führungsschiene sind nicht zulässig (Gurtbandbeschädigung).</p>
+<p>[redacted-person] der Schnittstellen zur Verkleidung ermöglichen eine
+Blindmontage der B- Säulenverkleidung (Einführschrägen).</p>
+<p>[redacted-person] für den Verkleidungsschieber wird über einen
+Durchbruch in der GHV und einem Dom vom Verkleidungsschieber kommend
+realisiert.</p>
+</blockquote>
+<h2 id="fehlbedienung">Fehlbedienung</h2>
+<blockquote>
+<p>[redacted-person], die zu einer Fehlbedienung führen können, sind zu
+vermeiden.</p>
+</blockquote>
+<h2 id="notbetrieb">Notbetrieb</h2>
+<h2 id="architektur">Architektur</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+</blockquote>
+<h2 id="steuergerätekonzept">Steuergerätekonzept</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+</blockquote>
+<h2 id="elektrische-schnittstellen">[redacted-person]</h2>
+<blockquote>
+<p>Kapitel für mechanische Baugruppen nicht belegt.</p>
+</blockquote>
+<h2 id="spezifische-kenndaten">[redacted-person]</h2>
+<blockquote>
+<p><em>[I: BT-LAH-847]</em></p>
+<p><em>[I: BT-LAH-848]</em></p>
+<p><em>[I: BT-LAH-849]</em></p>
+<p>Es ist ein Verstellweg von 70,5mm zu realisieren. [redacted-person] zum Rohbau sind dem Modulbauraum KCB14 (ENT.[redacted-phone]B,
+Alternative 14) zu entnehmen.</p>
+</blockquote>
+<h2 id="sicherheitsanforderungen">Sicherheitsanforderungen</h2>
+<h2 id="personen--und-insassensicherheit">Personen- und
+Insassensicherheit</h2>
+<blockquote>
+<p>siehe [redacted-person]</p>
+</blockquote>
+<h2 id="fahrzeugsicherheit">Fahrzeugsicherheit</h2>
+<h2 id="alternativen-und-künftige-varianten">Alternativen und künftige
+Varianten</h2>
+<h2 id="gewichtsziele">Gewichtsziele</h2>
+<blockquote>
+<p>[redacted-person] ist gewichtsoptimiert zu entwickeln. Zielgewicht:
+<strong>200</strong>g</p>
+<p><em>[A: BT-LAH-468]</em></p>
+<p><em>[A: BT-LAH-469]</em></p>
+</blockquote>
+<h2 id="einbau">Einbau</h2>
+<h2 id="einbauort-und-einbaulage">Einbauort und Einbaulage</h2>
+<blockquote>
+<p>[redacted-person] und die Einbaulage der mechanischen
+Gurthöhenverstellung sind den, im Lieferumfangslastenheft
+(LAH.4M0.857.C), definierten ENT´s zu entnehmen.</p>
+<p>[redacted-person] und Form der Befestigungspunkte ist dem Modulbauraum KCB14
+(ENT.[redacted-phone]B, Alternative 14) zu entnehmen.</p>
+<p>[redacted-person] sind so zu befestigen, dass ein Klappern an anderen
+Bauteilen unter Berücksichtigung aller Toleranzen nicht auftreten
+kann.</p>
+</blockquote>
+<h2 id="montagekonzept">Montagekonzept</h2>
+<blockquote>
+<p>[redacted-person] ist als Gleichteil auszuführen.</p>
+<p><em>[A: BT-LAH-475]</em></p>
+<p>Teile sind grundsätzlich so zu konstruieren, dass ein Falscheinbau
+(z. [redacted-person], seitenverkehrt, Fehlfunktion bei Falscheinbau)
+nicht möglich ist.</p>
+</blockquote>
+<p><em>[A: BT-LAH-476]</em></p>
+<blockquote>
+<p>Teile, bei denen ein Falscheinbau verhindert werden muss, müssen
+mechanisch codiert oder mittels Diagnose im Fahrzeug überprüfbar
+sein.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Die geplante Reihenfolge und Ausrichtung der Teile beim Verbau sowie
+der zu verwendenden Vorrichtungen muss in allen 6 Freiheitsgraden
+eindeutig beschrieben sein.</p>
+</blockquote>
+<h2 id="geometrie">Geometrie</h2>
+<blockquote>
+<p>Es gelten die angegebenen Packagevorgaben. Optimierungspotentiale
+sind in jedem Fall aufzuzeigen und nach entsprechender Relevanz und
+Abstimmung zur Umsetzung zu bringen.</p>
+<p>Anschlussmaße:</p>
+<p>[redacted-person] sind dem bereitgestellten CAD-Datensatz
+(ENT.[redacted-phone]B, Alternative 14) zu entnehmen.</p>
+<p>Bauräume:</p>
+<p>Grundsätzlich sind Bauräume und Schnittstellen für benötigte
+Deformationsanforderungen zur Erfüllung der [redacted-co] internen bzw.
+Gesetzesvorgaben nach FMVSS201 „Kopfaufschlag“ vorzusehen und mit der
+Fachabteilung abzustimmen.</p>
+<p><em>[A: BT-LAH-479]</em></p>
+<p>[redacted-person] steht folgender Bauraum zur Verfügung: ENT.[redacted-phone]B,
+Alternative 14</p>
+<p><em>[A: BT-LAH-480]</em></p>
+<p>Die äußere Geometrie der Baugruppe und insbesondere die Lage und
+Ausführung der Befestigungspunkte ist mit den zuständigen
+Fachabteilungen des Auftraggebers, unter Zugrundelegung des vom
+Auftraggeber definierten Bauraumes, festzulegen.</p>
+</blockquote>
+<h2 id="toleranzen">Toleranzen</h2>
+<blockquote>
+<p>[redacted-person] mit entsprechenden Toleranzen entnehmen Sie
+bitte den [redacted-person] (TAB.[redacted-phone]K) und der
+Bauteilzeichnung.</p>
+</blockquote>
+<h2 id="formgestaltung-und-design">Formgestaltung und Design</h2>
+<blockquote>
+<p><em>[A: BT-LAH-484]</em></p>
+<p>Für alle Strakbauteile sind die vom Auftraggeber gelieferten
+Strakdaten verbindlich. Änderungen der Strakoberfläche sind
+ausschließlich über den Strakprozess in Abstimmung mit dem Design des
+Auftraggebers zulässig.</p>
+</blockquote>
+<h2 id="ergonomie">Ergonomie</h2>
+<h2 id="optik-und-haptik">Optik und Haptik</h2>
+<blockquote>
+<p><em>[A: BT-LAH-491]</em></p>
+<p>Bauteile mit äußeren optischen Funktionselementen sind so auszulegen,
+dass es im Betrieb auch unter extremen Bedingungen nicht zu einer
+Funktionsbeeinträchtigung kommt.</p>
+</blockquote>
+<p><em>[A: BT-LAH-492]</em></p>
+<blockquote>
+<p>[redacted-person] muss nach Vorgabe und umlaufend gleichmäßig
+sein.</p>
+</blockquote>
+<h2 id="akustik">Akustik</h2>
+<blockquote>
+<p>[redacted-person] beim Verstellen der Gurthöhenverstellung darf
+einen Wert von 100 dB(A) nicht überschreiten.</p>
+<p>Nachhalleffekte wie beispielsweise Federschwirren sind mit
+entsprechenden Maßnahmen zu unterbinden.</p>
+<p>[redacted-person] (Rastgeräusch) sowie der Anschlag des
+Verstellteils in den Endlagen entspricht einem satten, dumpfen und
+kurzen Ton.</p>
+</blockquote>
+<p><img src="./07_Components-lah-4m0-857-ae-bt-lah-mech-zsb-ghv-12062-media/media/image12.png"/><img alt="02_geschnitten" src="./07_Components-lah-4m0-857-ae-bt-lah-mech-zsb-ghv-12062-media/media/image13.png" style="width:3.02711in;height:1.87062in"/></p>
+<blockquote>
+<p>Beispiel für schlechte Akustik (metallischer Nachhall) Beispiel für
+gute Akustik (satt, ohne Nachhall)</p>
+</blockquote>
+<p><em>[A: BT-LAH-498]</em></p>
+<blockquote>
+<p>Geräusche dürfen im Fahrgastraum nicht oder nicht störend wahrnehmbar
+sein. [redacted-person] erfolgt durch die Fachabteilung des Auftraggebers
+im Fahrzeug mit den Innengeräuschbedingungen.</p>
+</blockquote>
+<h2 id="handling">Handling</h2>
+<blockquote>
+<p>[redacted-person] ermöglicht eine Ein-Finger-Betätigung.</p>
+</blockquote>
+<h2 id="technische-materialanforderungen">[redacted-person]</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>[redacted-person], welche im Außenbereich oder an Stellen mit erhöhter
+Umweltbelastung (z.[redacted-person] und Spritzwasser, Salznebel,
+Tauchbereich) verbaut werden, ist die Verwendung von Schmelzwerkstoffen
+(Hotmelts) nicht zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] von Schmelzwerkstoffen zur Umspritzung von bestückten
+Bauelementeträgern ist nicht zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>[redacted-person] von Schmelzwerkstoffen zur Abdichtung und zum Schutz
+gegen Feuchtigkeit ist nicht zulässig.</p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Abweichungen vom dargestellten Grundsatz bedürfen eines
+Eignungsnachweises unter allen relevanten
+Fahrzeugeinsatzbedingungen.</p>
+</blockquote>
+<h2 id="medienbeständigkeit-und-chemische-anforderungen">Medienbeständigkeit
+und chemische Anforderungen</h2>
+<blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p>Bauteile, welche mit Kraftstoff oder Kraftstoffdämpfe/-kondensat in
+Berührung kommen, müssen Ethanol sowie Methanol verträglich sein.</p>
+</blockquote>
+<h2 id="sauberkeitsanforderungen">Sauberkeitsanforderungen</h2>
+<blockquote>
+<p>[redacted-person] müssen die [redacted-co]50180 erfüllen und geruchsneutral sein
+(PV3900).</p>
+</blockquote>
+<h2 id="reinigung">Reinigung</h2>
+<h2 id="korrosionsschutz">Korrosionsschutz</h2>
+<blockquote>
+<p>chemische Anforderungen siehe LAH.[redacted-phone]</p>
+<p>Werkstoffe, insbesondere metallische Verbindungselemente zur
+Befestigung der Teile an der Karosserie, sind so zu wählen, dass keine
+Korrosion in Verbindung mit den benachbarten Teilen auftritt.</p>
+<p>[redacted-person] der TL471 müssen erfüllt werden.</p>
+</blockquote>
+<h2 id="schutzklassen">Schutzklassen</h2>
+<h2 id="umweltverträglichkeit">Umweltverträglichkeit</h2>
+<h2 id="werkstoffauswahl">Werkstoffauswahl</h2>
+<h2 id="recyclingkonzept">Recyclingkonzept</h2>
+<blockquote>
+<p>Bei der Werkstoffauswahl ist die Wiederverwertbarkeit zu beachten. Es
+muss vom Auftragnehmer eine Demontageanweisung und eine
+Handhabungsvorschrift für den Umgang mit der Gurthöhenverstellung
+erstellt werden ([redacted-co]91102 Beiblatt 3) und der Bemusterung beiliegen.</p>
+<p>Neben der Normreihe [redacted-co]91100 ist auch auf geltendes Recht und
+zukünftige Gesetze zu achten. [redacted-person] ist
+einzuhalten:</p>
+</blockquote>
+<ul>
+<li><p>Kein Pb, Ce, Cr(VI) und Hg verwenden</p></li>
+<li><p>Schadstoffliste nach [redacted-co]91101, [redacted-co]91102</p></li>
+<li><p>Asbest darf in keiner Form zur Anwendung kommen</p></li>
+</ul>
+<h2 id="ökobilanz">Ökobilanz</h2>
+<h2 id="mechanische-anforderungen">[redacted-person]</h2>
+<h2 id="last">Last</h2>
+<blockquote>
+<p>[redacted-person] sind der TL 471 und der [redacted-co] Prüfmatrix zu
+entnehmen.</p>
+</blockquote>
+<h2 id="schwingungsverhalten">Schwingungsverhalten</h2>
+<blockquote>
+<p>[redacted-person] sind der TL 471 und der [redacted-co] Prüfmatrix zu
+entnehmen.</p>
+</blockquote>
+<h2 id="steifigkeit-und-federeigenschaften">Steifigkeit und
+Federeigenschaften</h2>
+<blockquote>
+<p>[redacted-person] sind der TL 471 und der [redacted-co] Prüfmatrix zu
+entnehmen.</p>
+</blockquote>
+<h2 id="verformung-und-deformation">Verformung und Deformation</h2>
+<blockquote>
+<p>[redacted-person] sind der TL 471 und der [redacted-co] Prüfmatrix zu
+entnehmen.</p>
+</blockquote>
+<h2 id="druck">Druck</h2>
+<h2 id="lebensdauer">Lebensdauer</h2>
+<blockquote>
+<p>[redacted-person] sind der TL 471 und der [redacted-co] Prüfmatrix zu
+entnehmen.</p>
+<p><em>[A: BT-LAH-933]</em></p>
+<p>Bauteile müssen auf eine Lebensdauerforderung von 300000 km
+Laufleistung statistisch ausgelegt sein.</p>
+</blockquote>
+<p><em>[A: BT-LAH-935]</em></p>
+<blockquote>
+<p>Bei der Umsetzung der Forderung ist darauf zu achten, dass zur
+Einhaltung gesetzlicher Vorschriften für abgasbeeinflussende und
+kraftstoffführende Bauteile eine Lebensdauer von 15 Jahren bzw. 150000
+Meilen zu erfüllen ist.</p>
+<p>[redacted-person] ist bis zur B-Freigabe zu erbringen.</p>
+</blockquote>
+<h2 id="elektrische-anforderungen">[redacted-person]</h2>
+<h2 id="beschreibung-der-allgemeinen-anforderungen">Beschreibung der
+allgemeinen Anforderungen</h2>
+<blockquote>
+<p><em>[A: BT-LAH-542]</em></p>
+<p><em>[A: BT-LAH-983]</em></p>
+<p>[redacted-person] mit Bordnetzschnittstellen, d. [redacted-person] Vorverkabelungen
+und Adapterleitungen, Bauteile mit Anschlussleitungen, und Leitungen in
+Komponenten, die als ZSB geliefert werden, gelten die Anforderungen des
+Querschnittslastenheftes LAH 5Q0.971 „[redacted-person]-Anforderungen“.</p>
+</blockquote>
+<h2 id="klimatische-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] sind der TL 471 und der [redacted-co] Prüfmatrix zu
+entnehmen.</p>
+</blockquote>
+<h2 id="serviceanforderungen">Serviceanforderungen</h2>
+<blockquote>
+<p><em>[A: BT-LAH-851]</em></p>
+<p>Die minimale Lagerfähigkeit ist mit dem Auftraggeber zu
+Angebotsvergabe gemeinsam zu definieren und zu dokumentieren.</p>
+</blockquote>
+<p><em>[A: BT-LAH-853]</em></p>
+<blockquote>
+<p>Nach der Lagerzeit werden noch alle Anforderungen einschließlich
+Lebensdauer erfüllt.</p>
+</blockquote>
+<h2 id="transportschutz">Transportschutz</h2>
+<h2 id="logistikanforderungen">Logistikanforderungen</h2>
+<h2 id="qualitätssicherungsanforderungen">Qualitätssicherungsanforderungen</h2>
+<h2 id="schadensteil-analyse">Schadensteil-Analyse</h2>
+<h2 id="produkt--und-prozessüberwachung">Produkt- und
+Prozessüberwachung</h2>
+<blockquote>
+<p><em>[A: BT-LAH-900]</em></p>
+<p>[redacted-person] muss das Prüfkonzept für Schadensteile dem
+Bauteilverantwortlichen vorstellen und mit ihm bis PVS abstimmen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-634]</em></p>
+<blockquote>
+<p>[redacted-person] zur Überwachung der Lieferqualität liegt beim
+Auftragnehmer. Dies gilt auch für die Anteile der Unterauftragnehmer.
+[redacted-person] behält sich das Recht einer stichprobenartigen
+Qualitätsprüfung vor.</p>
+</blockquote>
+<h1 id="anforderungen-an-erprobung">Anforderungen an Erprobung</h1>
+<h2 id="prüfmittel-erprobungsträger">Prüfmittel / Erprobungsträger</h2>
+<blockquote>
+<p><em>[A: BT-LAH-694]</em></p>
+<p>In Absprache mit dem Auftraggeber sind Fahrzeuge mit Mess- und
+Applikationsgeräten auszurüsten und für die Dauer der Entwicklung (bis 3
+Monate nach SOP) bereitzustellen.</p>
+</blockquote>
+<h2 id="erfüllungsnachweise">Erfüllungsnachweise</h2>
+<blockquote>
+<p>[redacted-person] ist ein kompletter Versuchsbericht mit allen
+erforderlichen Diagrammen und einer Fotodokumentation zu erstellen und
+spätestens 14 Tage vor BMF Empfehlung der Fachabteilung vorzulegen.</p>
+<p>[redacted-person] ist in deutscher Sprache zu erstellen.</p>
+<p>[redacted-person] über Laborberichte erfolgt gemäß derzeit gültiger
+Absprachen der VDA Richtlinien.</p>
+<p>[redacted-person] werden in der Prüfmatrix vermerkt und der
+Fachabteilung zur Verfügung gestellt.</p>
+<p>[redacted-person] sind vom Lieferanten zusätzlich in der [redacted-co]
+Datenbank zu archivieren.</p>
+<p><em>[A: BT-LAH-697]</em></p>
+<p>Sämtliche unten aufgeführten Erprobungen sind nach den zitierten
+Vorschriften durchzuführen.</p>
+<p><em>[A: BT-LAH-698]</em></p>
+<p>[redacted-person] und Simulationen sind die festgelegten Verfahren und
+Systeme anzuwenden. [redacted-person] erfolgt gemäß den Anforderungen
+der [redacted-co]99000, Abschnitt "Produktdatenmanagement".</p>
+</blockquote>
+<h2 id="erprobungsplan">Erprobungsplan</h2>
+<blockquote>
+<p>[redacted-person] der Erprobung ist ein Terminplan zu erstellen, der mit der
+Fachabteilung abzustimmen ist. [redacted-person] sind die notwendigen
+Prüfpläne beizufügen.</p>
+</blockquote>
+<h2 id="prüfungen">Prüfungen</h2>
+<blockquote>
+<p>Die mechanische Gurthöhenverstellung hat auch bei extremen
+Klimabedingungen alle Funktionsanforderungen in Bezug auf</p>
+</blockquote>
+<ul>
+<li><p>Sicherheit</p></li>
+<li><p>Bedienbarkeit</p></li>
+<li><p>Geräusche zu erfüllen.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] muss die, im Fahrbetrieb auftretenden,
+Beschleunigungen und Anregungen ohne Schaden überstehen und darf hierbei
+keine störenden Geräusche verursachen.</p>
+<p>Die technischen Grundanforderungen der mechanischen
+Gurthöhenverstellung sind in der TL471 definiert. [redacted-person]
+und Abweichungen des Prüfplans von der TL471 sind der beigefügten
+Prüfmatrix zu entnehmen.</p>
+<p>Ferner gelten folgende TLs:</p>
+</blockquote>
+<ul>
+<li><p>TL 1010 Innenausstattungsmaterialien</p></li>
+<li><p>TL 82501 Gurtstraffer</p></li>
+<li><p>TL 82502 Gurthöhenversteller</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] der Gurthöhenverstellung bei den Prüfungen hat gemäß TL
+471 zu erfolgen.</p>
+<p>[redacted-person] muss sicherstellen, dass alle relevanten
+weltweit gültigen Gesetzgebungen erfüllt werden, soweit sie nur sein
+Bauteil betreffen.</p>
+<p>Darüber hinaus ist zu gewährleisten, dass alle im Lastenheft
+aufgeführten internen Anforderungen des VW-Konzerns erfüllt werden. [redacted-person] sind schriftlich und in elektronischer Form anhand
+von Versuchsberichten mit Fotos zu dokumentieren und an die
+Fachabteilung zu übergeben.</p>
+</blockquote>
+<h2 id="dauerversuch">Dauerversuch</h2>
+<blockquote>
+<p>[redacted-person] sind der TL 471 und der [redacted-co] Prüfmatrix zu
+entnehmen.</p>
+</blockquote>
+<h2 id="testparameter-und-zyklen">Testparameter und Zyklen</h2>
+<blockquote>
+<p>[redacted-person] sind der TL 471 und der [redacted-co] Prüfmatrix zu
+entnehmen.</p>
+</blockquote>
+<h2 id="beschaffenheit-des-zu-testenden-musterstandes">Beschaffenheit
+des zu testenden Musterstandes</h2>
+<blockquote>
+<p>[redacted-person] der getesteten Teile muss im Teilelebenslauf
+dokumentiert werden. Die getesteten Teile müssen mit einem Musterlabel
+versehen sein, das folgende Informationen beinhaltet:</p>
+</blockquote>
+<ul>
+<li><p>„VERSUCHSMUSTER“</p></li>
+<li><p>Teilenummer</p></li>
+<li><p>Generationsstand</p></li>
+<li><p>Herstellungsdatum</p></li>
+</ul>
+<h2 id="betriebszustände">Betriebszustände</h2>
+<h2 id="virtuelle-erprobung-und-simulation">[redacted-person] und
+Simulation</h2>
+<blockquote>
+<p>[redacted-person] des Auftraggebers sind Festigkeitsberechnungen zur
+Simulation von statischen Bruchlastversuchen durchzuführen.
+Entwicklungsziel ist es den im Lastenheft genannten Prüfumfang möglichst
+umfassend virtuell abzubilden und bei Bedarf zur Verfügung zu stellen.
+[redacted-person] sind für jeden neuen [redacted-person] für die
+Rückhaltesystemauslegung zur Verfügung zu stellen.</p>
+</blockquote>
+<h2 id="fahrzeugerprobung">Fahrzeugerprobung</h2>
+<blockquote>
+<p>[redacted-person] der Bauteile ist durch Einbauuntersuchungen zu
+überprüfen, die vom Auftraggeber veranlasst werden.</p>
+<p>Bei den, in der technischen Produktbeschreibung des jeweiligen
+Fahrzeugprojekts unter</p>
+<p>„Gesetzesanforderungen“ und „Consumer-Test, externe und interne
+Anforderungen“ aufgeführten Crash-Versuchen darf es zu keinem Bruch bzw.
+Verstellen des Gurthöhenverstellers kommen, welches zu einer negativen
+Beeinflussung der Rückhaltewirkung des Insassen führen könnte.</p>
+</blockquote>
+<p><em>[A: BT-LAH-713]</em></p>
+<blockquote>
+<p>[redacted-person] ist verpflichtet im jeweiligen Zielfahrzeug die
+entsprechenden Untersuchungen durchzuführen, um damit den Nachweis der
+Funktionsfähigkeit des Produktes zu erbringen. [redacted-person] hierzu
+sind dem Auftraggeber offen zu legen.</p>
+</blockquote>
+<p><em>[A: BT-LAH-715]</em></p>
+<blockquote>
+<p>Teile aus Fahrzeugdauerläufen sind auf Anforderung vom Auftragnehmer
+zu analysieren.</p>
+</blockquote>
+<h1 id="definitionen-begriffe-abkürzungen">Definitionen, Begriffe,
+Abkürzungen</h1>
+<h2 id="begriffe">Begriffe</h2>
+<blockquote>
+<p><strong>2-Tages-Produktion</strong></p>
+<p>siehe Formel-Q-Konkret</p>
+<p><strong>A-Muster:</strong></p>
+<p>Darstellung der Grundfunktionen zur Abstimmung des
+Bauteil-Lastenheftes:</p>
+</blockquote>
+<ul>
+<li><p>Vervollständigung des Bauteil-Lastenheftes</p></li>
+<li><p>Erprobung von alternativen Funktionen</p></li>
+<li><p>[redacted-person] Ziele:</p></li>
+<li><p>Konzept bestätigen und ergänzen</p></li>
+<li><p>BT-LAH endgültig festschreiben</p></li>
+</ul>
+<blockquote>
+<p><strong>Auftraggeber:</strong></p>
+</blockquote>
+<ul>
+<li><p>[redacted-co]</p></li>
+</ul>
+<blockquote>
+<p><strong>Auftragnehmer:</strong></p>
+<p>Die vom Auftraggeber beauftragte Gesellschaft</p>
+<p><strong>Baumustergenehmigung:</strong></p>
+<p>siehe [redacted-co]99000-4</p>
+<p><strong>B-Muster (Grundsatzmuster):</strong></p>
+<p>Umsetzung des Bauteil-Lastenheftes in seriennaher Form:</p>
+<p><em>[I: BT-LAH-899]</em></p>
+<p><em>[I: BT-LAH-719]</em></p>
+<p><em>[A: BT-LAH-720]</em></p>
+<p><em>[I: BT-LAH-721]</em></p>
+<p><em>[I: BT-LAH-722]</em></p>
+<p><em>[I: BT-LAH-723]</em></p>
+</blockquote>
+<ul>
+<li><p>Zeichnungen, Schalt- und Bestückungsplan und Layout sowie
+Softwarebeschreibung entsprechend vorliegendem Baustand
+vorhanden</p></li>
+<li><p>[redacted-person], Layout, Bestückung und Software in
+seriennaher Ausführung (aus Hilfswerkzeugen)</p></li>
+<li><p>Erfüllung sämtlicher Funktionsanforderungen</p></li>
+<li><p>Beseitigung von Fehlern, Änderungen in begrenztem Umfang
+möglich</p></li>
+<li><p>Laborprüfungen sind vom Auftragnehmer durchzuführen
+Ziele:</p></li>
+<li><p>[redacted-person] durch Labor- und Fahrversuche
+feststellen</p></li>
+<li><p>Beauftragung der Werkzeuge für die Einzelteile durch die
+Beschaffung</p></li>
+</ul>
+<p><em>[I: BT-LAH-725]</em></p>
+<blockquote>
+<p><strong>C-Muster ([redacted-person]):</strong></p>
+<p>[redacted-person]- oder Serienfertigungsanlage hergestellte Teile:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] aus Serien-Fertigung</p></li>
+<li><p>Serien-Software</p></li>
+<li><p>[redacted-person] bezüglich Spezifikation</p></li>
+<li><p>Dokumentationen (Zeichnungen, Schaltungsunterlagen, usw.) und
+Prüfberichte liegen komplett vor</p></li>
+</ul>
+<blockquote>
+<p>Ziele:</p>
+</blockquote>
+<ul>
+<li><p>Serientauglichkeit bestätigen</p></li>
+<li><p>Baumustergenehmigung durch die [redacted-person] des
+Auftraggebers</p></li>
+</ul>
+<p><em>[I: BT-LAH-726]</em></p>
+<blockquote>
+<p><strong>Erprobung:</strong></p>
+<p>Gesamtumfang aller Tests und/oder Prüfungen</p>
+<p><strong>Erstmuster:</strong></p>
+<p>siehe Formel-Q-Konkret</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>Abkürzungen
+3D</strong></p></li>
+</ol>
+<blockquote>
+<p>Dreidimensional</p>
+<p><strong>BT-LAH</strong></p>
+<p>Bauteil-Lastenheft</p>
+<p><strong>CAD</strong></p>
+<p>[redacted-person] Design</p>
+<p><strong>CCC</strong></p>
+<p>[redacted-person] Certification</p>
+<p><strong>CMVSS</strong></p>
+<p>[redacted]Standards</p>
+<p><strong>DMU</strong></p>
+<p>[redacted-person]-Up</p>
+<p><strong>ECE</strong></p>
+<p>[redacted-person] for Europe</p>
+<p><strong>EG</strong></p>
+<p>[redacted-person]</p>
+<p><strong>FMEA</strong></p>
+<p>Failure mode and effects analysis</p>
+<p><strong>FMVSS</strong></p>
+<p>[redacted]Standards</p>
+<p><strong>FTA</strong></p>
+<p>[redacted-person] Analysis</p>
+<p><strong>HiL</strong></p>
+</blockquote>
+<p><em>[I: BT-LAH-898]</em></p>
+<p><em>[I: BT-LAH-729]</em></p>
+<p><em>[I: BT-LAH-731]</em></p>
+<p><em>[I: BT-LAH-732]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-734]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-738]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-740]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Hardware in the Loop</p>
+<p><strong>HW</strong></p>
+<p>Hardware</p>
+<p><strong>KW</strong></p>
+<p>Kalenderwoche</p>
+<p><strong>MS</strong></p>
+<p>Microsoft</p>
+<p><strong>ppm</strong></p>
+<p>Parts per Million</p>
+<p><strong>PDM</strong></p>
+<p>Produktdatenmanagement</p>
+<p><strong>PVS</strong></p>
+<p>Produktionsversuchsserie</p>
+<p><strong>QM</strong></p>
+<p>Qualitätsmanagement</p>
+<p><strong>RIF</strong></p>
+<p>[redacted-person] Format</p>
+<p><strong>SE</strong></p>
+<p>[redacted-person]</p>
+<p><strong>SOP</strong></p>
+<p>Start of Production</p>
+<p><strong>SW</strong></p>
+<p>Software</p>
+<p><strong>TL</strong></p>
+<p>[redacted-person]</p>
+<p><strong>VDA</strong></p>
+<p>Verband der Automobilindustrie e.V.</p>
+<p><strong>ZSB</strong></p>
+<p>Zusammenbau</p>
+</blockquote>
+<p><em>[I: BT-LAH-741]</em></p>
+<p><em>[I: BT-LAH-746]</em></p>
+<p><em>[I: BT-LAH-749]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH[redacted-ext]]</em></p>
+<p><em>[I: BT-LAH-751]</em></p>
+<p><em>[I: BT-LAH-752]</em></p>
+<p><em>[I: BT-LAH-754]</em></p>
+<p><em>[I: BT-LAH-756]</em></p>
+<p><em>[I: BT-LAH-758]</em></p>
+<p><em>[I: BT-LAH-759]</em></p>
+<p><em>[I: BT-LAH-760]</em></p>
+<p><em>[I: BT-LAH-762]</em></p>
+<p><em>[I: BT-LAH-763]</em></p>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<p><em>[A: BT-LAH-766]</em></p>
+<blockquote>
+<p>Es gelten die am Ausgabedatum des BT-LAH gültigen mitgeltenden
+Unterlagen, sowie die darin genannten Dokumente.</p>
+</blockquote>
+<p><em>[A: BT-LAH-767]</em></p>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den für dieses BT-LAH
+gültigen mitgeltenden Unterlagen zu arbeiten.</p>
+<p><strong>Bezugsquelle:</strong></p>
+<p><em>[I: BT-LAH-769]</em></p>
+<p>Dokumente können über die B2B-Lieferantenplattform des [redacted-person] unter der Internetadresse: <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+mit einer Zugangsberechtigung abgerufen werden. (Kontakt auch über
+[redacted]99 bzw. International: [redacted-phone]
+oder e-Mail: <a href="mailto:supplierintegration@vwgroupsupply.com">[redacted-email]</a>
+)</p>
+</blockquote>
+<h2 id="zeichnungen-pläne-skizzen-variantenbaum">Zeichnungen, Pläne,
+Skizzen; Variantenbaum</h2>
+<h2 id="technische-spezifikationen">[redacted-person]</h2>
+<blockquote>
+<p><strong>Formel Q</strong></p>
+<p><em>[A: BT-LAH-869]</em></p>
+<p>Konzern-Richtlinien der [redacted-person]: Formel
+Q-Konkret, -Neuteile integral, - Fähigkeit</p>
+<p><strong>[redacted-co]91102</strong></p>
+<p><em>[A: BT-LAH-780]</em></p>
+<p>[redacted-person], Fahrzeugteile, Werkstoffe, Betriebsstoffe;
+Recyclinganforderungen, Rezyklateinsatz</p>
+<p><strong>[redacted-co]99000</strong></p>
+<p><em>[A: BT-LAH-781]</em></p>
+<p>[redacted-person] zur Leistungserbringung im Rahmen der
+Bauteilentwicklung</p>
+</blockquote>
+<p><em>[A: BT-LAH-782]</em></p>
+<blockquote>
+<p><strong>[redacted-co]99000-1</strong></p>
+<p>Teil 1: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Planungsfreigabe</p>
+<p><strong>[redacted-co]99000-2</strong></p>
+<p><em>[A: BT-LAH-783]</em></p>
+<p>Teil 2: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Beschaffungsfreigabe</p>
+<p><strong>[redacted-co]99000-3</strong></p>
+<p><em>[A: BT-LAH-784]</em></p>
+<p>Teil 3: [redacted-person] zur Leistungserbringung im Rahmen
+der Bauteilentwicklung; Konstruktions- ([redacted-co]) bzw. Entwicklungsfreigabe
+(VW)</p>
+<p><strong>[redacted-co]99000-4</strong></p>
+<p><em>[A: BT-LAH-785]</em></p>
+<p>Teil 4: [redacted-person] zur Leistungserbringung im Rahmen
+der [redacted-person]</p>
+<p>Zusätzlich gelten folgende Spezifikationen:</p>
+</blockquote>
+<ul>
+<li><p>TL471 ZSB. Sicherheitssysteme und Höhenverstellung, Werkstoff-
+und Funktionsprüfung</p></li>
+<li><p>TL1010 Innenausstattungsmaterialien; Brennverhalten;
+Werkstoffanforderungen</p></li>
+<li><p>TL82469 Zusatzaggregate, akustische Anforderungen</p></li>
+<li><p>TL82502 [redacted-person]; Anforderungen und
+Prüfungen</p></li>
+<li><p>[redacted-co]01155 Fahrzeug-Zulieferteile; Genehmigung von Erstlieferung
+und Änderung</p></li>
+</ul>
+<h2 id="typprüfunterlagen-vorschriften-gesetze">Typprüfunterlagen,
+Vorschriften, Gesetze</h2>
+<h2 id="querschnittslastenhefte">Querschnittslastenhefte</h2>
+<blockquote>
+<p><strong>LAH 5Q0.971</strong></p>
+<p>[redacted-person]-Anforderungen</p>
+<p>Für [redacted-co] gilt:</p>
+<p><strong>LAH [redacted-phone]</strong></p>
+<p>Q-Lastenheft</p>
+<p>Für [redacted-co] gilt: <strong>LAH DUM 000 A</strong> TE DMU</p>
+<p>Für [redacted-co] gilt: <strong>LAH DUM 000</strong> TE CATIA V5</p>
+<p>Für [redacted-co] gilt:</p>
+<p><strong>LAH.[redacted-phone]AF</strong></p>
+</blockquote>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<p><em>[A: BT-LAH-938]</em></p>
+<p><em>[A: BT-LAH-939]</em></p>
+<p><em>[A: BT-LAH[redacted-ext]]</em></p>
+<blockquote>
+<p>Anforderungsprofil für die Beauftragung von technischen Regeln zur
+Aufnahme im System MBT</p>
+</blockquote>
+<h2 id="zu-beachtende-schutzrechte-und-lizenzen">Zu beachtende
+Schutzrechte und Lizenzen</h2>
+<h2 id="sonstige-unterlagen">[redacted-person]</h2>
+<blockquote>
+<p>Anlage 1: Pruefmatrix_BMF_mech_GHV.xls</p>
+<p>Anlage 2: Empfehlung_Baumusterfreigabe.doc Modulbauraum KCB14:
+ENT.[redacted-phone]B, Alternative 14</p>
+</blockquote>
+</body>
+</html>

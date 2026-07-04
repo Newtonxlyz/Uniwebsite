@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH.DUM.880.FK__Versuche_Seitenaufprall</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote>
+<blockquote>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+</blockquote>
+<p><img src="./03_Side_Crash-lah-dum-880-fk-versuche-seitenaufprall-media/media/image2.png" style="width:2.91667in;height:2.4375in"/>Versuche im Seitenaufprall</p>
+<blockquote>
+<p>LAH.DUM.880.FK</p>
+<p>Lastenheft für Engineering-Leistungen</p>
+<p>Verteiler</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Name</p>
+</blockquote></th>
+<th><blockquote>
+<p>Vorname</p>
+</blockquote></th>
+<th><blockquote>
+<p>Abteilung</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Limmer</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ralf</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h1 id="abstimmung">Abstimmung</h1>
+<p><img src="./03_Side_Crash-lah-dum-880-fk-versuche-seitenaufprall-media/media/image4.jpeg" style="width:6.43718in;height:0.97333in"/></p>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#abstimmung">Abstimmung 2</a></p>
+<ol type="1">
+<li><p><a href="#vorwort">Vorwort 5</a></p>
+<ol type="1">
+<li><p><a href="#bedeutung-des-lastenhefts">Bedeutung des Lastenhefts
+5</a></p></li>
+<li><p><a href="#geltungsbereich">Geltungsbereich 5</a></p></li>
+<li><p><a href="#geheimhaltung">Geheimhaltung 5</a></p></li>
+</ol></li>
+<li><p><a href="#prozessdefinition">Prozessdefinition 6</a></p></li>
+<li><p><a href="#auftragsumfang">Auftragsumfang 7</a></p>
+<ol type="1">
+<li><p><a href="#versuchsvorbereitung">Versuchsvorbereitung 7</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark8">Versuchsträgeraufbau 7</a></p></li>
+<li><p><a href="#_bookmark9">Versuchsspezifikation 8</a></p></li>
+<li><p><a href="#_bookmark10">Versuchsträgervorbereitung 9</a></p></li>
+</ol></li>
+<li><p><a href="#versuchsdurchführung">Versuchsdurchführung
+9</a></p></li>
+<li><p><a href="#versuchsauswertung">Versuchsauswertung 10</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark13">Erstdokumentation und Vermessung
+10</a></p></li>
+<li><p><a href="#_bookmark14">Zerlegung 10</a></p></li>
+<li><p><a href="#_bookmark15">Abgleich 10</a></p></li>
+</ol></li>
+<li><p><a href="#gesamtdokumentation">Gesamtdokumentation
+11</a></p></li>
+<li><p><a href="#einordnung-in-den-entwicklungsprozess">Einordnung in
+den Entwicklungsprozess 12</a></p></li>
+</ol></li>
+<li><p><a href="#komponentenversuche">Komponentenversuche
+13</a></p></li>
+<li><p><a href="#rahmenbedingungen">Rahmenbedingungen 14</a></p>
+<ol type="1">
+<li><p><a href="#beauftragungszeitraum">Beauftragunszeitraum
+14</a></p></li>
+<li><p><a href="#daten">Daten 14</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark22">Ablage und Austausch 14</a></p></li>
+<li><p><a href="#_bookmark23">Formate, Vorlagen und Templates
+14</a></p></li>
+</ol></li>
+</ol></li>
+</ol>
+<h1 id="vorwort">Vorwort</h1>
+<h2 id="bedeutung-des-lastenhefts">Bedeutung des Lastenhefts</h2>
+<blockquote>
+<p>[redacted-person] (LAH) beschreibt die Mindestanforderungen für die
+Begleitung von Gesamt- fahrzeugversuchen im Seitenaufprall und ist Teil
+eines übergeordneten Vergabelastenheftes in welchem Projektziele und
+Projektrandbedingungen spezifiziert sind. Weiterhin sind die ange-
+gebenen mit geltenden Unterlagen sowie die von den Fachabteilungen
+ausgehändigten Las- tenhefte und Templates zu berücksichtigen.</p>
+<p>[redacted-person] der beschriebenen Mindestanforderungen ist in Form
+eines Pflichtenhefts zu dokumentieren. [redacted-person] ist stets
+aktuell zu halten.</p>
+<p>In diesem Lastenheft nicht ausreichend beschriebene Punkte sind in
+Absprache mit den zu- ständigen Fachabteilungen zu klären. Änderungen
+und Abweichungen bedürfen der schriftli- chen Fixierung in einem
+Lastenheft.</p>
+</blockquote>
+<h2 id="geltungsbereich">Geltungsbereich</h2>
+<blockquote>
+<p>Das vorliegende Lastenheft bezieht sich ausschließlich auf Leistungen
+im Rahmen der be- schriebenen Projektabläufe.</p>
+<p>Art und Umfang der Leistung richten sich nach diesem Lastenheft, es
+sei denn, ein Sachverhalt wird individuell ausgehandelt und ausdrücklich
+schriftlich abweichend geregelt.</p>
+</blockquote>
+<h2 id="geheimhaltung">Geheimhaltung</h2>
+<blockquote>
+<p>[redacted-person] des Lastenheftes ebenso wie die weiteren zur Verfügung
+gestellten Unterlagen un- terliegen der Geheimhaltung und dürfen Dritten
+nur mit ausdrücklicher Genehmigung des zu- ständigen Fachbereiches der
+[redacted-co] zugänglich gemacht werden. Soweit eine Weitergabe an Dritte,
+insbesondere an mit dem Auftragnehmer verbundene Unternehmen, für die
+Erstellung eines Angebots erforderlich ist, hat der Auftragnehmer dafür
+Sorge zu tragen, dass die Ver- traulichkeit sichergestellt ist.</p>
+</blockquote>
+<h1 id="prozessdefinition">Prozessdefinition</h1>
+<blockquote>
+<p>Ziel dieses Beauftragungsumfangs ist die Definition, Prozesssteuerung
+und ausführliche Do- kumentation der beauftragten Seitenaufprall- und
+Komponentenversuche.</p>
+<p>Die grau hinterlegten Umfänge müssen zur Erfüllung des Gewerks
+begleitet werden, sind aber nicht Umfang der Beauftragung.</p>
+</blockquote>
+<p><img src="./03_Side_Crash-lah-dum-880-fk-versuche-seitenaufprall-media/media/image5.png" style="width:6.52759in;height:3.54in"/></p>
+<blockquote>
+<p>Abbildung 2-1: <em>Prozess im [redacted-person]</em></p>
+</blockquote>
+<h1 id="auftragsumfang">Auftragsumfang</h1>
+<blockquote>
+<p>[redacted-person] beinhaltet wie in Kapitel 2 beschrieben die Vorbereitung,
+Durchführung und die Auswertung des Gesamtfahrzeugversuchs. Zu jedem
+dieser Prozessschritte sind im Rahmen der Beauftragung die in diesem
+Kapitel spezifizierten Ergebnisse zu erzielen.</p>
+<p>Verzüge die das geforderte Ergebnis terminlich oder qualitativ
+gefährden sind der Fachabtei- lung [redacted-co] unverzüglich
+aufzuzeigen.</p>
+</blockquote>
+<h2 id="versuchsvorbereitung">Versuchsvorbereitung</h2>
+<blockquote>
+<p>[redacted-person] beinhaltet drei Prozessschritte: den
+Versuchsträgeraufbau (VTAB), die Versuchsspezifikation und die
+Versuchsträgervorbereitung (VTVB).</p>
+<p>Für den VTAB und die VTVB ist eine Dokumentation anzufertigen. [redacted-person] er- folgt in Form eines Werkstattprogramms. Die
+erforderlichen Programme, Vorlagen und Temp- lates werden von der [redacted-co] zur Verfügung gestellt. (siehe Kapitel 5.2.2: Templates)</p>
+</blockquote>
+<ol type="1">
+<li><p>Versuchsträgeraufbaudokumentation</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] ist in Form einer Dokumentation in Bild und
+Text darzustellen und dient der Transparenz und Nachvollziehbarkeit im
+Entwicklungsprozess. Für den Versuch aus- schlaggebende Komponenten sind
+inklusive deren Teile- bzw. Konstruktionsnummer und Än- derungsstandes
+aufzunehmen. [redacted-person] ist Voraussetzung für den Gesamtfahr-
+zeugversuch somit spätestens zum Start der Versuchsträgervorbereitung
+anzufertigen und in der regelmäßigen Projektstatusrunde
+durchzusprechen.</p>
+<p>Prüfumfänge:</p>
+<p>Die folgend aufgezählten Prüfumfänge dienen zur Abschätzung des
+Aufwandes. Ein detaillier- ter Prüfkatalog wird dem Auftragnehmer zu
+Beginn seiner Tätigkeiten in tabellarischer Form zur Verfügung
+gestellt.</p>
+</blockquote>
+<ul>
+<li><p>Struktur</p>
+<ul>
+<li><p>Karosserie: Konstruktionsstand und relevante Verbindungstechnik
+([redacted-person])</p></li>
+<li><p>Türrohbau</p></li>
+<li><p>Anpasskonstruktionen / Abweichungen vom
+Konstruktionsstand</p></li>
+<li><p>Einbringung von Maßnahmen</p></li>
+</ul></li>
+<li><p>Sitze</p></li>
+<li><p>Interieur</p>
+<ul>
+<li><p>Türverkleidung</p></li>
+<li><p>A-/B-/C-Säulenverkleidung</p></li>
+<li><p>Schwellerverkleidung</p></li>
+<li><p>Mittelkonsole</p></li>
+<li><p>Himmel</p></li>
+<li><p>[redacted-person] ( z.[redacted-person] / Türpackage
+(Zuziehhilfe / Fensterheber / Paddings / [redacted]Brems- und Kraft- stoffleitungen / … ))</p></li>
+<li><p>Bordnetz ( Funktionsfähigkeit / Kabelbaum / rel. Steuergeräte wie
+Gateway und SafetyComputer)</p></li>
+</ul></li>
+<li><p>Rückhaltesystem</p>
+<ul>
+<li><p>Seitenairbags, ggf. Kopfthoraxairbag</p></li>
+<li><p>Kopfairbags</p></li>
+<li><p>Gurte</p></li>
+<li><p>Etc.</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>[redacted-person] können in unterschiedlichen Projekten und über die
+Projektdauer variieren. Anpassungen im Rahmen des Entwicklungsprozesses
+sind zu berücksichtigen.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>Versuchsspezifikation</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] ist in Form eines Werkstattprogramms
+durchzuführen. [redacted-person] und die erforderlichen Programme werden von
+[redacted-co] zur Verfügung gestellt. (siehe Ka- pitel Templates). [redacted-person] ist bis spätestens 12 Arbeitstage vor dem Ver-
+suchstermin vollständig zu befüllen und auf Einladung mit Vertretern des
+prüfenden Testinsti- tutes durchzusprechen.</p>
+<p>Grundsätzlich ist jeder Versuch nach Rücksprache mit den
+Bauteilverantwortlichen (BTVs) mit den aktuellsten Bauteilständen
+auszustatten. Sofern diese nicht verfügbar sind oder gezielt äl- tere
+Stände verbaut sind, ist dieses mit der zuständigen Fachabteilung
+abzustimmen. Die für den Versuch benötigte Ausstattungsvariante ist in
+Zusammenarbeit mit der Systemauslegung und Funktionsverantwortung
+innerhalb der Statusrunde festzulegen. Ausgenommen sind die
+Rückhaltesysteme. Diese werden vom Systemausleger definiert.</p>
+<p>Für die Erprobungstauglichkeit notwendige Strukturmaßnahmen sind mit
+der strukturausle- genden Fachabteilung und den Funktionsentwicklern
+abzustimmen.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Versuchsträgervorbereitung</p></li>
+</ol>
+<blockquote>
+<p>Im Rahmen der Versuchsträgervorbereitung ist in Zusammenarbeit mit
+der beauftragten Werkstatt bzw. dem beauftragten Testinstitut die
+Erprobungswürdigkeit des Gesamtfahrzeu- ges sicherzustellen. In diesem
+Zusammenhang sind folgende Umfänge zu beachten:</p>
+</blockquote>
+<ul>
+<li><p>Crashtauglichkeit nach eventuellen Vorversuchen</p></li>
+<li><p>Umsetzung des Werkstattprogramms</p></li>
+<li><p>Der richtigen Positionierung und Ausrichtung der
+Messmittel</p></li>
+</ul>
+<blockquote>
+<p>Dokumentation:</p>
+<p>[redacted-person] ist in Form einer Dokumentation in
+Bild und Text darzustellen und dient der Transparenz und
+Nachvollziehbarkeit im Entwicklungsprozess. [redacted-person]- tion ist
+Voraussetzung für den Gesamtfahrzeugversuch und ist somit im Vorfeld des
+Versuchs anzufertigen und im Rahmen der Statusgespräche
+durchzusprechen.</p>
+</blockquote>
+<h2 id="versuchsdurchführung">Versuchsdurchführung</h2>
+<blockquote>
+<p>[redacted-person] ist zentraler Ansprechpartner der
+Funktionsauslegung für das Testinstitut. In dieser Funktion sind
+folgende Tätigkeiten zu erfüllen:</p>
+</blockquote>
+<ul>
+<li><p>Überprüfen der Kameraeinstellungen</p></li>
+<li><p>Überprüfen der Dummypositionierung inklusive der
+Dummyvermessung</p></li>
+<li><p>Überprüfung der (Werkstatt-)Checkliste</p></li>
+<li><p>Kontrolle der Crashrandbedingungen</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] des Versuchs ist ausschließlich bei Gewährleitsung
+aller relevanten Crash- randbedingungen (siehe auch
+Arbeitsanweisungen)<sup>1</sup> zulässig. Sobald einflussreiche oder ge-
+nau spezifizierte Parameter nicht den Vorgaben entsprechen, bedarf die
+Durchführung zwangsläufig der eindeutigen Zustimmung der beauftragenden
+Fachabteilung.</p>
+<p>Die genauen Versuchstermine sind an den zuständigen Funktions- und
+Systemausleger in Form einer Outlook-Einladung zu kommunizieren.</p>
+<p>Grundsätzlich ist für einen Gesamtfahrzeugversuch die Anwesenheit des
+Auftragnehmers als zentraler Ansprechpartner der Funktionsentwicklung
+erforderlich. Sofern für die Erfüllung die- ser Anforderung ein
+Anfahrtsweg von mehr als 300 Kilometern zurückzulegen ist, kann unter
+Umständen auf die Vor-Ort-Präsenz verzichtet werden. Die erforderliche
+Abstimmung erfolgt im Rahmen der Projektstatusrunde.</p>
+<p><sup>1</sup> Arbeitsanweisungen liegen für die [redacted-person] des Prüfinstituts bei [redacted-co] vor und wer- den bei Bedarf
+zur Verfügung gestellt</p>
+</blockquote>
+<h2 id="versuchsauswertung">Versuchsauswertung</h2>
+<ol type="1">
+<li><p>Erstdokumentation
+und Vermessung</p></li>
+</ol>
+<blockquote>
+<p>Sofern neben der standardisierten Erstdokumentation und Vermessung
+durch das ausführen- de Prüfinstitut gesonderte Datenaufnahmen in Form
+von Fotografien oder Vermessungen nö- tig sind, sind diese Umfänge mit
+dem Prüfinstitut abzustimmen.</p>
+<p>Im Anschluss an den Versuch ist das geprüfte Gesamtfahrzeug zusammen
+mit dem Funktions- ausleger zu besichtigen. [redacted-person] und
+Vorbereitung dieses Termins übernimmt der Auftragnehmer.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>Zerlegung</p></li>
+</ol>
+<blockquote>
+<p>Im Anschluss an den Gesamtfahrzeugversuch wird das Crashobjekt von
+dem beauftragten Testinstitut zur weiteren Analyse zerlegt. Die
+extrahierten Bauteile und Komponenten werden detailliert Fotografiert
+und ggf. vermessen. [redacted-person] sind vom Auftragnehmer unter
+Berücksichtigung aller crashrelevanten Bauteilen und Komponenten zu
+koordinieren. [redacted-person]- fälligkeiten oder Anforderung durch die
+Fachabteilung sind die betroffenen Komponenten den Bauteil- oder
+Funktionsverantwortlichen zur Verfügung zu stellen.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Abgleich</p></li>
+</ol>
+<blockquote>
+<p>Im Rahmen der Versuchsauswertung ist ein Abgleich der
+Versuchsergebnisse</p>
+</blockquote>
+<ol type="a">
+<li><p>des aktuellen Versuchs zu dem Vorversuch</p></li>
+<li><p>des aktuellen Versuchs zu der Simulation nötig.</p></li>
+</ol>
+<blockquote>
+<p>In Relation zu setzende Parameter und Eigenschaften sind:</p>
+</blockquote>
+<ul>
+<li><p>Intrusionsgeschwindigkeiten (gespiegelt an Lastenheftvorgaben
+LAH.xxx.xxx [Anlage4])</p></li>
+<li><p>Insassenwerte (gespiegelt an Lastenheftvorgaben LAH.xxx.xxx
+[Anlage3])</p></li>
+<li><p>Insassenkinematik</p></li>
+<li><p>Dummypositionierung</p></li>
+<li><p>Entfaltung des SAB/KTAB</p></li>
+<li><p>Entfaltung des KAB</p></li>
+<li><p>globales Intrusionsverhalten</p></li>
+<li><p>Versagen</p></li>
+</ul>
+<blockquote>
+<p>Dokumentation:</p>
+<p>[redacted-person] der Abgleiche zur Simulation und zum Vorversuch sind
+in Form einer Doku- mentation in Bild und Text darzustellen.
+Auffälligkeiten und deutliche Abweichungen sind zu identifizieren und
+mit den betroffenen Fachabteilungen zu diskutieren. [redacted-person]-
+renzwerte und Vorlagen werden von [redacted-co] zur Verfügung gestellt.
+(siehe Kapitel 5.2.2: Templates)</p>
+</blockquote>
+<h2 id="gesamtdokumentation">Gesamtdokumentation</h2>
+<blockquote>
+<p>[redacted-person] ist in einer ausführlichen, gesamthaften
+Dokumentation aufzu- bereiten. Grundlage hierfür sind die Tätigkeiten
+und einzelnen Dokumentation der früheren Prozessschritte des
+Versuchs.</p>
+<p>[redacted-person] hat den Anspruch alle wichtigen Informationen des
+Versuches zu enthal- ten, sodass ausschließlich anhand der Dokumentation
+ein Überblick über das Projekt bezüglich des in dem Versuch getesteten
+Lastfalls gewonnen werden kann.</p>
+<p>Für jede Versuchsart wird von der Fachabteilung [redacted-co] ein
+Template zur Verfügung ge- stellt.</p>
+<p>Nachfolgend aufgeführte Themen dienen zur Aufwandsabschätzung und
+stellen den Standart- umfang der Gesamtfahrzeugdokumentation dar:</p>
+</blockquote>
+<ul>
+<li><p>Einordnung in den Projektterminplan, nächste
+Meilensteine</p></li>
+<li><p>Erprobungsgrund/ -schwerpunkt ggf. Fazit des Vorversuch
+(Zusammenfassung)</p></li>
+<li><p>Aufbaustand inkl. Änderungen zur Vorgabe und Vorversuch</p></li>
+<li><p>Versuchsbedingungen</p>
+<ul>
+<li><p>Geschwindigkeit</p></li>
+<li><p>Gewichte inkl. Verteilung</p></li>
+<li><p>Trimmlage</p></li>
+<li><p>Trefferlage</p></li>
+<li><p>Tankinhalt</p></li>
+</ul></li>
+<li><p>Abgleich zu Simulation und Vorversuch (siehe Kapitel
+3.3.3)</p></li>
+<li><p>[redacted]mit
+Ampelblatt</p>
+<ul>
+<li><p>Türöffnen</p></li>
+<li><p>Intrusionsgeschwindigkeiten</p></li>
+<li><p>Insassenwerte</p></li>
+<li><p>Entfaltung SAB / KAB</p></li>
+<li><p>ZZP</p></li>
+<li><p>Tankdichtigkeit</p></li>
+<li><p>Überlebensraum</p></li>
+<li><p>Strukturintegrität</p></li>
+<li><p>PostCrash: Türöffnen nach 5 sec. / Warnblinken / etc.</p></li>
+</ul></li>
+<li><p>Auffälligkeiten</p></li>
+<li><p>projektspezifische Eigenschaften (Zierleisten, Beleuchtungen
+usw.)</p></li>
+<li><p>Empfehlung von Maßnahmen</p></li>
+<li><p>[redacted-person]</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] kann in unterschiedlichen Projekten und über
+die Projektdauer variieren. Anpassungen im Rahmen des
+Entwicklungsprozesses sind zu berücksichtigen.</p>
+<p>[redacted-person] der Dokumentation ist vor der Archivierung (siehe
+Datenablage) mit der Fachabteilung bis spätestens 14 Tage nach
+Versuchsdurchführung abzustimmen.</p>
+<p>Sofern es sich bei dem Versuch um einen Freigabeversuch handelt, sind
+zusätzlich zu der Ge- samtfahrzeugdokumentation die Freigabedokumente
+vorzubereiten. Die standardisierten Templates werden von [redacted-co] zur
+Verfügung gestellt.</p>
+</blockquote>
+<h2 id="einordnung-in-den-entwicklungsprozess">Einordnung in den
+Entwicklungsprozess</h2>
+<blockquote>
+<p>[redacted-person] sind Teil des Entwicklungsprozesses eines
+Gesamtfahrzeugs.</p>
+<p>[redacted-person] Seitenaufprall ist tabellarisch (siehe Kapitel
+5.2.2: Template) über die Be- treuungsdauer zu pflegen.</p>
+</blockquote>
+<h1 id="komponentenversuche">Komponentenversuche</h1>
+<blockquote>
+<p>Komponentenversuche sind analog der Gesamtfahrzeugversuche in
+identischem Prozessablauf wie in Abbildung 2-1 aufgezeigt unter
+Berücksichtigung der reduzierten Umfänge und Ver- suchsträgerkomplexität
+durchzuführen.</p>
+<p>[redacted-person] gelten</p>
+</blockquote>
+<ul>
+<li><p>Dacheindrückung</p></li>
+<li><p>Türeindrückung</p></li>
+<li><p>B-Säulenversuche</p></li>
+<li><p>Karosserieschlitten</p></li>
+</ul>
+<h1 id="rahmenbedingungen">Rahmenbedingungen</h1>
+<h2 id="beauftragungszeitraum">Beauftragungszeitraum</h2>
+<blockquote>
+<p>[redacted-person] eines Gesamtversuchs im Seitencrash startet mit dem
+Versuchsträgerauf- bau ca. 24 Wochen vor dem tatsächlichen Prüftermin
+und endet mit der Bereitstellung der letzten Versuchs- beziehungsweise
+Freigabedokumentation. [redacted-person] müssen bis spä- testens 2
+Kalenderwochen nach Versuch vorliegen.</p>
+</blockquote>
+<h2 id="daten">Daten</h2>
+<ol type="1">
+<li><p>Ablage und
+Austausch</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] und Dokumentationen die im Laufe des Prozesses
+erstellt und genutzt werden sind zentral abzulegen. [redacted-person] und die
+Freischaltung für die benötigten Projektlaufwerke werden von [redacted-co]
+zum Projektbeginn zur Verfügung gestellt.</p>
+<p>[redacted-person], auch während der Bearbeitung, dieser Daten auf
+lokalen Datenspeichern ist nicht zulässig.</p>
+<p>Es gelten die Geheimhaltungsvereinbarungen [redacted-co].</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>Formate, Vorlagen
+und Templates</p></li>
+</ol>
+<blockquote>
+<p>Alle für die Anforderungserfüllung dieses Lastenheftes benötigten
+Templates inklusive deren Formaten und Bezeichnungen sind Tabelle 4-1 zu
+entnehmen:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Phase</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Dokument</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Format</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Bezeichnung</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="3"><blockquote>
+<p>Vorbe- reitung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Doku_VTAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>MS-PP</p>
+<p>(pptx)</p>
+</blockquote></td>
+<td><blockquote>
+<p>jjjjmmtt_AUxxx_Cxxxxxx_Doku_VTAB</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Doku_VTVB</p>
+</blockquote></td>
+<td><blockquote>
+<p>MS-PP</p>
+<p>(pptx)</p>
+</blockquote></td>
+<td><blockquote>
+<p>jjjjmmtt_AUxxx_Cxxxxxx_Doku_VTVB</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Werkstattprogramm</p>
+</blockquote></td>
+<td><blockquote>
+<p>Visverdi</p>
+</blockquote></td>
+<td><blockquote>
+<p>jjjjmmtt_Cxxxxxx (wird vorgegeben)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="2"><blockquote>
+<p>Aus- wertung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Doku_Vergleich</p>
+</blockquote></td>
+<td><blockquote>
+<p>MS-PP</p>
+<p>(pptx)</p>
+</blockquote></td>
+<td><blockquote>
+<p>jjjjmmtt_AUxxx_Cxxxxxx_Doku_VGL</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Versuchs- dokumentation</p>
+</blockquote></td>
+<td><blockquote>
+<p>MS-PP</p>
+<p>(pptx)</p>
+</blockquote></td>
+<td><blockquote>
+<p>jjjjmmtt_AUxxx_Cxxxxxx_Doku</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Planung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Versuchsreihe</p>
+</blockquote></td>
+<td><blockquote>
+<p>MS-</p>
+<p>Excel (xlsx)</p>
+</blockquote></td>
+<td><blockquote>
+<p>AUxxx_SC_Versuchsreihe</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Tabelle 4-1: <em>Übersicht: Templates</em></p>
+<p>[redacted-person] enthalten Mindestumfänge und können, sofern durch die
+Projektrandbedingun- gen erforderlich, angepasst werden.</p>
+</blockquote>
+</body>
+</html>

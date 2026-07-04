@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>AA.99.35.Anlage02_BMG_Freigabe_20102023</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"><strong>Projekt:</strong></th>
+<th style="text-align: right;"><strong>Anlauf:</strong></th>
+<th style="text-align: right;"><strong>Lieferant:</strong></th>
+<th style="text-align: right;"><strong>Master-LH-Nr.:<br/>
+Datum:<br/>
+K-Stand:</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: right;"><strong>GE / GU - Projekt:</strong></td>
+<td colspan="3"><strong>Firma (GE / GU):</strong></td>
+<td colspan="5" style="text-align: center;">--------</td>
+<td style="text-align: right;"><strong>BT-LAH-Nr.:<br/>
+K-Stand:</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>BMG-Online Nr.:</strong></td>
+<td style="text-align: right;"><strong>BT-LAH Datum:</strong></td>
+</tr>
+<tr>
+<td style="text-align: right;"><strong>AVON-<br/>
+Begehren Nr.:</strong></td>
+<td style="text-align: right;"><strong>Beschreibung /
+Themenfeld:</strong></td>
+<td colspan="2" style="text-align: center;"><strong>[redacted-person]:</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>Nr.</strong></td>
+<td colspan="6" style="text-align: center;"><strong>Bauteilbezeichnung</strong></td>
+<td colspan="2" style="text-align: center;"><strong>BMG-Pflicht</strong></td>
+<td colspan="3" style="text-align: center;"><strong>Teilenummer</strong></td>
+<td style="text-align: center;"><strong>Bemerkung</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>1</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>2</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>3</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>4</strong></td>
+</tr>
+<tr>
+<td style="text-align: center;"><strong>5</strong></td>
+</tr>
+<tr>
+<td colspan="13" style="text-align: right;"><strong>Bemerkungen:</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>FreiPro:</strong>
+<strong>Freigabeformular zur <u>BMG</u>-Freigabe</strong></p>
+<table>
+<tbody>
+<tr>
+<td><strong>[redacted-person] der Änderung</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>[redacted-person] wurde auf Basis folgender Lastenhefte
+nachgewiesen:</strong></p>
+<table>
+<thead>
+<tr>
+<th><strong>Lastenheft-Nummer</strong></th>
+<th><strong>Stand</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><strong>Stand</strong></td>
+</tr>
+<tr>
+<td colspan="2">Bemerkung:</td>
+</tr>
+</tbody>
+</table>
+<p>Für alle Maßnahmen ist ein Abschlussdatum anzugeben</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Antragsteller</strong></td>
+<td><strong>Unterschrift</strong></td>
+</tr>
+<tr>
+<td><p><em>([redacted-person] einfügen)</em></p>
+<p><em>[redacted-person]</em></p></td>
+<td><p>............................
+....................................................................</p>
+<p>(Datum) (Lieferant) Name leserlich</p></td>
+</tr>
+</tbody>
+</table>
+<p>[redacted-person] hier nur möglich in Kombination mit
+Unterschrift in Klarschrift</p>
+<table>
+<tbody>
+<tr>
+<td><strong>[redacted-person] wurde auf Basis folgender Unterlagen
+nachgewiesen:</strong></td>
+</tr>
+<tr>
+<td><strong>EC (Europa):</strong></td>
+</tr>
+<tr>
+<td><strong>CCC (China):</strong></td>
+</tr>
+<tr>
+<td><strong>CC (Taiwan):</strong></td>
+</tr>
+<tr>
+<td><strong>NAR (Nachweis SGS):</strong></td>
+</tr>
+<tr>
+<td><strong>Brasilien:</strong></td>
+</tr>
+<tr>
+<td><strong>TAC (Indien):</strong></td>
+</tr>
+</tbody>
+</table>
+<p>[redacted-person] sind in der KBK darzustellen (siehe
+Anlage 1)</p>
+<p>ZSB Gurt wurde zugelassen in Verbindung mit Gurtschloss/EBSS
+Teilenummern:</p>
+<p>[redacted-person]</p>
+<p>[redacted-person] aus TAB oder Grafik ist einzufügen</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Antragsteller</strong></td>
+<td><strong>Unterschrift</strong></td>
+</tr>
+<tr>
+<td><p><em>([redacted-person] einfügen)</em></p>
+<p><em>Freigabeempfehlung homologationsverantwortlicher
+Komponentenlieferant (ZSB Gurt)</em></p></td>
+<td><p>............................
+....................................................................</p>
+<p>(Datum) (Lieferant) Name leserlich</p></td>
+</tr>
+</tbody>
+</table>
+<p>[redacted-person] hier nur möglich in Kombination mit
+Unterschrift in Klarschrift</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Antragsteller</strong></td>
+<td><strong>Unterschrift</strong></td>
+</tr>
+<tr>
+<td><p><em>([redacted-person] einfügen)</em></p>
+<p><em>[redacted-person]</em></p></td>
+<td><p>............................
+....................................................................</p>
+<p>(Datum) (Entwicklungsdienstleister) Name leserlich</p></td>
+</tr>
+<tr>
+<td><p>............................
+....................................................................</p>
+<p>(Datum) ([redacted-person])</p></td>
+</tr>
+<tr>
+<td><p>............................
+....................................................................</p>
+<p>(Datum) ([redacted-person])</p></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Konformitätserklärung für Bauteilkennzeichnung
+(KBK)</strong></p>
+<p>Durch die Unterschrift dieses BMG-[redacted-person] bestätigen
+wir,</p>
+<ul>
+<li><p>dass die in der Anlage 1 aufgeführten Angaben und Fotos dem
+Serienstand entsprechen,</p></li>
+<li><p>dass keine Abweichung zwischen den Angaben und den Fotos
+festgestellt wurde,</p></li>
+<li><p>dass wir vor Umsetzung etwaiger Änderungen, die die aufgeführte
+Informationen betreffen, neben der Abwicklung durch Änderungsantrag bzw.
+Bauabweichung, die Fachabteilung und ET explizit hierüber informieren
+werden,</p></li>
+</ul>
+<p>unsere Kenntnisnahme, dass eine Nicht-Konformität der
+typisierungsrelevanten Bauteilkennzeichnung zu gravierenden Konsequenzen
+für das Unternehmen der [redacted-co] führen kann, z.[redacted-person] des
+betroffenen Fahrzeugtyps.</p>
+<p><strong>Anlage 1: Angabe/[redacted-person] und
+Zeichnung</strong></p>
+<table>
+<thead>
+<tr>
+<th>Auszufüllen durch Lieferant (LF)</th>
+<th style="text-align: center;">Auszufüllen durch
+Entwicklungsdienstleister (EDL/GE oder bei KEL Integrator)</th>
+<th><p><strong>Beispiel / Hinweis</strong></p>
+<p>(nach Befüllung ist die Spalte zu leeren)</p></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>[redacted-person]</td>
+<td>Gurt 1SR</td>
+</tr>
+<tr>
+<td>2</td>
+<td>[redacted-person]</td>
+<td>B10 alle Varianten (außer PHEV)</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Typisierungsname</td>
+<td>A1123</td>
+</tr>
+<tr>
+<td>4</td>
+<td>[redacted-person] Typisierungsnamen am Bauteil</td>
+<td><p><img src="./07_Components-aa-99-35-anlage02-bmg-freigabe-20102023-media/media/image6.png" style="width:1.40972in;height:0.5in"/></p>
+<p>LF: [redacted-person] und [redacted-person]</p>
+<p>EDL: Auszug TAB</p>
+<p><strong>Hinweis:</strong></p>
+<ol type="1">
+<li><p>[redacted-person] der Kennzeichnung am Bauteil muss zu 100% mit den
+unter Punkt 3 aufgeführten Nummern übereinstimmen, inkl. Groß- /
+Kleinschreibung, Bindestrichen, Punkten und weiteren
+Trennungszeichen.</p></li>
+<li><p>[redacted-person] muss klar von anderen Kennzeichnungen
+abgegrenzt werden.</p></li>
+</ol></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>5</th>
+<th>[redacted-person] des Typisierungsnamen auf dem CCC (oder
+freiwilligen) Zertifikat bzw. CCC Antragsbogen des Zulieferers</th>
+<th><p><img src="./07_Components-aa-99-35-anlage02-bmg-freigabe-20102023-media/media/image7.png" style="width:2.16667in;height:0.58333in"/></p>
+<p>2020981104000168</p>
+<p>LF: [redacted-person] und [redacted-person]</p>
+<p>EDL: Auszug TAB</p>
+<p><strong>Hinweis:</strong></p>
+<ol type="1">
+<li><p>[redacted-person] ist nur relevant für CCC-genehmigungspflichtige
+Bauteile</p></li>
+<li><p>[redacted-person] der Kennzeichnung auf dem CCC Zertifikat muss zu
+100% mit den unter Punkt 3 und 4 aufgeführten Nummern übereinstimmen,
+inkl. Groß- / Kleinschreibung, Bindestrichen, Punkten und weiteren
+Trennungszeichen.</p></li>
+<li><p>Liegt das CCC Zertifkat noch nicht vor, kann alternativ der CCC
+Antragsbogen des Zulieferers herangezogen werden.</p></li>
+<li><p>[redacted-person]: die CCC Pflicht ist entfallen. [redacted-person] müssen jedoch freiwillig zertifiziert werden. [redacted-person] ist für diese Teile ebenso wie in Punkt 1 bis 3
+beschrieben.</p></li>
+</ol></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>6</td>
+<td>Herstellername/ Herstellungsort/ Factorycode</td>
+<td><p>Magna/Polen/I000050</p>
+<p><strong>Hinweis:</strong></p>
+<ol type="1">
+<li><p>Gemeint ist der Herstellername ohne Zusatz bzw. Rechtsform
+z.B.:<br/>
+[redacted-person] Inc. 🡺 Magna</p></li>
+</ol></td>
+</tr>
+<tr>
+<td>7</td>
+<td>[redacted-person] Herstellername bzw. Hersteller-Logo</td>
+<td><p><img src="./07_Components-aa-99-35-anlage02-bmg-freigabe-20102023-media/media/image8.png" style="width:1.52083in;height:0.80556in"/></p>
+<p>LF: [redacted-person] und [redacted-person]</p>
+<p>EDL: Auszug TAB</p>
+<p><strong>Hinweis:</strong></p>
+<ol type="1">
+<li><p>[redacted-person] Herstellername bzw. Hersteller-Logo, soweit
+vorhanden, darf der im Punkt 6 aufgeführten Information nicht
+widersprechen.</p></li>
+</ol></td>
+</tr>
+<tr>
+<td>8</td>
+<td>CCC [redacted-person]</td>
+<td><p>A046996</p>
+<p>LF: [redacted-person] und [redacted-person]</p>
+<p>EDL: Auszug TAB</p>
+<p><strong>Hinweis:</strong></p>
+<ol type="1">
+<li><p>[redacted-person] ist nur relevant für CCC-genehmigungspflichtige
+Bauteile.</p></li>
+<li><p>Der CCC [redacted-person] bezieht sich auf Produktionsstandort des
+Zulieferers. Wenn mehrere Standorte eines Zulieferers dasselbe Bauteil
+beliefern, sind die [redacted-person] aller Standorte anzugeben.</p></li>
+</ol></td>
+</tr>
+<tr>
+<td>9</td>
+<td>Foto CCC Kennzeichnung (inkl. [redacted-person], falls als Teil der CCC
+Kennzeichnung vorgesehen)</td>
+<td><p><img src="./07_Components-aa-99-35-anlage02-bmg-freigabe-20102023-media/media/image9.png" style="width:0.925in;height:0.64085in"/></p>
+<p>LF: [redacted-person] und [redacted-person]</p>
+<p>EDL: Auszug TAB</p>
+<p><strong>Hinweis:</strong></p>
+<ol type="1">
+<li><p>[redacted-person] ist nur relevant für CCC-genehmigungspflichtige
+Bauteile.</p></li>
+<li><p>[redacted-person] Code, falls als Teil der CCC Kennzeichnung
+vorgesehen, muss mit der im Punkt 8 aufgeführten Information
+übereinstimmen.</p></li>
+</ol></td>
+</tr>
+<tr>
+<td>10</td>
+<td>[redacted-person]</td>
+<td><p>TAC Nr.</p>
+<p><strong>Hinweis:</strong></p>
+<p>[redacted-person] für Indien ist aktuell noch die ECE
+Kennzeichnung</p></td>
+</tr>
+<tr>
+<td>11</td>
+<td>[redacted-person] CC</td>
+<td><p>CC Markierung</p>
+<p>LF: [redacted-person]</p>
+<p>EDL: [redacted-person]</p>
+<p><strong>Hinweis:</strong></p>
+<p>[redacted-person] entspricht genau der Definition aus dem Gesetz (Größe,
+Ausrichtung und Maße)</p></td>
+</tr>
+<tr>
+<td>12</td>
+<td>[redacted-person]</td>
+<td><p>TIS Markierung</p>
+<p><strong>Hinweis:</strong></p>
+<p>[redacted-person] entspricht genau der Definition aus dem Gesetz (Größe,
+Ausrichtung und Maße)</p></td>
+</tr>
+<tr>
+<td>13</td>
+<td>[redacted-person]</td>
+<td><p>KC Markierung</p>
+<p><strong>Hinweis:</strong></p>
+<p>[redacted-person] entspricht genau der Definition aus dem Gesetz (Größe,
+Ausrichtung und Maße)</p></td>
+</tr>
+<tr>
+<td>14</td>
+<td>Kennzeichnung NAR</td>
+<td><p>Meets FMVSS</p>
+<p><strong>Hinweis:</strong></p>
+<p>[redacted-person] entspricht genau der Definition aus dem Gesetz (Größe,
+Ausrichtung und Maße)</p></td>
+</tr>
+<tr>
+<td>15</td>
+<td>Kennzeichnung CE + UKCA</td>
+<td><p>CE Logo; UK CA Kennzeichnung separat (auf Retraktor oder
+EBSS)</p>
+<p><strong>Hinweis:</strong></p>
+<p><strong>[redacted-person] notwendig</strong></p>
+<p>[redacted-person] entspricht genau der Definition aus dem Gesetz (Größe,
+Ausrichtung und Maße)</p></td>
+</tr>
+<tr>
+<td>16</td>
+<td>TAB passt zur Hardware</td>
+<td><p>Steckzungenbelaserung</p>
+<p><strong>Hinweis:</strong></p>
+<p>Abgleich der Steckzungenbelaserung</p>
+<p>Hardware passt 100% überein mit TAB Darstellung</p></td>
+</tr>
+<tr>
+<td>17</td>
+<td>[redacted-person]</td>
+<td><p>Kennzeichnung passt zur Behörde</p>
+<p><strong>Hinweis:</strong></p>
+<p>E1 = KPA</p>
+<p>E11 = VCA</p></td>
+</tr>
+<tr>
+<td>18</td>
+<td>[redacted-person]</td>
+<td><p>[redacted-person].: z.[redacted-person]326, F3 <img src="./07_Components-aa-99-35-anlage02-bmg-freigabe-20102023-media/media/image10.png" style="width:2.18403in;height:0.52708in"/></p>
+<p><strong>Hinweis:</strong></p>
+<p>Angabe der AUXXX Nummer &amp; gesetzlichen Typs FX</p>
+<p>-&gt;LF legt Screenshot der Homologationsunterlage ab</p></td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><strong>Antragsteller</strong></td>
+<td><strong>Unterschrift</strong></td>
+</tr>
+<tr>
+<td><p><em>([redacted-person] einfügen)</em></p>
+<p><em>Freigabeempfehlung homologationsverantwortlicher
+Komponentenlieferant (ZSB Gurt)</em></p></td>
+<td><p>............................
+....................................................................</p>
+<p>(Datum) (Lieferant) Name leserlich</p></td>
+</tr>
+</tbody>
+</table>
+<p>[redacted-person] hier nur möglich in Kombination mit
+Unterschrift in Klarschrift</p>
+<table>
+<tbody>
+<tr>
+<td><strong>Antragsteller</strong></td>
+<td><strong>Unterschrift</strong></td>
+</tr>
+<tr>
+<td><p><em>([redacted-person] einfügen)</em></p>
+<p><em>Freigabeempfehlung verantwortlicher Entwickler</em></p></td>
+<td><p>............................
+....................................................................</p>
+<p>(Datum) (Entwickler) Name leserlich</p></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

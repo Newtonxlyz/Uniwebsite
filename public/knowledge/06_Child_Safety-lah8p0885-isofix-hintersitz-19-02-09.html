@@ -1,0 +1,898 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>12</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<header id="title-block-header">
+<h1 class="title">12</h1>
+</header>
+<blockquote>
+<p><strong>Sicherheitsanforderungen</strong></p>
+</blockquote>
+<p>[redacted-person]</p>
+<blockquote>
+<p>[redacted]</p>
+</blockquote>
+<p>84-52204</p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<blockquote>
+<p>[redacted-person] / OE</p>
+<p>Hausruf [redacted-phone]</p>
+<p>Telefax [redacted]</p>
+<p>[redacted-co]</p>
+<p><img src="./06_Child_Safety-lah8p0885-isofix-hintersitz-19-02-09-media/media/image22.png" style="width:5.93333in;height:4.98in"/>D[redacted]</p>
+<p><strong>Kindersitzverankerungen ISOFIX Hintersitz</strong></p>
+<p><strong>LAH8P0885</strong></p>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Änderungs- stand</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung der Änderung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Ersteller</strong></p>
+<p><em>(Name, OE)</em></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Erstfassung (ohne LAH-Nummer)</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Überarbeitung</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Überarbeitung</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Ergänzung</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Ergänzung ECE-R14.06</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] Sitzlastenhefte</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p><em>Ergänzung: 2.3 neu Positionierung</em></p>
+</blockquote></td>
+<td><blockquote>
+<p><em>[redacted]</em></p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p><em>[redacted-person] Entwicklungslastenheft VW</em></p>
+</blockquote></td>
+<td><blockquote>
+<p><em>[redacted]</em></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#vorwort">Vorwort 4</a></p>
+<ol type="1">
+<li><p><a href="#vorwort">Zielsetzung 4</a></p>
+<ol type="1">
+<li><p><a href="#vorwort">Entwicklungsziel 4</a></p></li>
+<li><p><a href="#vorwort">Zulassung 4</a></p></li>
+<li><p><a href="#vorwort">gesetzliche Anforderungen 4</a></p></li>
+</ol></li>
+<li><p><a href="#vorwort">Geometrien 4</a></p>
+<ol type="1">
+<li><p><a href="#vorwort">Gewichte 4</a></p></li>
+<li><p><a href="#abmessungen">Abmessungen 5</a></p></li>
+<li><p><a href="#abmessungen">Positionierung 5</a></p></li>
+<li><p><a href="#abmessungen">Handhabung 5</a></p></li>
+<li><p><a href="#abmessungen">Polsterteile 5</a></p></li>
+<li><p><a href="#abmessungen">Werkstoffe und Oberflächen 5</a></p></li>
+<li><p><a href="#abmessungen">Korrosion 5</a></p></li>
+<li><p><a href="#abmessungen">Recycling 5</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark2">Sicherheitserprobung 6</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark2">Festigkeit 6</a></p></li>
+<li><p><a href="#_bookmark2">allgemeine Anforderungen 6</a></p></li>
+<li><p><a href="#_bookmark2">[redacted-person].
+6</a></p></li>
+<li><p><a href="#_bookmark2">Sicherheitsversuche: statische Zugversuche
+6</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark2">Zugversuche untere Kindersitz-Verankerungen
+„ISOFIX“ 6</a></p>
+<ol type="1">
+<li><p><a href="#_bookmark2">Geradzugversuch „ISOFIX“ 6</a></p></li>
+<li><p><a href="#_bookmark3">Schrägzugversuch „ISOFIX“ 7</a></p></li>
+<li><p><a href="#_bookmark3">zusätzliche Zugversuche bei sitzfesten
+ISOFIX-Verankerungen 7</a></p></li>
+<li><p><a href="#allgemeines-zum-versuchsablauf">Allgemeines zum
+Versuchsablauf 8</a></p></li>
+<li><p><a href="#allgemeines-zum-versuchsablauf">Beurteilungskriterien
+8</a></p></li>
+</ol></li>
+<li><p><a href="#allgemeines-zum-versuchsablauf">Zugversuch untere und
+obere Kindersitz-Verankerungen „ISOFIX“</a> <a href="#allgemeines-zum-versuchsablauf">und „Top-Tether“ 8</a></p>
+<ol type="1">
+<li><p><a href="#geradzugversuch-isofix-und-top-tether">Geradzugversuch
+„ISOFIX“ und Top-Tether“ 9</a></p></li>
+<li><p><a href="#geradzugversuch-isofix-und-top-tether">Allgemeines zum
+Versuchsablauf „ISOFIX“ und „Top-Tether“</a> <a href="#geradzugversuch-isofix-und-top-tether">Zugversuch 9</a></p></li>
+<li><p><a href="#beurteilungskriterien-1">Beurteilungskriterien
+10</a></p></li>
+</ol></li>
+<li><p><a href="#beurteilungskriterien-1">[redacted-person]
+10</a></p>
+<ol type="1">
+<li><p><a href="#beurteilungskriterien-1">[redacted-person]
+10</a></p></li>
+<li><p><a href="#beurteilungskriterien-1">Frontalaufprall 0°, 50 km/h
+nach ECE-R 44 (Schlittenversuch) 10</a></p></li>
+<li><p><a href="#beurteilungskriterien-1">Frontalaufprall 0°, 56 km/h
+(Schlittenversuch oder</a></p></li>
+</ol></li>
+</ol></li>
+</ol></li>
+</ol>
+<p><a href="#beurteilungskriterien-1">Fahrzeugcrash) 10</a></p>
+<ol start="4" type="1">
+<li><p><a href="#schrägaufprall-30-50-kmh-schlittenversuch">Schrägaufprall 30°, 50
+km/h (Schlittenversuch) 11</a></p></li>
+<li><p><a href="#schrägaufprall-30-50-kmh-schlittenversuch">Seitenaufprall 90°,
+(30 km/h Schlitten oder 50 km/h</a></p></li>
+</ol>
+<p><a href="#schrägaufprall-30-50-kmh-schlittenversuch">Fahrzeugcrash)
+11</a></p>
+<ol start="6" type="1">
+<li><p><a href="#heckaufprall-180-30-kmh-schlittenversuch">Heckaufprall
+180°, 30 km/h (Schlittenversuch) 12</a></p></li>
+<li><p><a href="#heckaufprall-180-30-kmh-schlittenversuch">Schutz vor
+[redacted-person] 0°, 50 km/h nach ECE-R 17</a></p></li>
+</ol>
+<p><a href="#heckaufprall-180-30-kmh-schlittenversuch">. 12</a></p>
+<ol start="4" type="1">
+<li><p><a href="#heckaufprall-180-30-kmh-schlittenversuch">Funktionserprobung
+12</a></p>
+<ol type="1">
+<li><p><a href="#heckaufprall-180-30-kmh-schlittenversuch">Allgemeines
+12</a></p></li>
+<li><p><a href="#heckaufprall-180-30-kmh-schlittenversuch">Verspannungsempfindlichkeit
+12</a></p></li>
+<li><p><a href="#betätigungskräfte-klappbare-isofix-verankerungen">Betätigungskräfte
+klappbare ISOFIX-Verankerungen 13</a></p></li>
+<li><p><a href="#betätigungskräfte-klappbare-isofix-verankerungen">Dauerlauf
+ISOFIX-Verankerungen (Labortest) 13</a></p></li>
+<li><p><a href="#betätigungskräfte-klappbare-isofix-verankerungen">Fahrzeugdauerlauf
+EWP 13</a></p></li>
+<li><p><a href="#betätigungskräfte-klappbare-isofix-verankerungen">Dauerlauf
+klappbare ISOFIX-Verankerungen 13</a></p></li>
+</ol></li>
+</ol>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>[redacted-person] beschreibt Leistungen, Anforderungen sowie Prüf- und
+Erprobungsbedingungen die das Produkt erfüllen muß.</p>
+<p>Zusätzlich zu diesem Lastenheft gelten die Entwicklungsbedingungen [redacted-co]99000.</p>
+<p>[redacted-person] des Gesamtfahrzeug-Lastenheftes sind zu beachten.
+Inhalte dieses Sicherheitslastenheftes dürfen Dritten ohne ausdrückliche
+Genehmigung durch [redacted-co] nicht zugänglich gemacht werden.</p>
+</blockquote>
+<h1 id="zielsetzung">Zielsetzung</h1>
+<h2 id="entwicklungsziel"><em>Entwicklungsziel</em></h2>
+<blockquote>
+<p>Entwicklung einer Kindersitzbefestigung nach ISO-Norm 13216-1 bzw.
+ECE- R14.06 für ISOFIX-Kindersitze (für Kinder bis zu einem Gewicht von
+ca. 20 kg, bzw. bis zu einem Altersbereich von bis ca. 4 Jahre).</p>
+<p>ISOFIX-Kindersitz bei [redacted]„Huckepack G1 ISOFIX [redacted-person]“ des
+[redacted-person] Römer, Ulm</p>
+</blockquote>
+<h2 id="zulassung"><em>Zulassung</em></h2>
+<blockquote>
+<p>[redacted-person] ist nach ECE-R 44.03 in der Kategorie</p>
+<p>„fahrzeugspezifisch“ zuzulassen. Bei entsprechenden neuen Versionen
+der ECE-R 44 sind die entsprechenden Anforderungen zu erfüllen. Geltende
+länderspezifische Vorschriften sind zu beachten.</p>
+</blockquote>
+<h2 id="gesetzliche-anforderungen"><em>gesetzliche
+Anforderungen</em></h2>
+<blockquote>
+<p>[redacted-person] bzw. Anforderungen sind bei der Entwicklung zu
+erfüllen. Es gelten jeweils die neuesten Änderungsstände:</p>
+<p>ISO 13216-1 ECE-R 44.xx ECE-R 14.xx ECE-R 16.xx</p>
+<p>EG 77/541/EWG in der Fassung 2000/3/EG [redacted-person]
+LAHxxx885x</p>
+</blockquote>
+<h1 id="geometrien">Geometrien</h1>
+<h2 id="gewichte"><em>Gewichte</em></h2>
+<blockquote>
+<p>[redacted-person] der ISOFIX-Verankerungen sowie der zusätzlichen Maßnahmen
+ist so gering wie möglich auszulegen.</p>
+</blockquote>
+<h2 id="abmessungen"><em>Abmessungen</em></h2>
+<blockquote>
+<p>Die ISOFIX-Verankerungen sind nach den Abmessungen und geforderten
+Ausführungen der ISO-Norm 13216-1 bzw. ECE-R14.06 für die beiden
+hinteren äußeren Sitzplätze auszulegen.</p>
+</blockquote>
+<ul>
+<li><p>Durchmesser der Verankerungspunkte 6 mm</p></li>
+<li><p>seitlicher Abstand der Mittelpunkte der Verankerungspunkte 280
+mm</p></li>
+<li><p>Lage der Verankerungspunkte max. 70 mm hinter dem Referenzpunkt
+des Kindersitzprüfkörpers (CRF)</p></li>
+<li><p>Lage der Verankerungspunkte mindestens 120 mm hinter dem R-Punkt
+des Sitzplatzes</p></li>
+</ul>
+<blockquote>
+<p>Die geforderten Freiräume um die ISOFIX-Verankerungen müssen
+gewährleistet sein (EuroNCAP-Anforderungen).</p>
+</blockquote>
+<h2 id="positionierung"><em>Positionierung</em></h2>
+<blockquote>
+<p>Die ISOFIX-Verankerungen sind im Bezug zum Fahrzeugsitz zu
+positionieren (Prüfaufbau: Kindersitzprüfkörper (CRF) auf Sitz
+positioniert und an den ISOFIX-Verankerungen befestigt =&gt;
+Winkelmessung zwischen Bodenfläche CRF und
+Fahrzeugkoordinatensystem):</p>
+<p>Nickwinkel (um Y-Achse): 15° +/- 3°</p>
+<p>Rollwinkel (um X-Achse): 0° +/- 5°</p>
+<p>Gierwinkel (um Z-Achse): 0° +/- 10°</p>
+<p>[redacted-person] beim Nickwinkel kann in Abstimmung mit der
+Fachabteilung unter bestimmten Randbedingungen erweitert werden.</p>
+<p>Für die Prüfung steht der ISO-Normkörper F2 (8P[redacted-phone]A) zur
+Verfügung.</p>
+</blockquote>
+<h2 id="handhabung"><em>Handhabung</em></h2>
+<blockquote>
+<p>[redacted-person] dürfen den normalen Sitzkomfort nicht
+beeinträchtigen. Bei klappbaren Ausführungen der ISOFIX-Verankerungen
+soll das Bedienelement zum Ausklappen deutlich sichtbar sein. Bei der
+Montage des Kindersitzes müssen die fahrzeugseitigen Anschlußpunkte
+sicher ihre Position beibehalten.</p>
+</blockquote>
+<h2 id="polsterteile"><em>Polsterteile</em></h2>
+<blockquote>
+<p>[redacted-person] im Sitzpolster sollen deutlich erkennbar sein
+und durch Kunststofführungen kenntlich gemacht werden, jedoch das Design
+der Sitzlehne nicht verschlechtern (EuroNCAP-Anforderungen)</p>
+</blockquote>
+<h2 id="werkstoffe-und-oberflächen"><em>Werkstoffe und
+Oberflächen</em></h2>
+<blockquote>
+<p>[redacted-person] der fahrzeugseitigen Kindersitzverankerungen muß den
+Anforderungen hinsichtlich Verschleiß und bei sichtbaren Umfängen
+hinsichtlich Optik den jeweiligen Anforderungen entsprechen.</p>
+<p>Empfehlung für [redacted-person]:
+Oberflächenschutzanforderung nach TL 256 (ohne Index) Ofl-x 650 nach [redacted]</p>
+<p>Alternativ: Edelstahl nach EN 1.4302 – X5CrNi 18-10 +1P</p>
+</blockquote>
+<h2 id="korrosion"><em>Korrosion</em></h2>
+<blockquote>
+<p>Anforderungen nach ECE-R 16.04</p>
+</blockquote>
+<h2 id="recycling"><em>Recycling</em></h2>
+<blockquote>
+<p>[redacted-person] müssen aus recyclefähigem Material
+gefertigt sein. Kunststoffteile sind sortenrein auszuführen und
+entsprechend zu</p>
+<p>kennzeichnen. Bei der
+Verwendung verschiedenen Materialien ist eine leichte Trennung zu
+gewährleisten.</p>
+</blockquote>
+<h1 id="sicherheitserprobung">Sicherheitserprobung</h1>
+<h2 id="festigkeit"><em>Festigkeit</em></h2>
+<blockquote>
+<p>Bei allen Versuchen dieses Abschnittes dürfen keine die Funktion
+beeinträchtigende Beschädigung der tragenden Struktur auftreten.
+Weiterhin dürfen Teile weder splittern, brechen noch scharfe Kanten
+bilden.</p>
+</blockquote>
+<h2 id="allgemeine-anforderungen"><em>allgemeine Anforderungen</em></h2>
+<ul>
+<li><p>kein Ausreißen von Verankerungspunkten</p></li>
+<li><p>kein verletzungsgefährdender Bruch</p></li>
+<li><p>Erfüllung aller Bedingungen auch bei Prüfung mit größtmöglichem
+Sitzgewicht</p></li>
+<li><p>Es dürfen keine für den Insassen verletzungsgefährdend wirkende
+Verformungsbilder auftreten.</p></li>
+</ul>
+<h2 id="sicherheitstechnische-anforderungen"><em>[redacted-person]</em></h2>
+<blockquote>
+<p>Alle sicherheitstechnischen Anforderungen nach ECE-R 44 und ISO
+13216-1 bzw. ECE-R14.06 sind auch bei 20% Überlast zu erfüllen.</p>
+</blockquote>
+<h2 id="sicherheitsversuche-statische-zugversuche"><em>Sicherheitsversuche:
+statische Zugversuche</em></h2>
+<blockquote>
+<p>Die statischen Zugversuche an den ISOFIX-Verankerungen sind nach ISO
+13216-1 bzw. ECE-R14.06 durchzuführen (Kindersitzprüfgestell S-FAD,
+entspricht S-FAD 2 in FMVSS 225). [redacted-person] dürfen auch bei 20%
+Überlast nicht überschritten werden.</p>
+<p>Bei einstellbaren Sitzen sind die Zugversuche in der hintersten
+oberen und der hintersten unteren Sitzstellung durchzuführen.</p>
+<p>Die abschließenden Versuche sind in einer Fahrzeugkarosserie
+durchzuführen.</p>
+</blockquote>
+<h2 id="zugversuche-untere-kindersitz-verankerungen-isofix"><em>Zugversuche
+untere Kindersitz-Verankerungen „ISOFIX“</em></h2>
+<h2 id="geradzugversuch-isofix"><em>Geradzugversuch „ISOFIX“</em></h2>
+<p><img src="./06_Child_Safety-lah8p0885-isofix-hintersitz-19-02-09-media/media/image23.png"/></p>
+<blockquote>
+<p>F<sub>1</sub> =
+F<sub>2</sub> = 8,0 kN (ISO 13216 bzw. ECE-R14.06) bzw. 9,6 kN (+
+20%)</p>
+<p>Kraft gleichzeitig aufbringen</p>
+</blockquote>
+<h2 id="schrägzugversuch-isofix"><em>Schrägzugversuch „ISOFIX“</em></h2>
+<p><img src="./06_Child_Safety-lah8p0885-isofix-hintersitz-19-02-09-media/media/image34.png"/></p>
+<blockquote>
+<p>F<sub>3</sub> = F<sub>4</sub> = 5,0 kN (ISO 13216 bzw. ECE-R14.06)
+bzw. 6,0 kN (+20%)</p>
+<p>Kraft gleichzeitig aufbringen</p>
+<p>F<sub>5</sub> = F<sub>6</sub> = 5,0 kN (ISO 13216 bzw. ECE-R14.06)
+bzw. 6,0 kN (+20%)</p>
+<p>Kraft gleichzeitig aufbringen</p>
+</blockquote>
+<h2 id="zusätzliche-zugversuche-bei-sitzfesten-isofix-verankerungen"><em>zusätzliche
+Zugversuche bei sitzfesten ISOFIX-Verankerungen</em></h2>
+<blockquote>
+<p>Neben den in der ISO 13216-1 geforderten Zugversuchen, sind bei
+sitzfesten ISOFIX-Verankerungen auch folgende Zugversuche
+erforderlich.</p>
+<p>Bei einstellbaren Sitzen sind diese Versuche in der hintersten oberen
+sowie in der hintersten unteren Sitzeinstellung durchzuführen.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Versuch</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Zugrichtung in x</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Zugrichtung in z</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Kraft (ISO + 20%)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>9,6 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>B</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>15° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>8° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>8,9 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>C</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>8,2 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>D</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>45° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>7,5 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>E</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>60° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6,8 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>F</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>75° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6,0 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[redacted-person] kann nach ersten Simulationsrechnungen sowie ersten
+Versuchserfahrungen neu mit [redacted-co] abgestimmt werden.</p>
+</blockquote>
+<h2 id="allgemeines-zum-versuchsablauf"><em>Allgemeines zum
+Versuchsablauf</em></h2>
+<blockquote>
+<p>[redacted-person] werden über das Kindersitzprüfgestell S-FAD (Ausführung
+nach ISO 13216-1 bzw. ECE-R14.06), das an den ISOFIX-Verankerungen
+befestigt ist, aufgebracht.</p>
+<p>[redacted-person] einer Sitzreihe werden gleichzeitig geprüft.</p>
+<p>Vor dem eigentlichen Zugversuch ist eine Vorlast von 500 N
+aufzubringen. [redacted-person] beginnt erst nach der Vorlast.</p>
+<p>[redacted-person] (8,0 kN beim Geradzug, bzw. 5,0 kN beim Schrägzug) sind
+anschließend gleichzeitig und einzeln innerhalb von 2 Sekunden
+aufzubringen und 0,5 Sekunden zu halten. Anschließend wird innerhalb von
+0,5 Sekunden die Kraft um 20% erhöht (9,6 kN beim Geradzug, bzw. 6,0 kN
+beim Schrägzug), 0,5 Sekunden gehalten und innerhalb von 2 Sekunden
+entlastet.</p>
+<p>Alle testspezifischen Kriterien sind während der Entwicklung und
+Serienüberprüfung einzuhalten und zu dokumentieren.</p>
+</blockquote>
+<h2 id="beurteilungskriterien"><em>Beurteilungskriterien</em></h2>
+<blockquote>
+<p>[redacted-person] dürfen während der Haltezeit nicht unterschritten
+werden.</p>
+<p>Die maximale Vorverlagerung (horizontal zur Zugrichtung) des Punktes
+x des Kindersitzprüfgestells S-FAD beträgt 125 mm (dynamisch).</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><em><strong>Zugversuch untere und obere Kindersitz-Verankerungen
+„ISOFIX“ und</strong></em></p></li>
+</ol>
+<blockquote>
+<p><em><strong>„Top-Tether“</strong></em></p>
+</blockquote>
+<h2 id="geradzugversuch-isofix-und-top-tether"><em>Geradzugversuch
+„ISOFIX“ und Top-Tether“</em></h2>
+<blockquote>
+<p>F<sub>1</sub> = F<sub>2</sub> = 8,0 kN (ECE-R14.06) bzw. 9,6 kN (+
+20%)</p>
+</blockquote>
+<h2 id="allgemeines-zum-versuchsablauf-isofix-und-top-tether-zugversuch"><em>Allgemeines
+zum Versuchsablauf „ISOFIX“ und „Top-Tether“</em> Zugversuch</h2>
+<blockquote>
+<p>[redacted-person] werden über das ECE-R14.06-Kindersitzprüfgestell S-FAD
+(befestigt an den „ISOFIX“-Verankerungen und am „[redacted-person]“-
+Verankerungspunkt). [redacted-person] einer Sitzreihe werden gleichzeitig
+geprüft.</p>
+<p>Vor dem eigentlichen Zugversuch ist eine Vorlast von 500 N
+aufzubringen. [redacted-person] beginnt erst nach der Vorlast.</p>
+<p>[redacted-person] (8,0 kN) ist anschließend gleichzeitig und einzeln
+innerhalb von 2 Sekunden aufzubringen und 0,5 Sekunden zu halten.
+Anschließend wird innerhalb von 0,5 Sekunden die Kraft um 20% erhöht
+(9,6 kN), 0,5 Sekunden gehalten und innerhalb von 2 Sekunden
+entlastet.</p>
+<p>Alle testspezifischen Kriterien sind während der Entwicklung und
+Serienüberprüfung einzuhalten und zu dokumentieren.</p>
+</blockquote>
+<h2 id="beurteilungskriterien-1"><em>Beurteilungskriterien</em></h2>
+<blockquote>
+<p>[redacted-person] dürfen während der Haltezeit nicht unterschritten
+werden.</p>
+<p>Die maximale Vorverlagerung (horizontal zur Zugrichtung) des Punktes
+x des Kindersitzprüfgestells S-FAD beträgt 125 mm (dynamisch).</p>
+</blockquote>
+<h2 id="dynamische-prüfungen"><em>[redacted-person]</em></h2>
+<h2 id="allgemeine-bedingungen"><em>[redacted-person]</em></h2>
+<blockquote>
+<p>Neben den in der ECE-R 44.03 festgelegten Tests sind nachfolgende
+Prüfungen durchzuführen. Alle testspezifischen Verletzungskriterien sind
+währen der Entwicklung und Serienüberprüfung einzuhalten und zu
+dokumentieren.</p>
+<p>Testbedingungen:</p>
+</blockquote>
+<ul>
+<li><p>Aufbau der Versuche in Fahrzeugumgebung (Karosse oder
+Karossenabschnitt)</p></li>
+<li><p>Beschleunigungsverlauf siehe Matrix</p></li>
+<li><p>ISOFIX [redacted-person] 1 „Huckepack G1 ISOFIX Duo“ der Fa.
+[redacted-person] mit 18 kg schwerem 3-jährigem Dummy</p></li>
+</ul>
+<h2 id="frontalaufprall-0-50-kmh-nach-ece-r-44-schlittenversuch"><em>Frontalaufprall
+0°, 50 km/h nach ECE-R 44 (Schlittenversuch)</em></h2>
+<blockquote>
+<p><strong>a [g]</strong></p>
+<p>[redacted-person] dürfen sich nicht lösen.</p>
+<p>Verletzungskriterien (ergänzend zu den Anforderungen in der ECE-R
+44.03): Kopf a <sub>res</sub> <sub>3ms</sub> &lt; 60 g</p>
+<p>HIC &lt; 600 US-Dummy (800 TNO-Dummy)</p>
+<p>Brust a <sub>res</sub> <sub>3ms</sub> &lt; 45 g Brust a <sub>z</sub>
+<sub>3</sub> <sub>ms</sub> &lt; 25 g</p>
+</blockquote>
+<h2 id="frontalaufprall-0-56-kmh-schlittenversuch-oder-fahrzeugcrash"><em>Frontalaufprall
+0°, 56 km/h (Schlittenversuch oder Fahrzeugcrash)</em></h2>
+<blockquote>
+<p>Verzögerungsverlauf nach [redacted-person]
+Kindersitzverankerungen dürfen sich nicht lösen.</p>
+</blockquote>
+<h2 id="schrägaufprall-30-50-kmh-schlittenversuch"><em>Schrägaufprall
+30°, 50 km/h (Schlittenversuch)</em></h2>
+<blockquote>
+<p><strong>a [g]</strong></p>
+<p><img src="./06_Child_Safety-lah8p0885-isofix-hintersitz-19-02-09-media/media/image60.png"/>[redacted-person] dürfen sich nicht lösen.</p>
+</blockquote>
+<h2 id="seitenaufprall-90-30-kmh-schlitten-oder-50-kmh-fahrzeugcrash"><em>Seitenaufprall
+90°, (30 km/h Schlitten oder 50 km/h Fahrzeugcrash)</em></h2>
+<blockquote>
+<p><strong>a [g]</strong></p>
+<p><img src="./06_Child_Safety-lah8p0885-isofix-hintersitz-19-02-09-media/media/image61.png"/>[redacted-person] dürfen sich nicht lösen.</p>
+</blockquote>
+<h2 id="heckaufprall-180-30-kmh-schlittenversuch"><em>Heckaufprall 180°,
+30 km/h (Schlittenversuch)</em></h2>
+<blockquote>
+<p><strong>a [g]</strong></p>
+<p>[redacted-person] dürfen sich nicht lösen.</p>
+</blockquote>
+<h2 id="schutz-vor-ladung-frontalaufprall-0-50-kmh-nach-ece-r-17"><em>Schutz
+vor [redacted-person] 0°, 50 km/h nach ECE-R 17</em></h2>
+<blockquote>
+<p>Zusatzversuch bei sitzfesten ISOFIX-Kindersitzverankerungen</p>
+</blockquote>
+<ul>
+<li><p>Prüfbedingungen nach ECE-R 17 (Frontalaufprall mit 50 km/h,
+Laderaum mit 2 x 18 kg Prüfkörpern)</p></li>
+<li><p>ISOFIX-Kindersitz mit 3-jährigem Dummy</p></li>
+</ul>
+<blockquote>
+<p>Es müssen für den Kinderdummy vertretbare Verletzungskriterien
+eingehalten werden.</p>
+</blockquote>
+<h2 id="funktionserprobung"><em>Funktionserprobung</em></h2>
+<h2 id="allgemeines"><em>Allgemeines</em></h2>
+<blockquote>
+<p>[redacted-person] der Fahrzeugsitze dürfen nicht beeinträchtigt
+werden. [redacted-person] des Kindersitzes muß in allen einstellbaren
+Positionen des Sitzes (übliche Lehneneinstellungen) möglich sein.</p>
+<p>[redacted-person] müssen eine Einhandbedienung ermöglichen.</p>
+<p>[redacted-person] klappbarer ISOFIX-Verankerungen muß zwischen –40°C
+und</p>
+<p>+80°C gewährleistet sein.</p>
+<p>[redacted-person] von ISOFIX darf nicht zu Komforteinbußen oder zu
+unangenehmen Geräuschen (z.[redacted-person]) im Fahrbetrieb führen. [redacted-person] muß spielfrei dargestellt werden.</p>
+</blockquote>
+<h2 id="verspannungsempfindlichkeit"><em>Verspannungsempfindlichkeit</em></h2>
+<blockquote>
+<p>[redacted-person] der klappbaren ISOFIX-Verankerungen muß auch bei einer
+durch Fertigungstoleranzen bedingten Verspannung in allen
+Koordinatenrichtungen funktionsfähig sein.</p>
+<p>[redacted-person] dürfen die Bedienkräfte um maximal 20% ansteigen.</p>
+</blockquote>
+<h2 id="betätigungskräfte-klappbare-isofix-verankerungen"><em>Betätigungskräfte
+klappbare ISOFIX-Verankerungen</em></h2>
+<blockquote>
+<p>Entriegeln N Verriegeln N</p>
+<p>[redacted-person] werden anhand erster Muster festgelegt.</p>
+</blockquote>
+<h2 id="dauerlauf-isofix-verankerungen-labortest"><em>Dauerlauf
+ISOFIX-Verankerungen (Labortest)</em></h2>
+<blockquote>
+<p>Dauerlauferprobung ist mit 2000 Zyklen bei Raumtemperatur
+durchzuführen</p>
+<p>=&gt; Kindersitz 2000 x ein- und ausbauen</p>
+<p>[redacted-person] bei Riefenbildung &lt; 80 µm i.[redacted-person] Oberfläche beschichtet wie unter 2.5 beschrieben.</p>
+</blockquote>
+<h2 id="fahrzeugdauerlauf-ewp"><em>Fahrzeugdauerlauf EWP</em></h2>
+<blockquote>
+<p>Verschleiß- und Funktionserprobung</p>
+<p>Beladung: 1.) ISOFIX-Kindersitz aus aktuellem [redacted-co]-Originalzubehör-
+Programm ohne Beladung</p>
+<p>2.) ISOFIX-Kindersitz aus aktuellem [redacted-co]-Originalzubehör- Programm
+mit Ballastgewicht 18 kg</p>
+<p>Laufziel: [redacted-phone]km für alle Bauteile</p>
+<p>[redacted-person] des entsprechenden Neuumfangs sind mindestens 3
+Fahrzeuge mit 6000 km schadensfrei nachzuweisen.</p>
+<p>Weiterlauf dieser Fahrzeuge bis [redacted-phone]km.</p>
+<p>Ausnahmen: 50.000 km für AGA für 4 [redacted-person]</p>
+<p>60.000 km Klapperfreiheit für Ausstattungsteile sowie
+Karosserieanbauteile</p>
+</blockquote>
+<h2 id="dauerlauf-klappbare-isofix-verankerungen"><em>Dauerlauf
+klappbare ISOFIX-Verankerungen</em></h2>
+<blockquote>
+<p>Es ist eine Dauerlauferprobung mit 5000 Zyklen durchzuführen: 1500
+Zyklen bei Raumtemperatur ohne Verschmutzung 1000 Zyklen bei +60°C</p>
+<p>1000 Zyklen bei –20°C</p>
+<p>1500 Zyklen bei Raumtemperatur mit Verschmutzung (5g Prüfstaub direkt
+auf bewegliche Teile)</p>
+<p>Am ISOFIX-System dürfen keinerlei Beschädigungen auftreten. [redacted-person] muß nach dem Versuch noch funktionsfähig sein. [redacted-person]
+dürfen sich die Werte der Bedienkräfte um max. 20% erhöhen.</p>
+</blockquote>
+</body>
+</html>

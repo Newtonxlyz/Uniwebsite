@@ -1,0 +1,1246 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>[redacted-person] Funktions-Lastenheft</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<header id="title-block-header">
+<h1 class="title">[redacted-person] Funktions-Lastenheft</h1>
+</header>
+<blockquote>
+<p>[redacted-person]</p>
+<p>[redacted]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-person] / OE</p>
+<p>Hausruf [redacted-phone]</p>
+<p>Telefax [redacted]</p>
+<p>[redacted-co]</p>
+<p><img src="./03_Side_Crash-lah-dum-880-h-berechnung-seitenschutz-17-media/media/image2.png" style="width:5.94005in;height:4.98656in"/>D[redacted]</p>
+<p><strong>[redacted]LAH.DUM.880.H</strong></p>
+</blockquote>
+<h2 id="verteiler">Verteiler</h2>
+<table>
+
+<tbody>
+<tr>
+<td>[redacted]Seite</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<p><img src="./03_Side_Crash-lah-dum-880-h-berechnung-seitenschutz-17-media/media/image3.jpeg" style="width:6.5474in;height:2.51719in"/></p>
+<blockquote>
+<p>Im Original unterschrieben</p>
+</blockquote>
+<h2 id="änderungsdokumentation">Änderungsdokumentation</h2>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<h1 id="vorwort-7"><a href="#vorwort">Vorwort 7</a></h1>
+<h1 id="berechnungsumfang-und-entwicklungsprozess-8"><a href="#berechnungsumfang-und-entwicklungsprozess">Berechnungsumfang und
+Entwicklungsprozess 8</a></h1>
+<h1 id="modellerstellung-fem-berechnung-9"><a href="#modellerstellung-fem-berechnung">Modellerstellung – FEM
+Berechnung 9</a></h1>
+<ol type="1">
+<li><p><a href="#richtlinien-modellerstellung-auswertung-und-dokumentation">[redacted-person], Auswertung und Dokumentation 9</a></p></li>
+<li><p><a href="#umfänge-der-insassenmodelle">Umfänge der
+Insassenmodelle 10</a></p>
+<ol type="1">
+<li><p><a href="#übernahme-includes-anderer-abteilungen">[redacted-person] anderer Abteilungen 10</a></p></li>
+<li><p><a href="#karosserie">Karosserie 10</a></p></li>
+<li><p><a href="#türverkleidung-seitenverkleidung">Türverkleidung &amp;
+Seitenverkleidung 10</a></p></li>
+<li><p><a href="#greenhouse">Greenhouse 12</a></p></li>
+<li><p><a href="#cockpit">Cockpit 13</a></p></li>
+<li><p><a href="#kopfairbag">Kopfairbag 13</a></p></li>
+<li><p><a href="#seitenairbag">Seitenairbag 14</a></p></li>
+<li><p><a href="#sonstige-airbags">[redacted-person] 14</a></p></li>
+<li><p><a href="#gurt">Gurt 15</a></p></li>
+<li><p><a href="#sitze">Sitze 15</a></p></li>
+<li><p><a href="#package">Package 16</a></p></li>
+<li><p><a href="#sensoren">Sensoren 17</a></p></li>
+<li><p><a href="#kabel">Kabel 17</a></p></li>
+<li><p><a href="#dichtungen">Dichtungen 17</a></p></li>
+<li><p><a href="#fe-dummymodelle">FE-Dummymodelle 17</a></p></li>
+<li><p><a href="#dummypositionierung">Dummypositionierung
+18</a></p></li>
+</ol></li>
+<li><p><a href="#validierung-der-gesamtmodelle">Validierung der
+Gesamtmodelle 19</a></p></li>
+<li><p><a href="#substrukturmodelle">Substrukturmodelle 19</a></p>
+<ol type="1">
+<li><p><a href="#standversuche">Standversuche 19</a></p></li>
+<li><p><a href="#motionmodell">Motionmodell 19</a></p></li>
+<li><p><a href="#robustheitsuntersuchungen-und-optimierungen">Robustheitsuntersuchungen
+und Optimierungen 20</a></p></li>
+</ol></li>
+</ol>
+<ol start="4" type="1">
+<li><p><a href="#simulationsumfänge-zur-funktionsauslegung">Simulationsumfänge zur
+Funktionsauslegung 21</a></p>
+<ol type="1">
+<li><p><a href="#auslegung-insassenschutz">[redacted-person]
+21</a></p>
+<ol type="1">
+<li><p><a href="#lastfälle">Lastfälle 21</a></p></li>
+<li><p><a href="#robustheit">Robustheit 22</a></p></li>
+<li><p><a href="#oop-lastfälle">OoP Lastfälle 22</a></p></li>
+</ol></li>
+<li><p><a href="#grenzwerte-für-die-insassenbelastung">Grenzwerte für
+die Insassenbelastung 22</a></p></li>
+</ol></li>
+<li><p><a href="#dokumentation-und-ergebnisdarstellung">Dokumentation
+und Ergebnisdarstellung 24</a></p></li>
+<li><p><a href="#projektabschluss">Projektabschluss 25</a></p></li>
+<li><p><a href="#lastenhefte">Lastenhefte 26</a></p>
+<ol type="1">
+<li><p><a href="#mitgeltende-lastenhefte">[redacted-person]
+26</a></p></li>
+<li><p><a href="#lastenhefte-zur-info">Lastenhefte zur Info
+26</a></p></li>
+<li><p><a href="#technische-spezifikationen-normen">[redacted-person] / Normen 26</a></p></li>
+</ol></li>
+<li><p><a href="#_bookmark41">Anhang 1: Angebotsübersichtsmatrix
+27</a></p></li>
+</ol>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>[redacted-person] beschreibt vom Entwicklungspartner geforderte
+Leistungen bzgl. FE-Modellen im [redacted-person].</p>
+<p>In diesem Lastenheft wird die anzuwendende Methodik detailliert
+beschrieben. [redacted-person] resultiert aus der Entwicklungserfahrung der
+[redacted-co] und ist deshalb für den Entwicklungsprozess bindend. Damit soll
+eine hohe Aussagefähigkeit der Simulationsergebnisse sichergestellt
+werden. [redacted-person] sind nur dann zulässig, wenn sie in
+[redacted-person] besser oder effektiver sind und dies der
+[redacted-co]-Fachabteilung eindeutig nachgewiesen wird und von dieser akzeptiert
+wurde.</p>
+<p>Abweichungen von diesem Lastenheft sind während der Angebotsphase mit
+der [redacted-person] Insassenschutzsysteme abzustimmen und
+schriftlich (mit Unterschrift [redacted-co]) festzuhalten. Dies gilt
+insbesondere für vom Entwicklungspartner ausgeschlossene Teilumfänge und
+für – aus Sicht des Entwicklungspartners – zusätzlich erforderliche
+Umfänge.</p>
+<p>Inhalte dieses Lastenheftes dürfen Dritten ohne ausdrückliche
+Genehmigung durch die [redacted-co] nicht zugänglich gemacht werden. Sollte
+durch Nichtbeachtung des [redacted-person] entstehen, behält sich
+die [redacted-co] das Recht vor, einen Dritten zu beauftragen, um dies
+auszugleichen.</p>
+</blockquote>
+<h1 id="berechnungsumfang-und-entwicklungsprozess">Berechnungsumfang und
+Entwicklungsprozess</h1>
+<blockquote>
+<p>Ziel ist es, die Entwicklung von Seitenschutzsystemen durch eine in
+den Gesamtprojektablauf integrierte Simulation zu unterstützen.</p>
+<p>Es ist ein „CAE [redacted-person]“ zu benennen, dessen
+Teilnahme an Entwicklungsgesprächen – bei Bedarf – sicherzustellen
+ist.</p>
+<p>Die zu verwendende Version des [redacted-person] Crash wird von der [redacted-co]
+Fachabteilung vorgegeben. Die [redacted-co]-internen Arbeitsabläufe erfordern
+eine regelmäßige Aktualisierung der Includes auf eine neuere [redacted]wird von der [redacted-co] Fachabteilung mit
+ausreichend Vorlauf zusammen mit der neu zu verwendenden [redacted-person]
+Version und einem verbindlichen Termin beim Auftragnehmer angezeigt. Zu
+diesem Termin hat der Auftragnehmer an die [redacted-co] Fachabteilung zu
+übergeben:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person], die vom Auftragnehmer hauptverantwortlich erstellt
+und gepflegt werden in neuer [redacted-person] Version.</p></li>
+<li><p>Dokumentation einer oder mehrerer repräsentativer
+Vergleichsrechnungen, die aufzeigen, dass durch die Umstellung keine der
+relevanten Ergebnisgrößen nennenswert verändert wird.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] sind in jedem Fall durchzuführen. [redacted-person] der Syntax zwischen der neuen und alten Version ist nicht
+ausreichend. Sollten die Vergleichsrechnungen zeigen, dass die
+Ergebnisse der angepassten Includes von der Referenzrechnung abweichen,
+so sind die Ursachen für die Abweichung zu untersuchen und zu
+korrigieren. Ggf. sind Validationen auf bestehende Komponentenversuche
+oder ähnliches erneut durchzuführen. [redacted-person] des Aufwands
+während der Angebotserstellung kann von max. einer Umstellung pro
+Kalenderjahr ausgegangen werden.</p>
+<p>[redacted-person] müssen in der Lage sein, zu einem frühen
+[redacted-person] hinsichtlich der Insassenbelastungen in
+den in Kapitel <a href="#lastfälle">4.1.1</a> genannten Crashlastfällen
+zu liefern und dienen der Systemauslegung und der Entscheidungsfindung
+der betroffenen [redacted-co]- Fachabteilung bzgl. sicherheitsrelevanter Themen
+im Fahrzeugprojekt. [redacted-person] wird hierbei auf die Funktion des
+Gesamtsystems gelegt.</p>
+<p>[redacted-person] der eingesetzten Komponenten ist durch eine aktuell zu
+haltende Dokumentation im Include sowie in <em>LoCo</em> zu
+dokumentieren. Hierin sind neben der Bauteilbenennung auch der
+Entwicklungsstand, das Erstellungsdatum, der Bearbeiter sowie die
+zugrundeliegenden Teilenummern und Stände aufzuführen. Ferner sind die
+im Rahmen der Entwicklung erarbeiteten Modelle jederzeit dem
+Auftraggeber zur Verfügung zu stellen.</p>
+</blockquote>
+<h5 id="der-auftragnehmer-ist-dafür-verantwortlich-alle-relevanten-bauteile-in-den-modellen-aktuell-zu-halten.-dies-hat-er-in-regelmäßigen-abständen-sowie-zu-projektmeilenständen-zu-kontrollieren-und-dem-auftraggeber-unaufgefordert-vorzustellen.">[redacted-person] ist dafür verantwortlich, alle relevanten Bauteile in den
+Modellen aktuell zu halten. Dies hat er in regelmäßigen Abständen sowie
+zu Projektmeilenständen zu kontrollieren und dem Auftraggeber
+unaufgefordert vorzustellen.</h5>
+<blockquote>
+<p>[redacted-person] trägt durch sein Bauteil eine
+Mitverantwortung für die [redacted-person]. Dies gilt auch
+bei Bauteilen, welche als COP-Teile vorgesehen sind. In diesem Rahmen
+sind dem Systementwickler von den Komponentenlieferanten geeignete
+Berechnungsmodelle zum Zweck der Systemauslegung zur Verfügung zu
+stellen.</p>
+</blockquote>
+<h1 id="modellerstellung-fem-berechnung">Modellerstellung – FEM
+Berechnung</h1>
+<blockquote>
+<p>Für jeden in Kapitel <a href="#lastfälle">4.1.1</a> genannten
+Lastfall ist ein Insassenschutzmodell aufzubauen. [redacted-person] müssen
+nicht zeitgleich vorliegen, eine Priorisierung der Lastfälle kann in
+Absprache mit der [redacted-co]- Fachabteilung geschehen. [redacted-person] müssen
+jedoch rechtzeitig als validierter Stand vorliegen, um Ergebnisse zu
+ausgewählten Meilensteinen generieren zu können.</p>
+<p>[redacted-person], bzw. deren Verhalten, welche für die Beurteilung der
+Schutzwirkung des Gesamtsystems relevant sind, müssen in den
+Insassenschutzmodellen abgebildet werden. Die in diesem Kapitel
+aufgeführten Baugruppen sind aus heutiger Sicht insassenschutzrelevant.
+[redacted-person] erhebt jedoch keinen Anspruch auf Vollständigkeit,
+sondern ist für jedes Fahrzeugprojekt individuell zu prüfen bzw. zu
+ergänzen. Bei relevanten Änderungen hinsichtlich Funktion und Geometrie
+ist eine Anpassung der betroffenen Bauteile in den Modellen
+vorzunehmen.</p>
+<p><strong>Sofern, durch den Projektablauf bedingt, zu einem Zeitpunkt
+benötigte CAD/CAE-Daten bzw. Informationen zu bestimmten Kennungen nicht
+vorliegen, sind diese durch entsprechende Annahmen nach Absprache mit
+der [redacted-co]/GE-Fachabteilung festzulegen. Es kann daher erforderlich sein,
+vorhandene Modelle aus vergleichbaren Fahrzeugen bzw. Vorgängermodellen
+durch Morphing oder ähnliches an Abtast- oder Strakdaten bzw.
+Prinzipschnitte anzupassen.</strong></p>
+</blockquote>
+<h2 id="richtlinien-modellerstellung-auswertung-und-dokumentation">[redacted-person], Auswertung und Dokumentation</h2>
+<blockquote>
+<p>[redacted-person] und allgemeinen Anforderungen zur
+Erstellung und Auswertung der FE- Modelle bzw. FE-Simulationen sind dem
+Lastenheft</p>
+</blockquote>
+<h4 id="lah.dum.880.fp-berechnung-seitenschutz-modellierung-und-prozesse"><em>LAH.DUM.880.FP
+[redacted-person] Modellierung und Prozesse</em></h4>
+<blockquote>
+<p>und</p>
+</blockquote>
+<h4 id="lah.dum.880.fn-berechnung-seitenschutz-dokumentation-und-datenaustausch"><em>LAH.DUM.880.FN
+[redacted-person] Dokumentation und Datenaustausch</em></h4>
+<blockquote>
+<p>zu entnehmen.</p>
+<p>Während des Projektablaufs sind alle Inputdecks, Ergebnisfiles,
+Dokumentationen und Auswertungen durch den Berechnungslieferanten bei
+[redacted-co] in Datenbanken (<em>LoCo, CAE-Bench2</em>) zu importieren
+und auszuwerten (<em>CAViT</em>).</p>
+</blockquote>
+<h2 id="umfänge-der-insassenmodelle">Umfänge der Insassenmodelle</h2>
+<blockquote>
+<p>[redacted-person] müssen alle zur Bewertung der
+Insassenbelastung relevanten Bauteile beinhalten. Die nachfolgend
+aufgeführten Bauteile stellen eine grundsätzliche Anforderung dar, die
+in allen Insassenschutzmodellen zu integrieren sind. Darüber hinaus kann
+eine weitere Detaillierung im Projekt erforderlich sein, wie z.[redacted-person]
+Modellierung von Dichtungen, Kabeln, Package der Tür- und
+Säulenverkleidung, Soundausstattungen sowie Sonderausstattungen, um die
+Worst-Case-Varianten betrachten zu können. Diese werden in Absprache mit
+der [redacted-co]/GE–Fachabteilung bestimmt. Falls eine Worst-Case-Variante noch
+nicht bekannt ist, so ist die Bestimmung dieser mittels Simulationen zu
+unterstützen.</p>
+</blockquote>
+<h3 id="übernahme-includes-anderer-abteilungen">[redacted-person]
+anderer Abteilungen</h3>
+<blockquote>
+<p>[redacted-person], die von Schnittstellenpartnern kommen, sind bei
+Übernahme die Erfüllung der Modellierungsanforderungen
+(<em>LAH.DUM.880.FP)</em> sowie notwendige darüber hinausgehende
+Anforderungen zu überprüfen und falls erforderlich Dokumentationen über
+Abweichungen für den Auftraggeber und Schnittstellenpartner zu
+erzeugen.</p>
+</blockquote>
+<h3 id="karosserie">Karosserie</h3>
+<blockquote>
+<p>[redacted-person] der Fahrzeugkarosse hat in der Insassensimulation die
+Fahrzeugbewegung und Fahrzeugverformung in dem für den Insassen
+relevanten Zeitbereich richtig abzubilden. Voraussetzung hierfür ist,
+dass die Modelle sowohl die globalen Bewegungen, die Energieabsorption
+des Fahrzeugs als auch die lokalen Deformationen genau
+prognostizieren.</p>
+<p>Die [redacted-co]-Fachabteilung „[redacted-person]“ stellt entsprechende
+Basis-FE-Modelle zur Verfügung. Es kann aber notwendig sein, diese für
+die Belange der Insassensimulation zu ergänzen bzw. weiter zu
+detaillieren.</p>
+<p>Weiterhin kann es notwendig sein, Prinzipuntersuchungen zum
+Strukturverhalten aus [redacted-person] durchzuführen.</p>
+</blockquote>
+<h3 id="türverkleidung-seitenverkleidung">Türverkleidung &amp;
+Seitenverkleidung</h3>
+<blockquote>
+<p>[redacted-person] und Gestaltung der Verkleidung sind wesentliche
+Stellgrößen für die Insassenbelastungen. Deshalb ist es wichtig, die
+Ergebnisse der Insassensimulation frühzeitig in den Design- und
+Konstruktions-Prozess einzusteuern.</p>
+<p>In frühen Projektphasen sind basierend auf Schnitten, Abtastdaten
+oder ähnlichem Verkleidungsmodelle zu erstellen bzw. Modelle aus anderen
+Projekten (zum [redacted-person]) auf diese Randbedingungen
+anzupassen. Falls notwendig sind die Modelle auf aktuellen
+Modellierungsstandard zu aktualisieren.</p>
+<p>Wenn bzw. sobald detaillierte Türverkleidungs-Modelle zur Verfügung
+stehen, sind diese zu verwenden bzw. zu übernehmen und gegebenenfalls
+anzupassen. Falls keine detaillierten Modelle von anderen Abteilungen
+zur Verfügung gestellt werden können, so sind diese in Absprache mit der
+[redacted-co]/GE-Fachabteilung zu erstellen.</p>
+<p>[redacted-person] der Verkleidung sind möglichst realistisch
+abzubilden:</p>
+</blockquote>
+<ul>
+<li><p>Lasteinleitung in Dummy, Airbag, Sitz-System durch Brüstung,
+Armlehne und Türtasche</p></li>
+<li><p>Kinematik der Anstoßflächen</p></li>
+<li><p>Anbindungen (Clipse, Verschraubungen) an das Türinnenblech müssen
+so modelliert werden, dass</p>
+<ul>
+<li><p>die Belastungen auf die Anbindung ausgewertet werden können (zum
+Beispiel durch SECFOs)</p></li>
+<li><p>kraftgesteuertes Versagen der Anbindungen möglich ist</p></li>
+</ul></li>
+<li><p>Schraubverbindung innerhalb der Türverkleidung und zur Anbindung
+an den Rohbau haben über Kontakt zu erfolgen. Dazu sind die Schrauben zu
+modellieren und mit Vorspannung zu versehen (siehe
+<em>LAH.DUM.880.FP)</em></p></li>
+<li><p>[redacted-person] im Bereich der Brüstung (Einhängeleiste) an den
+Türrohbau ist zu max. 50% gleichverteilt über die Länge mittels TIED
+anzubinden. [redacted-person] hat zu Projektstart und zu den Meilensteinen
+P-frei, B-frei und BMG zu erfolgen. [redacted-person]
+vorliegen ist das Verhalten zu validieren und die Modellierung falls
+erforderlich anzupassen.</p></li>
+<li><p>[redacted-person] bzw. Kanten, durch Nichtbetrachtung von z.[redacted-person], sind zu schließen</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] können nach Absprache mit der
+[redacted-co]/GE-Fachabteilung vorgenommen werden.</p>
+</blockquote>
+<ol type="1">
+<li><p>Validierung</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] gilt nur in der Serienentwicklung.</p>
+<p>Die im Folgenden aufgeführten Lastfälle sind im Hinblick auf
+Energieabsorptionsvermögen, dynamische Steifigkeit und Materialverhalten
+bzw. -versagen von Verbindungstechnik vom Entwicklungspartner zur
+Validierung heranzuziehen. [redacted-person] sind vom Auftragnehmer
+durchzuführen. [redacted-person] besteht aus Türverkleidung,
+Türinnenblech und der Aufnahme des Türinnenblechs. [redacted-person] sind vom Aufragnehmer zu erstellen und Teil dieses
+Angebotes. [redacted-person] (Form, Masse, Auftreffpunkt,
+Aufschlaggeschwindigkeit der Ersatzkörper) sind vom Auftragnehmer durch
+Vorsimulationen auf die im Gesamtfahrzeug zu erwartenden Belastungen in
+Crashlastfällen abzustimmen und mit der [redacted-co]-Fachabteilung abzustimmen.
+Die dazu notwendige Modelle sind vom Auftragnehmer aufzubauen:</p>
+</blockquote>
+<ul>
+<li><p>Ersatzkörperaufschlag im Brüstungsbereich an verschiedenen,
+lastfallrelevanten Punkten</p></li>
+<li><p>Ersatzkörperaufschlag im Armlehnenbereich an verschiedenen,
+lastfallrelevanten Punkten</p></li>
+<li><p>Ersatzkörperaufschlag im Beckenauftreffbereich an verschiedenen,
+lastfallrelevanten Punkten</p></li>
+</ul>
+<h5 id="abbildung-1-pendelaufbau-prinzipdarstellung">Abbildung 1:
+Pendelaufbau (Prinzipdarstellung)</h5>
+<blockquote>
+<p>Dies gilt für die vordere sowie die hintere Türverkleidung
+beziehungsweise Seitenverkleidung.</p>
+<p>[redacted-person], die Ablage der Versuchs- und
+Simulationsdaten sowie der Inhalt des [redacted-person]/Simulation sind
+dem Lastenheft</p>
+</blockquote>
+<h4 id="lah.dum.880.fn-berechnung-seitenschutz-dokumentation-und-datenaustausch-1"><em>LAH.DUM.880.FN
+[redacted-person] Dokumentation und Datenaustausch</em></h4>
+<blockquote>
+<p>zu entnehmen.</p>
+</blockquote>
+<h3 id="greenhouse">Greenhouse</h3>
+<blockquote>
+<p>[redacted-person] des Greenhouses sind zu modellieren:</p>
+</blockquote>
+<ul>
+<li><p>A-/B-/C- und D-Säulenverkleidungen, sofern im Bereich des
+Insassen</p></li>
+<li><p>Radhausverkleidung, sofern im Bereich des Insassen</p></li>
+<li><p>Dachrahmen und Hecklappenverkleidung, sofern im Bereich des
+Insassen</p></li>
+<li><p>Schwellerverkleidung, sofern im Bereich des Insassen</p></li>
+<li><p>Himmel</p></li>
+<li><p>Hutablage, sofern relevant für die Kopfairbagentfaltung</p></li>
+<li><p>Dichtungen, sofern relevant für die Kopfairbagentfaltung
+beziehungsweise im Bereich des Insassen (siehe
+<em>LAH.DUM.880.FP</em>)</p></li>
+<li><p>Kabel, sofern relevant für die Kopfairbagentfaltung
+beziehungsweise im Bereich des Insassen (siehe
+<em>LAH.DUM.880.FP</em>)</p></li>
+</ul>
+<blockquote>
+<p>In der frühen Projektphase sind Grobmodelle auf Basis von Strak- oder
+CAD-Daten bzw. auf Basis von anderen Projekten (zum [redacted-person]) zu erstellen. Falls notwendig sind die Modelle auf
+aktuellen Modellierungsstandard zu aktualisieren.</p>
+<p>[redacted-person] der Airbags auf den Verkleidungsteilen ist mit
+Versuchen abzugleichen und entsprechend zu dokumentieren und
+nachzuweisen. Falls noch kein aktueller Airbag vorhanden ist, so kann
+der Abgleich mit Vorgängermodellen erfolgen.</p>
+<p>Wenn bzw. sobald detaillierte Greenhouse-Modelle (z.[redacted-person] der FMVSS
+201 Entwicklung) zur Verfügung stehen, sind diese zu verwenden bzw. zu
+übernehmen und anzupassen und zur Kopfairbagentfaltungs-untersuchung und
+HIC Bewertung einzusetzen. Falls keine detaillierten Modelle von anderen
+Abteilungen zur Verfügung gestellt werden können, so sind diese in
+Absprache mit der [redacted-co]/GE-Fachabteilung zu erstellen.</p>
+<p>[redacted-person] des Greenhouse einer anderen [redacted-co]-Fachabteilung ist für
+den Bereich oberhalb der Türbrüstung keine über die FMVSS201
+hinausgehende Validierung gefordert.</p>
+<p>[redacted-person] führt in der Serienentwicklung zusätzliche Versuche
+im unteren B-Säulenbereich durch. [redacted-person] sind im Hinblick auf
+Energieabsorptionsvermögen, dynamische Steifigkeit und Materialverhalten
+bzw. -versagen von Verbindungstechnik vom Entwicklungspartner zur
+Validierung heranzuziehen. [redacted-person] sind vom Auftragnehmer
+durchzuführen. [redacted-person] sind vom Aufragnehmer zu
+erstellen und Teil dieses Angebotes. [redacted-person] (Form,
+Masse, Auftreffpunkt, Aufschlaggeschwindigkeit der Ersatzkörper) sind
+vom Auftragnehmer durch Vorsimulationen auf die im Gesamtfahrzeug zu
+erwartenden Belastungen in Crashlastfällen abzustimmen und mit der
+[redacted-co]-Fachabteilung abzustimmen. Die dazu notwendige Modelle sind vom
+Auftragnehmer aufzubauen.</p>
+<p>Bei einem vom Auftragnehmer erstellten Greenhouse kann auch eine
+Validierung oberhalb der Brüstung notwendig sein. Diese ist in Absprache
+mit der [redacted-co]/GE-Fachabteilung durchzuführen.</p>
+<p>[redacted-person], die Ablage der Versuchs- und
+Simulationsdaten sowie der Inhalt des [redacted-person]/Simulation sind
+dem Lastenheft</p>
+</blockquote>
+<h4 id="lah.dum.880.fn-berechnung-seitenschutz-dokumentation-und-datenaustausch-2"><em>LAH.DUM.880.FN
+[redacted-person] Dokumentation und Datenaustausch</em></h4>
+<blockquote>
+<p>zu entnehmen.</p>
+</blockquote>
+<h3 id="cockpit">Cockpit</h3>
+<blockquote>
+<p>[redacted-person] wird in der Serienentwicklung durch die
+[redacted-co]-Fachabteilung zur Verfügung gestellt. In früheren Projektphasen ist
+der Einbau eines Cockpits nicht notwendig.</p>
+<p>[redacted-person] kann entfallen, wenn simulativ gezeigt wird, dass es
+keinen Einfluss auf die Insassenbelastungen hat. [redacted-person] hat zu
+Projektstart und zu den Meilensteinen P-frei, B-frei und BMG zu
+erfolgen.</p>
+<p>Falls das Cockpit großer Einfluss auf die Rechenzeit hat, so ist ein
+Ersatzmodell zu erstellen und in die Fahrzeugumgebung zu
+integrieren.</p>
+</blockquote>
+<h3 id="kopfairbag">Kopfairbag</h3>
+<blockquote>
+<p>[redacted-person] werden separat mit den Lastenhefte an den
+Bauteillieferanten</p>
+<p>LAH.DUM.880.EM [redacted]LAH.DUM.880.FB [redacted-person] Komponente</p>
+<p>VW82036 VW-[redacted-person] Airbag</p>
+<p>vergeben. [redacted-person], der Einbau und die Funktion der
+Komponente im Gesamtsystem sind sicherzustellen.</p>
+<p>Falls noch kein Bauteillieferant nominiert wurde beziehungsweise noch
+keine projektspezifischen Modelle zur Verfügung stehen, so sind nach
+Vorgabe der [redacted-co]/GE-[redacted-person] aus anderen Fahrzeugmodellen
+einzubauen und gegebenenfalls entsprechend anzupassen bzw. zu
+optimieren.</p>
+</blockquote>
+<h3 id="seitenairbag">Seitenairbag</h3>
+<blockquote>
+<p>[redacted-person] werden separat mit den Lastenheften</p>
+<p>LAH.DUM.880.EM [redacted]LAH.DUM.880.FB [redacted-person] Komponente</p>
+<p>VW82036 VW-[redacted-person] Airbag</p>
+<p>an den Bauteillieferanten vergeben. [redacted-person], der Einbau
+und die Funktion der Komponente im Gesamtsystem sind
+sicherzustellen.</p>
+<p>Falls noch kein Bauteillieferant nominiert wurde beziehungsweise noch
+keine projektspezifischen Modelle zur Verfügung stehen, so sind nach
+Vorgabe der [redacted-co]/GE-[redacted-person] aus anderen Fahrzeugmodellen
+einzubauen und gegebenenfalls entsprechend anzupassen bzw. zu
+optimieren.</p>
+</blockquote>
+<h3 id="sonstige-airbags">[redacted-person]</h3>
+<blockquote>
+<p>[redacted-person] werden separat mit den Lastenheften</p>
+<p>LAH.DUM.880.EM [redacted]LAH.DUM.880.FB [redacted-person] Komponente</p>
+<p>VW82036 VW-[redacted-person] Airbag</p>
+<p>an den Bauteillieferanten vergeben. [redacted-person], der Einbau
+und die Funktion der Komponente im Gesamtsystem sind
+sicherzustellen.</p>
+<p>Falls noch kein Bauteillieferant nominiert wurde beziehungsweise noch
+keine projektspezifischen Modelle zur Verfügung stehen, so sind nach
+Vorgabe der [redacted-co]/GE-[redacted-person] aus anderen Fahrzeugmodellen
+einzubauen und gegebenenfalls entsprechend anzupassen bzw. zu
+optimieren.</p>
+</blockquote>
+<h3 id="gurt">Gurt</h3>
+<blockquote>
+<p>[redacted-person] werden separat mit dem Lastenheft</p>
+</blockquote>
+<h4 id="lah.dum.857.bb-berechnung-sicherheitsgurt"><em>LAH.DUM.857.BB
+[redacted-person]</em></h4>
+<blockquote>
+<p>an den Bauteillieferanten vergeben. Es kann aber notwendig sein,
+diese für die Umfänge der [redacted-person] zu ergänzen bzw.
+weiter zu detaillieren. [redacted-person], der Einbau und die Funktion
+der Komponente im Gesamtsystem sind sicherzustellen.</p>
+<p>[redacted-person] Gurtretraktor sind detailliert darzustellen.
+Insbesondere ist die Anbindungslasche mit Versagen zu modellieren und
+die Schraube mit Vorspannung darzustellen (siehe
+<em>LAH.DUM.880.FP</em>).</p>
+</blockquote>
+<h3 id="sitze">Sitze</h3>
+<ol type="1">
+<li><p>Anbindung an Rohbau</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] an den Rohbau hat über Kontakt zu erfolgen. Dazu sind
+die Schrauben zu modellieren und mit Vorspannung zu versehen (siehe
+<em>LAH.DUM.880.FP</em>).</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>Vordersitze</p></li>
+</ol>
+<blockquote>
+<p>Die [redacted-co]-Fachabteilung „[redacted-person]“ stellt entsprechende
+Basis-FE-Modelle zur Verfügung. Es kann aber notwendig sein, diese für
+die Umfänge der [redacted-person] zu ergänzen bzw. weiter zu
+detaillieren. [redacted-person], der Einbau und die Funktion der
+Komponente im Gesamtsystem sind sicherzustellen. Weiterhin ist die
+Verwendung der Sitzincludes in [redacted-co]/GE- Prozessen (z.[redacted-person]) sicherzustellen.</p>
+<p>Falls noch kein Bauteillieferant nominiert wurde beziehungsweise noch
+keine projektspezifischen Modelle zur Verfügung stehen, so sind nach
+Vorgabe der [redacted-co]/GE-[redacted-person] aus anderen Fahrzeugmodellen
+einzubauen und gegebenenfalls entsprechend anzupassen bzw. zu
+optimieren.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Hintersitzanlage</p></li>
+</ol>
+<blockquote>
+<p>Die [redacted-co]-Fachabteilung „[redacted-person]“ stellt entsprechende
+Basis-FE-Modelle zur Verfügung. Es kann aber notwendig sein, diese für
+die Umfänge der Insassensimulation zu ergänzen bzw. weiter zu
+detaillieren. [redacted-person], der Einbau und die Funktion der
+Komponente im Gesamtsystem sind sicherzustellen. Weiterhin ist die
+Verwendung der Sitzincludes in [redacted-co]/GE-Prozessen (z.[redacted-person]
+Positionierungstools) sicherzustellen.</p>
+<p>Abzubilden sind neben der Lehnen- und Sitzstruktur unter anderem die
+Schlösser und das Gurtsystem inkl. Gurtverankerungen sowie die
+Mittelarmlehne. Diese soll generatorfähig modelliert werden. Falls dies
+nicht möglich ist, so ist der eingeklappte und der ausgeklappte Zustand
+durch separate Includes darzustellen.</p>
+<p>Falls noch kein Bauteillieferant nominiert wurde beziehungsweise noch
+keine projektspezifischen Modelle zur Verfügung stehen, so sind nach
+Vorgabe der [redacted-co]/GE-[redacted-person] aus anderen Fahrzeugmodellen
+einzubauen und gegebenenfalls entsprechend anzupassen bzw. zu
+optimieren.</p>
+</blockquote>
+<h3 id="package">Package</h3>
+<blockquote>
+<p>In der frühen Projektphase sind Grobmodelle auf Basis von Strak- oder
+CAD-Daten zu erstellen. [redacted-person] kann folgende Bauteile
+beinhalten:</p>
+</blockquote>
+<ul>
+<li><p>Soundsystem</p></li>
+<li><p>Zuziehhilfe</p></li>
+<li><p>Steuergeräte</p></li>
+<li><p>Klimakomponenten</p></li>
+<li><p>Gurte (Retraktoren, Endbeschlagstraffer)</p></li>
+<li><p>Lagerbügel &amp; Schlösser einschließlich
+Diebstahlschutz</p></li>
+<li><p>[redacted-person] (als Blockbildner)</p></li>
+<li><p>Montagedeckel und [redacted-person]</p></li>
+<li><p>Ionisator</p></li>
+<li><p>Sonnenrollo einschließlich Gestänge und Antrieb</p></li>
+<li><p>Fensterhebegestell und Fensterhebeantrieb</p></li>
+<li><p>Paddings</p></li>
+<li><p>Sonstige seitencrashrelevante Sonderausstattungen</p></li>
+</ul>
+<blockquote>
+<p>In frühen Projektphasen sind basierend auf Schnitten, Abtastdaten
+oder ähnlichem Modelle zu erstellen bzw. Modelle aus anderen Projekten
+(zum [redacted-person]) auf diese Randbedingungen anzupassen.
+Falls notwendig sind die Modelle auf aktuellen Modellierungsstandard zu
+aktualisieren.</p>
+<p>Wenn bzw. sobald detaillierte Tür-Modelle zur Verfügung stehen, sind
+diese zu verwenden bzw. zu übernehmen und gegebenenfalls anzupassen.
+Falls keine detaillierten Modelle von anderen Abteilungen zur Verfügung
+gestellt werden können, so sind diese in Absprache mit der [redacted-co]/GE-
+Fachabteilung zu erstellen.</p>
+<p>Es sind Untersuchungen zur Belastung des Insassen durch das Package
+durchzuführen. Dazu sind Rechnungen mit/ohne den entsprechenden
+Bauteilen durchzuführen. Falls erforderlich sind darauf aufbauend in
+Zusammenarbeit mit dem Auftraggeber und dem zuständigen Konstrukteur der
+[redacted-co] Untersuchungen zur Optimierung der Einbaulagen beziehungsweise
+des Bauteils selber (zum [redacted-person] Sollbruchstellen, angepasste
+Geometrien usw.) durchzuführen.</p>
+<p>[redacted-person] führt in der Serienentwicklung zusätzlich eine
+Validierung der Packagebauteile durch. [redacted-person] sind im Hinblick
+auf Energieabsorptionsvermögen, dynamische Steifigkeit und
+Materialverhalten bzw. -versagen von Verbindungstechnik vom
+Entwicklungspartner zur Validierung heranzuziehen. [redacted-person] sind vom
+Auftragnehmer durchzuführen. [redacted-person] sind vom
+Aufragnehmer zu erstellen und Teil dieses Angebotes. [redacted-person] (Form, Masse, Auftreffpunkt,
+Aufschlaggeschwindigkeit der Ersatzkörper) sind vom Auftragnehmer durch
+Vorsimulationen auf die im Gesamtfahrzeug zu erwartenden Belastungen in
+Crashlastfällen abzustimmen und mit der [redacted-co]-Fachabteilung abzustimmen.
+Die dazu notwendigen Modelle sind vom Auftragnehmer aufzubauen.</p>
+<p>[redacted-person], die Ablage der Versuchs- und
+Simulationsdaten sowie der Inhalt des [redacted-person]/Simulation sind
+dem Lastenheft</p>
+</blockquote>
+<h4 id="lah.dum.880.fn-berechnung-seitenschutz-dokumentation-und-datenaustausch-3"><em>LAH.DUM.880.FN
+[redacted-person] Dokumentation und Datenaustausch</em></h4>
+<blockquote>
+<p>zu entnehmen.</p>
+</blockquote>
+<h3 id="sensoren">Sensoren</h3>
+<blockquote>
+<p>Es ist sicherzustellen, dass im FE-Modell die gleichen Sensoren
+(Position, ISO-Name, Ausrichtung) wie im Hardware-Gesamtfahrzeug bzw.
+Schlittenversuch vorhanden sind. Dazu wird seitens der [redacted-co]/GE-
+Fachabteilung ein Tool sowie eine Foto-Dokumentation (evtl. eines
+anderen Fahrzeugs) der Sensorpositionen zur Verfügung gestellt.</p>
+</blockquote>
+<h3 id="kabel">Kabel</h3>
+<blockquote>
+<p>[redacted-person], die im Bereich des Insassen sind beziehungsweise Einfluss
+auf seitencrashrelevante Lastpfade haben, sind zu modellieren (siehe
+LAH.DUM.880.FP). Falls erforderlich sind verschiedene Varianten der
+Kabeldicke zu vergleichen.</p>
+</blockquote>
+<h3 id="dichtungen">Dichtungen</h3>
+<blockquote>
+<p>[redacted-person], die im Bereich des Insassen sind beziehungsweise
+Einfluss auf seitencrashrelevante Lastpfade haben, sind zu modellieren
+(siehe LAH.DUM.880.FP).</p>
+<p>In frühen Projektphasen sind keine Dichtungen zu modellieren.
+Spätestens ab x- bzw. p-frei sind diese zu modellieren.</p>
+</blockquote>
+<h3 id="fe-dummymodelle">FE-Dummymodelle</h3>
+<blockquote>
+<p>Für die Insassenschutzberechnungen sind folgende Dummymodelle
+einzusetzen:</p>
+</blockquote>
+<ol type="1">
+<li><p>ES2 bzw. ES2re</p>
+<ul>
+<li><p>ES2 FE Modell - PDB (ESI)</p></li>
+<li><p>ES2re FE Modell - PDB (ESI)</p></li>
+</ul></li>
+<li><p>SID2s</p>
+<ul>
+<li><p>SID2s BuildLevel D FE Modell – Humanetics (ESI)</p></li>
+</ul></li>
+<li><p>WorldSID</p>
+<ul>
+<li><p>World-SID 50% – PDB (ESI)</p></li>
+<li><p>World-SID 5% – tbd</p></li>
+</ul></li>
+<li><p>Kinderdummies</p>
+<ul>
+<li><p>Hybrid III – 3 jährig (Humanetics)</p></li>
+<li><p>Hybrid III – 6 jährig (Humanetics)</p></li>
+<li><p>Q1,5 (Humanetics)</p></li>
+<li><p>Q3 (Humanetics)</p></li>
+<li><p>Q6 (Humanetics)</p></li>
+<li><p>Q10,5 (Humanetics)</p></li>
+</ul></li>
+</ol>
+<blockquote>
+<p>Die einzusetzenden Versionen werden zu Projektbeginn von der
+[redacted-co]-Fachabteilung festgelegt und können nur durch diese geändert
+werden.</p>
+<p>Eine entsprechende Lizenzierung der Dummymodelle ist
+sicherzustellen.</p>
+<p>Es ist sicherzustellen, dass in den Berechnungsvarianten keine durch
+den Einsatz von Pre-Prozessoren umformatierten Dummymodelle zum Einsatz
+kommen.</p>
+</blockquote>
+<h3 id="dummypositionierung">Dummypositionierung</h3>
+<ol type="1">
+<li><p>Vordersitze</p></li>
+</ol>
+<blockquote>
+<p>Aus dem Sitzverstellfeld ist für jeden Lastfall die theoretische
+Sitzposition des Dummies zu ermitteln. Anschließend sind die Dummies im
+Fahrzeug zu positionieren und entsprechend den
+Positionierungsvorschriften (Euro-NCAP, FMVSS 214, IIHS, etc.) zu
+orientieren. [redacted-person] ist in Absprache mit der
+[redacted-co]/GE-Fachabteilung einzustellen.</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p>Hintersitzanlage</p></li>
+</ol>
+<blockquote>
+<p>Falls die [redacted-person] besitzt (zum
+[redacted-person], Längsverstellung, [redacted-person] oder
+ähnliches) so ist zu den Projekt-Meilensteinen KE, VPT bzw. P-frei,
+B-frei und Start BMG in Abstimmung mit dem Auftraggeber eine
+Robustheitsuntersuchung bezüglich folgender Varianten durchzuführen:</p>
+</blockquote>
+<ul>
+<li><p>Längsverstellung:</p>
+<ul>
+<li><p>Vorne</p></li>
+<li><p>Mitte</p></li>
+<li><p>Hinten</p></li>
+<li><p>Konstruktionslage</p></li>
+</ul></li>
+<li><p>Lehnenneigung</p>
+<ul>
+<li><p>Lehnenposition nach Lastfallkonfiguration +/- 2°</p></li>
+</ul></li>
+<li><p>Armablage/Mittelkonsole (falls verstellbar)</p>
+<ul>
+<li><p>Eingeklappt</p></li>
+<li><p>Ausgeklappt</p></li>
+</ul></li>
+<li><p>Sonstige</p>
+<ul>
+<li><p>In Abstimmung mit dem Auftraggeber</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>In Absprache mit dem Auftraggeber ist jeden betroffenen Lastfall eine
+Standardvariante zu bestimmen, sofern diese nicht durch eine
+Positionierungsvorschrift (Euro-NCAP, FMVSS 214, IIHS, etc.) festgelegt
+ist.</p>
+<p>Bei wesentlichen Änderungen im Modell beziehungsweise der
+Anforderungen sind erneut Positionierungsvarianten zu untersuchen und
+die Standardvarianten gegebenenfalls neu zu bestimmen.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Einsitzvorgang</p></li>
+</ol>
+<blockquote>
+<p>Für das Einstellen der Sitze, das Einsetzen der Dummies und das
+Gurtanlegen ist in Loco der [redacted-co]- Einsitzprozess aufzubauen und zu
+verwenden. [redacted-person] kann es erforderlich sein, einzelne
+Dummypositionen manuell bzw. simulativ einzusetzen. Dies ist in
+Abstimmung mit der [redacted-co]- Fachabteilung durchzuführen.</p>
+</blockquote>
+<h2 id="validierung-der-gesamtmodelle">Validierung der
+Gesamtmodelle</h2>
+<blockquote>
+<p>Um eine einwandfreie und realistische Funktion der Gesamtmodelle
+sicherzustellen, ist für jeden Lastfall eine Validierung durchzuführen
+und deren Verlauf zu dokumentieren.</p>
+<p>[redacted-person] ist anhand von Schlüsselversuchen vorzunehmen.
+Sofern keine aktuellen Versuchsdaten vorliegen, sind Versuchsdaten aus
+relevanten Vorgängerfahrzeugen zu berücksichtigen. Vergleichsbasis sind
+die gemessenen Dummybelastungen, die Dummykinematik sowie das
+Intrusionsverhalten der Karosserie. Dazu ist neben den
+Gesamtfahrzeugmodellen auch das sogenannte Motionmodell zu verwenden
+(siehe Abschnitt <a href="#motionmodell">3.4.2</a>)</p>
+</blockquote>
+<h2 id="substrukturmodelle">Substrukturmodelle</h2>
+<blockquote>
+<p>[redacted-person] eines Substrukturmodells richtet sich nach dem Lastfall
+und der jeweiligen Fragestellung. Falls die Modelle an Dritte
+weitergegeben werden, so sind diese zu verschlüsseln.</p>
+</blockquote>
+<h3 id="standversuche">Standversuche</h3>
+<blockquote>
+<p>Für die Airbaglieferanten sind Standversuchsumgebungen zu erzeugen,
+die alle für die Entwicklung des Bauteils relevanten Umfänge enthalten.
+Dies hat in Absprache mit dem Auftraggeber und dem jeweiligen
+Airbaglieferant zu erfolgen. [redacted-person] der Substrukturen hat
+mindestens zu Meilensteinen sowie bei großen relevanten Änderungen zu
+erfolgen.</p>
+</blockquote>
+<h3 id="motionmodell">Motionmodell</h3>
+<blockquote>
+<p>[redacted-person] sind sogenannten Motionmodelle zu erzeugen. Dazu
+werden auf eine Substruktur des [redacted-person] von
+Aufnehmern aus dem Gesamtfahrzeugversuch aufgeprägt. [redacted-person] dazu
+wird zum Projektstart von der [redacted-co]-Fachabteilung zur Verfügung
+gestellt.</p>
+<p>[redacted-person] eines Motionmodells hat zu jedem Gesamtfahrzeugversuch
+zu erfolgen.</p>
+</blockquote>
+<h3 id="robustheitsuntersuchungen-und-optimierungen">Robustheitsuntersuchungen
+und Optimierungen</h3>
+<blockquote>
+<p>[redacted-person] und Optimierungen kann es zur
+Reduzierung von Rechenzeiten beziehungsweise Einflüssen numerischer
+Streuungen erforderlich sein, spezielle Substrukturen zu erzeugen. Dies
+hat nur zu den Meilensteinen aus Abschnitt <a href="#robustheit">4.1.2</a> zu erfolgen.</p>
+</blockquote>
+<h1 id="simulationsumfänge-zur-funktionsauslegung">Simulationsumfänge
+zur Funktionsauslegung</h1>
+<blockquote>
+<p>[redacted-person] ist für die berechnungsseitige Integration
+des vom Airbaglieferanten zur Verfügung gestellten Seitenschutzsystems
+in das Gesamtfahrzeug verantwortlich. Falls noch kein Bauteillieferant
+nominiert wurde, so sind nach Vorgabe der [redacted-co]/GE-[redacted-person]
+aus anderen Fahrzeugmodellen einzubauen und gegebenenfalls entsprechend
+anzupassen bzw. zu optimieren.</p>
+<p>Für die Erfüllung der Insassenschutz-Zielvorgaben (siehe Kapitel <a href="#grenzwerte-für-die-insassenbelastung">4.2</a>) ist der
+Entwicklungspartner mitverantwortlich.</p>
+<p>[redacted-person] des Produktentstehungsprozesses und des Crashversuchsplans
+der [redacted-co]-Fahrzeugsicherheit ist für die Insassenschutzberechnung ein
+Projektplan zu erstellen, aus dem deutlich wird, zu welchem Zeitpunkt
+welche Daten und Berechnungsmodelle vorhanden sein müssen sowie welche
+Simulationen durchgeführt werden müssen.</p>
+<p>In der Konzeptphase sind die Erreichbarkeit der Zielvorgaben zu
+überprüfen, Konflikte aufzuzeigen und Verbesserungsvorschläge zu
+erarbeiten.</p>
+<p>In der Serienentwicklungsphase ist von allen Fahrzeugversuchen eine
+Simulation der zu erwartenden Belastungswerte zu erarbeiten. Diese hat
+rechtzeitig vor Versuchsdurchführung vorzuliegen. Nach dem Versuch ist
+ein Vergleich der Versuchsergebnisse mit der Simulation vorzunehmen und
+zu analysieren. Außerdem sind eventuell notwendige Modelländerungen
+durchzuführen.</p>
+<p>Ferner sind im [redacted-person] auf Basis
+validierter Modelle zur Klärung von Einzelfragen durchzuführen.</p>
+</blockquote>
+<h2 id="auslegung-insassenschutz">[redacted-person]</h2>
+<h3 id="lastfälle">Lastfälle</h3>
+<blockquote>
+<p>Alle dynamischen Seitenaufpralllastfälle aus:</p>
+</blockquote>
+<h4 id="gesamtlastenheft-anlage-3-anforderungen-insassenschutz-seitencrash"><em>[redacted-person] 3 [redacted-person] Seitencrash</em></h4>
+<blockquote>
+<p>sind mit der Berechnung zu untersuchen.</p>
+<p>[redacted-person] der Modelle (Crashkonfiguration) ist gemäß den Vorgaben
+in</p>
+</blockquote>
+<h4 id="gesamtlastenheft-anlage-3-anforderungen-insassenschutz-seitencrash-1"><em>[redacted-person] 3 [redacted-person] Seitencrash</em></h4>
+<blockquote>
+<p>umzusetzen.</p>
+</blockquote>
+<h3 id="robustheit">Robustheit</h3>
+<blockquote>
+<p>Zu Projekt-Meilensteinen (KE , VPT bzw. P-frei, B-frei, Start BMG)
+sind Parametervarianten der Basissimulationsmodelle aufzubauen, die zur
+Robustheitsuntersuchung der RHS-Entwicklung herangezogen werden.</p>
+<p>Grundsätzlich sind die Positionierungseinflüsse bzgl. der
+Dummy-Extremitäten (Bein-, Becken-, Torso-, Arm- und Kopfeinstellung) in
+relevanten Toleranzen zu untersuchen.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><strong>Parameter</strong></th>
+<th><strong>Variationsbereich</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person] (EG, EuroNCAP, JNCAP, IIHS)</td>
+<td>Horizontal: +/- 20mm Vertikal: +/- 25mm</td>
+</tr>
+<tr>
+<td>[redacted-person] (SINCAP,FMVSS 214)</td>
+<td>Horizontal: +/- 51mm Vertikal: +/- 20mm</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><p>Horizontal: +/- 38mm</p>
+<p>Auftreffwinkel: +/- 3 Grad</p></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><p>Vy: Vauslegung + 1km/h</p>
+<p>Vy: Vcrashprotokoll +/- max. zul. Toleranz</p></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><p>Vy: Vauslegung + 1km/h</p>
+<p>Vy: Vcrashprotokoll +/- max. zul. Toleranz</p></td>
+</tr>
+<tr>
+<td>[redacted-person] vo. und hi.</td>
+<td><p>Horizontal: +/- 20mm Vertikal: -10mm/+20mm</p>
+<p>Torsoneigung (li, re, vo, hi): +/- 2 Grad</p></td>
+</tr>
+<tr>
+<td>Zündzeitpunktabweichungen</td>
+<td>TTF: +/- 2ms</td>
+</tr>
+<tr>
+<td>[redacted-person]/Sitz</td>
+<td>μ: 0.1 - 0.8</td>
+</tr>
+<tr>
+<td>[redacted-person]/Türverkleidung</td>
+<td>μ: 0.1 - 0.8</td>
+</tr>
+</tbody>
+</table>
+<h5 id="tabelle-1-parameter-robustheit">Tabelle 1: [redacted-person]</h5>
+<blockquote>
+<p>Eventuell erforderliche zusätzliche Lastfälle sind nach Absprache mit
+der [redacted-co]-Fachabteilung zu berechnen.</p>
+<p>[redacted-person] bezüglich verstellbaren
+Hintersitzanlagen sind dem Abschnitt</p>
+<p><a href="#_bookmark23">3.2.16.2</a> zu entnehmen.</p>
+</blockquote>
+<h3 id="oop-lastfälle">OoP Lastfälle</h3>
+<blockquote>
+<p>[redacted-person] werden vom Systementwickler durchgeführt. [redacted-person]
+ist dieser vom Entwicklungspartner durch z.[redacted-person] FE-Modelle
+zu unterstützen. [redacted-person] der Rückhaltewirkung aus OoP-Sicht
+erforderlich sind, so ist in Zusammenarbeit mit dem Systementwickler
+eine Konfiguration zu finden, die die OoP- und Gesamtfahrzeuglastfälle
+erfüllt.</p>
+</blockquote>
+<h2 id="grenzwerte-für-die-insassenbelastung">Grenzwerte für die
+Insassenbelastung</h2>
+<blockquote>
+<p>[redacted-person] nach der vorläufigen [redacted-co]-Vorgabe sind einzuhalten.
+[redacted-person] sind dem</p>
+</blockquote>
+<h4 id="gesamtlastenheft-anlage-3-anforderungen-insassenschutz-seitencrash-2"><em>[redacted-person] 3 [redacted-person] Seitencrash</em></h4>
+<blockquote>
+<p>zu entnehmen.</p>
+<p>Die aufgeführten Werte gelten als Richtwerte. Es ist damit zu
+rechnen, dass eine Änderung der Bewertungsmaßstäbe der
+Verbraucherschutzverbände auch eine Änderung der [redacted-co]-Vorgaben nach sich
+zieht.</p>
+</blockquote>
+<h1 id="dokumentation-und-ergebnisdarstellung">Dokumentation und
+Ergebnisdarstellung</h1>
+<blockquote>
+<p>[redacted-person] sind nach Aufforderung vor Ort bei [redacted-co]
+auf einer Workstation interaktiv zu präsentieren. Hierzu sollten die
+Berechnungsmodelle und die Ergebnisse vorab an die [redacted-co]- Fachabteilung
+gesendet werden. Ist dies aufgrund der kurzfristigen Berechnung nicht
+möglich, so sind die Daten auf geeigneten Trägermedien mitzubringen. [redacted-person] ist die Sicherheit der Übermittlung sicherzustellen.
+Insbesondere ist ein Versand von Daten mit unverschlüsselten E-Mails
+nicht zulässig.</p>
+<p>Während des Projektablaufs sind alle Inputdecks, Ergebnisfiles,
+Dokumentationen und Auswertungen durch den Berechnungslieferanten bei
+[redacted-co] in eine Datenbank (<em>CAE-Bench2</em>) zu importieren und
+dort auszuwerten. Hierfür ist das Vorhandensein einer Standleitung zum
+[redacted-co]-Rechenzentrum oder einer gleichwertigen Anbindung zwingend
+erforderlich. [redacted-person] ist eine Excelliste mit einer
+Variantenübersicht zu führen.</p>
+<p>[redacted-person] zu Ablauf, Konventionen, Umfang und Formaten
+benötigter Informationen und von Dokumentationen sind vor Projektbeginn
+mit [redacted-co] abzusprechen.</p>
+<p>Änderungen an einzelnen Bauteilen sind im <em>LoCo</em> fortlaufend
+zu dokumentieren.</p>
+<p>[redacted-person] bzgl. der Dokumentation und dem
+Datenaustausch von FE-Modellen sind dem Lastenheft</p>
+</blockquote>
+<h4 id="lah.dum.880.fn-berechnung-seitenschutz-dokumentation-und-datenaustausch-4"><em>LAH.DUM.880.FN
+[redacted-person] Dokumentation und Datenaustausch</em></h4>
+<blockquote>
+<p>zu entnehmen.</p>
+</blockquote>
+<h1 id="projektabschluss">Projektabschluss</h1>
+<blockquote>
+<p>[redacted-person] der Dokumentation zum Projektabschluss sind</p>
+</blockquote>
+<h4 id="lah.dum.880.fn-berechnung-seitenschutz-dokumentation-und-datenaustausch-5"><em>LAH.DUM.880.FN
+[redacted-person] Dokumentation und Datenaustausch</em></h4>
+<blockquote>
+<p>zu entnehmen.</p>
+</blockquote>
+<p>Weiterhin sind zum Projektabschluss folgende Aktualisierungen der
+Modelle durchzuführen:</p>
+<ul>
+<li><p>Aktualisierung der Berechnungsmodelle auf die aktuellste bei [redacted-co]
+installierte oder eine vom Auftraggeber definierte PamCrash-Version</p>
+<ul>
+<li><p>Falls dazu auch Aktualisierungen von Includes von
+Schnittstellenpartner oder Lieferanten notwendig sind, so ist für den
+Auftraggeber und die Partner eine Dokumentation über die notwendigen
+Maßnahmen zu erzeugen</p></li>
+</ul></li>
+<li><p>Aktualisierung aller Prozessschritte. Dies sind insbesondere:</p>
+<ul>
+<li><p>Dummy-Einsitzprozess</p></li>
+<li><p>Sensorprozess</p></li>
+<li><p>Alle bekannten Qualitätsanforderungen, die in den 3 Monaten nach
+Projektende gültig werden</p></li>
+<li><p>Notwendige <em>LoCo</em>-Vorgaben und Clusterskripte</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Die obigen Punkte sind rechtzeitig vor Projektende einzusteuern. Ohne
+den Abschluss der obigen Punkte wird die Abschlussrechnung seitens des
+Auftraggebers nicht anerkannt.</p>
+</blockquote>
+<h1 id="lastenhefte">Lastenhefte</h1>
+<h2 id="mitgeltende-lastenhefte">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] sind in der jeweils aktuellen Form und im Rahmen
+der Beauftragung mit zu beachten:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] 3 [redacted-person]
+Seitencrash</p></li>
+<li><p>LAH.DUM.880.DL Nummerierungskonvention</p></li>
+<li><p>LAH.DUM.880.FP [redacted-person] Modellierung und
+Prozess</p></li>
+<li><p>LAH.DUM.880.FN [redacted-person] Dokumentation und
+Datenaustausch</p></li>
+</ul>
+<blockquote>
+<p>sowie die darin genannten Dokumente.</p>
+</blockquote>
+<h2 id="lastenhefte-zur-info">Lastenhefte zur Info</h2>
+<blockquote>
+<p>[redacted-person] sind als Info zu beachten:</p>
+<p>---</p>
+</blockquote>
+<h2 id="technische-spezifikationen-normen">[redacted-person] /
+Normen</h2>
+<ul>
+<li><p><u>[redacted]</u> Entwicklungsbedingungen</p></li>
+<li><p><u>[redacted]</u> Fahrzeugzulieferteile allgemein</p></li>
+</ul>
+<blockquote>
+<p>sowie die darin genannten Dokumente.</p>
+</blockquote>
+<ol start="8" type="1">
+<li><p><strong>Anhang 1:
+Angebotsübersichtsmatrix</strong></p></li>
+</ol>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>AUxyz</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Simulationsumfänge</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Versuchsumfänge nach Abschnitt <a href="#_bookmark9">113.2.3</a>
+&amp; <a href="#greenhouse">3.2.4</a> &amp; <a href="#package">3.2.11</a></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Gesamtsumme</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+</body>
+</html>

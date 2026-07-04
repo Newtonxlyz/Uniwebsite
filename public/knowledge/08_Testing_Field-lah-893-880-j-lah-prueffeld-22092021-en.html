@@ -1,0 +1,3434 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_893_880_J_LAH_Prueffeld_22092021_EN</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>[redacted]</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<table>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Author</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: right;"><blockquote>
+<p>l/ER-421</p>
+</blockquote></td>
+<td><blockquote>
+<p>Dept./OU</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: right;"><blockquote>
+<p>577068</p>
+</blockquote></td>
+<td><blockquote>
+<p>Phone +49 8418 9-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Fax +49 8418 9-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>First issue</p>
+<p>Date of revision</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-addr]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<p><img src="./08_Testing_Field-lah-893-880-j-lah-prueffeld-22092021-en-media/media/image2.png" style="width:5.43257in;height:4.55385in"/></p>
+<blockquote>
+<p><strong>[redacted-person] for [redacted-person] Tests<br/>
+([redacted-person], Sled, Out-of-Position,<br/>
+and [redacted-person])</strong></p>
+<p><strong>LAH.[redacted-phone]J</strong></p>
+</blockquote>
+<h4 id="approval">Approval</h4>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Role</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Department</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Name</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Signature</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Head of [redacted]</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]-42</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<h4 id="revision-record">Revision record</h4>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Date of revision</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Description of change(s)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Author</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>First issue</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Section 3.3.5 supplemented</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Section 3.3 supplemented and corrected in detail</p>
+</blockquote></td>
+<td><blockquote>
+<p>P.-[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Additions as per specifications in [redacted-person] (LAH)
+Generator</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Additions to 2.4.1 and 2.4.7</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Adaptation</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p>to current version,</p></li>
+<li><p>, paper documents removed,</p></li>
+</ol>
+<blockquote>
+<p>5.5 Crash test dummy types and calibration cycles removed/added</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Crash test dummy calibrating cycles as recommendation, adaptations to
+2.4.5–2.4.6</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Section 5.5 Distribution list updated</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Complete revision<br/>
+Requirements explained in detail<br/>
+Document restructured</p>
+<p>Converted from request for quotation (RFQ)<br/>
+to [redacted-person] Specification<br/>
+Format and distribution list updated<br/>
+Requirements for test execution updated</p>
+<p>Data transfer requirement updated<br/>
+Addition of ISO/TS 17025</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Switch to gender-neutral language in German version<br/>
+Pedestrian protection test requirement updated<br/>
+Scope of crash test documentation revised<br/>
+General revision of details</p>
+<p>Contacts section added</p>
+<p>Supplies updated</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Contents</strong></p>
+<p><a href="#preface">1 Preface <span>7</span></a></p>
+<p><a href="#specific-order-contents">2 Specific order contents
+<span>8</span></a></p>
+<p><a href="#definition-of-scope-of-development-and-supply">2.1
+Definition of scope of development and supply <span>8</span></a></p>
+<p><a href="#documentation">2.2 Documentation <span>9</span></a></p>
+<p><a href="#supplies">2.3 Supplies <span>9</span></a></p>
+<p><a href="#technical-requirements">3 Technical requirements
+<span>11</span></a></p>
+<p><a href="#project-specifications">3.1 Project specifications
+<span>11</span></a></p>
+<p><a href="#prototype-protection-and-confidentiality">3.2 Prototype
+protection and confidentiality <span>11</span></a></p>
+<p><a href="#logistics-and-parts-handling">3.3 Logistics and parts
+handling <span>11</span></a></p>
+<p><a href="#edp">3.4 EDP <span>12</span></a></p>
+<p><a href="#general-requirements-for-the-test-institute">3.5 General
+requirements for the test institute <span>13</span></a></p>
+<p><a href="#test-preparation-and-post-processing">3.6 Test preparation
+and post-processing <span>14</span></a></p>
+<p><a href="#test-data-and-test-report">3.7 Test data and test report
+<span>16</span></a></p>
+<p><a href="#special-requirements-for-individual-test-configurations">3.8
+Special requirements for individual test configurations
+<span>17</span></a></p>
+<p><a href="#whole-vehicle-tests">3.8.1 Whole-vehicle tests
+<span>17</span></a></p>
+<p><a href="#sled-tests">3.8.2 Sled tests <span>20</span></a></p>
+<p><a href="#pedestrian-protection">3.8.3 Pedestrian protection
+<span>21</span></a></p>
+<p><a href="#roof-crush">3.8.4 Roof crush <span>22</span></a></p>
+<p><a href="#pressure-tests-for-automatic-rollover-support-systems-in-open-top-vehicles">3.8.5
+Pressure tests for [redacted]<br/>
+in open-top vehicles <span>23</span></a></p>
+<p><a href="#door-crush">3.8.6 Door crush <span>24</span></a></p>
+<p><a href="#seat-belt-and-isofix-tensioning-system">3.8.7 Seat-belt and
+ISOFIX tensioning system <span>25</span></a></p>
+<p><a href="#inverted-drop-test">3.8.8 Inverted drop test
+<span>25</span></a></p>
+<p><a href="#rollover">3.8.9 Rollover <span>26</span></a></p>
+<p><a href="#documentation-tests-and-release-tests">3.9 Documentation
+tests and release tests <span>28</span></a></p>
+<p><a href="#test-facilities-test-setups-and-custom-or-in-house-constructs">3.10
+Test facilities, test setups, and custom or in-house constructs
+<span>28</span></a></p>
+<p><a href="#temperature-and-humidity">3.11 Temperature and humidity
+<span>28</span></a></p>
+<p><a href="#metrology-instruments-and-measuringtest-equipment">3.12
+Metrology instruments and measuring/test equipment
+<span>28</span></a></p>
+<p><a href="#use">3.12.1 Use <span>28</span></a></p>
+<p><a href="#calibration">3.12.2 Calibration <span>30</span></a></p>
+<p><a href="#photography">3.13 Photography <span>31</span></a></p>
+<p><a href="#video-equipment">3.14 Video equipment
+<span>31</span></a></p>
+<p><a href="#d-measurement-systems">3.15 3D measurement systems
+<span>31</span></a></p>
+<p><a href="#moving-barriers-impactors-and-test-objects">3.16 Moving
+barriers, impactors, and test objects <span>32</span></a></p>
+<p><a href="#h-point-manikin">3.17 H-point manikin
+<span>33</span></a></p>
+<p><a href="#crash-test-dummies-and-impactors">3.18 Crash test dummies
+and impactors <span>33</span></a></p>
+<p><a href="#data-processing">4 Data processing <span>37</span></a></p>
+<p><a href="#general-information">4.1 General information
+<span>37</span></a></p>
+<p><a href="#data-transmission-and-deadlines">4.2 Data transmission and
+deadlines <span>37</span></a></p>
+<p><a href="#mandatory-declarations">4.3 Mandatory declarations
+<span>38</span></a></p>
+<p><a href="#audi-specifications-concerning-the-mme-structure">4.4 [redacted-co]
+specifications concerning the MME structure <span>39</span></a></p>
+<p><a href="#measurement-data">4.5 Measurement data
+<span>40</span></a></p>
+<p><a href="#photographic-documentation">4.6 Photographic documentation
+<span>40</span></a></p>
+<p><a href="#video-documentation">4.7 Video documentation
+<span>41</span></a></p>
+<p><a href="#vehicle-measurement-crash-test-dummy-measurement">4.8
+Vehicle measurement, crash test dummy measurement
+<span>41</span></a></p>
+<p><a href="#reports">4.9 Reports <span>41</span></a></p>
+<p><a href="#documents">4.10 Documents <span>42</span></a></p>
+<p><a href="#contacts">5 Contacts <span>44</span></a></p>
+<p><a href="#management-processes-for-external-service-providers">5.1
+[redacted-person] for [redacted-person] Providers
+<span>44</span></a></p>
+<p><a href="#vehicle-safety-procurement-management">5.2 [redacted]<span>44</span></a></p>
+<p><a href="#vehicle-safety-test-facility-logistics">5.3 [redacted]Logistics <span>44</span></a></p>
+<p><a href="#crash-test-dummy-laboratory">5.4 [redacted]<span>44</span></a></p>
+<p><a href="#metrology-instrumentsvideo-equipment">5.5 [redacted]<span>45</span></a></p>
+<p><a href="#d-measurement">5.6 3D Measurement <span>45</span></a></p>
+<p><a href="#vehicle-setup">5.7 [redacted-person] <span>45</span></a></p>
+<p><a href="#vehicle-commissioning-center">5.8 [redacted-person]
+Center <span>45</span></a></p>
+<p><a href="#vehicle-vbv-component-list">5.9 Vehicle VBV [redacted-person]
+<span>45</span></a></p>
+<p><a href="#test-evaluation">5.10 [redacted-person]
+<span>45</span></a></p>
+<p><a href="#definitions">6 Definitions <span>47</span></a></p>
+<p><a href="#terms">6.1 Terms <span>47</span></a></p>
+<p><a href="#abbreviations">6.2 Abbreviations <span>47</span></a></p>
+<p><a href="#applicable-documents">7 Applicable documents
+<span>49</span></a></p>
+<p><a href="#technical-specificationsstandards">7.1 Technical
+specifications/standards <span>49</span></a></p>
+<p><a href="#performance-specifications-for-information">7.2 [redacted-person] for information <span>50</span></a></p>
+<p><a href="#appendices">7.3 Appendices <span>50</span></a></p>
+<h1 id="preface">1 Preface</h1>
+<p>[redacted-person] Specification describes the technical requirements
+for carrying out tests for the [redacted-person] Development department of
+[redacted]</p>
+<p>This document describes the relevant interfaces, processes, rights,
+and services requested.</p>
+<p>In its quotation, the contractor must consider all services required
+for complying with the RFQ [redacted-person]. It is imperative
+that the quotation exclusively refer to the [redacted-person]
+and comprehensively present the manner of rendering the services
+required therein. Deviations from the [redacted-person] must be
+expressly identified as such in the quotation or in the ordering systems
+of [redacted]with reference to the respective section.</p>
+<p>If the contract is awarded to the contractor, the latter must ensure
+that the services described in the [redacted-person] are
+provided to [redacted-co] as specified.</p>
+<p>All aspects not described in sufficient detail herein and which need
+further clarification must be agreed upon with the purchaser's
+appropriate departments and need to be documented in a [redacted-person] or [redacted-person] Specification. This applies
+particularly to any deviations from standard requirements.</p>
+<p>In addition to this [redacted-person], Volkswagen standard
+VW 99000 "[redacted-person] for the Performance of [redacted-person]
+Contracts" applies.</p>
+<p>The content of the [redacted-person] and likewise, the
+documents additionally provided, are subject to confidentiality and may
+only be made accessible to third parties with the express consent of the
+responsible [redacted-co] department. Insofar as a transmission to third
+parties, in particular, to third parties affiliated with the contractor,
+is required for preparing a quotation and this was approved, the
+contractor must make certain that confidentiality is ensured.</p>
+<h4 id="scope">Scope</h4>
+<p>The present [redacted-person] exclusively refers to services
+within the scope of project schedules. These can be, among other things,
+development, design engineering, numerical simulation, test bed,
+testing, workshop, and project management services.</p>
+<p>The nature and scope of the services must be in conformity with the
+[redacted-person] unless circumstances are individually
+negotiated and explicitly regulated differently in writing.</p>
+<h1 id="specific-order-contents">2 Specific order contents</h1>
+<h2 id="definition-of-scope-of-development-and-supply">2.1 Definition of
+scope of development and supply</h2>
+<p>The basis for test execution is the official protocols:</p>
+<ul>
+<li><p>Laws</p></li>
+</ul>
+<ul>
+<li><p>Note on [redacted]Standard (FMVSS): In
+addition to laws, the contents of the LABORATORY TEST PROCEDURE of the
+[redacted]Administration (NHTSA) must be
+observed</p></li>
+</ul>
+<ul>
+<li><p>Consumer protection test</p></li>
+</ul>
+<ul>
+<li><p>Note on [redacted]Program (Euro NCAP): In
+addition to the protocols, the contents of the Euro NCAP [redacted-person] must be observed</p></li>
+</ul>
+<p>These documents are hereinafter referred to as "protocols."</p>
+<p>Non-binding national and international standards must also be
+observed. Among others, these include:</p>
+<ul>
+<li><p>[redacted-person] for Standardization (ISO):</p></li>
+</ul>
+<ul>
+<li><p>ISO 6487 [redacted-person] in [redacted-person] –
+Instrumentation</p></li>
+<li><p>ISO 8721 [redacted-person] – [redacted-person] in [redacted-person] –
+[redacted-person]­ation</p></li>
+<li><p>ISO/TS 13499 [redacted]for [redacted-person]</p></li>
+<li><p>ISO/TS 22240 [redacted](VSIM)</p></li>
+<li><p>ISO/IEC 17025 [redacted-person] for the Competence of Testing
+and [redacted-person]</p></li>
+<li><p>ISO 19005 [redacted-person] – [redacted]for Long-[redacted-person]</p></li>
+</ul>
+<ul>
+<li><p>Society of [redacted-person] (SAE):</p></li>
+</ul>
+<ul>
+<li><p>SAE J211 Instrumentation for [redacted-person]</p></li>
+<li><p>SAE J1733 [redacted-person] for [redacted-person] Testing</p></li>
+<li><p>SAE J826 Devices for Use in Defining and [redacted]</p></li>
+</ul>
+<ul>
+<li><p>[redacted-person] of the [redacted-person] (VDA)</p></li>
+</ul>
+<ul>
+<li><p>VDA 304 Certification of H-Point and [redacted-person] Equipment
+and [redacted-person]</p></li>
+</ul>
+<p>Unless otherwise specified in this [redacted-person] or in
+the protocols, the most recent version of the respective documents must
+be used.</p>
+<p>The documents mentioned are only a selection and are by no means
+exhaustive. Further standards could be listed in the course of this
+document or in the protocols.</p>
+<p>The contractor must independently source and apply all relevant
+documents in their current version. If reference is explicitly made to
+older versions of protocols, these must also be organized independently.
+The contractor bears any costs arising from this.</p>
+<p>Any further specifications and parameters for test execution that are
+not specified in this [redacted-person] must be agreed upon with
+the purchaser before testing.</p>
+<p>Attention is drawn to the requirement to comply with all laws, legal
+regulations, ordinances and require­ments, accident-prevention
+regulations, and standards, etc.</p>
+<p><strong>A test is not considered fully complete until relevant data
+pertaining to the test has been submitted to [redacted-co] in full and without
+errors.</strong></p>
+<p><strong>Document priorities</strong></p>
+<p>The following priority list applies in the event of conflicting
+requirements:</p>
+<p>1. Official protocols (legislation, consumer protection)</p>
+<p>2. [redacted-person]</p>
+<ol type="a">
+<li><p>[redacted-person] Specification</p></li>
+<li><p>[redacted-person] Specifications</p></li>
+<li><p>[redacted-person] Specifications that the purchaser has made
+available to the contractor</p></li>
+</ol>
+<p>3. In-house technical standards ([redacted-person] Specifications
+[TL], [redacted-person] [PV], Volkswagen standards [VW], [redacted-person]
+[KR], [redacted-person] [QP]) and Formula Q – Concrete</p>
+<p>4. Non-binding national and international standards (DIN, EN,
+ISO)</p>
+<h2 id="documentation">2.2 Documentation</h2>
+<p>Technical documentation must be submitted as specified in VW 99000 as
+per the purchaser's instructions.</p>
+<h2 id="supplies">2.3 Supplies</h2>
+<p><strong>Documents</strong></p>
+<p>[redacted]Facility of [redacted-co] provides checklists,
+photo catalogs, and similar that are specific to [redacted-co]. Some examples are
+available as appendices to this document.</p>
+<p><strong>Databases</strong></p>
+<p>[redacted-co] provides access free of charge to databases for storing test
+data and descriptions. The contractor is responsible for correctly
+maintaining connections to these systems and must organize them well in
+advance. <strong>Note:</strong> If the connections have not yet been set
+up accordingly, the entire process including employee training is
+expected to take a period of at least three months.</p>
+<p><strong>Crash test equipment (metrology instruments, crash test dummy
+technology, and similar)</strong></p>
+<p>Unless otherwise further agreed in the contract award documents, the
+contracting party does <strong>not</strong> make any crash test
+equipment or similar available.</p>
+<p>In the following exceptional cases, [redacted-co] supplies crash test
+equipment within Europe:</p>
+<ul>
+<li><p>If the unavailability of crash test equipment puts the
+achievement of project objectives at risk, [redacted-co] can supply the crash
+test equipment. This happens only when the contractor can prove that it
+has exhausted all options for organizing the equipment elsewhere. In
+this event, this equipment is billed at market-rate prices plus a
+surcharge of 15%. In addition, the contractor must bear the transport
+costs including insurance and duties. The contractor must organize the
+insured transport.</p></li>
+<li><p>If the appropriate [redacted-co] department deems that comparison tests
+with [redacted-co] internal crash test equipment (e.g., crash test dummies) are
+necessary</p></li>
+<li><p>If the appropriate [redacted-co] department demands the use of crash test
+equipment that was not specified in any configuration in the RFQ
+documents at the time of contract award and is not available from the
+contractor or elsewhere</p></li>
+</ul>
+<p>No entitlement to borrow can be construed. In particular, the
+internal demands of [redacted-co] have priority.</p>
+<p><strong>Vehicles and vehicle components</strong></p>
+<p>See the contract award documents.</p>
+<p><strong>Software</strong></p>
+<p>If necessary and if not available on the free market, [redacted-co] makes
+software available that is specific to [redacted-co], e.g., for programming and
+carrying out diagnostics on vehicle electrics/electronics. Use is
+permitted only in the context of the contracted scope of performance. If
+necessary and by agreement, [redacted-co] is able to provide training for the
+contractor's employees. The contractor must agree this in consultation
+with [redacted-co] early on.</p>
+<h1 id="technical-requirements">3 Technical requirements</h1>
+<h2 id="project-specifications">3.1 Project specifications</h2>
+<p>The project specifications of VW 99000 apply, along with those
+described below.</p>
+<p>For tests, the test schedule must be agreed upon with the purchaser
+at the outset. There must be opportunities for participation in the
+tests and for viewings during the setup and tear-down phases. In
+particular, the test configuration and test setups must be agreed upon
+with the purchaser at the outset.</p>
+<p>The contractor has overall responsibility for meeting all
+requirements defined in the [redacted-person]. The contractor
+must perform and/or coordinate all services required to fulfill the
+scope of supply.</p>
+<h2 id="prototype-protection-and-confidentiality">3.2 Prototype
+protection and confidentiality</h2>
+<p>The installations of the contractor must have "prototype protection."
+Product security is an indispensable prerequisite to contract
+performance. Proof in the form of certified acceptance must be supplied
+(e.g., compliance with VDA standards as assessed by the TÜV;
+operational services GmbH &amp; Co. KG, or equivalent).</p>
+<p>The proof of acceptance must be in place no later than at the start
+of the project or upon receipt of an order from the contracting
+party.</p>
+<p>For the transport of vehicles and components that are subject to the
+requirements of prototype protection, it must be ensured that prototype
+protection is guaranteed for the entire duration of transport and
+particularly during loading of the vehicle. For transport within Europe,
+a list of approved transport companies <strong>must</strong> be
+requested from [redacted-co] and only these transport companies may be
+used.</p>
+<p><strong>Note:</strong> If the installations have not yet been
+accepted accordingly, the entire process is expected to take a period of
+three to six months.</p>
+<h2 id="logistics-and-parts-handling">3.3 Logistics and parts
+handling</h2>
+<p>The terms and conditions agreed upon in the nomination contract apply
+to the provision of parts by the purchaser (e.g., dashboard scope,
+bodies-in-white, crash test vehicles).</p>
+<p>The contractor is responsible for the timely call-off of parts
+supplied by the purchaser. The definition of "timely" must be agreed
+upon with the purchaser at the start of the project. Transport times
+must be taken into consideration in particular.</p>
+<p>After the test has been carried out, the test components (vehicles,
+bodies, parts, etc.) must be stored for no additional charge. Storage
+must not result in changes to the material or condition. Prototype
+protection must be maintained.</p>
+<p>Vehicles and bodies that are not being worked on must be covered with
+lockable tarpaulins. The contractor must provide these, unless otherwise
+specified in the RFQ documents.</p>
+<p>Unless otherwise agreed in the RFQ documents, the contractor must
+provide special and approved storage and transport boxes for
+high-voltage (HV) batteries.</p>
+<p>The time of disposal must be agreed upon with the purchaser. The
+following applies within this context:</p>
+<ul>
+<li><p><strong>Unless otherwise agreed, vehicles, bodies, and parts
+supplied by the purchaser or [redacted-co] must be returned by the contractor
+to the purchaser or [redacted-co] free of charge.</strong> The contractor must
+provide the transport packaging and containers free of charge.</p></li>
+<li><p>Parts owned by the contractor that were made for the tests must
+be disposed of independently and free of charge by the
+contractor</p></li>
+<li><p>Test setups owned by the contractor that were created to fulfill
+the contract must also be disposed of free of charge by the
+contractor</p></li>
+</ul>
+<p>Transport costs must be included in the scopes of development and are
+not reimbursed separately by the purchaser. The same applies to disposal
+costs.</p>
+<p><strong>The following applies to parts disposed of by the
+contractor:</strong></p>
+<ul>
+<li><p>Proof must be supplied for all scrapped items</p></li>
+<li><p>Local laws and regulations relating to disposal, environmental
+protection, and similar must be observed</p></li>
+<li><p>Prototype protection must be ensured when parts are scrapped. If
+necessary, these parts must be made unrecognizable by deforming them or
+taking them apart. This particularly applies to components that offer a
+(partial) view of the vehicle, e.g., a complete dashboard, vehicle side
+panel, front or rear trim. In case of doubt, it is necessary to consult
+the purchaser.</p></li>
+<li><p>All parts must be rendered unfit for reuse.</p></li>
+<li><p>All proof must be unambiguously and fully documented in words,
+text, and images with the test number, [redacted-co] vehicle number or vehicle
+identification number (VIN), and part numbers. Where applicable, further
+requirements by [redacted-co] could follow in the course of contract
+performance. The proof must be surrendered at the request of the
+purchaser or [redacted]</p></li>
+</ul>
+<ul>
+<li><p>Example: Multiple parts in one image with test no. and VIN, the
+way in which the part has been manipulated to prevent reuse must be
+clear to see (e.g., split rim flange, electronic control unit
+mechanically damaged beyond repair).</p></li>
+</ul>
+<ul>
+<li><p>The contractor must disclose or develop a systematic process for
+scrapping/disposal by the contractor.</p></li>
+</ul>
+<p>All reusable transport containers, frames, etc. owned by the Group
+must be returned to [redacted-co] free of charge.</p>
+<p>For transport, storage, and work with hazardous substances and
+vehicles with alternative powertrains (compressed natural gas [CNG],
+electric, hydrogen, etc.) or components of these powertrains (batteries,
+pressure vessels, etc.), it is necessary to comply with locally
+applicable and legally required procedures and occupational safety
+regulations. The employees concerned must receive the appropriate
+training. For transport, the legally required procedures and
+occupational safety regulations applicable at the destination must also
+be observed.</p>
+<p>For the use of parts containing pyrotechnics or comparable
+technologies (e.g., airbags), locally applicable and legally required
+procedures and occupational safety regulations must be observed. It must
+be ensured that employees with the appropriate skills to handle the
+components are available in sufficient numbers. Only these employees may
+carry out the work.</p>
+<p>In addition, a complete register of the nature and quantity of this
+material must be maintained. This register must, in particular, document
+its origin and current location. This register must be stored for at
+least ten years.</p>
+<p>For laboratories in [redacted-addr], the requirements of clause 7 of the
+[redacted-person] Act (SprengG) must be observed. In addition, it is
+necessary to provide proof of a sufficient number of employees
+possessing a certificate of competence as per clause 20 of the [redacted-person] Act available to handle pyrotechnic articles of categories P1
+and P2 for technical purposes.</p>
+<h2 id="edp">3.4 EDP</h2>
+<p>Part of conducting a test involves preparing and transferring data to
+the [redacted-person] department of [redacted]Without this, the test is not
+considered complete.</p>
+<p>A data connection and establishment of faultless data transfer to
+[redacted-co] is a mandatory requirement. Sufficient time must be scheduled
+for setting up the connection. Based on experience, a minimum of three
+months can be assumed.</p>
+<p>The contractor ensures provision and bears the costs for this. [redacted-co]
+provides the necessary system access. Only then is service provision
+possible.</p>
+<p><strong>It is not permissible to hand over data via the [redacted](KVS), a data storage device, or
+similar.</strong></p>
+<p>The contractor must designate a single point of contact to ensure the
+efficient clarification of all IT-related issues.</p>
+<p>The complete fulfillment of the [redacted-person] also
+includes preparing the test data in the ISO-MME format specific to [redacted-co]
+and delivering the data independently and in full to the [redacted]systems (VisVerdi, Falcon). All relevant test data must be
+transferred to the specified [redacted-co] systems.</p>
+<p>[redacted-co] provides help and support only in the form of the documents
+described. Any need for support beyond this must be purchased from an IT
+service provider.</p>
+<p><strong>The effort involved in preparing and transferring data is,
+from experience, very substantial and demanding. The contractor must, to
+the greatest possible extent, organize an automated process to prepare
+the data in the required format and import data into the [redacted-co] systems.
+To achieve this, measures and expenditure in the area of IT are required
+of the contractor. Experience shows that considerable effort can be
+expected with first-time implementation in particular. To be able to
+cope with the necessary effort as changes arise, continuous maintenance
+and updating are also a mandatory requirement during normal operation.
+Ordinarily, this cannot be handled by a development or test engineer.
+For this reason, it is advisable to have this taken care of by an IT
+expert. Manual preparation of the data is prone to errors and must be
+avoided. [redacted-co] does not accept any data that has not been prepared
+error-free.</strong></p>
+<h2 id="general-requirements-for-the-test-institute">3.5 General
+requirements for the test institute</h2>
+<p>The test laboratory must be certified at least to DIN EN ISO 9001 or
+ISO/TS 16949 or VDA 6.1 and to ISO/IEC 17025 for all relevant statutory
+load cases/type-approval testing. It must also be able to provide proof
+of commitments to the extent that release tests and self-certification
+procedures are carried out in these configurations. For whole-vehicle
+tests, ISO/IEC 17025 certification is required for the load case
+concerned. If ISO/IEC 17025 certification is not possible for a
+particular load case, this must be disclosed to the purchaser at the
+earliest opportunity and an agreement must be reached on how to proceed
+further, including the transfer of tests to a suitably certified
+laboratory.</p>
+<p>In addition, the required expertise in vehicle preparation, crash
+test preparation, crash test execution, and vehicle evaluation to [redacted-co]
+standards must be available.</p>
+<h2 id="test-preparation-and-post-processing">3.6 Test preparation and
+post-processing</h2>
+<p><img src="./08_Testing_Field-lah-893-880-j-lah-prueffeld-22092021-en-media/media/image3.png" style="width:4.50694in;height:3.61319in"/></p>
+<table>
+<caption>GrafikUebersetzung</caption>
+<thead>
+<tr>
+<th>Vor-Versuch</th>
+<th>Pre-test</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Versuch</td>
+<td>Test</td>
+</tr>
+<tr>
+<td>Nach-Versuch</td>
+<td>Post-test</td>
+</tr>
+<tr>
+<td>Prozessschritt</td>
+<td>Process step</td>
+</tr>
+<tr>
+<td>Versuchsplanung</td>
+<td>Test planning</td>
+</tr>
+<tr>
+<td>Versuchsdetailspezifikation</td>
+<td>Test detail specification</td>
+</tr>
+<tr>
+<td>Versuchsträgeraufbau</td>
+<td>Test mule setup</td>
+</tr>
+<tr>
+<td>Versuchsträgervorbereitung</td>
+<td>Test mule preparation</td>
+</tr>
+<tr>
+<td>Versuchsdurchführung</td>
+<td>Test execution</td>
+</tr>
+<tr>
+<td>Versuchsnachbearbeitung</td>
+<td>Test post-processing</td>
+</tr>
+<tr>
+<td>Versuchsträgerabrüstung</td>
+<td>Test mule tear-down</td>
+</tr>
+<tr>
+<td>[redacted-person]/Rücktransport</td>
+<td>Test mule scrapping/return transport</td>
+</tr>
+<tr>
+<td>Ergebnisse/Daten</td>
+<td>Results/data</td>
+</tr>
+<tr>
+<td>Dokumentation: Termine</td>
+<td>Documentation: Schedules</td>
+</tr>
+<tr>
+<td>Dokumentation: Werkstattprogramm</td>
+<td>Documentation: Workshop program</td>
+</tr>
+<tr>
+<td>Dokumentation: Aufbau</td>
+<td>Documentation: Setup</td>
+</tr>
+<tr>
+<td>Daten: Bilder, Vermessungen</td>
+<td>Data: Images, measurements</td>
+</tr>
+<tr>
+<td>Dokumentation: Checklisten</td>
+<td>Documentation: Checklists</td>
+</tr>
+<tr>
+<td>Daten: Bilder, Vermessungen</td>
+<td>Data: Images, measurements</td>
+</tr>
+<tr>
+<td>Dokumentation: Randbedingungen</td>
+<td>Documentation: Boundary conditions</td>
+</tr>
+<tr>
+<td>Daten: Bilder, Kurven, Video</td>
+<td>Data: Images, charts, video</td>
+</tr>
+<tr>
+<td>Dokumentation: Checklisten</td>
+<td>Documentation: Checklists</td>
+</tr>
+<tr>
+<td>Daten: Bilder, Vermessung</td>
+<td>Data: Images, measurement</td>
+</tr>
+<tr>
+<td>Dokumentation: Checklisten</td>
+<td>Documentation: Checklists</td>
+</tr>
+<tr>
+<td>Daten: Bilder, Vermessung</td>
+<td>Data: Images, measurement</td>
+</tr>
+<tr>
+<td>Dokumentation: Bericht</td>
+<td>Documentation: Report</td>
+</tr>
+<tr>
+<td>Daten: Bilder</td>
+<td>Data: Images</td>
+</tr>
+</tbody>
+</table>
+<p>Figure: General process description</p>
+<p>The following points must be taken into consideration:</p>
+<ul>
+<li><p>Tests must be prepared and post-processed in such a way that
+maximum utility is achieved from the tests</p></li>
+<li><p>If pre-tests have been carried out, the worthiness of the test
+must be evaluated and documented before the test is carried out. The
+contractor must consult the purchaser if the contractor is unable to
+guarantee fulfillment of this requirement</p></li>
+<li><p>Before a test is carried out, all relevant setups must be
+documented by standard photo catalogs. These must be agreed upon with
+the purchaser before the test is carried out. If protocols contain
+requirements for photographic documentation, these must be considered as
+minimum requirements for the documentation.</p></li>
+<li><p>After the test, the test result must be documented with as few
+changes as possible.</p></li>
+<li><p>This must also be done using the standard photo catalogs provided
+by the purchaser. If none are supplied, these must be agreed upon with
+the purchaser before the test. In particular, no parts may be modified
+or removed before documentation has been produced. If protocols contain
+requirements for photographic documentation, these must be considered as
+minimum requirements for the documentation.</p></li>
+<li><p>Before damaged parts are cut out or removed, it is necessary to
+consult the appropriate contact at the purchaser and make it possible
+for a viewing to take place</p></li>
+<li><p>Remove the part or assembly as carefully as possible –
+disassembly before use of force.</p></li>
+<li><p>Do not bend the part or damage fractured surfaces.</p></li>
+<li><p>Removal, transportation, and storage of the part must be
+performed in such a way that no material or state changes are caused in
+the area to be examined for the analysis, taking into account the
+further surroundings of the damaged area.</p></li>
+<li><p>The part must be checked for dimensional compliance with the
+applicable drawing. All scopes relevant to the test configuration must
+be assessed. (Note: The test scopes may vary between different projects
+and must be specified in detail with the appropriate department at the
+start of the commissioned service.) In a frontal impact, for example,
+the scopes comprise the following items:</p></li>
+</ul>
+<ul>
+<li><p>Structure</p></li>
+</ul>
+<ul>
+<li><p>Body including the relevant joining technology and design
+versions</p></li>
+<li><p>Hang-on parts</p></li>
+<li><p>Introduction of measures</p></li>
+</ul>
+<ul>
+<li><p>Propulsion unit</p></li>
+</ul>
+<ul>
+<li><p>Engine</p></li>
+<li><p>Transmission</p></li>
+<li><p>Exhaust system</p></li>
+<li><p>Propeller shaft</p></li>
+<li><p>Rear differential</p></li>
+</ul>
+<ul>
+<li><p>Chassis</p></li>
+</ul>
+<ul>
+<li><p>Front/rear subframe</p></li>
+<li><p>Pedal cluster</p></li>
+<li><p>Brake booster</p></li>
+<li><p>Wheels</p></li>
+</ul>
+<ul>
+<li><p>Fuel system</p></li>
+</ul>
+<ul>
+<li><p>Fuel tank</p></li>
+<li><p>Fuel lines</p></li>
+<li><p>Fuel filter and similar</p></li>
+<li><p>Fuel-fired parking heater including fuel lines</p></li>
+</ul>
+<ul>
+<li><p>12-V vehicle electrical system</p></li>
+</ul>
+<ul>
+<li><p>Battery or energy storage system</p></li>
+<li><p>Cables</p></li>
+<li><p>Electronic control units/networked safety functions</p></li>
+</ul>
+<ul>
+<li><p>HV or medium-voltage (MV) vehicle electrical system</p></li>
+</ul>
+<ul>
+<li><p>Energy storage system</p></li>
+<li><p>Cables</p></li>
+</ul>
+<ul>
+<li><p>Electronic control units/networked safety functions</p></li>
+</ul>
+<ul>
+<li><p>Heating, ventilation, and air conditioning (HVAC) system</p></li>
+</ul>
+<ul>
+<li><p>Vehicle interior</p></li>
+</ul>
+<ul>
+<li><p>Cockpit</p></li>
+<li><p>Center console</p></li>
+<li><p>Seat</p></li>
+<li><p>Carpet/footwell</p></li>
+<li><p>Wheel housing liner components</p></li>
+<li><p>Roof/sun visor</p></li>
+<li><p>Interior pillar trims</p></li>
+</ul>
+<h2 id="test-data-and-test-report">3.7 Test data and test report</h2>
+<p>A test report must be prepared for each test. In the tests
+themselves, all scopes relevant to testing must be documented in the
+form of a test report and, where possible, in VisVerdi. The details must
+be defined with the purchaser at the start of the project and
+continuously refined.</p>
+<p>Before the test is conducted, the associated VisVerdi program must be
+created, the [redacted-co] test number must be noted in the documents, and
+entered before and after the test. In addition to the minimum entries
+described in section <a href="#data-processing">4</a>, the relevant test
+results must also be documented in the VisVerdi program. To support
+this, the purchaser may generate a VisVerdi "user view" containing, for
+example, the following points: Part numbers of the restraints; actual
+crash weight; actual speed; fuel leak-tightness, etc.</p>
+<p>The following points must be taken into consideration and included in
+the test report and submitted documents:</p>
+<ul>
+<li><p>Preparation and evaluation of the protocol-relevant boundary test
+conditions, measurement data, and results as PDF/A as per
+ISO 19005</p></li>
+<li><p>Measurement data in ISO-MME format as per ISO/TS 13499</p></li>
+<li><p>Vehicle or body description of the setup (body-in-white, trim
+panels, airbags in their individual parts, etc.) by means of test
+program in VisVerdi and photos in Falcon</p></li>
+<li><p>Vehicle, positioning, and crash test dummy measurement in
+compatible formats</p></li>
+<li><p>Videos and photos in Falcon in the formats and resolutions
+defined by [redacted]</p></li>
+<li><p>Internal test number of [redacted-co] and the laboratory</p></li>
+<li><p>Calibration certificates of the test facilities and metrology
+instruments used</p></li>
+<li><p>Certification reports of the crash test
+dummies/impactors/barriers involved</p></li>
+<li><p>Description of the test setup including photos. At the
+purchaser's request, these must also be supplied in the form of
+computer-aided design (CAD) drawings</p></li>
+<li><p>Part numbers and versions of all relevant vehicle components
+involved in the test</p></li>
+<li><p>Incorporation of the parts based on a checklist to be
+defined</p></li>
+<li><p>Recording of vehicle values (door opening force, etc.) as per
+[redacted-co] checklist</p></li>
+<li><p>Event memory read-out before and after test</p></li>
+<li><p>For release tests, a release recommendation must be prepared and,
+if necessary, completed</p></li>
+</ul>
+<blockquote>
+<p>For details of the respective data formats and special requirements,
+see section <a href="#data-processing">4</a>. The requirements specified
+there must be strictly observed.</p>
+<p>The test report must contain at least the following points:</p>
+</blockquote>
+<ul>
+<li><p>Test content and objective</p></li>
+<li><p>General boundary conditions (date, contact, location,
+etc.)</p></li>
+<li><p>Documentation specific to the test object (VIN, pre-tests,
+conversions, weight, etc.)</p></li>
+<li><p>Boundary conditions specific to the test (speed, impact point,
+temperature, humidity, etc.)</p></li>
+<li><p>All relevant information pertaining to the respective test
+record</p></li>
+<li><p>All irregularities documented in writing and by photos, e.g.,
+failure/damage/collapse of parts and behavior of parts, e.g., propulsion
+units (engine, transmission, exhaust system, etc.) and chassis
+(subframe, control arms, brake booster, etc.)</p></li>
+<li><p>Fuel and media leak-tightness, electrical safety</p></li>
+<li><p>Comparison with pre-tests and/or simulations</p></li>
+<li><p>Occupant loads</p></li>
+<li><p>Result, summary, comparison with [redacted-person]
+requirements, and recommenda­tions for measures</p></li>
+<li><p>Prospect of next test</p></li>
+<li><p>For HV vehicles: Battery analysis report</p></li>
+</ul>
+<h2 id="special-requirements-for-individual-test-configurations">3.8
+Special requirements for individual test configurations</h2>
+<h3 id="whole-vehicle-tests">3.8.1 Whole-vehicle tests</h3>
+<p>For whole-vehicle tests, the following points must be taken into
+consideration:</p>
+<ul>
+<li><p>Reproducibility of propulsion ±0.2 km/h</p></li>
+<li><p>Legal nominal values -0 km/h to +0.4 km/h are
+permissible.</p></li>
+<li><p>Use of a calibrated speed measuring system</p></li>
+<li><p>The acceleration rates on the run-up track specified in the
+protocols for vehicles with occupants must be observed. Unless otherwise
+specified, an acceleration rate of 0.5 m/s<sup>2</sup> must not be
+exceeded. The acceleration curve of the vehicle or mobile barrier from a
+standstill to the point of contact must be documented and stored in
+Falcon</p></li>
+<li><p>The required speed must, unless otherwise specified, be reached
+5 m before contact and a constant speed must be maintained up to the
+point of impact</p></li>
+<li><p>The vehicle or mobile barrier must be decoupled before the point
+of impact</p></li>
+<li><p>The following impactor suppliers must be used. The use of other
+suppliers requires the authorization of the purchaser.</p></li>
+</ul>
+<ul>
+<li><p>ECE R94 frontal EEVC Cellbond</p></li>
+<li><p>FMVSS 214 side Plascore</p></li>
+<li><p>EEVC side (WG13) (Advanced 2000) Cellbond</p></li>
+<li><p>AE-MDB [redacted-person] Cellbond</p></li>
+<li><p>IIHS side Cellbond</p></li>
+<li><p>Rear impact ODB 70% Plascore</p></li>
+</ul>
+<ul>
+<li><p>After the test, the test checklists of [redacted-co] must be completed
+and transferred to VisVerdi. Example checklists for frontal, side, and
+rear impacts are appended to this [redacted-person]</p></li>
+</ul>
+<ul>
+<li><p>In particular, it must be noted that the opening forces of locks
+and doors must be measured and documented for all doors in all
+tests</p></li>
+</ul>
+<ul>
+<li><p>The standard vehicle measuring points agreed in the
+[redacted-person] must be fitted. Details can be found in the appendix or
+must be agreed upon with the purchaser in good time before the first
+test.</p></li>
+<li><p>The impact point and deviation therefrom must be determined by
+suitable means and docu­mented in VisVerdi. How this is determined must
+be agreed upon with the purchaser before the test is carried
+out.</p></li>
+</ul>
+<ul>
+<li><p>Frontal impact: The center position of the vehicle and, in offset
+tests, the target position of the side edge of the barriers must be
+marked using piano-key stickers. Using a pointer, a calibrated line in
+the test video, a line laser, or equivalent, the deviation from the
+impact point must be made visible and the deviation must be documented
+in VisVerdi</p></li>
+</ul>
+<p><img src="./08_Testing_Field-lah-893-880-j-lah-prueffeld-22092021-en-media/media/image4.jpeg" style="width:3.12014in;height:2.67986in"/></p>
+<ul>
+<li><p>Rear impact: As for frontal impact</p></li>
+<li><p>Side impact:</p>
+<p><u>Barrier impacts only</u>: Documentation of the target position of
+the barrier before the test: The barrier must be positioned against the
+vehicle. A distinctive dot must be projected onto the vehicle from the
+outermost left and right sides of the barrier, respectively, and marked
+accordingly. These two dots must be measured using a 3D measurement
+system and documented in VisVerdi</p></li>
+</ul>
+<ul>
+<li><p><u>All tests</u>: Documentation of the actual impact position:
+Impact circle on the door panel. It must be ensured that this does not
+alter the test results. The deviation must be documented in
+VisVerdi</p></li>
+</ul>
+<ul>
+<li><p><u>All tests</u>: The impact angle must be documented by suitable
+means and it must be proven that the specified tolerances of the impact
+angle are maintained. This must be done, for example, using a video
+analysis. The study must be presented to the purchaser or [redacted-co] on
+request</p></li>
+</ul>
+<ul>
+<li><p>Friction coefficients of the test surface: Fulfillment of
+FMVSS [redacted-phone]requirements for vehicle test surfaces, "lateral moving
+barrier crash test conditions" and "rollover test conditions", on a dry
+surface at a speed of approximately 65 km/h (= 40 mph), a skid number of
+75 as per ASTM E [redacted-phone] This can also be replaced by the skid
+resistance test (SRT) value of &gt; 15 and &lt; 45 defined by the
+commonly used standard in Europe (DIN EN 13036-4).</p></li>
+<li><p>Pole side impacts (e.g., as per FMVSS 214 or UNECE R135) must be
+carried out with a flying floor. If a different method is used, proof of
+equivalence to the flying floor (impact point, impact angle, speed) must
+be presented to the purchaser</p></li>
+<li><p>In the frontal impact test, the towing device must be connected
+to the vehicle by flexible connections (e.g., webbing) on the stabilizer
+bar of the chassis. Alternative connections may be used after
+consultation with and approval by [redacted]A connection requiring
+modifications to the vehicle is not permitted</p></li>
+</ul>
+<blockquote>
+<p><img src="./08_Testing_Field-lah-893-880-j-lah-prueffeld-22092021-en-media/media/image6.jpeg" style="width:3.33333in;height:2.52014in"/></p>
+</blockquote>
+<ul>
+<li><p>Tanks must be filled as per the specifications of the respective
+protocol (filling medium, volume). If nothing is specified there in this
+respect, it is necessary to consult the purchaser and:</p></li>
+</ul>
+<ul>
+<li><p>Dyed water must be used</p></li>
+<li><p>A volume equivalence must be used, <strong>not</strong> weight
+equivalence</p></li>
+</ul>
+<ul>
+<li><p>After each crash, the fuel system, i.e., lines and tank, must be
+separately tested under pressure, checked for leaks, and
+documented</p></li>
+</ul>
+<h3 id="sled-tests">3.8.2 Sled tests</h3>
+<p>Unless otherwise specified by a particular protocol, it is possible
+to use braking or acceleration systems in equal measure.</p>
+<p><strong>General requirements:</strong></p>
+<p>The requirements of the respective protocols must be met.</p>
+<p>The following general requirements must be met:</p>
+<ul>
+<li><p>Max. speed: 70 km/h</p></li>
+<li><p>Change in deceleration or acceleration (approximate value):
+15 g/ms</p></li>
+<li><p>Min. deceleration or acceleration distances</p></li>
+</ul>
+<ul>
+<li><p>Vehicles with combustion engine: 1.6 m</p></li>
+<li><p>Vehicles without combustion engine: 2.0 m</p></li>
+</ul>
+<ul>
+<li><p>A payload capacity of 3 500 kg must be supported</p></li>
+<li><p>The sled body must be pivotable through ± 20° to the left and
+right for frontal impact tests</p></li>
+<li><p>Bodies for restraint system development must be reinforced in
+such a way that the behavior of the body and, in particular, the
+connection of seats, seat belts, and other high-load connection points
+remain stable throughout the entire duration of use</p></li>
+</ul>
+<p><strong>The following measuring instruments must be
+fitted:</strong></p>
+<ul>
+<li><p>Three-axis acceleration sensor for sled acceleration</p></li>
+</ul>
+<ul>
+<li><p>Position front or rear center</p></li>
+</ul>
+<ul>
+<li><p>Redundancy for three-axis acceleration sensor, sled
+deceleration</p></li>
+<li><p>For assemblies with body: Three-axis acceleration sensor on the
+sill side at the B-pillar bottom left and right, respectively</p></li>
+</ul>
+<p><strong>Pulse accuracy:</strong></p>
+<p>Unless the protocols specify otherwise in respect of pulse accuracy,
+the test pulse must be checked based on speed.</p>
+<p>The following procedure must be applied:</p>
+<ul>
+<li><p>Determine the average value from the sled acceleration and its
+redundant sensor</p></li>
+<li><p>Calculate the speed through integration</p></li>
+</ul>
+<ul>
+<li><p>Do the same for the specified pulse</p></li>
+</ul>
+<ul>
+<li><p>Set the initial speed to 0 m/s</p></li>
+</ul>
+<ul>
+<li><p>Do the same for the specified pulse</p></li>
+</ul>
+<ul>
+<li><p>Calculate the difference between the specification and the
+test</p></li>
+<li><p>The result must be in the corridor -0.8 m/s to 0.8 m/s</p></li>
+</ul>
+<p><strong>Sled tests for restraint system development</strong></p>
+<ul>
+<li><p>For sled tests for restraint system development, it must be
+possible to deploy all restraint systems and use up to five fully
+instrumented crash test dummies including the necessary metrology
+instruments (e.g., seat belt forces, steering column forces)</p></li>
+</ul>
+<h3 id="pedestrian-protection">3.8.3 Pedestrian protection</h3>
+<p>The requirements for carrying out the test are specified in the
+official protocols. In particular, it must be noted that the following
+equipment is needed to carry out the test:</p>
+<ul>
+<li><p>All relevant impactors</p></li>
+<li><p>Metrology instrument recording:</p></li>
+</ul>
+<ul>
+<li><p>Sampling time of min. -200 [redacted-person] +500 [redacted-person].</p></li>
+<li><p>When the impact speed of the impactor is being determined by the
+acceleration sensor fitted in the impactor, the entire acceleration
+phase of the impactor must be recorded.</p></li>
+</ul>
+<ul>
+<li><p>2x camera with 1 000 fps and a resolution of 1 280 x 1 080 (see
+also section <a href="#photography">3.13</a>)</p></li>
+</ul>
+<ul>
+<li><p>Recording times: Headform test -20 [redacted-person] +100 ms</p></li>
+<li><p>Lower legform/upper legform -100 [redacted-person] +100 ms</p></li>
+<li><p>Tread load tests of re-active hood: -100 [redacted-person] +300 ms</p></li>
+</ul>
+<ul>
+<li><p>3D measurement system for measuring the impact points as per the
+protocol/[redacted-person]</p></li>
+<li><p>Calibrated speed measuring system</p></li>
+</ul>
+<p><strong>Photographic documentation:</strong></p>
+<ul>
+<li><p>Photographic documentation as per Euro NCAP [redacted-person]
+Protocol, section 8.4 "Photographic record."</p></li>
+<li><p>Further photographic documentation of different parts and damage
+by agreement with the purchaser</p></li>
+</ul>
+<p><strong>Speed tolerances of the impactors at the time of impact
+(t = 0 ms):</strong></p>
+<p><u>Headform impactors:</u></p>
+<ul>
+<li><p>Impact speed ± 0.2 km/h relative to specified speed.</p></li>
+<li><p>For deviations between 0.2 and 0.4 km/h: Duty to inform the
+purchaser.</p></li>
+<li><p>For deviations exceeding 0.4 km/h: Duty to inform the purchaser,
+and the cause must be rectified before the test is resumed</p></li>
+</ul>
+<p><u>Lower legform impactors (FlexPLI, aPLI):</u></p>
+<ul>
+<li><p>Impact speed ± 0.35 km/h relative to specified speed.</p></li>
+<li><p>For deviations between 0.35 and 0.55 km/h: Duty to inform the
+purchaser.</p></li>
+<li><p>For deviations exceeding 0.55 km/h: Duty to inform the purchaser,
+and the cause must be rectified before the test is resumed</p></li>
+</ul>
+<p>For tests with the advanced pedestrian legform impactor (aPLI), there
+are currently no officially specified boundary conditions for carrying
+out the test. Until the relevant documents are published, the same
+boundary conditions apply as in the current Euro NCAP protocol for tests
+with the flexible pedestrian legform impactor (FlexPLI).</p>
+<p>Misuse and impactor tests for sensor system development:</p>
+<ul>
+<li><p>Impact speed ± 0.2m/s relative to the specified speed for
+stationary tests on the test bed/ catapult.</p></li>
+<li><p>For deviations exceeding ± 0.2 ms: Duty to inform the
+purchaser</p></li>
+</ul>
+<p><u>Upper legform impactors:</u></p>
+<ul>
+<li><p>Impact speed ± 1% relative to specified speed.</p></li>
+<li><p>For deviations between 1% and 2%: Duty to inform the
+purchaser.</p></li>
+<li><p>For deviations exceeding 0.55 km/h: Duty to inform the purchaser,
+and the cause must be rectified before the test is resumed.</p></li>
+</ul>
+<p>Furthermore:</p>
+<ul>
+<li><p>For vehicles with active pedestrian protection systems, all
+vehicle-internal signals of the sensor systems and electronic control
+units must be recorded. In this case, a remaining-bus simulation is also
+necessary. Technical requirements must be agreed upon with the
+purchaser.</p></li>
+<li><p>Proof of impact point must be produced and documented. This must
+be done by suitable means (e.g., target sticker + color marking). The
+permissible deviation is specified in the protocols. If nothing is
+specified there in this respect, a deviation of max. 5 mm is
+permissible</p></li>
+<li><p>The impact angle must be proven and documented by suitable
+means.</p></li>
+<li><p>This can be done, for example, by means of a video analysis in
+combination with solder and markings on the impactor</p></li>
+<li><p>The waiting time between two tests with the same impactor must
+meet the requirements in the protocols. If no requirements are specified
+there in this respect, the time frame must be agreed upon with the
+purchaser.</p></li>
+</ul>
+<h3 id="roof-crush">3.8.4 Roof crush</h3>
+<p>The requirements for carrying out the test are specified in the
+official protocols. Unless otherwise agreed, the test speed is
+5 mm/s.</p>
+<p>At variance with the requirements of FMVSS 216, the body may be
+supported as per the requirements of the IIHS protocol. This must be
+agreed upon on a case-by-case basis with the purchaser.</p>
+<p>All events during the test must be recorded at the time they occur
+and documented (e.g., rear window breakage, etc.).</p>
+<p>In particular, it must be noted that the following equipment is
+needed to carry out the test:</p>
+<ul>
+<li><p>3x camera with 25 fps and a resolution of 1 980 x 1 080 (see also
+section <a href="#photography">3.13</a>)</p></li>
+<li><p>SAE test manikin for adjusting the seat position</p></li>
+<li><p>Test headform or Hybrid III (HIII) 50% crash test dummy</p></li>
+<li><p>3D measurement system for measuring the test headform/crash test
+dummy (see also section <a href="#d-measurement-systems">3.15</a>)</p></li>
+<li><p>Axial force and displacement measurement of the test
+system</p></li>
+<li><p>3x draw-wire potentiometers for documenting the connection of the
+vehicle/body to the substructure/clamping floor</p></li>
+</ul>
+<ul>
+<li><p>1x sill, horizontal</p></li>
+<li><p>Front center and rear vertical platform</p></li>
+</ul>
+<p><strong>Test execution: Rest-of-the-world (ROW)</strong></p>
+<p>The roof crush test must be carried out on one side.</p>
+<p>The roof crush test must be carried out with a post travel of up to
+200 mm. At 127 mm post travel, the test must be interrupted and the
+deformation profile must be documented by photos.</p>
+<p><strong>Test execution: [redacted-person] Region
+(NAR)/FMVSS 216a</strong></p>
+<p>The roof crush test must be carried out on both sides.</p>
+<p>On the first side, the test must be stopped when the specified force
+is reached.</p>
+<p>On the second side, the test must be carried out up to the specified
+force. The deformation profile must be documented.</p>
+<p>The test is then carried out up to a post travel of 200 mm. The head
+contact must be documented during the test.</p>
+<p><strong>Test execution: IIHS</strong></p>
+<p>The roof crush test must be carried out on one side.</p>
+<p>The test must be carried out with a post travel of up to 200 mm.</p>
+<h3 id="pressure-tests-for-automatic-rollover-support-systems-in-open-top-vehicles">3.8.5
+Pressure tests for [redacted]in open-top
+vehicles</h3>
+<p>The requirements for testing [redacted]comprise static compression and tensile tests as well as dynamic sled
+tests.</p>
+<ul>
+<li><p>Compression tests:</p></li>
+<li><p>As per FMVSS 216</p></li>
+<li><p>Y-direction</p></li>
+<li><p>Z-direction (two positions)</p></li>
+<li><p>Tensile tests:</p></li>
+<li><p>X-direction (two positions)</p></li>
+<li><p>Z-direction (two positions)</p></li>
+<li><p>Dynamic sled tests</p></li>
+<li><p>Complete rollover protection structure against rigid wall (two
+positions) at 10–11 km/h</p></li>
+</ul>
+<p>The details must be agreed upon on a case-by-case basis with the
+purchaser.</p>
+<h3 id="door-crush">3.8.6 Door crush</h3>
+<p>The requirements for carrying out the test are specified in the
+official protocols.</p>
+<p>The vehicle must be connected to the substructure by the connection
+points of the axles. The con­nections on the test side must not be
+anchored in the floor, but only secured to prevent tipping. On the side
+facing away from the test, the connections must be securely bolted down.
+Outside these points, only supports at the sill on the side facing away
+from the test are permissible.</p>
+<p><img src="./08_Testing_Field-lah-893-880-j-lah-prueffeld-22092021-en-media/media/image7.jpeg" style="width:5.34653in;height:3.34653in"/></p>
+<table>
+<caption>GrafikUebersetzung</caption>
+<thead>
+<tr>
+<th style="text-align: left;">Befestigung vorne</th>
+<th style="text-align: left;">Front fastening</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Seilspanner links und rechts sind lose
+(zusätzliche Sicherung)</td>
+<td style="text-align: left;">Cable tensioners on the left and right are
+loose (additional securing)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Anbindung erfolgt an den
+Achsschrauben</td>
+<td style="text-align: left;">Connection is to the axle bolts</td>
+</tr>
+<tr>
+<td style="text-align: left;">Füße werden auf der versuchsabgewandten
+Seite fest mit dem Prüfstand verschraubt</td>
+<td style="text-align: left;">On the side facing away from the test, the
+feet are securely bolted down onto the test bed</td>
+</tr>
+<tr>
+<td style="text-align: left;">Versuchsseitig wird ein Verschieben der
+Füße zugelassen.</td>
+<td style="text-align: left;">On the test side, sliding of the feet is
+permissible.</td>
+</tr>
+<tr>
+<td style="text-align: left;">[redacted-person] verhindert ein
+Aufkippen.</td>
+<td style="text-align: left;">The tie-down plate prevents tipping.</td>
+</tr>
+<tr>
+<td style="text-align: left;">[redacted-person] am Schweller auf
+der versuchsabgewandten Seite</td>
+<td style="text-align: left;">Additional supports at the sill on the
+side facing away from the test</td>
+</tr>
+</tbody>
+</table>
+<p>In addition, the following equipment must be used:</p>
+<ul>
+<li><p>3x camera with 24 fps and a resolution of 1 920 x 1 080 (see also
+section <a href="#photography">3.13</a>)</p></li>
+<li><p>Axial force and displacement measurement of the test
+system</p></li>
+<li><p>1x draw-wire potentiometer for documenting the connection of the
+vehicle/body to the sub­structure/clamping floor</p></li>
+</ul>
+<ul>
+<li><p>1x sill, horizontal</p></li>
+</ul>
+<h3 id="seat-belt-and-isofix-tensioning-system">3.8.7 Seat-belt and
+ISOFIX tensioning system</h3>
+<p>The requirements to be observed are specified in [redacted]LAH.[redacted-phone]B and in the applicable
+project-relevant [redacted-person] Specifications. This generally
+means:</p>
+<p>Front seat: LAH.???.881</p>
+<p>Rear seat: LAH.???.885</p>
+<p>Where ??? must be replaced with the relevant project code.</p>
+<p>In particular, it must be noted that the following equipment is
+needed to carry out the test:</p>
+<ul>
+<li><p>1x camera with 25 fps and a resolution of 1 980 x 1 080 (see also
+section <a href="#photography">3.13</a>)</p></li>
+</ul>
+<h3 id="inverted-drop-test">3.8.8 Inverted drop test</h3>
+<p>The test is carried out based on SAE J996</p>
+<p>The drop height is 500 mm.</p>
+<p><img src="./08_Testing_Field-lah-893-880-j-lah-prueffeld-22092021-en-media/media/image8.jpeg" style="width:6.30694in;height:2.98681in"/></p>
+<table>
+<caption>GrafikUebersetzung</caption>
+<thead>
+<tr>
+<th style="text-align: left;">Fahrzeuglängsachse</th>
+<th style="text-align: left;">Vehicle longitudinal axis</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Fahrzeugquerachse</td>
+<td style="text-align: left;">Vehicle transverse axis</td>
+</tr>
+<tr>
+<td style="text-align: left;">Horizontalebene</td>
+<td style="text-align: left;">Horizontal plane</td>
+</tr>
+<tr>
+<td style="text-align: left;">Fallhöhe 0,5 m</td>
+<td style="text-align: left;">Drop height 0.5 m</td>
+</tr>
+</tbody>
+</table>
+<p>In addition, it must be noted that the following equipment is needed
+for carrying out the test:</p>
+<ul>
+<li><p>2x onboard camera and 4x offboard camera with 1 000 fps and a
+resolution of 1 920 x 1 080 (see also section <a href="#photography">3.13</a>)</p></li>
+<li><p>Metrology instruments:</p></li>
+</ul>
+<ul>
+<li><p>5x three-axis acceleration sensor</p></li>
+<li><p>1x three-axis yaw rate sensor</p></li>
+<li><p>The positions of the measuring points must be agreed upon with
+the purchaser before the first test is carried out.</p></li>
+</ul>
+<ul>
+<li><p>At the A-pillar, which is the first to come into contact with the
+measuring plate, the following deformation paths must be recorded over
+time:</p></li>
+</ul>
+<ul>
+<li><p>In Z-direction (vehicle axis system)</p></li>
+<li><p>In Z-direction (gravity direction)</p></li>
+</ul>
+<ul>
+<li><p>At the B-pillar (loading side), the following deformation paths
+must be recorded over time:</p></li>
+</ul>
+<ul>
+<li><p>In Z-direction (vehicle axis system)</p></li>
+<li><p>In Z-direction (gravity direction)</p></li>
+</ul>
+<ul>
+<li><p>Force measurement at the impact plate (at least four sensors in
+Z-direction)</p></li>
+</ul>
+<h3 id="rollover">3.8.9 Rollover</h3>
+<p>The requirements for carrying out the test are specified in the
+official protocols.</p>
+<p><strong>Ramp test</strong></p>
+<p>One side of the vehicle is sent over a ramp. Variables in these tests
+are the ramp height and length (i.e., the ramp gradient) and the
+approach speed of the vehicle.</p>
+<p><strong>Ditch test</strong></p>
+<p>The vehicle is sent over a natural or artificial ditch. Variables
+here are the slope of the ditch, the approach angle and speed of the
+vehicle, the ditch material (coefficient of friction), and the steering
+movement. Steering movements (uphill or downhill) are used to influence
+the probability of a rollover.</p>
+<p>If an artificial ditch must be used, it must be demonstrated that the
+influence of the steering movement on the rollover behavior is
+comparable to that occurring in the natural ditch.</p>
+<p>The ditch test maneuver encompasses the entire period of time that
+elapses from the vehicle's approach to the vehicle's coming to a
+standstill at the end of the ditch. In this maneuver, experience shows
+that most rollovers occur during the transition from the ditch to the
+flat. This transition must also be assessed. Rollovers caused by
+entrenchment and skidding on the ditch are also part of this
+maneuver.</p>
+<p><strong>Soil trip</strong></p>
+<p>The vehicle slides sideways into a bed of sand. The speed in the
+Y-direction and the material in the sand bed can be varied.</p>
+<p><strong>Rollover as per FMVSS 208</strong></p>
+<p>A lateral rollover of a vehicle must be replicated in the test as per
+the test conditions of FMVSS 208 and the corresponding test procedure in
+order to study the roof structure, restraint systems, and occupant
+kinematics.</p>
+<p><strong>Corkscrew rollover as per AMS/ADAC</strong></p>
+<p>A corkscrew rollover must be carried out as per the requirements of
+the German automobile club (ADAC) in order to study the roof structure,
+restraint systems, and occupant kinematics.</p>
+<p>In all scenarios, the reproducibility and presentability of the
+results by simulation is particularly important. For this reason,
+inconsistencies in the test with regard to differences in test
+facilities, boundary conditions, ground qualities, etc., must be
+avoided.</p>
+<p>The exact test configurations must be agreed upon with the purchaser
+before each test cycle.</p>
+<p>The following must be observed in respect of test execution:</p>
+<ul>
+<li><p>Adapt the vehicle weight and weight distribution.</p></li>
+<li><p>Determine the vehicle center of gravity and the static tipping
+angle of the fully prepared vehicle (including crash test dummy and
+final test weight).</p></li>
+<li><p>Equip the vehicle with automatic steering to control the steering
+angle during the ditch tests. It must be possible to issue a steering
+movement as a time-relative input.</p></li>
+<li><p>Repair work between the tests</p></li>
+<li><p>Static measurement: Axle deflection levels, steering
+ratio</p></li>
+<li><p>HIII 50% crash test dummy not instrumented, certification of neck
+and adjustment of joints as per 49 CFR Part 572 – Subpart E.</p></li>
+<li><p>Crash test dummy wearing a seat belt and additionally secured to
+the backrest at chest height by a securing strap:</p></li>
+</ul>
+<blockquote>
+<p><img src="./08_Testing_Field-lah-893-880-j-lah-prueffeld-22092021-en-media/media/image9.jpeg" style="width:4.29306in;height:2.95972in"/></p>
+</blockquote>
+<p>In addition, it must be noted that the following equipment is needed
+for carrying out the test:</p>
+<ul>
+<li><p>Cameras:</p></li>
+<li><p>Static digital cameras (min. 500 fps)</p></li>
+<li><p>2x onboard digital camera (min. 500 fps)</p></li>
+<li><p>Sensors: Maximum of 20 acceleration, 2 compression, 10 tension,
+and up to 2 three-axis yaw rate sensors in accessible locations with the
+greatest possible protection against damage.</p></li>
+<li><p>Recording of internal signals of the airbag electronic control
+unit or safety computer and bus messages: CAN/FlexRay signals.</p></li>
+<li><p>Deployment signals: Deployment point recording and/or timer
+deployment of restraint system components by agreement with the
+appropriate department.</p></li>
+</ul>
+<h2 id="documentation-tests-and-release-tests">3.9 Documentation tests
+and release tests</h2>
+<p><strong>In release tests, the contractor is responsible for carrying
+out and documenting the tests as per the protocols.</strong> In
+particular, the contractor must inform the purchaser if its
+specifications contradict this requirement or if deviations from the
+specifications arose when the test was carried out.</p>
+<p><strong>The contractor must, under its own responsibility, ensure
+that all information necessary for complete documentation is documented
+even if this has not been explicitly demanded by the purchaser in
+individual cases.</strong> If anything about the content of the
+documentation is unclear, the contractor must, under its own
+responsibility, consult the purchaser for clarification before the test
+is carried out.</p>
+<p><strong>In addition, all necessary calibration and certification
+documents must be stored in Falcon with clear file names in PDF/A format
+as per ISO 19005.</strong></p>
+<h2 id="test-facilities-test-setups-and-custom-or-in-house-constructs">3.10
+Test facilities, test setups, and custom or in-house constructs</h2>
+<p>Descriptive information relating to test facilities, test setups, and
+custom or in-house constructs must be handed over at the purchaser's
+request. This includes, for example, information concerning the
+manufacturer, age, maintenance documentation, detailed build design, and
+stiffness.</p>
+<h2 id="temperature-and-humidity">3.11 Temperature and humidity</h2>
+<p>The calibration of sensors for temperature and relative humidity must
+not be older than a maximum of 365 days. The measuring ranges must be
+adequately dimensioned for the test being carried out.</p>
+<p>The temperature and relative humidity inside the test facility must
+be measured at a central and well-ventilated point close to the test
+location. For test facilities in which the start point (e.g., a climatic
+chamber) and the test point are further than 15 m apart from each other,
+or if the temperature differs between these points, appropriate sensors
+must be fitted in both areas and documented.</p>
+<p>In the test and start areas, the time frames and corridors specified
+in the official protocols for the test temperatures must be maintained.
+If nothing is defined there in this respect, these must be agreed upon
+with the purchaser before the test is carried out.</p>
+<p>It must be ensured that all test components have spent a sufficiently
+long time in the climate-controlled area before the tests and have been
+able to reach ambient temperature. The acclimation period must be
+declared at the request of the purchaser.</p>
+<p>The temperatures of the test facility and of any crash test dummies
+and impactors must be individually documented.</p>
+<h2 id="metrology-instruments-and-measuringtest-equipment">3.12
+Metrology instruments and measuring/test equipment</h2>
+<h3 id="use">3.12.1 Use</h3>
+<p>Only the use of metrology instruments and measuring/test equipment
+that were calibrated no more than 365 days ago is permitted. The
+measuring ranges must be adequately dimensioned for the test being
+carried out. In particular, this applies to all measuring equipment that
+documents values relevant to legal requirements and consumer protection
+standards. These include (for example):</p>
+<ul>
+<li><p>Measuring points of crash test dummies and impactors</p></li>
+</ul>
+<ul>
+<li><p>Accelerations, force, moment, displacement, yaw rate</p></li>
+</ul>
+<ul>
+<li><p>Accelerations of test beds or vehicle</p></li>
+<li><p>Force transducers for test beds</p></li>
+<li><p>Displacement sensors for test beds</p></li>
+<li><p>Speed measurements</p></li>
+<li><p>Balances</p></li>
+<li><p>Air/tire pressure gages</p></li>
+<li><p>Torque wrenches</p></li>
+<li><p>Temperature and humidity gages</p></li>
+<li><p>Length measurements, e.g., for axle deflection levels, tape
+measurement of crash test dummies, impact point deviations</p></li>
+<li><p>Angle measurements, e.g., for seat or steering wheel
+positions</p></li>
+</ul>
+<p>A list of the sensors used must be enclosed as a PDF/A file with each
+test. This must contain at least the following information:</p>
+<ul>
+<li><p>Unique measuring point ID</p></li>
+<li><p>Measuring point description/name</p></li>
+<li><p>Measuring point type</p></li>
+<li><p>Date of last calibration</p></li>
+<li><p>Channel name in the test setup (if present)</p></li>
+</ul>
+<p>It is generally the case that, for each whole-vehicle test, the
+minimum scope of measuring points (standard measuring points) is applied
+automatically in the VisVerdi program for the respective load case. It
+is a mandatory requirement to use these at a minimum. Additional
+measuring points specific to the load case could always be needed. For
+this reason, the purchaser must be consulted before the start of the
+crash test phase to determine which additional sensors are necessary in
+the respective load cases.</p>
+<p>It must be noted that the CAN bus and, in the case of an HV vehicle,
+the HV measuring points (accelerations/voltages/temperatures, etc.) must
+also be measured in the process. The de-energization curves of the 12-V,
+48-V, and HV batteries, if present in the project, must also be
+recorded. The pulse-width-modulation (PWM) signals of the fuel pump
+cut-out must be documented in tests with a running engine.</p>
+<p>It must also be ensured that all measuring points relevant to the
+crash sensor system are fitted and measured in the crash.</p>
+<p><strong>Acceleration sensors:</strong></p>
+<p>The acceleration sensors must be secured in such a way that the
+entire signal bandwidth can be transferred and no signal-damping effects
+occur, unless this is explicitly agreed upon with the purchaser or
+specified by the protocols. Approximate values are given in the setup
+documentation, or they can be requested from the [redacted]of [redacted]If bonded connections are required, a suitable
+adhesive must be used to prevent the measuring points from becoming
+detached. This could, for example, be swift therm 9054. Adhesive tape
+must be applied if necessary to additionally secure the measuring
+points. Attachment by double-sided adhesive tape alone is not
+permissible.</p>
+<h3 id="calibration">3.12.2 Calibration</h3>
+<p>Calibration must be carried out with standards that can be traced
+back to national or international standards or internationally
+recognized procedures or standards. They must be in accordance with
+standards DIN EN ISO 9000ff., DIN ISO 10012, and DIN EN 45001.</p>
+<p>If the sensor is used in a release test, calibration must be carried
+out in a calibration laboratory accredited to ISO/IEC 17025 for these
+measurands. This particularly applies to measurands required in type
+approvals and self-certifications (e.g., FMVSS 208). If an appropriate
+laboratory is not known, the purchaser must be consulted before the test
+is carried out and agreement must be reached on how to proceed
+further.</p>
+<p>All dynamic sensors and data recording devices used in the test must
+meet the requirements of SAE J211/1 and ISO 6487.</p>
+<p>The contractor must keep the calibration documents for at least
+five years and present them at the purchaser's request. For release
+tests, the documents must always be imported into the database systems
+of [redacted]</p>
+<p>All calibration certificates must contain at least the following
+information:</p>
+<ul>
+<li><p>A title (e.g., "Test report" or "Calibration
+certificate")</p></li>
+<li><p>Name and address of the laboratory and location at which the
+calibrations were carried out</p></li>
+<li><p>Unique identifier of the calibration certificate (number); page
+numbering</p></li>
+<li><p>Name and address of the customer</p></li>
+<li><p>Statement of the calibration method used</p></li>
+<li><p>Description/unique identifier of the calibration item</p></li>
+<li><p>Date of calibration (if applicable, date when the sensor was
+received in the calibration laboratory)</p></li>
+<li><p>Calibration results (with units)</p></li>
+<li><p>Name(s), position, and signature(s) of the authorizing
+person(s)</p></li>
+<li><p>Ambient conditions of the calibration</p></li>
+<li><p>Declaration of measurement uncertainty</p></li>
+<li><p>General statement on the metrological traceability of the
+measurement results to national standards as per DIN EN ISO 17025
+(certificate of traceability as per DIN EN ISO 9001 is not
+sufficient).</p></li>
+</ul>
+<p><strong>Seat-belt force transducers</strong></p>
+<p>The seat-belt force transducers used must be calibrated as per
+ISO/TS 17242. Instead of the standardized seat belt, it is also possible
+to use an [redacted-co] seat belt. A linear calibration may be carried out only
+if it is proven that the non-linearity is less than 1%. Otherwise, the
+polynomial calibration must be used.</p>
+<p><strong>Speed measurement</strong></p>
+<p>Speeds must be measured directly by an appropriate system. The speed
+measuring system must have an accuracy of &lt; 0.1%. The speed must be
+measured as close as possible to the contact point.</p>
+<p>It is permissible to determine speeds by integrating acceleration
+sensors only when the correctness of this procedure could be proven by
+comparison measurements with the speed measuring systems. This proof
+must be obtained at least once a year and after every calibration of the
+acceleration measuring point.</p>
+<h2 id="photography">3.13 Photography</h2>
+<p>Images must be taken as per the photo catalog at a minimum. Special
+characteristics/irregularities must also be recorded in the image.</p>
+<h2 id="video-equipment">3.14 Video equipment</h2>
+<p>Cameras must have a minimum resolution of 1 920 x 1 080, regardless
+of whether they are used onboard or offboard. In dynamic tests, this
+must be achieved at 1 000 fps.</p>
+<p>In airbag static deployment tests, a frame rate of 2 000 fps at a
+minimum resolution of 1 280 x 1 024 must be achieved.</p>
+<p>Deviations from this requirement must be agreed upon with the
+purchaser by contract award at the latest. All videos must be recorded
+in color.</p>
+<p>The recording area must be agreed upon with the purchaser before the
+first test. It must be ensured that all relevant test results have been
+documented.</p>
+<p>Adequate lighting must be ensured. For onboard cameras, in addition
+to the exterior lighting, adequate lighting must also be installed
+inside the vehicle.</p>
+<p>The requirements for image detail and the names of the videos are
+specified in VisVerdi and must be observed. In addition to these
+requirements, detailed information, particularly with respect to
+standard cameras, is specified in the [redacted-person] video catalog and
+must be observed. If there are no specifications in VisVerdi or in a
+video catalog, the image detail and names must be agreed upon with the
+purchaser before the first test is carried out. The</p>
+<p>use of special positions for cameras as standard positions must be
+avoided. In this case, a standard name must be agreed upon with
+[redacted]</p>
+<p>The videos must record in synchrony with the metrology
+instruments.</p>
+<p>In the video, the test number and a progress timer must be shown.
+Please observe the requirement in respect of the video codecs. See
+section <a href="#video-documentation">4.7</a>.</p>
+<p><strong>Video evaluation</strong></p>
+<p>The requirements for video evaluation are specified in [redacted-person]</p>
+<p>LAH.DUM.880.BE</p>
+<h2 id="d-measurement-systems">3.15 3D measurement systems</h2>
+<p><strong>Vehicle measurement</strong></p>
+<p>A vehicle measurement requires the use of a 3D measurement system
+which can be used to measure the necessary points and lines in the
+vehicle axis system (as per vehicle design system). Each individual
+point must have a proven accuracy of &lt; ± 0.5 mm, depending on the 3D
+measurement system used.</p>
+<p>The necessary measurement variants to be implemented differ by crash
+type (frontal, rear, side impact). For the frontal impact, they also
+differ by crash speed and project.</p>
+<p>An example measurement catalog is appended to this [redacted-person].</p>
+<p>Which measurement is required for the respective load cases must be
+agreed upon with the purchaser and documented before the whole-vehicle
+tests. The measurement catalog is specific to the project. After
+contract award, it must be agreed whether the purchaser or contractor
+creates the photo catalog. In cases where development and test scopes
+are awarded in full, it is the contractor who must create the photo
+catalog and this must be discussed with, and approved by, the purchaser
+before the first tests are carried out. Afterwards, the photo catalog
+must be surrendered to the purchaser for archiving.</p>
+<p>In addition, the contractor must check that, in VisVerdi, the
+purchaser has carried out the necessary configurations for importing the
+measurement data.</p>
+<p><strong>Crash test dummy and impactor measurement</strong></p>
+<p>A 3D measurement system is required for documenting the crash test
+dummy position in whole-vehicle, sled, and component tests. The crash
+test dummy position is measured and documented in reference to the
+vehicle axis system. Each individual point must have a proven accuracy
+of &lt; ± 0.5 mm, depending on the 3D measurement system used.</p>
+<p>The current measurement catalogs of [redacted-co] must be used,
+respectively.</p>
+<p>The measurement must be carried out in the start position of the test
+and within max. 30 minutes before the test. The crash test dummy and
+seat belt must not be altered or moved at any time after the
+measurement. In particular, the vehicle must not be transported to a
+different position.</p>
+<p>An example measurement catalog for frontal impact protection is
+appended to this [redacted-person].</p>
+<p><strong>Surface measurement</strong></p>
+<p>A surface measurement must be carried out in consultation with the
+purchaser for the respective measurement variants of the respective
+object of measurement. The surface measurement system used must have a
+proven length measurement deviation accuracy of &lt; ± 0.1 mm.</p>
+<p>It must be noted that, in some load cases, the impactor must also be
+measured. For example, 3D scan in the side impact or 3D scan in the
+frontal impact with mobile progressive deformable barrier (mPDB)</p>
+<p><strong>Document storage</strong></p>
+<p>The requirement for storage and documentation of the vehicle
+measurement, crash test dummy measurement, and surface measurement
+carried out is specified in section <a href="#vehicle-measurement-crash-test-dummy-measurement">4.8</a> and
+must be met.</p>
+<p><strong>Calibration and traceability</strong></p>
+<p>The calibration of the systems must not be older than a maximum of
+365 days. Proof of traceability for the surface measurement systems must
+be provided as per VDI/VDE guideline 2634 and the DIN EN ISO 9000ff.
+series of standards.</p>
+<p>The proof of traceability for the coordinate measuring machines must
+be provided as per DIN EN ISO 10360.</p>
+<h2 id="moving-barriers-impactors-and-test-objects">3.16 Moving
+barriers, impactors, and test objects</h2>
+<p>Only the use of moving barriers and test objects having a valid
+certificate/calibration record is permitted. The calibration must be
+renewed after every conversion, modification, instance of damage, or
+repair and must be inspected regularly. Moving barriers must be
+calibrated after no more than five years. All other devices must be
+calibrated at least once a year. A visual inspection must be carried out
+before each use, particularly before each documentation or release
+test.</p>
+<p>Only the use of impactors having a valid certification is permitted.
+Any requirements in respect of suppliers must be observed.</p>
+<p>For documentation and release tests, the documents must be stored in
+Falcon in PDF/A format.</p>
+<h2 id="h-point-manikin">3.17 H-point manikin</h2>
+<p>H-point manikins complying with</p>
+<blockquote>
+<p><em>SAE J826 Devices for Use in Defining and [redacted]</em></p>
+</blockquote>
+<p>must be used. The stricter requirements of</p>
+<blockquote>
+<p><em>VDA 304 Certification of H-Point and [redacted-person] Equipment
+and [redacted-person]</em></p>
+</blockquote>
+<p>must be observed, particularly in respect of whiplash. The
+calibration must be carried out at least every two years.</p>
+<h2 id="crash-test-dummies-and-impactors">3.18 Crash test dummies and
+impactors</h2>
+<p><strong>Instrumentation and setup</strong></p>
+<p>Crash test dummies used in tests subject to USA regulations must
+conform to 49CFR Part 572. [redacted-person], they must conform to UNECE
+regulations/EC directives. For consumer protection tests, they must
+conform to the current version of the relevant test procedures for the
+load case concerned (Euro NCAP, IIHS, US NCAP, etc.).</p>
+<blockquote>
+<p>For HIII 5%, the requirement of SAE J2915 H-III5F <em>[redacted-person]
+Update to [redacted-person]</em> must additionally be applied. If this is
+not possible, the parts concerned must be checked and readjusted before
+each test, and this must be documented in writing.</p>
+<p>In addition to the sensors specified in the protocols, the following
+equipment scopes must be used at a minimum:</p>
+</blockquote>
+<ul>
+<li><p><strong>Frontal impact protection:</strong></p></li>
+</ul>
+<ul>
+<li><p>Three-axis acceleration sensors:</p></li>
+</ul>
+<ul>
+<li><p>Head, chest, and pelvis</p></li>
+</ul>
+<ul>
+<li><p>Three-axis yaw rate sensors:</p></li>
+</ul>
+<ul>
+<li><p>Head</p></li>
+<li><p>At the purchaser's request: Chest and pelvis</p></li>
+</ul>
+<ul>
+<li><p>Forces and moments of upper neck</p></li>
+<li><p>Standard rib cage displacement measurement</p></li>
+<li><p>Iliac moment and force for HIII 5% and [redacted-person] for [redacted-person] Restraint (THOR) 50%</p></li>
+<li><p>Measurable legs (femur, knee slider, upper and lower
+tibia)</p></li>
+</ul>
+<ul>
+<li><p><strong>Side impact protection:</strong></p></li>
+</ul>
+<ul>
+<li><p>Three-axis acceleration sensors:</p></li>
+</ul>
+<ul>
+<li><p>Head, chest, and pelvis</p></li>
+</ul>
+<ul>
+<li><p>Three-axis yaw rate sensors:</p></li>
+</ul>
+<ul>
+<li><p>Head</p></li>
+<li><p>At the purchaser's request: Chest and pelvis</p></li>
+</ul>
+<ul>
+<li><p>Forces and moments of upper neck</p></li>
+<li><p>Standard rib cage displacement measurement</p></li>
+<li><p>Three-axis shoulder force sensors on impact side</p></li>
+<li><p>Additionally for WorldSID</p></li>
+</ul>
+<ul>
+<li><p>Measurable sacroiliac (six-axis) on impact side</p></li>
+</ul>
+<ul>
+<li><p><strong>Rear impact protection and child
+safety:</strong></p></li>
+</ul>
+<ul>
+<li><p>Three-axis acceleration sensors:</p>
+<ul>
+<li><p>Head, chest, and pelvis</p></li>
+</ul></li>
+<li><p>Three-axis yaw rate sensors:</p>
+<ul>
+<li><p>Head</p></li>
+<li><p>At the purchaser's request: Chest and pelvis</p></li>
+</ul></li>
+<li><p>Forces and moments of upper neck</p></li>
+<li><p>Standard rib cage displacement measurement</p></li>
+<li><p>Iliac moment and force for HIII 5% and THOR 50%</p></li>
+</ul>
+<ul>
+<li><p>Out-of-position (OoP) (front and side)</p></li>
+</ul>
+<ul>
+<li><p>No requirements beyond those of the protocols</p></li>
+</ul>
+<ul>
+<li><p>Pedestrian protection</p></li>
+</ul>
+<ul>
+<li><p>No requirements beyond those of the protocols</p></li>
+</ul>
+<ul>
+<li><p>Head impact</p></li>
+</ul>
+<ul>
+<li><p>No requirements beyond those of the protocols</p></li>
+</ul>
+<p><strong>Temperature</strong></p>
+<p>The crash test dummy temperatures must be measured and documented.
+Temperature sensors must be fitted as per the current version of
+ISO/TR 27957. If no requirement is specified there in this respect, it
+is necessary to consult the [redacted]of [redacted]The
+crash test dummy temperature must be measured before the test (max.
+15 minutes before test execution) and documented in VisVerdi. In
+addition, the temperature curve of the last 24 hours, recording interval
+10 minutes, must be stored as a csv file (<em>Comma-separated
+values</em>) with the name &lt;[redacted-co] test number&gt;_Pos?_Temp.csv in the
+"DOCUMENT" folder of the Falcon database. The position number must
+correspond to the position number defined by ISO 13499. Example:
+C123456_Pos4_Temp.csv for the temperature of the occupants on the left
+in the second seat row.</p>
+<p><strong>Tilt</strong></p>
+<p>The crash test dummies must be instrumented with the following 2D
+tilt angle sensors (X- and Y-axis, axis designation and polarities as
+per SAE J211-1 and SAE J1733):</p>
+<ul>
+<li><p>Head</p></li>
+<li><p>Chest</p></li>
+<li><p>Pelvis</p></li>
+</ul>
+<p>In addition, the THOR must be equipped with the following tilt angle
+sensors:</p>
+<ul>
+<li><p>Lower neck</p></li>
+<li><p>Lumbar</p></li>
+</ul>
+<p>The tilt angles must be documented in VisVerdi.</p>
+<p><strong>Sensor calibration</strong></p>
+<p>The crash test dummy sensor system including tilt sensors must be
+calibrated at least once a year. For use in a release test (particularly
+type-approval testing and self-certifications, e.g., FMVSS 208), this
+must be done in a calibration laboratory accredited to ISO 17025 for
+this measurand. If an appropriate laboratory is not known, the purchaser
+must be consulted before contract award. For documentation tests, the
+associated documents must be stored in the Falcon database. For all
+other tests, the contractor must store them for at least five years and
+surrender them to the purchaser on request.</p>
+<p>The chest potentiometer of the HIII range must be calibrated as per
+SAE J2517:2000 (linear) and SAE J2517:2016 (polynomial) and both curves
+must be added to the measurement data.</p>
+<p><strong>Polarities</strong></p>
+<p>The polarities must conform to the requirements of the current
+versions of SAE J211/1 and SAE J1733, unless otherwise specified in the
+respective protocols.</p>
+<p><strong>Certification:</strong></p>
+<p>Only crash test dummies having valid certification may be used.</p>
+<p>The crash test dummies must be certified to at least the following
+procedures:</p>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Type</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Certification requirements</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Certification cycle</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Hybrid III 5% Female</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>49 CFR Part 572 – Subpart O</p>
+<p>SAE J2878 [redacted]</p>
+<p>SAE J2862 [redacted-person] Test (formerly: SAE EA-25)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Hybrid III 50% Male</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>49 CFR Part 572 – Subpart E</p>
+<p>SAE J2779 [redacted]</p>
+<p>SAE J2856 [redacted-person] Test</p>
+<p>SAE J2876 [redacted]Test UN R94 – Annex 10 [redacted-person] and
+Foot</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Hybrid III 95% Male</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>SAE-J2860</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Hybrid III 3 [redacted-person]</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>49 CFR Part 572 – Subpart P</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Hybrid III 6 [redacted-person]</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>49 CFR Part 572 – Subpart N</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>THOR M 5%</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>No protocols known</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>THOR M 50%</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>THOR M [redacted-person], corridors agreed with [redacted]of [redacted]</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>ES2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>UN R95 – Annex 6</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>ES2re</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>49 CFR Part572 – Subpart U</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>SIDIIs</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>49 CFR Part 572 – Subpart V</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>WorldSID 5%</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>WS5th [redacted-person] corridors agreed with<br/>
+[redacted]of [redacted]</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>WorldSID 50%</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>ISO 15830 Part 1–5, corridors agreed with<br/>
+[redacted]of [redacted]</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>P¾, P1½, P3, P6, P10</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R44</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Q1.5, Q3, Q6, Q10</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Q1.5/Q3/Q6/Q10 [redacted-person]</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Pedestrian protection headform</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>UN-R127</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>At the beginning of a test series and after 20 tests, at the
+latest</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>FlexPLI</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>UN-R127</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>At the beginning of a test series and after 10 tests, at the
+latest</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Pedestrian protection upper leg</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>UN-R127</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>At the beginning of a test series and after 20 tests, at the
+latest</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>aPLI</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>No protocols known</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>At the beginning of a test series and after 20 tests, at the
+latest</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<p>For documentation and release tests, the crash test dummies used must
+be recertified directly before the test (=max. 15 working days) and must
+not be used in any other tests between certification and their use in
+the release test. Otherwise, the crash test dummy must be certified
+after the specified quantity of tests at the latest unless legal limit
+values (FMVSS or UNECE) have been exceeded by more than 25% in a
+previous test. In this case, the crash test dummy must always be
+recertified.</p>
+<p>Crash test dummies used in release tests must be certified in test
+laboratories accredited to ISO 17025, and all requirements specified for
+the respective crash test dummy type must be certified. If an
+appropriate laboratory is not known, the purchaser must be consulted
+before contract award.</p>
+<p>The period of time between the last certification and the test date
+must not exceed six months. The certification records for the crash test
+dummies must be enclosed with the test reports and stored in the Falcon
+database. The unique report number must be documented in VisVerdi.</p>
+<p>For storage, the naming convention from <a href="#_bookmark46">0</a>
+must be used.</p>
+<h1 id="data-processing">4 Data processing</h1>
+<h2 id="general-information">4.1 General information</h2>
+<p>If the data is sent, it is necessary to ensure that the transfer is
+secure. In particular, sending data or product-relevant content (e.g.,
+project deadlines) in unencrypted e-mails is not permissible.</p>
+<p>All test and simulation data must be imported into the relevant
+databases. A secure data line to [redacted-co] systems must be established.</p>
+<p>The requirements from</p>
+<p><em>[redacted-person] Guidelines for Contractors</em></p>
+<p>must be observed.</p>
+<p><strong>Documents must be stored PDF/A format (ISO 19005) for
+long-term documentation.</strong></p>
+<p><strong>Test data must be supplied in ISO-MME format (ISO/TS 13499
+and ISO/TS 22240) and in the formats specified in this [redacted-person].</strong></p>
+<p>For a description and information about the procedure, see</p>
+<p><em>Guidelines for [redacted-person]</em></p>
+<p>for more details. The current version of this documentation is stored
+on the SFTP server for the data transfer. If access to the SFTP server
+has not yet been established, it is possible to request the document
+from the purchaser.</p>
+<p>If online importing is not possible for the contractor, the
+contractor must take appropriate steps to enter all data in the
+respective [redacted-co] systems. The contractor must bear all associated costs
+for this.</p>
+<p>All data must be subjected to a quality check (for content/form and
+logic) and irregularities must be documented. See also</p>
+<blockquote>
+<p><em>Brief description of Group channel failure handling</em></p>
+</blockquote>
+<p>To minimize response times in the development process, irregularities
+relevant to testing must be reported to the purchaser immediately.</p>
+<p>Before a data import, the data must be checked beforehand using the
+"ISO-MME-Check" tool supplied by [redacted-co]. Always use the current version of
+the tool. The software is made available via SFTP server data transfer.
+An import into the [redacted-co] system must not be carried out until a local
+check has been completed successfully.</p>
+<h2 id="data-transmission-and-deadlines">4.2 Data transmission and
+deadlines</h2>
+<p>Data in the various data packages <strong>must not be sent more than
+once.</strong> If a repeat delivery is necessary, the appropriate
+department of [redacted-co] responsible for data processing must be informed
+in advance.</p>
+<p>The following data packages must be supplied. The contents specified
+here relate to whole-vehicle tests. For tests of lesser scope, the
+package contents are reduced accordingly.</p>
+<p>The specified deadlines must be strictly observed.</p>
+<ul>
+<li><p><strong>Data package 1</strong></p></li>
+</ul>
+<ul>
+<li><p><strong>Supplied 24 hours after the test, at the
+latest</strong></p></li>
+<li><p>All videos (optionally together with the raw data)</p></li>
+<li><p>Photos before/during the test</p></li>
+<li><p>All measuring channels</p></li>
+<li><p>Electronic control unit (ECU)/event data recorder (EDR)
+data</p></li>
+<li><p>Data from vehicle bus systems</p></li>
+<li><p>Measurement data (crash test dummy measurement before the crash
+test)</p></li>
+<li><p>Information on video evaluation, where applicable</p></li>
+<li><p>All documents available by the data submission deadline</p></li>
+</ul>
+<ul>
+<li><p><strong>Data package 2</strong></p></li>
+</ul>
+<ul>
+<li><p><strong>Supplied 7 working days after the test, at the
+latest</strong></p></li>
+<li><p>Post-test photos</p></li>
+<li><p>3D measurement data before and after the test</p></li>
+<li><p>Crash test dummy certification documents</p></li>
+<li><p>List of measuring equipment used</p></li>
+<li><p>All other documents</p></li>
+</ul>
+<h2 id="mandatory-declarations">4.3 Mandatory declarations</h2>
+<p>For revision reasons, at least the following information must be
+entered in VisVerdi (mandatory attributes):</p>
+<ul>
+<li><p>Test number (generated automatically)</p></li>
+<li><p>Test type</p></li>
+<li><p>Type</p></li>
+<li><p>Guideline</p></li>
+<li><p>Detail</p></li>
+<li><p>Additional information</p></li>
+<li><p>Project</p></li>
+<li><p>Basis for testing</p></li>
+<li><p>Test location</p></li>
+</ul>
+<ul>
+<li><p>For tests carried out outside [redacted]this is always "extern"
+(external)</p></li>
+</ul>
+<ul>
+<li><p>Name of the test laboratory</p></li>
+</ul>
+<ul>
+<li><p>If the test laboratory cannot be selected in the [redacted-co] system, it
+is necessary for VisVerdi Support to create this before the first test
+is carried out</p></li>
+</ul>
+<ul>
+<li><p>Engineering project/research project/work order no. (valid
+engineering project number belong­ing to the project)</p></li>
+</ul>
+<ul>
+<li><p>This must be obtained from the purchaser</p></li>
+</ul>
+<ul>
+<li><p>Planned date (target date)</p></li>
+<li><p>Actual test date</p></li>
+<li><p>Purchaser/contact for test at [redacted-co]</p></li>
+<li><p>Contact for test at development service provider/supplier (if
+applicable)</p></li>
+<li><p>Test coordinator at [redacted-co]</p></li>
+<li><p>Contact at the test laboratory</p></li>
+<li><p>Actual temperature (in kelvin)</p></li>
+<li><p>Relative humidity</p></li>
+</ul>
+<h2 id="audi-specifications-concerning-the-mme-structure">4.4 [redacted-co]
+specifications concerning the MME structure</h2>
+<p>In addition to the requirements of ISO/TS 13499 and ISO/TS 22240, the
+following specifications must be observed:</p>
+<ul>
+<li><p>The ISO-MME data format must be version 1.3 or more
+recent.</p></li>
+<li><p>The &lt;[redacted-co] test number&gt;.MME file name must always be
+completed.</p></li>
+<li><p>The test number used must always exist in VisVerdi.</p></li>
+</ul>
+<blockquote>
+<p>Excluded from this are series of tests. Only the base test must exist
+in VisVerdi in this case</p>
+</blockquote>
+<ul>
+<li><p>This test number must be used consistently in all documents and
+files.</p></li>
+<li><p>No folders may be used except for the folders defined as per
+ISO-MME.</p></li>
+</ul>
+<blockquote>
+<p>In particular, no subfolders are permitted. Exception: In the "MOVIE"
+folder, subfolders for raw data are permitted.</p>
+</blockquote>
+<ul>
+<li><p>All file extensions (e.g., ZIP, PDF, JPG) must be typed in upper
+case</p></li>
+</ul>
+<blockquote>
+<p><strong>Requirements for contents of the &lt;[redacted-co] test number&gt;.MME
+file.</strong></p>
+<p>Note: An .MME file filled with content from VisVerdi can be exported
+from VisVerdi</p>
+</blockquote>
+<ul>
+<li><p>The "<strong>Laboratory contact email</strong>" address must
+correspond to the e-mail stated or entered in VisVerdi in the</p></li>
+<li><p>"<strong>Ansprechpartner des Versuchslabors</strong>" (Test
+laboratory contact) field.</p></li>
+<li><p>The "<strong>Customer test engineer email</strong>" address must
+correspond to the e-mail stated or entered in VisVerdi in the</p></li>
+<li><p>"<strong>Versuchsverantwortlicher (Auftraggeber)</strong>" (Test
+coordinator (purchaser)) field.</p></li>
+<li><p>In "<strong>Customer test ref. Number</strong>"<strong>,</strong>
+the [redacted-co] test number must be entered and this must correspond to the
+[redacted-co] test number in VisVerdi (under "[redacted-person]"/"Versuchsnummer"
+[General info/Test number]).</p></li>
+<li><p>In "<strong>Customer project ref.
+Number</strong>"<strong>,</strong> the [redacted-co] project number must be
+entered and this must correspond to the [redacted-co] project number in VisVerdi
+(under "[redacted-person]"/"Projekt'" [General info/Project]).</p></li>
+<li><p>"<strong>Type of the test</strong>" must correspond to the entry
+in VisVerdi (under "[redacted-person]"/ "Versuchsart" [General info/Test
+type]); see also next item.</p></li>
+<li><p>"<strong>Subtype of the test</strong>" must correspond to the
+associated entries in VisVerdi (under "[redacted-person]"/Versuchsart +
+Typ + Richtlinie + Detail [General info/Test type + Type + Guideline +
+Detail]).</p></li>
+<li><p>"<strong>Date of the test</strong>" is a mandatory field (format:
+[redacted-phone]).</p></li>
+<li><p>"<strong>Reference temperature</strong>" is a mandatory field (SI
+unit: kelvin)</p></li>
+<li><p>"<strong>Relative air humidity</strong>" is a mandatory field
+(notation: 0.0 - 1.0 for 0 - 100%)</p></li>
+<li><p>A minimum of two test objects must always be entered. These
+objects must be numbered in accordance with the numbering of test
+objects in VisVerdi.</p></li>
+<li><p>"<strong>Name of Test object?</strong>" must correspond to that
+in VisVerdi.</p>
+<p>You can find possible entries in the "NameOfTestObject" table of one
+of the Access databases stored on the [redacted-person].</p></li>
+<li><p>For each test object, the mass "<strong>Mass test object
+[n]</strong>" and speed "<strong>Velocity test object [n]</strong>" must
+be entered. (Note: [n] must be replaced with the number of the
+object.)</p></li>
+</ul>
+<p><strong>Please note:</strong> If unentered descriptors are also
+present in the other documents, these will only be accepted if "NOVALUE"
+has been entered. This also applies to comments. If no description is
+available, then "NOVALUE" must always be entered.</p>
+<h2 id="measurement-data">4.5 Measurement data</h2>
+<ul>
+<li><p>Data must be stored in the "<strong>CHANNEL</strong>" ISO-MME
+subfolder.</p></li>
+<li><p>The test curves must be supplied as unedited ISO-MME (=raw data)
+and as per [redacted-co] specifications. Unedited means that no filters except
+for anti-aliasing, no cutting of the curves, and no calculated or
+transferred curves are permitted.</p></li>
+<li><p>Suitable sampling time</p></li>
+</ul>
+<ul>
+<li><p>of -100 [redacted-person] +500 [redacted-person].</p></li>
+<li><p>of -200 [redacted-person] +500 [redacted-person]</p></li>
+</ul>
+<ul>
+<li><p>Sampling rate 20 kHz. Deviations from this must be agreed upon
+with [redacted-co] before the test is carried out</p></li>
+<li><p>Units must be expressed in SI units and the notations specified
+in ISO/TS 13499 must be observed. In particular, it must be noted that
+acceleration must not be imported in g.</p></li>
+<li><p>For the naming of vehicle measuring points, the specifications
+from the measuring points list in VisVerdi must be observed. If a
+measuring point not listed there is needed as a measuring point, it is
+necessary to consult the test facility of [redacted]</p></li>
+<li><p>For the naming of measuring points (crash test dummy, impactor,
+vehicle, etc.), the ISO/ TS 13499 list of names must be used. If no
+specification is provided there, an unambiguous description comparable
+to ISO/TS 13499 must be used (signal location, signal type, and signal
+direction)</p></li>
+<li><p>All data structures/formats that cannot be rendered directly in
+MME format must be supplied in a ZIP file in the "DOCUMENT" folder.
+Important: Even the files in a ZIP package must all begin with &lt;[redacted-co]
+test number&gt;_. See section <a href="#documents">4.10</a></p></li>
+</ul>
+<h2 id="photographic-documentation">4.6 Photographic documentation</h2>
+<ul>
+<li><p>Photographic documentation must be created using a digital camera
+with a resolution of at least 1 500 x 800 pixels.</p></li>
+<li><p>Images must be supplied in JPG format.</p></li>
+<li><p>Folder name: "<strong>PHOTO</strong>"</p></li>
+<li><p>All images must also be stored flat (without any other
+subfolders) in the photo folder.</p></li>
+<li><p>Images must be named using the following naming
+convention:</p></li>
+<li><p>Image name:</p></li>
+</ul>
+<blockquote>
+<p>&lt;[redacted-co] test
+number&gt;_PIC_&lt;serialno&gt;_&lt;code1_level1&gt;_&lt;code2_level2&gt;.JPG</p>
+<p>&lt;[redacted-co] test number&gt; = Test number of the purchaser</p>
+<p>PIC = Fixed entry</p>
+<p>&lt;serialno&gt; = Serial number, e.g., 0001</p>
+<p>&lt;code1_level1&gt; = Code consisting of three characters. Possible
+entries can be found in the table "tblEbene1" (tblLevel1), field
+"Kürzel" (Code), from the ISO‑MME-Checker.</p>
+<p>&lt;code2_level2&gt; = code consisting of three characters. Possible
+entries can be found in the table "tblEbene2" (tblLevel1), field
+"Kürzel" (Code), from the ISO‑MME-Checker.</p>
+<p>Possible combinations of code1 and code2 by test type can be found in
+the ISO-MME-Checker.</p>
+<p><strong>Example: CC12344_PIC_0002_VOR_ALG.JPG</strong></p>
+</blockquote>
+<ul>
+<li><p>Photo file "&lt;[redacted-co] test number&gt;.PHO" must also be supplied
+completed</p></li>
+<li><p>Note: In the ISOMMECHECK tool, there is a tool for renaming and
+sorting images and for generating the PHO file. [redacted-person] for [redacted-person].</p></li>
+</ul>
+<h2 id="video-documentation">4.7 Video documentation</h2>
+<ul>
+<li><p>Data must be stored in the "<strong>MOVIE</strong>" ISO-MME
+subfolder</p></li>
+<li><p><strong>Raw data</strong>, one subfolder per camera, name of
+subfolder corresponding to camera name.</p></li>
+<li><p>AVIs must be created using codec X264 (version and settings as
+described in the appendix are mandatory for AVI creation).</p></li>
+<li><p>The name consists of [redacted-co] test number and position name. Only the
+position names provided by [redacted-co] may be used. See the video contract in
+VisVerdi or the AVI catalogs.</p></li>
+<li><p>AVIs must be stored flat (without subfolders) in the Movie
+folder. It must be ensured that the headers are completed correctly,
+especially the frame rate and t0.</p></li>
+<li><p>Standard videos (25 fps) must also be supplied as X264-encoded
+files, cut down to the "necessary contents", i.e., pre-run, breaks, and
+post-run must be removed.</p></li>
+<li><p>An evaluation of movements by means of video evaluation must be
+taken into account and performed if necessary. For the video evaluation,
+the conditions of [redacted-person] LAH.DUM.880.BE "Requirements
+of a [redacted-person] in [redacted-person] Laboratories" apply. Procedures
+that deviate from this must be agreed upon with the [redacted]of [redacted]Results are stored as a curve in the
+"<strong>CHANNEL</strong>" folder or as a PDF in the
+"<strong>DOCUMENT</strong>" folder</p></li>
+<li><p>Movie image information file "&lt;testnumber&gt;.MII" must be
+supplied completed.</p></li>
+</ul>
+<ul>
+<li><p>Note: In the ISOMMECHECK tool, there is a tool for generating the
+MII file. [redacted-person] for [redacted-person].</p></li>
+</ul>
+<h2 id="vehicle-measurement-crash-test-dummy-measurement">4.8 Vehicle
+measurement, crash test dummy measurement</h2>
+<ul>
+<li><p>The data must be stored in the "<strong>STATIC</strong>" folder
+within the MME structure. The correct naming convention for the data to
+be stored must be requested from [redacted]</p></li>
+<li><p>The format of the measurement files is the MMD format as defined
+by ISO-MME. Detailed information must be requested from [redacted]An
+example data set is appended to this document.</p></li>
+<li><p>Using a suitable surface measurement system (see section <a href="#d-measurement-systems">3.15</a>), the surface concerned must be
+scanned with the maximum possible quantity of points. The processed
+surface measurement must be thinned out with a surface tolerance of
+0.1 mm and made available in STL format. The correct naming convention
+must be requested from [redacted]</p></li>
+</ul>
+<h2 id="reports">4.9 Reports</h2>
+<ul>
+<li><p>The "<strong>DOCUMENT</strong>" subfolder must be used for
+reports</p></li>
+<li><p>The report name is "&lt;[redacted-co] test number&gt;_&lt;Company
+code&gt;.PDF".</p></li>
+<li><p>Files with the name "&lt;[redacted-co] test number&gt;.PDF" and without
+the appended code are not permitted.</p></li>
+</ul>
+<h2 id="documents">4.10 Documents</h2>
+<ul>
+<li><p>Folder name: "<strong>DOCUMENT</strong>".</p></li>
+<li><p>Content: Standard ISO-MME documents.</p></li>
+<li><p>Abbreviations:</p></li>
+<li><p>&lt;[redacted-co] test number&gt; Test number of the purchaser</p></li>
+<li><p>&lt;Test object&gt; Vehicle as per ISO/TS 13499</p></li>
+<li><p>&lt;Position&gt; Position as per ISO/TS 13499</p></li>
+<li><p>&lt;FineLocation&gt; Fine location as per ISO/TS 13499</p></li>
+<li><p>&lt;Report no.&gt; Report no. of the certification</p></li>
+<li><p>For some special files, there is a particular naming convention.
+This could differ or further requirements could apply:</p></li>
+<li><p>Belt buckle opening-force curve:</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;&lt;Test
+object&gt;&lt;Position&gt;_00_Gurtschlossoeffnungskraftkurve</p></li>
+<li><p>Example:
+C123456_11_00_Gurtschlossoeffnungskraftkurve.xlsx</p></li>
+</ul>
+<ul>
+<li><p>Pre-test self-diagnostics report</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_FS_VOR_CRASH.xml</p></li>
+<li><p>Example: C123456_FS_VOR_CRASH.xml</p></li>
+</ul>
+<ul>
+<li><p>Post-test self-diagnostics report:</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_FS_NACH_CRASH.xml</p></li>
+<li><p>Example: C123456_FS_NACH_CRASH.xml</p></li>
+</ul>
+<ul>
+<li><p>HV self-diagnostics record directly after the test</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_FS_HV1.xml</p></li>
+<li><p>Example: C123456_FS_HV1.xml</p></li>
+</ul>
+<ul>
+<li><p>HV self-diagnostics record approximately 24 hours after the
+test</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_FS_HV2.xml</p></li>
+<li><p>Example: C123456_FS_HV2.xml</p></li>
+</ul>
+<ul>
+<li><p>Crash test dummy certification documents</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_&lt;Test
+object&gt;&lt;Position&gt;&lt;FineLocation&gt;_&lt;Report
+no.&gt;.PDF</p></li>
+<li><p>Example of a crash test with HIII 5% in vehicle 1, on the front
+left seat: C123456_11_HF_D203_15032021.PDF</p></li>
+<li><p>Example of a sled test with Q10 with update kit on the rear right
+seat: A456789_S6_QB_62722032021.PDF</p></li>
+<li><p>Example of an OoP test with HIII three-year-old on the front
+right seat: SQ23456_C3_Y6_611190417.PDF</p></li>
+</ul>
+<ul>
+<li><p>ECU data must be stored in a ZIP file. This ZIP contains all
+files read out of the ECU (&lt;Test number&gt;_IDData.txt, (&lt;Test
+number&gt;_Memory.par, etc.):</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_ECU.ZIP</p></li>
+<li><p>Example: C123456_ECU.ZIP</p></li>
+</ul>
+<ul>
+<li><p>Data relating to sensor design (CISS) must be stored in a ZIP
+file:</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_CISS.ZIP</p></li>
+<li><p>Example: C123456_CISS.ZIP</p></li>
+</ul>
+<ul>
+<li><p>BUS data must be stored in a ZIP file. This ZIP contains all
+files read out of the bus system</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_BUS_DATEN.ZIP</p></li>
+<li><p>Example: C123456_BUS_DATEN.ZIP</p></li>
+</ul>
+<ul>
+<li><p>Special HV data must be stored in a ZIP file:</p></li>
+</ul>
+<ul>
+<li><p>HV data after the crash test (isolation evaluation):</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_ HV_Crash.ZIP</p></li>
+</ul>
+<ul>
+<li><p>HV data from the static rollover test (vehicle grill):</p></li>
+</ul>
+<ul>
+<li><p>&lt;[redacted-co] test number&gt;_ HV_Static_Rollover.ZIP</p></li>
+<li><p>Important: The start time of the test is necessary.</p></li>
+</ul>
+<ul>
+<li><p>Example:</p></li>
+</ul>
+<ul>
+<li><p>C123456_HV_Crash.ZIP</p></li>
+<li><p>C123456_HV_Static_Rollover.ZIP</p></li>
+</ul>
+<h1 id="contacts">5 Contacts</h1>
+<p>The following contacts can be used for specialist/technical
+queries:</p>
+<h2 id="management-processes-for-external-service-providers">5.1
+[redacted-person] for [redacted-person] Providers</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:steuerungsprozesse-dienstleister-ek-53@audi.de">[redacted-email]</a></p>
+<p>Forthcoming changeover to: <a href="mailto:FZGSI-steuerungsprozesse-dienstleister@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Coordinating the external vehicle setup/conversion and test
+execution as per the specifications, including build status
+documentation and handover to users.</p></li>
+<li><p>Entering allocations by cost center, core inhousing logic, and
+capacity checking of external service providers.</p></li>
+<li><p>Checking the agreed data for the setup/test and analysis services
+as per the agreed LAH specifications.</p></li>
+<li><p>Assignment of externally backward-flowing information in rough
+and detailed scheduling for setup/con­version based on part
+availability.</p></li>
+</ul>
+<h2 id="vehicle-safety-procurement-management">5.2 [redacted]</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:ek-5-beschaffungsmanagement@audi.de">[redacted-email]</a></p>
+<p>Forthcoming changeover to: <a href="mailto:FZGSI-beschaffungsmanagement@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Parts procurement in the [redacted-person].S system ([redacted-person] System
+[BTE]/Mabon/SAP) for all test disciplines. - Purchase orders</p></li>
+<li><p>Provision of parts for setup and conversion of test mules/test
+beds for all test disciplines. - Stock orders</p></li>
+<li><p>Support in clearing the order items in the Development goods
+receiving department (MX435).</p></li>
+<li><p>Ordering HV transport boxes</p></li>
+</ul>
+<h2 id="vehicle-safety-test-facility-logistics">5.3 [redacted]Logistics</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:FZGSI-Prueffeldlogistik@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Management of loading bay 1038/Tess 415 (T11) and the airbag
+store in T15.</p></li>
+<li><p>Commissioning transport via round-trip carrier within a radius of
+&lt; 50 km, or via the electronic transport order system (eTA) within a
+radius of &gt; 50 km.</p></li>
+<li><p>Execution of workshop orders, such as removal from stock and
+scrapping of return parts.</p></li>
+<li><p>Preparing, packing, and transporting HV batteries.</p></li>
+</ul>
+<h2 id="crash-test-dummy-laboratory">5.4 [redacted]</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:fzgsi-dummylabor@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Preparation and post-processing, crash test dummy positioning,
+and measurement of crash test dummies for crash track, sled track, and
+out-of-position (OoP) laboratory tests.</p></li>
+</ul>
+<h2 id="metrology-instrumentsvideo-equipment">5.5 [redacted]</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:mess-filmtechnik.crash@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Handling all queries relating to metrology instruments/video
+equipment in [redacted-person].</p></li>
+</ul>
+<h2 id="d-measurement">5.6 3D Measurement</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:fahrzeugsicherheit.3d.vermessung@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Handling all queries relating to 3D measurement in [redacted-person]
+(e.g., seat positioning and vehicle measurement)</p></li>
+</ul>
+<h2 id="vehicle-setup">5.7 [redacted-person]</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:FZGSI-Aufbau@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Handling all queries relating to crash test setup on the part of
+the workshop.</p></li>
+</ul>
+<h2 id="vehicle-commissioning-center">5.8 [redacted-person]
+Center</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:fzgsi-ibz@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Handling all queries relating to sensor systems on the part of
+[redacted-person] and the head of development.</p></li>
+</ul>
+<h2 id="vehicle-vbv-component-list">5.9 Vehicle VBV [redacted-person]</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:Crash-vbv@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Handling all queries relating to the VBV tool (component
+list).</p></li>
+</ul>
+<h2 id="test-evaluation">5.10 [redacted-person]</h2>
+<p><strong>E-mail address:</strong> <a href="mailto:x-crash.support@audi.de">[redacted-email]</a></p>
+<p><strong>Tasks:</strong></p>
+<ul>
+<li><p>Data evaluation – prioritizing the initial evaluation</p></li>
+<li><p>Rectifying errors in the report ([redacted-co] report on Falcon)</p></li>
+<li><p>VisVerdi result values:</p></li>
+<li><p>Entering new values from measurement data in VisVerdi</p></li>
+<li><p>Correcting errors in available values</p></li>
+<li><p>Checking missing values</p></li>
+<li><p>Troubleshooting for X-Crash users.</p></li>
+<li><p>Answering questions relating to the evaluation of sensor
+signals.</p></li>
+<li><p>Giving information about the creation of new measuring points in
+VisVerdi.</p></li>
+<li><p>Queries relating to evaluations that deviate from the norm
+(deviation from VisVerdi configuration)</p></li>
+<li><p>Information on serious irregularities relating to measuring
+points, if known beforehand</p></li>
+</ul>
+<h1 id="definitions">6 Definitions</h1>
+<h2 id="terms">6.1 Terms</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Editor</p>
+</blockquote></th>
+<th><blockquote>
+<p>Employee in the purchaser's Development department who is responsible
+for the [redacted-person] and for keeping it updated</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Author</p>
+</blockquote></td>
+<td><blockquote>
+<p>Editor of the first issue of the [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Formula Q</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] for [redacted-person] in Procurement: Formula Q
+– Concrete, – [redacted-person] Integral, – Capability, – [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Component developer/supplier</p>
+</blockquote></td>
+<td><blockquote>
+<p>Company commissioned by the system developer/supplier, with the
+purchaser's approval, to cooperate with the system developer/supplier
+and the purchaser in developing components up to the point of production
+readiness/ release on the basis of the [redacted-person] and
+other applicable specifications. The component developer/supplier
+defines the functionality and interfaces of the respective part in close
+cooperation with the purchaser's Development department and the system
+developer/supplier.</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Protocols</p>
+</blockquote></td>
+<td><blockquote>
+<p>Protocols and documents of legislators and consumer protection
+organizations describing tests and requirements</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>System developer/ supplier</p>
+</blockquote></td>
+<td><blockquote>
+<p>Company proposed/selected by the Development, Procurement, [redacted-person], or Logistics divisions.</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="abbreviations">6.2 Abbreviations</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>AA</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-person]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>AN</p>
+</blockquote></td>
+<td><blockquote>
+<p>Contractor</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co]</p>
+</blockquote></td>
+<td><blockquote>
+<p>Purchaser</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>LAH</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>F</p>
+</blockquote></td>
+<td><blockquote>
+<p>Driver</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>BF</p>
+</blockquote></td>
+<td><blockquote>
+<p>Passenger</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ROW</p>
+</blockquote></td>
+<td><blockquote>
+<p>Rest-of-the-world</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>NAR</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Region</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>RT</p>
+</blockquote></td>
+<td><blockquote>
+<p>Room temperature</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>HT</p>
+</blockquote></td>
+<td><blockquote>
+<p>High temperature</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>LT</p>
+</blockquote></td>
+<td><blockquote>
+<p>Low temperature</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ODB</p>
+</blockquote></td>
+<td><blockquote>
+<p>Offset deformable barrier</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>FGS</p>
+</blockquote></td>
+<td><blockquote>
+<p>Pedestrian protection</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>FMH</p>
+</blockquote></td>
+<td><blockquote>
+<p>Free-motion headform</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>HS</p>
+</blockquote></td>
+<td><blockquote>
+<p>High-speed</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>OGG</p>
+</blockquote></td>
+<td><blockquote>
+<p>Gas generator loaded to the upper limit of the characteristic map</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>OOP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Out-of-position</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>UGG</p>
+</blockquote></td>
+<td><blockquote>
+<p>Gas generator loaded to the lower limit of the characteristic map</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>UGG10m</p>
+</blockquote></td>
+<td><blockquote>
+<p>Tank pressure tuned to the value at t = 10 ms</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>UWS</p>
+</blockquote></td>
+<td><blockquote>
+<p>Environmental simulation test</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>TLD</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] for Documentation</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>CAD</p>
+</blockquote></td>
+<td><blockquote>
+<p>Computer-aided design</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>CAE</p>
+</blockquote></td>
+<td><blockquote>
+<p>Computer-aided engineering</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>KVS</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted]of the [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Wk</p>
+</blockquote></td>
+<td><blockquote>
+<p>Week</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>OU</p>
+</blockquote></td>
+<td><blockquote>
+<p>Purchaser's organizational unit</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>BAM</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] Institute for [redacted-person] and Testing</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>PV</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>DMU</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]-Up</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SB</p>
+</blockquote></td>
+<td><blockquote>
+<p>Specialist</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SE</p>
+</blockquote></td>
+<td><blockquote>
+<p>Simultaneous engineering</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>VW …</p>
+</blockquote></td>
+<td><blockquote>
+<p>In-house standard of the [redacted-person]</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h1 id="applicable-documents">7 Applicable documents<a class="footnote-ref" href="#fn1" id="fnref1" role="doc-noteref"><sup>1</sup></a></h1>
+<p>The contractor ensures that only documents currently in effect are
+used as working references.</p>
+<p>The applicable documents currently in effect on the issue date of the
+[redacted-person] apply. Deviations must be agreed upon with the
+department of [redacted-co]/the general developer and documented in the
+[redacted-person].</p>
+<p>The documents must be obtained independently.</p>
+<h2 id="technical-specificationsstandards">7.1 Technical
+specifications/standards</h2>
+<ul>
+<li><p>[redacted-person]:</p></li>
+</ul>
+<ul>
+<li><p>VW 99000 [redacted-person]</p></li>
+<li><p>VW 01155 [redacted-person] Parts; General</p></li>
+</ul>
+<ul>
+<li><p>ISO:</p></li>
+</ul>
+<ul>
+<li><p>ISO 9001 [redacted-person] Systems</p></li>
+<li><p>ISO/IEC 17025 [redacted-person] for the Competence of Testing
+and [redacted-person]</p></li>
+<li><p>ISO 19005 [redacted-person] – [redacted]for Long-[redacted-person]</p></li>
+<li><p>ISO 6487 [redacted-person] in [redacted-person] –
+Instrumentation</p></li>
+<li><p>ISO 8721 [redacted-person] – [redacted-person] in [redacted-person] –
+[redacted-person]</p></li>
+<li><p>ISO/TS 13499 [redacted]for [redacted-person]</p></li>
+<li><p>ISO/TS 22240 [redacted](VSIM)</p></li>
+<li><p>ISO/TS 17242 Quasi-[redacted-person] Procedure for [redacted-person]
+Transducers</p></li>
+<li><p>ISO 15830 [redacted-person] – Design and [redacted-person]
+for the WorldSID 50th [redacted-person] Side-[redacted-person]</p></li>
+<li><p>ISO 10360 [redacted-person] Specifications (GPS) – Acceptance
+and [redacted-person] for [redacted-person] Systems</p></li>
+<li><p>ISO 27957 [redacted-person] – [redacted-person] in
+[redacted-person] Devices</p></li>
+</ul>
+<ul>
+<li><p>Society of [redacted-person] (SAE):</p></li>
+</ul>
+<ul>
+<li><p>SAE J211 Instrumentation for [redacted-person]</p></li>
+<li><p>SAE J1733 [redacted-person] for [redacted-person] Testing</p></li>
+<li><p>SAE J826 Devices for Use in Defining and [redacted]</p></li>
+<li><p>SAE J2517 Hybrid III [redacted]Procedure</p></li>
+<li><p>SAE J2779 [redacted]for the HIII
+50th [redacted-person]</p></li>
+<li><p>SAE J2856 User's Manual for the 50th [redacted-person] Hybrid III
+Dummy</p></li>
+<li><p>SAE J2859 Hybrid III [redacted]</p></li>
+<li><p>SAE J2860 User's Manual for the Hybrid III [redacted]</p></li>
+<li><p>SAE J2862 User's Manual for the [redacted]III
+[redacted-person]</p></li>
+<li><p>SAE J2876 [redacted]for the Hybrid III
+50th [redacted-person]</p></li>
+<li><p>SAE J2878 [redacted]for the HIII5F
+Dummy</p></li>
+</ul>
+<ul>
+<li><p>[redacted-person] of the [redacted-person] (VDA)</p></li>
+</ul>
+<ul>
+<li><p>VDA 304 Certification of H-Point and [redacted-person] Equipment
+and [redacted-person], including documents referenced therein</p></li>
+</ul>
+<h2 id="performance-specifications-for-information">7.2 [redacted-person] for information</h2>
+<ul>
+<li><p>LAH.DUM.880.BE Requirements of a [redacted-person] in [redacted-person] Laboratories</p></li>
+</ul>
+<h2 id="appendices">7.3 Appendices</h2>
+<ul>
+<li><p>AVI catalogs:</p></li>
+</ul>
+<ul>
+<li><p>Whole-[redacted-person], Side, and [redacted-person]</p></li>
+<li><p>[redacted-person] Beds</p></li>
+</ul>
+<ul>
+<li><p>Checklists</p></li>
+</ul>
+<ul>
+<li><p>Frontal, Side, and [redacted-person]</p></li>
+</ul>
+<ul>
+<li><p>Measurement catalogs:</p></li>
+</ul>
+<ul>
+<li><p>[redacted]Measurement</p></li>
+<li><p>[redacted-person] Measurement for Frontal and [redacted-person]</p></li>
+<li><p>[redacted-person] Description and Examples</p></li>
+</ul>
+<ul>
+<li><p>Photo catalogs</p></li>
+</ul>
+<ul>
+<li><p>[redacted-person] Vehicle</p></li>
+<li><p>[redacted-person] Protection</p></li>
+</ul>
+<ul>
+<li><p>[redacted]</p></li>
+<li><p>[redacted-person] Guidelines for Contractors</p></li>
+</ul>
+<p><strong>NOTE</strong></p>
+<p>Sources for Group standards and documents: Authorized contractors can
+access documents on the [redacted-person] B2B supplier platform at: <a href="http://www.vwgroupsupply.com/"><u>http://www.vwgroupsupply.com/</u></a>.</p>
+<section class="footnotes footnotes-end-of-document" id="footnotes" role="doc-endnotes">
+<hr/>
+<ol>
+<li id="fn1"><p>Please only refer to standard/document numbers since the
+document titles may vary.<a class="footnote-back" href="#fnref1" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

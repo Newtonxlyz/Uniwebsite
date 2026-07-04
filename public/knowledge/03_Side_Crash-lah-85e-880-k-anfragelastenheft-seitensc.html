@@ -1,0 +1,1985 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_85E_880_K_Anfragelastenheft_Seitenschutz_PPEx1_eQ5_eQ6</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote>
+<blockquote>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+</blockquote>
+<p><img src="./03_Side_Crash-lah-85e-880-k-anfragelastenheft-seitensc-media/media/image2.png" style="width:2.91667in;height:2.4375in"/>PPEx1: [redacted-prj]/2EU_B,
+[redacted-prj]/3EU_B</p>
+<blockquote>
+<p>[redacted]Seite</p>
+<p>Anfragelastenheft für Engineering-Leistungen</p>
+<p>LAH.85E.880.K</p>
+<p>Verteiler:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Name</p>
+</blockquote></th>
+<th><blockquote>
+<p>Vorname</p>
+</blockquote></th>
+<th><blockquote>
+<p>Abteilung</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Hillebrand</p>
+</blockquote></td>
+<td><blockquote>
+<p>David</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Bodo</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#allgemeines">Allgemeines 4</a></p>
+<ol type="1">
+<li><p><a href="#bedeutung-des-lastenhefts">Bedeutung des Lastenhefts
+4</a></p></li>
+<li><p><a href="#_bookmark2">[redacted-person] 5</a></p></li>
+<li><p><a href="#_bookmark3">Geltungsbereich 5</a></p></li>
+</ol></li>
+<li><p><a href="#projektspezifische-auftragsinhalte">[redacted-person] 6</a></p>
+<ol type="1">
+<li><p><a href="#beschreibung-des-projektumfelds">Beschreibung des
+Projektumfelds 6</a></p></li>
+<li><p><a href="#zielsetzung-des-projekts">Zielsetzung des Projekts
+6</a></p></li>
+<li><p><a href="#einzuhaltende-rahmenbedingungen-normen-technische-leitlinien-betriebsmittelvorschriften-etc.-soweit-nicht-unter-abschnitt-4.-erfasst">[redacted-person], Normen, technische Leitlinien,</a> <a href="#einzuhaltende-rahmenbedingungen-normen-technische-leitlinien-betriebsmittelvorschriften-etc.-soweit-nicht-unter-abschnitt-4.-erfasst">Betriebsmittelvorschriften
+etc. (soweit nicht unter Abschnitt 4. erfasst) 6</a></p></li>
+<li><p><a href="#erforderliche-fachkenntnisse">[redacted-person] 6</a></p></li>
+<li><p><a href="#beauftragungsumfang">Beauftragungsumfang 7</a></p>
+<ol type="1">
+<li><p><a href="#allgemeines-1">Allgemeines 7</a></p></li>
+<li><p><a href="#umfang-versuche-im-seitenaufprall">[redacted-person] im
+Seitenaufprall 7</a></p></li>
+<li><p><a href="#umfang-berechnung-insassenschutz">[redacted-person]
+Insassenschutz 8</a></p></li>
+<li><p><a href="#umfang-integrität-und-absicherung-sicherheitsrelevanter-funktionen">[redacted-person] und Absicherung sicherheitsrelevanter Funktionen
+8</a></p></li>
+<li><p><a href="#umfang-simulation-integration-airbags-im-seitenschutz">[redacted]im Seitenschutz 9</a></p></li>
+<li><p><a href="#umfang-systementwicklung">[redacted-person]
+9</a></p></li>
+<li><p><a href="#umfang-teileversorgung">[redacted-person]
+10</a></p></li>
+</ol></li>
+<li><p><a href="#leistungszeitraum">Leistungszeitraum 10</a></p>
+<ol type="1">
+<li><p><a href="#start-ende-des-projekts">Start / Ende des Projekts
+10</a></p></li>
+<li><p><a href="#_bookmark20">Meilensteinterminplan 10</a></p></li>
+</ol></li>
+<li><p><a href="#leistungsort">Leistungsort 11</a></p></li>
+<li><p><a href="#beistellungen-der-audi-ag">Beistellungen [redacted-co]
+11</a></p></li>
+<li><p><a href="#vergütung">Vergütung 11</a></p></li>
+<li><p><a href="#_bookmark24">Nebenkosten 13</a></p></li>
+<li><p><a href="#angebotsübersichtsmatrix">Angebotsübersichtsmatrix
+13</a></p></li>
+<li><p><a href="#_bookmark26">Verantwortungsmatrix 14</a></p></li>
+<li><p><a href="#fachliche-ansprechpartner-der-audi-ag">[redacted]14</a></p></li>
+<li><p><a href="#sonstige-anforderungen">[redacted-person]
+15</a></p></li>
+</ol></li>
+<li><p><a href="#kaufmännische-rahmenbedingungen">[redacted-person] 16</a></p>
+<ol type="1">
+<li><p><a href="#kaufmännische-rahmenbedingungen">Verantwortung,
+Informationspflichten und Zusammenarbeit 16</a></p></li>
+<li><p><a href="#durchführung-der-arbeiten">Durchführung der Arbeiten
+16</a></p></li>
+<li><p><a href="#leistungsfristen">Leistungsfristen 17</a></p></li>
+<li><p><a href="#_bookmark33">Änderung der Leistung 17</a></p></li>
+<li><p><a href="#_bookmark34">Abnahme 18</a></p></li>
+<li><p><a href="#vergütung-leistungsnachweis">Vergütung /
+Leistungsnachweis 18</a></p></li>
+<li><p><a href="#_bookmark36">Nutzungsrechte 19</a></p></li>
+<li><p><a href="#_bookmark37">Verwendung von [redacted-person]
+20</a></p></li>
+<li><p><a href="#_bookmark38">Schutzrechtsrecherchen, [redacted-person] 20</a></p></li>
+<li><p><a href="#vertragslaufzeit-und-kündigung">Vertragslaufzeit und
+Kündigung 21</a></p></li>
+<li><p><a href="#allgemeines-2">Allgemeines 21</a></p></li>
+</ol></li>
+<li><p><a href="#mitgeltende-unterlagen"><strong>[redacted-person]
+22</strong></a></p></li>
+</ol>
+<h1 id="allgemeines">Allgemeines</h1>
+<h2 id="bedeutung-des-lastenhefts">Bedeutung des Lastenhefts</h2>
+<blockquote>
+<p>Mit dem vorliegenden Lastenheft werden die kaufmännischen und
+technischen Vorgaben beschrie- ben, unter denen der Bieter, an den die
+Anfrage ergeht (im Folgenden „Auftragnehmer“ genannt), ein Angebot für
+den jeweils angefragten Arbeitsumfang abgeben kann.</p>
+<p>[redacted-person] beschreibt die betroffenen Schnittstellen, Prozesse,
+Rechte und die angeforderte Leistung als Grundlage für die Vergabe.</p>
+<p>[redacted-person] muss dieses Lastenheft in vollem Umfang bei seiner
+Angebotsgestaltung be- rücksichtigen. In seinem Angebot hat er sämtliche
+Leistungen zu berücksichtigen, die zur Erfüllung des Lastenheftes
+erforderlich sind. [redacted-person] soll sich unbedingt und ausschließlich
+auf das Las- tenheft beziehen und die Art und Weise der Erbringung der
+darin geforderten Leistungen nachvoll- ziehbar darstellen. Abweichungen
+zum Lastenheft sind im Angebot bzw. in den Bestellsystemen [redacted-co]
+unter Bezugnahme auf den jeweiligen Abschnitt ausdrücklich als solche
+kenntlich zu machen.</p>
+<p>Wird der Auftrag an den Auftragnehmer vergeben, stellt dieser sicher,
+dass die im Lastenheft be- schriebene Leistung vorgabegemäß gegenüber
+[redacted-co] erbracht wird.</p>
+<p>Die [redacted-co] behält sich das Recht vor, eine Kostenplausibilisierung
+vor der Beauftragung durchzu- führen und entsprechend nachzuverhandeln.
+Die angebotenen Preise und Termine dürfen nicht überschritten werden. Im
+Angebot enthalten sind alle notwendigen Änderungen zur Erreichung der
+Zielsetzungen und Funktionserfüllung des Lastenheftes.</p>
+<p>[redacted-person] des Lastenheftes ebenso wie die weiteren zur Verfügung
+gestellten Unterlagen unter- liegen der Geheimhaltung und dürfen Dritten
+nur mit ausdrücklicher Genehmigung des zuständi- gen Fachbereiches der
+[redacted-co] zugänglich gemacht werden. Soweit eine Weitergabe an Dritte,
+insbesondere an mit dem Auftragnehmer verbundene Unternehmen, für die
+Erstellung eines Ange-</p>
+<p>bots erforderlich ist und genehmigt wurde, hat der Auftragnehmer
+dafür Sorge zu tragen, dass die Vertraulichkeit sichergestellt ist.</p>
+</blockquote>
+<h2 id="strukturierte-anfrage">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] hat die strukturierte Anfrage [redacted-co]
+auszufüllen, also die geforderten Angaben zur Detaillierung und
+Plausibilisierung zu machen.</p>
+<p>[redacted-person] der strukturierten Anfrage erstellt der Auftragnehmer
+kostenlos ein entsprechend struk- turiertes Angebot. In diesem Angebot
+müssen alle Details zur Herleitung des Angebotswertes und zur
+Plausibilisierung enthalten sein. Dies umfasst insbesondere den
+prognostizierten Aufwand an Arbeitsstunden beim Auftragnehmer. Sollten
+seitens [redacted-co] weitere Details zum Angebot ge- fordert werden, wird
+der Auftragnehmer diese unverzüglich und kostenlos zur Verfügung zu
+stel- len.</p>
+</blockquote>
+<h2 id="geltungsbereich">Geltungsbereich</h2>
+<blockquote>
+<p>Das vorliegende Lastenheft bezieht sich ausschließlich auf Leistungen
+im Rahmen der Projektabläu- fe. Dies können u. [redacted-person],
+Konstruktions-, Berechnungs-, Prüfstands-, Versuchs-, Erpro- bungs-,
+Werkstatt- und Projektmanagementleistungen sein.</p>
+<p>Art und Umfang der Leistung richten sich nach diesem Lastenheft, es
+sei denn, ein Sachverhalt wird individuell ausgehandelt und ausdrücklich
+schriftlich abweichend geregelt.</p>
+</blockquote>
+<h1 id="projektspezifische-auftragsinhalte">[redacted-person]</h1>
+<h2 id="beschreibung-des-projektumfelds">Beschreibung des
+Projektumfelds</h2>
+<blockquote>
+<p>[redacted-person] ist im Rahmen der Serienentwicklung des [redacted-prj]/2EU_B (alle
+Märkte) zu leisten und endet 3 Monate nach SoP (Start of Production) NAR
+für das letzte im Beauftragungsumfang enthaltene Fahrzeug.</p>
+</blockquote>
+<h2 id="zielsetzung-des-projekts">Zielsetzung des Projekts</h2>
+<blockquote>
+<p>Ziel des Projektes ist die robuste Erfüllung der Entwicklungsziele
+des Seitencrash und –schutz bei minimalen Kosten und Gewicht.
+Hauptaufgabe der Beauftragung ist die Entwicklung freigabefähiger
+Subsysteme und die damit verbundenen Freigabeempfehlungen an Bauteile
+&amp; Funktionen sowie die Sicherstellung der Zieler- reichung zu den
+jeweiligen Meilensteinen. Dies wird in den nachfolgenden Abschnitten und
+den darin ge- nannten Lastenheften näher spezifiziert.</p>
+</blockquote>
+<h2 id="einzuhaltende-rahmenbedingungen-normen-technische-leitlinien-betriebsmittelvorschriften-etc.-soweit-nicht-unter-abschnitt-4.-erfasst">[redacted-person], Normen, technische Leitlinien,
+Betriebsmittelvorschriften etc. (soweit nicht unter Abschnitt 4.
+erfasst)</h2>
+<blockquote>
+<p>Alle nicht [redacted-co]-internen Lastfälle sind nach den aktuell gültigen
+Protokollen der Verbraucherschutztests und Gesetze zu bearbeiten.</p>
+<p>[redacted-co]-interne Lastfälle sind nach festgeschriebenen Randbedingung
+durchzuführen. Die benötigten Unterla- gen, wie Arbeitsanweisungen,
+Protokolle usw. werden von [redacted-co] zu projektbeginn zur Verfügung
+ge- stellt.</p>
+</blockquote>
+<h2 id="erforderliche-fachkenntnisse">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] gewährleistet, dass er die zur Abarbeitung des
+Umfangs erforderlichen Fachkenntnisse hat. Hierzu zählen aus Sicht der
+[redacted-co] insbesondere:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] &amp; Englisch in Wort und
+Schrift</p></li>
+<li><p>Beherrschung der gängigen Office-Anwendungen</p></li>
+<li><p>Beherrschung folgender marktüblicher Softwareumgebungen:</p>
+<ul>
+<li><p>CATIA</p></li>
+<li><p>PamCrash</p></li>
+<li><p>ESI Simfolder</p></li>
+<li><p>Animator und Generator</p></li>
+<li><p>ANSA</p></li>
+</ul></li>
+<li><p>Beherrschung folgender [redacted-co] bzw. VW-[redacted-person]:</p>
+<ul>
+<li><p>Visverdi &amp; Falcon</p></li>
+<li><p>CAE-Bench2</p></li>
+<li><p>CAViT</p></li>
+<li><p>KVS, Connect</p></li>
+<li><p>LoCo</p></li>
+<li><p>Status.E</p></li>
+</ul></li>
+<li><p>[redacted-person] der [redacted-person]
+Seitencrash &amp; Seitenschutz und der dafür erforderlichen [redacted-person]- und [redacted-person].</p></li>
+</ul>
+<blockquote>
+<p>Im Angebot ist
+darzustellen, dass die Anforderungen zu den erforderlichen
+Fachkenntnissen zu allen Um- fängen aus Abschnitt 2.5 vorliegt.</p>
+</blockquote>
+<h2 id="beauftragungsumfang">Beauftragungsumfang</h2>
+<blockquote>
+<p>[redacted-person] hat die in den nächsten Abschnitten definierten
+Leistungen zu erbringen. [redacted-person]- ziele der Fahrzeugderivate sind
+dem Lastenheft</p>
+<p>- <em>LAH.85H.880.B [redacted-prj]/2EU_B [redacted-person] 3
+[redacted-person] Seiten- crash</em></p>
+<p>zu entnehmen.</p>
+</blockquote>
+<h2 id="allgemeines-1">Allgemeines</h2>
+<blockquote>
+<p>[redacted-person] organisiert eine wöchentliche Statusrunde. Dazu ist
+eine Liste offener Punkte (LoP) und ein Protokoll themenübergreifend
+über alle beauftragten Umfänge zu führen. [redacted-person] der LoP wird vom
+Auftraggeber zur Verfügung gestellt. [redacted-person] der LoP und der
+Protokolle hat im [redacted-co] dox oder auf Lauf- werken des Auftraggebern zu
+erfolgen.</p>
+<p>Zu Projektstart ist eine Liste von Ansprechpartnern, Schnittstellen
+und Schnittstellenterminen vom Auftrag- nehmer zu erstellen. In
+Abstimmung mit dem Auftraggeber wird darin festgelegt, wer an welchen
+Terminen teilnimmt und die Verantwortung für den Informationsfluss
+trägt. [redacted-person] ist über die Projektlaufzeit im- mer aktuell zu
+halten.</p>
+<p>Weiterhin ist ein ständig aktuell zu haltender Projekt- und
+Versuchsterminplan zu erstellen. Eine entspre- chende Vorlage wird vom
+Auftraggeber zur Verfügung gestellt.</p>
+<p>Entscheidungen, die Einfluss auf Budget, Projektziele, Konzepte,
+Auslegung von Anforderungen usw. haben sind grundsätzlich mit dem
+Auftraggeber abzustimmen und die gefassten gemeinsamen Beschlüsse sind
+zu dokumentieren.</p>
+<p>Zu den in Abschnitt <a href="#_bookmark20">2.6.2</a> definierten
+Meilensteinen sind Empfehlungen für Maßnahmen beziehungsweise
+Freigabeempfehlungen zu geben.</p>
+</blockquote>
+<h2 id="umfang-versuche-im-seitenaufprall">[redacted-person] im
+Seitenaufprall</h2>
+<blockquote>
+<p>[redacted-person] sind dem Lastenheft</p>
+<p><em>LAH.DUM.880.FK Versuche im Seitenaufprall</em></p>
+<p>zu entnehmen.</p>
+<p>[redacted-person] sind anzubieten:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Versuchsart</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Definition laut LAH.DUM.880.FK</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>[redacted-prj]/2EU_B</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>[redacted-prj]/3EU_B</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="4" style="text-align: center;"><strong>Abschnitt</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Gesamtfahrzeugversuche</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3.</p>
+</blockquote></td>
+<td style="text-align: right;">63</td>
+<td style="text-align: center;"><blockquote>
+<p>18</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Sensorversuche</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3.</p>
+</blockquote></td>
+<td style="text-align: right;">11</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Komponentenversuche</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4.</p>
+</blockquote></td>
+<td style="text-align: right;">15</td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Bei allen Versuchen ist eine Versuchsanzahlerhöhung von max. 10% pro
+Tabellenzeile durch diese Beauftra- gung abgedeckt. Bei mehr Versuchen
+werden diese zusätzlich vom Auftraggeber beauftragt.</p>
+<p>Falls weniger als 90% der Versuche pro Tabellenzeile durchgeführt
+werden, so sind dem Auftraggeber die gesparten Kosten zu erstatten.</p>
+</blockquote>
+<h2 id="umfang-berechnung-insassenschutz">[redacted-person]
+Insassenschutz</h2>
+<blockquote>
+<p>[redacted-person] sind dem Lastenheft</p>
+<p><em>LAH.DUM.880.H [redacted-person]</em></p>
+<p>zu entnehmen.</p>
+<p>[redacted-person] sind anzubieten:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Versuchsart</strong></p>
+</blockquote></th>
+<th style="text-align: right;"><blockquote>
+<p><strong>Definition laut LAH.DUM.880.H Abschnitt</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-prj]/2EU_B</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-prj]/3EU_B</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Validierungsversuche TVKL</strong></p>
+</blockquote></td>
+<td style="text-align: right;">3.2.3.1</td>
+<td style="text-align: center;"><blockquote>
+<p>50</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Validierungsversuche BSVKL</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3.2.4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: right;">3.2.11</td>
+<td style="text-align: center;"><blockquote>
+<p>10</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Bei allen Versuchen ist eine Versuchsanzahlerhöhung von max. 10% pro
+Tabellenzeile durch diese Beauftra- gung abgedeckt. Bei mehr Versuchen
+werden diese zusätzlich vom Auftraggeber beauftragt.</p>
+<p>Falls weniger als 90% der Versuche pro Tabellenzeile durchgeführt
+werden, so sind dem Auftraggeber die gesparten Kosten zu erstatten.</p>
+</blockquote>
+<h2 id="umfang-integrität-und-absicherung-sicherheitsrelevanter-funktionen">[redacted-person] und Absicherung sicherheitsrelevanter Funktionen</h2>
+<blockquote>
+<p>[redacted-person] sind dem Lastenheft</p>
+<p><em>LAH.DUM.880.[redacted-person]</em></p>
+<p>zu entnehmen.</p>
+<p>[redacted-person] sind anzubieten:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Versuchsart</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Definition laut LAH.DUM.880.[redacted-person]</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-prj]/2EU_B</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-prj]/3EU_B</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Integrität allg. &amp; TVKL</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3.2.1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>50</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Bei allen Versuchen ist eine Versuchsanzahlerhöhung von max. 10% pro
+Tabellenzeile durch diese Beauftra- gung abgedeckt. Bei mehr Versuchen
+werden diese zusätzlich vom Auftraggeber beauftragt.</p>
+<p>Falls weniger als 90% der Versuche pro Tabellenzeile durchgeführt
+werden, so sind dem Auftraggeber die gesparten Kosten zu erstatten.</p>
+</blockquote>
+<h2 id="umfang-simulation-integration-airbags-im-seitenschutz">[redacted]im Seitenschutz</h2>
+<blockquote>
+<p>[redacted-person] sind dem Lastenheft</p>
+<p><em>LAH.DUM.880.FM [redacted-person] Airbags im
+Seitenschutz</em></p>
+<p>zu entnehmen.</p>
+<p>Projektstand sind Seitenairbag vorne und hinten, Kopfairbag für 1.
+&amp; 2. Sitzreihe sowie ein Centerairbag vorne.</p>
+</blockquote>
+<h2 id="umfang-systementwicklung">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] sind dem Lastenheft</p>
+<p>zu entnehmen.</p>
+</blockquote>
+<p><em>LAH.DUM.880.J [redacted-person] System</em></p>
+<blockquote>
+<p>Projektstand sind Seitenairbag vorne und hinten, Kopfairbag für 1.
+&amp; 2. Sitzreihe sowie ein Centerairbag vorne.</p>
+<p>[redacted-person] sind anzubieten:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Versuchsart</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Definition laut LAH.DUM.880.J Ab-</strong></p>
+<p><strong>schnitt</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-prj]/2EU_B</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-prj]/3EU_B</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Kombinations – Out of Posi- tion</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3.3.5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>65</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Standversuche</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6.2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>25</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: center;"><blockquote>
+<p>6.3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person]- ration</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6.3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Schlittenversuche</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6.3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>100</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Bei allen Versuchen ist eine Versuchsanzahlerhöhung von max. 10% pro
+Tabellenzeile durch diese Beauftra- gung abgedeckt. Bei mehr Versuchen
+werden diese zusätzlich vom Auftraggeber beauftragt.</p>
+<p>Falls zusätzliche Versuche durch Nachlässigkeiten des Auftragnehmers
+oder nicht konsequenter virtueller Entwicklung entstehen, so sind diese
+vom Auftragnehmer zu bezahlen und werden nicht auf die Gesamtan- zahl
+angerechnet.</p>
+<p>Falls weniger als 90% der Versuche pro Tabellenzeile durchgeführt
+werden, so sind dem Auftraggeber die gesparten Kosten zu erstatten.</p>
+</blockquote>
+<h2 id="umfang-teileversorgung">[redacted-person]</h2>
+<blockquote>
+<p>Es sind über alle [redacted-person]
+lieferantenspezifisch für die einzelnen Bauteile zu pflegen. [redacted-person]
+sind über [redacted-co] dox dem Auftraggeber, den jeweiligen Lieferanten und der
+Teilelogistik des Auf- traggebers zur Verfügung zu stellen. [redacted-person] hat unter Berücksichtigung der jeweiligen Liefer- fristen
+rechtzeitig die Teilebestellungen über den Projektleiter des
+Auftraggebers sicherzustellen und die pünktliche Lieferung zu verfolgen
+und gegebenenfalls zusammen mit dem Projektleiter des Auftraggebers zu
+eskalieren.</p>
+<p>[redacted-person] vom Bauteillieferanten beziehungsweise vom
+Auftraggeber zum Versuchsort innerhalb Westeuropas zahlt der
+Auftraggeber. Transportkosten vom Versuchsort zum Bauteillieferanten
+bezie- hungsweise dem Auftraggeber sind vom Auftragnehmer zu zahlen.
+Transportkosten zwischen verschiedenen Standorten des Auftragnehmers
+sind vom diesem zu tragen.</p>
+<p>[redacted-person], die vom Auftraggeber extern durchgeführt werden, ist
+dafür zu sorgen, dass im externen Prüflabor eine Schnittstelle zur
+[redacted-co]-Logistik vorhanden ist.</p>
+</blockquote>
+<h2 id="leistungszeitraum">Leistungszeitraum</h2>
+<h2 id="start-ende-des-projekts">Start / Ende des Projekts</h2>
+<blockquote>
+<p>[redacted-person] und die jeweiligen SOPs der Derivate werden im
+EK-Lastenheft LAH.DUM.800.AG festgelegt. Projektstart: [redacted-phone],
+frühestens jedoch mit Beauftragung</p>
+<p>Projektende: letzter Anlauf +3Monate (aktuell Anlauf 5, siehe EK- LAH
+LAH.DUM.800.AG)</p>
+</blockquote>
+<ol start="2" type="1">
+<li><p><strong>Meilensteine</strong></p></li>
+</ol>
+<blockquote>
+<p>Aufgeführt in den aktuellen übergeordneten Projektterminplänen der
+Baureihe (Steuerungsterminplan, An- laufstaffelung, etc.).</p>
+<p>LAH.DUM.800.AG Anlage 13 (Terminplan)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Meilenstein</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-prj]/2EU_B</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-prj]/3EU_B</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>PF – Projekt-Feasibility</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>39 Monate vor SoP RdW</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>39 Monate vor SoP RdW</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>KF – [redacted-person]</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>33 Monate vor SoP RdW</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>33 Monate vor SoP RdW</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>DF – [redacted-person]</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>28 Monate vor SoP RdW</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>28 Monate vor SoP RdW</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>BF - B-frei</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>20 Monate vor SoP RdW</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>20 Monate vor SoP RdW</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>LF – [redacted-person]</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>14 Monate vor SoP RdW</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>14 Monate vor SoP RdW</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>VFF</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10 Monate vor SoP RdW</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10 Monate vor SoP RdW</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>SoP RdW</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>03/2022</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>SoP NAR</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>tbd</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>tbd</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Bauteilterminpläne und spezifische Entwicklungs-Terminpläne für die
+Fahrzeugsicherheit (z.[redacted-person] plan) sind vom Auftragnehmer zu
+erstellen und zu pflegen und über die Projektgremien der [redacted-co] (z.[redacted-person] Team) zu kommunizieren.</p>
+<p>Verschiebungen der Meilensteintermine nach PF bis zu ±6 Monate sind
+ohne Mehrkosten abzudecken.</p>
+<p>Verschiebungen der Meilensteintermine nach PF von mehr als ±6 Monate
+berechtigen den Auftragnehmer ebenfalls nicht zu Nachforderungen zu
+seinem Angebot. Nachforderungen auf Grund größerer Verschiebun- gen der
+Meilensteine nach PF, werden seitens [redacted-co] nur anerkannt, wenn sie
+begründet und nachvoll- ziehbar sind.</p>
+</blockquote>
+<h2 id="leistungsort">Leistungsort</h2>
+<blockquote>
+<p>[redacted-person] ist [redacted-addr].</p>
+</blockquote>
+<h2 id="beistellungen-der-audi-ag">Beistellungen [redacted-co]</h2>
+<blockquote>
+<p>[redacted-person] für die Versuchsdurchführung von Gesamtfahrzeugversuchen
+bei [redacted-co] (Werkstatt, Prüf- feld) werden von [redacted-co]
+übernommen.</p>
+<p>[redacted-person] für die erforderlichen Versuchsteile für alle Versuche
+werden von [redacted-co] übernommen. Lizenzkosten:</p>
+</blockquote>
+<ul>
+<li><p>Lizenzkosten für Software auf [redacted-co] interner Infrastruktur werden
+von [redacted-co] getragen.</p></li>
+<li><p>Lizenzkosten für Software auf nicht [redacted-co] interner Infrastruktur
+sind vom Auftragnehmer zu tra- gen.</p></li>
+<li><p>Es ist sicherzustellen, dass notwendige Handling-Lizenzen für
+PamCrash und Crashtestdummies für das Pre-Processing seitens des
+Auftragnehmers vorhanden sind.</p></li>
+</ul>
+<blockquote>
+<p>Clusternutzung:</p>
+<p>Im Rahmen der Beauftragung darf der Rechencluster [redacted-co]
+verwendet werden. Dabei ist auf einen ressourcenschonenden Umgang mit
+Rechenkapazität zu achten. Insbesondere ist vor dem Start von
+rechenintensiveren Untersuchungen (zum [redacted-person]) vorab mit dem [redacted-co]-Projektleiter abzustimmen,
+ob die notwendigen Ressourcen zum gewünschten Zeitpunkt zur Verfügung
+stehen.</p>
+<p>Es ist im Angebot optional auszuweisen, welche Mehrkosten entstehen
+würden, wenn der Rechen- cluster und die dafür notwendigen Lizenzen für
+die Berechnungen beim Auftragnehmer genutzt wür- den.</p>
+</blockquote>
+<h2 id="vergütung">Vergütung</h2>
+<blockquote>
+<p>[redacted-person] orientiert sich erfolgsabhängig an den Projektphasen
+und -meilensteinen und erfolgt über ei- nen vereinbarten Zahlungsplan
+und in der Regel zum Ende der Projektphasen.</p>
+<p>[redacted-person] von mehr als einem Fahrzeug wird für jedes Fahrzeug die
+meilensteinabhängige Vergütung zu- grunde gelegt. [redacted-person] auf die
+einzelnen Fahrzeuge erfolgt prozentual, die Aufteilungsfaktoren sind
+während der Angebotsphase mit dem Auftraggeber abzustimmen.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Meilenstein</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Vergütung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Hauptziele</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>PF</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>10%</p>
+</blockquote></td>
+<td><ul>
+<li><p>Bewertung aller Seitencrash-relevanter Design- &amp; Packa-
+gestände</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="3"><ul>
+<li><p>[redacted-person] Design- und Packageentwick- lung</p></li>
+<li><p>Status VKF2</p></li>
+<li><p>Robustheitsuntersuchung durchgeführt und ausgewertet</p></li>
+<li><p>Alle spezifischen Anforderungen bis zu diesem Zeitpunkt gemäß
+Abschnitt <a href="#_bookmark9">0</a></p></li>
+</ul></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>KF</strong></p>
+</blockquote></td>
+<td style="text-align: right;">10%</td>
+<td><ul>
+<li><p>Freigabeempfehlung im Rahmen der Beauftragung für alle
+Seitencrash-relevanten Bauteile</p></li>
+<li><p>[redacted-person] Designentwicklung</p></li>
+<li><p>Status VPT</p></li>
+<li><p>Robustheitsuntersuchung durchgeführt und ausgewertet</p></li>
+<li><p>Alle spezifischen Anforderungen bis zu diesem Zeitpunkt gemäß
+Abschnitt <a href="#_bookmark9">0</a></p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>DF</strong></p>
+</blockquote></td>
+<td style="text-align: right;">15%</td>
+<td><ul>
+<li><p>Status DF / P-frei</p></li>
+<li><p>Freigabeempfehlung im Rahmen der Beauftragung zum
+Design-Freeze</p></li>
+<li><p>Freigabeempfehlung im Rahmen der Beauftragung zur P- Freigabe zu
+allen Seitencrash-relevanten Bauteilen</p></li>
+<li><p>Schlittenkonfiguration definiert</p></li>
+<li><p>Alle spezifischen Anforderungen bis zu diesem Zeitpunkt gemäß
+Abschnitt <a href="#_bookmark9">0</a></p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>BF</strong></p>
+</blockquote></td>
+<td style="text-align: right;">20%</td>
+<td><ul>
+<li><p>Status vor ersten Prototypen / B-frei</p></li>
+<li><p>Freigabeempfehlung im Rahmen der Beauftragung zur B- Freigabe zu
+allen Seitencrash-relevanten Bauteilen</p></li>
+<li><p>RHS entwickelt mit Simulationen und Schlitten- &amp; Kom-
+ponentenversuchen =&gt; Definition RHS für erste Prototy-
+penversuche</p></li>
+<li><p>Robustheitsuntersuchung durchgeführt und ausgewertet</p></li>
+<li><p>Alle spezifischen Anforderungen bis zu diesem Zeitpunkt gemäß
+Abschnitt <a href="#_bookmark9">0</a></p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>LF</strong></p>
+</blockquote></td>
+<td style="text-align: right;">5%</td>
+<td><ul>
+<li><p>Robustheitsuntersuchung durchgeführt und ausgewertet</p></li>
+<li><p>Empfehlung für RHS-Komponenten bzgl. Start BMG RHS</p></li>
+<li><p>Alle spezifischen Anforderungen bis zu diesem Zeitpunkt gemäß
+Abschnitt <a href="#_bookmark9">0</a></p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>VFF</strong></p>
+</blockquote></td>
+<td style="text-align: right;">10%</td>
+<td><ul>
+<li><p>[redacted-person]-RHS</p></li>
+<li><p>Alle spezifischen Anforderungen bis zu diesem Zeitpunkt gemäß
+Abschnitt <a href="#_bookmark9">0</a></p></li>
+</ul></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>SoP RdW</strong></p>
+</blockquote></td>
+<td style="text-align: right;">15%</td>
+<td><ul>
+<li><p>Freigabeempfehlung im Rahmen der Beauftragung für die Lastfälle
+RdW</p></li>
+<li><p>Alle spezifischen Anforderungen bis zu diesem Zeitpunkt</p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<thead>
+<tr>
+<th colspan="3" style="text-align: center;"><blockquote>
+<p>gemäß Abschnitt <a href="#_bookmark9">0</a></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>SoP NAR + 3 Mon.</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>15%</p>
+</blockquote></td>
+<td><ul>
+<li><p>Freigabeempfehlung im Rahmen der Beauftragung für die Lastfälle
+NAR</p></li>
+<li><p>Gesamtdokumentation</p></li>
+<li><p>Alle relevanten Daten in den entsprechenden System (Fal- con,
+CB2, LoCo) archiviert</p></li>
+<li><p>Abschlusspräsentation und [redacted-person] für Nachfol-
+geprojekte</p></li>
+<li><p>Alle spezifischen Anforderungen bis zu diesem Zeitpunkt gemäß
+Abschnitt <a href="#_bookmark9">0</a></p></li>
+</ul></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[redacted-person] von mehr als einem Fahrzeug wird für jedes Fahrzeug die
+obige meilensteinabhängige Vergü- tung zugrunde gelegt. [redacted-person]
+auf die einzelnen Fahrzeuge erfolgt prozentual, die Aufteilungsfakto-
+ren sind während der Angebotsphase mit dem Auftraggeber abzustimmen.</p>
+<p>Sofern ein abrechenbarer Projektmeilenstein zum Zeitpunkt der Vergabe
+bereits überschritten oder NAR nicht Projektstand ist, wird der Prozentsatz zu
+gleichen Teilen auf die übrigen Meilensteine aufgeteilt.</p>
+</blockquote>
+<h2 id="nebenkosten">Nebenkosten</h2>
+<blockquote>
+<p>Reisekosten innerhalb Deutschlands sind generell vom Auftragnehmer zu
+tragen.</p>
+<p>Reisekosten außerhalb Deutschlands, die im Verantwortungsbereich des
+Auftragnehmers liegen (zum Bei- spiel Reisen zu Prüfinstituten für
+Versuche des Auftragnehmers oder Reisen zwischen verschiedenen Stand-
+orten des Auftragnehmers), sind vom Auftragnehmer zu tragen.</p>
+<p>Durch [redacted-co] Anforderungen verursachte Reisekosten außerhalb
+Deutschlands sind [redacted-co], gemäß der Einkaufsbedingungen zu
+Reisekosten, zusätzlich in Rechnung zu stellen. [redacted-person]
+ist vor der Reise über die anfallenden Reisekosten zu informieren.</p>
+<p>Alle weiteren Nebenkosten sind mit der Beauftragung abgegolten.</p>
+</blockquote>
+<h2 id="angebotsübersichtsmatrix">Angebotsübersichtsmatrix</h2>
+<blockquote>
+<p>[redacted-person] ist folgende Matrix ausgefüllt zu übergeben:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: right;"><strong>AUxyz</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Allgemeines nach Abschnitt <a href="#allgemeines-1">2.5.1</a></strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] im Seitenaufprall nach Abschnitt <a href="#umfang-versuche-im-seitenaufprall">2.5.2</a></strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] Insassenschutz nach Abschnitt <a href="#umfang-berechnung-insassenschutz">2.5.3</a></strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] und Absicherung sicherheitsrelevanter Funk-
+tionen nach Abschnitt <a href="#umfang-integrität-und-absicherung-sicherheitsrelevanter-funktionen">2.5.4</a></strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted]im Seitenschutz nach
+Abschnitt <a href="#umfang-simulation-integration-airbags-im-seitenschutz">2.5.5</a></strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] nach Abschnitt <a href="#umfang-systementwicklung">2.5.6</a></strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] nach Abschnitt <a href="#umfang-teileversorgung">2.5.7</a></strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Nebenkosten nach Abschnitt <a href="#_bookmark24">2.10</a></strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Sonstiges</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Gesamtsumme</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Alle in den Unterlastenheften angefragten Angebotsübersichten sind
+dem Angebot anzufügen.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p><strong>Verantwortungsmatrix für
+Gewerk-Vergabe</strong></p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] sind die Verantwortlichkeiten im Projekt zu
+entnehmen. Details sind dem weiteren Inhalt dieses Lastenhefts zu
+entnehmen.</p>
+<p><strong>Grundsätzlich entbinden fehlende Einträge in der Tabelle
+nicht davon, die anderen Bereiche mit zu be- trachten und bei
+Auffälligkeiten die [redacted-co]- bzw. GE-Fachabteilung darauf hinzuweisen und
+Verbesse- rungsvorschläge zu unterbreiten.</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Funktion</strong></p>
+</blockquote></th>
+<th style="text-align: right;"><blockquote>
+<p><strong>Auftrag- geber</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Auf-</strong></p>
+<p><strong>trag- nehmer</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><strong>Lieferant</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Seitenschutzfunktion im Gesamtfahrzeug</strong></p>
+</blockquote></td>
+<td style="text-align: right;">V</td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Seitenschutzfunktion im Rückhaltesystem nach Abschnitt <a href="#umfang-systementwicklung">2.5.6</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Komponentenintegration ins Insassenmodell nach Abschnitt <a href="#umfang-berechnung-insassenschutz">2.5.3</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>SAB-Shape &amp; Performance für Rückhaltesystem nach
+Abschnitt <a href="#umfang-systementwicklung">2.5.6</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>SAB Integration in der Simulation nach Abschnitt <a href="#umfang-simulation-integration-airbags-im-seitenschutz">2.5.5</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>KAB-Shape &amp; Performance für Rückhaltesystem nach
+Abschnitt <a href="#umfang-systementwicklung">2.5.6</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>KAB Integration in der Simulation nach Abschnitt <a href="#umfang-simulation-integration-airbags-im-seitenschutz">2.5.5</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Türverkleidung</strong></p>
+</blockquote></td>
+<td style="text-align: right;">V</td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Strukturperformance im Seitencrash</strong></p>
+</blockquote></td>
+<td style="text-align: right;">V</td>
+<td style="text-align: center;"><blockquote>
+<p>M</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Aufbau FE-[redacted-person] nach Abschnitt <a href="#umfang-berechnung-insassenschutz">2.5.3</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] nach Abschnitt <a href="#umfang-berechnung-insassenschutz">2.5.3</a> &amp; <a href="#umfang-systementwicklung">2.5.6</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Schlitten: [redacted-person] nach Abschnitt <a href="#umfang-systementwicklung">2.5.6</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Schlitten: Auslegung, Durchführung, Analyse, Simulation nach
+Ab- schnitt <a href="#umfang-systementwicklung">2.5.6</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Teileversorgung nach Abschnitt <a href="#umfang-teileversorgung">2.5.7</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>[redacted-person] nach Abschnitt <a href="#umfang-versuche-im-seitenaufprall">2.5.2</a></strong></p>
+</blockquote></td>
+<td style="text-align: right;">A</td>
+<td style="text-align: center;"><blockquote>
+<p>V</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<p>V=Verantwortlich A = Abnahme M = Mitarbeit</p>
+<h2 id="fachliche-ansprechpartner-der-audi-ag">[redacted]</h2>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Rückhaltesystementwicklung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-name]</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-id]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Insassensimulation</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Seitencrash</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Bauteilverantwortlicher SAB vorne</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Bauteilverantwortlicher SAB hinten</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Bauteilverantwortlicher CAB vorne</strong></p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Bauteilverantwortlicher KAB</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Daniel von Koschitzky</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[redacted-person] „Rückhaltesystementwicklung“ ist Projektleiter im
+Umfang der Beauftragung seitens des Auftraggebers.</p>
+</blockquote>
+<h2 id="sonstige-anforderungen">[redacted-person]</h2>
+<p>Anforderungen zur Dokumentation und Datenaustausch sind folgendem
+Lastenheft zu entnehmen:</p>
+<p><em>LAH.DUM.880.FN [redacted-person] Dokumentation und
+Datenaustausch</em></p>
+<h1 id="kaufmännische-rahmenbedingungen">[redacted-person]</h1>
+<h2 id="verantwortung-informationspflichten-und-zusammenarbeit">Verantwortung,
+Informationspflichten und Zusammenarbeit</h2>
+<ol type="1">
+<li><p>[redacted-person] erbringt seine Leistung selbstständig,
+eigenverantwortlich und ausschließ- lich mit qualifiziertem Personal.
+[redacted-person] erbringt seine Leistungen gemäß dem neuesten Stand von
+Wissenschaft und Technik und nach den Grundsätzen ordnungsgemäßer
+Berufsausübung einschließlich der Dokumentation. Etwaige technische,
+fachliche oder sonstige Vorgaben [redacted-co] entbinden den Auftragnehmer
+nicht von seiner Verpflichtung und Ver- antwortung für eine fehlerfreie
+Erbringung seiner Leistungen.</p></li>
+<li><p>[redacted-person] wird die Informationen, Unterlagen,
+projektbezogene Anweisungen, Anfor- derungen und ähnliche Vorgaben der
+[redacted-co] inhaltlich auf Vollständigkeit, [redacted-person]- sistenz und
+Umsetzbarkeit hin überprüfen. [redacted-person] wird der
+Auftragneh- mer gegenüber [redacted-co] unverzüglich schriftlich mit
+Begründung anzeigen.</p></li>
+<li><p>[redacted]wird der Auftragnehmer schriftliche und
+aussagekräftige Statusbe- richte verfassen.</p></li>
+<li><p>Die [redacted-co] wird dem Auftragnehmer die erforderlichen
+Informationen und Unterlagen nach Aufforderung zur Verfügung stellen.
+Darüber hinausgehende Mitwirkungsleistungen bedürfen einer gesonderten
+schriftlichen Vereinbarung.</p></li>
+<li><p>Werden von [redacted-co] insbesondere aus [redacted-person] (Hardware, Soft- ware etc.) zur Verfügung gestellt, so
+erfolgt dies leihweise. [redacted-person] sowie alle
+gegebenenfalls darauf gespeicherte Daten, Software etc. sind alleiniges
+Eigentum [redacted]sind ausschließlich für die
+Zwecke und die Dauer des beauftragten Arbeitsum- fangs zu verwenden. Sie
+sind nach Abschluss des Auftrags an [redacted-co] zurückzugeben oder, im Falle
+von ohne Hardware überlassener Software, zu löschen. Speziell für den
+Bereich IT (Hardware / Software) wird auf die Geltung der
+IT-Sicherheitshandlungsleitlinien hingewiesen.</p></li>
+</ol>
+<h2 id="durchführung-der-arbeiten">Durchführung der Arbeiten</h2>
+<ol type="1">
+<li><p>[redacted-person] ist für die Projektplanung und
+Leistungsdurchführung selbst verantwort- lich. Sollten für den
+[redacted-person] seitens [redacted-co] angegeben werden,
+so sind dies lediglich Schätzungen, die auf Erfahrungswerten
+basieren.</p></li>
+<li><p>[redacted-person] erbringt seine Leistung in regelmäßiger
+fachlicher Abstimmung mit [redacted-co] und benennt einen Projektleiter,
+der den Einsatz des Personals und die Erstellung des Gewerkes plant bzw.
+überwacht. [redacted-person] ist der verantwortliche Ansprechpartner
+für die [redacted-co] in Bezug auf sämtliche Belange des Projektes. [redacted-person] gegen- über kann die [redacted-co] Erklärungen mit Wirkung für
+den Auftragnehmer abgeben.</p></li>
+<li><p>Die vom Auftragnehmer eingesetzten Mitarbeiter unterliegen
+alleine dem Weisungsrecht des Auftragnehmers. [redacted-person] stellt
+sicher, dass das Weisungsrecht ausschließlich durch ihn ausgeübt wird.
+Die vom Auftragnehmer eingesetzten Personen treten in kein Arbeitsver-
+hältnis zur [redacted-co], auch soweit sie Leistungen auf deren
+Betriebsflächen erbringen.</p></li>
+<li><p>Wird eine vom Auftragnehmer zur Vertragserfüllung eingesetzte
+Person durch eine andere er- setzt oder ist generell eine Einarbeitung
+in den Auftrag (z. [redacted-person] zu für die Abarbeitung des Auftrags
+zwingend erforderlichen [redacted-co] IT-Systemen) erforderlich, so gehen die
+Kosten einer solchen Einarbeitung zu Lasten des Auftragnehmers. Bei der
+Auswahl wird der Auftragnehmer die Interessen [redacted-co] angemessen
+berücksichtigen. Die [redacted-co] kann mit Begründung den Austausch von vom
+Auftragnehmer zur Vertragserfüllung eingesetzten Personen
+verlan-</p></li>
+</ol>
+<blockquote>
+<p>gen, wenn diese wiederholt gegen vertragliche Pflichten verstoßen
+haben. Die durch den Aus- tausch entstehenden Kosten gehen zu Lasten des
+Auftragnehmers.</p>
+</blockquote>
+<ol start="5" type="1">
+<li><p>[redacted-person] verpflichtet sich, bei den zur Erfüllung seiner
+Leistungen eingesetzten Mit- arbeitern durch geeignete Maßnahmen optisch
+kenntlich zu machen, dass sie Fremdfirmenmit- arbeiter sind und
+unbeteiligte Dritte dies jederzeit zweifelsfrei erkennen können.
+Insbesondere sind Ausweise sichtbar zu tragen.</p></li>
+<li><p>Nutzt der Auftragnehmer im Rahmen der [redacted-person], die von [redacted-co] gesondert angemietet worden sind
+oder zur Verfügung gestellt werden, hat der Auf- tragnehmer dies in der
+Kalkulation seiner Angebotspreise mindernd zu berücksichtigen. Die [redacted-co] ist berechtigt, gesondert angemietete Flächen dem Auftragnehmer zu
+vermieten und den Mietzins in Rechnung zu stellen. An den Räumlichkeiten
+ist durch geeignete Maßnahmen optisch kenntlich zu machen, welcher
+Auftragnehmer über sie verfügt. Ob eine Beistellung oder Vermietung
+erfolgt, bedarf einer Entscheidung im Einzelfall. Gleiches gilt für
+Betriebsmittel [redacted]für die Vorhaltung
+eigener Räumlichkeiten und Betriebsmit- tel sind bei der
+Angebotserstellung zu berücksichtigen.</p></li>
+<li><p>[redacted-person] des Auftrages oder Teilen des Auftrages an Dritte
+durch den Auftragnehmer bedarf der vorherigen schriftlichen Zustimmung
+[redacted-co]. Sollte die Lieferung und Leistung durch Dritte erfolgen,
+ist die Abrechnung nur durch den Auftragnehmer zulässig.</p></li>
+<li><p>[redacted-person] gewährleistet über den gesamten Zeitraum der
+Leistungserbringung, dass er über eine gültige
+Arbeitnehmerüberlassungserlaubnis verfügt.</p></li>
+</ol>
+<h2 id="leistungsfristen">Leistungsfristen</h2>
+<ol type="1">
+<li><p>Die vereinbarten Leistungsfristen und Zeitpläne sind verbindlich
+und abschließend. In diesen Zeitplänen können gegebenenfalls
+Zwischentermine aufgenommen sein. Diese sind ebenfalls verbindlich.
+[redacted-person] können nur schriftlich und einvernehmlich geändert
+werden.</p></li>
+<li><p>Sollte der Auftragnehmer erkennen, dass er einen Termin
+möglicherweise nicht einhalten kann, unterrichtet er die [redacted-co]
+hierüber unverzüglich schriftlich. Er wird dabei Maßnahmen vor-
+schlagen, wie eine Absicherung der Termine erfolgen kann. [redacted-person] entbindet den Auf- tragnehmer nicht von seiner Verpflichtung
+zur Einhaltung der Termine. Unterbleibt die Mittei- lung, so hat der
+Auftragnehmer die Fristversäumnis unabhängig von der Ursache zu
+vertreten. Ist die Nichteinhaltung des Termins von [redacted-co] zu
+vertreten, so wird dieser Termin und etwaige Folgetermine auf für beide Seiten
+angemessene neue Termine festgesetzt.</p></li>
+</ol>
+<h2 id="änderung-der-leistung">Änderung der Leistung</h2>
+<ol type="1">
+<li><p>[redacted-person] ist bereit, Änderungs- und Ergänzungswünsche
+[redacted-co] für die Reali- sierung der in diesem Lastenheft
+beschriebenen Umfänge zu berücksichtigen. [redacted-person]- mer wird
+Änderungswünsche [redacted-co] nur aus wichtigem Grunde ablehnen. Als
+wichtiger Grund für eine Ablehnung gilt insbesondere, wenn nach
+begründeter Auffassung des Auftrag- nehmers die Leistung nicht
+ausführbar ist oder wenn die zur Durchführung der Änderung erfor-
+derlichen Ressourcen für den Auftragnehmer nicht verfügbar sind und auch
+nicht verfügbar gemacht werden können.</p></li>
+<li><p>[redacted-person] hat die von [redacted-co] gewünschten Änderungen
+betreffend deren Aus- wirkung auf Kosten, Investitionen und Termine zu
+bewerten und unter der Berücksichtigung, dass die Termine möglichst
+nicht verändert werden sollen, einen Umsetzungsvorschlag anzu- bieten.
+Hinsichtlich der Kosten muss dieses Angebot ebenso prüfbar sein wie das
+ursprüngliche Angebot. [redacted-person] erfolgt erst nach Verhandlung
+und finaler Vergabeentscheidung.</p></li>
+<li><p>[redacted-person] und Ergänzungen, die erforderlich sind, um die in
+diesem Lastenheft angege- benen Werte und Funktionen zu erfüllen, sind
+nach Rücksprache mit dem zuständigen [redacted-co] Fachbereich (Anforderer)
+umzusetzen. [redacted-person] sind durch die angebotene und
+endgül-</p></li>
+</ol>
+<blockquote>
+<p>tig vereinbarte Vergütung abgegolten. Dies gilt auch für Änderungen
+im Rahmen des Entwick- lungsfortschritts einschließlich der
+Prototypenumfänge und zusätzlichen Erprobungen.</p>
+</blockquote>
+<ol start="4" type="1">
+<li><p>Soweit der Auftragnehmer mitteilt, dass die [redacted-person] auf die Kosten- struktur und/oder den Meilensteinplan
+haben, wird der Auftragnehmer dies in einem separaten Angebot
+darstellen, dessen Annahme im freien Ermessen [redacted-co] liegt und
+schriftlich bzw. über die
+Bestellsysteme [redacted-co] zu erfolgen hat.</p></li>
+</ol>
+<h2 id="abnahme">Abnahme</h2>
+<ol type="1">
+<li><p>[redacted-person] kann die Feststellung, ob der
+vereinbarte Leistungsumfang des Auf- tragnehmers tatsächlich
+vereinbarungsgemäß erfüllt wurde, erst bei Abschluss des Entwick-
+lungsprojekts und Übergabe der jeweiligen Entwicklungsergebnisse
+getroffen werden. [redacted-person] erfolgt ausschließlich durch das
+Ausstellen einer schriftlichen Abnahmebestäti- gung im Rahmen der
+förmlichen Endabnahme des Leistungsumfangs des Auftragnehmers durch die
+[redacted-co].</p></li>
+<li><p>Die vom Auftragnehmer erarbeiteten Ergebnisse sind in prüffähiger
+Form zu übergeben. Ist dieses Erfordernis nicht erfüllt, werden Fristen
+wegen Unmöglichkeit der Abnahme nicht in Gang gesetzt. Ist das
+Leistungsergebnis in Datensätzen verkörpert, hat der Auftragnehmer so-
+weit Einblick in den Code der erbrachten Leistung zu gewähren, dass eine
+Überprüfung auf ver- einbarungsgemäße Leistungserbringung möglich
+ist.</p></li>
+<li><p>[redacted-person] wird die Gesamtfertigstellung des Auftrags zur
+Abnahme anzeigen. Die Ab- nahme hat wie nachfolgend beschrieben zu
+erfolgen:</p>
+<ol type="a">
+<li><p>Die [redacted-co] wird die in prüffähiger Form übergebenen Leistungen
+innerhalb einer in Ansehung des Projekts angemessenen Frist
+prüfen.</p></li>
+<li><p>[redacted-person] wird auf Wunsch [redacted-co] und ohne gesonderte
+Vergütung ge- schultes Personal für die zur Abnahme erforderlichen
+Prüfungen zur Verfügung stellen. Die bei der Abnahmeprüfung auftretenden
+Mängel werden protokolliert.</p></li>
+<li><p>[redacted-person] ist vom Projektleiter des Auftragnehmers
+sowie dem fachlichen Ansprechpartner [redacted-co] abzuzeichnen.</p></li>
+<li><p>Verweigert die [redacted-co] die Abnahme aufgrund eines oder mehrerer
+Mängel, wird der Auftragnehmer den bzw. die Mängel unverzüglich
+beseitigen und seine Leistungen er- neut zur Abnahme vorlegen. Die
+vorstehenden Vorschriften gelten für eine erneute Ab- nahme
+entsprechend.</p></li>
+</ol></li>
+<li><p>[redacted-person] hat die Pflicht und nach Abstimmung mit der
+[redacted-co] das Recht zur zwei- maligen Nachbesserung. [redacted-person] verändert nicht die vereinbarten Fertig-
+stellungstermine und Rechtsfolgen aus Verzug. Die [redacted-co] kann nach
+Ablauf einer von [redacted-co] gesetzten angemessenen Frist die Leistung
+zu Lasten des Auftragnehmers selbst vor- nehmen oder vornehmen lassen
+oder zurücktreten. Im Falle der Kündigung erhält der Auftrag- nehmer
+eine Vergütung nur für die als mangelfrei abgenommenen Leistungen und
+selbststän- dig nutzbaren Teile. [redacted-person] auf Schadensersatz bleibt
+unberührt.</p></li>
+</ol>
+<h2 id="vergütung-leistungsnachweis">Vergütung / Leistungsnachweis</h2>
+<ol type="1">
+<li><p>Für die angefragte Aufgabenstellung ist vom Auftragnehmer/Bieter
+ein Festpreis auszuweisen. Im Angebot muss die Kalkulation des
+Festpreises offengelegt werden. [redacted-person] des im Lasten- heft
+beschriebenen Leistungsumfangs sollen die jeweiligen Kostenbestandteile
+einzeln aufge- listet werden. Dabei sollen u.[redacted-person] Dritter separat
+aufgeführt werden.</p></li>
+<li><p>Festpreise schließen alle Nebenkosten ein. Ebenso sind alle
+Aufwendungen und Kosten, die nicht ausdrücklich von [redacted-co] zu
+erbringen sind, vom Auftragnehmer zu tragen und mit dem vereinbarten
+Preis abgegolten. Abweichungen hiervon bedürfen einer ausdrücklichen
+Ver- einbarung.</p></li>
+<li><p>Soweit nicht etwas anderes vereinbart wird, sind Reisekosten
+sowie Logis und Spesen nicht im Auftragswert enthalten. Sie werden nur
+maximal bis zu den vereinbarten Sätzen und innerhalb der vereinbarten
+Grenzen gegen Nachweis vergütet. Sie sind quartalsweise in Rechnung zu
+stel- len. Es gelten die jeweils im Zeitpunkt der Beauftragung gültigen
+Reisekosten-Richtlinien für Entwicklungsdienstleister, die auf Anfrage
+durch die Beschaffung [redacted-co] zur Verfügung gestellt werden.
+Reisezeiten werden nicht erstattet.</p></li>
+<li><p>Die erbrachte Leistung wird nach Leistungsfortschritt abgegolten.
+Hierfür ist jeweils im Vorfeld ein Leistungsnachweis vorzulegen.
+Zahlungspläne sind gesondert zu vereinbaren. [redacted-person]- tungsanspruch
+besteht nur bei tatsächlicher Erbringung der Leistung.</p></li>
+<li><p>Zahlungen erfolgen erst nach Vorlage eines Leistungsnachweises.
+[redacted-person] darf erst nach vollständiger Erbringung der
+vereinbarten Leistung bzw. Teilleistung gestellt werden. [redacted-person] muss mindestens folgende Inhalte aufweisen:</p>
+<ol type="a">
+<li><p>Stand der Arbeiten/Projektstatus,</p></li>
+<li><p>bisher erreichte Meilensteine / Teilergebnisse, Vereinbarungen
+über die weitere Vorge- hensweise,</p></li>
+<li><p>Unterschrift seitens des Auftragnehmers.</p></li>
+</ol></li>
+<li><p>Für den Leistungsnachweis ist vorzugsweise das auf Anfrage beim
+Ansprechpartner [redacted-co] erhältliche Formular zu verwenden. Es ist
+darauf zu achten, dass alle dortigen Muss-Felder ausgefüllt
+sind.</p></li>
+<li><p>Vor der Rechnungsstellung an die [redacted-co] muss der
+Leistungsnachweis für die erbrachte Leis- tung vom [redacted-co] Fachbereich
+(Anforderer) und dem Auftragnehmer unterzeichnet werden. Der zweifach
+(von Auftragnehmer u. [redacted-co] Ansprechpartner) unterschriebene
+Leistungsnachweis ist als Anhang mit der Rechnung an die [redacted-co] zu
+übertragen. Rechnungen ohne entsprechend unterschriebenen
+Leistungsnachweis werden abgelehnt.</p></li>
+<li><p>[redacted-person] eines Leistungsnachweises oder die Auslösung
+einer Zahlung bewirken keine Abnahme.</p></li>
+</ol>
+<h2 id="nutzungsrechte">Nutzungsrechte</h2>
+<ol type="1">
+<li><p>[redacted-person] wird die [redacted-co] über alle bei ihm im
+Zusammenhang mit der Durchfüh- rung der vertragsgegenständlichen
+Arbeiten entstehenden Neuerungen (dazu zählen insbeson- dere
+Erfindungen, technische Verbesserungsvorschläge, Know-how, aber auch
+sonstige indivi- duelle geistige Leistungen) unterrichten, alle zur
+Bewertung der Neuerungen erforderlichen Unterlagen vorlegen und alle von
+[redacted-co] gewünschten Auskünfte zu den Neuerungen ge- ben.</p></li>
+<li><p>[redacted-person] und darauf bestehende Schutz- oder
+Urheberrechte nachweislich bereits vor Beginn der
+vertragsgegenständlichen Arbeiten bei dem Auftragnehmer vorhanden waren
+(„Altschutzrechte“), bleibt der Auftragnehmer auch Inhaber derselben. Er
+erklärt sich aber be- reit, [redacted-co] ein nichtausschließliches,
+zeitlich, räumlich und inhaltlich unbeschränktes und unterlizenzierbares
+Nutzungsrecht ohne Zahlung eines über den Festpreis hinausgehenden
+Entgelts einzuräumen, sofern diese Altschutzrechte in die Entwicklung
+einfließen. [redacted-person]- schutzrechte in das Entwicklungsergebnis
+einfließen, teilt der Auftragnehmer [redacted-co] die- se Altschutzrechte
+unverzüglich mit. Im Falle einer Entwicklung eines Serienlieferteiles
+teilt der Auftragnehmer die einfließenden Altschutzrechte mit Vorlage
+der Erstmuster mit.</p></li>
+<li><p>[redacted-person] überträgt [redacted-co] das ausschließliche,
+zeitlich, räumlich und inhaltlich unbeschränkte, unentgeltliche und
+übertragbare Nutzungsrecht an allen Urheberrechten (in- klusive Software
+und dem zugehörigen Quellcode), die dem Auftragnehmer an den von ihm zu
+erbringenden Leistungen oder Teilleistungen zustehen. [redacted]um- fasst die Befugnis, das Arbeitsergebnis, die Unterlagen
+oder Aufzeichnungen zu überarbeiten, zu verändern und/oder Dritten
+entgeltlich oder unentgeltlich zur Benutzung zu überlassen.</p></li>
+<li><p>In begründeten Einzelfällen kann der Auftragnehmer mit der [redacted-co] vereinbaren, dass die vom Auftragnehmer vertragsgemäß gelieferten
+vollständigen 2D-/3D-Daten nicht an Dritte au- ßerhalb der der
+[redacted-co] und der Beteiligungsgesellschaften des VW-Konzerns weiter-
+gegeben werden dürfen. In diesem Fall ist der Auftragnehmer jedoch
+verpflichtet, auf eigene Kosten zusätzlich zu diesen vertraglich
+geschuldeten vollständigen 2D-/3D-Daten neutralisierte Anfragedokumente
+zu liefern. [redacted-person] sind Bauraum-
+Schnittstellendarstellungen (2D-/3D-Daten), welche die Einbausituation,
+nicht jedoch das in den zugrunde liegenden 2D-/3D-Daten verkörperte
+Alt-Know-how des Auftragnehmers darstel- len. [redacted-person] räumt
+[redacted-co] das unentgeltliche, zeitlich, räumlich und inhaltlich
+unbeschränkte Nutzungsrecht an diesen neutralisierten Anfragedokumenten
+zur Verbreitung, Vervielfältigung und Bearbeitung, sowie zur
+öffentlichen Zugänglichmachung im Rahmen der Ausschreibung von
+Leistungen gegenüber Dritten ein.</p></li>
+<li><p>Grundsätzlich stehen alle in diesem Projekt entstehenden
+Arbeitsergebnisse, erstellte Unterla- gen und Leistungen usw. alleine
+[redacted-co] zu. Soweit der [redacted-person]- mer
+einschaltet, wird er durch entsprechende vertragliche Vereinbarungen
+sicherstellen, dass auch die Unterauftragnehmer dies als für sich
+verbindlich anerkennen. Die [redacted-co] behält sich das Recht vor, sämtliche
+Unterlagen auch an Dritte weiterzuleiten, u. [redacted-person] die Lieferantenaus-
+wahl. An sämtlichen Arbeitsergebnissen, insbesondere im Rahmen des
+Vertrages entstehenden Neuerungen, steht [redacted-co] ab dem Zeitpunkt
+ihres Entstehens das ausschließliche Verwer- tungsrecht zu.</p></li>
+<li><p>Die [redacted-co] ist alleine berechtigt, Schutzrechtsanmeldungen
+einzureichen. [redacted-person] des Auftragnehmers teilt die [redacted-co]
+schriftlich mit, ob sie im konkreten Einzelfall auf eine An- meldung
+verzichtet. [redacted-person] ist dann zur Anmeldung des Schutzrechtes
+auf eigene Kosten berechtigt. An diesen Schutzrechten steht [redacted-co]
+ein nichtausschließliches, un- entgeltliches, zeitlich, räumlich und
+inhaltlich unbeschränktes und übertragbares Nutzungs- recht zu.</p></li>
+</ol>
+<h2 id="verwendung-von-freier-software">Verwendung von [redacted-person]</h2>
+<ol type="1">
+<li><p>[redacted-person] hat [redacted-co] gegenüber zu erklären, ob das
+von ihm geschuldete Er- gebnis [redacted-person] ([redacted-person] Software,
+Freeware und/oder [redacted-person] einschließlich Unterkomponenten oder
+Teilen dieser) enthält oder nicht.</p></li>
+<li><p>Verwendet der [redacted-person] Software in dem geschuldeten
+Ergebnis oder ist dies beab- sichtigt, so ist der Einsatz generell nur
+dann statthaft, wenn der Auftragnehmer die [redacted-co] hierüber vor
+Entwicklungsbeginn gemäß den Vorgaben der „Regelungen zum Einsatz von
+[redacted-person]“ (mitgeltende Unterlage) informiert.</p></li>
+<li><p>Es besteht keine Verpflichtung [redacted-co], die Verwendung von
+[redacted-person] im geschulde- ten Ergebnis zu akzeptieren. [redacted-person] durch den Auftragnehmer bewirkt keine Akzep- tanz der
+Verwendung von [redacted-person] durch die [redacted]der
+Verwendung von [redacted-person] durch die [redacted-co] kann insbesondere zur
+Abwendung von Sicherheits- oder rechtlichen Risiken erfolgen.</p></li>
+<li><p>Die nachstehenden Bestimmungen, insbesondere der
+Freistellungsanspruch zu den Schutzrech- ten Dritter, gelten ergänzend.</p></li>
+</ol>
+<h2 id="schutzrechtsrecherchen-schutzrechte-dritter">Schutzrechtsrecherchen,
+[redacted-person]</h2>
+<ol type="1">
+<li><p>[redacted-person] wird durch entsprechende Recherchen unter
+Beachtung branchenüblicher Sorgfalt sicherstellen, dass durch die von
+ihm zu erbringenden Leistungen und deren Ergebnis- se nicht in [redacted-person] eingegriffen wird. [redacted-person] in [redacted-person] liegt auch
+dann vor, wenn die Nutzung von Bedingungen abhängt.</p></li>
+<li><p>Würden durch die beabsichtigte Gestaltung der Arbeitsergebnisse
+oder die Umsetzung der an- gefragten [redacted-person] Dritter verletzt
+werden, so wird der Auftragnehmer die in diesem</p></li>
+</ol>
+<blockquote>
+<p>Lastenheft benannten Ansprechpartner [redacted-co] unverzüglich
+informieren und mit ihnen gemeinsam nach einer anderen Gestaltung der
+Arbeitsergebnisse suchen. [redacted-person] Dritter nicht zu umgehen
+sind, wird die [redacted-co] entscheiden, ob das betroffene Schutzrecht im
+Wege einer Lizenz benutzt werden soll. Über die Verteilung der dabei
+anfallenden Kosten wer- den sich [redacted-co] und Auftragnehmer im Einzelfall
+abstimmen.</p>
+</blockquote>
+<ol start="3" type="1">
+<li><p>Soweit der Auftragnehmer die [redacted-co] nicht über entgegenstehende
+[redacted-person] informiert, die ihm bekannt sind oder von ihm bei
+Einhaltung der branchenüblichen Sorgfalt hätten er- kannt werden müssen,
+stellt der Auftragnehmer die [redacted-co] von jedweden [redacted-person]
+frei, die auf entgegenstehende Rechte an dem Entwicklungsgegenstand
+gestützt werden.</p></li>
+</ol>
+<h2 id="vertragslaufzeit-und-kündigung">Vertragslaufzeit und
+Kündigung</h2>
+<ol type="1">
+<li><p>Die [redacted-co] kann den Auftrag jederzeit ganz oder teilweise
+ordentlich kündigen. Das beidersei- tige Recht zur außerordentlichen
+Kündigung bleibt unberührt. [redacted-person] bedarf der Schriftform,
+soweit sie nicht über die Bestellsysteme [redacted-co] erfolgt.</p></li>
+<li><p>Sollte die [redacted-co] ordentlich kündigen, so steht dem
+Auftragnehmer die vereinbarte Vergütung für alle vertragsgemäßen
+Leistungen zu, die er bis zum Wirksamwerden der Kündigung erbracht hat,
+soweit diese selbstständig nutzbar sind, zuzüglich</p>
+<ol type="a">
+<li><p>eines Ausgleichs nachgewiesener Kosten für die Vorhaltung von
+Personal und Material für eine Frist von bis zu maximal einem Monat nach
+Wirksamwerden der Kündigung, wenn der auf den noch nicht erbrachten Teil
+der Leistung entfallende Teil der Vergütung einen Betrag von [redacted-phone],-
+€ übersteigt, beziehungsweise</p></li>
+<li><p>eines Ausgleichs in Höhe von maximal fünf Prozent der auf den
+noch nicht erbrachten Teil der Leistung entfallenden vereinbarten
+Vergütung, wenn der auf den noch nicht er- brachten Teil der Leistung
+entfallende Teil der Vergütung [redacted-phone],- € beträgt oder diesen Betrag
+unterschreitet.</p></li>
+</ol></li>
+<li><p>Der jeweilige Gegenbeweis hinsichtlich eines tatsächlich höheren
+oder niedrigeren Vergütungs- anspruchs ist zulässig. [redacted-person]
+wird nicht erstattet.</p></li>
+<li><p>Im Falle der Kündigung bleibt die [redacted-person] für
+die bis zur Kündigung erbrach- ten Leistungen.</p></li>
+</ol>
+<h2 id="allgemeines-2">Allgemeines</h2>
+<ol type="1">
+<li><p>Bezüglich der Versuchs- und Prototypenwerkzeuge und -teile wird
+auf das Lieferantenhandbuch für Prototypenteile besonders
+hingewiesen.</p></li>
+<li><p>[redacted-person] von vertraglichen Rechten oder Pflichten durch
+den Auftragnehmer bedarf zu ihrer Wirksamkeit der vorherigen
+schriftlichen Zustimmung [redacted-co].</p></li>
+<li><p>Gerichtsstand ist [redacted]Die [redacted-co] ist auch
+berechtigt, jedes andere zu- ständige Gericht anzurufen.</p></li>
+<li><p>Sollten eine oder mehrere Bestimmungen dieses Lastenhefts und
+etwaige weitere Vereinbarun- gen unwirksam sein oder werden, so bleibt
+die Geltung der übrigen Bestimmungen davon unbe- rührt.</p></li>
+<li><p>Soweit nicht anderweitig in diesem Lastenheft geregelt, gelten
+die gesetzlichen Haftungsrege- lungen.</p></li>
+<li><p>Eine etwaige englische Fassung dieses Anfragelastenheftes stellt
+eine reine Arbeitserleichte- rung dar. Die deutsche Fassung ist alleine
+maßgeblich und hat bei Widersprüchen oder Abwei- chungen gegenüber der
+[redacted-person]. Dies gilt für alle sonstigen hiermit zusam-
+menhängenden Unterlagen wie z.[redacted-person] Unterlagen
+entsprechend.</p></li>
+<li><p>[redacted-person] an den Auftragnehmer werden die nachfolgend
+aufgeführten Regelungen und Unterlagen [redacted-co] und/oder des
+Auftragnehmers verbindlicher Vertragsbestandteil,</p></li>
+</ol>
+<blockquote>
+<p>wobei im Falle von Widersprüchen zwischen den Vertragsbestandteilen
+die nachfolgend ange- gebene Reihenfolge gilt:</p>
+</blockquote>
+<ol type="a">
+<li><p>Bestellung [redacted-co]</p></li>
+<li><p>Verhandlungsprotokolle</p></li>
+<li><p>[redacted-person] des Lastenhefts [redacted-co]</p></li>
+<li><p>[redacted-person] des Lastenhefts [redacted-co]</p></li>
+<li><p>Geheimhaltungsvereinbarungen zwischen [redacted-co] und dem
+Auftragnehmer (soweit vorhanden)</p></li>
+<li><p>VW-Norm 99000</p></li>
+<li><p>Weitere in diesem Lastenheft genannte Dokumente und
+Normen</p></li>
+<li><p>[redacted]</p></li>
+<li><p>Angebot des Auftragnehmers (ohne Anerkennung der allgemeinen
+Geschäftsbedingun- gen des Auftragnehmers)</p></li>
+</ol>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>Es gelten die mitgeltenden Unterlagen in der am Ausgabedatum des
+Lastenhefts gültigen Fassung sowie die darin genannten Dokumente.</p>
+<p>[redacted-person] stellt sicher, jeweils mit den für das Lastenheft
+gültigen mitgeltenden Unterla- gen zu arbeiten.</p>
+<p>Es sind insbesondere die nachfolgenden Dokumente und Normen zu
+berücksichtigen:</p>
+</blockquote>
+<ul>
+<li><p>[redacted]</p></li>
+<li><p>Für den Auftragsumfang einschlägige Betriebsmittelvorschriften,
+technische und kaufmänni- sche Vorgaben [redacted-co] und einschlägige
+Normen (z.B. [redacted-co]99000 einschließlich der Teile 1 bis 4)</p></li>
+<li><p><a href="http://www.audi.de/de/brand/de/lieferanten-und-partner.html%23page%3D/de/brand/de/lieferanten-und-partner/it-sicherheitshandlungsleitlinien.html"><u>IT-Sicherheitshandlungsleitlinien
+[redacted-co] für Partnerfirmen</u></a></p></li>
+<li><p>Regelungen zum Einsatz von [redacted-person]</p></li>
+<li><p>Sicherheitsgebote für die bei [redacted-co] eingesetzten
+Fremdfirmen (falls die Auftragsbear- beitung auf Gelände [redacted-co]
+erfolgt)</p></li>
+<li><p>[redacted-co]richtlinien für Qualitätssicherung "Formel
+Q"</p></li>
+</ul>
+<h2 id="bezugsquelle">Bezugsquelle:</h2>
+<blockquote>
+<p>Dokumente können über die B2B-Lieferantenplattform des [redacted-person] unter der Inter- netadresse <a href="http://www.vwgroupsupply.com/"><u>www.vwgroupsupply.com</u></a>
+mit einer Zugangsberechtigung abgerufen werden. (Kontakt auch über
+[redacted]99 bzw. International: [redacted-phone]
+oder e- Mail: <a href="mailto:supplierintegration@vwgroupsupply.com"><u>[redacted-email]</u></a>)</p>
+</blockquote>
+</body>
+</html>

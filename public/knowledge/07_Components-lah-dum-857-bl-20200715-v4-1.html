@@ -1,0 +1,946 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH_DUM_857_BL_20200715_V4.1</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p>Konzern-Modullastenheft NVH Sicherheitsgurte</p>
+<table>
+<tbody>
+<tr>
+<td>V26_BT-LAH Final_Basismodul-TE-V26_Nov[redacted-ext](V5).docx</td>
+</tr>
+</tbody>
+</table>
+<table>
+<tbody>
+<tr>
+<td><strong>Verteiler</strong></td>
+</tr>
+<tr>
+<td>[redacted]</td>
+</tr>
+<tr>
+<td>[redacted][redacted-name]</td>
+</tr>
+<tr>
+<td>[redacted-co]EKSR/3, [redacted-name]</td>
+</tr>
+<tr>
+<td>[redacted]</td>
+</tr>
+<tr>
+<td>Bentley EKS/S4, [redacted-person]</td>
+</tr>
+<tr>
+<td>Seat [redacted-person], Luzón Javier</td>
+</tr>
+<tr>
+<td>Skoda EKS/3, [redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-co]Nutzfahrzeuge NE-KC, [redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<p>[I: BT-LAH[redacted-ext]]</p>
+<p><strong>Abstimmung</strong></p>
+<p>[I: BT-LAH-941]</p>
+<p><strong>Änderungsdokumentation</strong></p>
+<p><strong>Inhaltsverzeichnis</strong></p>
+<p><a href="#vorwort">1 Vorwort <span>4</span></a></p>
+<p><a href="#allgemeine-anforderungen">1.1 [redacted-person]
+<span>4</span></a></p>
+<p><a href="#nvh-frequency-response">2 NVH/ [redacted-person]
+<span>5</span></a></p>
+<p><a href="#vereinfachtes-retraktor-detailmodell">2.1 [redacted-person]-Detailmodell <span>5</span></a></p>
+<p><a href="#validierung-versuch-und-geräuschmessung">3 [redacted-person] und Geräuschmessung <span>7</span></a></p>
+<p><a href="#validierung-des-shakers">3.1 Validierung des Shakers
+<span>7</span></a></p>
+<p><a href="#validierung-des-retraktors">3.2 Validierung des Retraktors
+<span>7</span></a></p>
+<p><a href="#optimierung-anbindungsteile-halter-retraktor">3.3
+[redacted]<span>10</span></a></p>
+<p><a href="#akustik-simulationen">4 Akustik-Simulationen
+<span>10</span></a></p>
+<p><a href="#retraktor-geräuschverhalten-aus-den-shaker-versuchen">4.1
+Retraktor-Geräuschverhalten aus den Shaker-Versuchen
+<span>10</span></a></p>
+<p><a href="#modellaufbau">4.2 Modellaufbau <span>10</span></a></p>
+<p><a href="#simulations-methodik">4.3 Simulations-Methodik
+<span>11</span></a></p>
+<p><a href="#lastfälle-und-anforderungen">4.4 Lastfälle und
+Anforderungen <span>12</span></a></p>
+<p><a href="#gegenüberstellung-versuch-und-simulationen">5
+[redacted-person] und Simulationen <span>14</span></a></p>
+<p><a href="#kurvenvergleich">5.1 Kurvenvergleich
+<span>14</span></a></p>
+<p><a href="#validierungsgüte">5.2 Validierungsgüte
+<span>14</span></a></p>
+<p><a href="#geräuscherprobungsfahrt">6 Geräuscherprobungsfahrt
+<span>15</span></a></p>
+<p><a href="#übersicht-lastfälle-für-versuch-und-simulation">7 [redacted-person] für Versuch und Simulation <span>16</span></a></p>
+<p><a href="#shaker">7.1 Shaker <span>16</span></a></p>
+<p><a href="#schlechtwege">7.2 Schlechtwege <span>16</span></a></p>
+<p><a href="#zuschlagen-von-türen-bzw.-heckklappe">7.3 Zuschlagen von
+Türen bzw. Heckklappe <span>17</span></a></p>
+<p><a href="#soundanregung">7.4 Soundanregung <span>17</span></a></p>
+<p><a href="#dokumentation-und-datenaustausch">8 Dokumentation und
+Datenaustausch <span>17</span></a></p>
+<p><a href="#geheimhaltung">8.1 Geheimhaltung <span>17</span></a></p>
+<p><a href="#simulation">8.2 Simulation <span>17</span></a></p>
+<p><a href="#versuch">8.3 Versuch <span>18</span></a></p>
+<p><a href="#dokumentation-zum-projektabschluss">8.4 Dokumentation zum
+Projektabschluss <span>19</span></a></p>
+<p><a href="#mitgeltende-unterlagen">9 [redacted-person]
+<span>19</span></a></p>
+<h1 id="vorwort">Vorwort</h1>
+<p>Das vorliegende Lastenheft beschreibt Anforderungen an Bauteile bzw.
+Komponenten und Simulationsmodelle im [redacted-person]. Es
+beschreibt Leistungen, Anforderungen, Prüf- und Erprobungsbedingungen,
+die das zu entwickelnde Produkt und der Auftragnehmer erfüllen
+müssen.</p>
+<p>[redacted-person] stellt die Grundlage des zu erbringenden
+Leistungsumfanges des Auftragnehmers dar.</p>
+<p>[redacted-person] ist zu befolgen.</p>
+<h2 id="allgemeine-anforderungen">[redacted-person]</h2>
+<p><em>[A: BT-LAH-5]</em></p>
+<p>Das vorliegende Lastenheft und die Norm [redacted-co]99000 <del>i</del>nkl.
+Teil 1 bis Teil 4 sind zusammen Grundlage des zu erbringenden
+Leistungsumfanges des Auftragnehmers.</p>
+<p><em>[A: BT-LAH-6]</em></p>
+<p>Dieses LAH beschreibt Leistungen, Anforderungen, Prüf- und
+Erprobungsbedingungen, die das zu entwickelnde Produkt und der
+Auftragnehmer erfüllen müssen.</p>
+<p>[redacted-person] des Konzernmodullastenhefts LAH.DUM.857.D und
+LAH.DUM.857.T sind zu beachten.</p>
+<h1 id="nvh-frequency-response">NVH/ [redacted-person]</h1>
+<p>Durch die [redacted-person] sind betriebskritische oder akustisch
+ungünstige Eigenschwingungsformen der Retraktoren und
+Karosserie-Anbindungsstellen zu ermitteln. [redacted-person] Response ist
+charakterisiert über eine Anregung von 1N in alle Raumrichtungen. [redacted-person] werden an der Oberseite des Retraktorgehäuses möglichst weit vom
+Anschraubpunkt entfernt eingeleitet.</p>
+<p><img src="./07_Components-lah-dum-857-bl-20200715-v4-1-media/media/image1.png" style="width:1.0073in;height:1.04841in"/></p>
+<p>Abbildung 2.  Einleitung- und
+auswertepunkt FRF (Anregung von 1N in XYZ)</p>
+<p>[redacted-person] ist ideal steif angebunden. [redacted-person] ist für ein
+Frequenzband von 10 bis 200 Hz durchzuführen.</p>
+<p>Bei FRF-Analyse in einem [redacted-person] Modell (Karosserie), sind
+sowohl Strukturpunkt  als auch Anschraubpunkt
+auszuwerten. Und FRF Kurven in einem Plot darzustellen.</p>
+<p>Durch gezielte Änderungen der Systemeigenschaften, beispielsweise der
+Werkstoffdämpfung am trimmed body model oder zusätzliche
+Aussteifungssmaßnahmen, sind die Eigenschwingungen dahingehend zu
+verändern, dass kritische Frequenzbereiche vermieden bzw. mit deutlich
+reduzierter Amplitude durchfahren werden. </p>
+<p>[redacted-person] Response des Retraktors ist durch den Lieferanten zu
+ermitteln. [redacted-person] im [redacted-person] Model erfolgt durch den
+Auftraggeber.</p>
+<h2 id="vereinfachtes-retraktor-detailmodell">[redacted-person]-Detailmodell</h2>
+<p>Für NVH-Untersuchungen (Schwingungen) in der ZSB-Karosserie sind
+vereinfachte Retraktor-Detailmodelle für jedes angebotene
+Retraktormodell zur Verfügung zu stellen. [redacted-person] muss das
+validierte Modell zur Angebotsfreigabe vorliegen.</p>
+<p><img src="./07_Components-lah-dum-857-bl-20200715-v4-1-media/media/image3.png" style="width:1.04306in;height:0.7875in"/></p>
+<p><img src="./07_Components-lah-dum-857-bl-20200715-v4-1-media/media/image4.png" style="width:2.51764in;height:0.83333in"/></p>
+<p>Abbildung 2.1 Beispiele für ein vereinfachtes
+Retraktor-Detailmodel</p>
+<p>[redacted-person] sind wie folgt aufzubauen:</p>
+<ul>
+<li><p>Format: NASTRAN (Modelle müssen NASTRAN-lauffähig sein.)</p></li>
+<li><p>Element-Kanten-Länge ab 3 mm</p></li>
+<li><p>die Bauteil-Steifigkeiten und Massenverteilungen stimmen mit den
+realen Teilen überein.</p></li>
+<li><p>der Massenvergleich (reales Bauteil zum Simulationsmodell) ist zu
+dokumentieren.</p></li>
+<li><p>[redacted-person] der Drehachse sowie die Masseverteilung des Gurtbandes
+sind detailgetreu abzubilden.</p></li>
+<li><p>Restgurtwickellänge 1800mm (wie unbesetzter Sitzplatz).</p></li>
+<li><p>Im Falle von Dimpeln sind die translatorischen Freiheitsgrade
+(DOF: 123) an der Dimpelauflagefläche zu sperren.</p></li>
+</ul>
+<p>Die steifigkeitsrelevanten Komponenten im Gurtretraktor sollen
+möglichst modelliert und nicht nur als Ersatzmasse abgebildet sein. Dazu
+zählen:</p>
+<ul>
+<li><p>Retraktor-Rahmen</p></li>
+<li><p>Halteplatte (Oben)</p></li>
+<li><p>System- und Sensorkappen</p></li>
+<li><p>Gurtaufroller und Aufrollerscheiben</p></li>
+<li><p>Lagerung der Welle zum Gehäuse</p></li>
+<li><p>Rohr</p></li>
+<li><p>[redacted-person] (anhand von [redacted-person]
+abzubilden)</p></li>
+</ul>
+<p><img src="./07_Components-lah-dum-857-bl-20200715-v4-1-media/media/image5.png" style="width:1.7539in;height:1.85165in"/> <img src="./07_Components-lah-dum-857-bl-20200715-v4-1-media/media/image6.png" style="width:2.9924in;height:2.02673in"/></p>
+<p>Abbildung 2.2 Detailierungsgrad eines vereinfachten
+Retraktor-Detailmodel</p>
+<p>Ein entsprechender Detaillierungsgrad würde weitere zusätzliche
+Analysen zu FRF ermöglichen, wie</p>
+<ul>
+<li><p>Betriebsschwingformanalyse</p></li>
+<li><p>Auswertung der Strain-Energie in der Struktur</p></li>
+<li><p>Sensitivitäts- und Optimierungsanalyse</p></li>
+</ul>
+<p>[redacted-person] ist gemäß Kapitel 3 [redacted-person] und
+Geräuschmessung zu validieren.</p>
+<h1 id="validierung-versuch-und-geräuschmessung">[redacted-person] und
+Geräuschmessung</h1>
+<h2 id="validierung-des-shakers">Validierung des Shakers</h2>
+<p>Es ist ein Shaker zu verwenden, welcher Anregungen in vertikaler und
+lateraler Richtung (y- und z-Richtung) ermöglicht. Dessen erste
+Eigenfrequenz darf nicht im Bereich des Anregespektrums liegen.</p>
+<p>[redacted-person] ist mit starren Retraktor-Ersatzmassen und
+Retraktor-Halter zu validieren. Es ist die leichteste und schwerste
+Retraktormasse zu testen. [redacted-person]-Ersatzmassen sind gemäß
+Fahrzeug-Einbaulage an den Halter zu schrauben. In weiteren Versuchen
+bleibt der Retraktorhalter immer an der gleichen Stelle fixiert.</p>
+<p>[redacted-person] ist in einem [redacted-person] zu betreiben oder
+entsprechend zu kapseln um eine Störung der Messung zu vermeiden.</p>
+<p>Es sind mindestens zwei 3-achsiale Beschleunigungsaufnehmer zu
+fixieren:</p>
+<ul>
+<li><p>auf der Retraktorbefestigungsschraube am Halter.</p></li>
+<li><p>direkt auf der Shaker-Platte.</p></li>
+</ul>
+<p>Es sind die in Abschnitt 7 beschriebenen Anregungssignale zu
+verwenden.</p>
+<p>[redacted-person] ist gemäß Abschnitt 5.2 zu erreichen. [redacted-person] sind ebenfalls durch Ersatzmassen zu approximieren.</p>
+<p>Der verwendete Shaker-Aufbau muss folgende Rahmenbedingungen
+erfüllen:</p>
+<ul>
+<li><p>RMS-Wert der spektralen Leistungsdichte (RMS) der y- und
+z-Beschleunigung darf maximal 5% vom Sollwert abweichen (Auswertebereich
+15 bis 100 Hz, Abtastrate 1kHz); Außer einem [redacted-person]
+4. Ordnung mit Eckfrequenz 500 Hz ist kein weiterer Filter zu verwenden.
+PSD-Randparameter: Hanning-Fenster mit 4096 Samples; Abtastrate 1kHz;
+90% Überlappung; Amplitudenskalierung RMS.</p></li>
+<li><p>[redacted-person] der Beschleunigung in Querrichtung um maximal
+10% des RMS-Wertes der spektralen Leistungsdichte in y- bzw. z-Richtung
+ist nicht zulässig. [redacted-person] der Z-Richtung ist gegenüber dem
+resultierenden Vektor in der XY-Ebene zu bestimmen. Gleichfalls ist die
+Abweichung der y-Anregung gegenüber des resultierenden Vektors in der
+xz-Ebene zu ermitteln..</p></li>
+<li><p>[redacted-person] hat im Leerlauf, ohne Retraktor, mit
+eingeschaltetem Gurtbandantrieb eine Lautheit &lt; 1 Sone
+aufzuweisen.</p></li>
+<li><p>[redacted-person] (Gurtaufroller und Aufbau) liegt auf der
+Z-Achse des Shakers.</p></li>
+<li><p>Ein möglichst starrer Halter ist zu verwenden, der keine
+signifikanten Eigenschwingungen unterhalb der doppelten Anregefrequenz
+aufweist</p></li>
+</ul>
+<p>[redacted-person] sollen zur Validierung oder Geräuschquellenuntersuchung
+des Retraktors in Absprache mit dem Konzern durchgeführt werden.</p>
+<h2 id="validierung-des-retraktors">Validierung des Retraktors</h2>
+<p>[redacted-person] der ersten Biege und Torsionsmode des Retraktors aus
+Simulation und Versuch durch eine y- oder z-Anregung ist vor der ersten
+Integration in ein Fahrzeug zu validieren und dokumentieren. Hierzu ist
+eine Shakermessung des Retraktors in Fahrzeug-Einbaulage an einem
+starren Halter (Abbildung 3.1) durchzuführen. Es empfiehlt sich, einen
+Halter zu verwenden dessen erste Eigenfrequenz mindestens das Doppelte
+der maximalen Anregefrequenz beträgt. [redacted-person] ist mit folgenden
+Spezifikationen durchzuführen:</p>
+<ul>
+<li><p>Messung ohne Dimpel ([redacted-person]), Auflagefläche des
+Retraktors entspricht einer Kreisfläche mit Radius 22,5 ± 0,5 mm um den
+Anschraubpunkt; gemäß TL82500</p></li>
+<li><p>Messung auf einem starren Halter in Analogie zur Befestigung im
+Fahrzeug (Dreipunktauflage mit Dimpel für [redacted-person])</p></li>
+</ul>
+<p>Alternativ ist nach Rücksprache mit den beteiligten Fachabteilungen
+folgende Messung möglich:</p>
+<ul>
+<li><p>Messung „flach“: horizontal vollflächig aufliegender Retraktor
+mit Vorspannung (z.[redacted-person]). Es ist ein Kugelsensor für die
+horizontale Lage zu verwenden.</p></li>
+<li><p>Messung auf einem starren Halter in Analogie zur Befestigung im
+Fahrzeug (Dreipunktauflage mit Dimpel für alle
+Fahrzeugposition)</p></li>
+<li><p>Restgurtwickellänge 1800mm: wie unbesetzter Sitzplatz</p></li>
+</ul>
+<p>Um die Geräuschquelle eindeutig zu identifizieren sind nach
+Abstimmung mit der [redacted-person] mit festgesetzten
+Retraktorteilen (z.[redacted-person]) durchzuführen.</p>
+<ul>
+<li><p>Durchführung nach TL82500 oder als Alternative nach neuer
+Spezifikation, siehe Abschnitt 7.1. Lastfälle, nach Rücksprache mit der
+Fachabteilung</p></li>
+<li><p>Ausgehend von einer Restwickellänge von 1800mm ± 5mm wird der
+Gurt während der Messdauer von 60 s ± 1s mit konstanter Geschwindigkeit
+um die Länge eingefahren, die einer einfachen Umdrehung des Gurtwickels
+entspricht. Alternativ kann die lauteste Wellenposition abgeprüft
+werden.</p></li>
+<li><p>[redacted-person] und Randbedingungen müssen im Nachweis
+dokumentiert sein.</p></li>
+</ul>
+<p>Abweichungen zur TL82500 z.[redacted-person]. der Versuchsrandbedingungen sind
+mit der Fachabteilung abzustimmen.</p>
+<p>Aus jeweils 5 gemessenen Exemplaren eines Retraktortyps ist der
+Mittelwert zu bilden.</p>
+<p>Es sind vier 3-achsiale Beschleunigungsaufnehmer nach TL 82500 zu
+fixieren.</p>
+<ul>
+<li><p>auf der Retraktorbefestigungs-Schraube am Halter (Position
+identisch zu Abschnitt 3.1).</p></li>
+<li><p>auf der Shaker-Platte (siehe Abschnitt 3.1).</p></li>
+<li><p>zwei auf dem Retraktor-Gehäuse, davon einer möglichst weit von
+der Schraubenposition entfernt, der Zweite auf der Sensorseite an der
+Sensorposition.</p></li>
+</ul>
+<p>Das vereinfachte Retraktor-Detailmodell ist auf die FFT der
+Beschleunigungssensoren am Retraktorgehäuse zu validieren.</p>
+<h3 id="bestimmung-der-lautheit-sone-test">Bestimmung der Lautheit
+(Sone-Test)</h3>
+<p>Zusätzlich zu den Beschleunigungen des Retraktors ist der Schalldruck
+zu messen und zu dokumentieren.</p>
+<p>Dazu ist ein Messmikrofon in 100mm ±5mm Abstand zu verwenden. [redacted-person] des Mikrofons ist auf die Sensorseite zu richten, die
+Mikrofonachse hat der Wickelachse des Retraktors zu entsprechen. Aus dem
+Schalldruck sind die Lautheit [Sone] und der bewertete Schalldruckpegel
+[dB(A)] sowie der Pegel über Zeit zu ermitteln.</p>
+<p>Es gilt die Anforderung gemäß Projektlastenheft des jeweiligen
+Fahrzeuges.</p>
+<p>[redacted-person] der Lautheit ist mit folgenden Parametern
+durchzuführen:</p>
+<ul>
+<li><p>[redacted-person] 4. Ordnung mit Grenzfrequenz fc=500Hz
+(IIR-Filter).</p></li>
+<li><p>Lautheit über Zeit nach Filtermethode ISO 532-1; Freifeld;
+Butterworth 6. Ordnung;<br/>
+Abtastrate 20480Hz; Zeitmittelung = 2ms.<br/>
+(Bei höheren Abtastraten ist ein Tiefpassfilter 4. Ordnung mit
+Grenzfrequenz fc = 12kHz zu verwenden)</p></li>
+<li><p>Einzahlenwerte werden über arithmetischen Mittelwert der
+Lautheitskurve gebildet.</p></li>
+</ul>
+<p><img src="./07_Components-lah-dum-857-bl-20200715-v4-1-media/media/image7.jpg" style="width:6.39333in;height:2.76in"/></p>
+<p>Abbildung 3.1 Beispiel für Shaker-Aufhängung des Retraktors in einem
+Semifreifeldraum.</p>
+<p>[redacted-person] ist gemäß Abschnitt 5 [redacted-person]
+und Simulationen zu erreichen.</p>
+<h3 id="schalldruckpegel-über-zeit">Schalldruckpegel über Zeit </h3>
+<p>[redacted-person] der Mikrofonmessung ist außerdem über Zeit
+zu bestimmen. Dazu sind folgende Parameter zu verwenden (Konform ISO
+532-1 und DIN 45631/A1):</p>
+<ul>
+<li><p>Anwenden eines Hochpassfilters 4. Ordnung mit der Eckfrequenz
+1500Hz</p></li>
+<li><p>Anwenden eines Tiefpassfilters 2. Ordnung, Eckfrequenz 6000
+Hz</p></li>
+<li><p>Pegel über [redacted-person] der gefilterten Daten, A-Bewertet,
+Blockgröße 50ms</p></li>
+<li><p>FFT über [redacted-person].</p>
+<ul>
+<li><p>1/48 [redacted-person]</p></li>
+<li><p>A Bewertet</p></li>
+<li><p>Überlappung 50%</p></li>
+<li><p>Hanning-Fenster</p></li>
+</ul></li>
+</ul>
+<h2 id="optimierung-anbindungsteile-halter-retraktor">[redacted]</h2>
+<p>Mit den vereinfachten Detailmodellen sind die Anbindungssteile/
+Halter des Retraktors an die Karosserie auszulegen bzw. zu optimieren
+(z.[redacted-person] bei RGS-Modellen mit zwei Anschraubpunkten). D. [redacted-person]
+für den Halter wie auch das Blechgehäuse des Retraktors sind
+gewichtsoptimale Verbesserungsvorschläge erarbeiten. Dazu sind konstante
+Anregungen nach Abschnitt 1 einzuleiten.</p>
+<p>[redacted-person] der karosserieseitigen Anbindungsstelle erfolgt durch
+die [redacted]Hierzu wird ein von Randbedingungen der Einbauposition
+abhängiges, standardisiertes Retraktormodell (Einheitsretraktor)
+genutzt, dass das den jeweils schwersten in Frage kommenden Retraktortyp
+abdeckt.</p>
+<p>[redacted-person] des Retraktors samt Halter zu den karosserieseitigen
+Anschraubstellen ist nach den Anforderungen des Lastenhefts
+LAH.DUM.857.D zu gestalten. Es sind vergleichende Simulationen an einem
+starren Halter durchzuführen. Toleranzen der Anbindungsstellen zwischen
+Retraktor und Karosserieblech sind die Dimpelauslegung zu beachten.</p>
+<h1 id="akustik-simulationen">Akustik-Simulationen</h1>
+<p>Es sind Akustik-Simulationen gemäß diesem Kapitel durchzuführen. Zur
+B-Freigabe muss das korrekte akustische Verhalten der im Konzern
+angebotenen Retraktoren durch eine Akustik-Simulation nachgewiesen
+werden. Ziel ist es, durch beispielhafte Simulation mindestens zweier
+Retraktoren die Prozesssicherheit zu verbessern. Bei akustischen
+Auffälligkeiten sind diese durch Akustiksimulationen nach Rücksprache
+mit der Fachabteilung zu untersuchen. [redacted-person] ist eine
+Simulation in Fahrzeuggeometie mit fahrzeugspezifischen Anregungen zur
+Identifizierung potentieller Geräuschquellen.</p>
+<h2 id="retraktor-geräuschverhalten-aus-den-shaker-versuchen">Retraktor-Geräuschverhalten
+aus den Shaker-Versuchen </h2>
+<p>Aus den ermittelten FFTs und Schalldruck-Messungen, gemäß Kapitel 3
+[redacted-person] und Geräuschmessung, sind konstruktive Rückschlüsse
+zur Reduzierung der Retraktor-Geräuschabstrahlung und die dafür
+notwendige Anbindung an die Karosserie zu ermitteln. Dazu ist auch die
+Lautheit [Sone] und der bewertete Schalldruckpegel [dB(A)] über die
+Frequenz darzustellen. Zusätzlich sind Lautheit und Pegel über Zeit
+darzustellen.</p>
+<h2 id="modellaufbau">Modellaufbau </h2>
+<p>[redacted-person] ist analog zu der der NVH-Retraktormodelle (Abschnitt
+2.1) aufzubauen. Zusätzlich sind folgende Punkte zu berücksichtigen:</p>
+<ul>
+<li><p>[redacted-person] mit darauf aufgewickeltem Gurtband (äußere Lage)
+und deren Anbindung an das Gehäuse sind detailgetreu darzustellen; das
+Verhalten der Lagerung der Welle zum Gehäuse muss mit den realen
+Bauteilen übereinstimmen. [redacted-person] der Drehachse sowie die
+Masseverteilung des Gurtbandes sind detailgetreu abzubilden.</p></li>
+<li><p>[redacted-person] der Sperrklinken-Position ist zu
+berücksichtigen.</p></li>
+</ul>
+<h2 id="simulations-methodik">Simulations-Methodik</h2>
+<p>[redacted-person] des Retraktors ist mit Hilfe einer
+Mehrkörpersimulation nachzubilden.</p>
+<p>[redacted-person] wird empfohlen:</p>
+<ol type="1">
+<li><p>Berechnung der Kontakt- und Lagerkräfte zwischen den Bauteilen
+des Systems im Zeitbereich mittels einer Mehrkörpersimulation (MKS) für
+vorgegebene Anregung (Anregungsrichtung und Beschleunigungssignale sind
+im Lastenheft definiert) unter Berücksichtigung der Flexibilität von
+Sensorgehäuse, Sensorhebel, ggf. Gurtstrafferrahmen und Systemkappen.
+Die flexiblen Strukturen werden in ein MKS-Simulationsmodell über ihre
+Craig-Bampton-Modal-Basis integriert. [redacted-person] der gespeicherten
+Zeitsignale muss mindestens 10 kHz betragen.</p></li>
+<li><p>Ermittlung der gemittelten komplexen Spektren von den berechneten
+Zeitreihen der Kontakt- und Lagerkräfte im Frequenzbereich bis 5 kHz als
+Anregung für anschließende Akustiksimulation im Frequenzbereich.
+Folgende FFT Parameter sind zu verwenden: Blockgröße 2048, Überlappung
+50%, [redacted-person].</p></li>
+<li><p>Berechnung der freien Strukturmoden des Gurt-Retraktors
+(Zusammenbau) im Frequenzbereich bis 5,5 kHz für die anschließende
+Akustiksimulation.</p></li>
+<li><p>Berechnung des gemittelten Schalldruckspektrums am Messmikrofon
+(Lage des Mikrofon siehe Abschnitt 3.2.1) infolge der Schallabstrahlung
+vom Gurt-Retraktor im Frequenzbereich bis 5 kHz. [redacted-person] sind die
+im Punkt 2 ermittelten, zeitabhängigen, komplexen Kraftspektren zu
+verwenden. In den Simulationen sollen die im Punkt 3 ermittelten
+Strukturmoden genutzt werden. Für die Berechnung der Schallabstrahlung
+sind vorzugsweise die [redacted-person] (ATF) zu verwenden,
+die unabhängig von der Anregung nur einmal für eine
+Gurtstraffergeometrie im Frequenzbereich bis 5 kHz und Frequenzauflösung
+von 10 Hz zu ermitteln sind. Dabei ist die Oberflächenimpedanz des
+aufgewickelten Gurtes zu berücksichtigen. Über die ATF ist die
+Schallabstrahlung für einzelne Zeitsegmente zu berechnen. Diese sind zu
+einer kontinuierlichen Zeitreihe zu verknüpfen, aus der die Lautheit zu
+bestimmen ist.</p></li>
+<li><p>Treten in der Konstruktion des Gurt-Retraktors großvolumige (eine
+Dimension größer oder gleich 30 mm) Hohlräume zwischen den einzelnen
+elastischen Bauteilen des Gurtstraffers auf, so ist zusätzlich zur
+Schallabstrahlung auch der Schalldurchgang durch diese Bauteile zu
+berechnen. In diesem Fall wird der Schalldurchgangsanteil des
+Schalldrucks aus einer gekoppelten vibroakustischen Simulation unter
+Berücksichtigung der im Punkt 3 ermittelten und auf das Akustiknetz
+projizierten Strukturmoden berechnet. Die beiden Anteile des komplexen
+Schalldruckspektrums (für Schallabstrahlung und Schalldurchgang)werden
+anschließend zu einem Gesamtspektrum zusammengefasst. Bei den
+Simulationen der Schallabstrahlung und des Schalldurchgangs sind
+vorzugsweise die im Experiment ermittelten Werte der Modaldämpfung der
+Strukturmoden zu verwenden. Als eine erste Näherung ist die
+Modaldämpfung im gesamten Frequenzbereich als 3% anzunehmen.</p></li>
+</ol>
+<h2 id="lastfälle-und-anforderungen">Lastfälle und Anforderungen</h2>
+<p>[redacted-person] ist mit den in Kapitel 7 [redacted-person] für
+Versuch und Simulation geforderten Anregungsprofilen der jeweiligen
+Lastfälle im Aufbau „Retraktor auf starrer Befestigung (ohne
+Fahrzeugumgebung) durchzuführen. [redacted-person] sind konstruktive
+Änderungen am Retraktor vorzunehmen und das Erfüllen der Anforderungen
+nachzuweisen. [redacted-person] des Retraktormodells nach konstruktiven
+Änderungen ist vorzunehmen.</p>
+<p>[redacted-person] und Grenzwerte sind dem Lastenheft
+LAH.DUM.857.D zu entnehmen.</p>
+<p>Es gilt für alle Lastfälle:</p>
+<ul>
+<li><p>Anregungsstelle: Anschraubpunkt und [redacted-person]
+Mitte (siehe Abbildung 4.1)</p></li>
+<li><p>Simulationsaufbau: Retraktor an starrem Halter.</p></li>
+<li><p>Auswerteposition: Sensorseitig auf der Wellenachse 10cm vom
+Retraktorgehäuse entfernt.</p></li>
+</ul>
+<p>Aus den simulierten Schalldrücken ist die Lautheit [Sone] und der
+bewertete Schalldruckpegel dB(A) zu ermitteln.</p>
+<p>[redacted-person] der Simulation sind analog zu denen aus den
+realen Versuchen, siehe Abschnitt 2 und 5.</p>
+<p><img src="./07_Components-lah-dum-857-bl-20200715-v4-1-media/media/image8.png" style="width:3.46512in;height:3.41976in"/></p>
+<p>Abbildung 4.1: [redacted-person] und Struktur oben Mitte
+am [redacted-person] 6.</p>
+<h1 id="gegenüberstellung-versuch-und-simulationen">[redacted-person] und Simulationen</h1>
+<h2 id="kurvenvergleich">Kurvenvergleich</h2>
+<p>[redacted-person] ist mit Hilfe von CORA darzustellen. CORA
+(CORelation and Analysis) ist eine von der PDB (Partnership for [redacted-person] and Biomechanics) initiierte Software zur objektiven
+Bewertung von Kurvenverläufen. [redacted-person] steht kostenfrei vom OEM
+inklusive zu verwendender Konfigurationsdatei, Handbuch und Beispielen
+zur Verfügung. Zu vergleichen sind die in den Versuchen gemessenen und
+in dem validierten Simulationsmodell berechneten Signale für
+Beschleunigung und Schalldruckpegel. Die zu vergleichenden Signale
+müssen identisch gefiltert sein.</p>
+<p>Zur einheitlichen und objektiven Bewertung darf die vom OEM
+vorgegebene Konfigurationsdatei nicht verändert werden. Die bestimmten
+Vergleichsgrößen sind der Dokumentation der Akustiksimulationen
+beizufügen.</p>
+<h2 id="validierungsgüte">Validierungsgüte</h2>
+<p>Ziel ist, eine möglichst gute Korrelation zwischen Simulation und
+Versuch zu erzielen. [redacted-person] dienen die in Tabelle 5.1:
+Bewertungskriterien CORA dargestellten Korrelationsgrößen.</p>
+<p>[redacted-person] ist gemäß Tabelle 5.1 für sich alleine zu
+bewerten:</p>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Signal</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Korridorverfahren</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Kreuzkorrelation</strong></p>
+<p><strong>Prog./Größe/Phase</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Validierungsgüte</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Beschleunigung</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90 %</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Schalldruck</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0,5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0,5</p>
+<p>0,33 / 0,33 / 0,33</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>90 %</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<p>Tabelle 5.1: Bewertungskriterien CORA</p>
+<p>Liegen mehrere Versuche einer Versuchs-Konfiguration vor, so müssen
+die Simulationskurven, neben der geforderten Validierungsgüte nach CORA,
+auch innerhalb der Versuchskurven liegen. Dies gilt auch für die
+Lautheit [Sone] und den bewerteten Schalldruckpegel [dB(A)].</p>
+<p>Das relevante Auswerteintervall ist für alle Signale eines Lastfalls
+gleich und wird von CORA automatisch anhand des Beschleunigungssignals
+des Versuchs ermittelt. </p>
+<h1 id="geräuscherprobungsfahrt">Geräuscherprobungsfahrt</h1>
+<p>[redacted-person] der Retraktoren im Fahrzeug erfolgt auf den
+Schlecht-Wege-Strecken auf dem Prüfgelände in Neustadt unter Beteiligung
+des Knister-Knaster-Teams. [redacted-person] und Freigabe der Retraktoren
+erfolgt im Rahmen einer Testfahrt im VFF-Fahrzeugstand. [redacted-person] während der Fahrt oder bei zu erwartenden
+Geräuschauffälligkeiten (z.[redacted-person] von Simulationen oder
+konstruktionsbedingte Sonderfälle) können durch die Fachabteilung
+weitere Geräuschfahrten angeordnet werden.</p>
+<p>[redacted-person] werden von der Fachabteilung geplant und
+durchgeführt. [redacted-person] des Zulieferers ist möglich aber nicht
+zwingend erforderlich.</p>
+<p>Bei den ausgewählten Fahrzeugen werden solche bevorzugt die den
+Anforderungen der Serie gerecht werden (z.[redacted-person] der
+Auflagefläche). [redacted-person] werden grundsätzlich ohne
+geräuschreduzierende Maßnahmen (Heckrauschpaket, Hutablage,
+Verkleidungsteile) durchgeführt um mögliche Störeinflüsse dieser Teile
+zu vermeiden. [redacted-person] wird bei der Bewertung berücksichtigt.</p>
+<p>[redacted-person] der Retraktoren findet vorzugsweise auf der LZS 5
+([redacted-person] / Kopfsteinpflaster) bei einer Geschwindigkeit von
+50 km/h statt um die Vergleichbarkeit zu gewährleisten. Ist der
+Retraktor beim Hand-Klopf-Test auffällig, ist die Auffälligkeit durch
+hinzuziehen weiterer Streckenabschnitte nach zu reproduzieren.</p>
+<p>[redacted-person] der Retraktoren wird subjektiv durch das
+Knister-[redacted-person] und die Fachabteilung durchgeführt. [redacted-person]
+wird anhand eines festen Bewertungsschlüssels durchgeführt (siehe
+Abbildung 6.1 : [redacted-person]-Knaster-Team.)</p>
+<p>Zusätzlich werden die Bewegungen des Retraktors und des Fahrzeuges
+sowie der Geräuschpegel im Fahrzeug aufgenommen und mit
+Simulationsergebnissen und Shaker-Versuchsergebnissen abgeglichen.</p>
+<p>[redacted-person]-Versuche zum Akustik- und Schwingverhalten sind vor der
+ersten Geräuschfahrt durchzuführen und zu dokumentieren.</p>
+<p>Die in der Geräuschfahrt zu testenden Retraktoren sind bis spätestens
+einer Woche vor Fahrtbeginn der Fachabteilung in der gewünschten
+Konfiguration zur Verfügung zu stellen. Hierbei sind mindestens zwei
+Retraktoren je Teilenummer für einen potentiellen Cross-Check während
+der Geräuschfahrt zur Verfügung zu stellen, die nach dem Testing an den
+Zulieferer zurückgegeben und bei Bedarf als Vergleichsmuster aufbewahrt
+werden.</p>
+<p>Bei vorangegangener Sonemessung mit einem Wert &gt;8 Sone sind zudem
+Toleranzgrenzmuster zur Verfügung zu stellen, die einen
+geräuschtechnischen Worst-Case darstellen. Diese werden bei Bedarf
+separat in der Geräuschfahrt im Fahrzeug getestet.</p>
+<p><img src="./07_Components-lah-dum-857-bl-20200715-v4-1-media/media/image9.png" style="width:6.42708in;height:4.15625in"/></p>
+<p>Abbildung 6.1 : [redacted-person]-Knaster-Team.</p>
+<h1 id="übersicht-lastfälle-für-versuch-und-simulation">[redacted-person] für Versuch und Simulation</h1>
+<h2 id="shaker">Shaker</h2>
+<p>Anregungsprofile:</p>
+<ul>
+<li><p>Anregung in y- und z-Richtung gemäß TL82500 Anregungsprofile:
+Anregung in y- und z-Richtung</p>
+<ul>
+<li><p>Rauschen 40 bis 100Hz</p></li>
+</ul></li>
+</ul>
+<ul>
+<li><p>[redacted-person] der Anregungsamplitude über 4 Minuten, Messung
+der <span class="math inline"><em>N</em><sub>10</sub></span> Lautheit in
+[sone]</p></li>
+<li><p>[redacted-person]: Startwert <span class="math inline">$2\frac{m}{s^{2}}$</span>, Endwert <span class="math inline">$10\frac{m}{s^{2}}$</span></p></li>
+<li><p>Bildung des gleitenden Mittelwerts mit 15 s
+Mittelungsfenster</p></li>
+</ul>
+<blockquote>
+<p>Darstellung: Lautheit über Amplitude in y- und z-Richtung</p>
+</blockquote>
+<h2 id="schlechtwege">Schlechtwege</h2>
+<p>Anregungsprofile:</p>
+<ul>
+<li><p>Strecke 4: Rasensteine, USW, Bremswellen, Asphaltbeton, TE
+(entspricht [redacted-person] 1 + 2)</p></li>
+<li><p>Strecke 5: [redacted-person] (entspricht
+Kopfsteinpflaster)</p></li>
+<li><p>Strecke 8: Weinzierl</p></li>
+</ul>
+<h2 id="zuschlagen-von-türen-bzw.-heckklappe">Zuschlagen von Türen bzw.
+Heckklappe</h2>
+<p>Anregungsprofile:</p>
+<ul>
+<li><p>Tür- und Heckklappenanregungsprofil: Zuschlaggeschwindigkeit
+1.1m/s und 1.4m/s</p></li>
+<li><p>Bewertung des Geräuschverhaltens nach impulsartiger Anregung
+erfolgt subjektiv über Fachpersonal des „Knister-Knaster“-Teams</p></li>
+<li><p>Ggf. ist eine Abstimmung mit der Fachabteilung [redacted-id] zu
+führen</p></li>
+</ul>
+<h2 id="soundanregung">Soundanregung</h2>
+<blockquote>
+<p>Anregungsprofile:</p>
+</blockquote>
+<ul>
+<li><p>breitbandige Anregung von 30 – 150 Hz für Subwoofer auf
+Hutablage.</p></li>
+<li><p>Eine entsprechende Test-CD kann über die Fachabteilung bei
+[redacted-id] angefragt werden.</p></li>
+</ul>
+<h1 id="dokumentation-und-datenaustausch">Dokumentation und
+Datenaustausch</h1>
+<p>Die gesamte Dokumentation ist vom Auftragnehmer in deutscher Sprache
+zu erstellen.</p>
+<p>Die technischen Unterlagen sind entsprechend nach OEM-Vorgaben
+auszuhändigen.</p>
+<p>Alle die im Lastenheft NVH Sicherheitsgurte geforderten Versuche
+(Messkurven, Filme, Auswertungen, Ergebnisse, Präsentationen,
+Versuchsteile) und Simulationen (Modelle mit Versuchsumgebung wie z. [redacted-person], Hutablage, Berechnungen, Auswertungen, Präsentationen,
+Includes, Lastfallparameterdateien, Ergebnisse) sind an den OEM zu
+übergeben.</p>
+<p>Die zugrundeliegenden Validierungsdaten sind zusammen mit dem
+validierten Gesamt-Modell zu übergeben.</p>
+<p>[redacted-person] sind vom Zulieferer in die OEM-Datenbank ([redacted-co]
+KVS; [redacted-co]: LoCo, CAE-Bench2 [Simulationen], Visverdi bzw. Falcon
+[Versuch]) zu importieren.</p>
+<h2 id="geheimhaltung">Geheimhaltung</h2>
+<p>[redacted-person] (Simulationsmodelle, Versuchsdaten und sonstiges)
+unterliegen der Geheimhaltungsverpflichtung für vertrauliche Unterlagen
+gemäß den Entwicklungsvereinbarungen und stehen dem VW-Konzern innerhalb
+ihrer Prozessabläufe uneingeschränkt zur Verfügung.</p>
+<h2 id="simulation">Simulation</h2>
+<p>Wird eine Weitergabe der Modelle bzw. Teilmodelle an Dritte notwendig
+(z.[redacted-person] geplante COP-Einsätze in anderen Fahrzeugmodellen), so wird
+der OEM den Partner über die geplante Weitergabe informieren und
+weiterleiten. [redacted-person] erlischt 36 Monate nach
+Projektende.</p>
+<p>[redacted-person] gilt nicht bei einer Weitergabe der Modelle an
+Engineeringpartner, welche diese Daten ausschließlich in [redacted-person]
+für den OEM verwenden. In diesem Fall ist eine Weitergabe ohne Auflagen
+erlaubt.</p>
+<p>[redacted-person] sind nach Aufforderung vor Ort beim OEM
+bzw. dem Generalentwickler GE auf einer Workstation interaktiv zu
+präsentieren. Hierzu sollten die Berechnungsmodelle und die Ergebnisse
+vorab an den OEM bzw. GE-Fachabteilung gesandt werden. Ist dies aufgrund
+der kurzfristigen Berechnung nicht möglich, so sind die Daten auf
+geeigneten Trägermedien mitzubringen. [redacted-person] ist die
+Sicherheit der Übermittlung sicherzustellen. Insbesondere ist ein
+Versand von Daten mit unverschlüsselten E-Mails nicht zulässig.</p>
+<p>Für die regelmäßig stattfindenden Funktionsrunden sind die relevanten
+Simulationsergebnisse präsentations- und animationsfähig
+bereitzuhalten.</p>
+<p>[redacted-person] zu Ablauf, Konventionen, Umfang und Formaten
+benötigter Informationen und von Dokumentationen sind vor Projektbeginn
+mit der OEM/GE-Fachabteilung abzusprechen.</p>
+<p>[redacted-person] ist eine Excelliste mit einer Übersicht aller
+Simulationsergebnisse zu führen. Dafür kann eine Basisvariante seitens
+der OEM/GE-Fachabteilung zur Verfügung gestellt werden. Ebenfalls ist
+ein virtueller Lebenslauf der die verschiedenen Modellstände
+dokumentiert zu erstellen.</p>
+<p>[redacted-person] der eingesetzten Komponenten ist durch eine aktuell zu
+haltende Dokumentation im Include zu dokumentieren. Hierin sind neben
+der Bauteilbenennung auch der Entwicklungsstand, das Erstellungsdatum,
+der Bearbeiter sowie die zugrundeliegenden Teilenummern und Stände
+aufzuführen.</p>
+<p>Unterschiede zwischen Berechnungsergebnissen und Versuchsdaten sind
+der OEM/GE-Fachabteilung jederzeit offenzulegen, damit diese mit der
+vorhandenen Erfahrungsbasis abgeglichen werden können. [redacted-person] deuten auf fehlerhafte Modellierung hin und müssen
+unverzüglich untersucht werden und zu Modellverbesserungen führen.</p>
+<p>Es werden für den OEM/GE-internen Prozess <strong>keine</strong>
+verschlüsselten Daten akzeptiert. [redacted-person] für alle beim
+Lieferanten durchgeführten Arbeiten liegt in der OEM/GE-Fachabteilung.
+Deswegen muss die OEM/GE-Fachabteilung in der Lage sein die
+durchgeführten Arbeiten und aufgebaute Modelle auf Richtigkeit zu
+prüfen.</p>
+<p>[redacted-person] werden ausschließlich für den OEM/GE-internen Prozess
+(inkl. Entwicklungspartner, der einer vertraglichen
+Geheimhaltungspflicht unterliegt) zum Einsatz gebracht.</p>
+<p>[redacted-person] an Projektpartnern übergeben werden, die nicht zu dem
+OEM/GE-internen Prozess gehören, ist Verschlüsselung erlaubt. [redacted-person] für diese Modelle bleibt in diesem Fall bei dem Ersteller
+der verschlüsselten Daten und nicht bei den Anwendern.</p>
+<h2 id="versuch">Versuch</h2>
+<p>[redacted-person] sind den jeweiligen Konstruktions-,
+Simulations- und Versuchsabteilungen vorzustellen. [redacted-person] sind mit
+Bildern zu dokumentieren und der OEM/GE-Fachabteilung zur Verfügung
+gestellt werden.</p>
+<h2 id="dokumentation-zum-projektabschluss">Dokumentation zum
+Projektabschluss</h2>
+<p>[redacted-person] ist folgendes zu tun:</p>
+<ul>
+<li><p>Abschließender, kompletter Projektstatus</p></li>
+<li><p>Aktualisierung und Vervollständigung der
+Simulationsdaten</p></li>
+<li><p>Abgleich des letzten Simulationsstatus mit Crash- bzw.
+Schlittenversuchen</p></li>
+<li><p>[redacted-person]-Review nach Vorgaben der
+OEM/GE-Fachabteilung</p></li>
+<li><p>Erstellung „[redacted-person]“ für Folgeprojekte</p></li>
+<li><p>Freigabeempfehlung für alle Lastfälle</p></li>
+</ul>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<ul>
+<li><p>TL82500</p></li>
+<li><p>LAH.DUM.857.T: Konzern-[redacted-person]
+Gurtstraffer</p></li>
+<li><p>LAH.DUM.857.D: Konzern-[redacted-person]</p></li>
+<li><p>LAH.DUM.857.BB: [redacted-person]</p></li>
+<li><p>VW-Konzernnorm TL471: ZSB Sicherheitsgurtsysteme und
+Höhenverstellung, Werkstoff- und Funktionsanforderungen</p></li>
+</ul>
+<p>CORA-Auswertung: Doku_Cora </p>
+</body>
+</html>

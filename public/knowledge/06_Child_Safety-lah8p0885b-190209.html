@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH8P0885B_190209</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p>12</p>
+<blockquote>
+<p><strong>[redacted]Requirements</strong></p>
+</blockquote>
+<p>[redacted-person]</p>
+<blockquote>
+<p>[redacted]</p>
+</blockquote>
+<p>84-52204</p>
+<p>09.07. 2002</p>
+<p>19.02. 2009</p>
+<blockquote>
+<p>[redacted-person]./OU</p>
+<p>Phone [redacted-phone]</p>
+<p>Fax [redacted-phone]</p>
+<p>First issue Change status</p>
+<p>[redacted-co]</p>
+<p>D[redacted]</p>
+<p><strong>[redacted]Canada CMVSS 210.1/
+210.2</strong></p>
+<p>LAH.8P0.885.B</p>
+<p>[redacted-person] Specifications LAH.8P0.885.B</p>
+</blockquote>
+<h1 id="child-restraint-anchorage-systems"><br/>
+[redacted]</h1>
+<blockquote>
+<p><strong>Canada CMVSS 210.1/ 210.2</strong></p>
+<p>Dept.: [redacted-id]</p>
+<p>Page: 2 of 9</p>
+<p>Change status: [redacted-phone]</p>
+</blockquote>
+<h1 id="revision-record">[redacted-person]</h1>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Change status</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Description of change</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Author</strong></p>
+<p><em>(Name, OU)</em></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>First version (without LAH number)</p>
+</blockquote></td>
+<td style="text-align: center;">[redacted]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Revision</p>
+</blockquote></td>
+<td style="text-align: center;">[redacted]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p><em>Supplementation</em></p>
+</blockquote></td>
+<td style="text-align: center;"><em>[redacted]</em></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Supplementation/revision</p>
+</blockquote></td>
+<td style="text-align: center;">[redacted]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p><em>Adaptation of reference to [redacted-person] for
+Seats</em></p>
+</blockquote></td>
+<td style="text-align: center;"><em>[redacted]</em></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p><em>Adaptation of [redacted]number</em></p>
+</blockquote></td>
+<td style="text-align: center;"><em>[redacted]</em></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>[redacted-person] Specifications LAH.8P0.885.B</p>
+</blockquote>
+<h1 id="child-restraint-anchorage-systems-1"><br/>
+[redacted]</h1>
+<blockquote>
+<p><strong>Canada CMVSS 210.1/ 210.2</strong></p>
+<p>Dept.: [redacted-id]</p>
+<p>Page: 3 of 9</p>
+<p>Change status: [redacted-phone]</p>
+</blockquote>
+<h1 id="contents">Contents</h1>
+<p><a href="#equipment">Preface 4</a></p>
+<ol type="1">
+<li><p><a href="#objective">Objective 4</a></p>
+<ol type="1">
+<li><p><a href="#development-goal">[redacted-person] 4</a></p></li>
+<li><p><a href="#approval">Approval 4</a></p></li>
+<li><p><a href="#legal-requirements">[redacted-person] 4</a></p></li>
+</ol></li>
+<li><p><a href="#design">Design 4</a></p>
+<ol type="1">
+<li><p><a href="#weights">Weights 4</a></p></li>
+<li><p><a href="#equipment">Equipment 4</a></p></li>
+<li><p><a href="#dimensions">Dimensions 5</a></p></li>
+<li><p><a href="#handling">Handling 5</a></p></li>
+<li><p><a href="#visibility">Visibility 5</a></p></li>
+<li><p><a href="#corrosion">Corrosion 5</a></p></li>
+</ol></li>
+</ol>
+<p><a href="#recycling">2,7 Recycling 5</a></p>
+<ol start="3" type="1">
+<li><p><a href="#safety-test">[redacted-person] 5</a></p>
+<ol type="1">
+<li><p><a href="#strength">Strength 5</a></p></li>
+<li><p><a href="#general-requirements">[redacted-person]
+6</a></p></li>
+<li><p><a href="#safety-requirements">[redacted-person] 6</a></p></li>
+<li><p><a href="#safety-test-static-tensile-tests">[redacted]Tests 6</a></p>
+<ol type="1">
+<li><p><a href="#tensile-tests-of-lower-child-restraint-anchorage-system-isofix">[redacted-person] of [redacted]System "ISOFIX" 6</a></p>
+<ol type="1">
+<li><p><a href="#straight-tensile-test-isofix">[redacted-person] Test
+"ISOFIX" 6</a></p></li>
+<li><p><a href="#angle-tensile-test-isofix">[redacted-person] Test "ISOFIX"
+7</a></p></li>
+<li><p><a href="#additional-tensile-tests-for-isofix-anchorage-systems-attached-to-seat">[redacted-person] Tests for "ISOFIX" [redacted-person] Attached</a> <a href="#additional-tensile-tests-for-isofix-anchorage-systems-attached-to-seat">to
+Seat 7</a></p></li>
+<li><p><a href="#general-information-on-the-isofix-tensile-test-test-sequence">[redacted-person] on the "ISOFIX [redacted-person]" [redacted-person] 8</a></p></li>
+<li><p><a href="#assessment-criteria-for-isofix-tensile-tests">[redacted-person]
+for "ISOFIX [redacted-person]" 8</a></p></li>
+</ol></li>
+<li><p><a href="#tensile-test-of-upper-child-restraint-anchorage-system-top-tether">[redacted-person] of [redacted]System "[redacted-person]"</a></p></li>
+</ol></li>
+</ol></li>
+</ol>
+<p><a href="#tensile-test-of-upper-child-restraint-anchorage-system-top-tether">.
+9</a></p>
+<ol type="1">
+<li><p><a href="#straight-tensile-test-top-tether">[redacted-person] Test
+"[redacted-person]" 9</a></p></li>
+<li><p><a href="#general-information-on-the-top-tether-tensile-test-test-sequence">[redacted-person] on the "[redacted]" Test</a> <a href="#general-information-on-the-top-tether-tensile-test-test-sequence">Sequence
+9</a></p></li>
+<li><p><a href="#assessment-criteria-for-top-tether-tensile-test">[redacted-person] for "[redacted]" 10</a></p></li>
+</ol>
+<ol start="3" type="1">
+<li><p><a href="#function-testing">[redacted-person] 10</a></p>
+<ol type="1">
+<li><p><a href="#general-information">[redacted-person]
+10</a></p></li>
+<li><p><a href="#susceptibility-to-stress">Susceptibility to Stress
+10</a></p></li>
+<li><p><a href="#operating-forces-for-foldable-isofix-anchorages">[redacted-person]
+for Foldable ISOFIX Anchorages 10</a></p></li>
+<li><p><a href="#endurance-test-for-foldable-isofix-anchorages">[redacted-person] for
+Foldable ISOFIX Anchorages 10</a></p></li>
+</ol></li>
+</ol>
+<blockquote>
+<p>[redacted-person] Specifications LAH.8P0.885.B</p>
+</blockquote>
+<h1 id="child-restraint-anchorage-systems-2"><br/>
+[redacted]</h1>
+<blockquote>
+<p><strong>Canada CMVSS 210.1/ 210.2</strong></p>
+<p>Dept.: [redacted-id]</p>
+<p>Page: 4 of 9</p>
+<p>Change status: [redacted-phone]</p>
+</blockquote>
+<h1 id="preface">Preface</h1>
+<blockquote>
+<p>[redacted-person] Specifications describe the services, requirements
+and test conditions to be satisfied by the product.</p>
+<p>In addition to these [redacted-person], the development
+conditions specified in Volkswagen standard [redacted-co]99000 apply.</p>
+<p>All requirements of the [redacted]must be observed.</p>
+<p>The contents of these [redacted-person] Specifications must not be
+disclosed to third parties without the express permission of [redacted-co].</p>
+</blockquote>
+<h1 id="objective">Objective</h1>
+<h2 id="development-goal"><em>[redacted-person]</em></h2>
+<blockquote>
+<p>Development of child restraint anchorage systems for Canada according
+to the requirements as stipulated in CMVSS 210.1/210.2</p>
+</blockquote>
+<h2 id="approval"><em>Approval</em></h2>
+<blockquote>
+<p>The child restraint anchorage systems must be developed and tested
+according to CMVSS 210.1/210.2. In case of new versions of CMVSS
+210.1/210.2, the respective requirements must be met. Any other
+country-specific specifications must be observed.</p>
+</blockquote>
+<h2 id="legal-requirements"><em>[redacted-person]</em></h2>
+<blockquote>
+<p>The following laws and requirements must be observed during
+development. The most recent relevant change statuses apply:</p>
+<p>FMVSS 208, 213, and 225</p>
+<p>CMVSS 210.1/ 210.2 and 213</p>
+<p>ISO 13216-1</p>
+<p>ECE-R 16</p>
+<p>[redacted-person] for Seats LAHxxx881x and LAHxxx885x
+[redacted-person] for ISOFIX [redacted]LAH8P0881A and LAH8P0885 (specifically for surface and testing)</p>
+</blockquote>
+<h1 id="design">Design</h1>
+<h2 id="weights"><em>Weights</em></h2>
+<blockquote>
+<p>The weight of the child restraint anchorage systems and additional
+measures must be kept as low as possible.</p>
+</blockquote>
+<h2 id="equipment"><em>Equipment</em></h2>
+<blockquote>
+<p>Child restraint anchorage systems must be developed for seats that
+are to be provided with child restraint anchorage systems according to
+CMVSS 210.1/210.2. The following minimum equipment requirements must be
+observed among other things:</p>
+</blockquote>
+<ul>
+<li><p>The following child restraint anchorages are required for 5-seat
+vehicles with three seats on the rear seat bench:</p></li>
+</ul>
+<ol start="2" type="1">
+<li><p>seats with lower anchorage points ("ISOFOX")</p></li>
+<li><p>seats with upper anchorage points ("top tether").</p></li>
+</ol>
+<blockquote>
+<p>[redacted-person] Specifications LAH.8P0.885.B</p>
+</blockquote>
+<h1 id="child-restraint-anchorage-systems-3"><br/>
+[redacted]</h1>
+<blockquote>
+<p><strong>Canada CMVSS 210.1/ 210.2</strong></p>
+<p>Dept.: [redacted-id]</p>
+<p>Page: 5 of 9</p>
+<p>Change status: [redacted-phone]</p>
+</blockquote>
+<ul>
+<li><p>The following child restraint anchorages are required for 4-seat
+vehicles with two seats on the rear seat bench:</p></li>
+</ul>
+<blockquote>
+<p>2 seats with lower anchorage points ("ISOFOX")</p>
+<p>2 seats with upper anchorage points ("top tether").</p>
+</blockquote>
+<ul>
+<li><p>The following child restraint anchorages are required for 2-seat
+vehicles without rear seat bench:</p></li>
+</ul>
+<blockquote>
+<p>front passenger seat with lower anchorage points ("ISOFOX") front
+passenger seat with upper anchorage points ("top tether").</p>
+</blockquote>
+<ul>
+<li><p>Vehicles with a rear seat space of less than 720 mm and a "key
+switch" for deactivation of the front passenger air bag may be provided
+with lower anchorage points on the front passenger seat instead of the
+lower anchorage points in the second row of seats.</p></li>
+<li><p>Convertibles are exempted from the "top tether"
+requirement.</p></li>
+</ul>
+<h2 id="dimensions"><em>Dimensions</em></h2>
+<blockquote>
+<p>The child restraint anchorages must be designed according to the
+design and dimensional stipulations of CMVSS 210.1/210.2 for the seats
+to be equipped.</p>
+</blockquote>
+<h2 id="handling"><em>Handling</em></h2>
+<blockquote>
+<p>The anchorages must not affect normal seat comfort.</p>
+<p>If the lower child restraint anchorage system is foldable, the
+fold-out control must be clearly visible. When installing the child
+restraint, the fastening points on the vehicle must securely maintain
+their position. Foldable child restraint anchorages are only permitted
+until [redacted-phone]</p>
+<p>Requirement acc. to CMVSS 210.2: displacement must not exceed 5 mm
+when a force of 100 N (in all directions) is applied to the ISOFIX
+anchorage point.</p>
+<p>The installation of a "tether hook" according to CMVSS 213 must be
+guaranteed for all child restraint anchorages.</p>
+</blockquote>
+<h2 id="visibility"><em>Visibility</em></h2>
+<blockquote>
+<p>The lower child restraint anchorages must be either visible or must
+be provided with the markings and the respective symbol as stipulated in
+CMVSS 210.2. The design of the vehicle seat must not be impaired.</p>
+<p>If the upper child restraint anchorage point is equipped with a
+cover, then it must be fitted with the ISO symbol for top tether
+anchorage systems (design according to CMVSS 210.1).</p>
+</blockquote>
+<h2 id="corrosion"><em>Corrosion</em></h2>
+<blockquote>
+<p>Requirements according to ECE-R 16</p>
+</blockquote>
+<h2 id="recycling"><em>2,7 Recycling</em></h2>
+<blockquote>
+<p>The child restraint anchorage systems must be made from recyclable
+material. Plastic parts must be pure-type and marked accordingly. When
+different materials are used, it must be ensured that they are easy to
+separate.</p>
+</blockquote>
+<h1 id="safety-test">[redacted-person]</h1>
+<h2 id="strength"><em>Strength</em></h2>
+<blockquote>
+<p>No damage impairing the function of the bearing structures must occur
+during any of the tests described in this Section. Moreover, the parts
+must not splinter, tear, or develop sharp edges.</p>
+<p>[redacted-person] Specifications LAH.8P0.885.B</p>
+</blockquote>
+<h1 id="child-restraint-anchorage-systems-4"><br/>
+[redacted]</h1>
+<blockquote>
+<p><strong>Canada CMVSS 210.1/ 210.2</strong></p>
+<p>Dept.: [redacted-id]</p>
+<p>Page: 6 of 9</p>
+<p>Change status: [redacted-phone]</p>
+</blockquote>
+<h2 id="general-requirements"><em>[redacted-person]</em></h2>
+<ul>
+<li><p>No tearing out of anchorage points</p></li>
+<li><p>No fracture causing risk of injury</p></li>
+<li><p>Fulfillment of all requirements even in tests with the highest
+possible seat weight</p></li>
+<li><p>No deformation patterns must occur that pose any risk of injury
+to the occupants.</p></li>
+</ul>
+<h2 id="safety-requirements"><em>[redacted-person]</em></h2>
+<blockquote>
+<p>All safety requirements according to CMVSS 210.1/210.2 must also be
+fulfilled with an overload of 20%.</p>
+</blockquote>
+<h2 id="safety-test-static-tensile-tests"><em>[redacted]Tests</em></h2>
+<blockquote>
+<p>The static tensile tests on the child restraint anchorages must be
+performed according to CMVSS 210.1/210.2 (child restraint testing frame
+for seats without "ISOFIX", child restraint testing frame for seats with
+"ISOFIX"). Requirements must not be exceeded even with an overload of
+20%.</p>
+<p>For adjustable seats, the tensile tests must be performed in the
+rearmost upper and rearmost lower seat position. Further seat positions
+are defined in CMVSS 210.1/210.2.</p>
+<p>The final tests must be performed in a vehicle body.</p>
+</blockquote>
+<h2 id="tensile-tests-of-lower-child-restraint-anchorage-system-isofix"><em>[redacted-person] of [redacted]System "ISOFIX"</em></h2>
+<h2 id="straight-tensile-test-isofix"><em>[redacted-person] Test
+"ISOFIX"</em></h2>
+<table style="width:100%;">
+<thead>
+<tr>
+<th rowspan="13"><blockquote>
+<p>10°
+<sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></th>
+<th rowspan="13"><blockquote>
+<p>F1,2 Px</p>
+<p>Side view</p>
+</blockquote></th>
+<th rowspan="13"><blockquote>
+<p><img src="./06_Child_Safety-lah8p0885b-190209-media/media/image8.png"/>0°
+<sup>+</sup>/<sub>-</sub> 5°</p>
+<p>Top view</p>
+<p>0° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></th>
+<th rowspan="13"><blockquote>
+<p>F<sub>1</sub></p>
+<p>F<sub>2</sub></p>
+</blockquote></th>
+</tr>
+<tr>
+<th rowspan="2"><blockquote>
+<p>Px</p>
+</blockquote></th>
+</tr>
+<tr>
+<th rowspan="2"><blockquote>
+<p>Px</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="10"><blockquote>
+<p><u>Figure</u>:</p>
+<p>Rear seat system with ISOFIX anchorage points (attached to seat or to
+body) and top tether. Pull frame according to CMVSS 210.2</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>F<sub>1</sub> = F<sub>2</sub> = 15,0 kN (CMVSS 210.2) or 18,0 kN (+
+20%). Force must be applied simultaneously.</p>
+<p>[redacted-person] Specifications LAH.8P0.885.B</p>
+</blockquote>
+<h1 id="child-restraint-anchorage-systems-5"><br/>
+[redacted]</h1>
+<blockquote>
+<p><strong>Canada CMVSS 210.1/ 210.2</strong></p>
+<p>Dept.: [redacted-id]</p>
+<p>Page: 7 of 9</p>
+<p>Change status: [redacted-phone]</p>
+</blockquote>
+<h2 id="angle-tensile-test-isofix"><em>[redacted-person] Test
+"ISOFIX"</em></h2>
+<p><img src="./06_Child_Safety-lah8p0885b-190209-media/media/image14.png"/></p>
+<blockquote>
+<p>F<sub>3</sub> = F<sub>4</sub> = 5,0 kN (CMVSS 210.2) or 6,0 kN (+
+20%). Force must be applied simultaneously.</p>
+<p>F<sub>5</sub> = F<sub>6</sub> = 5,0 kN (CMVSS 210.2) or 6,0 kN (+
+20%). Force must be applied simultaneously.</p>
+</blockquote>
+<h2 id="additional-tensile-tests-for-isofix-anchorage-systems-attached-to-seat"><em>[redacted-person] Tests for "ISOFIX" [redacted-person] Attached to</em> Seat</h2>
+<blockquote>
+<p>In addition to the tensile tests as stipulated in CMVSS 210.2, the
+following tensile tests are required for lower child restraint
+anchorages that are attached to the seat.</p>
+<p>These tests must be performed in the rearmost upper and in the
+rearmost lower seat position.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Testing</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Pull in x direction</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Pull in z direction</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Force (FMVSS +20%)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>A</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>18,0 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>B</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>15° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>8° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>15,6 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>C</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>13,2 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>D</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>45° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>4° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>10,8 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>E</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>60° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>8,4 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>F</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>75° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0° <sup>+</sup>/<sub>-</sub> 5°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>6,0 kN <sup>+</sup>/<sub>-</sub> 0,25 kN</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>A new test scope can be coordinated with [redacted-co] after first simulation
+calculations and first test experiences.</p>
+<p>[redacted-person] Specifications LAH.8P0.885.B</p>
+</blockquote>
+<h1 id="child-restraint-anchorage-systems-6"><br/>
+[redacted]</h1>
+<blockquote>
+<p><strong>Canada CMVSS 210.1/ 210.2</strong></p>
+<p>Dept.: [redacted-id]</p>
+<p>Page: 8 of 9</p>
+<p>Change status: [redacted-phone]</p>
+</blockquote>
+<h2 id="general-information-on-the-isofix-tensile-test-test-sequence"><em>[redacted-person] on the "ISOFIX [redacted-person]" [redacted-person]</em></h2>
+<blockquote>
+<p>The pull forces are applied through the child restraint test frame
+(design according to CMVSS 210.2) attached to the ISOFIX anchorages and
+attached to the top tether anchorages using a wire rope. All seats in
+one seat row must be tested simultaneously.</p>
+<p>Prior to the actual tensile test, a pre-load of 500 N must be
+applied. Displacement is measured only after application of the
+pre-load.</p>
+<p>Subsequently, the pull forces (15,0 kN for straight pull and 5,0 kN
+for diagonal pull) must be applied simultaneously within 30 seconds and
+must be held for 1 second. The force is then increased by 20% within 2
+seconds (18 kN for straight pull and 6,0 kN for diagonal pull), held for
+1 second and released within 2 seconds.</p>
+<p>All test-specific criteria must be complied with and documented
+during both the development phase and standard production testing.</p>
+</blockquote>
+<h2 id="assessment-criteria-for-isofix-tensile-tests"><em>[redacted-person] for "ISOFIX [redacted-person]"</em></h2>
+<blockquote>
+<p>Forces must not fall below the required levels throughout the holding
+time. Displacement is not measured for the straight pull.</p>
+<p>For diagonal pull, the maximum forward displacement (horizontal to
+pull direction) of point x of the pulling fixtures for outer seats is
+125 mm and for inner seats 150 mm (dynamic).</p>
+<p>[redacted-person] Specifications LAH.8P0.885.B</p>
+</blockquote>
+<h1 id="child-restraint-anchorage-systems-7"><br/>
+[redacted]</h1>
+<blockquote>
+<p><strong>Canada CMVSS 210.1/ 210.2</strong></p>
+<p>Dept.: [redacted-id]</p>
+<p>Page: 9 of 9</p>
+<p>Change status: [redacted-phone]</p>
+</blockquote>
+<h2 id="tensile-test-of-upper-child-restraint-anchorage-system-top-tether"><em>[redacted-person] of [redacted]System "[redacted-person]"</em></h2>
+<h2 id="straight-tensile-test-top-tether"><em>[redacted-person] Test "[redacted-person]"</em></h2>
+<blockquote>
+<p>F<sub>1</sub> = F<sub>2</sub> = F<sub>3</sub> = 10,0 kN (CMVSS 210.1)
+or 12,0 kN (+ 20%). Force must be</p>
+<p>applied simultaneously.</p>
+</blockquote>
+<h2 id="general-information-on-the-top-tether-tensile-test-test-sequence"><em>[redacted-person] on the "[redacted]" [redacted-person]</em></h2>
+<blockquote>
+<p>The pull force is applied via the CMVSS 210.2 child restraint test
+frame (attached to the ISOFIX anchorages and attached to the top tether
+anchorages using a wire rope and a tether hook according to CMVSS 213)
+or via the CMVSS 210.1 test frame (fastened with the vehicle belt and on
+the top tether anchorage points). All seats in one seat row must be
+tested simultaneously.</p>
+<p>The pull forces (10,0 kN) must be applied simultaneously within 30
+seconds and must be held for 1 second. The force is then increased by
+20% within two seconds (12,0 kN), held for 1 second and released within
+2 seconds.</p>
+<p>All test-specific criteria must be complied with and documented
+during both the development phase and standard production testing.</p>
+<p>[redacted-person] Specifications LAH.8P0.885.B</p>
+</blockquote>
+<h1 id="child-restraint-anchorage-systems-8"><br/>
+[redacted]</h1>
+<blockquote>
+<p><strong>Canada CMVSS 210.1/ 210.2</strong></p>
+<p>Dept.: [redacted-id]</p>
+<p>Page: 10 of 9</p>
+<p>Change status: [redacted-phone]</p>
+</blockquote>
+<h2 id="assessment-criteria-for-top-tether-tensile-test"><em>[redacted-person] for "[redacted]"</em></h2>
+<blockquote>
+<p>Forces must not fall below the required levels throughout the holding
+time.</p>
+</blockquote>
+<h2 id="function-testing"><em>[redacted-person]</em></h2>
+<h2 id="general-information"><em>[redacted-person]</em></h2>
+<blockquote>
+<p>The adjustment functions of the vehicle seats must not be impaired.
+It must be possible to install the child restraint in all adjustable
+positions of the seat (customary seat adjustments).</p>
+<p>Foldable ISOFIX anchorages must meet the requirements of CMVSS
+210.2:</p>
+<p>- There must be no displacements &gt; 5 mm when applying loads of 100
+N to the ISOFIX anchorage point.</p>
+<p>Foldable systems must allow one-hand operation.</p>
+<p>The function of the foldable child restraint anchorage system must be
+ensured at temperatures between –40°C and +80°C.</p>
+<p>The child restraint anchorage system must not lead to a decrease in
+comfort or to unpleasant sounds (e.[redacted-person]) during driving
+operation.</p>
+<p>The usage position must be represented free of play.</p>
+</blockquote>
+<h2 id="susceptibility-to-stress"><em>Susceptibility to Stress</em></h2>
+<blockquote>
+<p>The foldable child restraint anchorage system must be functional in
+all coordinate directions even in the event of stress due to production
+tolerances.</p>
+<p>The maximum permissible increase of the operating forces in the event
+of stress is 20%.</p>
+</blockquote>
+<h2 id="operating-forces-for-foldable-isofix-anchorages"><em>[redacted-person] for Foldable ISOFIX Anchorages</em></h2>
+<blockquote>
+<p>Unlocking: N Locking: N</p>
+<p>The values will be specified based on first samples.</p>
+</blockquote>
+<h2 id="endurance-test-for-foldable-isofix-anchorages"><em>[redacted-person] for Foldable ISOFIX Anchorages</em></h2>
+<blockquote>
+<p>An endurance test with 5 000 cycles must be performed: 1 500 cycles
+at room temperature without soiling</p>
+<p>1 000 cycles at +60 °C</p>
+<p>1 000 cycles at –20 °C</p>
+<p>1 500 cycles at room temperature with soiling (5 g test dust directly
+applied to moving parts)</p>
+<p>Damage to the ISOFIX system of any kind must not occur. The system
+must still be fully functional after testing. After the endurance test,
+the maximum permissible increase of the operating force values is
+20%.</p>
+</blockquote>
+</body>
+</html>

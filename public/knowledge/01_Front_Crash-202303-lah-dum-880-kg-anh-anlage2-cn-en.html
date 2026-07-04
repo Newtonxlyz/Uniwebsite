@@ -1,0 +1,2242 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>202303_LAH_DUM_880_KG_Anh_Anlage2_CN_EN</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p>Development, [redacted-person]</p>
+</blockquote>
+<h4 id="marder-iek-511-572155"><img src="./01_Front_Crash-202303-lah-dum-880-kg-anh-anlage2-cn-en-media/media/image2.png" style="width:5.58879in;height:4.69167in"/>Marder [redacted]</h4>
+<h4 id="section">36395</h4>
+<h4 id="patrick.marderaudi.de"><a href="mailto:patrick.marder@audi.de"><u>[redacted-email]</u></a></h4>
+<h4 id="section-1">[redacted-phone]</h4>
+<h4 id="section-2">[redacted-phone]</h4>
+<blockquote>
+<p>[redacted-person]./OU</p>
+<p>Phone [redacted-phone]..</p>
+<p>Fax [redacted-phone]..</p>
+<p>E-mail First issue</p>
+<p>Date of revision</p>
+<p>[redacted]</p>
+<p>[redacted-addr]</p>
+<p>Phone: [redacted-phone]</p>
+<p><strong>[redacted-person], Appendix 2</strong></p>
+<p><strong>[redacted]for [redacted-person]
+LAH.DUM.880.KG – V2</strong></p>
+<p><strong>LAH.XXX.XXX</strong></p>
+</blockquote>
+<p>Confidential!</p>
+<blockquote>
+<p><strong>Signatures:</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Role</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Department</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Signature</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Whole vehicle development</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Distribution list:</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Role</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Department</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Passive safety features development</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Body design</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Functional design Body structure</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Functional design Body structure</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Functional design Body structure</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Functional design Body structure</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person]</p>
+<p>NN</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Revision record</strong></p>
+<p>Confidential!</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Date of revision</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Description of change(s)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Author</strong></p>
+<p><em>(Name,</em></p>
+</blockquote></th>
+<th><blockquote>
+<p><em>OU)</em></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>(V1) First issue; contents adapted for China</p>
+</blockquote></td>
+<td><blockquote>
+<p>Marder</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>(V1) Section 3 "Structural requirements from rating records"
+updated</p>
+</blockquote></td>
+<td><blockquote>
+<p>Marder</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Version 2 created with:</p>
+</blockquote>
+<ul>
+<li><p>Signatures and distribution list page changed (as per side-impact
+LAHs)</p></li>
+<li><p>Requirements supplemented in China NCAP (C-NCAP) column: incl.
+MPDB</p></li>
+<li><p>Section 3 "Structural requirements from rating records"
+supplemented</p></li>
+</ul></td>
+<td><blockquote>
+<p>Marder</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><ul>
+<li><p>Section "b) General points" updated</p></li>
+<li><p>Seat-plane occupant load criterion (SPOLC) backup slide
+added</p></li>
+</ul></td>
+<td><blockquote>
+<p>Marder</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>- C-IASI table in section 1a) "Dummy specifications" updated</p>
+</blockquote></td>
+<td><blockquote>
+<p>Marder</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] structure and contacts changed Restraint system feedback:</p>
+<p>- Point deleted from structure value table, point S2: dyn. seat
+bottom lowering from sim.</p>
+</blockquote></td>
+<td><blockquote>
+<p>Marder</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Contents</strong></p>
+<p>Confidential!</p>
+</blockquote>
+<p><a href="#preface">Preface 4</a></p>
+<p><a href="#general-development-specifications">General development
+specifications 5</a><a href="#legislation">Legislation. 10</a><a href="#structural-requirements-from-rating-records">Structural
+requirements from rating records 11</a></p>
+<h1 id="preface">Preface</h1>
+<h2 id="this-appendix-to-the-performance-specification-describes-services-requirements-and-testing-conditions-for-the-whole-vehicle-which-the-product-must-fulfill-when-development-is-complete.-please-note-that-evaluation-criteria-may-change.">This
+appendix to the [redacted-person] describes services,
+requirements, and testing conditions for the whole vehicle, which the
+product must fulfill when development is complete. Please note that
+evaluation criteria may change.</h2>
+<h2 id="the-contents-of-this-appendix-must-not-be-disclosed-to-third-parties-without-the-explicit-approval-of-audi-ag.">The
+contents of this appendix must not be disclosed to third parties without
+the explicit approval of [redacted]</h2>
+<h2 id="the-general-development-specifications-must-be-taken-into-account-in-the-design.-reporting-with-reference-to-the-general-development-specifications-is-required.">The
+general development specifications must be taken into account in the
+design. Reporting with reference to the general development
+specifications is required.</h2>
+<h1 id="general-development-specifications">General development
+specifications</h1>
+<h4 id="the-initial-values-for-vehicle-development-are-specified-below.-they-can-be-adapted-in-consultation-with-vehicle-safety-depending-on-the-course-of-development-and-development-boundary-conditions.">The
+initial values for vehicle development are specified below. They can be
+adapted in consultation with [redacted-person] (depending on the course of
+development and development boundary conditions).</h4>
+<h3 id="north-china-cn-load-cases">[redacted-person] (CN) load cases:</h3>
+<table style="width:100%;">
+<thead>
+<tr>
+<th>Evaluated parameters</th>
+<th><blockquote>
+<p><strong>C-NCAP ODB</strong></p>
+<p><strong>64 km/h – incl. MPDB 50 km/h</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>ODB 64 km/h (worst case)</strong></p>
+<p>(incl.: China GB [redacted-phone])</p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-NCAP 0° 50 km/h</strong></p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+<p><strong>1x HF (rear left) 1x Q3 (rear right)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-IASI</strong></p>
+<p><strong>(target "good") left and right</strong></p>
+<p><strong>C-IASI left: 1x 50th PCTL HIII;</strong></p>
+<p><strong>5th PCTL female rear left</strong></p>
+<p><strong>C-IASI right: 2x 50th PCTL HIII;</strong></p>
+<p><strong>5th PCTL female rear right</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Statutory 0° crash 50 km/h</strong></p>
+<p>(China GB [redacted-phone])</p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+</blockquote></th>
+</tr>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p>Overview</p>
+</blockquote></th>
+<th style="text-align: right;">Evaluation parameter</th>
+<th><blockquote>
+<p><strong>Volume- production engine</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>All variants</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Volume-production engine</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Entry-level variant (Low)</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>All variants</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2" style="text-align: center;"><blockquote>
+<p><strong>Seat</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>S1</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Tilting of seat connection points (seat row SR
+1)</strong></p>
+<p>Static per connection and relative to each other in longitudinal,
+transverse, and diagonal</p>
+<p>directions</p>
+</blockquote></td>
+<td><blockquote>
+<p>Z &lt; 5°</p>
+</blockquote></td>
+<td><blockquote>
+<p>Z &lt; 7°</p>
+</blockquote></td>
+<td><blockquote>
+<p>Z &lt; 5°</p>
+</blockquote></td>
+<td><blockquote>
+<p>Z &lt; 60 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>Z &lt; 5°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>S1</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Tilting of seat connection points (SR 1)</strong></p>
+<p>Dynamic per connection and relative to each</p>
+<p>other in longitudinal, transverse, and diagonal directions
+(simulation values)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Z &lt; 7°</p>
+</blockquote></td>
+<td><blockquote>
+<p>Z &lt; 9°</p>
+</blockquote></td>
+<td><blockquote>
+<p>Z &lt; 7°</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>Z &lt; 7°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="2" style="text-align: center;"><blockquote>
+<p><strong>Door</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Point [redacted-phone]</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>A-pillar displacement</strong></p>
+<p>(as per Euro NCAP)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 40 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Resulting upper displacement &lt; 75 mm</p>
+<p>Resulting lower displacement &lt; 150 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><strong>Point 830</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Door cut-out reduction</strong></p>
+<p>(door hinges to B-pillar)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 40 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>Resulting upper reduction &lt; 75 mm Resulting lower reduction &lt;
+150 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="5" style="text-align: center;"><blockquote>
+<p><strong>Vehicle</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>OLC (occupant load criterion)</strong></p>
+<p>Values always as agreed with [redacted-id] (OLC table)//SPOLC (for
+C-IASI)</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>28 g</p>
+</blockquote></td>
+<td><blockquote>
+<p>35 g</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>35 g (with adaptive restraint system)</p>
+<p>32 g (without adaptive restraint system)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Vehicle offset in Y</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Y &lt; 100 mm to 100 ms (MLB only)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Sill displacement in Y</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Dynamic lowering in Z (film tracking point: upper
+A-pillar)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 80 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>Average of 3 points in Y &lt; 50 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Evaluated parameters</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-NCAP ODB</strong></p>
+<p><strong>64 km/h – incl. MPDB 50 km/h</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>ODB 64 km/h (worst case)</strong></p>
+<p>(incl.: China GB [redacted-phone])</p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-NCAP 0° 50 km/h</strong></p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+<p><strong>1x HF (rear left) 1x Q3 (rear right)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-IASI</strong></p>
+<p><strong>(target "good") left and right</strong></p>
+<p><strong>C-IASI left: 1x 50th PCTL HIII;</strong></p>
+<p><strong>5th PCTL female rear left</strong></p>
+<p><strong>C-IASI right: 2x 50th PCTL HIII;</strong></p>
+<p><strong>5th PCTL female rear right</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Statutory 0° crash 50 km/h</strong></p>
+<p>(China GB [redacted-phone])</p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Overview</p>
+</blockquote></td>
+<td><blockquote>
+<p>Evaluation parameter</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Volume- production engine</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>All variants</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Volume-production engine</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Entry-level variant (Low)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>All variants</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="8" style="text-align: center;"><strong>Footwell</strong></td>
+<td style="text-align: center;"><blockquote>
+<p>F1</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Max. intrusion of all heel impact areas: a) driver, left; b)
+driver, right; c) front</strong></p>
+<p><strong>passenger</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>X &lt; 30 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 80 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>X &lt; 20 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>150 mm Resulting (X, Y, Z)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 50 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>F2</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Foot rest displacement, upper</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 45 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 30 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>150 mm Resulting (X, Y, Z)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 70 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>F3</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Secondary protection area, driver heel impact
+area</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 45 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 30 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 70 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>F2 – F1</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Max difference between F1 and F2</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 20 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 30 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 20 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 30 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>F4</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Pedal surface displacement, accelerator pedal</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>X &lt; 40 mm</p>
+<p>Y &lt; 50 mm</p>
+<p>Z &lt; 0 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+<p>Y &lt; 50 mm</p>
+<p>Z &lt; 30 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>X &lt; 30 mm</p>
+<p>Y &lt; 50 mm</p>
+<p>Z &lt; 0 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+<p>Y &lt; 50 mm</p>
+<p>Z &lt; 30 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>F5</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>(Potentiometer displacement, accelerator pedal)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 40 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 30 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>F6</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Pedal surface displacement, brake pedal and clutch
+pedal</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>X &lt; 50 mm</p>
+<p>Y &lt; 50 mm</p>
+<p>Z &lt; 50 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+<p>Y &lt; 50 mm</p>
+<p>Z &lt; 50 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>X &lt; 50 mm</p>
+<p>Y &lt; 50 mm</p>
+<p>Z &lt; 50 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>150 mm Resulting (X, Y, Z)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+<p>Y &lt; 50 mm</p>
+<p>Z &lt; 50 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>F7</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Tunnel intrusion ("transmission penetration into passenger
+compartment"</strong></p>
+<p><strong>MLB)</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Y &lt; 20 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Y &lt; 90 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Evaluated parameters</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-NCAP ODB</strong></p>
+<p><strong>64 km/h – incl. MPDB 50 km/h</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>ODB 64 km/h (worst case)</strong></p>
+<p>(incl.: China GB [redacted-phone])</p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-NCAP 0° 50 km/h</strong></p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+<p><strong>1x HF (rear left) 1x Q3 (rear right)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-IASI</strong></p>
+<p><strong>(target "good") left and right</strong></p>
+<p><strong>C-IASI left: 1x 50th PCTL HIII;</strong></p>
+<p><strong>5th PCTL female rear left</strong></p>
+<p><strong>C-IASI right: 2x 50th PCTL HIII;</strong></p>
+<p><strong>5th PCTL female rear right</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Statutory 0° crash 50 km/h</strong></p>
+<p>(China GB [redacted-phone])</p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>Overview</p>
+</blockquote></td>
+<td><blockquote>
+<p>Evaluation parameter</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Volume- production engine</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>All variants</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Volume-production engine</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Entry-level variant (Low)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>All variants</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="7" style="text-align: center;"><strong>Firewall</strong></td>
+<td style="text-align: center;"><blockquote>
+<p>M1</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Firewall intrusion in front of upper steering</strong></p>
+<p><strong>column universal joint or in front of intermediate
+shaft</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm AND</p>
+<p>NO contact</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 150 mm AND contact max. 40 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm AND NO</p>
+<p>contact</p>
+</blockquote></td>
+<td><blockquote>
+<p>X &lt; 100 mm AND NO contact</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm AND NO contact</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>M2</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Firewall intrusion, driver side</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm AND</p>
+<p>&lt; clearance</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 150 mm AND &lt; 150% of</p>
+<p>clearance</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm AND</p>
+<p>&lt; clearance</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm AND &lt; clearance</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>M3</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Steering breakthrough in lower universal</strong></p>
+<p><strong>joint area (MQB)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 150 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>M3</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Steering breakthrough in intermediate</strong></p>
+<p><strong>shaft area (MLB)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 150 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>M4</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Firewall intrusion in front passenger area</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 50 mm AND</p>
+<p>&lt; clearance</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 75 mm AND</p>
+<p>&lt; 150% of clearance</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 50 mm AND</p>
+<p>&lt; clearance</p>
+</blockquote></td>
+<td><blockquote>
+<p>150 mm Resulting (X, Y, Z)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 75 mm AND &lt; 150% of</p>
+<p>clearance</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>M5</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Vibration isolation strut connection</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 20 mm +</p>
+<p>deformation of vibration isolation strut between body-in-white
+and</p>
+<p>steering connection point</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>x &lt; 40 mm + deformation of vibration isolation strut between
+body-in-white and steering connection point</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 20 mm +</p>
+<p>deformation of vibration isolation strut between body-in-white and
+steering connection point</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 20 mm + deformation of vibration isolation strut between
+body-in-white and steering connection point</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Resulting static windshield crossmember</strong></p>
+<p><strong>intrusion (dynamic from simulation)</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≤ 15 mm (≤ 25 mm)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≤ 15 mm (≤ 25 mm)</p>
+</blockquote></td>
+<td><blockquote>
+<p>≤ 15 mm (≤ 25 mm)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>≤ 15 mm (≤ 25 mm)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p>Evaluated parameters</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-NCAP ODB</strong></p>
+<p><strong>64 km/h – incl. MPDB 50 km/h</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>ODB 64 km/h (worst case)</strong></p>
+<p>(incl.: China GB [redacted-phone])</p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-NCAP 0° 50 km/h</strong></p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+<p><strong>1x HF (rear left) 1x Q3 (rear right)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>C-IASI</strong></p>
+<p><strong>(target "good") left and right</strong></p>
+<p><strong>C-IASI left: 1x 50th PCTL HIII;</strong></p>
+<p><strong>5th PCTL female rear left</strong></p>
+<p><strong>C-IASI right: 2x 50th PCTL HIII;</strong></p>
+<p><strong>5th PCTL female rear right</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Statutory 0° crash 50 km/h</strong></p>
+<p>(China GB [redacted-phone])</p>
+<p><strong>2x 50th PCTL HIII</strong></p>
+</blockquote></th>
+</tr>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p>Overview</p>
+</blockquote></th>
+<th><blockquote>
+<p>Evaluation parameter</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Volume-</strong></p>
+<p><strong>production engine</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>All variants</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Volume-production</strong></p>
+<p><strong>engine</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Entry-level variant (Low)</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>All variants</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="7"><blockquote>
+<p><strong>Steering wheel and dashboard</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Point 620</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Dashboard carrier intrusion, steering column
+center</strong></p>
+<p>(static)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 60 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 10 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 50 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Displacement of lower universal joint in X</strong></p>
+<p>(applies to steering gear directly in front of firewall, e.g.,
+MQB)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 150 mm</p>
+<p>+ 40 mm</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 100 mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Displacement of lower universal joint in X</strong> (applies
+to steering gear not directly in front of firewall, e.g., MLB)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 250 mm AND</p>
+<p>possible intermediate</p>
+<p>shaft displacement path</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 250 mm AND</p>
+<p>possible intermediate shaft displacement path</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 250 mm AND</p>
+<p>possible intermediate shaft displacement path</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>X &lt; 250 mm AND possible intermediate shaft displacement path</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Angle change at steering wheel hub</strong></p>
+<p>(measurement by adapter)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 4°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 6°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 4°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>&lt; 6°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Angle change, steering bracket</strong></p>
+<p>(measurement between steering column and dashboard carrier connection
+points)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 2°</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 3°</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 2°</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 3°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Steering column displacement in Y</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Y &lt; 100 mm</p>
+<p>(measured statically)</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>-</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Movement of dashboard/storage compartment/knee airbag into
+vehicle interior in knee impact area in X</strong></p>
+<p>(important: knee airbag must not protrude over dashboard contour into
+vehicle interior)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 35 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 10 mm</p>
+</blockquote></td>
+<td><blockquote>
+<p>75 mm Resulting (X, Y, Z)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 20 mm</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h3 id="general-points">General points:</h3>
+<h4 id="the-quality-of-the-following-criteria-must-be-evaluated-in-consultation-with-vehicle-safety">The
+quality of the following criteria must be evaluated in consultation with
+[redacted-person]:</h4>
+<h4 id="in-crash-tests-and-crash-simulations-with-an-offset-deformable-barrier-odb-at-64-kmh-and-worst-case-engine-type-structural-integrity-load-case-the-structural-integrity-incl.-evaluation-of-load-paths-e.g.-based-on-the-structure-catalog-must-be-ensured-in-addition-to-fulfillment-of-the-structure-value-table-see-above.-this-load-case-must-validate-the-structural-behavior-of-the-platform-and-vehicle-hat.">In
+crash tests and crash simulations with an offset deformable barrier
+(ODB) at 64 km/h and worst-case engine type (structural integrity load
+case), the structural integrity (incl. evaluation of load paths, e.g.,
+based on the "structure catalog") must be ensured in addition to
+fulfillment of the structure value table (see above). This load case
+must validate the structural behavior of the platform and vehicle
+hat.</h4>
+<h4 id="the-requirements-for-the-dashboard-carrier-are-described-in-detail-in-the-current-performance-specification-from-ek32-e.g.-component-tests.-the-requirement-from-ek5-is-that-the-dashboard-carrier-must-not-tear-although-incipient-cracks-are-permissible.-the-connection-between-a-pillars-must-be-maintained.-the-requirements-apply-to-all-crash-load-cases-listed-in-sections-a-and-b">The
+requirements for the dashboard carrier are described in detail in the
+current [redacted-person] from [redacted-person] (e.g., component tests). The
+requirement from [redacted-person] is that the dashboard carrier must not tear,
+although incipient cracks are permissible. The connection between
+A-pillars must be maintained. The requirements apply to all crash load
+cases listed in sections a) and b)</h4>
+<h4 id="after-a-crash-it-must-be-possible-for-at-least-one-door-per-seat-row-to-be-opened-from-the-outside-without-tools.-this-applies-to-all-statutory-and">After
+a crash, it must be possible for at least one door per seat row to be
+opened from the outside without tools. This applies to all statutory
+and</h4>
+<h4 id="consumer-protection-load-cases-and-the-following-internal-load-cases-fmvss-301-old-rear-impact-small-overlap-sol-worldwide-pole-frontal-impact-up-to-35-kmh-driving-under-truck-at-30-kmh-odb-must-fire-thresholds-30-and-solid-wall.">consumer-protection
+load cases and the following internal load cases: FMVSS 301 (old) rear
+impact, small overlap (SOL) worldwide, pole frontal impact up to 35
+km/h, driving under truck at 30 km/h, ODB must-fire thresholds, 30° and
+solid wall.</h4>
+<h4 id="high-voltage-performance-specification-lah.dum.880.as-also-applies-to-electrified-vehicles.">High-voltage
+[redacted-person] LAH.DUM.880.AS also applies to electrified
+vehicles.</h4>
+<h4 id="robustness-in-sol-china-insurance-automotive-safety-index-c-iasi-cn-load-case">Robustness
+in SOL ([redacted]Index [C-IASI] CN) load
+case:</h4>
+<h4 id="the-scatter-band-of-the-dispersion-computations-with-crash-weight-5-from-c-iasi-crash-weight-minimum-number-of-dispersion-computations-is-defined-in-the-project-must-lie-below-the-limit-curve-from-good-to-acceptable.">The
+scatter band of the dispersion computations with crash weight + 5% from
+C-IASI crash weight (minimum number of dispersion computations is
+defined in the project) must lie below the limit curve from "good" to
+"acceptable."</h4>
+<h4 id="requirements-for-windshield-strength">Requirements for
+windshield strength:</h4>
+<h4 id="the-bond-between-windshield-and-windshield-frame-must-be-maintained-after-a-crash-in-all-load-cases-and-with-every-engine-variant">The
+bond between windshield and windshield frame must be maintained after a
+crash in all load cases and with every engine variant</h4>
+<h4 id="the-following-benchmark-applies-in-the-event-of-windshield-detachment">The
+following benchmark applies in the event of windshield detachment:</h4>
+<h4 id="the-windshield-must-not-detach-by-more-than-25-with-regard-to-the-total-perimeter-of-the-windshield">The
+windshield must not detach by more than 25% with regard to the total
+perimeter of the windshield</h4>
+<h4 id="it-must-be-ensured-that-the-area-of-the-windshield-baseplenum-panel-is-not-negatively-affected-by-an-unfavorable-package-of-parts-e.g.-windshield-wiper-linkage-electronic-control-units-etc.">It
+must be ensured that the area of the windshield base/plenum panel is not
+negatively affected by an unfavorable package of parts (e.g., windshield
+wiper linkage, electronic control units, etc.)</h4>
+<p>Confidential!</p>
+<h1 id="legislation">Legislation</h1>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Load case</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>China ODB</strong></p>
+<p><strong>GB [redacted-phone]</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>China 0°</strong></p>
+<p><strong>GB [redacted-phone]</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>China 0°</strong></p>
+<p><strong>GB [redacted-phone]*2</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>56 km/h, 40%, ODB</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>48 km/h, 0°, rigid *1</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>48 km/h, 0°, rigid *1</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Objective</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Robust legal</p>
+<p>compliance (limits - 20%)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Robust legal</p>
+<p>compliance (limits - 20%)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Robust legal</p>
+<p>compliance (limits - 20%)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Vehicle</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>All</p>
+</blockquote></td>
+<td><blockquote>
+<p>All</p>
+</blockquote></td>
+<td><blockquote>
+<p>All</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Intrusions</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Steering wheel displacement in +X</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 80 mm (static)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 101 mm (dynamic)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Steering wheel</p>
+<p>displacement in Y</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Steering wheel displacement in +Z</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 64 mm (static)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h4 id="note-higher-test-speed-up-to-53.1-kmh-possible-as-per-legislation">*1
+Note: Higher test speed (up to 53.1 km/h) possible as per
+legislation</h4>
+<h4 id="covered-by-china-odb-gb-20913-2007">*2 Covered by China ODB GB
+[redacted-phone]</h4>
+<h1 id="structural-requirements-from-rating-records">Structural
+requirements from rating records</h1>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Type</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>C-IASI</strong></p>
+</blockquote></th>
+<th colspan="3" style="text-align: center;"><blockquote>
+<p><strong>C-NCAP**</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>64 km/h, 25%</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>64 km/h, 40%, ODB</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>50 km/h, 50%, MPDB</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>50 km/h, 0° solid wall</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Vehicle</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>Entry-level variant (Low)</p>
+</blockquote></td>
+<td colspan="3" style="text-align: center;"><blockquote>
+<p>Volume-production model</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Intrusions</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>/ *1</p>
+</blockquote></td>
+<td><blockquote>
+<p>ODB</p>
+</blockquote></td>
+<td><blockquote>
+<p>MPDB</p>
+</blockquote></td>
+<td><blockquote>
+<p>0°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Steering wheel displacement in X</p>
+</blockquote></td>
+<td><blockquote>
+<p>See development specifications</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 90 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 90 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 90 mm (modifier)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Steering wheel displacement in Y</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 100 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Steering wheel displacement in Z</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 100 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 72 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 72 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 72 mm (modifier)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pedal displacement in X</p>
+</blockquote></td>
+<td><blockquote>
+<p>See development specifications</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pedal displacement in X (with pedal blocking)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 50 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 50 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pedal displacement in X (without pedal blocking)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 100 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 100 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pedal displacement in Z</p>
+</blockquote></td>
+<td><blockquote>
+<p>See development specifications</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 72 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 72 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Door displacement in X</p>
+</blockquote></td>
+<td><blockquote>
+<p>Closed during and after crash</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>A-pillar 100 – 200 mm (sliding scale)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 100 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 100 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Fuel leakage</p>
+</blockquote></td>
+<td><blockquote>
+<p>Tightness as per FMVSS 301</p>
+</blockquote></td>
+<td><blockquote>
+<p>-2 points at 30 g/min</p>
+</blockquote></td>
+<td><blockquote>
+<p>-2 points at 30 g/min</p>
+</blockquote></td>
+<td><blockquote>
+<p>-2 points at 30 g/min</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat belt buckle (SBB) difficult to open</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>-1 point per SBB &gt; 60 N</p>
+</blockquote></td>
+<td><blockquote>
+<p>-1 point per SBB &gt; 60 N</p>
+</blockquote></td>
+<td><blockquote>
+<p>-1 point per SBB &gt; 60 N</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seat tilting</p>
+</blockquote></td>
+<td><blockquote>
+<p>&lt; 60 mm (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Barrier OLC limits 25 – 40 g (sliding scale)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>Up to max. -3 points</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Standard deviation (SD) 5 0 – 150 mm (sliding scale)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>Up to max. -2 points</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Bottoming out (40 * 60 mm surfaces)</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>-1 point</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Structure heights specification</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+<td><blockquote>
+<p>-1 point</p>
+</blockquote></td>
+<td><blockquote>
+<p>/</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Structural integrity</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 out of 3 load paths</p>
+<p>must remain integral (modifier)</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 out of 3 load paths must remain integral (modifier)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h4 id="note-intrusion-values-of-insurance-institute-for-highway-safety-iihs-sol-adopted">*1
+Note: Intrusion values of [redacted-person] for [redacted-person] (IIHS)
+SOL adopted</h4>
+<h4 id="note-starting-in-2021-introduction-of-mobile-progressive-deformable-barrier-mpdb-load-case-and-deletion-of-odb-in-china-ncap.-official-limitsrequirements-are-not-known-as-of-yet.-best-guess-adoption-of-odb-limits.">**
+Note: Starting in 2021, introduction of mobile progressive deformable
+barrier (MPDB) load case and deletion of ODB in China NCAP. Official
+limits/requirements are not known as of yet. Best guess: adoption of ODB
+limits.</h4>
+<blockquote>
+<p><strong>Backup</strong></p>
+</blockquote>
+<h2 id="figure-tunnel-intrusion-modular-longitudinal-matrix-mlb-vehicles">Figure:
+Tunnel intrusion (modular longitudinal matrix [MLB] vehicles)</h2>
+<p><img src="./01_Front_Crash-202303-lah-dum-880-kg-anh-anlage2-cn-en-media/media/image4.jpeg" style="width:4.00633in;height:2.94in"/><img src="./01_Front_Crash-202303-lah-dum-880-kg-anh-anlage2-cn-en-media/media/image5.jpeg" style="width:3.97182in;height:2.91333in"/></p>
+<h5 id="vorgabefeld-kriterium-getriebeeinschlag-target-field-for-transmission-penetration-into-vorschlag-für-strukturwertetabelle-recommendation-for-structure-value-table">[redacted]field for transmission penetration
+into Vorschlag für [redacted-person] for structure
+value table</h5>
+<h5 id="passenger-compartment-criterion"> <u>passenger compartment
+criterion</u> </h5>
+<h5 id="startwert-euroncap-max.-20mm"><br/>
+Startwert EuroNCAP: max. 20mm</h5>
+<h5 id="euro-ncap-initial-value-max.-20-mm"><br/>
+Euro NCAP initial value: max. 20 mm</h5>
+<h5 id="projektspezifisch-festzulegen-vom-fersenpunkt-50m-ausgehend">projektspezifisch
+festzulegen, vom Fersenpunkt (50%m) ausgehend</h5>
+<h5 id="au736-kp-eu-64sodb-l-3h3z00-v053-bv">AU736 KP EU 64sODB L
+3H3z+00 V053 Bv</h5>
+<h5 id="to-be-defined-on-a-project-specific-basis-originating-from-heel-point-50th-pctl-male-au736-kp-eu-64sodb-l-3h3z00-v053-bv"><br/>
+To be defined on a project-specific basis, originating from heel point
+(50th PCTL male) AU736 KP EU 64sODB L 3H3z+00 V053 Bv</h5>
+<h5 id="intrusion"><br/>
+Intrusion</h5>
+<h5 id="projektspezifisch-abweichende-ziele-sind-für-die-intrusionen-entsprechend-grafik">Projektspezifisch
+abweichende Ziele sind für die Intrusionen entsprechend Grafik</h5>
+<h5 id="intrusion-1"><br/>
+intrusion</h5>
+<h5 id="project-specific-deviating-targets-must-be-defined-for-the-intrusions-as-per-figure">Project-specific
+deviating targets must be defined for the intrusions, as per figure</h5>
+<h5 id="festzulegen">1 1 <u>festzulegen</u> </h5>
+<h5 id="jan-wauer-iek-511-auslegungskriterium">[redacted]Auslegungskriterium</h5>
+<h5 id="getriebeeinschlag-22.02.2013">Getriebeeinschlag, [redacted-phone]</h5>
+<h5 id="jan-wauer-iek-511-transmission"><br/>
+[redacted]transmission</h5>
+<h5 id="penetration-into-passenger-compartment">penetration into
+passenger compartment</h5>
+<h5 id="max.-wert-für-wc-crash-odb-64kmh"><br/>
+max. Wert für WC-Crash OdB 64km/h:</h5>
+<h5 id="max.-90mm-intrusion-biomech.-grenzwert-ti">max. 90mm Intrusion
+(biomech. Grenzwert TI</h5>
+<h5 id="max.-value-for-worst-case-crash-odb"><br/>
+Max. value for worst-case crash ODB</h5>
+<h5 id="kmh-max.-90-mm-intrusion">64 km/h: max. 90 mm intrusion</h5>
+<h5 id="design-criterion-2013-02-22"> <u>design criterion,
+[redacted-phone]</u> </h5>
+<h5 id="section-3"><br/>
+&lt;= 1,3)</h5>
+<h5 id="biomechanical-limit-tibia-index-ti-1.3"><br/>
+(biomechanical limit tibia index TI ≤ 1.3)</h5>
+<h5 id="max.-intrusion-y-max.-intrusion-y">max. Intrusion y Max.
+intrusion Y</h5>
+<h5 id="tibia-index-tibia-index">Tibia-[redacted-person] index</h5>
+<h5 id="intrusion-y-mm-intrusion-y-mm">Intrusion y [mm] Intrusion Y
+[mm]</h5>
+<h5 id="jan-wauer-iek-511-auslegungskriterium-getriebeeinschlag-22.02.2013">[redacted]</h5>
+<h5 id="jan-wauer-iek-511-transmission-penetration-into-passenger-compartment-design-criterion-2013-02-22"><br/>
+[redacted]transmission penetration into passenger compartment
+design criterion, [redacted-phone]</h5>
+<h2 id="overview-of-surfaces-for-intrusion-limits-e.g.-modular-transverse-matrix-mqb">Overview
+of surfaces for intrusion limits (e.g., modular transverse matrix
+[MQB]):</h2>
+<h2 id="the-surfaces-must-always-be-aligned-roughly.-fine-adjustment-or-any-changes-to-the-surfaces-can-take-place-on-a-project-specific-basis.">The
+surfaces must always be aligned roughly. Fine adjustment or any changes
+to the surfaces can take place on a project-specific basis.</h2>
+<p><img src="./01_Front_Crash-202303-lah-dum-880-kg-anh-anlage2-cn-en-media/media/image6.jpeg" style="width:4.31159in;height:2.77333in"/><img src="./01_Front_Crash-202303-lah-dum-880-kg-anh-anlage2-cn-en-media/media/image7.jpeg" style="width:4.39853in;height:2.84in"/></p>
+<blockquote>
+<p>[redacted-person] Intrusion areas, left-hand drive (LHD)
+vehicle</p>
+<p>[redacted-person] Plenum chamber, driver side</p>
+<p>[redacted-person] Vibration isolation strut connection
+Stirnwand vor dem oberen [redacted-person] in front of upper
+universal joint [redacted-person] Air conditioning system
+breakthrough</p>
+<p>[redacted-person] Intrusion areas, right-hand drive
+(RHD) vehicle</p>
+<p>[redacted-person] Air conditioning system breakthrough Stirnwand
+vor dem oberen [redacted-person] in front of upper universal joint
+[redacted-person] Vibration isolation strut connection</p>
+<p>[redacted-person] Firewall, front passenger side</p>
+<p>oberes [redacted-person] wheel housing</p>
+<p>[redacted]und [redacted-person], driver
+side, steering and pedal cluster area</p>
+<p>[redacted]und</p>
+<p>Fußhebelwerk</p>
+<p>Firewall, driver side, steering and pedal cluster area</p>
+<p>[redacted-person] Firewall, front passenger side</p>
+<p>Fußstütze oben Foot rest, upper</p>
+<p>[redacted-person] breakthrough</p>
+<p>[redacted-person] Ball of foot area, front passenger</p>
+<p>sekundärer [redacted-person] protection area</p>
+<p>[redacted-person] rechts Ball of foot, driver, right</p>
+<p>[redacted-person] links Heel rest, driver, left</p>
+<p>[redacted-person] rechts Heel rest, driver, right</p>
+<p>[redacted-person] nur bei MLB Tunnel, front passenger side, MLB
+only</p>
+<p>[redacted-person] Ball of foot area, front passenger</p>
+<p>[redacted-person] breakthrough</p>
+<p>Fußstütze oben Foot rest, upper</p>
+<p>sekundärer [redacted-person] protection area</p>
+<p>[redacted-person] rechts Ball of foot, driver, right</p>
+<p>[redacted-person] Heel rest, front passenger</p>
+<p>[redacted-person] nur bei MLB Tunnel, front passenger side, MLB
+only</p>
+<p>[redacted-person] links Heel rest, driver, left</p>
+<p>[redacted-person] rechts Heel rest, driver, right</p>
+<p>[redacted-person] Heel rest, front passenger</p>
+<p>[redacted-person]</p>
+<p>Body &amp; [redacted-person]</p>
+<p>[redacted-person]</p>
+<p>[redacted-person] EKSG</p>
+<p>Body &amp; [redacted-person]</p>
+<p>[redacted-person] – [redacted-person] Function EKSG</p>
+<p>[redacted-person] EKSG</p>
+<p>[redacted-person] – [redacted-person] Function EKSG</p>
+</blockquote>
+<p>Confidential!</p>
+<ul>
+<li><p><strong>As long as the surface measurement cannot be evaluated at
+[redacted-co], the following substitute measurements apply:</strong></p></li>
+</ul>
+<h2 id="the-measurement-surfaces-are-replaced-by-the-following-minimum-quantity-of-measuring-points.-these-points-apply-to-rhd-and-lhd-vehicles">The
+measurement surfaces are replaced by the following <u>minimum</u>
+quantity of measuring points. These points apply to RHD and LHD
+vehicles:</h2>
+<h2 id="f1a-foot-rest-point-iii">F1a Foot rest point III</h2>
+<h2 id="f1b-firewall-point-8-12">F1b Firewall point 8-12</h2>
+<h2 id="f1c-firewall-point-5-6-7-9-10-11-reason-number-of-possible-foot-positions">F1c
+Firewall point 5-6-7-[redacted-phone](reason: number of possible foot
+positions)</h2>
+<h2 id="f2-foot-rest-point-i">F2 Foot rest point I</h2>
+<h2 id="f3-firewall-point-5-6-7-9-10-11">F3 Firewall point
+5-6-7-[redacted-phone]</h2>
+<h2 id="f7-tunnel-line-in-y-z-height-must-be-defined-in-the-individual-projects-in-cooperation-with-ek512">F7
+Tunnel line in Y; Z height must be defined in the individual projects in
+cooperation with [redacted-person]</h2>
+<h2 id="m1-firewall-steering-point-volkswagen-point-540">M1 Firewall
+steering point (Volkswagen point 540)</h2>
+<h2 id="m2-4-special-points-that-must-be-evaluated-individually-in-every-project-area-of-highest-intrusion-in-worst-case-lhd-odb-64-kmh-and-0-56-kmh-load-case">M2
+4 special points that must be evaluated individually in every project
+(area of highest intrusion in worst case LHD ODB 64 km/h and 0° 56 km/h
+load case)</h2>
+<h2 id="m3-firewall-breakthrough-point">M3 Firewall breakthrough
+point</h2>
+<h2 id="m4-4-special-points-that-must-be-evaluated-individually-in-every-project-area-of-highest-intrusion-in-worst-case-rhd-odb-64-kmh-and-0-56-kmh-load-case">M4
+4 special points that must be evaluated individually in every project
+(area of highest intrusion in worst case RHD ODB 64 km/h and 0° 56 km/h
+load case)</h2>
+<h2 id="m5-point-at-center-of-dashboard-carrier-on-driver-side-center-of-steering-column">M5
+Point at center of dashboard carrier on driver side (center of steering
+column)</h2>
+<h2 id="spolc-explanation">SPOLC explanation</h2>
+<blockquote>
+<p>Confidential!</p>
+<p><img src="./01_Front_Crash-202303-lah-dum-880-kg-anh-anlage2-cn-en-media/media/image8.jpeg" style="width:4.47847in;height:3.41667in"/> <img src="./01_Front_Crash-202303-lah-dum-880-kg-anh-anlage2-cn-en-media/media/image9.jpeg" style="width:4.06472in;height:3.38in"/></p>
+<p>Erklärung zum SPOLC Explanation of SPOLC (seat-plane occupant
+load</p>
+<p><u>criterion)</u></p>
+<p>[redacted]SPOLC [redacted-phone]</p>
+<p>Datenklassifikation: vertraulich</p>
+<p>[redacted-co] [redacted-person] SPOLC [redacted-phone]; data</p>
+<p>classification: confidential</p>
+<p>› bei Schräglastfällen ist die Bestimmung des OLC nicht eindeutig
+(Schweller links/rechts, vorne/hinten, ZAE). Für den Insassen am
+relevantesten ist dabei der Verzögerungsverlauf mittig unter dem Sitz
+der stoßzugewandten Seite.</p>
+<p>› Platzierung des Beschleunigungsaufnehmers für den SPOLC (=
+Seatplane OLC):</p>
+</blockquote>
+<h6 id="x-hinterer-sitzquerträger">› x = hinterer Sitzquerträger</h6>
+<blockquote>
+<p>› In oblique load cases, determination of the OLC is not clear (sills
+left/right, front/rear, airbag control module) The most relevant aspect
+for the occupants is the deceleration curve at the center, under the
+seat, of the side facing the impact.</p>
+<p>› Placement of the acceleration sensor for the SPOLC:</p>
+</blockquote>
+<h6 id="x-rear-seat-crossmember">› X = rear seat crossmember</h6>
+<blockquote>
+<p>SPOLC Messstelle im Fahrzeug mit Kanalbezeichnung</p>
+<p>[redacted]AGC02 / RKA802 /</p>
+<p>F0067 [redacted-person] und Messtellen [redacted-phone]Versuchsansprechpartner [redacted-person]:</p>
+<p>[redacted]Messstellenkatalog</p>
+<p>Hinterer SitzQTR Fahrerseite</p>
+<p>SPOLC measuring point in the vehicle with channel designation</p>
+<p>[redacted-co] [redacted]AGC02 / RKA802 / F0067 Catalog of
+[redacted-person] and [redacted]</p>
+<p>Testing contact [redacted-person]:</p>
+<p>[redacted]Measuring point catalog</p>
+<p>Rear seat crossmember, driver side</p>
+</blockquote>
+<h6 id="y-sitzspur">› y = Sitzspur</h6>
+<blockquote>
+<p>› <strong>Y = seat track</strong></p>
+<p>[redacted-person] direction</p>
+</blockquote>
+<h6 id="z-hinterer-sitzquerträger">› z = hinterer Sitzquerträger</h6>
+<blockquote>
+<p>› der SPOLC ergibt sich aus dem OLC der globalen (Hallenkoordinaten)
+x-Komponente des hier definierten Punktes (rote Markierung im</p>
+</blockquote>
+<h6 id="z-rear-seat-crossmember"><br/>
+› Z = rear seat crossmember</h6>
+<blockquote>
+<p>› The SPOLC results from the OLC of the global (hall coordinates)
+X-component of the point defined here (red marking in figure).</p>
+<p>Sensoren werden für Auswertung SPOLC verwendet. 2 Sensoren direkt
+nebeneinander Fahrer: 11SERMMIMIFRACXP</p>
+<p>11SERMMIMIREACXP</p>
+<p>Sensors are used for evaluating SPOLC 2 sensors directly next to each
+other</p>
+<p>Driver: 11SERMMIMIFRACXP 11SERMMIMIREACXP</p>
+</blockquote>
+<p>Bild)</p>
+<blockquote>
+<p>› The SPOLC will also be evaluated directly in</p>
+<p>[redacted-person]</p>
+<p>› der SPOLC wird in Zukunft bei Versuchen direkt mit ausgewertet. Bis
+die Methode und der</p>
+<p>tests in future. Until the method and process are complete, manual
+evaluation and manual writing</p>
+<p>Beifahrer: 13SERMMIMIFRACXP 13SERMMIMIREACXP</p>
+<p>Front passenger: 13SERMMIMIFRACXP 13SERMMIMIREACXP</p>
+<p>Prozess fertig sind, ist eine händische Auswertung und ein manuelles
+zurückschreiben nach VisVerdi notwendig. In der Simulation ist eine
+Auswertung direkt möglich durch die Auswertung eines THNOD an der
+entsprechenden Stelle.</p>
+<p>› neue RHS-Anforderung:</p>
+<p>› <strong>SpOLC &lt; 35g</strong> für den [redacted-person] Lastfall</p>
+<p>Konzern abgestimmt, [redacted-co]misst nur am</p>
+<p>back to VisVerdi will be necessary. Direct evaluation is possible in
+the simulation by evaluating a THNOD at the appropriate point.</p>
+<p>› New restraint system requirement:</p>
+<p>› <strong>SPOLC &lt; 35 g</strong> for the SOL load case</p>
+<p>› Agreed within the Group, Volkswagen only measures at the sill
+facing impact, <strong>Volkswagen limit &lt; 40 g</strong></p>
+<p>Confidential!</p>
+<p><u>stoßzugewandten Schweller, <strong>VW-Grenze &lt; 40g
+</strong></u></p>
+</blockquote>
+</body>
+</html>

@@ -1,0 +1,1380 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>[redacted-person] Funktions-Lastenheft</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<header id="title-block-header">
+<h1 class="title">[redacted-person]
+Funktions-Lastenheft</h1>
+</header>
+<blockquote>
+<p>[redacted]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-person] / OE</p>
+<p>Hausruf [redacted-phone]</p>
+<p>Telefax [redacted]</p>
+<p>[redacted-co]</p>
+<p><img src="./03_Side_Crash-lah-dum-880-j-berechnung-seitenschutz-sy-media/media/image2.png" style="width:5.94261in;height:4.98656in"/>D[redacted]</p>
+<p><strong>[redacted-person] System LAH.DUM.880.J</strong></p>
+<p><strong>Verteiler</strong></p>
+</blockquote>
+<table>
+
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<p>Im Original unterschrieben</p>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<ol type="1">
+<li><p><a href="#vorwort">Vorwort 8</a></p></li>
+<li><p><a href="#allgemeine-projektvorgaben">[redacted-person]
+9</a></p>
+<ol type="1">
+<li><p><a href="#kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges 9</a></p></li>
+<li><p><a href="#entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang 9</a></p></li>
+<li><p><a href="#zeitschiene">Zeitschiene 10</a></p></li>
+<li><p><a href="#angebotsumfang">Angebotsumfang 10</a></p></li>
+<li><p><a href="#entwicklungsablauf">Entwicklungsablauf 11</a></p>
+<ol type="1">
+<li><p><a href="#terminplan-und-meilensteine">Terminplan und
+Meilensteine 11</a></p></li>
+<li><p><a href="#metriken-zur-projektverfolgung">Metriken zur
+Projektverfolgung 12</a></p></li>
+</ol></li>
+<li><p><a href="#qualität-und-zuverlässigkeit">Qualität und
+Zuverlässigkeit 12</a></p>
+<ol type="1">
+<li><p><a href="#offene-punkte-liste">[redacted-person]-Liste
+12</a></p></li>
+</ol></li>
+<li><p><a href="#freigabe-und-freigabeempfehlung">Freigabe und
+Freigabeempfehlung 12</a></p></li>
+</ol></li>
+<li><p><a href="#systemumgebung">Systemumgebung 13</a></p>
+<ol type="1">
+<li><p><a href="#funktionale-systemumgebung">[redacted-person]
+13</a></p></li>
+<li><p><a href="#physische-systemumgebung">[redacted-person]
+13</a></p></li>
+<li><p><a href="#lastfälle">Lastfälle 13</a></p>
+<ol type="1">
+<li><p><a href="#lastfälle-rdwnar-und-china">Lastfälle RDW/NAR und China
+13</a></p></li>
+<li><p><a href="#dummypositionen-einsitzuntersuchungen">Dummypositionen
+(Einsitzuntersuchungen) 14</a></p></li>
+<li><p><a href="#kindersicherheit">Kindersicherheit 14</a></p></li>
+<li><p><a href="#ziele">Ziele 14</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#leistungsbeschreibung">Leistungsbeschreibung
+15</a></p></li>
+</ol>
+<ol type="1">
+<li><p><strong>Entwicklungsablauf 15</strong></p></li>
+<li><p><a href="#schlitten--und-komponentenversuche"><strong>Schlitten-
+und Komponentenversuche 15</strong></a></p></li>
+<li><p><a href="#verantwortung-der-rückhaltesystementwicklung"><strong>Verantwortung
+der Rückhaltesystementwicklung 15</strong></a></p></li>
+<li><p><a href="#simulationsgetriebene-versuchsdurchführung"><strong>[redacted-person] 15</strong></a></p></li>
+<li><p><a href="#robustheitsuntersuchungen-doe"><strong>Robustheitsuntersuchungen
+&amp; DoE 16</strong></a></p></li>
+</ol>
+<ol start="5" type="1">
+<li><p><a href="#technische-anforderungen"><strong>[redacted-person] 18</strong></a></p>
+<ol type="1">
+<li><p><a href="#abdeckbereiche"><strong>Abdeckbereiche
+18</strong></a></p></li>
+<li><p><a href="#aufblaszeit"><strong>Aufblaszeit
+18</strong></a></p></li>
+<li><p><a href="#schutzwirkung"><strong>Schutzwirkung
+18</strong></a></p></li>
+<li><p><a href="#gasgenerator"><strong>Gasgenerator
+18</strong></a></p></li>
+<li><p><a href="#luftsack"><strong>Luftsack 18</strong></a></p></li>
+<li><p><a href="#packagemaße"><strong>Packagemaße
+19</strong></a></p></li>
+</ol></li>
+<li><p><a href="#anforderungen-an-erprobung"><strong>Anforderungen an
+Erprobung 20</strong></a></p></li>
+</ol>
+<ol type="1">
+<li><p><strong>Prüfmittel / Erprobungsträger 20</strong></p></li>
+<li><p><a href="#komponentenversuche"><strong>Komponentenversuche
+20</strong></a></p></li>
+<li><p><a href="#schlittenversuche"><strong>Schlittenversuche
+20</strong></a></p></li>
+<li><p><a href="#crashversuche"><strong>Crashversuche
+23</strong></a></p></li>
+<li><p><a href="#allgemeines"><strong>Allgemeines 23</strong></a></p>
+<ol type="1">
+<li><p><a href="#versuchsvor--und-nachbereitung"><strong>Versuchsvor-
+und nachbereitung 23</strong></a></p></li>
+<li><p><a href="#crashtestdummies"><strong>Crashtestdummies
+24</strong></a></p></li>
+<li><p><a href="#druckmessung-airbags"><strong>[redacted-person]
+24</strong></a></p></li>
+<li><p><a href="#teileplanung-und-logistik"><strong>Teileplanung und
+–logistik 24</strong></a></p></li>
+</ol></li>
+</ol>
+<ol start="7" type="1">
+<li><p><a href="#simulationsumfänge"><strong>Simulationsumfänge
+25</strong></a></p></li>
+</ol>
+<ol type="1">
+<li><p><strong>Umfänge 25</strong></p>
+<ol type="1">
+<li><p><a href="#gesamtfahrzeug"><strong>Gesamtfahrzeug
+25</strong></a></p></li>
+<li><p><a href="#schlitten"><strong>Schlitten 25</strong></a></p></li>
+<li><p><a href="#komponentenversuche-1"><strong>Komponentenversuche
+25</strong></a></p></li>
+<li><p><a href="#modellqualität-und-validierung"><strong>Modellqualität
+und Validierung 25</strong></a></p></li>
+<li><p><a href="#variantenlisten"><strong>Variantenlisten
+25</strong></a></p></li>
+</ol></li>
+<li><p><a href="#prozessumgebung"><strong>Prozessumgebung
+25</strong></a></p>
+<ol type="1">
+<li><p><a href="#loco"><strong>LoCo 25</strong></a></p></li>
+<li><p><a href="#cae-bench2"><strong>CAE-Bench2 26</strong></a></p></li>
+<li><p><a href="#cavit"><strong>CAViT 26</strong></a></p></li>
+<li><p><a href="#weitere-tools"><strong>[redacted-person]
+26</strong></a></p></li>
+</ol></li>
+<li><p><a href="#richtlinien-modellierung-und-prozess"><strong>[redacted-person] und Prozess 26</strong></a></p></li>
+</ol>
+<ol start="8" type="1">
+<li><p><a href="#projektabschluss"><strong>Projektabschluss
+27</strong></a></p></li>
+<li><p><a href="#dokumentation-und-datenaustausch"><strong>Dokumentation
+und Datenaustausch 28</strong></a></p></li>
+<li><p><a href="#mitgeltende-unterlagen"><strong>[redacted-person]
+29</strong></a></p>
+<ol type="1">
+<li><p><a href="#lastenhefte-zur-info"><strong>Lastenhefte zur Info
+29</strong></a></p></li>
+<li><p><a href="#technische-spezifikationen-normen"><strong>[redacted-person] / Normen 29</strong></a></p></li>
+</ol></li>
+</ol>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>Das vorliegende Lastenheft und die Norm [redacted-co]99000 ff. sind zusammen
+die Grundlage des zu erbringenden Leistungsumfanges des
+Auftragnehmers.</p>
+<p>[redacted-person] beschreibt Leistungen, Anforderungen, Prüf- und
+Erprobungsbedingungen, die das zu entwickelnde Produkt und der
+Auftragnehmer mindestens erfüllen müssen.</p>
+<p>[redacted-person] ist vom Auftragnehmer in einem Pflichtenheft zu
+dokumentieren. [redacted-person] ist vom Auftragnehmer auf dem
+aktuellen Stand zu halten.</p>
+<p>In diesem Lastenheft wird die anzuwendende Methodik detailliert
+beschrieben. [redacted-person] resultiert aus der Entwicklungserfahrung der
+[redacted-co] und ist deshalb für den Entwicklungsprozess bindend. [redacted-person] der Simulationsergebnisse auf hohem Niveau soll damit
+sichergestellt werden. [redacted-person] sind nur dann
+zulässig, wenn sie in [redacted-person] besser oder effektiver sind
+und dies der [redacted-co]-Fachabteilung eindeutig nachgewiesen wird und von
+dieser akzeptiert wurde.</p>
+<p>Abweichungen von diesem Lastenheft sind während der Angebotsphase mit
+der zuständigen [redacted-co]- Fachabteilung abzustimmen und schriftlich (mit
+Unterschrift [redacted-co]) festzuhalten. Dieses gilt für vom
+Entwicklungspartner ausgeschlossene Teilumfänge und für, aus dessen
+Sicht, zusätzliche erforderliche Umfänge.</p>
+</blockquote>
+<h1 id="allgemeine-projektvorgaben">[redacted-person]</h1>
+<blockquote>
+<p>Es gelten die Projektvorgaben der [redacted-co]99000 sowie die nachfolgend
+beschriebenen.</p>
+<p>[redacted-person] (kurz GE) – Vergaben sind Absprachen mit der
+[redacted-co]-Fachabteilung ebenfalls erforderlich. Dies ist im Text durch „in
+Absprache mit der [redacted-co]-Fachabteilung“ oder ähnliches gekennzeichnet.
+Falls die Zuständigkeit beim GE liegt, ist die Formulierung
+„[redacted-co]/GE-Fachabteilung“.</p>
+</blockquote>
+<h2 id="kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges</h2>
+<blockquote>
+<p>[redacted-person] übernimmt als Entwicklungsdienstleister die
+Abstimmung der Seitenschutzsysteme mit Hilfe von geeigneten Versuch- und
+Simulationssystemen. Dabei ist eine virtuell getriebene Entwicklung zu
+fokussieren.</p>
+</blockquote>
+<h2 id="entwicklungs--und-lieferumfang">Entwicklungs- und
+Lieferumfang</h2>
+<blockquote>
+<p>Es gelten die Anforderungen des Kapitels "Entwicklungs- und
+Lieferumfang" der [redacted-co]99000.</p>
+<p>[redacted-person] der Arbeiten hat [redacted-co] das Recht, die bis dahin erreichten
+Ergebnisse für eigene Zwecke und für alle Gesellschaften des VW-Konzerns
+ohne Einschränkung zu verwenden, ohne dafür besondere Vergütungen zu
+leisten. Darin enthalten ist auch die Befugnis, die Entwicklung auf
+Basis des bis dahin erreichten Standes durch Dritte fortführen zu
+lassen.</p>
+<p>Es ist die [redacted-person] der Seitenairbagmodule (Airbag zum
+Schutz von Thorax, Abdomen und Becken), für die vorderen und hinteren
+äußeren Passagiere zu entwickeln. Einbauort vorne in der Sitzlehne unter
+Bezug. Einbauort hinten in der Sitzlehne oder im Seitenpolster unter
+Bezug. Es ist darüber hinaus die [redacted-person] von
+Mittenairbagmodulen (Centerairbag) zu entwickeln, sofern dies
+Projektstand ist.</p>
+<p>Es ist die [redacted-person] eines Kopfschutzsystems für die
+1., die 2. und – falls vorhanden – 3. Sitzreihe für die äußeren
+Passagiere bezüglich Rückhaltewirkung zu entwickeln.</p>
+<p>Es ist die Funktion weiterer Airbags im Innenraum zu entwickeln,
+sofern diese Projektstand sind. Im weiteren Verlauf dieses Lastenhefte
+werden diese Airbags nicht weiter spezifiziert beziehungsweise
+angesprochen, sind aber immer mit zu betrachten. Die notwendigen
+Randbedingungen sind mit der [redacted-co]-Fachabteilung abzustimmen.</p>
+<p>Es ist sicherzustellen, dass bei allen möglichen
+Insassen-/Sitzkonfigurationen unabhängig vom Lastfall kein Kopfkontakt
+mit der Tür-/Seitenverkleidung stattfindet. Dies ist mit Worst-[redacted-person] sicherzustellen. In Ausnahmefällen kann nach Rücksprache
+mit der [redacted-co]-Fachabteilung eine passive Auslegung der Verkleidungsteile
+in Betracht gezogen werden.</p>
+<p>[redacted]und Seitenschutzsystem sind
+gemeinsam im Gesamtsystem zu betrachten. Dies hat in Zusammenarbeit mit
+den [redacted-co]- bzw. GE-Fachabteilungen und den Bauteillieferanten zu
+geschehen.</p>
+<p>Wenn der Auftragnehmer erkennt, dass vertraglich festgelegte Ziele
+nicht oder nur verspätet oder nur mit einem erhöhten Kostenaufwand (für
+[redacted-co] bzw. Bauteillieferant) zu erreichen sind, hat der Auftragnehmer die
+[redacted-co]- bzw. GE-Fachabteilung sofort zu informieren und Vorschläge
+auszuarbeiten, die zur Beseitigung der entstandenen Probleme geeignet
+sind. Dabei ist es unerheblich, ob das Problem beim Auftragnehmer oder
+bei [redacted-co] oder dem GE begründet liegt.</p>
+<p>Die [redacted-co]/GE-Fachabteilung bewertet dann die eingereichten Vorschläge
+und entscheidet, nach welchem technischen Konzept der Auftragnehmer die
+Arbeiten fortsetzen wird.</p>
+<p>[redacted-person] beinhaltet unter anderem:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]-Systementwicklung mit entsprechenden Simulationen und
+Versuchen (Schlitten, Komponentenversuche in Systemumgebung, …)</p></li>
+<li><p>[redacted-person] der Wirk- und Leistungscharakteristik des gesamten
+seitlichen Schutzsystems, <strong>bestehend u.[redacted-person] den
+Airbag-Systemen, den Gurtsystemen und den Verkleidungsteilen, in
+realen</strong> Versuchen sowie den entsprechenden Simulationsmodellen
+des Seitenschutzsystems.</p></li>
+<li><p>[redacted-person] aller relevanten gesetzlichen Vorgaben in der
+jeweils gültigen Form ist sicherzustellen.</p></li>
+<li><p>[redacted-person] der Projektziele von
+Verbraucherschutzorganisationen ist sicherzustellen. Dabei sind
+Zielanpassungen im Projektverlauf abzudecken.</p></li>
+<li><p>[redacted-person] sind dem</p></li>
+</ul>
+<blockquote>
+<p><em>projektspezifischen Gesamtlastenheft Anlagen3) 4) 5)</em></p>
+<p>zu entnehmen.</p>
+</blockquote>
+<ul>
+<li><p>Einen erweiterten Funktionsnachweis durch Variation von
+Parametern (z.[redacted-person] und Position, Sitzeinstellung,
+Trefferlage …).</p></li>
+</ul>
+<blockquote>
+<p>Die regelmäßige Teilnahme an Technik- oder Abstimmrunden ist
+Voraussetzung. Hierzu nötige Präsentationen, Protokolle, Anfragen etc.
+sind vom Auftragnehmer unmittelbar zu erstellen bzw. zu pflegen.</p>
+</blockquote>
+<h2 id="zeitschiene">Zeitschiene</h2>
+<blockquote>
+<p>[redacted-person] mit Meilensteinen können bei der
+[redacted-co]/GE-Fachabteilung angefragt werden.</p>
+</blockquote>
+<h2 id="angebotsumfang">Angebotsumfang</h2>
+<blockquote>
+<p>[redacted-person] verpflichtet sich, alle Anforderungen dem Angebot
+zugrundezulegen. Abweichungen vom Lastenheft sind dem Angebot beizufügen
+und zu dokumentieren.</p>
+<p>Mit dem Angebot sind vom Auftragnehmer folgende Unterlagen der
+technisch zuständigen [redacted-co]/GE- Fachabteilungen zur Prüfung
+vorzulegen:</p>
+</blockquote>
+<ul>
+<li><p>Liste der offenen Punkte und Abweichungen vom Lastenheft (analog
+zur Struktur des Lastenhefts)</p></li>
+</ul>
+<ul>
+<li><p>Pflichtenheft</p></li>
+<li><p>[redacted-person], die auch Engpässe bei anderen
+Aufträgen des Auftragnehmers berücksichtigt</p></li>
+<li><p>Ressourcenaufteilung inkl. Organisationsstruktur des
+Entwicklungsteams</p></li>
+<li><p>Projektplan</p></li>
+<li><p>Projektzeitplan mit Mindestumfang nach [redacted-co]99000</p></li>
+<li><p>Erprobungsplan, Schlittenkonfiguration und [redacted-person]/-durchführung</p></li>
+<li><p>Ausfüllen der Angebotsübersichtsmatrix (siehe Anlage 1 am Ende
+dieses Dokumentes)</p></li>
+</ul>
+<blockquote>
+<p>Im Verlauf der Entwicklung schriftlich von [redacted-co] bzw. vom GE
+festgelegte oder akzeptierte Termine werden Bestandteil dieses
+Lastenhefts. Termine können nur im Einvernehmen mit [redacted-co] bzw. dem GE
+geändert werden.</p>
+<p>Forderungen des Auftragnehmers, die über die ursprünglich angebotenen
+Kosten hinausgehen, werden nicht zugelassen.</p>
+</blockquote>
+<h4 id="entwicklungsinfrastruktur">Entwicklungsinfrastruktur:</h4>
+<ul>
+<li><p>Internet</p></li>
+<li><p>Einsatz eines kompatiblen Videokonferenzsystems</p></li>
+<li><p>Einsatz von PAM-CRASH</p></li>
+<li><p>Einsatz eines kompatiblen CAD-Systems</p></li>
+<li><p>Online-Datenaustausch gemäß der Broschüre zum
+CAD/CAM-Datenaustausch</p></li>
+<li><p>Standleitung zum [redacted-co]-Rechenzentrum oder eine gleichwertige
+Anbindung</p></li>
+<li><p>Rechenkapazität ist nicht vorzuhalten, es kann dafür die
+[redacted-co]-Infrastruktur verwendet werden</p></li>
+<li><p>Nutzung eigener Ressourcen ist im Angebot separat
+auszuweisen</p></li>
+</ul>
+<h2 id="entwicklungsablauf">Entwicklungsablauf</h2>
+<h3 id="terminplan-und-meilensteine">Terminplan und Meilensteine</h3>
+<blockquote>
+<p>Der aktuelle Terminplan ist bei der [redacted-co]/GE-Fachabteilung
+einzufordern.</p>
+<p>Die von [redacted-co] bzw. dem GE vorgegebenen Termine sind bindend
+einzuhalten. Abweichungen vom Terminplan sind unverzüglich und ohne
+Aufforderung den [redacted-co]- bzw. GE-Verantwortlichen zu melden. Gleichzeitig
+sind der Abweichungsgrund sowie geeignete Maßnahmen zur Erreichung des
+ursprünglichen Terminplans aufzuzeigen.</p>
+<p>[redacted-person] ist ein Terminplan anhand der von [redacted-co] bzw. vom GE
+mitgeteilten Ecktermine aufzubauen und der [redacted-co]- bzw. GE-Fachabteilung
+zur Verfügung stellen.</p>
+</blockquote>
+<h3 id="metriken-zur-projektverfolgung">Metriken zur
+Projektverfolgung</h3>
+<blockquote>
+<p>[redacted-person] liefert im Rahmen der Fortschrittsberichte die
+erforderlichen Daten für folgende Metriken:</p>
+</blockquote>
+<ul>
+<li><p>Meilensteintrendanalyse basierend auf den vereinbarten
+Meilensteinen</p></li>
+<li><p>Vergleich der geplanten und der tatsächlichen Dauer der
+Aktivitäten und Arbeitspakete basierend auf dem Projektzeitplan</p></li>
+<li><p>Fehlerverfolgung inkl. Priorisierung und
+Bearbeitungsstatus</p></li>
+<li><p>Planung des Versuchsteilestands gegenüber dem aktuellen
+Verbrauchsstand</p></li>
+</ul>
+<blockquote>
+<p>Weitere projektspezifische technische Metriken, die kritische Aspekte
+messen, werden zwischen den Projektverantwortlichen des Auftragnehmers
+und der [redacted-co]- bzw. GE-Fachabteilung abgestimmt.</p>
+</blockquote>
+<h2 id="qualität-und-zuverlässigkeit">Qualität und Zuverlässigkeit</h2>
+<h3 id="offene-punkte-liste">[redacted-person]-Liste</h3>
+<blockquote>
+<p>Ab Projektstart führt der Auftragnehmer eine Liste von offenen
+Punkten (LOP-Liste), in der sämtliche offene Punkte, Arbeitspakete,
+unerledigte Aktionen usw. chronologisch geführt werden. [redacted-person]
+dazu wird vom Auftraggeber zur Verfügung gestellt. [redacted-person] der
+Aktivitäten ist ebenfalls in dem Dokument zu pflegen.</p>
+<p>[redacted-person] ist ständig zu aktualisieren und der [redacted-co]- bzw.
+GE-Fachabteilung und den beteiligten Lieferanten über das im
+Engineering-Portal zur Verfügung zu stellen.</p>
+</blockquote>
+<h2 id="freigabe-und-freigabeempfehlung">Freigabe und
+Freigabeempfehlung</h2>
+<blockquote>
+<p>[redacted-person] übernimmt die Funktions- und Dauererprobung
+der von ihm entwickelten Einzelkomponenten. [redacted-person]
+übernimmt die Funktionserprobung des Systems.</p>
+<p>Entscheidend für den Nachweis eines funktionierenden
+Insassenschutzsystems ist die Performance im Crashversuch. Sollte sich
+zeigen, dass die Schlittenversuche ein positives Ergebnis ergaben,
+während im Crashversuch ein negatives Ergebnis ermittelt wurde, so
+erfolgt keine Freigabe, bis der Nachweis erbracht wird, dass im
+Crashversuch die Lastenheftanforderungen sicher erfüllt werden.</p>
+<p>[redacted-person] der jeweiligen Freigaben seitens [redacted-co] bzw. GE hat der
+Systementwickler eine schriftliche Freigabeempfehlung für das
+Insassenschutzsystem an die [redacted-co]- bzw. GE-Fahrzeugsicherheit zu
+erteilen.</p>
+</blockquote>
+<h1 id="systemumgebung">Systemumgebung</h1>
+<h2 id="funktionale-systemumgebung">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] sind nach Funktionsanforderungen und
+Designvorgaben zu integrieren.</p>
+</blockquote>
+<h2 id="physische-systemumgebung">[redacted-person]</h2>
+<blockquote>
+<p>Alle im Umfeld, auf dem Lastpfad und im Entfaltungsraum befindlichen
+Teile müssen bei der Entwicklung beachtet werden. [redacted-person], Schwachpunkte oder Kollisionen mit anderen Bauteilen sind
+vom Auftragnehmer aufzuzeigen, dem Verantwortlichen schriftlich
+mitzuteilen und in regelmäßigen Abständen auf Erledigung zu
+untersuchen.</p>
+<p>[redacted-person] sind anhand von aussagekräftigen Unterlagen
+darzustellen. Außerdem sind in diesem [redacted-person]
+aufzuzeigen.</p>
+</blockquote>
+<h2 id="lastfälle">Lastfälle</h2>
+<h3 id="lastfälle-rdwnar-und-china">Lastfälle RDW/NAR und China</h3>
+<blockquote>
+<p>Die im Projekt zu entwickelnden Lastfälle sind dem</p>
+<p><em>projektspezifischen Gesamtlastenheft Anlagen3) 4) 5)</em></p>
+<p>zu entnehmen.</p>
+<p>[redacted-person] in Gesetzen und Verbraucherschutztests, sowie
+der Einsatz von neuen Dummies (wie z.[redacted-person]50th, WS5th, Q3, Q6, Q10),
+müssen im Angebot mit berücksichtigt werden. Zielwerte dafür werden von
+der Fahrzeugsicherheit vorgegeben. Darüber hinaus können im Falle von
+weiteren, zusätzlich zu entwickelnden Airbags im Innenraum die Lastfälle
+um entsprechende interagierende Insassen erweitert werden. Es sind
+Aktualisierungen des</p>
+<p><em>projektspezifischen Gesamtlastenheft Anlagen3) 4) 5)</em></p>
+<p>bis 6 Monate vor SoP abzudecken.</p>
+<p>Die [redacted-co]-internen Due-Care-Anforderungen sind von existierenden
+Gesetzes- oder Verbraucherschutztests abgeleitet und können von diesen
+in folgenden Punkten abweichen:</p>
+</blockquote>
+<ul>
+<li><p>Geschwindigkeiten</p></li>
+<li><p>Insassenkonfiguration</p></li>
+<li><p>Trefferlagen</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] wird im Laufe des Projektes maximal zweimal
+aktualisiert.</p>
+</blockquote>
+<h3 id="dummypositionen-einsitzuntersuchungen">Dummypositionen
+(Einsitzuntersuchungen)</h3>
+<blockquote>
+<p>Für alle zu betrachtenden Lastfälle ist vom Auftragnehmer eine
+Darstellung der theoretischen H- Punktlagen im Sitzverstellfeld zu
+erstellen und zu dokumentieren.</p>
+<p>[redacted-person] werden vom Auftragnehmer zur Dummypositionierung im
+Simulationsmodell herangezogen. Evtl. Abweichungen der H-[redacted-person] in der Simulation gegenüber dem theoretischen Sollwert sind
+zu dokumentieren und aufzuzeigen.</p>
+<p>Darüber hinaus sind die Dummypositionen durch reale Einsitzversuche
+in der „Sitzkiste“ des Fahrzeuges und mit dem ersten verfügbaren
+Prototypen vom Auftragnehmer zu ermitteln, sobald diese im Projekt
+vorhanden sind. [redacted-person] der „Sitzkiste“ und des Fahrzeugs wird
+seitens des Auftraggebers sichergestellt.</p>
+</blockquote>
+<h3 id="kindersicherheit">Kindersicherheit</h3>
+<blockquote>
+<p>[redacted-person] von Kopf- und Seitenairbag für Kinder in
+Kindersitzen in der 2. und – falls vorhanden</p>
+<p>– 3. Sitzreihe ist sicherzustellen.</p>
+<p>Ein direktes Anschießen der Kinder während der Entfaltung des
+Kopfairbags ist dabei zu vermeiden.</p>
+</blockquote>
+<h3 id="ziele">Ziele</h3>
+<blockquote>
+<p>Die jeweiligen Ziele und Einsatzmärkte sind dem</p>
+<p><em>projektspezifischen Gesamtlastenheft Anlagen3) 4) 5)</em></p>
+<p>zu entnehmen.</p>
+<p>Bei gemeinsamen Vergaben für mehrere Fahrzeuge sollten die Ziele für
+alle Fahrzeuge &amp; Märkte möglichst mit gleichen
+Rückhaltesystemkomponenten erreicht werden. Falls dies nicht möglich
+ist, so sind die Lösungen möglichst kostenneutral zu halten.</p>
+</blockquote>
+<h1 id="leistungsbeschreibung">Leistungsbeschreibung</h1>
+<blockquote>
+<p>[redacted-person] bearbeitet folgende Umfänge:</p>
+<p>Häufig sind detaillierte Beschreibungen der einzelnen Punkte in den
+folgenden Kapiteln beschrieben.</p>
+</blockquote>
+<ol type="1">
+<li><p><strong>Entwicklungsablauf</strong></p></li>
+</ol>
+<ul>
+<li><p>Basis für die Systementwicklung ist die Simulation in
+PAM-CRASH</p></li>
+<li><p>[redacted-person]- und Komponentenversuche sind durch eine
+detaillierte Abbildung der Fahrzeugumgebung in der Simulation und den
+Versuchen vorgeschalteten Simulationen zu reduzieren</p></li>
+<li><p>Erstellen und Pflegen von Versuchsübersichtstabellen
+(Gesamtfahrzeug-, Schlitten- und Komponentenversuche)</p></li>
+</ul>
+<h2 id="schlitten--und-komponentenversuche">Schlitten- und
+Komponentenversuche</h2>
+<ul>
+<li><p>Betreuung und Durchführung von Schlitten- und
+Komponentenversuchen</p></li>
+<li><p>Abstimmung mit den Bauteil- und Systemverantwortlichen zum
+aktuellen Teilestand</p></li>
+<li><p>Erstellung von VISVERDI- bzw. Werkstattprogrammen</p></li>
+<li><p>Zusteuerung der notwendigen Einzelbauteile in Zusammenarbeit mit
+den Teilelogistikern</p></li>
+<li><p>Abstimmung von Versuchsterminen</p></li>
+<li><p>Vor jedem Versuch sind die Versuchsziele schriftlich festzuhalten
+und nach Durchführung kritisch zu bewerten</p></li>
+</ul>
+<h2 id="verantwortung-der-rückhaltesystementwicklung">Verantwortung der
+Rückhaltesystementwicklung</h2>
+<ul>
+<li><p>Teilnahme an Projektgesprächen</p></li>
+<li><p>Analyse und Auswertung der Schlitten- und
+Komponentenversuchsergebnisse</p></li>
+<li><p>Erarbeitung bzw. Ableitung von Maßnahmen, welche zur Erreichung
+von Gesetzesanforderungen und Ratingzielen bzw. der
+Lastenheftanforderungen erforderlich sind</p></li>
+<li><p>Sicherstellung der Umsetzung der erforderlichen Maßnahmen im
+Projekt</p></li>
+<li><p>Unterstützung bei der Analyse und Auswertung von
+Gesamtfahrzeugversuchen</p></li>
+<li><p>Aufbereitung und Vorstellung der Ergebnisse</p></li>
+<li><p>Erstellung gremientauglicher Statusfolien, welche die Prognose
+des Projektstatus sowie Maßnahmen, deren Wirksamkeit mittels Simulation
+belegt ist, für jeden Rot- und Gelbpunkt aufzeigen</p></li>
+<li><p>Abgleich der Ergebnisse mit den Lastenheftanforderungen</p></li>
+<li><p>Abgleich mit Gesamtfahrzeug-Crashversuchen</p></li>
+<li><p>Organisation und Durchführung einer Rückhaltesystem-Runde mit
+allen Projektbeteiligten einschließlich der Führung eines detaillierten
+Protokolls</p></li>
+</ul>
+<h2 id="simulationsgetriebene-versuchsdurchführung">[redacted-person]</h2>
+<ul>
+<li><p>Für jeden Schlitten-/Komponentenversuch ist im Vorfeld eine
+Prognose der Simulation erforderlich, welche die Notwendigkeit des
+Versuchs bestätigt</p></li>
+<li><p>Vor jedem Schlittenversuch werden von der [redacted-person], Zündzeitpunkte, Rückhaltesystemparameter, usw.
+ermittelt und übertragen</p></li>
+</ul>
+<ul>
+<li><p>Nach jedem Schlittenversuch ist ein Abgleich mit der Simulation
+durchzuführen. Abweichungen zwischen Simulation und Versuch sind
+darzustellen, zu analysieren und abzustellen</p></li>
+<li><p>Entwicklungsvarianten der Komponenten (Airbag, Gurt,
+Verkleidungen etc.) sind auf Basis von Simulationen zu bewerten und
+Lösungen zu erarbeiten</p></li>
+</ul>
+<h2 id="robustheitsuntersuchungen-doe">Robustheitsuntersuchungen &amp;
+DoE</h2>
+<blockquote>
+<p>Zu Meilensteinen (KE , VPT bzw. P-frei, B-frei, Start BMG) sind
+Robustheitsuntersuchungen und DoE durchzuführen. <strong>Ziel ist es,
+die geforderten Sicherheitsanforderungen mit optimaler Robustheit zu
+erreichen</strong>. Darauf sind die Rückhaltesysteme entsprechend
+auszulegen. [redacted-person] und Parameter dieser Robustheitsuntersuchungen
+sind der [redacted-co]- bzw. GE-Fachabteilung vorab vorzustellen und von dieser
+zu genehmigen.</p>
+<p>Grundsätzlich sind die Positionierungseinflüsse bzgl. der
+Dummy-Extremitäten (Bein-, Becken-, Torso-, Arm- und Kopfeinstellung) in
+relevanten Toleranzen zu untersuchen.</p>
+<p>Darüber hinaus ist im Rahmen der Systementwicklung sicherzustellen,
+dass die Fertigungstoleranzen des Rückhaltesystems (Toleranzangabe der
+CAD-Zeichnungen) keinen Einfluss auf die Robustheit des Gesamtsystem
+haben. Zu Projektmeilensteinen ist ein Versagensmodell der
+Strukturauslegung anzufordern ([redacted-person]) und zu bewerten. [redacted-person]
+zu bewertender Parameter ist in Tabelle 4 dargestellt.</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Parameter</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Variationsbereich</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person] (EG, EuroNCAP, JNCAP, IIHS)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Horizontal: +/- 20mm Vertikal: +/- 25mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] (SINCAP,FMVSS 214)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Horizontal: +/- 51mm Vertikal: +/- 20mm</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Horizontal: +/- 38mm</p>
+<p>Auftreffwinkel: +/- 3 Grad</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Vy: Vauslegung + 1km/h</p>
+<p>Vy: Vcrashprotokoll +/- max. zul. Toleranz</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Vy: Vauslegung + 1km/h</p>
+<p>Vy: Vcrashprotokoll +/- max. zul. Toleranz</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] vo. und hi.</p>
+</blockquote></td>
+<td><blockquote>
+<p>Horizontal: +/- 20mm Vertikal: -10mm/+20mm</p>
+<p>Torsoneigung (li, re, vo, hi): +/- 2 Grad</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Zündzeitpunktabweichungen</p>
+</blockquote></td>
+<td><blockquote>
+<p>TTF: +/- 2ms</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]/Sitz</p>
+</blockquote></td>
+<td><blockquote>
+<p>μ: 0.1 - 0.8</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]/Türverkleidung</p>
+</blockquote></td>
+<td><blockquote>
+<p>μ: 0.1 - 0.8</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h4 id="tabelle-4-parameter-robustheit">Tabelle 4: [redacted-person]</h4>
+<blockquote>
+<p>[redacted-person] der Robustheistuntersuchungen sind immer in Referenz
+zur Basissimulation darzustellen. Es ist der Einfluss auf die jeweilige
+Dummymessstelle darzustellen und etwaige Sensitivitäten sind
+entsprechend herauszuarbeiten (siehe <strong><a href="#abbildung-1-parameteranalyse-darstellung-maximalwert-prinzipdarstellung">Abbildung
+1</a></strong> und <a href="#abbildung-2-parameteranalyse-darstellung-kurve-prinzipdarstellung"><strong>Abbildung
+2</strong></a>).</p>
+</blockquote>
+<h4 id="abbildung-1-parameteranalyse-darstellung-maximalwert-prinzipdarstellung">Abbildung
+1: [redacted-person] Maximalwert (Prinzipdarstellung)</h4>
+<p><img src="./03_Side_Crash-lah-dum-880-j-berechnung-seitenschutz-sy-media/media/image5.jpeg" style="width:6.39164in;height:3.88125in"/></p>
+<h4 id="abbildung-2-parameteranalyse-darstellung-kurve-prinzipdarstellung">Abbildung
+2: [redacted-person] Kurve (Prinzipdarstellung)</h4>
+<h1 id="technische-anforderungen">[redacted-person]</h1>
+<h2 id="abdeckbereiche">Abdeckbereiche</h2>
+<blockquote>
+<p>[redacted-person] der Seiten- und Kopfairbags bzw. eines
+Kopf-Thorax-Airbags ist gemäß den jeweiligen Bauteillastenheften
+auszulegen. [redacted-person] kann erweitert werden, wenn dies zum
+optimalen Schutz der Insassen bei allen Seitencrashs sowie Frontcrashs
+mit einer seitlichen Verzögerungskomponente und aufgrund von neuen oder
+geänderten Gesetzen, Ratings oder Verbraucherschutzanforderungen von
+Vorteil ist. [redacted-person] der definierten Abdeckbereiche ist seitens
+des von [redacted-co] definierten Airbaglieferanten nachzuweisen. [redacted-person] muss das Zusammenwirken von Seiten- und Kopfairbag bzw.
+eines Kopf-Thorax-Airbags zur Abdeckung des erzielten Bereichs
+bewerten.</p>
+</blockquote>
+<h2 id="aufblaszeit">Aufblaszeit</h2>
+<blockquote>
+<p>[redacted-person] müssen sich komplett in dem für den Insassenschutz
+relevanten Zeitbereich zwischen Insassen und Verkleidung bzw. Struktur
+entfaltet haben. Dabei sind die Aufblaszeiten mit den Bauteillieferanten
+in Abhängigkeit zur Airbagleistung und zu den jeweiligen Lastfällen
+abzustimmen und zu optimieren.</p>
+</blockquote>
+<h2 id="schutzwirkung">Schutzwirkung</h2>
+<blockquote>
+<p>Bei der Entwicklung des Rückhaltesystems ist der bestmögliche
+Insassenschutz über Parameteruntersuchungen zu ermitteln und
+einzustellen.</p>
+<p>Darüber hinaus muss die Schutzfunktion für 5%- bis 95%- Dummies,
+sowie für kindliche Insassen im entsprechend geeigneten Kindersitz
+nachgewiesen werden.</p>
+</blockquote>
+<h2 id="gasgenerator">Gasgenerator</h2>
+<blockquote>
+<p>Bei einem Ausströmen der Gasgeneratorgase aus dem Airbag-System, z.[redacted-person] den Innenraum, muss die Gefahr, dass es zu Verbrennungen beim
+Insassen im gesamten Sitzverstellbereich oder an Bauteilen kommt,
+ausgeschlossen sein. Dies ist in Abstimmung mit dem Bauteillieferanten
+sicherzustellen.</p>
+</blockquote>
+<h2 id="luftsack">Luftsack</h2>
+<blockquote>
+<p>[redacted-person] des Luftsacks (Material, Faltung, etc.) ist den
+Verhältnissen im Fahrzeuginnenraum unter Berücksichtigung der möglichen
+Insassenpositionen im gesamten Sitzverstellfeld anzupassen. Entsprechend
+ergeben sich die Luftsackabmaße (inkl. etwaiger Abströmöffnung), das
+Faltschema des Luftsacks sowie der Einsatz bzw. die Position von
+Abnähern, Reißnähten, Fang- und Abspannbändern.</p>
+<p>[redacted-person] hat grundsätzlich Priorität.</p>
+<p>Shape und Faltung ist mit dem Bauteillieferanten gemeinsam zu
+erarbeiten.</p>
+</blockquote>
+<h2 id="packagemaße">Packagemaße</h2>
+<blockquote>
+<p>[redacted-person] an den Luftsack (Geometrieänderungen, Abnäher,
+Faltung, …) ist eine Package- optimale Lösung anzustreben.</p>
+<p>[redacted-person] ist während der gesamten Projektlaufzeit in
+Zusammenarbeit mit dem entsprechenden Bauteillieferanten zu überwachen
+und zu Meilensteinen (VPT, P-frei, B-frei, Gesamtfreigabe zu SoP)
+darzustellen.</p>
+<p>[redacted-person] ist dabei sowohl auf Basis von CAE/CAD-Daten
+darzustellen und zu prüfen, als auch auf Basis von Hardwareteilen,
+sobald diese im Projekt verfügbar sind.</p>
+</blockquote>
+<h1 id="anforderungen-an-erprobung">Anforderungen an Erprobung</h1>
+<ol type="1">
+<li><p><strong>Prüfmittel / Erprobungsträger</strong></p></li>
+</ol>
+<blockquote>
+<p>Im Rahmen der Entwicklung sind aufgrund der geringen
+Erprobungsträger- und Erprobungsteilkapazitäten (Prototypen) geeignete
+Ersatzprüfungen zu erarbeiten und im Vorfeld mit der
+[redacted-co]/GE-Fachabteilung abzustimmen. Mittels der Ersatzprüfungen sollen
+die Funktion und die Rückhaltewirkung des Airbagsystems <u>vor</u>
+Durchführung der Crashversuche nachgewiesen werden.</p>
+</blockquote>
+<h2 id="komponentenversuche">Komponentenversuche</h2>
+<blockquote>
+<p>Falls zur Systementwicklung – über die zur Bauteilvalidierung vom
+Lieferanten durchgeführten Komponentenversuche hinausgehend – weitere
+Konfigurationen benötigt werden (z.[redacted-person] Verkleidungen, Sitzen, Airbags,
+…), so sind diese ohne Mehrkosten für [redacted-co]/GE simulativ auszulegen und
+die Durchführung zu betreuen.</p>
+<p>[redacted-person] zur Validierung der
+Simulationsmodelle sind grundsätzlich vorzusehen und vom Auftragnehmer
+mit anzubieten. Dabei sind die jeweiligen Kosten pro Versuch im Angebot
+separat auszuweisen:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] im beengten Bauraum</p>
+<ul>
+<li><p>Analyse und Validierung des Entfaltungsverhaltens der
+RHS-Komponente</p></li>
+</ul></li>
+<li><p>[redacted-person] / Dummy (WorldSID/ES2/SID2s) /
+Seitenairbag</p>
+<ul>
+<li><p>Analyse und Validierung des Entfaltungsverhaltens der
+RHS-Komponente unter Berücksichtigung von Dummy-Interaktionen (z.[redacted-person] Schulteranschuss)</p></li>
+</ul></li>
+<li><p>[redacted-person] / Dummy (WorldSID/ES2/SID2s) / Gurt</p>
+<ul>
+<li><p>Analyse und Validierung der statischen Dummy-Belastungen durch
+Einwirkung der Gurtkomponente ([redacted-person] auf
+Schulterbelastung)</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>[redacted-person] muss bei den Versuchen mindestens verwendet
+werden:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>3 Kameras mit mindestens 5000 Bildern pro Sekunde (zum Beispiel
+vorne, oben, Seite)</p></li>
+<li><p>5 [redacted-person] (3-achsial)</p></li>
+<li><p>Falls mit Crashtestdummy: Messtechnik analog Abschnitt <a href="#versuchsvor--und-nachbereitung">6.5.1</a></p></li>
+</ul>
+<h2 id="schlittenversuche">Schlittenversuche</h2>
+<blockquote>
+<p>Ziel der Schlittenversuche ist, die Bauteile, die sich im Lastpfad
+befinden, aufeinander abzustimmen. Die maßgeblichen Lastfälle werden in
+Abhängigkeit von den Entwicklungsfortschritten mit der [redacted-co]- bzw.
+GE-Fachabteilung festgelegt.</p>
+<p>[redacted-person] der Auslegung ist dabei in dieser Reihenfolge</p>
+</blockquote>
+<ol type="1">
+<li><p>Airbagpositionierung (ca. t=0-25ms)</p></li>
+<li><p>Insassen (Kinematik &amp; Belastungen)</p></li>
+</ol>
+<blockquote>
+<p>Es sind Schlittenversuche für jedes Rückhaltesystem und für
+mindestens je eine Pfahl- und eine Barrierenkonfiguration durchzuführen.
+[redacted-person] der Versuche bei [redacted-co] ist <strong>nicht</strong>
+möglich.</p>
+<p>[redacted-person] müssen eine [redacted-co]-Versuchsnummer erhalten und
+im VISVERDI einschließlich aller Bauteile und deren Teileständen
+eingetragen sein.</p>
+<p>[redacted-person] müssen folgende Freiheitsgrade
+gewährleistet werden und unabhängig voneinander einstellbar sein:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] bzw.
+Türverkleidungsersatzkörper</p></li>
+<li><p>Kinematik der vier Befestigungspunkte des Sitzes: Ziel ist es,
+eine eventuelle Neigung (mit X-, Y- und Z-Komponente) des Sitzes sowie
+eine Verformung der Sitzstruktur darzustellen.</p></li>
+<li><p>Kinematik B-Säulenverkleidung bzw. B-Säulenersatzkörper</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] der einzelnen Bauteile sind an das Verhalten des
+Gesamtfahrzeugs anzulehnen. Solange keine Gesamtfahrzeugversuche
+vorhanden sind, sind die entsprechenden Werte aus
+Gesamtfahrzeugsimulationen zu entnehmen. [redacted-person] ist von der
+[redacted-co]/GE-Fachabteilung zu genehmigen.</p>
+</blockquote>
+<blockquote>
+<p><strong>Bild 2</strong>: Freiheitsgrade am [redacted-person]
+(Prinzipdarstellung)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><img src="./03_Side_Crash-lah-dum-880-j-berechnung-seitenschutz-sy-media/media/image10.jpeg"/>Segment
+II</p>
+<p>Segment I</p>
+<p>Segment III</p>
+</blockquote></th>
+<th><blockquote>
+<p>Segment I</p>
+<p>Segment II</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p><strong>Bild 3:</strong> Segmentierung der Tür (Prinzipdarstellung)
+[redacted-person] müssen vom Setup aufgenommen werden können:</p>
+</blockquote>
+<ul>
+<li><p>Türverkleidung bzw. Türverkleidungsersatzkörper (alle
+Befestigungspunkte)</p></li>
+<li><p>B-Säulenverkleidung bzw. B-Säulenersatzkörper inkl. eventuell
+relevanter Einbauteile (alle Befestigungspunkte)</p></li>
+<li><p>Sitz (alle Befestigungspunkte)</p></li>
+<li><p>Gurtsystem</p></li>
+</ul>
+<blockquote>
+<p>Für das jeweilige in der Entwicklung herangezogene Schlittensetup ist
+ein Nachweis über die Reproduzierbarkeit der eingestellten
+Schlittenkinematik, d.[redacted-person] eingestellten Führungsgrößen zu erbringen.
+Insbesondere sind hiermit die Beschleunigungen/ Wege des globalen
+Schlittenaufbaus, als auch die lokalen Beschleunigungen/ Wege im
+relevanten Bereich (Verkleidungen, Sitz) ohne den Einfluss eines
+Rückhaltsystems gemeint. [redacted-person] ist durch mindestens drei
+aufeinanderfolgende Versuche erbracht, wobei eine mittlere Abweichung
+von 10% zulässig ist. Weiterhin sind Untersuchungen auf Basis der
+Simulationsmodelle durchzuführen. [redacted-person] ist mit dem Auftraggeber
+abzustimmen.</p>
+<p>In frühen Projektphasen kann es aufgrund noch nicht zur Verfügung
+stehender Teile erforderlich sein Schlittenversuche mit Schaumfrästeilen
+oder Verkleidungsteilen aus anderen Projekten durchzuführen. Die
+erforderlichen Frästeile sind vom Auftragnehmer zu erstellen und Teil
+der Beauftragung.</p>
+<p>[redacted-person] nicht an einen Gesamtfahrzeuglastfall
+angelehnt werden, so ist dies gegenüber der [redacted-co]/GE-Fachabteilung zu
+begründen und von dieser zu genehmigen.</p>
+<p>[redacted-person] muss eine Aktivierung aller
+Seitenschutzsysteme (inkl. Gurtstraffer) ermöglichen und ist mit der
+[redacted-co]/GE-Fachabteilung abzustimmen.</p>
+<p>[redacted-person] ist im Rahmen der Systementwicklung als
+entsprechendes Simulationsmodell darzustellen. [redacted-person] dieses Modells
+liegt in der Verantwortung des Auftragnehmers.</p>
+<p>[redacted-person] ist <strong>vor</strong> Angebotsabgabe
+der [redacted-co]/GE-Fachabteilung vorzustellen und eventuell daraufhin
+anzupassen. [redacted-person] ist die Beschreibung der endgültigen
+Konfiguration beizulegen.</p>
+<p>Für die Aktualisierung der [redacted-person] auf den
+nächsthöheren Entwicklungsstand ist ein Paketpreis „Umbau“ anzubieten.
+Zusätzlich ist ein Einzelpreis für optional zusätzliche Umbauten
+anzugeben. [redacted-person] eines Umbaus umfasst dabei folgende Punkte:</p>
+</blockquote>
+<ul>
+<li><p>Aktualisierung vom Grundaufbau (zum [redacted-person] Aufbau für
+neue [redacted-person])</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] „Umbau“ beinhaltet auch die zugehörigen
+Einfahrversuche.</p>
+<p>Ausgenommen von diesem Umfang sind Umbauten an Rückhaltesystemen
+&amp; Sitz und Austausch von beschädigten Bauteilen (zb.
+Verkleidungsteile). [redacted-person] ist bei jeder
+Versuchsdurchführung ohne Mehrkosten möglich.</p>
+<p>[redacted-person] muss bei den Versuchen mindestens verwendet
+werden:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>Mindestens 4 Kameras mit mindestens 5000 Bildern pro Sekunde (zum
+[redacted-person], vorne, Seite, Details oder oben)</p></li>
+<li><p>Beschleunigungsaufnehmer</p>
+<ul>
+<li><p>5x Sitz (3-achsial)</p></li>
+<li><p>4x TVKL (3-achsial)</p></li>
+<li><p>6x Tür bzw. B-Säule (3-achsial)</p></li>
+<li><p>sowie auf allen beweglichen Teilen des Schlittenaufbaus
+(3-achsial)</p></li>
+</ul></li>
+<li><p>Messtechnik analog Abschnitt <a href="#versuchsvor--und-nachbereitung">6.5.1</a></p></li>
+<li><p>Kontaktfolien:</p>
+<ul>
+<li><p>Sitz zu Verkleidungen (TVKL &amp; BSVKL)</p></li>
+</ul></li>
+<li><p>Gurtkräfte und –einzug</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] muss, soweit die Teile auf dem Schlitten verbaut
+sind, nach der für Crashfahrzeuge festgelegten Konfiguration erfolgen.
+Dafür sind zum Beispiel die Beschleunigungsaufnehmer nach der
+entsprechenden Arbeitsanweisung zu positionieren.</p>
+</blockquote>
+<h2 id="crashversuche">Crashversuche</h2>
+<blockquote>
+<p>Die erforderlichen Entwicklungsversuche im Gesamtfahrzeug sind nicht
+Teil dieses Lastenhefts.</p>
+<p>[redacted-person] ist mit der
+Gesamtfahrzeugversuchsplanung der [redacted-co]/GE-Crashplanung abzustimmen.</p>
+<p>[redacted-person] sind mit den Konstruktions- und
+Versuchsabteilungen abzustimmen - entsprechende Unterlagen, wie z. [redacted-person] – sind zu erstellen und zur Verfügung zu stellen.
+Weiter sind Versuchs- und Ergebnisübersichten für Crashversuche zu
+erstellen und den zuständigen Abteilungen zur Verfügung zu stellen.</p>
+<p>[redacted-person] unterstützt bei der Vorbereitung der Crashversuche
+und ist verantwortlich für die Montage der korrekten Stände der
+rückhaltesystemrelevanten Bauteile. [redacted-person] erhält die
+Vorschau für die nächsten Crashversuche und definiert die notwendigen
+Teile mit exaktem Teilestand.</p>
+</blockquote>
+<h2 id="allgemeines">Allgemeines</h2>
+<h3 id="versuchsvor--und-nachbereitung">Versuchsvor- und
+nachbereitung</h3>
+<blockquote>
+<p>[redacted-person] dazu sind dem sind dem Lastenheft</p>
+<p><em>LAH.DUM.880.FN [redacted-person] Dokumentation</em></p>
+<p>zu entnehmen.</p>
+</blockquote>
+<h3 id="crashtestdummies">Crashtestdummies</h3>
+<blockquote>
+<p>[redacted-person] dazu sind dem sind dem Lastenheft</p>
+<p><em>LAH.DUM.880.FN [redacted-person] Dokumentation</em></p>
+<p>zu entnehmen.</p>
+</blockquote>
+<h3 id="druckmessung-airbags">[redacted-person]</h3>
+<blockquote>
+<p>[redacted-person] zur Druckmessung in den Airbagsystemen ist
+<strong>vor</strong> Versuchsdurchführung bei [redacted-co] vorzustellen und von
+der zuständigen [redacted-co]-Fachabteilung zu genehmigen.</p>
+<p>Vorzustellen ist:</p>
+</blockquote>
+<ul>
+<li><p>Messort</p></li>
+<li><p>Aufnehmertyp</p></li>
+<li><p>Auswertung</p></li>
+<li><p>Schlauchtyp</p></li>
+<li><p>Schlauchlänge</p></li>
+<li><p>[redacted-person], Aufnehmer</p></li>
+</ul>
+<h3 id="teileplanung-und-logistik">Teileplanung und –logistik</h3>
+<blockquote>
+<p>Vor der ersten Versuchsdurchführung ist eine Gesamtplanung des
+Teilebedarfs zu erstellen und mit der [redacted-co]/GE-Fachabteilung abzustimmen.
+Eventuell notwendige Sonderbauten bzw. Umbauten sind in Eigenregie
+durchzuführen und Teil dieses Angebots.</p>
+<p><strong>Alle</strong> benötigten Sonderbauten (z.[redacted-person], geänderte Türinnenbleche, spezielle</p>
+<p>Sitzumbauten, …) müssen vom Auftragnehmer übernommen werden und sind
+Teil des Angebots.</p>
+</blockquote>
+<h1 id="simulationsumfänge">Simulationsumfänge</h1>
+<ol type="1">
+<li><p><strong>Umfänge</strong></p></li>
+</ol>
+<h3 id="gesamtfahrzeug">Gesamtfahrzeug</h3>
+<blockquote>
+<p>Gesamtfahrzeugmodelle werden von der [redacted-co]/GE-Fachabteilung zur
+Verfügung gestellt. Falls notwendig sind diese in Absprache mit der
+[redacted-co]-Fachabteilung zu erweitern bzw. zu detaillieren.</p>
+</blockquote>
+<h3 id="schlitten">Schlitten</h3>
+<blockquote>
+<p>Schlittensimulationsmodelle sind in PAM-CRASH aufzubauen. Dabei sind
+alle relevanten Bestandteile – insbesondere die Aufbauten – in der
+Simulation abzubilden. [redacted-person] ist so bald wie möglich zu validieren.
+[redacted-person] ist simulativ eine Prognose zu erstellen, die
+im Anschluss an den Versuch abzugleichen ist.</p>
+</blockquote>
+<h3 id="komponentenversuche-1">Komponentenversuche</h3>
+<blockquote>
+<p>Komponentenversuche sind grundsätzlich vor- und nachzusimulieren und
+zur Verbesserung der Modellqualität heranzuziehen.</p>
+</blockquote>
+<h3 id="modellqualität-und-validierung">Modellqualität und
+Validierung</h3>
+<blockquote>
+<p>[redacted-person] ist mitverantwortlich für die Modellqualität des
+Gesamtmodells und der rückhaltesystemrelevanten Komponenten sowie deren
+Validierung. Er unterstützt dabei – z.[redacted-person] Weitergabe des
+Schlittenmodells – die [redacted-co]/GE-Fachabteilung und den
+Bauteillieferant.</p>
+</blockquote>
+<h3 id="variantenlisten">Variantenlisten</h3>
+<blockquote>
+<p>[redacted-person] verpflichtet sich, alle durchgeführten Simulationen
+in einer Variantenliste aufzuführen. Es ist eine Klassifizierung nach
+Gesamtfahrzeug-, Schlitten- und Komponentensimulation vorzunehmen. [redacted-person] mit Versuchen abgeglichen werden, so ist dies in der Liste
+zu vermerken. [redacted-person] muss wöchentlich aktualisiert
+werden.</p>
+</blockquote>
+<h2 id="prozessumgebung">Prozessumgebung</h2>
+<blockquote>
+<p>Die vorzunehmenden Simulationen sind mit der von [redacted-co] vorgegebenen
+Prozessumgebung zu bearbeiten. Dies gilt für alle Gesamtfahrzeug-,
+Schlitten- und Komponentensimulationen.</p>
+</blockquote>
+<h3 id="loco">LoCo</h3>
+<blockquote>
+<p>Um die Fehlerquote zu reduzieren und den Datenaustausch mit anderen
+[redacted-co]-Fachabteilungen zu erleichtern, hat der Zusammenbau der Rechendecks
+der verschiedenen Lastfälle mit der Software <em>LoCo</em>
+(LoadCaseComposer) zu erfolgen. LoCo2 inklusive Anleitung und der
+hierfür notwendigen Konventionen wird von der [redacted-co]–Fachabteilung
+bereitgestellt. Eventuell notwendige Schulungen sind beim Hersteller der
+Software LoCo anzufragen.</p>
+</blockquote>
+<h3 id="cae-bench2">CAE-Bench2</h3>
+<blockquote>
+<p>[redacted-person], Ergebnis-Files, Dokumentationen und Auswertungen
+durch den Berechnungslieferanten sind im Anschluss an die Berechnung und
+Auswertung bei [redacted-co] in eine Datenbank (<em>CAE-Bench2</em>) zu
+importieren und dort auszuwerten. Deshalb ist beim Modellaufbau
+besonders darauf zu achten, dass alle benötigten
+<em>CAE-Bench2-</em>Aliase definiert sind.</p>
+</blockquote>
+<h3 id="cavit">CAViT</h3>
+<blockquote>
+<p>Zur zentralen Auswertung von Versuchs- und Berechnungsergebnissen
+wird die Software CAViT (CAViewingTool) verwendet. CAViT inklusive
+Anleitung und der hierfür notwendigen Konventionen (z.[redacted-person] von
+Metainformationen mit LoCo) wird von der [redacted-co]–Fachabteilung
+bereitgestellt. Eventuell notwendige Schulungen sind beim Hersteller der
+Software CAViT anzufragen.</p>
+</blockquote>
+<h3 id="weitere-tools">[redacted-person]</h3>
+<blockquote>
+<p>Für weitere Prozessschritte stehen ergänzende Tools zur Verfügung
+(zum [redacted-person]). Diese sind in Absprache mit der
+[redacted-co]/GE-Fachabteilung zu verwenden.</p>
+</blockquote>
+<h2 id="richtlinien-modellierung-und-prozess">[redacted-person]
+und Prozess</h2>
+<blockquote>
+<p>[redacted-person] sind dem Lastenheft</p>
+<p><em>LAH.DUM.880.FP [redacted-person] Modellierung und
+Prozesse</em></p>
+<p>zu entnehmen</p>
+</blockquote>
+<h1 id="projektabschluss">Projektabschluss</h1>
+<blockquote>
+<p>[redacted-person] der Dokumentation zum Projektabschluss sind</p>
+</blockquote>
+<p><em>LAH.DUM.880.FN [redacted-person] Dokumentation und
+Datenaustausch</em></p>
+<blockquote>
+<p>zu entnehmen.</p>
+</blockquote>
+<p>Weiterhin sind zum Projektabschluss folgende Aktualisierungen der
+Modelle durchzuführen:</p>
+<ul>
+<li><p>Aktualisierung der Berechnungsmodelle auf die aktuellste bei [redacted-co]
+installierte oder eine vom Auftraggeber definierte PamCrash-Version</p>
+<ul>
+<li><p>Falls dazu auch Aktualisierungen von Includes von
+Schnittstellenpartner oder Lieferanten notwendig sind, so ist für den
+Auftraggeber und die Partner eine Dokumentation über die notwendigen
+Maßnahmen zu erzeugen</p></li>
+</ul></li>
+<li><p>Aktualisierung aller Prozessschritte. Dies sind insbesondere:</p>
+<ul>
+<li><p>Dummy-Einsitzprozess</p></li>
+<li><p>Sensorprozess</p></li>
+<li><p>Alle bekannte Qualitätsanforderungen, die in den 3 Monaten nach
+Projektende gültig werden</p></li>
+<li><p>Notwendige <em>LoCo</em>-Vorgaben und Clusterskripte</p></li>
+</ul></li>
+</ul>
+<blockquote>
+<p>Die obigen Punkte sind rechtzeitig vor Projektende einzusteuern. Ohne
+den Abschluss der obigen Punkte wird die Abschlussrechnung seitens des
+Auftraggebers nicht anerkannt.</p>
+</blockquote>
+<h1 id="dokumentation-und-datenaustausch">Dokumentation und
+Datenaustausch</h1>
+<blockquote>
+<p>Die gesamte Dokumentation ist vom Auftragnehmer in deutscher Sprache
+zu erstellen.</p>
+<p>Die technischen Unterlagen sind entsprechend [redacted-co]99000 nach
+[redacted-co]-Vorgaben auszuhändigen. [redacted-person] sind dem Lastenheft</p>
+<p><em>LAH.DUM.880.FN [redacted-person] Dokumentation und
+Datenaustausch</em></p>
+<p>zu entnehmen.</p>
+</blockquote>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den aktuellen Unterlagen
+zu arbeiten.</p>
+<p>Es gelten die am Ausgabedatum des Lastenheftes gültigen, mitgeltenden
+Unterlagen. Abweichungen sind mit der [redacted-co]/GE-Fachabteilung abzustimmen
+und im Lastenheft zu dokumentieren.</p>
+<p>[redacted-person] sind selbständig zu besorgen.</p>
+</blockquote>
+<h2 id="lastenhefte-zur-info">Lastenhefte zur Info</h2>
+<ul>
+<li><p>LAH [redacted-phone]J Prozessbeschreibung allgemeine [redacted-person]</p></li>
+<li><p>LAH.DUM.880.AE [redacted-person] zur Durchführung von
+Versuchen der Fahrzeugsicherheit bei externen Prüflabor</p></li>
+<li><p>projektspezifisch [redacted-person] 3 [redacted-person] Seitencrash</p></li>
+<li><p>projektspezifisch [redacted-person]
+Seitenairbag/Kopf-Thorax-Airbag</p></li>
+<li><p>projektspezifisch [redacted-person] Kopfairbag</p></li>
+<li><p>LAH.DUM.880.H [redacted]</p></li>
+<li><p>LAH.DUM.880.EM [redacted]</p></li>
+<li><p>VW82036 VW-[redacted-person] Airbag</p></li>
+<li><p>LAH.DUM.880.FB [redacted-person] Komponente</p></li>
+<li><p>LAH.DUM.857.BB [redacted-person]</p></li>
+<li><p>LAH.DUM.880.FM [redacted-person] Airbags im
+Seitenschutz</p></li>
+</ul>
+<h2 id="technische-spezifikationen-normen">[redacted-person] /
+Normen</h2>
+<ul>
+<li><p><u>[redacted]</u> Entwicklungsbedingungen</p></li>
+<li><p><u>[redacted]</u> Fahrzeugzulieferteile allgemein sowie die darin
+genannten Dokumente.</p></li>
+</ul>
+<h4 id="anmerkung">ANMERKUNG</h4>
+<blockquote>
+<p>Bezugsquellen für Normen und Dokumente: [redacted-person] können über die
+B2B Lieferantenplattform [redacted-co] unter der
+Internetadresse: <a href="http://www.vwgroupsupply.com/"><u>http://www.vwgroupsupply.com</u></a>
+mit einer Zugangsberechtigung abgerufen werden.</p>
+</blockquote>
+</body>
+</html>

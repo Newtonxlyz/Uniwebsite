@@ -1,0 +1,3716 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>Konzern-LAH_DUM_880_EM_TR09_[redacted-phone]</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<p>[redacted]</p>
+<blockquote>
+<p>Insassenschutz</p>
+<p><strong>[redacted-person], Lastenheft</strong>:
+LAH.DUM.880.EM</p>
+</blockquote>
+<blockquote>
+<p>CONFIDENTIAL</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>[redacted-co] ER-41</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-person]</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-co] ER-413</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co] ER-411</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co] EI-31</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co] EI-312</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co] EKF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co] EKF1</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-co] EKF2</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<p>Inhalt</p>
+<ol type="1">
+<li><p><a href="#vorwort"><em>Vorwort 6</em></a></p></li>
+<li><p><a href="#allgemeine-projektvorgaben"><em>[redacted-person] 7</em></a></p>
+<ol type="1">
+<li><p><a href="#kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges 7</a></p></li>
+<li><p><a href="#zielsetzung">Zielsetzung 7</a></p></li>
+<li><p><a href="#zuordnung-der-komponente">Zuordnung der Komponente
+8</a></p>
+<ol type="1">
+<li><p><a href="#zielfahrzeuge">Zielfahrzeug(e) 8</a></p></li>
+<li><p><a href="#einsatzort-und-zielmarkt">Einsatzort und Zielmarkt
+8</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#terminplan-und-meilensteine"><em>Terminplan und
+Meilensteine 9</em></a></p>
+<ol type="1">
+<li><p><a href="#übersichtsmatrix-und-zeitplan">Übersichtsmatrix und
+Zeitplan 9</a></p></li>
+</ol></li>
+<li><p><a href="#anforderungen-an-airbagmodelle"><em>Anforderungen an
+Airbagmodelle 11</em></a></p>
+<ol type="1">
+<li><p><a href="#vorgänger-konzeptmodelle-und-vereinfachte-modelle">Vorgänger-/Konzeptmodelle
+und vereinfachte Modelle 11</a></p></li>
+<li><p><a href="#vollwertige-modelle">[redacted-person] 11</a></p>
+<ol type="1">
+<li><p><a href="#vernetzung">Vernetzung 11</a></p></li>
+<li><p><a href="#modellstabilität">Modellstabilität 12</a></p></li>
+<li><p><a href="#nummerierung">Nummerierung 13</a></p></li>
+<li><p><a href="#einheitensystem">Einheitensystem 13</a></p></li>
+<li><p><a href="#zeitschritt">Zeitschritt 13</a></p></li>
+<li><p><a href="#einbaulage">Einbaulage 13</a></p></li>
+<li><p><a href="#modellierung-vents">[redacted-person] 13</a></p></li>
+<li><p><a href="#lebenslauf">Lebenslauf 13</a></p></li>
+<li><p><a href="#solver-version">Solver-Version 14</a></p></li>
+<li><p><a href="#modellchecks">Modellchecks 14</a></p></li>
+<li><p><a href="#strömungsabbildung">Strömungsabbildung 14</a></p></li>
+<li><p><a href="#infoblock">Infoblock 15</a></p></li>
+<li><p><a href="#parametrisierung">Parametrisierung 15</a></p></li>
+<li><p><a href="#namenskonvention-für-gruppen">Namenskonvention für
+Gruppen 16</a></p></li>
+<li><p><a href="#formatierung-für-standardauswertung">Formatierung für
+Standardauswertung 17</a></p></li>
+<li><p><a href="#formatierung-für-gasgeneratorkurven">Formatierung für
+Gasgeneratorkurven 18</a></p></li>
+<li><p><a href="#namenskonvention-für-includes">Namenskonvention für
+Includes 19</a></p></li>
+<li><p><a href="#formatierung-codierung-und-syntax">Formatierung,
+Codierung und Syntax 20</a></p></li>
+<li><p><a href="#modellparameter">Modellparameter 21</a></p></li>
+<li><p><a href="#charakteristik-gasgenerator">[redacted-person] 21</a></p></li>
+<li><p><a href="#gasgenerator-kennungen">Gasgenerator-Kennungen
+22</a></p></li>
+<li><p><a href="#mechanische-eigenschaften-airbaggewebe">[redacted-person] Airbaggewebe 23</a></p></li>
+<li><p><a href="#cora">Cora 23</a></p></li>
+<li><p><a href="#validierungsversuche">Validierungsversuche
+23</a></p></li>
+<li><p><a href="#toleranzmodelle">Toleranzmodelle 27</a></p></li>
+<li><p><a href="#leckage">Leckage 28</a></p></li>
+<li><p><a href="#airbagfaltung-und-faltprozess">Airbagfaltung und
+Faltprozess 28</a></p></li>
+</ol></li>
+<li><p><a href="#airbagspezifische-anforderungen">[redacted-person] 30</a></p>
+<ol type="1">
+<li><p><a href="#fahrerairbag">Fahrerairbag 30</a></p></li>
+<li><p><a href="#beifahrerairbag">Beifahrerairbag 32</a></p></li>
+<li><p><a href="#knieairbag">Knieairbag 35</a></p></li>
+<li><p><a href="#seitenairbag">Seitenairbag 36</a></p></li>
+<li><p><a href="#kopf-thorax-airbag">Kopf-Thorax-Airbag 36</a></p></li>
+<li><p><a href="#kopfairbag">Kopfairbag 36</a></p></li>
+<li><p><a href="#scheibenairbag">Scheibenairbag 38</a></p></li>
+<li><p><a href="#sonstiger-airbag">[redacted-person] 38</a></p></li>
+</ol></li>
+<li><p><a href="#lenkrad">Lenkrad 38</a></p></li>
+<li><p><a href="#integrität">Integrität 39</a></p>
+<ol type="1">
+<li><p><a href="#spritzguss-simulationsmodell">Spritzguss-Simulationsmodell
+39</a></p></li>
+<li><p><a href="#auslegung-gehäuse">[redacted-person] 40</a></p></li>
+<li><p><a href="#auslegung-klipse-und-halter">[redacted-person] und
+Halter 40</a></p></li>
+<li><p><a href="#auslegung-kappe">[redacted-person] 40</a></p></li>
+<li><p><a href="#auslegung-luftsack">[redacted-person] 40</a></p></li>
+</ol></li>
+</ol></li>
+<li><p><a href="#vernetzungsrichtlinien"><em>Vernetzungsrichtlinien
+41</em></a></p>
+<ol type="1">
+<li><p><a href="#schalenelemente-membranelemente">Schalenelemente /
+Membranelemente 41</a></p></li>
+</ol></li>
+<li><p><a href="#modellrechte-und-umgang-mit-lieferantenmodellen"><em>Modellrechte
+und Umgang mit Lieferantenmodellen 43</em></a></p></li>
+<li><p><a href="#mitgeltende-unterlagen"><em>[redacted-person]
+44</em></a></p></li>
+</ol>
+<h1 id="vorwort">Vorwort</h1>
+<blockquote>
+<p>[redacted-person] beschreibt den Aufbau und die Validierung
+der folgenden Berechnungs- modelle [BR-LAH-001]:</p>
+</blockquote>
+<ul>
+<li><p>Fahrerairbag</p></li>
+<li><p>Beifahrerairbag</p></li>
+<li><p>Knieairbag</p></li>
+<li><p>Seitenairbag</p></li>
+<li><p>Kopf-Thoraxairbag</p></li>
+<li><p>Kopfairbag</p></li>
+<li><p>Scheibenairbag</p></li>
+<li><p>Centerairbag</p></li>
+<li><p>Sitzrampenairbag</p></li>
+<li><p>[redacted-person]</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] LAH.DUM.880.EM ist fahrzeugunabhängig
+formuliert [BR-LAH-002].</p>
+<p>[redacted-person] sind im Bauteillastenheft enthalten
+[BR-LAH-003].</p>
+<p>[redacted-person] verweisen auf das Berechnungslastenheft
+(BR-LAH) und legen den geltenden Umfang fest (Beispiel:
+[redacted-person] nutzt nur die für den Fahrerairbag
+relevanten Umfänge im Berechnungslastenheft) [BR-LAH-004]</p>
+<p>Das vorliegende Berechnungs-Lastenheft ist angelehnt an die Struktur
+des VDA-Komponentenlasten- heftes Modul 2 (<a href="http://www.vda-qmc.de/"><u>www.vda-qmc.de</u></a>) und beschreibt
+komponentenspezifische Anforderungen. Das VDA- Modul 1 wird durch die [redacted-co]99000 abgebildet und beschreibt komponentenübergreifende allgemeine
+Anforderungen zur Leistungsbringung im Rahmen der Bauteilentwicklung
+[BR-LAH-005].</p>
+<p>Anforderungen und Informationen sind im Berechnungslastenheft
+LAH.DUM.880.EM sowie in der Hausnorm [redacted-co]82036 (Modellierungsrichtlinien
+für Airbagmodelle) zum besseren Verständnis mit ei- ner
+Identifikationsnummer gekennzeichnet. [redacted-person] in
+diesem BR-LAH lauten BR-LAH-001 bis BR-LAH-999 [BR-LAH-006].</p>
+<p>In diesem Berechnungslastenheft werden Verweise auf die mitgeltende
+Hausnorm [redacted-co]82036, Aus- gabe 2021 über die Identifikationsnummern 001
+bis 999 hergestellt [BR-LAH-007].</p>
+<p>Abweichungen von diesem Lastenheft und von den angewiesenen
+Unterlagen sind während der An- gebotsphase mit dem [redacted-person] abzustimmen und mit Unterschrift vom Auftraggeber
+festzuhalten [BR-LAH-008].</p>
+<p>Alle hier und in den angewiesenen Unterlagen nicht ausreichend
+beschriebenen Punkte müssen in Absprache mit der [redacted-person] geklärt werden und bedürfen der schriftlichen
+Festlegung [BR-LAH-009]. Dies gilt insbesondere für Abweichungen von
+Standardforderungen [BR-LAH-010].</p>
+</blockquote>
+<h1 id="allgemeine-projektvorgaben">[redacted-person]</h1>
+<h2 id="kurzbeschreibung-des-entwicklungsumfanges">Kurzbeschreibung des
+Entwicklungsumfanges</h2>
+<blockquote>
+<p>[redacted-person]-Lastenheft beschreibt Leistungen, Anforderungen und
+Bedingungen, die zu erbrin- gen sind und unter denen numerische Analysen
+und Simulationen im [redacted-person] Air- bagmodule
+durchzuführen sind [BR-LAH-011].</p>
+<p>Die rechnerische Simulation der Rückhaltesysteme während der
+Produktentwicklung erfolgt in enger Abstimmung mit den entsprechenden
+Konstruktions- und Versuchsabteilungen des Auftraggebers. [redacted-person] und Meilensteine der Entwicklung sind daher zwangsläufig an die
+Vorgaben der Beschaffung, des Sicherheitsversuchs bzw. der Konstruktion
+gekoppelt (siehe auch entsprechende PEP-Abläufe) [BR-LAH-012].</p>
+<p>[redacted-person] ist Grundlage des zu erbringenden
+Leistungsumfanges des Auftragneh- mers. Es legt die Anforderungen an das
+Modell und die Simulationsergebnisse fest. [redacted-person] ist vom
+Auftragnehmer in einem Pflichtenheft zu dokumentieren. [redacted-person] ist vom Auftrag- nehmer auf dem aktuellen Stand zu halten
+[BR-LAH-013].</p>
+<p>Inhalte dieses Berechnungslastenheftes dürfen Dritten ohne
+ausdrückliche Genehmigung des zustän- digen Fachbereiches des
+Auftraggebers nicht zugänglich gemacht werden. Für dieses
+Berechnungslas- tenheft gilt materielles deutsches Recht. Erfüllungsort
+und Gerichtsstand sind im Bauteillastenheft festgelegt.
+[BR-LAH-014].</p>
+</blockquote>
+<h2 id="zielsetzung">Zielsetzung</h2>
+<blockquote>
+<p>Ziel ist es, die Entwicklung von Insassenschutzsystemen durch eine in
+den Gesamtprojektablauf inte- grierte Simulation zu unterstützen
+[BR-LAH-015].</p>
+<p>[redacted-person] trägt durch sein Bauteil eine Mitverantwortung für
+die [redacted-person]- senschutz. Dies gilt auch für Bauteile,
+die als COP-Teile vorgesehen sind [BR-LAH-016].</p>
+<p>In diesem Rahmen sind vom Auftragnehmer dem Systementwickler und dem
+Auftraggeber geeignete Berechnungsmodelle zum Zweck der Systemauslegung
+und der Dokumentation der Funktionserfül- lung zur Verfügung zu stellen
+[BR-LAH-017].</p>
+<p>Durch einen Projektsimulationsplan ist die Integration der Simulation
+in den Gesamtprojektablauf durch den Auftragnehmer sicherzustellen.
+Dieser enthält neben den wesentlichen Simulationsmeilen- steinen auch
+einen Terminplan mit regelmäßigen Statusberichten an den Auftraggeber
+[BR-LAH-018].</p>
+<p>[redacted-person] ist vom Auftragnehmer ein CAE-Verantwortlicher zu
+benennen und dessen Teilnahme an wichtigen Entwicklungsgesprächen, vor
+allem bei Fragen der Bauteilanforderung und -auslegung, sicherzustellen
+[BR-LAH-019].</p>
+<p>[redacted-person]-Element-Insassenschutz-Simulationen sind nach Absprache
+mit der zuständigen Simulati- onsabteilung mit dem Programmsystem
+PamCrash und bzw. oder dem Programmsystem LS-Dyna durchzuführen
+[BR-LAH-020].</p>
+<p>Für spezielle Anwendungen können nach Absprache mit der [redacted-person] mit anderen Programmsystemen durchgeführt werden
+[BR-LAH-021].</p>
+<p>Die im Rahmen der Entwicklung erarbeiteten Modelle sind dem
+Auftraggeber jederzeit unverschlüsselt und lauffähig zur Verfügung zu
+stellen [BR-LAH-022].</p>
+<p>[redacted-person] beschreibt die vom Auftragnehmer geforderten
+Leistungen sowie Anforderun- gen an die rechnerische Auslegung der
+Airbagmodelle mit Hilfe der FEM im [redacted-person]. Es stellt die
+Grundlage für den Vergabeumfang dar [BR-LAH-023].</p>
+<p>Abweichungen von diesem Lastenheft sind während der Angebotsphase mit
+der zuständigen Berech- nungsabteilung des Auftraggebers abzustimmen.
+Dieses gilt für vom Entwicklungspartner ausgeschlos- sene Teilumfänge
+und für, aus dessen Sicht, zusätzlich erforderliche Umfänge.
+Abweichungen bedür- fen der schriftlichen Zustimmung der zuständigen
+Fachabteilungen des Auftraggebers [BR-LAH-024].</p>
+<p>[redacted-person] der in diesem Lastenheft beschriebenen Rechenmodelle
+und deren Abgleich mit Ver- suchsergebnissen (Validierung) erfolgt durch
+den Auftragnehmer. [redacted-person] dieser Modelle erfolgt die Komponenten- und
+die Gesamtsystemauslegung [BR-LAH-025].</p>
+<p>[redacted-person] Übernahme oder Kooperation aus vorhandenen Konzern-
+oder Fremdfahrzeugen sind, ist der Lieferant nicht von der Konvertierung
+und Validierung der FE-Modelle in das entsprechende Projekt
+FE-Berechnungsprogramm befreit. Dabei müssen die Modelle immer auf den
+aktuellen Stand der Technik in der Simulation angepasst werden und dem
+aktuellsten Konstruktionsstand entsprechen [BR-LAH-026].</p>
+</blockquote>
+<h2 id="zuordnung-der-komponente">Zuordnung der Komponente</h2>
+<h2 id="zielfahrzeuge">Zielfahrzeug(e)</h2>
+<blockquote>
+<p>[redacted-person] des Zielfahrzeuges ist in den Anfrageunterlagen
+festgelegt [BR-LAH-027]. [redacted-person] steht in den
+Anfrageunterlagen [BR-LAH-028].</p>
+</blockquote>
+<h2 id="einsatzort-und-zielmarkt">Einsatzort und Zielmarkt</h2>
+<blockquote>
+<p>[redacted-person] ist in den Anfrageunterlagen festgelegt
+[BR-LAH-029].</p>
+<p>Die relevanten Gesetzesanforderungen der Zielmärkte sind zu erfüllen
+[BR-LAH-030].</p>
+<p>Die vom Auftraggeber geforderten Verbrauchertestanforderungen sind zu
+erfüllen [BR-LAH-031].</p>
+</blockquote>
+<h1 id="terminplan-und-meilensteine">Terminplan und Meilensteine</h1>
+<h2 id="übersichtsmatrix-und-zeitplan">Übersichtsmatrix und
+Zeitplan</h2>
+<blockquote>
+<p>[redacted-person] der Modellerstellung richtet sich nach dem zeitlichen
+Ablauf der Entwicklung des Airbags im Produktentstehungsprozess
+[BR-LAH-032].</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Wann</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Was</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Airbaglieferant</p>
+</blockquote></td>
+<td><blockquote>
+<p>Vorgänger- /Konzeptmodelle, vereinfachte Modelle,</p>
+<p>auf Nachfrage auch vollwertige Modelle, MeRKE-Modelle ([redacted-co],
+Volkswagen)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: left;"><blockquote>
+<p>Ab [redacted-person] + 3 Wochen ([redacted-co]82036 Punkt 004). Es
+gelten die im folgenden beschriebenen Terminpläne in Anlehnung an
+spezifi-</p>
+<p>sche Meilensteine und Entwicklungsphasen</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person], Toleranzmodelle</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 1: [redacted-person]</em></p>
+<p>Jeweils vier Wochen vor den Meilensteinen im Entwicklungsprozess sind
+vollständig validierte FPM- Modelle bzw. CPM-Modelle (LS-Dyna) zur
+Verfügung zu stellen [BR-LAH-033]. Der genaue Terminplan ist mit der
+zuständigen Berechnungsabteilung abzustimmen [BR-LAH-034].</p>
+<p>Abhängig vom OEM und vom Airbagtyp (siehe Abschnitt <a href="#airbagspezifische-anforderungen">4.3</a> <a href="#airbagspezifische-anforderungen"><em>[redacted-person]</em></a>) sind zu einer unterschiedlichen Anzahl von
+Meilensteinen diese Modellierungsschleifen zu durchlaufen [BR-LAH-035].
+Die folgenden beiden Listen geben die OEM-spezifische Anzahl der
+Meilensteine wieder und beschreiben, in welcher Modellierungsgüte und
+welche Art von Modellen dann zur Verfügung gestellt werden müssen
+[BR-LAH-036]:</p>
+<p>[redacted-person] müssen mindestens für die folgenden, von der
+zuständigen Berechnungsabteilung festzulegenden Projektmeilensteine bzw.
+Entwicklungsphasen geliefert werden: [BR-LAH-037]:</p>
+</blockquote>
+<ul>
+<li><p>Anfragephase: vereinfachte Modelle</p></li>
+<li><p>dig.KF (PF): vollwertige Modelle (Seitenairbags nach
+Absprache)</p></li>
+<li><p>dig. VPT (KF): vollwertige Modelle</p></li>
+<li><p>dig. BST (PLF): vollwertige Modelle</p></li>
+<li><p>dig. Serie (BF): vollwertige Modelle inkl.
+Toleranzmodelle</p></li>
+<li><p>SOP: vollwertige Modelle inkl. Toleranzmodelle;</p></li>
+<li><p>P-[redacted-person]: vollwertige Modelle</p></li>
+<li><p>B-[redacted-person]: vollwertige Modelle</p></li>
+</ul>
+<blockquote>
+<p>LS-Dyna validierte Modelle müssen mindestens für die folgenden
+Fahrzeugentwicklungsphasen der [redacted-co] geliefert werden
+[BR-LAH-038]:</p>
+</blockquote>
+<ul>
+<li><p>Konzeptphase: vereinfachte Modelle;</p></li>
+<li><p>dig.VPT : vereinfachte Modelle;</p></li>
+<li><p>dig.BST : vollwertige Modelle inkl. Toleranzmodelle;</p></li>
+<li><p>BST : vollwertige Modelle;</p></li>
+<li><p>dig.Serie : vollwertige Modelle inkl. Toleranzmodelle;</p></li>
+<li><p>VFF : vollwertige Modelle inkl. Toleranzmodelle;</p></li>
+<li><p>PVS : vollwertige Modelle inkl. Toleranzmodelle;</p></li>
+<li><p>SOP : vollwertige Modelle vom freigegebenen Serienstand inkl.
+Toleranzmodelle;</p></li>
+<li><p>SOP+ : vollwertige Modelle aus der Serienproduktionsanlage inkl.
+Toleranzmodelle.</p></li>
+</ul>
+<blockquote>
+<p>Zusätzlich sind bei funktionsrelevanten Änderungen am Airbagmodul
+innerhalb einer Kalenderwoche unvalidierte FPM-Modelle bzw. CPM-Modelle
+und innerhalb drei Kalenderwochen validierte FPM-Mo- delle bzw.
+CPM-Modelle zur Verfügung zu stellen [BR-LAH-039]. Funktionsrelevant ist
+zum Beispiel: Gas- generator-Änderung, Änderung von Shape, Zuschnitt und
+Volumen, Faltungsänderung, Gewebe-Än- derung, Gehäuse-Änderung u. a.</p>
+<p>[redacted-person] sind zusätzlich zu den genannten Zeitpunkten validierte
+UPM-Modelle zu liefern</p>
+<p>[BR-LAH-040].</p>
+<p>Eine CAE-Unterstützung ist bis drei Monate nach SOP der letzten
+länderspezifischen Anordnung (Seri- enanlauf) zu gewährleisten
+[BR-LAH-041].</p>
+<p>Wenn ein COP-Modul unabhängig von einer
+Fahrzeugprojekt-Tranchenvergabe in weiteren (späteren) Fahrzeugprojekten
+eingesetzt wird, ist das jeweilige COP-Berechnungsmodell so zu
+aktualisieren, dass es den Anforderungen – auch neuen – der dann
+gültigen Version des Airbagberechnungslastenhefts entspricht
+[BR-LAH-042].</p>
+<p>SOP bis EOP der letzten Fahrzeuges der Tranchen-Vergabe sind die
+Simulationsmodelle auf den aktu- ellsten Stand der Solver-Version
+umzustellen. [redacted-person] wird vom Auftraggeber genannt. Dabei ist bei
+Abweichungen der Kurven (Druck, Vorverlagerung, Beschleunigung) eine
+Validierung / Rekalibrie- rung in der Simulation nötig. Diese ist vom
+Lieferanten durchzuführen.</p>
+</blockquote>
+<h1 id="anforderungen-an-airbagmodelle">Anforderungen an
+Airbagmodelle</h1>
+<blockquote>
+<p>Die verwendeten Modellierungsmethoden, sofern nicht vorgegeben, sind
+der Fachabteilung des Auf- traggebers zu Beginn des Projekts
+vorzustellen [BR-LAH-043]<em>.</em></p>
+</blockquote>
+<h2 id="vorgänger-konzeptmodelle-und-vereinfachte-modelle">Vorgänger-/Konzeptmodelle
+und vereinfachte Modelle</h2>
+<blockquote>
+<p>[redacted-person] muss das angebotene Konzept aufzeigen
+[BR-LAH-044].</p>
+<p>[redacted-person] müssen die Geometrie richtig wiedergeben
+[BR-LAH-045]. [redacted-person] ist nur in Absprache zulässig
+[BR-LAH-046]. [redacted-person] darf vereinfacht dargestellt werden
+[BR-LAH-047]. Gefal- tete Modelle müssen im originalen Bauraum
+positioniert sein [BR-LAH-048] ([redacted-co]82036 Punkt 003).</p>
+<p>[redacted-person] müssen nach Absprache mit dem Auftraggeber, mindestens
+aber durch Linearimpaktor-</p>
+<p>/Pendelversuche, validiert sein [BR-LAH-049].</p>
+</blockquote>
+<h2 id="vollwertige-modelle">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] werden wie in [redacted-co]82036 beschrieben aufgebaut
+[BR-LAH-050].</p>
+<p>[redacted-person], die zum Umfang des Lieferanten gehören, sind so zu
+vernetzen, dass die Modelle für FE- Sicherheitsberechnungen und
+Airbagintegrationsrechnungen (zum Beispiel PAB in I-Tafel) verwendet
+werden können [BR-LAH-051]. Um dies zu gewährleisten, sind bei
+Projektbeginn bei der zuständigen Be- rechnungsabteilung alle weiteren
+gültigen projektspezifischen Dokumente oder Vorgaben, wie zum [redacted-person], Anbindungstechnik, Kontrollkarten oder
+Feinstrukturierung der Modell-IDs, anzufordern [BR-LAH-052].</p>
+<p>[redacted-person] müssen in ‚single precision’ durchgeführt
+werden [BR-LAH-053].</p>
+<p>Es ist nachzuweisen, dass die Modelle in ‚single precision’ und
+‚double precision’ die gleichen Ergeb- nisse nach Cora-Auswertung gemäß
+[redacted-co]82036 liefern [BR-LAH-054].</p>
+<p>[redacted-person] stellt dem [redacted-person] der
+Fahrzeugumgebung zur Verfügung. [redacted-person]- tragnehmer ist dafür
+verantwortlich, dass sein Modell in dieser Fahrzeugumgebung die Funktion
+rea- listisch abbildet [BR-LAH-055]. [redacted-person] sind mit
+Versuchen aus der Bauteilentwicklung abzu- gleichen und zu dokumentieren
+[BR-LAH-056].</p>
+<p>[redacted-person], die zu einem Modell für den Auftraggeber
+führen, sind der Fachabteilung zur Verfügung zu stellen [BR-LAH-057].
+Dies sind zum Beispiel: Modelle der Faltsimulation, Modelle der
+Impaktorkonfigurationen, Modelle der Materialvalidierung.</p>
+<p>Alle gelieferten Modelle sind dem Auftraggeber unverschlüsselt zu
+übergeben [BR-LAH-058].</p>
+</blockquote>
+<h2 id="vernetzung">Vernetzung</h2>
+<blockquote>
+<p>Es gelten die Vernetzungskriterien aus [redacted-co]82036.</p>
+<p>Davon abweichend gilt für die [redacted]dass alle Airbags mit einer
+Kantenlänge von 2,5 mm zu vernetzen sind [BR-LAH-059].</p>
+</blockquote>
+<h2 id="modellstabilität">Modellstabilität</h2>
+<blockquote>
+<p>[redacted-person] von Airbags bedarf der Berücksichtigung
+verschiedener Solveranforderungen</p>
+<p>[BR-LAH-060]. So verhalten sich LS-Dyna und VPS in einigen Fällen
+unterschiedlich.</p>
+<p>[redacted-person] zwischen den Modellen für unterschiedliche Solver ist
+grundsätzlich zulässig, benötigt aber eine entsprechende Prüfung
+[BR-LAH-061].</p>
+<p>Grundsätzlich ist bei der Erstmodellierung solverunabhängig darauf zu
+achten, dass Gasdynamiksolver wie FPM oder CPM zusätzliche Anforderungen
+an die Modellgüte stellen [BR-LAH-062].</p>
+<p>So sind u. [redacted-person] gasdynamische Phänomene, z. [redacted-person]
+steigende Massenströme oder Tem- peraturen, möglichst im Einklang mit
+der Diskretisierung des Solvers abzubilden [BR-LAH-063].</p>
+<p>Darüber hinaus sind möglichst einfache geometrische Formen zu wählen
+(z. [redacted-person] von übereinander liegenden oder vernähten
+Gewebelagen in einer Lage), sodass die Gasdynamiksolver möglichst
+einfache geschlossene Volumina diskretisieren [BR-LAH-064]. [redacted-person]
+sind auch bei geo- metrischen Vereinfachungen korrekt abzubilden
+[BR-LAH-065].</p>
+<p>Entstehen zusätzlich andere bauteilbedingte Modellierungsengstellen,
+sind diese mit dem entspre- chenden Softwarehersteller zu diskutieren,
+um eine möglichst robuste Modellierung zu erhalten [BR-LAH-066].</p>
+<p>[redacted-person] gilt als numerisch stabil, wenn mindestens 9 von 10
+Rechnungen beim Airbaghersteller korrekt (z. [redacted-person] abnormale
+Zeitschritteinbrüche) durchlaufen [BR-LAH-067]. Erkennt der Airbagher-
+steller Instabilitäten, ist der Auftraggeber unverzüglich zu informieren
+[BR-LAH-068]. In diesem Fall ist der Airbaghersteller verpflichtet,
+schnellstmöglich ein numerisch stabiles Modell zu erzeugen
+[BR-LAH-069].</p>
+<p>Auf folgende Punkte bezüglich der numerischen Stabilität ist zu
+achten [BR-LAH-070]:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] sind zu nutzen</p></li>
+<li><p>Versagenskräfte, -spannungen, -dehnungen für Reißnähte sind
+physikalisch abzubilden</p></li>
+<li><p>[redacted-person] des Modells sind immer stetig differenzierbar
+abzubilden (keine Sprungfunk- tionen)</p></li>
+</ul>
+<blockquote>
+<p>Für PamCrash gilt: [redacted-person] ist zur Überprüfung seiner
+numerischen Stabilität und Konvergenz unmittelbar vor der ersten
+Komplettvalidierung mit einer feinen FPM-Auflösung bis zu seiner
+vollstän- digen Entfaltung zu berechnen [BR-LAH-071]. Eine feine
+FPM-Auflösung in diesem Kontext bedeutet: glo- bale smoothing length = 2
+mm [BR-LAH-072].</p>
+<p>Hiermit sollen die sonst gewählten Einstellungen bezüglich
+FPM-Auflösung und des Umschaltzeitpunk- tes von FPM auf UPM hinsichtlich
+ihrer Anwendbarkeit überprüft werden.</p>
+</blockquote>
+<h2 id="nummerierung">Nummerierung</h2>
+<blockquote>
+<p>Es gilt die Konzern-Nummerierungskonvention LAH.DUM.880.DL, ([redacted-co]82036
+Punkt 006) [BR-LAH-073]. Ergänzend zu dieser Nummerierungskonvention
+gilt für Komponentensimulationsmodelle für die Part- ID, Node-ID und
+Element-ID eine erweiterte Nummerierungskonvention, welche im Anhang 1
+zu fin- den ist [BR-LAH-074].</p>
+</blockquote>
+<h2 id="einheitensystem">Einheitensystem</h2>
+<blockquote>
+<p>[redacted-person] sind in dem durch folgende Größen festgelegten
+Einheitensystem durchzuführen ([redacted-co]82036 Punkt 007) [BR-LAH-075]:</p>
+</blockquote>
+<ul>
+<li><p>[mm] Länge</p></li>
+<li><p>[kg] Masse</p></li>
+<li><p>[ms] Zeit</p></li>
+<li><p>[K] Temperatur</p></li>
+</ul>
+<h2 id="zeitschritt">Zeitschritt</h2>
+<blockquote>
+<p>[redacted-person] darf einen Zeitschritt von unter 0,5 µs erzeugen ([redacted-co]82036 Punkt 008) [BR-LAH-076].</p>
+<p>[redacted-person] behält sich vor, vor Projektbeginn einen davon
+abweichenden Zeitschritt vorzuge- ben.</p>
+</blockquote>
+<h2 id="einbaulage">Einbaulage</h2>
+<blockquote>
+<p>Im Konzern wird – außer für Kopfairbags – keine von der in [redacted-co]82036
+definierten abweichende Ein- baulage gefordert ([redacted-co]82036 Punkt 015).
+Kopfairbags müssen in Fahrzeugeinbaulage übergeben wer- den.
+[BR-LAH-077].</p>
+<p>Für die Positionierung des Fahrerairbags relativ zur Lenksäule ist
+eine Transform-Karte mit dem D- Punkt als Bezugspunkt zu definieren
+[BR-LAH-078].</p>
+</blockquote>
+<h2 id="modellierung-vents">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] von adaptiven Vents, X-Vents und anderen
+Sonderfällen ist mit dem Auftraggeber zu Projektbeginn abzustimmen ([redacted-co]82036 Punkt 041) [BR-LAH-079].</p>
+</blockquote>
+<h2 id="lebenslauf">Lebenslauf</h2>
+<blockquote>
+<p>[redacted-person] eines Simulationsmodells stellt eine Übersicht über
+die Modellhistorie dar. Ist eine be- stehende Korrelation zu einem
+Hardware-Generationsstand gegeben, muss diese dokumentiert sein
+[BR-LAH-080]. Wenn vom Auftraggeber eine Vorlage für den Lebenslauf
+vorgegeben wird, ist diese an- zuwenden [BR-LAH-081]. [redacted-person] ist
+vom Lieferanten bei jeder Modellübergabe ausgefüllt im vor- gegebenen
+Format mitzuschicken [BR-LAH-082].</p>
+</blockquote>
+<h2 id="solver-version">Solver-Version</h2>
+<blockquote>
+<p>Die zu verwendende Code-Version von PamCrash oder LS-Dyna wird vom
+Auftraggeber zu Projektbe- ginn festgelegt [BR-LAH-083]. [redacted-person] ist berechtigt, eine Umstellung auf eine neue aktuali-
+sierte Solver-Version bei gleicher Validierungsgüte zu verlangen
+[BR-LAH-084]. Dies wird mit ausreichend Vorlauf dem Auftragnehmer
+mitgeteilt, der zu einem abgestimmten Termin alle Modelle in der ange-
+gebenen Version zu liefern hat [BR-LAH-085]. Hierzu sind
+Vergleichsrechnungen notwendig, die eine Kor- relation mit der
+vorherigen Version aufzeigen [BR-LAH-086]. [redacted-person] kann
+eine Umstel- lung pro Kalenderjahr angenommen werden [BR-LAH-087].</p>
+</blockquote>
+<h2 id="modellchecks">Modellchecks</h2>
+<blockquote>
+<p>Alle PamCrash-Modelle sind vom Auftragnehmer so zu erstellen, dass
+sie den Test mit dem esi_check in der Version, die vom Auftraggeber für
+die produktive PamCrash Version freigegeben ist, bestehen, ohne dass
+Fehlermeldungen und Warnungen ausgegeben oder Änderungen des Modells
+vorgenom- men werden. Der esi_check wird typischerweise mit der
+Solverversion aktualisiert [BR-LAH-088].</p>
+<p>Alle PamCrash-Modelle sind vom Auftragnehmer so zu erstellen, dass
+sie den Test mit dem Air- bagchecker airbagchk in der Version, die vom
+Auftraggeber für die produktive PamCrash Version frei- gegeben ist,
+bestehen, ohne dass Fehlermeldungen und Warnungen ausgegeben oder
+Änderungen des Modells vorgenommen werden [BR-LAH-089].</p>
+<p>In PamCrash-Modellen muss eine CDATA-Karte mit folgendem Aufbau
+definiert sein, damit der Air- bagchecker die relevante
+Lastenheftversion auslesen kann [BR-LAH-090]. Datum und Version sind
+ent- sprechend anzupassen [BR-LAH-091]:</p>
+<p>CDATA /</p>
+<p>NAME SpecificationVersion LAH = LAH.DUM.880.EM</p>
+<p>LAH_Version = 8</p>
+<p>LAH_Date = [redacted-phone]END_CDATA</p>
+<p>Alle LS-Dyna-Modelle sind vom Auftragnehmer so zu erstellen, dass sie
+den Test mit dem DynaInspec- tor von DYNAmore in der Version, die vom
+Auftraggeber für die produktive LS-[redacted-person] freigege- ben ist,
+bestehen, ohne dass Fehlermeldungen und Warnungen ausgegeben oder
+Änderungen des Modells vorgenommen werden [BR-LAH-092].</p>
+</blockquote>
+<h2 id="strömungsabbildung">Strömungsabbildung</h2>
+<blockquote>
+<p>Neuerungen im Softwarecode, welche eine bessere Abbildung des Modells
+ermöglichen, sind anzu- wenden [BR-LAH-093].</p>
+<p>[redacted-person] und Gasreibung des [redacted-person] auf die Entfaltung
+haben, müssen diese abgebil- det werden [BR-LAH-094]. [redacted-person]
+ohne Gasreibung/Turbulenz muss ein Nachweis erbracht werden, dass diese
+vernachlässigt werden können [BR-LAH-095]. [redacted-person]
+müssen – soweit sie vom Solver abbildbar sind – berücksichtigt werden
+[BR-LAH-096].</p>
+</blockquote>
+<h2 id="infoblock">Infoblock</h2>
+<blockquote>
+<p>Header, Infoblock, Parametrisierung und Includestrukturen werden zu
+Projektbeginn vom Auftragge- ber vorgegeben und können nur von diesem
+geändert werden ([redacted-co]82036 Punkt 104) [BR-LAH-097].</p>
+<p>Im Infoblock der Airbagdatei muss mindestens die Ventöffnung und die
+einstellbaren Ventgrößen, Ge- webebezeichnung, Gasgeneratorbezeichnung,
+das Volumen des Airbags, das Erstellungsdatum, der Name und die
+Kontaktdaten des Erstellers, die Solver-Version, mit der validiert
+wurde, sowie alle Mo- delländerungen und die Modellhistorie dokumentiert
+sein [BR-LAH-098].</p>
+</blockquote>
+<h2 id="parametrisierung">Parametrisierung</h2>
+<blockquote>
+<p>In einem Airbagsimulationsmodell sind für den Insassenschutz
+mindestens folgende Parameter zu de- finieren [BR-LAH-099].</p>
+</blockquote>
+<ul>
+<li><p>Zündzeit (TTF)</p></li>
+<li><p>Ventgröße</p></li>
+<li><p>Gasgenerator-Kennung (Beispiel: UGL, OGL, HT)</p></li>
+</ul>
+<blockquote>
+<p>Falls eine Adaptivität vorhanden ist, muss das Delta zwischen
+[redacted-person] und Zündung der Adaptivität parametrisiert werden
+[BR-LAH-100]. Gemeint sind zum Beispiel adaptive Vents, adaptive
+Volumina und andere Adaptivitäten. Bei adaptiven Vents muss die Fläche
+der Adaptivität parametri- siert werden [BR-LAH-101].</p>
+<p>Alle notwendigen Parameter müssen im Airbag-Include eindeutig
+definiert werden [BR-LAH-102]. [redacted-person] müssen durch einzelne
+Variablen (PYVARs, *PARAMETER) definiert werden, siehe Beispiel
+[BR-LAH-103]. [redacted-person] bestehen aus 6 Zeichen [BR-LAH-104]:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Zeichen 1</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Zeichen 2</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Zeichen 3-6</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Fahrerairbag = D</p>
+</blockquote></td>
+<td><blockquote>
+<p>Position im Fahrzeug = 1-9</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person] = _TTF</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Beifahrerairbag = P</p>
+</blockquote></td>
+<td><blockquote>
+<p>x: Ein „x“ steht für mehrere</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ventdurchmesser = DPV1, DPV2, …</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knieairbag = K</p>
+</blockquote></td>
+<td><blockquote>
+<p>mögliche Positionen</p>
+</blockquote></td>
+<td><blockquote>
+<p>Gasgenerator = GG</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seitenairbag = S</p>
+</blockquote></td>
+<td><blockquote>
+<p>Kopfairbag links: 1</p>
+</blockquote></td>
+<td rowspan="2"><blockquote>
+<p>[redacted-person] des adaptiven Vents</p>
+<p>= _TAD</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kopfairbag = H</p>
+</blockquote></td>
+<td><blockquote>
+<p>Kopfairbag rechts: 3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Head-Thorax-Airbag = S oder H</p>
+</blockquote></td>
+<td rowspan="2"><blockquote>
+<p>[redacted-person] des adaptiven Volu- mens = VTAD</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Centerairbag = C</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Fläche des adaptiven Vents = _FAD</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 2: PYVAR-Definition</em></p>
+<p>Beispiele für PYVAR-Definitionen:</p>
+<p>$ ID</p>
+<p>PYVAR / 7000001</p>
+<p>NAME [redacted-person]</p>
+<p><strong>Dx_TTF</strong> = 12.0 END_PYVAR</p>
+<p>$</p>
+<p>$ ID</p>
+<p>PYVAR / 7000002</p>
+<p>NAME [redacted-person]</p>
+<p><strong>DxDPV1</strong> = 30 END_PYVAR</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Parameter</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>PC-Variable</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p><strong>Dx_TTF</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Durchmesser permanentes Vent</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>DxDPV1</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Gasgeneratorfunktion</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Dx GG</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] adaptives Vent</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Dx_TAD</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person] adaptives Volumen</p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>DxVTAD</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 3: Codierung PYVARS für DAB</em></p>
+<p>Davon abweichend kann die Fachabteilung der Konzernmarke eine eigene
+Vorgabe für Parameter- Namen vorschreiben. Diese ist dann anzuwenden
+[BR-LAH-105].</p>
+<p>[redacted-person] der Parametrisierung muss durch Simulationen bei von
+der Fachabteilung festzulegen- den Zündzeiten anhand eines Beispiel-
+oder Fahrzeugmodells nachgewiesen werden [BR-LAH-106].</p>
+</blockquote>
+<h2 id="namenskonvention-für-gruppen">Namenskonvention für Gruppen</h2>
+<blockquote>
+<p>[redacted-person] für Gruppen-Definitionen ist von der jeweiligen
+Fachabteilung der Konzern- marke zu beziehen und anzuwenden
+[BR-LAH-107].</p>
+</blockquote>
+<h2 id="formatierung-für-standardauswertung">Formatierung für
+Standardauswertung</h2>
+<blockquote>
+<p>Für die [redacted-co] gilt:</p>
+<p>Damit die Airbagmodelle mit der a4-Standardauswertung ausgewertet
+werden können, muss die ID der Airbag-Particle-Karte der untenstehenden
+<em><a href="#_bookmark27">Tabelle 4</a></em> folgen [BR-LAH-108]:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Airbagtyp</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Airbag-Particle-ID</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Fahrerairbag</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Beifahrerairbag</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knie-Airbag P1</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knie-Airbag P3</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seiten-Airbag P1 &amp; P3</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seiten-Airbag P4 &amp; P6</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kopf-/Curtain-Airbag</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 4:Vorgabe
+für ID der Airbag-Particle-Karte</em></p>
+<p>Für PamCrash gilt:</p>
+<p>Damit die Airbagmodelle mit der a4-Standardauswertung ausgewertet
+werden können, muss der Name der BAGIN-Karte folgendem Namenschema
+folgen [BR-LAH-109]:</p>
+<p>Namenschema:</p>
+<p>[Airbagtyp]_P[Sitzplatz]˽[Gasgeneratortyp]˽[freie Namensgebung]</p>
+<p>Beispiele für die Benennung der BAGIN-Karte in einem
+Linkslenkerfahrzeug:</p>
+</blockquote>
+<ul>
+<li><p>PAB_P03 hybrid GG Bezeichnung vom Airbaghersteller</p></li>
+<li><p>DAB_P01 Wasserstoff GG Bezeichnung vom Airbaghersteller</p></li>
+<li><p>KNAB_P03 pyrotechnischer GG Bezeichnung vom
+Airbaghersteller</p></li>
+<li><p>HAB_P03 Kaltgas GG Bezeichnung vom Airbaghersteller</p></li>
+<li><p>SAB_P01 Kaltgas GG Bezeichnung vom Airbaghersteller</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] deckt mehrere Positionen einer Fahrzeugseite ab.
+Kopfairbag spezifisch ist daher die folgende Vorgabe [BR-LAH-110]:</p>
+</blockquote>
+<ul>
+<li><p>Positionsbezeichnung für den HAB auf der linken Fahrzeugseite:
+P01.</p></li>
+<li><p>Positionsbezeichnung für den HAB auf der rechten Fahrzeugseite:
+P03.</p></li>
+</ul>
+<blockquote>
+<p>Die anzuwendende Codierung für die variablen Stellen im Namenschema
+der BAGIN-Karte zeigt die folgende <em><a href="#_bookmark28">Tabelle
+5</a></em> [BR-LAH-111]:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Werte für Sitzplatz</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Codierung PamCrash</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Codierung LS-Dyna</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Sitzplatz 1: vorne links</p>
+</blockquote></td>
+<td><blockquote>
+<p>01</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitzplatz 2: vorne mitte</p>
+</blockquote></td>
+<td><blockquote>
+<p>02</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitzpaltz 3: vorne rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>03</p>
+</blockquote></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitzplatz 4: 2. Sitzreihe links</p>
+</blockquote></td>
+<td><blockquote>
+<p>04</p>
+</blockquote></td>
+<td><blockquote>
+<p>4</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitzplatz 5: 2. Sitzreihe mitte</p>
+</blockquote></td>
+<td><blockquote>
+<p>05</p>
+</blockquote></td>
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitzplatz 6: 2. Sitzreihe rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>06</p>
+</blockquote></td>
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitzplatz 7: 3. Sitzreihe links</p>
+</blockquote></td>
+<td><blockquote>
+<p>07</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitzplatz 8: 3. Sitzreihe mitte</p>
+</blockquote></td>
+<td><blockquote>
+<p>08</p>
+</blockquote></td>
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitzplatz 9: 3. Sitzreihe rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>09</p>
+</blockquote></td>
+<td><blockquote>
+<p>9</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 5: Codierung
+für variable Stellen im Namenschema</em></p>
+</blockquote>
+<h2 id="formatierung-für-gasgeneratorkurven">Formatierung für
+Gasgeneratorkurven</h2>
+<blockquote>
+<p>Für die Codierung des Airbagtyps siehe <em><a href="#_bookmark30">Tabelle 6</a></em> [BR-LAH-112]. [redacted-person] des
+Gasgeneratortyps erfolgt in einer vom Airbaghersteller frei wählbaren
+Form [BR-LAH-113].</p>
+<p>Darüber hinaus ist für die Namensgebung der Massenstrom- und
+Temperatur-Funktionen zur Be- schreibung des Gasgenerators das folgende
+Namenschema exakt anzuwenden.</p>
+<p>Namenschema:</p>
+<p>[Airbagtyp]_[physikalische Größe]_[Temperierung]_[Beladung]_
+[optional Stufe]_[Variantenbezeichnung GG-Hersteller]</p>
+<p>Beispiele:</p>
+</blockquote>
+<ul>
+<li><p>PAB_Mass_Flow_RT_NOM_200_PHIxyz</p></li>
+<li><p>HAB_Temperature_LT_UGL_Bezeichnung</p></li>
+</ul>
+<blockquote>
+<p>Die anzuwendende Codierung für die variablen Stellen im Namenschema
+zeigt die folgende <a href="#_bookmark30"><em>Tabelle 6</em></a></p>
+<p>[BR-LAH-114]:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="2"><blockquote>
+<p><strong>Werte für Airbagtyp</strong></p>
+</blockquote></th>
+<th colspan="2"><blockquote>
+<p><strong>Werte für Beladung</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Airbagtyp</p>
+</blockquote></td>
+<td><blockquote>
+<p>Codierung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Beladung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Codierung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Fahrerairbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>DAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>nominal</p>
+</blockquote></td>
+<td><blockquote>
+<p>NOM</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Beifahrerairbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>PAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>untere Grenzlast</p>
+</blockquote></td>
+<td><blockquote>
+<p>UGL</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knieairbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>KNAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>obere Grenzlast</p>
+</blockquote></td>
+<td><blockquote>
+<p>OGL</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kopfairbag/Curtain</p>
+</blockquote></td>
+<td><blockquote>
+<p>HAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>plus x Sigma, x=1,2,3,…</p>
+</blockquote></td>
+<td><blockquote>
+<p>PxS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kopf-Thorax-Airbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>HTAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>minus x Sigma, x=1,2,3,…</p>
+</blockquote></td>
+<td><blockquote>
+<p>MxS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Centerairbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>CEAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>aktuelle Charge</p>
+</blockquote></td>
+<td><blockquote>
+<p>ACT</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Seitenairbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>SAB</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Frontscheibenairbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>WSAB</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Sitzrampenairbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>SRAB</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Pusherairbag</p>
+</blockquote></td>
+<td><blockquote>
+<p>PUAB</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="2"><blockquote>
+<p><strong>Werte für Temperierung</strong></p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p><strong>Werte für physikalische Größe</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Temperierung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Codierung</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Codierung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Niedrigtemperatur</p>
+</blockquote></td>
+<td><blockquote>
+<p>LT</p>
+</blockquote></td>
+<td><blockquote>
+<p>Massenfluss</p>
+</blockquote></td>
+<td><blockquote>
+<p>Mass_Flow</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Raumtemperatur</p>
+</blockquote></td>
+<td><blockquote>
+<p>RT</p>
+</blockquote></td>
+<td><blockquote>
+<p>Temperatur</p>
+</blockquote></td>
+<td><blockquote>
+<p>Temperature</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Hochtemperatur</p>
+</blockquote></td>
+<td><blockquote>
+<p>HT</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="2"><blockquote>
+<p><strong>Werte für Stufigkeit</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Zündzeitversatz, Stufe</p>
+</blockquote></td>
+<td><blockquote>
+<p>Codierung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Nur eine Stufe</p>
+</blockquote></td>
+<td><blockquote>
+<p>nicht nutzen</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Full output,</p>
+<p>2. Stufe ab 5 ms</p>
+</blockquote></td>
+<td><blockquote>
+<p>5</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>First stage only,</p>
+<p>2. Stufe ab 200 ms</p>
+</blockquote></td>
+<td><blockquote>
+<p>200</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 6: Codierung
+für variable Stellen im Namenschema für Gasgenerator-Funktionen</em></p>
+<p>Mit den Bezeichnungen <em>plus x Sigma</em> (PxS) beziehungsweise
+<em>minus x Sigma</em> (MxS) aus <em><a href="#_bookmark30">Tabelle
+6</a></em> werden die Leistungsstufen von Gasgeneratoren an der 1-, 2-,
+3-, usw. Sigma-Grenze bezeichnet.</p>
+<p>Mit der Bezeichnung <em>ACT</em> aus <em><a href="#_bookmark30">Tabelle 6</a></em> werden die Generatordaten der
+Charge bezeichnet, mit der die Validierungsversuche durchgeführt
+wurden.</p>
+</blockquote>
+<h2 id="namenskonvention-für-includes">Namenskonvention für
+Includes</h2>
+<blockquote>
+<p>Includes sind nach der unten beschriebenen Namenskonvention zu
+benennen [BR-LAH-115]. [redacted-person]- Includenamen setzen sich dabei aus
+der Codierung für Airbagtyp, Region, Position, Teilenummer, [redacted-person], Validierungsstand, [redacted-person] und [redacted-person] zusam- men [BR-LAH-116]. Insgesamt sind maximal 67 Zeichen
+zu vergeben, um inklusive Dateiendung und INCLU / - Karte die maximal
+möglichen 80 Zeichen von PamCrash abzudecken [BR-LAH-117]:</p>
+<p>Für PamCrash-Modelle gilt die Dateiendung „.inc“ [BR-LAH-118]. Für
+LS-[redacted-person] gilt die Dateien- dung „.key“ [BR-LAH-119].</p>
+<p>$ + 1 + 2 + 3 + 4 + 5 + 6 + 7 + 8</p>
+<p>airbag_dab US_1_1K0_880_241_BC_03S_001_vF00_v00 .inc</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+</blockquote></th>
+<th style="text-align: right;"><p>|</p>
+<p>|</p>
+<p>|</p>
+<p>|</p></th>
+<th style="text-align: center;"><blockquote>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+<p>|</p>
+</blockquote></th>
+<th><blockquote>
+<p>| | | | | |-&gt; Spalte 54-68: optional</p>
+<p>| | | | |-&gt; Spalte 50-52: Variante OEM</p>
+<p>| | | |-&gt; Spalte 45-48: val./unval. (v, u)</p>
+<p>| | | + FPM (F) / CPM (C) / UPM(U)</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td style="text-align: center;"><blockquote>
+<p>|</p>
+</blockquote></td>
+<td><blockquote>
+<p>| | | + [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td style="text-align: center;"><blockquote>
+<p>|</p>
+</blockquote></td>
+<td><blockquote>
+<p>| | |-&gt; Spalte 41-43: laufende Nummer WZ Stand</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td style="text-align: center;"><blockquote>
+<p>|</p>
+</blockquote></td>
+<td><blockquote>
+<p>| | oder frei definierbare</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td style="text-align: center;"><blockquote>
+<p>|</p>
+</blockquote></td>
+<td><blockquote>
+<p>| | Variantenbezeichnung nach Vorgabe der</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td style="text-align: center;"><blockquote>
+<p>|</p>
+</blockquote></td>
+<td><blockquote>
+<p>| | Fachabteilung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td style="text-align: center;"><blockquote>
+<p>|</p>
+</blockquote></td>
+<td><blockquote>
+<p>| |-&gt; Spalte 37-39: WZ-Stand analog</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td style="text-align: center;"><blockquote>
+<p>|</p>
+</blockquote></td>
+<td><blockquote>
+<p>| | Teilelebenslauf</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>|</p>
+</blockquote></td>
+<td style="text-align: right;">|</td>
+<td style="text-align: center;"><blockquote>
+<p>|</p>
+</blockquote></td>
+<td><blockquote>
+<p>|-&gt; Spalte 22-35: analog KVS (Teilenummer und Index)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>| | |-&gt; Spalte 20: Position (1-9)</p>
+<p>| |-&gt; Spalte 17-18: Region (EU, US)</p>
+<p>|-&gt; Spalte 1-11: Includename (z.B.: dab, pab, knab, sab, hab)</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>Airbagtyp</p>
+</blockquote></th>
+<th><blockquote>
+<p>z.B.: dab = Fahrer, pab = Beifahrer, knab = Knie</p>
+<p>z.B.: sab = Seite, hab = Kopf, sab oder htab = Kopf-Thorax</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>Region</p>
+</blockquote></td>
+<td><blockquote>
+<p>EU = Europa, US = NAR, CN = China, JP = Japan</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Position</p>
+</blockquote></td>
+<td><blockquote>
+<p>1-9, Sitzposition von links vorn nach rechts hinten
+durchnummeriert</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Teilenummer und Index (Punkte durch Unterstriche</p>
+<p>ersetzt)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Teilenummer analog KVS</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person]: Werkzeugstand</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>[redacted-person] Werkzeugstand oder frei definierbare Varianten-</p>
+<p>bezeichnung nach Vorgabe der Fachabteilung</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person]- rungsstand,</p>
+<p>[redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>v, u, p – validiert, unvalidiert bzw. partiell validiert F/C, U –
+FPM/CPM bzw. UPM</p>
+<p>00 – Variantennummer wird von Zulieferer hochgezählt</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>v00 – Variantennummer wird vom Auftraggeber hochgezählt</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 7: Erläuterung der Bezeichnung von
+Airbagmodellen</em></p>
+<p>Davon abweichend kann die Fachabteilung der Konzernmarke eine eigene
+Vorgabe für Include-Namen vorschreiben. Diese ist dann anzuwenden
+[BR-LAH-120].</p>
+</blockquote>
+<h2 id="formatierung-codierung-und-syntax">Formatierung, Codierung und
+Syntax</h2>
+<blockquote>
+<p>Das zu liefernde Modell muss LoCo ([redacted-person]) fähig sein. [redacted-person] sind mit dem Auftraggeber abzustimmen [BR-LAH-121].</p>
+<p>[redacted-person] des Auftraggebers stellt der Auftragnehmer sämtliche
+Parameter zum Durchführen einer Robustheitsanalyse zur Verfügung
+[BR-LAH-122]. [redacted-person] ist entsprechend parametrisier- bar
+aufzubauen und so auf die Durchführung der Robustheitsanalyse
+vorzubereiten [BR-LAH-123].</p>
+<p>PYVAR-Definitionen dürfen nicht verwendet werden für Ein- und
+Auskommentierungen von PamCrash-Syntax [BR-LAH-124].</p>
+</blockquote>
+<h2 id="modellparameter">Modellparameter</h2>
+<blockquote>
+<p>[redacted-person] ist vom Auftragnehmer mit dem Auftraggeber die zu
+verwendende FPM-/CPM-Option ab- zustimmen [BR-LAH-125].</p>
+<p>[redacted-person] des Airbags mit seiner Umgebung oder mit sich
+selbst muss in PamCrash der Parameter ILEAK aktiviert sein, um eine
+verminderte Leckage infolge von verdämmten Gewebeschich- ten zu
+berücksichtigen. Bei gleichzeitiger Definition von 33 bzw. 34 Kontakten
+und 43 Kontakten des Airbags mit seiner Umgebung müssen die
+Kontaktdicken der 33 bzw. 34 Kontakte größer definiert sein als die
+Kontaktdicken der 43 Kontakte, um eine korrekte Berechnung der
+Leckageblockierung zu ge- währleisten [BR-LAH-126].</p>
+<p>In LS-Dyna-Modellen muss der Parameter FVOPT in der Materialkarte auf
+8 gesetzt werden</p>
+<p>[BR-LAH-127].</p>
+<p>[redacted-person] der Modelle gegenüber den Auslegungsparametern (z.
+[redacted-person], Zündzeitpunkt, Permeabilität, Gasgeneratorleistung) ist zu
+gewährleisten [BR-LAH-128]. Sollte sich bei der Validierung in Fahrzeug-
+oder Schlittenumgebung unter verschiedenen Randbedingungen und
+Variationen kein aus- reichender Abgleich ergeben, sind die Modelle zu
+verbessern, um eine gute Validierung des Modells in Fahrzeugumgebung zu
+erzielen [BR-LAH-129].</p>
+<p>[redacted-person] der Modelle muss für Front-/Heck- und
+Seitencrashlastfälle sowie Komponentenprü- fungen gewährleistet sein.
+[redacted-person] sind hierzu geeignete Beschleunigungssimulationen und Kom-
+ponentenprüfungen durchzuführen [BR-LAH-130].</p>
+<p>Wird der Luftsack aus dem Kontakt mit der Umgebung (beispielsweise
+Gehäuse, Cover, Schlauch) ge- nommen, darf keine unrealistische
+Entfaltung auftreten [BR-LAH-131].</p>
+</blockquote>
+<h2 id="charakteristik-gasgenerator">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] des Gasgenerators, das heißt der zeitliche Verlauf
+der Gaszusammensetzung, der Temperatur des einströmenden Gases sowie des
+Massenstroms, ist – insbesondere in der frühen Phase (&lt; 15 ms) – zu
+ermitteln [BR-LAH-132]. [redacted-person] der Charakteristik des
+Gasgenerators al- lein auf Basis des Tanktests ist nicht ausreichend
+[BR-LAH-133]. [redacted-person] sind zum Beispiel: Schubmessung,
+FINAL-Tonne, Temperaturmessung, Abbrandsimulation.</p>
+<p>[redacted-person] aller im Kapitel „<a href="#charakteristik-gasgenerator">[redacted-person]</a>“
+geforderter Kennungen ist auf diese Weise zu ermitteln [BR-LAH-134].</p>
+<p>[redacted-person] der Gasgeneratordaten muss mit diesen Daten der
+Tanktest in dem Zeitbereich, in dem der Tanktest sinnvolle Ergebnisse
+liefert, mit einem Simulationsmodell des Tanktests abgebildet und zur
+Übereinstimmung gebracht werden [BR-LAH-135]. In dem Zeitbereich, in dem
+der Tanktest keine sinnvollen Ergebnisse liefert – z.[redacted-person] Phase –
+sind die oben genannten alternativen Methoden ab- zubilden und in
+Übereinstimmung zu bringen [BR-LAH-136].</p>
+<p>Im Simulationsmodell des Tanks muss der Wärmeaustausch des Tanks mit
+seiner Umgebung berück- sichtigt sein, um einen gemessenen Druckabfall
+nach Abschluss der Einströmung abbilden zu können [BR-LAH-137].</p>
+<p>Bei der Verifizierung der Gasgeneratordaten durch den Tanktest und
+den alternativen Methoden muss mit FPM bzw. gegebenenfalls nach
+Abstimmung mit CPM gerechnet werden [BR-LAH-138]. [redacted-person]- rie
+inklusive Umlenkbleche und andere relevante Bauteile sind korrekt
+abzubilden [BR-LAH-139].</p>
+<p>[redacted-person] gilt für alle angeforderten Gasgeneratorkennungen
+[BR-LAH-140]. Siehe außerdem Hausnorm [redacted-co]82036 Abschnitt
+<em>Gasgenerator</em>.</p>
+<p>Wenn im Bauteillastenheft FINAL-Tonnenversuche gefordert werden mit
+einem zu vergebenden Gas- generator, müssen diese Versuche in einem
+validen Simulationsmodell der FINAL-Tonne simuliert und in
+Übereinstimmung gebracht werden mit den Versuchsergebnissen,
+insbesondere in Bezug auf den Druckverlauf (Niveau, Zeit) und die
+Entfaltungskinematik [BR-LAH-141]. Bei dieser FINAL-Tonnen-Simu- lation
+müssen dieselben validierten Gasgenerator-Daten verwendet werden wie im
+Modell des Ge- samt-Airbagmoduls [BR-LAH-142]. [redacted-person] des
+FINAL-Tonnen-Simulationsmodells ist zu dokumen- tieren [BR-LAH-143].</p>
+</blockquote>
+<h2 id="gasgenerator-kennungen">Gasgenerator-Kennungen</h2>
+<blockquote>
+<p>[redacted-person] sind vom Auftragnehmer mit folgenden
+Gasgeneratordaten zu liefern, so dass diese Konfigurationen entsprechend
+bewertet werden können [BR-LAH-144], siehe auch in <em><a href="#_bookmark30">Tabelle 6</a></em> die Spalte <em>Werte für
+Beladung</em>:</p>
+</blockquote>
+<ul>
+<li><p>Generatordaten der Charge, mit der die Validierungsversuche
+durchgeführt wurden (RT ACT)</p></li>
+<li><p>Generatordaten der mittleren Gasgeneratorcharakteristik bei
+Raumtemperatur (RT NOM)</p></li>
+<li><p>Generatordaten an der unteren x-σ-Grenze (RT MxS)</p></li>
+<li><p>Generatordaten an der oberen x-σ-Grenze (RT PxS)</p></li>
+<li><p>Generatordaten der unteren Grenzlast (RT UGL)</p></li>
+<li><p>Generatordaten der oberen Grenzlast (RT OGL)</p></li>
+<li><p>Generatordaten bei Niedertemperatur untere Grenzlast (LT
+UGL)</p></li>
+<li><p>Generatordaten bei Niedertemperatur obere Grenzlast (LT
+OGL)</p></li>
+<li><p>Generatordaten bei Hochtemperatur obere Grenzlast (HT
+OGL)</p></li>
+</ul>
+<blockquote>
+<p>In Bezug auf die Gasgeneratordaten an den unteren beziehungsweise
+oberen σ-Grenzen wird von der jeweiligen Fachabteilung des Auftraggebers
+vorgegeben, ob die Daten von der 1.-, 2.-, 3.-, usw. Sigma- Grenze
+geliefert werden müssen [BR-LAH-145].</p>
+<p>Von den oben genannten Kennungen sind mindestens die
+Gasgeneratordaten der Beladungen RT ACT, LT UGL, HT OGL und LT OGL nach
+den im Kapitel <a href="#charakteristik-gasgenerator">4.2.20</a>
+genannten Anforderungen zu erstellen und zu korrelieren
+[BR-LAH-146].</p>
+<p>[redacted-person] behält sich vor, für jede Gasgeneratorkennung ein
+separates Airbagmodell anzufor- dern, statt standardmäßig ein Modell mit
+allen Kennungen zu erhalten [BR-LAH-147].</p>
+</blockquote>
+<h2 id="mechanische-eigenschaften-airbaggewebe">[redacted-person] Airbaggewebe</h2>
+<blockquote>
+<p>Für die Erstellung der Materialkarten ist der Auftragnehmer
+verantwortlich [BR-LAH-148].</p>
+<p>[redacted-person] der mechanischen Eigenschaften des Airbaggewebes sind
+[redacted-person] Tests, uniaxi- ale und biaxiale Zugversuche mit mindestens
+drei Belastungs- und Entlastungszyklen durchzuführen. [redacted-person]
+sind mit einer quasistatischen und zwei dynamischen Geschwindigkeiten
+durchzufüh- ren [BR-LAH-149].</p>
+<p>Versagensmodelle für Fangbänder, Anbindungen von Luftsack und
+Fangbändern und Luftsackgewebe sind zu erstellen [BR-LAH-150].
+Alternativ sind die Grenzlasten für Fangbänder, Anbindungen und Luft-
+sackgewebe als Kommentar in den Materialkarten und der Dokumentation
+anzugeben [BR-LAH-151].</p>
+</blockquote>
+<h2 id="cora">Cora</h2>
+<blockquote>
+<p>Bei der Cora-Auswertung dürfen Versuchssignale im Zeitraum t &lt; 0
+[redacted-person] [BR-LAH-152].
+Zusätzlich muss das Beschleunigungssignal im Zeitraum vor Kontakt des
+Impaktors mit dem Airbag so geglättet sein, dass der Mechanismus zur
+automatischen Ermittlung des Auswerteintervalls nicht ausgelöst wird
+[BR-LAH-153].</p>
+<p>Weichen die Simulationsmodelle des Auftragnehmers von beliebigen
+Hardwareergebnissen ab – dies betrifft nicht nur das vorgegebene
+Cora-Rating, sondern auch die Aussagefähigkeit und Aussagegen- auigkeit
+in beliebigen Anwendungen in Projekten, wie z. [redacted-person] oder
+Standversuche – und kann innerhalb von einer Woche vom Auftragnehmer
+keine zufriedenstellende Validierung nachgewiesen werden, so kann der
+Auftraggeber aus Termingründen gezwungen sein, eine Parallelentwicklung
+meh- rerer Varianten zu starten und zeitgleich einer Hardwareerprobung
+zu unterziehen. In diesem Fall stellt der Auftragnehmer zusätzliche
+Versuchsteile in ausreichender Anzahl kostenfrei zur Verfügung und trägt
+die zusätzlichen Versuchskosten, da der Entwicklungspfad der Simulation
+durch das abweichende Simulationsmodell blockiert ist und die
+Simulationsergebnisse nur unzureichende Aussagekraft besit- zen
+[BR-LAH-154].</p>
+<p>Siehe außerdem Abschnitte <em>Kurvenvergleich</em> und
+<em>Validierungsgüte</em> in Hausnorm [redacted-co]82036.</p>
+</blockquote>
+<h2 id="validierungsversuche">Validierungsversuche</h2>
+<blockquote>
+<p>[redacted-person] beziehungsweise Entfaltungscharakteristik ist
+mit Hilfe von sowohl klassischen als auch inversen Pendel- und/oder
+Linearimpaktorversuchen zu validieren, welche in einer Fahrzeug-
+Ersatzvorrichtung durchgeführt werden müssen [BR-LAH-155]. [redacted-person] sind vom Auftragnehmer mit Hilfe der Simulation auszulegen
+[BR-LAH-156]. [redacted-person] müssen die Lastfälle aus dem Ge-
+samtfahrzeug abbilden [BR-LAH-157]. Dabei ist darauf zu achten, dass das
+gesamte Spektrum der Belas- tungen aus dem Gesamtfahrzeug abzudecken ist
+[BR-LAH-158]. [redacted-person] muss dabei im gefalteten Zu- stand sein.
+[BR-LAH-159]. [redacted-person] müssen so ausgelegt werden,
+dass kein Durch- schlagen des Impaktors auf hinter dem Luftsack liegende
+– im Wesentlichen harte – Bauteile wie Lenk- rad, Instrumententafel oder
+Ähnliches stattfindet [BR-LAH-160]. Ausnahmen sind nur in Absprache
+mit</p>
+<p>dem OEM zulässig. [redacted-person] des Impaktors zum Modul sowie die
+Anfangsgeschwindigkeit des Im- paktors sind genau zu messen
+beziehungsweise zu ermitteln und exakt im Berechnungsmodell einzu-
+stellen und stellen keine Validierungsgröße dar [BR-LAH-161]. [redacted-person] der Anfangsgeschwindig- keit ist zu dokumentieren
+[BR-LAH-162].</p>
+<p>[redacted-person] auf beliebige Code-Versionen oder auf
+Modelländerungen muss durch die Auslieferung der Versuchsdaten und
+Validierungsmodelle gegeben sein [BR-LAH-163].</p>
+<p>[redacted-person] muss von der Geometrie des Dummies abgeleitet
+sein beziehungsweise dem Konzept des Airbags gerecht werden,
+beispielsweise [BR-LAH-164]:</p>
+</blockquote>
+<ul>
+<li><p>Zylinderimpaktor für Knieairbag</p></li>
+<li><p>Platte in Torsogröße für Fahrer-, Beifahrer- und
+Seitenairbag</p></li>
+<li><p>[redacted-person] für Kopf- und Thoraxkammer beim
+Kopf-Thorax-Airbag</p></li>
+<li><p>Kopfimpaktor für Kopfairbag, Fahrer- und Beifahrerairbag</p></li>
+</ul>
+<blockquote>
+<p>Es ist zusätzlich ein Validierungsversuch für die Airbagentfaltung im
+Zusammenhang mit Coveröffnun- gen und interagierenden Bauteilen in der
+frühen Phase (0 - 20 ms) vorzusehen, siehe <em><a href="#_bookmark39">Tabelle 8</a></em> [BR-LAH-165]. Dazu kann z. [redacted-person]
+nach Airbagtyp ein Klappenöffnungsversuch aus einem kastenförmigen
+Profil mit Gelenkkappe durchgeführt werden. Ziel ist die Validierung des
+Öffnungsverhaltens und der Öffnungskräfte. Dokumentiert werden müssen
+dazu z. [redacted-person] Kraft und der Weg der Klappe, die Reak- tionskräfte an
+den Anschraubpunkten und der Druck an abzusprechenden Stellen
+[BR-LAH-166]. Die für den jeweiligen Airbagtyp erforderliche
+Konfiguration erfolgt nach Rücksprache mit den jeweiligen
+Fachabteilungen [BR-LAH-167].</p>
+<p>Es sind zusätzlich reine Aufblasversuche mit Gasgeneratorzündung in
+geeigneter Konfiguration, ideal- erweise analog der Fahrzeugumgebung,
+durchzuführen, um in der Simulation dieses Versuchsaufbaus das
+Entfaltungsverhalten des Airbags quantifizieren und validieren zu
+können, siehe <em><a href="#_bookmark39">Tabelle 8</a></em>
+[BR-LAH-168].</p>
+<p>Wenn 3D-Scans des Entfaltungsprozesses erzeugt werden, sind diese
+Daten für den Abgleich mit her- anzuziehen [BR-LAH-169]. Die dafür
+notwendigen Airbagmodule müssen vom Airbaghersteller zur Ver- fügung
+gestellt werden [BR-LAH-170].</p>
+<p>Nach der Anfragephase ist ein definiertes Raster-Muster für den
+Hardware-Airbag festzulegen [BR-LAH-171]. Dieses ist in gleicher Form im
+Simulationsmodell abzubilden, um eine bessere Vergleich- barkeit zur
+Hardware herzustellen [BR-LAH-172]. [redacted-person] des Rasters und dessen
+Nummerierung ist über die Projektlaufzeit beizubehalten
+[BR-LAH-173].</p>
+<p>[redacted-person] ist bei allen Versuchen zu messen [BR-LAH-174].
+Ausnahmen sind nur nach Ab- stimmung mit dem Auftraggeber erlaubt
+[BR-LAH-175].</p>
+<p>Die qualitative und quantitative optische Übereinstimmung sowie die
+Übereinstimmung der Drucksig- nale ist durch den Auftragnehmer
+herzustellen und nachzuweisen [BR-LAH-176]. [redacted-person] des
+zeitlichen Ablaufs des Entfaltungsverhaltens bis zur vollständigen
+Befüllung erfolgt durch den Auftrag- nehmer [BR-LAH-177]. Für die zu
+erreichende Validierungsgüte jeder Konfiguration siehe außerdem Ab-
+schnitt <em>Validierungsgüte</em> in Hausnorm [redacted-co]82036. [redacted-person] ohne Impaktor muss das</p>
+<p>Drucksignal im vom Auftraggeber zu definierenden Auswerteintervall
+diesem Kriterium genügen</p>
+<p>[BR-LAH-178].</p>
+<p>[redacted-person] der Airbagmodelle mit Grenzlastgeneratoren
+(HT OGL und LT UGL) muss min- destens anhand von reinen Aufblasversuchen
+validiert werden [BR-LAH-179].</p>
+<p>[redacted-person], z. [redacted-person] durch
+länderspezifische Anordnungen (RdW- und USA-Airbagvarianten), sind
+weitere Rückhaltesystemvarianten und ebenfalls zu berücksichtigen. Es
+sind FE-Modelle für alle Varianten zu liefern [BR-LAH-180].</p>
+<p>Je nach Airbag, Versuchsart und Einsatzmarkt ist mindestens die in
+<em><a href="#_bookmark39">Tabelle 8</a></em> genannte Anzahl an Kon-
+figurationen von Validierungsversuchen auszuführen [BR-LAH-181]. [redacted-person] der durchzufüh- renden Versuche ergibt sich aus der
+Multiplikation der Anzahl an Konfigurationen mit der Anzahl der je
+Konfiguration durchzuführenden Wiederholversuche [BR-LAH-182], siehe
+auch Abschnitt 6.2 <em>Versuch</em> [redacted-co]82036 Anforderungen (127) und
+(128). [redacted-person] mit Abströmöffnung wird die Anzahl der Kon-
+figurationen von Validierungsversuchen mit Standard-Impaktor für je zwei
+unterschiedliche Ventgrö- ßen durchgeführt [BR-LAH-183]. Siehe außerdem
+Abschnitt 6.2 <em>Versuch</em> [redacted-co]82036 Anforderungen (123) und (125).
+[redacted-person] werden gebildet durch Variation von
+Impaktormasse, Im- paktorgeschwindigkeit, Impaktorabstand,
+Impaktorposition und Impaktorgeometrie [BR-LAH-184].</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Airbagtyp</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>RDW</strong></p>
+<p>Standard- Impaktor</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>RDW</strong></p>
+<p>OOP-Ersatz- konfiguration, inverser</p>
+<p>Impaktor</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>NAR</strong></p>
+<p>Standard- Impaktor</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>NAR</strong></p>
+<p>OOP-Ersatz- konfiguration, inverser</p>
+<p>Impaktor</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>alle Märkte</strong> reine Aufblas- versuche</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>alle Märkte</strong> Airbag- entfaltung in Umgebung</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>DAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>3 x 2 (Vents) +</p>
+<p>1 (ohne Vent)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>4 x 2 (Vents) +</p>
+<p>1 (ohne Vent)</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 2 (HT OGL</p>
+<p>+ LT UGL)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>PAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>3 x 2 (Vents) +</p>
+<p>1 (ohne Vent)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>4 x 2 (Vents) +</p>
+<p>1 (ohne Vent)</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 2 (HT OGL</p>
+<p>+ LT UGL)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 2 (HT OGL</p>
+<p>+ LT UGL)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>2 x 2 (Vents) +</p>
+<p>1 (ohne Vent)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>3 x 2 (Vents) +</p>
+<p>1 (ohne Vent)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 2 (HT OGL</p>
+<p>+ LT UGL)</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>HTAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>3 x 2 (Vents) +</p>
+<p>1 (ohne Vent)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>4 x 2 (Vents) +</p>
+<p>1 (ohne Vent)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 2 (HT OGL</p>
+<p>+ LT UGL)</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>HAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>4 +</p>
+<p>FMVSS 226</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 3 (HT OGL</p>
+<p>+ LT UGL + LT OGL)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>KNAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 2 (HT OGL</p>
+<p>+ LT UGL)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>CEAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>3</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 2 (HT OGL</p>
+<p>+ LT UGL)</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SRAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+<td><blockquote>
+<p>2</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 2 (HT OGL</p>
+<p>+ LT UGL)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>WSAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>6</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>1 + 2 (HT OGL</p>
+<p>+ LT UGL)</p>
+</blockquote></td>
+<td><blockquote>
+<p>1</p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 8: [redacted-person] für Validierungsversuche</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Airbagtyp</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>RDW</strong></p>
+<p>Standard- Impaktor</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>RDW</strong></p>
+<p>OOP-Ersatz- konfiguration, inverser</p>
+<p>Impaktor</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>NAR</strong></p>
+<p>Standard- Impaktor</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>NAR</strong></p>
+<p>OOP-Ersatz- konfiguration, inverser</p>
+<p>Impaktor</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>alle Märkte</strong> reine Aufblas- versuche</p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>alle Märkte</strong> Airbag- entfaltung in Umgebung</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>DAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>(7 x 2) = <strong>14</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2 ) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(9 x 2) = <strong>18</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(2 x 2) = <strong>4</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>PAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>(7 x 2) = <strong>14</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(9 x 2) = <strong>18</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(2 x 2) = <strong>4</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>2</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>(5 x 2) = <strong>10</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(7 x 2) = <strong>18</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>HTAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>(7 x 2) = <strong>14</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(9 x 2) = <strong>18</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>HAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(2 x 2) = <strong>4</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(4 x 2) = 8</p>
+</blockquote></td>
+<td><blockquote>
+<p>(2 x 2) = <strong>4</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(4 x 2) = <strong>8</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>KNAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>CEAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(2 x 2) = <strong>4</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(2 x 2) = <strong>4</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>SRAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(2 x 2) = <strong>4</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(2 x 2) = <strong>4</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>WSAB</p>
+</blockquote></td>
+<td><blockquote>
+<p>(6 x 2) = <strong>12</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>(3 x 2) = <strong>6</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>(1 x 2) = <strong>2</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+<td><blockquote>
+<p>Abstimmung</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 9: [redacted-person] inklusive Wiederholversuchen =
+[redacted-person]</em></p>
+<p>Für die [redacted-co]-AG gilt stattdessen <a href="#_bookmark40"><em>Tabelle 10</em>:</a></p>
+</blockquote>
+<table style="width:100%;">
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Funktionen</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p>[redacted-person]- rationen</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+<p>[redacted-person]</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Airbagentfaltung in Umgebung</strong></p>
+<p>[redacted-person]</p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>NAR</strong></p>
+<p>OOP-Ersatz- konfiguration, inverser</p>
+<p>Impaktor</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person], ohne Adaptivität</p>
+</blockquote></td>
+<td><blockquote>
+<p>8</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3 (RT NOM + HT OGL + LT UGL) + 1 (LT OGL für</p>
+<p>HAB)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3 (RT NOM + HT OGL + LT UGL) + 1 (LT OGL für</p>
+<p>HAB)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person],</p>
+<p>ohne Adaptivität</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>11</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3 (RT NOM + HT</p>
+<p>OGL + LT UGL)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3 (RT NOM + HT</p>
+<p>OGL + LT UGL)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>[redacted-person],</p>
+<p>mit Adaptivität</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>20</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3 (RT NOM + HT</p>
+<p>OGL + LT UGL)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>3 (RT NOM + HT</p>
+<p>OGL + LT UGL)</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 10: [redacted-person] für die [redacted]</em></p>
+<p>Für spezielle Fragestellungen können auch darüberhinausgehende
+Versuche erforderlich sein</p>
+<p>[BR-LAH-185].</p>
+<p>[redacted-person], deren Einsatzmärke RDW und US sind, muss mindestens die
+höhere Anzahl an Versuchs- konfigurationen durchgeführt werden
+[BR-LAH-186]. [redacted-person] der Versuche für sonstige Airbags ist mit dem
+Auftraggeber separat abzustimmen [BR-LAH-187].</p>
+<p>Falls vom Auftraggeber gewünscht, kann die Konfiguration mit dem
+inversen Impaktor getauscht wer- den mit der
+Standard-Impaktor-Konfiguration [BR-LAH-188].</p>
+<p>Bei adaptiven Airbags sind zur Validierung geeignete Versuche
+durchzuführen [BR-LAH-189]. [redacted-person]- tiviät ist die Adaptivität von
+Vents, des Volumens oder anderer Formen zu verstehen.</p>
+<p>[redacted-person] mit adaptiven Vents sind zusätzlich spezielle Versuche
+zur Validierung dieser Adaptivität durchzuführen. Dabei muss der Airbag
+in einer Konfiguration mit der adaptiven Ventgröße und zwei Schaltzeiten
+in Impaktorversuchen (je 1 Wiederholung) belastet werden [BR-LAH-190].
+Diese 4 Versuche sind Teil einer jeden Validierung. Sofern sich dieses
+Adaptivitätsprinzip nicht ändert, müssen diese Versuche nicht wiederholt
+werden [BR-LAH-191].</p>
+<p>[redacted-person] mit adaptivem Volumen sind zusätzlich 8 spezielle
+Versuche zur Validierung dieser Adap- tivität durchzuführen
+[BR-LAH-192].</p>
+<p>[redacted-person] aller Versuche müssen vorab der für die
+Berechnung verantwortlichen Fachab- teilung des Auftraggebers
+vorgestellt und dürfen erst nach deren Genehmigung in Hardware durchge-
+führt werden [BR-LAH-193].</p>
+<p>Falls zusätzlich Schlittenersatzversuche mit Airbags vorliegen, deren
+Simulationsmodelle zu validieren sind, dann sind diese
+Schlittenersatzversuche für die Validierung des Airbagmodells zu nutzen
+[BR-LAH-194]. Die bei diesen Schlittenersatzversuchen/-simulationen
+ermittelten Energieeinträge sind für die Abstimmung der
+Impaktorkonfigurationen zu berücksichtigen [BR-LAH-195].</p>
+<p>[redacted-person] der Kappe eines Fahrer- und Knieairbags und des
+Covers eines Beifahrer- airbags sowie das Öffnungsverhalten der
+Sitzreißnaht bei einem Schussversuch eines Seitenairbags aus der
+Sitzlehne muss in einem separaten Versuch nachgewiesen werden, um das
+Versagen der Splitline beziehungsweise Reißnaht validieren zu können
+[BR-LAH-196]. Der genaue Versuchsaufbau, die Wahl des Generators
+(nominal, UGL, OGL, etc), die Umgebungstemperatur und andere Randbedin-
+gungen sind mit der Fachabteilung des Aufraggebers abzustimmen
+[BR-LAH-197].</p>
+<p>Wenn im Versuch ein sich weitendes Vent – und damit eine größere
+Abströmfläche – festgestellt wird, ist dies in Absprache mit der
+Fachabteilung in der Simulation nachzustellen [BR-LAH-198].</p>
+</blockquote>
+<h2 id="toleranzmodelle">Toleranzmodelle</h2>
+<blockquote>
+<p>Für die Toleranzanalyse sind Modelle aufzubauen, welche u.[redacted-person]
+weichsten und härtesten Airbag darstellen [BR-LAH-199]. Hierzu sind alle
+zulässigen Toleranzen entsprechend einzustellen und zu model- lieren
+[BR-LAH-200]. Wie diese Toleranzmodelle aufzubauen sind, wird im
+Folgenden beschrieben.</p>
+<p>Zu den oben genannten Meilensteinen sind Modelle aufzubauen, die den
+Luftsack in größter und kleinster in der Serienproduktion möglicher
+Geometrie zeigen [BR-LAH-201].</p>
+<p>Wenn weitere Toleranzen des Airbags, zum Beispiel auch durch den
+Faltprozess, Einfluss auf die Erfül- lung gesetzlicher Vorgaben oder auf
+die Erreichung der Ziele in Konsumententests oder auf andere in den
+Anfrageunterlagen definierte Anforderungen haben können, sind diese auch
+entsprechend zu mo- dellieren [BR-LAH-202]. [redacted-person] sind in
+gleicher Weise dem Auftraggeber zur Verfügung zu stellen
+[BR-LAH-203].</p>
+<p>Im System sind die in den Anfrageunterlagen definierten Ziele mit der
+in den Anfrageunterlagen defi- nierten Sicherheit zu erreichen
+[BR-LAH-204]. Auch bei der ungünstigsten Kombination aller möglichen
+Toleranzen bei Gesetzes- und Konsumententests sowie internen
+Anforderungen müssen diese Ziele erreicht werden [BR-LAH-205]. [redacted-person] muss bei der Betrachtung der Bauteiltoleranzen nicht
+vorgehalten werden [BR-LAH-206]. Werden die definierten Ziele nicht
+erreicht, ist das Modell nach Rücksprache mit dem Auftraggeber zu
+optimieren [BR-LAH-207].</p>
+<p>Toleranzmodelle des Luftsackgewebes, welche Module mit Volumina an
+der unteren beziehungsweise oberen geometrischen Toleranzgrenze
+darstellen, können durch Morphen oder Skalierung des Refe- renznetzes
+des nominalen Airbagmodells abgeleitet werden [BR-LAH-208].</p>
+<p>Toleranzmodelle des Airbags, welche die für die Airbagentfaltung und
+-performance relevanten Streu- ungen aus dem Faltprozess abbilden,
+müssen durch neue Faltungssimulationen erzeugt und zur Ver- fügung
+gestellt werden [BR-LAH-209].</p>
+</blockquote>
+<h2 id="leckage">Leckage</h2>
+<blockquote>
+<p>[redacted-person] der Leckageeigenschaften des in den Impaktorversuchen
+verwendeten Airbaggewe- bes und der Gewebenaht sind in Leckageversuchen
+im Überdruckbereich von 0,0 bis 0,1 bar Stützstel- len im Abstand von
+mindestens 0,025 bar, im Überdruckbereich von 0,1 bar bis 0,5 bar
+Stützstellen in Abständen von mindestens 0,05 bar und im
+Überdruckbereich von 0,5 bar bis 6 bar Stützstellen in Ab- ständen von
+0,1 bar vorzusehen vorzusehen [BR-LAH-210]. Wenn die Leckageversuche
+nicht an Gewe- beproben derselben Charge durchgeführt werden, aus der
+die Luftsäcke für die Impaktorversuche ge- fertigt sind, dann müssen
+Streubereiche für die Leckage angegeben werden, um die Leckageunter-
+schiede von Charge zu Charge einschätzen zu können [BR-LAH-211].</p>
+<p>[redacted-person] zwischen Gasgenerator und Airbaggewebe ist
+geometrisch korrekt abzubilden. Dort auftretende Leckage muss im Modell
+an der geometrisch korrekten Stelle durch geeignete Leckagede-
+finitionen erfasst werden [BR-LAH-212]. Siehe außerdem Abschnitt 5.3.10
+<em>[redacted-person]– Airbag</em> [redacted-co]82036. [redacted-person] der Leckage an der Schnittstelle zwischen Gasgenerator
+und Airbaggewebe durch eine Anpassung der Leckageeigenschaften von
+Airbaggewebe, Nähten oder an- deren Komponenten an geometrisch
+verschiedener Stelle ist nicht zulässig [BR-LAH-213].</p>
+</blockquote>
+<h2 id="airbagfaltung-und-faltprozess">Airbagfaltung und
+Faltprozess</h2>
+<blockquote>
+<p>[redacted-person] des Luftsackmodells muss den aktuellen Baustand
+widerspiegeln [BR-LAH-214]. Die Ge- nauigkeit der Abbildung der
+Luftsackfaltung muss in einem Abgleich mit der Hardware erfolgen
+[BR-LAH-215]. [redacted-person] über die Abbildung der Faltung ist nach dem
+Stand der Technik zu erbringen [BR-LAH-216].</p>
+<p>Falls dieser Nachweis über einen CT Scan erbracht wird, müssen
+markante Stellen mit einer eisen- oxidhaltigen Farbe eingefärbt werden
+und somit die geometrische Zuordnung der einzelnen Luftsack- gewebelagen
+ersichtlich gemacht werden. [redacted-person] sind durch einen
+Platzhalter aus Kunst- stoff zu ersetzen [BR-LAH-217]. [redacted-person]
+behält sich ebenfalls vor, CT Scans durchzuführen. Das Mo- dell ist bei
+funktionsrelevanten Abweichungen daraufhin anzupassen [BR-LAH-218].</p>
+<p>[redacted-person] des Modelles des gefalteten Airbaggewebes im Gehäuse
+muss durch eine Faltsimula- tion oder eine Folge von mehreren
+Simulationen von Faltschritten erfolgen [BR-LAH-219]. [redacted-person]- tion
+muss mit dem Crashsolver PamCrash erfolgen [BR-LAH-220]. [redacted-person] der
+Faltsimulationsmo- delle muss das Programm G4 von GNS verwendet werden
+[BR-LAH-221]. [redacted-person] mit der Fachabteilung kann mit anderen
+Programmen gefaltet werden. In diesem Fall ist sicherzustellen, dass der
+OEM über alle Dateien zur selbständigen Reproduktion der Faltung im
+eigenen Haus verfügen kann.</p>
+<p>In der Faltsimulation sind die Gewebeeigenschaften des
+Airbagmaterials mit Biegesteifigkeit zu mo- dellieren [BR-LAH-222]. [redacted-person] haben, sofern der Solver keine Membranelemente mit Bie-
+gesteifigkeit unterstützt, über die Materialdichte, dessen E-Modul u n d
+die Gewebedicke zu erfolgen [BR-LAH-223]. [redacted-person] des
+Airbagmaterials ist über einen separaten Test zu er- mitteln
+[BR-LAH-224].</p>
+<p>[redacted-person] des Airbaggewebes im Raum muss zu Beginn der Faltsimulation
+in der xy-Ebene ausgerichtet sein [BR-LAH-225]. [redacted-person] der
+Faltwerkzeuge ist daran zu orientieren [BR-LAH-226]. [redacted-person]-
+Dateien, sofern verwendet, müssen mit Rücksprache der Fachabteilung
+entsprechend parametrisiert sein, so dass eine geometrische Änderung
+vereinfacht umgesetzt werden kann, und sind mit dem Airbagmodell zu
+übergeben [BR-LAH-227].</p>
+<p>Das lauffähige Rechendeck der Simulation der Airbagfaltung
+beziehungsweise die Rechendecks der Faltsimulationen einzelner
+Faltschritte sowie deren Output-Dateien sind mit dem Airbagmodell zu
+übergeben [BR-LAH-228].</p>
+<p>[redacted-person] zum Durchführen der simulativen Faltung muss den
+Abmessungen der realen Faltanlage entsprechen [BR-LAH-229]. [redacted-person] ist zu dokumentieren [BR-LAH-230]. [redacted-person] des
+Airbags mit umliegenden Bauteilen müssen penetrationsfrei sein
+[BR-LAH-231]. Reiß- und Fixiernähte sind während der Faltsimulation
+abzubilden [BR-LAH-232].</p>
+<p>[redacted-person] muss so gering gewählt werden, dass nur
+vernachlässigbare Massenträgheits- kräfte auftreten, um somit keinen
+Einfluss auf die realistische Faltungsgeometrie auszuüben und Kon-
+taktkräfte und ins Gewebe eingebrachte innere Energie gering (s.u.) zu
+halten [BR-LAH-233]. [redacted-person]- mulation muss mit den realen
+Gewebeeigenschaften, jedoch ohne Hysterese durchgeführt werden
+[BR-LAH-234].</p>
+<p>Bei neuen Faltverfahren, welche die Airbagpackungsdichte in Hardware
+verändern, ist das simulative Vorgehen zur Abbildung der Faltung mit der
+Fachabteilung abzustimmen [BR-LAH-235].</p>
+<p>[redacted-person] des Airbags ist nicht zulässig [BR-LAH-236].
+Die gespeicherte Energie im gefalteten Airbaggewebe darf maximal 100 J
+betragen [BR-LAH-237]. Die gespeicherte Energie setzt sich zusammen aus
+der Summe der Kontaktenergie ([redacted-person] Work) und der [redacted-person]
+Energie des Gewebes [BR-LAH-238].</p>
+<p>[redacted-person] auf dem Airbaggewebe wie beim realen
+Luftsack ist in das Simulations- modell während der Entwicklungsphase zu
+übernehmen, um eine bessere Vergleichbarkeit zur Hard- ware herzustellen
+[BR-LAH-239].</p>
+</blockquote>
+<h2 id="airbagspezifische-anforderungen">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] beschreibt Anforderungen für weitere
+Simulationsmodelle, welche zur Entwicklung ei- nes robusten Airbagmoduls
+notwendig sind. Idealerweise werden alle erforderlichen Funktionen von
+einem Modell abgebildet. Ist dies nicht möglich, müssen zusätzliche
+Modelle, welche diese Funktionen abbilden, vom Lieferanten erstellt
+werden. [redacted-person] mit Fahrzeugumgebung müssen die Steifigkei- ten
+des Moduls richtig abgebildet sein [BR-LAH-240].</p>
+</blockquote>
+<h2 id="fahrerairbag">Fahrerairbag</h2>
+<blockquote>
+<p>Siehe <a href="#_bookmark39"><em>Tabelle 8: [redacted-person]
+für Validierungsversuche</em></a>“ und <em><a href="#_bookmark40">Tabelle 10: [redacted-person]-</a> <a href="#_bookmark40">onen für die [redacted]</a></em>“.</p>
+<p>[redacted-person] und Auslieferung vollständig validierter Modelle von
+Fahrerairbags muss innerhalb von 6 Wochen ab Zeitpunkt eines von der
+zuständigen Fachabteilung festzulegenden Meilensteins erfolgen und
+orientiert sich an untenstehendem Ablaufdiagramm [BR-LAH-241].</p>
+</blockquote>
+<p><img src="./11_Simulation-konzern-lah-dum-880-em-tr09-2023-03-22-media/media/image2.jpeg" style="width:7.77536in;height:4.13in"/></p>
+<blockquote>
+<p><em>Abbildung 1: Zeitplan für Validierung und Übergabe von
+Airbagmodellen innerhalb eines Meilensteins</em></p>
+<p>Für [redacted-co] und Volkswagen gilt: Zusätzlich zur oben beschriebenen
+Standardvalidierung ist im Folgenden für Fahrerairbags eine Validierung
+in MeRKE-Umgebung durchzuführen [BR-LAH-242].</p>
+<p><em>Anfragephase</em></p>
+<p>In der Anfragephase wird dem potentiellen Auftragnehmer das aktuell
+gültige MeRKE-Simulationsmo- dell zur Verfügung gestellt.</p>
+</blockquote>
+<ul>
+<li><p>Es ist in der aktuell konzernweit gültigen PamCrash-Version ([redacted-co]und [redacted-co]) und LS-Dyna-Ver- sion ([redacted-co]) einzusetzen
+[BR-LAH-243].</p></li>
+<li><p>[redacted-person] enthält nur den Prüfstand. [redacted-person] des generischen
+Fahrerairbags ist vom Auf- tragnehmer nach den Vorgaben für Faltung,
+Luftsackgeometrie, AÖ-Größe und Gewebe zu erstellen. Nur der
+Gasgenerator ist variabel [BR-LAH-244].</p></li>
+<li><p>Die für die angefragten Projekte notwendige
+Airbagmodul-Rückhalteleistung ist beim Auftrag- geber anzufragen
+[BR-LAH-245].</p></li>
+</ul>
+<blockquote>
+<p>Zur grundsätzlichen qualitativen Einordnung des Airbagkonzepts durch
+den Auftraggeber sind in der Anfragephase von den geplanten
+Hardware-Airbagmodulen des potentiellen Auftragnehmers aussa- gefähige
+Simulationsmodelle zu erstellen, im MeRKE-Simulationsmodell einzubauen
+und in den kon- zeptrelevanten Lastfällen vom potentiellen Auftragnehmer
+zu berechnen [BR-LAH-246]. Die konzeptre- levanten Lastfälle sind:
+EPK-1, EPK-3 und EPK-5 [BR-LAH-247]. [redacted-person] sind mit dem
+Auftraggeber abzustimmen. Gegebenenfalls ist eine Anpassung der
+notwendigen Airbagmodul-Rückhalteleistung vor Erstellung von [redacted-person] für die realen MeRKE-Tests vorzunehmen [BR-LAH-248].</p>
+<p>Das dann aussagefähige Airbag-Simulationsmodell ist dem Auftraggeber
+spätestens drei Monate vor der potentiellen Nominierung mit allen
+Generatordaten zur Verfügung zu stellen [BR-LAH-249]. [redacted-person]
+betrifft sowohl die generischen als auch die lieferantenspezifischen
+Airbagmodule [BR-LAH-250].</p>
+<p>Eine vollständige Dokumentation der Ergebnisse ist zum Ende der
+Anfragephase an die entsprechende Fachabteilung zu übermitteln
+[BR-LAH-251].</p>
+<p>Sind gänzlich neue [redacted-person] des Angebots des Auftragnehmers
+(z. [redacted-person] geplante Einsatz neuer Gasgeneratortechnologie), sind in
+Absprache mit der Fachabteilung des Auftraggebers zusätzli- che
+Simulations- und Plausibilisierungsumfänge der neuen Hardware notwendig
+[BR-LAH-252]. [redacted-person] sind so rein mit Fokus auf die neuen
+Komponenten zusätzlich zu bewerten [BR-LAH-253].</p>
+<p><em>Entwicklungsphase</em></p>
+<p>In der Entwicklungsphase des jeweiligen Fahrzeugprojekts bis SOP und
+insbesondere in der Entwick- lungsphase ab Lieferantennominierung bis
+B-Frei sind vom Auftragnehmer entwicklungsbegleitend MeRKE-Versuche in
+den Lastfällen EPK-1, EPK-3 und EPK-5 zeitgleich zu relevanten
+Hardwareänderun- gen beim Auftraggeber durchzuführen [BR-LAH-254]. [redacted-person] EPK-1 ist sowohl mit als auch ohne Adaptivität
+durchzuführen, falls das Modul eine Adaptivität enthält
+[BR-LAH-255].</p>
+<p>[redacted-person] in Absprache der [redacted-person] sind u. [redacted-person] derungen am
+Generatormassenstromverlauf, Luftsackform, -volumen, -entfaltung, -AÖ,
+adaptive -AÖ (Größe und Position), -gewebe und -faltung sowie alle
+Änderungen, die die Rückhalteeigenschaft des Airbagmoduls beeinflussen
+[BR-LAH-256]. Dazu zählen u. [redacted-person] von Gasleitsystemen, Diffuso-
+ren, Öffnungsverhalten von Modul- oder Luftsackabdeckungen
+[BR-LAH-257].</p>
+<p>Mit diesen Versuchsergebnissen sind die aktuellen Simulationsmodelle
+vom Auftragnehmer zusätzlich zu sonst gültigen Verfahren (z.[redacted-person], etc.) zu validieren und zu bestätigen
+[BR-LAH-258].</p>
+<p>[redacted-person] dieses Abgleichs in MeRKE-Umgebung des jeweiligen aktuellen
+Airbag-Simulationsmodells ab Verfügbarkeit der Versuchsergebnisse darf
+maximal 10 Arbeitstage inklusive Übergabe an den Auf- traggeber betragen
+[BR-LAH-259].</p>
+<p>[redacted-person] und Auswertung der Versuche inklusive zeitgerechte
+Bereitstellung der Airbagmodule wird durch den Auftragnehmer
+durchgeführt [BR-LAH-260].</p>
+<p>[redacted-person] stellt die entsprechenden Ressourcen zur
+Durchführung der Versuche, damit</p>
+<p>u. [redacted-person] auf der Schlittenbahn, Aufbau des Prüfstands
+inklusive Anbauteile I-Tafel oder Lenk- säule.</p>
+</blockquote>
+<h2 id="beifahrerairbag">Beifahrerairbag</h2>
+<blockquote>
+<p>Siehe <a href="#_bookmark39"><em>Tabelle 8: [redacted-person]
+für Validierungsversuche</em></a>“ und <em><a href="#_bookmark40">Tabelle 10: [redacted-person]-</a> <a href="#_bookmark40">onen für die [redacted]</a></em>“.</p>
+<p>Wenn der Auftraggeber während der Anfragephase dem potentiellen
+Airbaglieferanten ein sog.</p>
+<p>„Wunschshape“ in Form eines vereinfachten Simulationsmodells, welches
+zu der während der Vergabe gültigen Fahrzeugumgebung passt, zur
+Verfügung stellt, ist der potentielle Airbaghersteller aufgefordert, die
+Shapeform hinsichtlich seiner eigenen Prozesse zur Serienentwicklung
+inkl. Industri- alisierbarkeit zu prüfen [BR-LAH-261].</p>
+<p>Wenn ein solches Shape zur Verfügung gestellt wird, muss sich in
+jedem Fall der potentielle Auftrag- nehmer während seiner
+Konzepterstellung möglichst nahe an dem Vorgabeshape orientieren
+[BR-LAH-262]. [redacted-person] des Konzepts in Richtung des Auftraggebers
+ist zum Ende der Anfrage- phase das vom Vorgabeshape abgeleitete Shape
+integriert in einem vollwertigen Modell zu liefern [BR-LAH-263]. Ziel
+ist es, bereits mit Vergabe des Moduls an den Lieferanten mit einem
+möglichst gut auf die Fahrzeugbedürfnisse zugeschnittenen
+Beifahrerairbagshape zu starten.</p>
+<p>[redacted-person] und Auslieferung vollständig validierter Modelle von
+Beifahrerairbags muss innerhalb von 6 Wochen ab Zeitpunkt eines von der
+zuständigen Fachabteilung festzulegenden Meilensteins er- folgen und
+orientiert sich an untenstehendem Ablaufdiagramm [BR-LAH-264].</p>
+<p><img src="./11_Simulation-konzern-lah-dum-880-em-tr09-2023-03-22-media/media/image2.jpeg" style="width:7.77505in;height:4.13in"/></p>
+<p><em>Abbildung 2: Zeitplan für Validierung und Übergabe von
+Airbagmodellen innerhalb eines Meilensteins</em></p>
+<p>[redacted-person] muss den Anforderungen für die Bewertung der Erfüllung der
+FMVSS201 genügen. Dazu muss die Steifigkeit des Moduls richtig
+wiedergegeben werden [BR-LAH-265].</p>
+<p>[redacted-person] von Kopfaufschlagprüfungen ist ein vereinfachtes
+Modell zu liefern, bei dem Größe und Steifigkeit des gefalteten Pakets
+korrekt abgebildet sind [BR-LAH-266].</p>
+<p>Es sind zusätzlich Validierungsversuche für die Airbagentfaltung im
+Zusammenhang mit Coveröffnun- gen und interagierenden Bauteilen in der
+frühen Phase (0 - 20 ms) vorzusehen, siehe <em><a href="#_bookmark39">Tabelle 8</a></em> und <em><a href="#_bookmark40">Tabelle 10</a></em> [BR-LAH-267]. Dazu kann z. [redacted-person] Klappenöffnungsversuch aus einem kastenförmigen Profil mit
+Gelenkkappe durchgeführt werden. Ziel ist die Validierung des
+Öffnungsverhaltens und der Öff- nungskräfte. Dokumentiert werden müssen
+dazu z. [redacted-person] Kraft und der Weg der Klappe, die Reakti- onskräfte an
+den Anschraubpunkten und der Druck an zu definierenden Stellen
+[BR-LAH-268]. Die für den jeweiligen Airbagtyp erforderliche
+Konfiguration erfolgt nach Rücksprache mit den jeweiligen
+Fachabteilungen [BR-LAH-269].</p>
+<p>Mindestens sind die Konfigurationen NOM-RT, UGL-LT und OGL-HT zu
+validieren [BR-LAH-270]. Dabei sind auch Materialkarten für das gesamte
+Modul (Gehäuse, Schusskanal usw.) zu berücksichtigen [BR-LAH-271].</p>
+<p>Für [redacted-co] und Volkswagen gilt: Zusätzlich zur oben beschriebenen
+Standardvalidierung ist im Folgenden für Beifahrerairbags eine
+Validierung in MeRKE-Umgebung durchzuführen [BR-LAH-272].</p>
+<p><em>Anfragephase</em></p>
+<p>In der Anfragephase wird dem potentiellen Auftragnehmer das aktuell
+gültige MeRKE-Simulationsmo- dell zur Verfügung gestellt.</p>
+</blockquote>
+<ul>
+<li><p>Es ist in der aktuell konzernweit gültigen PamCrash-Version ([redacted-co]und [redacted-co]) und LS-Dyna-Ver- sion ([redacted-co]) einzusetzen
+[BR-LAH-273].</p></li>
+<li><p>[redacted-person] enthält nur den Prüfstand. [redacted-person] des generischen
+3D-Beifahrerairbags ist vom Auftragnehmer nach den Vorgaben für Faltung,
+Luftsackgeometrie, AÖ-Größe und Ge- webe zu erstellen. Nur der
+Gasgenerator ist variabel [BR-LAH-274].</p></li>
+<li><p>Die für die angefragten Projekte notwendige
+Airbagmodul-Rückhalteleistung ist beim Auftrag- geber anzufragen
+[BR-LAH-275].</p></li>
+</ul>
+<blockquote>
+<p>Zur grundsätzlichen qualitativen Einordnung des Airbagkonzepts durch
+den Auftraggeber sind in der Anfragephase von den geplanten
+Hardware-Airbagmodulen des potentiellen Auftragnehmers aussa- gefähige
+Simulationsmodelle zu erstellen, im MeRKE-Simulationsmodell einzubauen
+und in den kon- zeptrelevanten Lastfällen vom potentiellen Auftragnehmer
+zu berechnen [BR-LAH-276]. Die konzeptre- levanten Lastfälle sind:
+EPK-1, EPK-3 und EPK-5 [BR-LAH-277]. [redacted-person] sind mit dem
+Auftraggeber abzustimmen. Gegebenenfalls ist eine Anpassung der
+notwendigen Airbagmodul-Rückhalteleistung vor Erstellung von [redacted-person] für die realen MeRKE-Tests vorzunehmen [BR-LAH-278].</p>
+<p>Das dann aussagefähige Airbag-Simulationsmodell ist dem Auftraggeber
+spätestens drei Monate vor der potentiellen Nominierung mit allen
+Generatordaten zur Verfügung zu stellen [BR-LAH-279]. [redacted-person]
+betrifft sowohl die generischen als auch die lieferantenspezifischen
+Airbagmodule [BR-LAH-280].</p>
+<p>Eine vollständige Dokumentation der Ergebnisse ist zum Ende der
+Anfragephase an die entsprechende Fachabteilung zu übermitteln
+[BR-LAH-281].</p>
+<p>Sind gänzlich neue [redacted-person] des Angebots des Auftragnehmers
+(z. [redacted-person] geplante Einsatz neuer Gasgeneratortechnologie), sind in
+Absprache mit der Fachabteilung des Auftraggebers zusätzli- che
+Simulations- und Plausibilisierungsumfänge der neuen Hardware notwendig
+[BR-LAH-282]. [redacted-person] sind so rein mit Fokus auf die neuen
+Komponenten zusätzlich zu bewerten [BR-LAH-283].</p>
+<p><em>Entwicklungsphase</em></p>
+<p>In der Entwicklungsphase des jeweiligen Fahrzeugprojekts bis SOP und
+insbesondere in der Entwick- lungsphase ab Lieferantennominierung bis
+B-Frei sind vom Auftragnehmer entwicklungsbegleitend MeRKE-Versuche in
+den Lastfällen EPK-1, EPK-3 und EPK-5 zeitgleich zu relevanten
+Hardwareänderun- gen beim Auftraggeber durchzuführen [BR-LAH-284]. [redacted-person] EPK-1 ist sowohl mit als auch ohne Adaptivität
+durchzuführen, falls das Modul eine Adaptivität enthält
+[BR-LAH-285].</p>
+<p>[redacted-person] in Absprache der [redacted-person] sind u. [redacted-person] derungen am
+Generatormassenstromverlauf, Luftsackform, -volumen, -entfaltung, -AÖ,
+adaptive -AÖ (Größe und Position), -gewebe und -faltung sowie alle
+Änderungen, die die Rückhalteeigenschaft des</p>
+<p>Airbagmoduls beeinflussen [BR-LAH-286]. Dazu zählen u. [redacted-person]
+von Gasleitsystemen, Diffuso- ren, Öffnungsverhalten von Modul- oder
+Luftsackabdeckungen [BR-LAH-287].</p>
+<p>Mit diesen Versuchsergebnissen sind die aktuellen Simulationsmodelle
+vom Auftragnehmer zusätzlich zu sonst gültigen Verfahren (z.[redacted-person], etc.) zu validieren und zu bestätigen
+[BR-LAH-288].</p>
+<p>[redacted-person] dieses Abgleichs in MeRKE-Umgebung des jeweiligen aktuellen
+Airbag-Simulationsmodells ab Verfügbarkeit der Versuchsergebnisse darf
+maximal 10 Arbeitstage inklusive Übergabe an den Auf- traggeber betragen
+[BR-LAH-289].</p>
+<p>[redacted-person] und Auswertung der Versuche inklusive zeitgerechte
+Bereitstellung der Airbagmodule wird durch den Auftragnehmer
+durchgeführt [BR-LAH-290].</p>
+<p>[redacted-person] stellt die entsprechenden Ressourcen zur
+Durchführung der Versuche, damit</p>
+<p>u. [redacted-person] auf der Schlittenbahn, Aufbau des Prüfstands
+inklusive Anbauteile I-Tafel oder Lenk- säule.</p>
+<p>Für PAB-Modelle für PamCrash ist die dazugehörige Blackbox, zum
+Beispiel KDB28, als Python-Variable zu hinterlegen [BR-LAH-291].</p>
+<p>Beispiel:</p>
+<p>P3 BB = KDB28</p>
+</blockquote>
+<h2 id="knieairbag">Knieairbag</h2>
+<blockquote>
+<p>Siehe <a href="#_bookmark39"><em>Tabelle 8: [redacted-person]
+für Validierungsversuche</em></a>“ und <em><a href="#_bookmark40">Tabelle 10: [redacted-person]-</a> <a href="#_bookmark40">onen für die [redacted]</a></em>“.</p>
+<p><em>I) Für [redacted-co] gilt außerdem:</em></p>
+<p>[redacted-person] und Auslieferung vollständig validierter Modelle von
+Knieairbags muss innerhalb von 6 Wochen ab Zeitpunkt eines von der
+zuständigen Fachabteilung festzulegenden Meilensteins erfolgen und
+orientiert sich an untenstehendem Ablaufdiagramm [BR-LAH-292].</p>
+<p><img src="./11_Simulation-konzern-lah-dum-880-em-tr09-2023-03-22-media/media/image2.jpeg" style="width:7.77502in;height:4.13in"/></p>
+<p><em>Abbildung 3: Zeitplan für Validierung und Übergabe von
+Airbagmodellen innerhalb eines Meilensteins</em></p>
+</blockquote>
+<h2 id="seitenairbag">Seitenairbag</h2>
+<blockquote>
+<p>Siehe <a href="#_bookmark39"><em>Tabelle 8: [redacted-person]
+für Validierungsversuche</em></a>“ und <em><a href="#_bookmark40">Tabelle 10: [redacted-person]-</a> <a href="#_bookmark40">onen für die [redacted]</a></em>“.</p>
+<p>Wenn während der Modulentwicklung auf Anfrage des OEMs
+Ersatzversuche, z. [redacted-person] in Fahrzeugumgebung,
+durchgeführt werden, sind die dazugehörigen Simulationsmodelle dem OEM
+auszuhändigen [BR-LAH-293].</p>
+</blockquote>
+<h2 id="kopf-thorax-airbag">Kopf-Thorax-Airbag</h2>
+<blockquote>
+<p>Siehe <a href="#_bookmark39"><em>Tabelle 8: [redacted-person]
+für Validierungsversuche</em></a>“ und <em><a href="#_bookmark40">Tabelle 10: [redacted-person]-</a> <a href="#_bookmark40">onen für die [redacted]</a></em>“.</p>
+</blockquote>
+<h2 id="kopfairbag">Kopfairbag</h2>
+<blockquote>
+<p>Siehe <a href="#_bookmark39"><em>Tabelle 8: [redacted-person]
+für Validierungsversuche</em></a>“ und <em><a href="#_bookmark40">Tabelle 10: [redacted-person]-</a> <a href="#_bookmark40">onen für die [redacted]</a></em>“.</p>
+<p>Kopfairbagmodelle müssen in Absprache mit dem OEM als leere Airbags
+(ohne Abnäher und ähnliches) in das Package oder, falls vorhanden, in
+die Fahrzeugumgebung gefaltet werden [BR-LAH-294]. [redacted-person]- bringen von
+Abnähern erfolgt im Nachhinein über das Koppeln von Knoten im gefalteten
+Zustand [BR-LAH-295]. Damit diese Kopplung möglich ist, dürfen sich die
+im noch ungefalteten Airbag übereinan- der liegenden Gewebelagen während
+des Faltprozesses nur unwesentlich zueinander verschieben [BR-LAH-296].
+Im Bedarfsfall sind vom Lieferanten auch „konventionelle“ Airbags, bei
+denen die Abnä- her bereits vor der Faltung modelliert sind, zu liefern
+[BR-LAH-297].</p>
+<p>Entgegen der Im Artikel 4.3 angegebenen gespeicherten Energie im
+gefalteten Airbaggewebe von 100 J gilt für Kopfairbags eine Grenze von
+maximal 50 J, um ein Selbstentfalten des Airbags zu verhin- dern
+[BR-LAH-298]. Die gespeicherte Energie setzt sich zusammen aus der Summe
+der Kontaktenergie ([redacted-person] Work) und der [redacted-person] Energie
+des Gewebes.</p>
+<p>[redacted-person] von Kopfairbags muss immer ein Raster von
+maximal 100 mm x 100 mm aufgebracht sein [BR-LAH-299]. [redacted-person]
+muss den Ursprungspunkt des Rasters dokumentieren [BR-LAH-300]. Dabei
+muss eine Raster-Einstellung, die einen kontinuierlichen Vergleich über
+die Projekt- Dauer erlaubt, gewährleistet sein [BR-LAH-301].</p>
+<p>[redacted-person] sind, falls vorhanden, in einer Karosserie
+durchzuführen [BR-LAH-302]. Ohne vorhandene Karosserie ist es zulässig,
+die Validierungsversuche an einer Schusswand durchzuführen. [redacted-person] dazu müssen immer dem jeweiligen Versuchsaufbau entsprechen
+[BR-LAH-303].</p>
+<p>Mindestens sind die Konfigurationen NOM-RT, UGL-LT und OGL-HT zu
+validieren [BR-LAH-304].</p>
+<p>Für die Bewertung der Erfüllung der FMVSS226 sind für den Kopfairbag
+folgende Umfänge erforder- lich. [redacted-person] sind vom
+Auftragnehmer bereitzustellen:</p>
+</blockquote>
+<ul>
+<li><p>Bereitstellung der Druckniveaus für die Zeit 1,5 s und 6 s nach
+Zündung für den Nominalluft- sack mit nominalem Gasgenerator, für den
+größten Luftsack mit UGL-Gasgenerator und für den kleinsten Luftsack mit
+OGL-Gasgenerator [BR-LAH-305].</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] der FMVSS226 wird wie folgt durchgeführt:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] erfolgt starr und reibungsfrei
+[BR-LAH-306]</p></li>
+<li><p>[redacted-person] der Kopfform wird nach Vorgabe des Auftraggebers
+bestimmt [BR-LAH-307]. [redacted-person] wird separat modelliert
+[BR-LAH-308].</p></li>
+<li><p>[redacted-person] mit starr abgebildeter Karosserie wird ein um 3 mm
+verringerter Auspendelweg als Ziel gefordert, um die Bewegung und
+Deformation der Karosserie zu berücksichtigen [BR-LAH-309].</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] muss den Anforderungen für die Bewertung der Erfüllung der
+FMVSS201 genügen. Hierbei muss die Steifigkeit des Moduls richtig
+wiedergegeben werden [BR-LAH-310]. [redacted-person] hierzu muss mit einem
+geeigneten Versuch erbracht werden [BR-LAH-311].</p>
+<p>[redacted-person] gilt als entfaltungsvalidiert, wenn er bei den
+relevanten x-Koordinaten im Zeitfenster TTF bis TTF + 30 [redacted-person] 50 mm Abweichung vom Versuch zeigt [BR-LAH-312]. Die relevanten
+Koordinaten sind [BR-LAH-313]:</p>
+</blockquote>
+<ul>
+<li><p>Kopfpositionen 1., 2. und ggf. 3. Sitzreihe</p></li>
+<li><p>[redacted-person] und Kante A-Säulenverkleidung</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] erfolgt im Animator 4 in 1 ms-Schritten
+[BR-LAH-314].</p>
+<p><em>I). [redacted-person] gilt außerdem:</em></p>
+<p>[redacted-person] des Kopfairbags müssen zusätzlich mit einer Kantenlänge
+von 2 mm vernetzt werden [BR-LAH-315]. Diese 2-mm-Modelle müssen in
+derselben Art validiert sein und denselben Kriterien ge- nügen wie
+gröber vernetzten Modelle [BR-LAH-316].</p>
+<p>Die mechanischen Eigenschaften des Gewebematerials des Kopfairbags
+sind zusätzlich zur Raumtem- peratur auch bei Hochtemperatur und
+Niedrigtemperatur zu charakterisieren und für den Crashsolver zu
+verarbeiten [BR-LAH-317]. Materialkarten sind analog zu den
+Materialkarten bei Raumtemperatur für Hochtemperatur und
+Niedrigtemperatur zu erstellen [BR-LAH-318].</p>
+<p>[redacted-person] mit Standardnetzgröße sind zuerst zu erstellen
+und zu übergeben [BR-LAH-319].</p>
+<p>Zusätzlich zu den Konfigurationen NOM-RT, UGL-LT und OGL-HT ist die
+Konfiguration OGL-LT mit Auf- blasversuchen zu validieren
+[BR-LAH-320].</p>
+<p>[redacted-person] der Gewebezuschnitte der Referenzgeometrie erfolgt nach
+Absprache mit dem Auftrag- geber [BR-LAH-321].</p>
+</blockquote>
+<h2 id="scheibenairbag">Scheibenairbag</h2>
+<blockquote>
+<p>Siehe <a href="#_bookmark39"><em>Tabelle 8: [redacted-person]
+für Validierungsversuche</em></a>“ und <em><a href="#_bookmark40">Tabelle 10: [redacted-person]-</a> <a href="#_bookmark40">onen für die [redacted]</a></em>“.</p>
+<p>[redacted-person] muss für die gesamte Standzeit validiert werden
+[BR-LAH-322].</p>
+</blockquote>
+<h2 id="sonstiger-airbag">[redacted-person]</h2>
+<blockquote>
+<p>Siehe <a href="#_bookmark39"><em>Tabelle 8: [redacted-person]
+für Validierungsversuche</em></a>“ und <em><a href="#_bookmark40">Tabelle 10: [redacted-person]-</a> <a href="#_bookmark40">onen für die [redacted]</a></em>“.</p>
+</blockquote>
+<h2 id="lenkrad">Lenkrad</h2>
+<blockquote>
+<p>Für die Insassenschutz-Simulation muss ein deformierbares
+Lenkradmodell geliefert werden [BR-LAH-323]. Hierbei muss das Skelett
+und die Blende durch Shell-Elemente und der Schaum durch So-
+lid-Elemente abgebildet werden [BR-LAH-324]. [redacted-person] muss die
+Zeitschrittvorgaben der In- sassenschutz -Simulation erfüllen
+[BR-LAH-325].</p>
+<p>[redacted-person] muss mindestens anhand von Impaktorversuchen in den
+in unten stehender <em><a href="#_bookmark54">Ta-</a> <a href="#_bookmark54">belle 11</a></em> und <em><a href="#_bookmark55">Abbildung 4</a></em> gekennzeichneten Bereichen
+validiert sein [BR-LAH-326]. [redacted-person]- suche werden die
+Versuche ohne Airbagauslösung aus <em>Abschnitt 5.3 [redacted-person]-Aufschlag TL 82042 Lenkräder</em> verwendet [BR-LAH-327].</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="2" style="text-align: center;"><blockquote>
+<p><strong>Zusammenfassung der Prüfungen ohne
+Airbagauslösung</strong></p>
+<p><em><strong>Abschnitt 5.3 [redacted-person]-Aufschlag TL 82042
+Lenkräder</strong></em></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Position am Lenkrad</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Wiederholungen</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>1R, 1S, 2R, 2S, Modul mitte, Modul oben, Modul-Speiche oben,
+Modul-Speiche unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>jeweils 2 Versuche pro Position</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Summe:</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>16 Versuche</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 11:
+Prüfungen für linearen Kopfaufschlag</em></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>3-Speichen-Lenkrad</p>
+</blockquote></th>
+<th><blockquote>
+<p>4-Speichen-Lenkrad</p>
+</blockquote></th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p><em>Abbildung 4:
+Aufschlagpositionen beim Kopfaufschlag, R = Rim (Kranz), S = Spoke
+(Speiche)</em></p>
+</blockquote>
+<h2 id="integrität">Integrität</h2>
+<blockquote>
+<p>[redacted-person] betreffen die Airbagmodulkomponenten des
+Frontschutzes [BR-LAH-328].</p>
+<p>[redacted-person] muss während der Entwicklung des [redacted-person] im Temperatur- bereich bei -35 Grad, Raumtemperatur und +85
+[redacted-person] treffen und damit die Entwicklung aktiv unterstützen
+[BR-LAH-329].</p>
+<p>[redacted-person] sind den Komponentenentwicklern des Konzerns
+projektbegleitend vorzustellen. Zur B-Freigabe muss eine vollständige
+Dokumentation der durchgeführten Simulationen an die Konzern-
+Fachabteilung übergeben werden [BR-LAH-330].</p>
+<p>Änderungen in der Hardware, welche nach der B-Freigabe eingebracht
+werden, müssen im Simulati- onsmodell aktualisiert werden
+[BR-LAH-331].</p>
+<p>Die für diese Prognosen verwendete Methodik ist zu Beginn des
+Projekts der Fachabteilung vorzustel- len und mit ihr abzustimmen. [redacted-person] müssen alle Komponentenmodelle an die Fachabteilung übergeben
+werden [BR-LAH-332].</p>
+<p>Die in den folgenden Abschnitten beschriebenen
+Komponentensimulationen müssen jeweils durchge- führt werden, wenn die
+entsprechende [redacted-person] des Airbagmoduls ist [BR-LAH-333].</p>
+</blockquote>
+<h2 id="spritzguss-simulationsmodell">Spritzguss-Simulationsmodell</h2>
+<blockquote>
+<p>[redacted-person] der Modulintegrität muss den Fertigungseinfluss über
+eine Simulation des Spritzguss-</p>
+<p>prozesses berücksichtigen [BR-LAH-334]. Hierzu ist der
+Herstellprozesses mit allen notwendigen Rand- bedingungen abzubilden
+[BR-LAH-335]. [redacted-person] des Rechenmodells sowie die eingesetzte
+Methodik ist zu Projektbeginn mit der Fachabteilung abzustimmen
+[BR-LAH-336].</p>
+<p>[redacted-person] einer Spritzguss-Simulation von Modulgehäusen
+beziehungsweise Kappen aus Kunst- stoff ist durch Abgleich der Position
+von Bindenähten, Zusammenflussstellen sowie sonstigen, ferti-
+gungstechnisch bedingten Schwachstellen durch Aussetzen des Bauteils
+eines Glykolbads zu erbringen [BR-LAH-337].</p>
+<p>Bei glasfaserverstärkten Materialien ist zusätzlich die
+Faserausrichtung zu berechnen und darzustellen</p>
+<p>[BR-LAH-338].</p>
+</blockquote>
+<h2 id="auslegung-gehäuse">[redacted-person]</h2>
+<blockquote>
+<p>Für das Gehäuse muss mittels geeigneter Simulation eine Bewertung der
+Festigkeit und der Materi- aleignung getroffen werden [BR-LAH-339]. [redacted-person] muss das Gehäuse bezüglich der Aufweitung bei Airbagauslösung,
+wie im Bauteillastenheft beschrieben, optimiert werden [BR-LAH-340].</p>
+</blockquote>
+<h2 id="auslegung-klipse-und-halter">[redacted-person] und Halter</h2>
+<blockquote>
+<p>[redacted-person] und Halter, welche zum Airbagmodul gehören, müssen
+mittels geeigneter Simulation vo- rausgelegt werden [BR-LAH-341].
+Hierbei muss eine Aussage über die Materialeignung und die Festigkeit
+getroffen werden [BR-LAH-342]. Dies beinhaltet auch das Versagen der
+Klipse und Halter [BR-LAH-343].</p>
+</blockquote>
+<h2 id="auslegung-kappe">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] der Öffnungsfunktion der Airbagkappe bei
+Airbagauslösung ist eine Simulation der Öffnungsfunktion über dem
+geforderten Temperaturbereich erforderlich [BR-LAH-344]. [redacted-person]-
+onen erfordern dehnratenabhängige Materialdaten mit Versagen, um eine
+Aussage über die Materi- aleignung und Design zu treffen
+[BR-LAH-345].</p>
+<p>Mit diesem Modell muss die Aufreißlinie ausgelegt und die optimale
+Kappen-Teilung ermittelt werden [BR-LAH-346]. Weiterhin muss eine
+Aussage zur Festigkeit und Steifigkeit der Airbagkappe (Fingerpoke)
+getroffen werden [BR-LAH-347].</p>
+</blockquote>
+<h2 id="auslegung-luftsack">[redacted-person]</h2>
+<blockquote>
+<p>[redacted-person] der Entfaltung des Luftsacks muss dessen Integrität
+bewertet werden [BR-LAH-348]. [redacted-person] erfolgt durch einen
+Vergleich mit aus Zugversuchen bekannten Versagensspannungen und
+Versagensdehnungen [BR-LAH-349]. Spannungs- und Dehnungsspitzen im
+Luftsack in Größenord- nung von Versagensspannungen und
+Versagensdehnungen sind durch geeignete Maßnahmen zu ver- meiden
+[BR-LAH-350]. Relativaussagen sind ausreichend.</p>
+</blockquote>
+<h1 id="vernetzungsrichtlinien">Vernetzungsrichtlinien</h1>
+<blockquote>
+<p>Für alle Bauteile (inklusive Referenznetz), ausgenommen der gefaltete
+Luftsack, gelten die folgenden Vernetzungsrichtlinien:</p>
+</blockquote>
+<h2 id="schalenelemente-membranelemente">Schalenelemente /
+Membranelemente</h2>
+<blockquote>
+<p>[redacted-person] wird die Mittelfläche vernetzt [BR-LAH-351].</p>
+<p>[redacted-person] für Schalenelemente sind lineare
+Dreieckelemente und lineare Viereckele- mente [BR-LAH-352].</p>
+<p>[redacted-person] mit zwei freien Kanten sind zwei Dreiecke
+vorzusehen, von denen jedes nur eine freie Kante hat [BR-LAH-353].</p>
+<p>Folgende allgemeine Kriterien für Schalenelemente müssen erfüllt
+werden [BR-LAH-354]:</p>
+</blockquote>
+<ul>
+<li><p>max. Anteil an Dreieckelementen: 5 %</p></li>
+<li><p>max. Kantenlänge: 10 mm</p></li>
+<li><p>[redacted-person] müssen in jedem Bauteil einheitlich
+ausgerichtet sein.</p></li>
+<li><p>[redacted-person], die unabhängig voneinander geometrisch am gleichen
+Ort liegen, gilt ein Mindest- abstand von 0,5 mm.</p></li>
+<li><p>Es dürfen keine Bauteilpenetrationen auftreten.</p></li>
+</ul>
+<blockquote>
+<p>[redacted-person] (QUAD) gilt [BR-LAH-355]:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Kriterium</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Grenzwert</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Berechnungsvorschrift</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>min. Innenwinkel</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>30°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Innenwinkel</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>150°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. [redacted-person]:</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5,0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Patran</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Skewness</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>48°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Patran</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Warpage</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>11°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Patran</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>min. Taper</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>0,5</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Patran</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 12: Kriterien für Viereckselemente</em></p>
+<p>[redacted-person] (TRIA) gilt [BR-LAH-356]:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Kriterium</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Grenzwert</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Berechnungsvorschrift</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>min. Innenwinkel</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>20°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Innenwinkel</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>100°</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. [redacted-person]:</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>5,0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Patran</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>max. Skewness</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>60°</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Patran</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 13: Kriterien für Dreieckselemente</em></p>
+</blockquote>
+<h1 id="modellrechte-und-umgang-mit-lieferantenmodellen">Modellrechte
+und Umgang mit Lieferantenmodellen</h1>
+<blockquote>
+<p>[redacted-person] aller Entwicklungsstände und des Serienstands
+gehen in den Besitz des VW- Konzerns über [BR-LAH-357]. Dieser kann über
+die Modelle im Rahmen des laufenden Projekts und im Rahmen von
+weiterführenden Untersuchungen frei verfügen und diese ohne
+Einschränkung oder Nachfrage innerhalb des Konzerns oder an
+Entwicklungsdienstleister beziehungsweise Systement- wickler weitergeben
+[BR-LAH-358]. Für die Weitergabe an Dritte werden nach Möglichkeit
+verschlüsselte Modelle verwendet, um das Know-How des Lieferanten zu
+schützen [BR-LAH-359].</p>
+</blockquote>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<p><img src="./11_Simulation-konzern-lah-dum-880-em-tr09-2023-03-22-media/media/image5.png" style="width:6.45981in;height:5.91333in"/></p>
+<blockquote>
+<p><em>Abbildung 5: LAH-[redacted-person]
+[</em>BR-LAH-<em>360]</em></p>
+<p>[redacted-person] und Anforderungen [BR-LAH-361]:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-co]99000 „Entwicklungsbedingungen – [redacted-person]“</p></li>
+<li><p>[redacted-co]82036: „Modellierungsrichtlinien für Airbagmodelle, [redacted-person]“</p></li>
+<li><p>LAH.DUM.880.DL: Konzern-Nummerierungskonvention</p></li>
+<li><p>TL 82042 „Lenkräder“</p></li>
+<li><p>Anfrageunterlagen</p></li>
+</ul>
+<h1 id="anhang-1-erweiterte-nummerierungskonvention">Anhang 1 [redacted-person]</h1>
+<table style="width:100%;">
+<thead>
+<tr>
+<th colspan="5" style="text-align: center;"><blockquote>
+<p><strong>Nummerierungskonvention</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="2" style="text-align: center;"><blockquote>
+<p><strong>Part-ID</strong></p>
+</blockquote></td>
+<td colspan="2"><blockquote>
+<p><strong>Node-ID und Element-ID</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p><strong>von</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>bis</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>von</strong></p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p><strong>bis</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p><strong>Schutzsysteme</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Fahrerairbag</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Luftsack</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Kappe/Cover</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Container</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Gasgenerator/Sonstige</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Lenkrad</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Beifahrerairbag</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Luftsack</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Kappe/Cover</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Container</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Gasgenerator/Sonstige</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knieairbag SP01</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Luftsack</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Kappe/Cover</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Container</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Gasgenerator/Sonstige</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Knieairbag SP03</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Luftsack</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Kappe/Cover</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Container</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td style="text-align: right;">Gasgenerator/Sonstige</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><em>Tabelle 14: [redacted-person]</em></p>
+</blockquote>
+</body>
+</html>

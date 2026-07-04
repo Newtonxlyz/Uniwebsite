@@ -1,0 +1,4368 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>LAH.DUM.880.DR_Insassenschutz_Front</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote>
+<blockquote>
+<p>D[redacted]</p>
+</blockquote>
+<h1 id="technische-anforderungen-insassenschutz-front"><img src="./01_Front_Crash-lah-dum-880-dr-insassenschutz-front-media/media/image2.png" style="width:2.91667in;height:2.4375in"/>[redacted]</h1>
+<blockquote>
+<p><strong>Funktionslastenheft</strong></p>
+<p>LAH.DUM.880.DR</p>
+</blockquote>
+<h4 id="freigegeben-durch">Freigegeben durch:</h4>
+<blockquote>
+<p><strong>Inhalt</strong></p>
+</blockquote>
+<p><a href="#_bookmark0">[redacted]</a> <a href="#_bookmark0">4</a></p>
+<p><a href="#anforderung-an-die-insassenkinematik">Anforderung an die
+Insassenkinematik</a> <a href="#anforderung-an-die-insassenkinematik">4</a></p>
+<p><a href="#anforderungen-an-den-innenraum">Anforderungen an den
+Innenraum</a> <a href="#anforderungen-an-den-innenraum">5</a></p>
+<p><a href="#anforderung-an-die-lenksäule">Anforderung an die
+Lenksäule</a> <a href="#anforderung-an-die-lenksäule">5</a></p>
+<p><a href="#anforderungen-an-das-gurtsystem">Anforderungen an das
+Gurtsystem</a> <a href="#anforderungen-an-das-gurtsystem">5</a></p>
+<p><a href="#anforderungen-an-das-airbagsystem">Anforderungen an das
+Airbagsystem</a> <a href="#anforderungen-an-das-airbagsystem">6</a></p>
+<p><a href="#zentrale-auslegungshilfen-bei-audi">[redacted-person] bei [redacted-co]</a> <a href="#zentrale-auslegungshilfen-bei-audi">6</a></p>
+<p><a href="#zielwerte-für-insassenbelastungen">Zielwerte für
+Insassenbelastungen</a> <a href="#zielwerte-für-insassenbelastungen">8</a></p>
+<p><a href="#übersicht-der-lastfälle">Übersicht der Lastfälle</a> <a href="#übersicht-der-lastfälle">9</a></p>
+<p><a href="#robustheit-der-ergebnisse">Robustheit der Ergebnisse</a> <a href="#robustheit-der-ergebnisse">21</a></p>
+<p><a href="#definition-des-worst-case">Definition des worst-case</a> <a href="#definition-des-worst-case">21</a></p>
+<p><a href="#übersicht-der-beteiligten-bauteile">Übersicht der
+beteiligten Bauteile</a> <a href="#übersicht-der-beteiligten-bauteile">21</a></p>
+<p><a href="#sensoriklastfälle">Sensoriklastfälle</a> <a href="#sensoriklastfälle">21</a></p>
+<p><a href="#umgang-mit-erprobungsfahrzeugen-gv-0-bis-gv-4">Umgang mit
+Erprobungsfahrzeugen (GV-0 bis GV-4)</a> <a href="#umgang-mit-erprobungsfahrzeugen-gv-0-bis-gv-4">22</a></p>
+<p><a href="#interpretationshilfe-gebrochene-teile">Interpretationshilfe
+gebrochene Teile</a> <a href="#interpretationshilfe-gebrochene-teile">24</a></p>
+<p><a href="#interpretationshilfe-separierende-teile">Interpretationshilfe
+separierende Teile</a> <a href="#interpretationshilfe-separierende-teile">25</a></p>
+<p><a href="#interpretationshilfe-für-teilweise-gelöste-teile">Interpretationshilfe
+für teilweise gelöste Teile</a> <a href="#interpretationshilfe-für-teilweise-gelöste-teile">26</a></p>
+<h3 id="änderungsdokumentation">1. Änderungsdokumentation</h3>
+<blockquote>
+<p><strong>[redacted]</strong></p>
+<p>[redacted-person] beschreibt die Anforderungen, Prüf- und
+Erprobungsrandbedingungen, die das zu entwickelnde Rückhaltesystem für
+den Frontalaufprall erfüllen muss.</p>
+<p>[redacted-person] ist projektunabhängig formuliert.</p>
+<p>[redacted-person] des Lastenheftes unterliegen der Geheimhaltung und dürfen
+Dritten nur mit ausdrückli- cher Genehmigung des zuständigen
+Fachbereiches [redacted-co] zugänglich gemacht werden.</p>
+<p>[redacted-person]- und Urheberrechte sowie Geheimhaltungsvorschriften gelten
+die Regelungen der [redacted]</p>
+<p>[redacted-person] in diesem Lastenheft gelten ausschließlich für die
+erste Sitzreihe. Absätze mit Anforderungen sind mit einem
+vorangestellten <strong>A</strong> markiert, rein informative Absätze
+mit einem <strong>I</strong>.</p>
+</blockquote>
+<h2 id="anforderung-an-die-insassenkinematik">Anforderung an die
+Insassenkinematik</h2>
+<blockquote>
+<p>A: In jedem getesteten Lastfall muss die anthropometrische Testpuppe
+(Dummy) auf der Sitzfläche verbleiben. [redacted-person] ist auf der Sitzfläche
+verblieben, wenn sich die Unterseite des Dummybe- ckens oberhalb der
+Sitzfläche befindet, siehe <a href="#_bookmark2">Abbildung 1: Dummy muss
+auf Sitz verbleiben</a></p>
+<p>:</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><img src="./01_Front_Crash-lah-dum-880-dr-insassenschutz-front-media/media/image4.jpeg"/>[redacted-person] verblieben</th>
+<th><img src="./01_Front_Crash-lah-dum-880-dr-insassenschutz-front-media/media/image5.jpeg"/>Nicht
+auf Sitz verblieben</th>
+</tr>
+</thead>
+</table>
+<blockquote>
+<p><strong>Abbildung 1:
+Dummy muss auf Sitz verbleiben</strong></p>
+<p>A: In jedem getesteten Lastfall mit HF-Dummy (5% Hybrid III) muss
+Submarining nach den Euro- NCAP Bewertungsprotokoll (EuroNCAP [redacted-person] Protection rating protocol version 9.0) ver- mieden werden.</p>
+<p>A: Bei allen gegurteten Gesetz- und Verbraucherschutzlastfällen
+müssen die die Euro-NCAP Modifier</p>
+<p>„[redacted-person]“ (Kopf) und „[redacted-person] Contact“ (Thorax)
+vermieden werden (EuroNCAP [redacted-person] Protection rating protocol
+version 9.0 oder aktueller).</p>
+<p>A: Grundsätzlich gilt als Entwicklungsziel bei allen gegurteten
+Gesetz- und Verbraucherschutzlast- fällen aus der <a href="#_bookmark11">Tabelle 2: [redacted-person] Front
+1.SR</a>, eine Resttiefe von 30mm zwischen Kopf und
+Lenkrad/Schalttafel/Cockpit inklusive Anbauteile/Scheibe und 20mm
+zwischen Thorax und Lenk- rad/Schalttafel/Cockpit inklusive Anbauteile.
+[redacted-person] ist über die [redacted-person]</p>
+<p>1.SR Simulation zu überprüfen und nachzuweisen. [redacted-person]
+der Anforderungen sind Op- timierungsmaßnahmen zu erarbeiten.</p>
+<p>A: [redacted-person] der Resttiefe von 30mm bzw. 20mm, ist bei den mit
+„Ja“ in der [redacted-person]- nachweis gekennzeichneten Lastfällen aus
+der <a href="#_bookmark11">Tabelle 2: [redacted-person]
+Front 1.SR</a>, über den Versuch mit einem geeigneten Messverfahren und
+Simulation in Abstimmung mit der Fachabteilung zu erbringen und
+entsprechend den geltenden Richtlinien bei [redacted-person] zu archivieren. Wird die
+Resttiefe von 30mm bzw. 20mm nicht bei den mit „Ja“ in der [redacted-person] gekennzeichneten Lastfällen aus der <a href="#_bookmark11">Tabelle 2: [redacted-person] Front
+1.SR</a> erfüllt, muss über eine Robustheitsun- tersuchung die
+Vermeidung eines Modifiers nach dem Euro NCAP [redacted-person] -AOP-
+v9.1.3 oder aktueller nachgewiesen werden.</p>
+<p>A: [redacted-person] muss auch das Euro NCAP [redacted-person] – [redacted-person] v9.0.2 oder aktuel- ler beachtet werden.</p>
+<p>A: Für die dynamische Bereichsermittlung gilt als Entwicklungsziel
+bei allen Lastfällen der dynami- schen Bereichsermittlung 1.SR in der <a href="#_bookmark12">Tabelle 3: Lastfallmatrix dynamische
+Bereichsermittlung 1.SR</a>, eine Rest- tiefe zwischen Kopf und ECE-R21
+betrachteten Bauteilen von 30mm. [redacted-person] ist über die
+[redacted-person] 1.SR Simulation zu überprüfen und nachzuweisen. [redacted-person] der An- forderungen sind Optimierungsmaßnahmen zu
+erarbeiten. Für die Freigabe mittels Versuches darf kein Durchschlag
+erfolgen.</p>
+</blockquote>
+<h2 id="anforderungen-an-den-innenraum">Anforderungen an den
+Innenraum</h2>
+<blockquote>
+<p>A: Grundsätzlich gilt, dass sich keine Bauteile während des
+Crashvorgangs im Fahrzeuginnenraum lösen, brechen und/ -oder frei
+fliegen dürfen. Sollte es trotzdem dazu kommen, erfolgt eine Bewer- tung
+mit Hilfe der entsprechenden Interpretationshilfen. Dies gilt für alle
+Sitzreihen im Fahrzeug.</p>
+<p>I: [redacted-person] „gebrochene Teile“, „fliegende Teile“
+und „teilgelöste Teile“ befinden sich im Anhang dieses Lastenheftes.</p>
+</blockquote>
+<h2 id="anforderung-an-die-lenksäule">Anforderung an die Lenksäule</h2>
+<blockquote>
+<p>A: Es gelten die Anforderung des <strong>LAH.DUM.880.BC</strong>
+.</p>
+</blockquote>
+<h2 id="anforderungen-an-das-gurtsystem">Anforderungen an das
+Gurtsystem</h2>
+<blockquote>
+<p>A: [redacted-person] darf nicht ein- und/oder durchreißen.</p>
+<p>I: Abriebspuren am Gurtband und Umlenkelementen durch Straffung oder
+Dummybelastung sind zu- lässig</p>
+<p>A: Beschädigungen, die die Wirkweise und Funktionsweise des Gurtes
+beeinflussen, sind nicht zuläs- sig. [redacted-person] für eine Beeinflussung
+der Wirkweise des Gurtes ist das sogenannte „bunching“. Beim bunching
+(deutsch: Bündelung) zieht sich das Gurtband während der
+Insassenrückhaltung an den Gurtumlenkungspunkten in deren Ecken und kann
+zu Beschädigungen des Gurtbandes führen. Tritt eine Beschädigung des
+Gurtes auf, sind mit der betroffenen [redacted-person] zu
+definieren.</p>
+<p>A: [redacted-person] muss während des Crashvorgangs geschlossen sein
+und muss sich nach Crash öff- nen lassen. Es gelten für alle Europa und
+[redacted-person] die Gurtschlossöffnungs- kräfte nach
+EuroNCAP Rescue, Extrication &amp; [redacted-person] and [redacted-person]
+v1.2 oder aktueller für die EuroNCAP Lastfälle und C-NCAP MANAGEMENT
+REGULATION</p>
+<p>(2021 EDITION) für den CNCAP.</p>
+<p>A: Für die ECE-Gesetzeslastfälle ECE-R94 und ECE-R137 gilt die
+Anforderung aus dem Gesetzestext ECE-R94 03. [redacted-person] darf einen Wert von max. 60N nach mittiger
+Betätigung des Gurtschlosstasters nicht überschreiten.</p>
+<p>A: [redacted-person] dürfen nicht versagen.</p>
+<p>Zusätzlich gelten die Anforderung an das [redacted-person] aus dem
+aktuellen <strong>LAH.DUM.857.D.</strong></p>
+</blockquote>
+<h2 id="anforderungen-an-das-airbagsystem">Anforderungen an das
+Airbagsystem</h2>
+<blockquote>
+<p>Es gelten die Anforderung an das [redacted-person] aus dem
+<strong>LAH.DUM.880.AT.</strong></p>
+<p>Es gelten die Anforderung an das [redacted-person] aus dem
+<strong>LAH.5Q4.880.</strong></p>
+<p>Es gelten die Anforderung an das [redacted-person] aus dem
+<strong>LAH.DUM.880.BA.</strong></p>
+<p>Es gelten die Anforderung an das [redacted-person] aus dem
+<strong>LAH.DUM.880.BB.</strong></p>
+</blockquote>
+<h2 id="zentrale-auslegungshilfen-bei-audi">[redacted-person]
+bei [redacted-co]</h2>
+<blockquote>
+<p>A: Dies sind die zentralen Auslegungshilfen bei [redacted-co], welche zur
+Konzeptauslegung berücksichtigt werden müssen:</p>
+</blockquote>
+<ul>
+<li><p>Konzernauslegungsrichtlinie_PAB_Shape</p></li>
+<li><p>20221107_Auslegungshilfe_DAB_Insassenschutz_Front_Heck_Version_1</p></li>
+<li><p>20221107_Auslegungshilfe_HAB_Insassenschutz_Front_Heck_Version_2</p></li>
+<li><p>20220721_Auslegungshilfe_Z-Durchgangsmass_Thor_Version_4</p></li>
+<li><p>DGL_Z-Durchgangsmaß_HIII</p></li>
+<li><p>Konzern_DGL_Knieautreffpunkt</p></li>
+<li><p>Konzern_DGL_LSSV</p></li>
+<li><p>Konzern_DGL _Lenksäule_freies_Einlaufen</p></li>
+<li><p>Konzern_DGL_Knieintrusion</p></li>
+<li><p>Konzern_DGL_Knieabstand 5%</p></li>
+<li><p>Konzern_DGL_Knieabstand 50%</p></li>
+<li><p>DGL_Kniefreigang</p></li>
+<li><p>Konzern_DGL_Innenspiegel</p></li>
+<li><p>Konzern_DGL_Vermeidung_Submarining</p></li>
+<li><p>Konzern DGL Fußraum_Crashpad</p></li>
+<li><p>Konzern_DGL_Sitz</p></li>
+<li><p>Konzern_DGL_TVKL</p></li>
+<li><p>Konzern_DGL_Greenhouse</p></li>
+<li><p>Konzern_DGL_Ablagenkontur</p></li>
+<li><p>Konzern_DGL_Sitzüberdeckung_5%-Frau</p></li>
+<li><p>Konzern_DGL_Lenkradabstand_5%-Frau</p></li>
+<li><p>DGL_A-Säulenverkleidung</p></li>
+<li><p>DGL_Definiton_Einsetzung_5%-Dummy</p></li>
+<li><p>DGL_Freigang_Miko</p></li>
+<li><p>DGL_Lenksäule</p></li>
+<li><p>DGL_Vermeidung_Submarinig</p></li>
+</ul>
+<blockquote>
+<p>I: [redacted-person] der Auslegungshilfen ist sich mit der [redacted-co]
+Fachabteilung abzustimmen. Es ist immer die aktuelle, gültige Version
+heranzuziehen.</p>
+</blockquote>
+<h5 id="anforderung-bzgl.-sensorik">Anforderung bzgl. Sensorik</h5>
+<blockquote>
+<p>A: Folgende allgemeine Auslöseanforderungen müssen zusammen mit der
+Sensorik-Abteilung überprüft werden:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]-Crashs mit OLC ≥ 7 müssen die Gurtstraffer gezündet
+werden</p></li>
+<li><p>[redacted-person] mit OLC ≥ 12 müssen die Frontairbags gezündet
+werden</p></li>
+<li><p>[redacted-person] mit (OLC ≥ 12 und OLCY ≥ 3) oder OLC ≥ 23 müssen die
+Kopfairbags gezündet werden</p></li>
+</ul>
+<blockquote>
+<p>A: [redacted-person] für NAR müssen zusätzlich überprüft
+werden:</p>
+</blockquote>
+<ul>
+<li><p>Bei 26 km/h 0Grad starre Wand müssen mehrstufige Frontairbags mit
+FirstStageOnly gezündet werden. [redacted-person] und KnABs müssen
+gezündet werden. [redacted-person]- dung der Adaptivitätszeiten erfolgt in
+Absprache mit der OoP Abteilung.</p></li>
+<li><p>Ab 32 km/h 0Grad starre Wand müssen mehrstufige Frontairbags mit
+FullOutput gezün- det werden</p></li>
+<li><p>[redacted-person] mit OLC ≥ 12 und Y-Komponente müssen mehrstufige
+Frontairbags mit FullOutput gezündet werden</p></li>
+<li><p>Ab 32 km/h 30Grad rechts/links müssen vorhandene Airbags
+(FAB/BFAB/KnABs/KAB) gezündet und mehrstufige Frontairbags mit
+FullOutput gezündet werden</p></li>
+<li><p>[redacted-person] mit OLC ≥ 20 müssen mehrstufige Frontairbags mit
+FullOutput oder Moderate- Output gezündet werden</p></li>
+<li><p>[redacted-person] mit OLC ≥ 23 müssen mehrstufige Frontairbags mit
+FullOutput gezündet wer- den</p></li>
+</ul>
+<blockquote>
+<p>A: [redacted-person] sind entsprechend dem
+Vorverlagerungskriterium (VVK) auszule- gen und mit der
+Sensorikabteilung abzustimmen. Überschlägig gelten folgenden
+Anforderungen:</p>
+</blockquote>
+<ul>
+<li><p>Gurtstraffer müssen zwischen 0ms und 1,1*VVK gezündet
+werden</p></li>
+<li><p>der Frontal-Airbags (FAB/BFAB/KnABs) müssen folgendermaßen
+gezündet werden: für lowspeed Crashes (OLC &lt; 16) zwischen 0,5*VVK und
+1,2*VVK</p></li>
+</ul>
+<blockquote>
+<p>für highspeed Crashes (OLC ≥ 16) zwischen 0,8*VVK und 1,2*VVK</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] der Kopfairbags muss spätestens bei 1.0*YVK
+erfolgen</p></li>
+</ul>
+<blockquote>
+<p>Eine im Konzern abgestimmte, lastfallspezifische VVK-[redacted-person] kann als Startwerte die- nen. Diese <a href="https://group-wiki.wob.vw.vwg/wikis/pages/viewpage.action?pageId=1525383874"><u>Startwerte</u></a>
+werden zu Beginn des Projektes zur Verfügung gestellt.</p>
+<p>I: Die beiden folgenden Diagramme stellen die derzeitige
+Ansteuerungslogik der adaptiven Rückhal- tesysteme dar.</p>
+<p>A: Wenn in nominalen Car2Car Lastfällen eine Zündzeit- oder
+Auslöseanforderung nicht erfüllt ist, muss mittels
+Insassenschutzsimulation mit H3 5% Dummy nachgewiesen werden, dass die
+inter- nen Anforderungen erfüllt sind.</p>
+<p><img alt="Ein Bild, das Tisch enthält. Automatisch generierte Beschreibung" src="./01_Front_Crash-lah-dum-880-dr-insassenschutz-front-media/media/image6.png" style="width:5.29586in;height:2.62417in"/></p>
+</blockquote>
+<p><img src="./01_Front_Crash-lah-dum-880-dr-insassenschutz-front-media/media/image7.png" style="width:5.34854in;height:3.12656in"/></p>
+<blockquote>
+<p>A: Die in den Diagrammen beispielhaften blauen ΔT’s sind auszulegen
+und mit der Sensorikabtei- lung abzustimmen. Die ΔT’s beziehen sich
+dabei immer auf die AB1-Schwelle.</p>
+<p>A: [redacted-person] muss im Projekt abgestimmt werden, ob der
+Crashschwerefortschritt schräg ent- fallen kann.</p>
+</blockquote>
+<h2 id="zielwerte-für-insassenbelastungen">Zielwerte für
+Insassenbelastungen</h2>
+<blockquote>
+<p>A: Grundsätzlich sind als Entwicklungsziel alle gesetzlichen
+Grenzwerte mit einer mindestens 20%- igen Sicherheit. Wird die 20%-ige
+Sicherheit bei gesetzlichen Lastfällen nicht erfüllt, muss über eine
+Robustheitsuntersuchung die Erfüllung des Gesetzes nachgewiesen
+werden.</p>
+<p>A: [redacted-person] zur Erreichung der projektspezifischen
+Verbraucherschutzziele sind zu erfül- len.</p>
+<p>I: [redacted-person] sind bei der Projektleitung der
+Fahrzeugsicherheit zu erfragen.</p>
+<p>A: Bei den internen Lastfällen gilt die 100%-Grenze der unten
+definierten biomechanischen Grenz- werte (Tabelle 1). [redacted-person]
+von 80% ist sofort die [redacted-co]-Fachabteilung zu informieren.</p>
+<p>A: [redacted-person] der Dummybelastungswerte incl. Filmauswertung
+erfolgt über den Zeitraum von 0ms bis 300ms inkl. Rebound.</p>
+<p>Wenn in den Testprozeduren ausdrücklich ein Bewertungszeitraum
+genannt wird, ist dieser gültig. [redacted-person] muss eine Absprache
+mit Fachabteilungen FTV und FPV erfolgen.</p>
+<p>I: Die biomechanischen Grenzwerte bei [redacted-co] für die HIII-Dummy-Familie
+sind in <a href="#_bookmark9">Tabelle 1: Biomechanische</a> <a href="#_bookmark9">([redacted-co] interne) Grenzwerte</a> definiert. [redacted-person] orientieren sich an den ECE-R 94 und ECE-R 137 Re- gularien.
+[redacted-person] für den HM-Dummy wurden über einen Skalierungsansatz
+ermittelt.</p>
+<p><strong>Tabelle 1:
+Biomechanische ([redacted-co] interne) Grenzwerte</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Körperregion</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Kriterium</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>HIII 5% (HF)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>HIII 50% (H3)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Thor 50%</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>HIII 95% (HM)</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Filter- klasse</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Polarität</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td rowspan="2"><blockquote>
+<p>Kopf</p>
+</blockquote></td>
+<td><blockquote>
+<p>HIC36ms [-]</p>
+</blockquote></td>
+<td><blockquote>
+<p>1000</p>
+</blockquote></td>
+<td><blockquote>
+<p>1000</p>
+</blockquote></td>
+<td><blockquote>
+<p>1000</p>
+</blockquote></td>
+<td><blockquote>
+<p>1000</p>
+</blockquote></td>
+<td><blockquote>
+<p>CFC1000</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>a3ms,cum [g]</p>
+</blockquote></td>
+<td><blockquote>
+<p>80</p>
+</blockquote></td>
+<td><blockquote>
+<p>80</p>
+</blockquote></td>
+<td><blockquote>
+<p>80</p>
+</blockquote></td>
+<td><blockquote>
+<p>80</p>
+</blockquote></td>
+<td><blockquote>
+<p>CFC1000</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="3"><blockquote>
+<p>Hals</p>
+</blockquote></td>
+<td><blockquote>
+<p>Fx,Shear [kN]</p>
+</blockquote></td>
+<td><blockquote>
+<p>2,7</p>
+</blockquote></td>
+<td><blockquote>
+<p>3,1</p>
+</blockquote></td>
+<td><blockquote>
+<p>3,1</p>
+</blockquote></td>
+<td><blockquote>
+<p>3,75</p>
+</blockquote></td>
+<td><blockquote>
+<p>CFC1000</p>
+</blockquote></td>
+<td><blockquote>
+<p>+/-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Fz,Tension [kN]</p>
+</blockquote></td>
+<td><blockquote>
+<p>2,9</p>
+</blockquote></td>
+<td><blockquote>
+<p>3,3</p>
+</blockquote></td>
+<td><blockquote>
+<p>3,3</p>
+</blockquote></td>
+<td><blockquote>
+<p>3,97</p>
+</blockquote></td>
+<td><blockquote>
+<p>CFC1000</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>My,Extension [Nm]</p>
+</blockquote></td>
+<td><blockquote>
+<p>57</p>
+</blockquote></td>
+<td><blockquote>
+<p>57</p>
+</blockquote></td>
+<td><blockquote>
+<p>57</p>
+</blockquote></td>
+<td><blockquote>
+<p>57</p>
+</blockquote></td>
+<td><blockquote>
+<p>CFC600</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td rowspan="3"><blockquote>
+<p>Brust</p>
+</blockquote></td>
+<td><blockquote>
+<p>Eindrückung [mm]</p>
+</blockquote></td>
+<td><blockquote>
+<p>34</p>
+</blockquote></td>
+<td><blockquote>
+<p>42</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>46</p>
+</blockquote></td>
+<td><blockquote>
+<p>CFC180</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>resultant deflec- tion</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>54</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>VC [m/s]</p>
+</blockquote></td>
+<td><blockquote>
+<p>1,0</p>
+</blockquote></td>
+<td><blockquote>
+<p>1,0</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+<td><blockquote>
+<p>1,0</p>
+</blockquote></td>
+<td><blockquote>
+<p>CFC180</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Oberschenkel</p>
+</blockquote></td>
+<td><blockquote>
+<p>Fz [kN]</p>
+</blockquote></td>
+<td><blockquote>
+<p>7</p>
+</blockquote></td>
+<td><blockquote>
+<p>9,07</p>
+</blockquote></td>
+<td><blockquote>
+<p>10,6</p>
+</blockquote></td>
+<td><blockquote>
+<p>11,5</p>
+</blockquote></td>
+<td><blockquote>
+<p>CFC600</p>
+</blockquote></td>
+<td><blockquote>
+<p>-</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<h2 id="übersicht-der-lastfälle">Übersicht der Lastfälle</h2>
+<blockquote>
+<p>A: [redacted-person] der Dummys ist den entsprechenden Richtlinien der
+[redacted-person] zu entneh- men. Ermöglicht das
+Richtlinien-Test-Protokoll eine Vorgabe durch den OEM, ist die
+Sitzposition mit der [redacted-person] Front abzustimmen.</p>
+<p>A: [redacted-person] aus <a href="#_bookmark11">Tabelle 2: [redacted-person] Front 1.SR</a> sind mit den angegebenen Anforderun- gen
+zu erfüllen. Projektspezifisch können Lastfälle entfallen, wenn das
+Fahrzeug nicht in den ent- sprechenden Märkten verkauft wird. Relevant
+für die Lastfälle ist das Gesamt-[redacted-person]- sicherheit.</p>
+<p>I: Für die Lastfälle der ECE-R21, siehe <a href="#_bookmark12">Tabelle 3: Lastfallmatrix dynamische
+Bereichsermittlung 1.SR</a> erfolgt keine Insassenbewertung nach den
+Kriterien der Insassenbelastungswerten. Gültig ist der aktuelle Geset-
+zestext.</p>
+<p>I: Schlittenversuche sind im Temperaturbereich von 19.0 – 22.0 °C
+durchzuführen. [redacted-person]- peratur ist vom durchführenden Labor zu
+dokumentieren.</p>
+<p>I: Die best guess Eintritt-Szenarien können zeitlich variieren. Eine
+regelmäßige Überprüfung zur Ak- tualität ist im 6 [redacted-person] in
+Zusammenarbeit mit der Fachabteilung sowie den [redacted-co] Global-
+Safety-Affairs (GSA) Mitarbeiter vorzunehmen.</p>
+<p>I: Aus der folgenden Lastfallmatrix müssen alle Lastfälle aus den
+projektspezifischen Märkten/An- forderungen erfüllt werden.</p>
+<p>Tabelle 2:
+[redacted-person] Front 1.SR</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Lastfall</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Gurt</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>[redacted-person].1 / [redacted-person].3</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Richtli- nien-Be- wertungs- Protokoll</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Anforde- rung In- sassen- werte / Insassen-
+schutz</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Puls, Mo- tor-/Ge- triebevari- ante, Aus-
+stattung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Sitzposi- tion</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Zusatzinfor- mation</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Resttie- fen (Ab- stände siehe LAH</strong></p>
+<p><strong>Kopf /</strong></p>
+<p><strong>Brust [mm]</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Rest- tie- fen- nach- weis</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>USA Gesetz FMVSS208 Linkslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>26 km/h,</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS208</p>
+<p>(nur Contain- ment)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]- nung von Dummy-Mess- werten, zeitli- ches delta zwi-
+schen 1. und 2. Airbagstufe wird durch Fachabteilung festgelegt (OoP und
+RHS Front und Sen- sorik)</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>32-40</p>
+<p>km/h, 100%,</p>
+<p>0°, +/- 5°</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>32-40</p>
+<p>km/h, 100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>32-40</p>
+<p>km/h, von +30</p>
+<p>bis -30°</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>0-40</p>
+<p>km/h, 40%,</p>
+<p>ODB links,</p>
+<p>+/- 5°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>0-56</p>
+<p>km/h, 100%,</p>
+<p>0°, +/- 5°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ja</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>0-56</p>
+<p>km/h, 100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case USA</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ja</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th colspan="10"><blockquote>
+<p><strong>[redacted-person] CMVSS208 Linkslenker</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>26 km/h,</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS208</p>
+<p>(nur Contain- ment)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]- nung von Dummy-Mess- werten, zeitli- ches delta zwi-
+schen 1. und 2. Airbagstufe wird durch Fachabteilung festgelegt (OoP und
+RHS Front und Sen- sorik)</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>0-40</p>
+<p>km/h, 40% ,</p>
+<p>ODB links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Kanada</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>0-56</p>
+<p>km/h, 100%,</p>
+<p>0°, +/- 5°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Kanada</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>0-56</p>
+<p>km/h, 100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Kanada</p>
+</blockquote></td>
+<td><blockquote>
+<p>CMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>USA [redacted-person]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>US-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>US-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell US- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>TH/HF</p>
+<p>(ab 09/26) TH/TF</p>
+<p>(ab 09/28)</p>
+</blockquote></td>
+<td><blockquote>
+<p>US-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>US-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell US- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>US-NCAP</p>
+<p>(HF sitzt Mitte/Mitte)</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab 09/2026, best guess KW43 2022</p>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>40%, ODB</p>
+<p>links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/ -</p>
+</blockquote></td>
+<td><blockquote>
+<p>IIHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>IIHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell IIHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>UMTRI</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft</p>
+<p>Fahrzeugsi- cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>25%,</p>
+<p>small overlap links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/-</p>
+</blockquote></td>
+<td><blockquote>
+<p>IIHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>IIHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell IIHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>UMTRI</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft</p>
+<p>Fahrzeugsi- cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>64 km/h,</p>
+<p>25%,</p>
+<p>small overlap rechts</p>
+</blockquote></th>
+<th><blockquote>
+<p>mit</p>
+</blockquote></th>
+<th><blockquote>
+<p>H3/H3</p>
+</blockquote></th>
+<th><blockquote>
+<p>IIHS</p>
+</blockquote></th>
+<th><blockquote>
+<p>IIHS</p>
+</blockquote></th>
+<th><blockquote>
+<p>Volumen- modell IIHS</p>
+</blockquote></th>
+<th><blockquote>
+<p>UMTRI / alte mitte unten</p>
+</blockquote></th>
+<th><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></th>
+<th><blockquote>
+<p>30 / 20</p>
+</blockquote></th>
+<th><blockquote>
+<p>Nein</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="6"><blockquote>
+<p><strong>interne Anforderung für Kanada und USA
+Linkslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>27 km/h,</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>Contain- ment (*)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>[redacted-person]- nung von Dummy-Mess- werten, dt zwi- schen 1. und 2.
+Airbagstufe wird durch be- teiligte Fachab- teilungen fest- gelegt.
+(Fach- abteilung für OoP und RHS Front und Sen- sorik)</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>26 km/h,</p>
+<p>100%</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Insassen- werte FMVSS 208</p>
+<p>und Contain- ment (*)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>nur NAR RHS Airbags, zeitli- ches delta zwi- schen 1. und 2.
+Airbagstufe wird durch Fachabteilung festgelegt (OoP und RHS Front und
+Sen- sorik)</p>
+<p><strong>Nur in der Ent- wicklung</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>27 km/h,</p>
+<p>100%</p>
+</blockquote></td>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Insassen- werte FMVSS 208</p>
+<p>und Contain- ment (*)</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>nur NAR RHS Airbags, zeitli- ches delta zwi- schen 1. und 2.
+Airbagstufe wird durch Fachabteilung festgelegt (OoP und RHS Front und
+Sen- sorik)</p>
+<p><strong>Nur in der Ent- wicklung</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>48km/h,</p>
+<p>- 30°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 301</p>
+<p>FMVSS 305</p>
+</blockquote></td>
+<td><blockquote>
+<p>Insassen- werte FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Struk- tur definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>48km/h,</p>
+<p>+30°</p>
+</blockquote></th>
+<th><blockquote>
+<p>mit</p>
+</blockquote></th>
+<th><blockquote>
+<p>H3/H3</p>
+</blockquote></th>
+<th><blockquote>
+<p>FMVSS 301</p>
+<p>FMVSS 305</p>
+</blockquote></th>
+<th><blockquote>
+<p>Insassen- werte FMVSS 208</p>
+</blockquote></th>
+<th><blockquote>
+<p>Konfigura- tion wird von Struk- tur definiert</p>
+</blockquote></th>
+<th><blockquote>
+<p>FMVSS 208</p>
+</blockquote></th>
+<th><blockquote>
+<p>- / -</p>
+</blockquote></th>
+<th><blockquote>
+<p>Nein</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>interne, globale [redacted-person]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40%,</p>
+<p>ODB links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HM/HM</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case pro RHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>R-Pkt unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>Simulation, kein Versuch</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40%,</p>
+<p>ODB links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case pro RHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>Simulation, kein Versuch</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HM/HM</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case pro RHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>R-Pkt unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>Simulation, kein Versuch</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/-</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case pro RHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>Simulation, kein Versuch</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / H3</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case pro RHS</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>Simulation, kein Versuch</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>40%,</p>
+<p>ODB links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/ H3</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1 und Euro-NCAP [redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Struk- tur definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>Euro NCAP Bot-</p>
+<p>toming Out</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>40%, ODB</p>
+<p>rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/ H3</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1 und Euro-NCAP [redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Struk- tur definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>Euro NCAP Bot-</p>
+<p>toming Out</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>25%,</p>
+<p>small overlap links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Fahrer: In- sassen- werte IIHS, Punktebei- trag zum overall ac-
+ceptable</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Struk- tur definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>UMTRI</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>64 km/h,</p>
+<p>25%,</p>
+<p>small overlap rechts</p>
+</blockquote></th>
+<th><blockquote>
+<p>mit</p>
+</blockquote></th>
+<th><blockquote>
+<p>H3/H3</p>
+</blockquote></th>
+<th><blockquote>
+<p>[redacted-co]</p>
+</blockquote></th>
+<th><blockquote>
+<p>Insassen- werte IIHS, Punktebei- trag zum overall ac- ceptable</p>
+</blockquote></th>
+<th><blockquote>
+<p>Konfigura- tion wird von Struk- tur definiert</p>
+</blockquote></th>
+<th><blockquote>
+<p>UMTRI / alte Mitte unten</p>
+</blockquote></th>
+<th><blockquote>
+<p>- / -</p>
+</blockquote></th>
+<th><blockquote>
+<p>Nein</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>32 km/h,</p>
+<p>+30°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>32 km/h,</p>
+<p>-30°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>40 km/h,</p>
+<p>40%,</p>
+<p>ODB links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>26 km/h,</p>
+<p>100%</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>nur RDW RHS Airbags</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>27 km/h,</p>
+<p>100%</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>nur RDW RHS Airbags</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>35 km/h,</p>
+<p>0°, [redacted-person]</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>30 km/h LKW Un-</p>
+<p>terfahrer</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomecha- nische [redacted-person]. 1</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfigura- tion wird von Senso- rik definiert</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>ECE [redacted-person]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40%, ODB</p>
+<p>links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case RdW</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ja</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case RdW</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>bis 2025 (best guess KW43- 2022)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ja</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>T3 / HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case RdW</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab 2026 (best guess KW43- 2022)</p>
+<p>09/ 24 für NT</p>
+<p>09/26 für EZ</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ja</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>ECE [redacted-person]</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></th>
+<th><blockquote>
+<p>mit</p>
+</blockquote></th>
+<th><blockquote>
+<p>HF/HF</p>
+</blockquote></th>
+<th><blockquote>
+<p>EuroNCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>EuroNCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>Volumen- modell Euro-NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></th>
+<th><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></th>
+<th><blockquote>
+<p>30 / 20</p>
+</blockquote></th>
+<th><blockquote>
+<p>Nein</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>50km/h 50%, MPDB</p>
+<p>links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>T3 / H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Euro-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kneemap- ping</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF / H3</p>
+<p>/ HM</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen-</p>
+<p>modell Euro-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>ECE [redacted-person]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40%, ODB</p>
+<p>rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case RdW</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case RdW</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>bis 2025 (best guess KW44- 2021)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>T3 / HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case RdW</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab 2026 (best guess KW44- 2021)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>ECE [redacted-person]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Euro-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50km/h 50%, MPDB</p>
+<p>rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>T3 / H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Euro-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft</p>
+<p>Fahrzeugsi- cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kneemap- ping</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF / H3</p>
+<p>/ HM</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen-</p>
+<p>modell Euro-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>[redacted-person] Linkslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+<p>(bis 2024)</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ChinaNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>China-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell China-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>China NCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>56 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+<p>(ab 2025)</p>
+</blockquote></th>
+<th><blockquote>
+<p>mit</p>
+</blockquote></th>
+<th><blockquote>
+<p>H3/H3</p>
+</blockquote></th>
+<th><blockquote>
+<p>ChinaNCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>China-NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>Volumen- modell China-NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>China NCAP Protokoll</p>
+</blockquote></th>
+<th><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></th>
+<th><blockquote>
+<p>30 / 20</p>
+</blockquote></th>
+<th><blockquote>
+<p>Nein</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>50 km/h</p>
+<p>50%, MPDB</p>
+<p>links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>T3/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ChinaNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>China-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell China-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>China NCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>25%,</p>
+<p>small overlap links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3 / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>C-IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>C-IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell C- IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>UMTRI</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft Fahrzeugsi-
+cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>25%,</p>
+<p>small overlap rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3 / H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>C-IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>C-IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell C- IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>Pos.1 nach UMTRI,</p>
+<p>Pos.3 alte Mitte / un- ten</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nicht vor Juni 2022 (best gu-</p>
+<p>ess C-IASI 2.0+</p>
+<p>V17) Ziel nach Sicherheitsan- forderung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h</p>
+<p>50%, MPDB</p>
+<p>links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>T3 / H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>C-IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>C-IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell C- IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>nach EUNCAP-</p>
+<p>Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab [redacted-phone]</p>
+<p>(best guess C- IASI 3.0 V17)</p>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kneemap- ping</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF / H3</p>
+<p>/ HM</p>
+</blockquote></td>
+<td><blockquote>
+<p>ChinaNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>ChinaNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volu- menmodell China- NCAP, 0°</p>
+<p>starre</p>
+<p>Wand 56km/h</p>
+</blockquote></td>
+<td><blockquote>
+<p>ChinaNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Kneemap- ping</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF / H3</p>
+<p>/ HM</p>
+</blockquote></td>
+<td><blockquote>
+<p>C-IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>C-IASI</p>
+</blockquote></td>
+<td><blockquote>
+<p>Base Mo- dell, C-IASI MPDB Ouls</p>
+</blockquote></td>
+<td><blockquote>
+<p>C-IASI Pro-</p>
+<p>tokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / -</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>[redacted-person] Linkslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3 / H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>China GB11551</p>
+</blockquote></td>
+<td><blockquote>
+<p>China GB11551</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case China</p>
+</blockquote></td>
+<td><blockquote>
+<p>alte Mitte / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>56 km/h,</p>
+<p>40%, ODB</p>
+</blockquote></th>
+<th><blockquote>
+<p>mit</p>
+</blockquote></th>
+<th><blockquote>
+<p>H3 / H3</p>
+</blockquote></th>
+<th><blockquote>
+<p>China GB 20913</p>
+</blockquote></th>
+<th><blockquote>
+<p>China GB 20913</p>
+</blockquote></th>
+<th><blockquote>
+<p>worst case China</p>
+</blockquote></th>
+<th><blockquote>
+<p>alte Mitte / unten</p>
+</blockquote></th>
+<th><blockquote>
+<p>30 / 20</p>
+</blockquote></th>
+<th><blockquote>
+<p>Nein</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>[redacted-person] Rechtslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>55 km/h,</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF / H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Japan- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Japan- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Ja- pan-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>alte Mitte / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>40%, ODB</p>
+</blockquote></td>
+<td><blockquote>
+<p>Mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>- / H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Japan- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Japan- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Ja- pan-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>alte Mitte / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>bis 2022 (best guess kw47- 2020)</p>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50km/h 50%, MPDB</p>
+<p>rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/T3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Japan- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Japan- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Ja- pan-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>siehe best guess</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab 2022 (best guess kw47- 2020)</p>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>[redacted-person] Rechtslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40%, ODB</p>
+<p>rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Japan</p>
+</blockquote></td>
+<td><blockquote>
+<p>alte Mitte / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Japan</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>bis 2024 (best guess kw47- 2020)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/T3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Japan</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab 2024 (best guess kw47- 2020)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>[redacted-person] Linkslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>Korea- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Korea- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Ko- rea-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>40%, ODB</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Korea- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Korea- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Ko- rea-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>bis 2023 (best guess kw24- 2021)</p>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>56km/h 50%, MPDB</p>
+<p>links</p>
+</blockquote></th>
+<th><blockquote>
+<p>mit</p>
+</blockquote></th>
+<th><blockquote>
+<p>T3/H3</p>
+</blockquote></th>
+<th><blockquote>
+<p>Korea- NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>Korea- NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>Einsteiger- modell Korea-NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></th>
+<th><blockquote>
+<p>ab 2024 (best guess kw24- 2021)</p>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></th>
+<th><blockquote>
+<p>30 / 20</p>
+</blockquote></th>
+<th><blockquote>
+<p>Nein</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>[redacted-person] Linkslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40% ODB</p>
+<p>links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R94</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R94</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Südkorea</p>
+</blockquote></td>
+<td><blockquote>
+<p>alte Mitte / unten</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Südkorea</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ersetzt KMVSS102-3</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>T3/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Südkorea</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab 2024 (best guess kw47- 2020)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>Australien NCAP Rechtslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Australien- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft</p>
+<p>Fahrzeugsi- cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50km/h 50%, MPDB</p>
+<p>rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF / T3</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Euro-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell Australien- NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EuroNCAP Protokoll</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>[redacted-person] Rechtslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>48 km/h</p>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ADR 69</p>
+</blockquote></td>
+<td><blockquote>
+<p>ADR 69</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Australien</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 137</p>
+</blockquote></td>
+<td><blockquote>
+<p>gilt bis 2022 (best guess kw47- 2020)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40%, ODB</p>
+<p>rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case RdW</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case RdW</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab 2022 (best guess kw47- 2020)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h,</p>
+<p>100%,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/T3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case RdW</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R137</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab 2022 (best guess kw47- 2020)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>Latin NCAP [redacted-person]</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>64 km/h,</p>
+<p>40%, ODB</p>
+<p>links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>Latin-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Latin-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Volumen- modell La- tin-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>EU-NCAP</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>Asean NCAP Rechtslenker</strong></p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p>64 km/h,</p>
+<p>40%, ODB</p>
+<p>rechts</p>
+</blockquote></th>
+<th><blockquote>
+<p>mit</p>
+</blockquote></th>
+<th><blockquote>
+<p>H3/H3</p>
+</blockquote></th>
+<th><blockquote>
+<p>ASEAN- NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>ASEAN- NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>Volumen- modell ASEAN- NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>EU-NCAP</p>
+</blockquote></th>
+<th><blockquote>
+<p>Ziel nach Si- cherheitsanfor- derung Ge- samtlastenheft
+Fahrzeugsi-</p>
+<p>cherheit</p>
+</blockquote></th>
+<th><blockquote>
+<p>30 / 20</p>
+</blockquote></th>
+<th><blockquote>
+<p>Nein</p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40%, ODB</p>
+<p>links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Brasilien</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>ab 2024 (best guess kw47- 2020)</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>[redacted-person] Rechtslenker</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40%, ODB</p>
+<p>rechts</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Indien</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td colspan="10"><blockquote>
+<p><strong>AGCC [redacted-person]</strong> GSO 36/2005</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h,</p>
+<p>40%, ODB</p>
+<p>links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case Motor</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R 94</p>
+</blockquote></td>
+<td><blockquote>
+<p>30 / 20</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tabelle 3:
+Lastfallmatrix dynamische Bereichsermittlung 1.SR</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Lastfall</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Gurt</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Dummy</strong></p>
+<p><strong>Fahrer/ Beifahrer</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Richtlinien- Bewer- tungs-Pro-</strong></p>
+<p><strong>tokoll</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Anforde- rung</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Puls, Ausstat- tung</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, Schlit- ten,</p>
+<p>-18°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+<td><blockquote>
+<p>kein Kopf- kontakt</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, Schlit- ten,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+<td><blockquote>
+<p>kein Kopf- kontakt</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, Schlit-</p>
+<p>ten, 18°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HF/HF</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+<td><blockquote>
+<p>kein Kopf- kontakt</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, Schlit- ten,</p>
+<p>-18°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+<td><blockquote>
+<p>kein Kopf- kontakt</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, Schlit- ten,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+<td><blockquote>
+<p>kein Kopf- kontakt</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, Schlit-</p>
+<p>ten, 18°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+<td><blockquote>
+<p>kein Kopf- kontakt</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, Schlit- ten,</p>
+<p>-18°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HM/HM</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+<td><blockquote>
+<p>kein Kopf- kontakt</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, Schlit- ten,</p>
+<p>0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HM/HM</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+<td><blockquote>
+<p>kein Kopf- kontakt</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>50 km/h, Schlit-</p>
+<p>ten, 18°</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>HM/HM</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+<td><blockquote>
+<p>kein Kopf- kontakt</p>
+</blockquote></td>
+<td><blockquote>
+<p>ECE-R21</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><a href="#_bookmark13">Tabelle 5: THOR in USA</a> zeigen einen
+aktuellen best guess Stand für den THOR in den für den [redacted-person] relevanten Lastfällen in USA. [redacted-person] dieser Tabelle ist
+mit der Fachabteilung sowie GSA abzu- stimmen.</p>
+<p><strong>Tabelle 5: THOR
+in USA</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="6"><blockquote>
+<p><strong>Thor in USA (aktuellen best guess bei GSA
+anfordern)</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>TH/TH</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>Insassen-</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Sitzposition</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>32 – 40 km/h,</p>
+</blockquote></td>
+<td><blockquote>
+<p>werte</p>
+</blockquote></td>
+<td><blockquote>
+<p>NAR</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>FMVSS 208,</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Simulation</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>(best guess</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>(Monitoring)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>11/22)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>ohne</p>
+</blockquote></td>
+<td><blockquote>
+<p>TH/TH</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>Insassen-</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case</p>
+</blockquote></td>
+<td><blockquote>
+<p>Nein</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>32 - 40 km/h,</p>
+</blockquote></td>
+<td><blockquote>
+<p>werte</p>
+</blockquote></td>
+<td><blockquote>
+<p>NAR</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>+/-30°</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>(links/rechts)</p>
+</blockquote></td>
+<td><blockquote>
+<p>(best guess</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>11/22)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>TH/TH</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+<td><blockquote>
+<p>Insassen-</p>
+</blockquote></td>
+<td><blockquote>
+<p>worst case</p>
+</blockquote></td>
+<td><blockquote>
+<p>Ja</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>0 - 56 km/h,</p>
+</blockquote></td>
+<td><blockquote>
+<p>werte</p>
+</blockquote></td>
+<td><blockquote>
+<p>NAR</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>100%, 0°</p>
+</blockquote></td>
+<td><blockquote>
+<p>FMVSS 208</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>(best guess</p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>11/22)</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>[redacted-person] 5% Frau</strong></p>
+<p>A: [redacted-person]- und Verbraucherschutzlastfälle weltweit ist mit
+Absprache der Fachabteilung und der zuständigen GSA-Mitarbeiter ein
+Monitoring der jeweiligen Lastfälle zu erstellen und zu bewerten.</p>
+</blockquote>
+<h2 id="robustheit-der-ergebnisse">Robustheit der Ergebnisse</h2>
+<blockquote>
+<p>A: [redacted-person] hat so zu erfolgen, dass die Ergebnisse nach dem
+Stand der Technik robust erfüllt werden. Dies ist durch den von [redacted-co]
+vorgegebenen Robustheitsprozess sicher zu stellen. Die gültige Variante
+des Robustheitsprozesses für [redacted-person] ist im Wiki der
+Fahrzeugsicherheit zu finden.</p>
+</blockquote>
+<h2 id="definition-des-worst-case">Definition des worst-case</h2>
+<blockquote>
+<p>I: Der worst-case ist die Fahrzeugkonfiguration, die in dem
+jeweiligen Gesetz die höchsten Insassen- werte erzielt. [redacted-person] (OLC, z-Absenkung und Intrusionen),
+Insassenschutzsimulationen oder ein technisches Urteil (engineering
+judgement) kann die Wirkung der Fahrzeugkonfigurationen auf die Insassen
+abgeschätzt werden. [redacted-person] für die Fahrzeugkonfiguration dienen
+Motor- Getriebe-Kombinationen, die Fahrzeugmasse und alle anderen
+Ausstattungen, die eine Pulsände- rung von mindestens 1g oder eine
+Fahrzeugkinematikänderung bewirken.</p>
+<p>A: Für jeden Gesetzeslastfall ist die jeweilige
+worst-case-Konfiguration und die entsprechende Her- leitung zu
+dokumentieren.</p>
+</blockquote>
+<h2 id="übersicht-der-beteiligten-bauteile">Übersicht der beteiligten
+Bauteile</h2>
+<blockquote>
+<p>I: [redacted-person] gehören unter anderem RHS Komponenten (FAB,
+BFAB, KNAB, LKS, KAB etc.), der Sitz, das Cockpit mit allen
+Kontaktbereichen/-Bauteilen (MQT, Ablagen, HSK, etc.), die Mittel-
+konsole und Crashpads und Greenhouse mit den Bauteilen A-Säulen mit
+deren Unterbauteilen, Dach- bereich mit u.[redacted-person],
+Windschutzscheibe.</p>
+</blockquote>
+<h2 id="sensoriklastfälle">Sensoriklastfälle</h2>
+<blockquote>
+<p>A: Sollte es in den von der [redacted-person]
+betrachteten Lastfällen und durchgeführ- ten Car2Car [redacted-person]
+geben, bei denen eine Auffälligkeit auftritt, so müssen diese Lastfälle
+nach Rücksprache mit Fachabteilung RHS in der Insassensimulation bewer-
+tet werden.</p>
+<p>I: [redacted-person] dazu können über die [redacted]eingesehen oder über die Fachab- teilungen zur Verfügung gestellt
+werden.</p>
+</blockquote>
+<h2 id="umgang-mit-erprobungsfahrzeugen-gv-0-bis-gv-4">Umgang mit
+Erprobungsfahrzeugen (GV-0 bis GV-4)</h2>
+<blockquote>
+<p>I: [redacted-person] (GV) GV-0 bis GV4 Erprobungsfahrzeuge dienen der
+Erprobung unter realen Fahrbedingungen auf der Straße und dem
+Testgelände (siehe <a href="#_bookmark19">Tabelle 6: [redacted-person]-</a> <a href="#_bookmark19">fen</a>).</p>
+<p>A: Um einen robusten Mindestschutz für die Testfahrer zu
+gewährleisten, müssen folgende Voraus- setzungen erfüllt werden, sowie
+<a href="#_bookmark20">Tabelle 7: [redacted-person] für
+Erprobungsfahrzeuge</a>, inklusive der fortführenden Erklärungen.</p>
+<p>I: [redacted-person] sind als Startkonfiguration zu verstehen.</p>
+<p>A: Grundsätzlich ist für die Ausstattung aller Erprobungsfahrzeuge
+der Prozessstandard</p>
+<p>„<strong>PP_Fzg_4_Insassenschutz in Erprobungsfahrzeugen
+sicherstellen</strong>“ (Version 1) anzuwenden.</p>
+<p>I: [redacted-person] sowie Vorgehensweise der Absicherung erfolgt immer
+in Zusammenarbeit mit der Fachabteilung [redacted]sowie
+der [redacted-person] Airbagsys- teme, [redacted-person]
+und [redacted-person].</p>
+<p>I: Alle für den Verbau entsprechend Prozessstandard definierten
+Komponenten müssen durch die jeweilige bauteilverantwortliche
+Fachabteilung für den Erprobungsumfang freigegeben sein. Dies gilt für
+Airbagkomponenten (Kopfairbags inklusive der funktionalen
+Umgebungsbauteile), Gurte und Lenksäulen.</p>
+<p>I: [redacted-person] der biomechanischen Grenzwerte des
+Auslegungslastfalls gemäß Tabelle 7 ist simu- latorisch zu bewerten.</p>
+<p>I: Falls eine simulative Bewertung des 56 km/h 40% ODB links
+Lastfalls (siehe Tabelle 7) nicht mög- lich ist, dann müssen in
+Rücksprache mit der Fachabteilung adäquate Maßnahmen umgesetzt wer- den,
+siehe die fünf gezeigten Optionen (z.B.: H-Punktgurte und/oder
+Helmpflicht).</p>
+<p><strong>Tabelle 6:
+[redacted-person]</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th style="text-align: center;"><blockquote>
+<p><strong>Bezeichnung</strong></p>
+</blockquote></th>
+<th style="text-align: center;"><blockquote>
+<p><strong>Bedeutung</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>GV-0</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Aggregateträger (Serienfahrzeug mit neuem Antrieb)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>GV-1</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>Technikträger (Serienfahrzeug mit Kompletter neuer Architektur)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>GV-2</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>1. [redacted-person]</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>GV-3</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>2. Prototypenphase mit reiferer HW (B oder C Muster)</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>GV-4</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>vorgezogene VFF (Standaufbau mit Serienteilen) , VFF, PVS, 0
+Serie</p>
+</blockquote></td>
+</tr>
+<tr>
+<td style="text-align: center;"><blockquote>
+<p>sonstige Erprobungsfahrzeuge</p>
+</blockquote></td>
+<td style="text-align: center;"><blockquote>
+<p>[redacted-person] nach Tabelle 7 erforderlich, siehe Prozessstandard
+PP_Fzg_4_Insassenschutz in Erprobungsfahrzeugen sicherstellen</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Tabelle 7:
+[redacted-person] für Erprobungsfahrzeuge</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th colspan="7"><blockquote>
+<p><strong>[redacted-person]</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><blockquote>
+<p><strong>Lastfall</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Gurt</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Dummy</strong></p>
+<p><strong>Fahrer/ Beifahrer</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Richtlinien- Bewer- tungs-Pro-</strong></p>
+<p><strong>tokoll</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Anforde- rung</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Puls, Ausstattung</strong></p>
+</blockquote></td>
+<td><blockquote>
+<p><strong>Zusatzinformation</strong></p>
+</blockquote></td>
+</tr>
+<tr>
+<td><blockquote>
+<p>56 km/h, 40% ODB, links</p>
+</blockquote></td>
+<td><blockquote>
+<p>mit</p>
+</blockquote></td>
+<td><blockquote>
+<p>H3/H3</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Biomechani- sche Grenz-</p>
+<p>werte</p>
+</blockquote></td>
+<td><blockquote>
+<p>Konfiguration wird von RHS defi-</p>
+<p>niert</p>
+</blockquote></td>
+<td><blockquote>
+<p>Sitzposition ECE-R94</p>
+</blockquote></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>A: [redacted-person] der Lastfälle in der <a href="#_bookmark20">Tabelle
+7: [redacted-person] für Erprobungsfahrzeuge</a> erfolgt
+durch die Insassensimulation.</p>
+<p>I: [redacted-person] dieser Anforderung können zum Beispiel folgende
+Optionen gewählt werden:</p>
+</blockquote>
+<ol type="1">
+<li><p>Gurt nicht auf niedriges Gurtkraft-Niveau schalten.</p></li>
+<li><p>[redacted-person]-Niveau vom Lieferanten
+verbauen.</p></li>
+<li><p>Einschränkung des Sitzverstellfeldes.</p></li>
+<li><p>Sperrung des Sitzplatzes (Beifahrer) vorgeben.</p></li>
+<li><p>Verbau von H-Punktgurten und/oder Helmtragepflicht
+vorgeben.</p></li>
+</ol>
+<blockquote>
+<p>I: [redacted-person] der Gurte für die RHS-Entwicklung und für die
+[redacted-person] er- folgt über unterschiedliche
+Generationsstände. Es existiert eine einzige Teilenummer pro Projekt für
+die Gurte, unterschieden wird nach Baustandangabe zur Teilenummer. [redacted-person] des Gurtsystems für die [redacted-person] ist
+im Teilelebenslauf definiert. Ein gepflegter Teilelebenslauf durch den
+Gurtlieferanten und Bauteilverantwortlichen ist die Voraussetzung dafür.
+[redacted-person], dass der richtige Baustand im
+Crashfahrzeug/Versuchs-/Erprobungsfahrzeug verbaut wird, obliegt dem
+jeweiligen Projektmitarbeiter RHS Insassenschutz. [redacted-person] der
+Gurtsysteme bei [redacted-person] erfolgt auf den zuständigen Projektmitarbeiter
+RHS-Insassenschutz.</p>
+<p>I: [redacted-person] der Baustände der Gurtsysteme für die [redacted-person] ist nur für die Erprobungsfahrzeuge GV0 bis
+einschließlich GV4 anwendbar.</p>
+<p>A: [redacted-person] im Lastfall ECE-R94, siehe <a href="#_bookmark20">Tabelle 7: [redacted-person] für
+Erprobungsfahrzeuge</a>, müs- sen zusammen mit der [redacted-person] abgestimmt werden.</p>
+<p>A: [redacted-person] für den Lastfall ECE-R94 von TTF &gt; 1.2 * VVK
+muss zusammen mit der [redacted-person] eine zielführende
+Zündzeit erarbeitet werden.</p>
+<p>I: [redacted-person] zur Abstimmung der maximalen Zündzeit für den
+Lastfall ECE-R94 dient der Ver- meidung von airbaginduzierten
+Verletzungen bei den Entfaltungsvorgängen der Airbags.</p>
+</blockquote>
+<h2 id="interpretationshilfe-gebrochene-teile">Interpretationshilfe
+gebrochene Teile</h2>
+<p><img src="./01_Front_Crash-lah-dum-880-dr-insassenschutz-front-media/media/image8.jpeg" style="width:5.97734in;height:9.05781in"/></p>
+<h2 id="interpretationshilfe-separierende-teile">Interpretationshilfe
+separierende Teile</h2>
+<p><img src="./01_Front_Crash-lah-dum-880-dr-insassenschutz-front-media/media/image9.jpeg" style="width:5.93309in;height:9.04167in"/></p>
+<h2 id="interpretationshilfe-für-teilweise-gelöste-teile">Interpretationshilfe
+für teilweise gelöste Teile</h2>
+<p><img src="./01_Front_Crash-lah-dum-880-dr-insassenschutz-front-media/media/image10.jpeg" style="width:5.89983in;height:9.03333in"/></p>
+</body>
+</html>

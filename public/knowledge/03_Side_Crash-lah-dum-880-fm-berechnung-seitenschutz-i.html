@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+
+<html lang="" xml:lang="" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<title>[redacted-person] Funktions-Lastenheft</title>
+<style>
+    /* === Base === */
+    html {
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    body {
+      max-width: 1400px !important;
+      width: 100%;
+      margin: 0 auto;
+      padding: 32px 48px !important;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+      font-size: 16px;
+      line-height: 1.7;
+      color: #1f2937;
+      background-color: #fafafa;
+    }
+    @media (max-width: 768px) {
+      body { padding: 16px 20px !important; font-size: 15px; }
+    }
+
+    /* === Typography === */
+    h1, h2, h3, h4, h5, h6 {
+      line-height: 1.3;
+      margin-top: 1.6em;
+      margin-bottom: 0.6em;
+      font-weight: 700;
+      color: #111827;
+    }
+    h1 {
+      font-size: 2.2em;
+      border-bottom: 2px solid #3b82f6;
+      padding-bottom: 0.4em;
+      margin-top: 0.8em;
+    }
+    h2 {
+      font-size: 1.65em;
+      border-bottom: 1px solid #d1d5db;
+      padding-bottom: 0.3em;
+      color: #1e40af;
+    }
+    h3 { font-size: 1.3em; color: #1e3a8a; }
+    h4 { font-size: 1.1em; color: #374151; }
+    h5 { font-size: 1em; color: #4b5563; }
+    h6 { font-size: 0.9em; color: #6b7280; text-transform: uppercase; letter-spacing: 0.05em; }
+
+    p { margin: 0.8em 0; color: #374151; }
+
+    a { color: #2563eb; text-decoration: none; border-bottom: 1px dotted #93c5fd; }
+    a:hover { color: #1d4ed8; border-bottom-color: #2563eb; }
+
+    /* === Lists === */
+    ul, ol { padding-left: 1.8em; margin: 0.8em 0; }
+    li { margin: 0.3em 0; }
+    li > p { margin: 0.2em 0; }
+
+    /* === Images === */
+    img {
+      max-width: 100% !important;
+      height: auto;
+      display: block;
+      margin: 1.5em auto;
+      border-radius: 6px;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+    }
+
+    /* === Tables (beautiful) === */
+    table {
+      width: 100% !important;
+      max-width: 100% !important;
+      display: table !important;
+      overflow-x: auto !important;
+      border-collapse: separate !important;
+      border-spacing: 0 !important;
+      margin: 1.5em 0;
+      font-size: 0.95em;
+      border: 1px solid #d1d5db;
+      border-radius: 6px;
+      background: white;
+      box-shadow: 0 1px 2px rgba(0,0,0,0.04);
+    }
+    table thead { display: table-header-group; }
+    table th, table td {
+      border: none !important;
+      border-bottom: 1px solid #e5e7eb !important;
+      border-right: 1px solid #e5e7eb !important;
+      padding: 10px 14px !important;
+      text-align: left;
+      vertical-align: top;
+    }
+    table th:last-child, table td:last-child { border-right: none !important; }
+    table tbody tr:last-child td { border-bottom: none !important; }
+    table th {
+      background: linear-gradient(180deg, #f3f4f6 0%, #e5e7eb 100%) !important;
+      font-weight: 700;
+      color: #1f2937;
+      text-transform: uppercase;
+      font-size: 0.85em;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    table tbody tr:nth-child(even) td { background-color: #f9fafb; }
+    table tbody tr:hover td { background-color: #eff6ff; }
+
+    /* === Blockquotes === */
+    blockquote {
+      margin: 1.2em 0;
+      padding: 0.8em 1.2em;
+      border-left: 4px solid #3b82f6;
+      color: #4b5563;
+      background: #eff6ff;
+      border-radius: 0 6px 6px 0;
+      font-style: normal;
+    }
+    blockquote > :first-child { margin-top: 0; }
+    blockquote > :last-child { margin-bottom: 0; }
+
+    /* === Code === */
+    code {
+      background: #f3f4f6;
+      color: #be185d;
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+      font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, monospace;
+    }
+    pre {
+      background: #1f2937;
+      color: #f9fafb;
+      padding: 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.9em;
+      line-height: 1.5;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+
+    /* === Headings inside table cells (pandoc) === */
+    table h1, table h2, table h3, table h4, table h5, table h6 {
+      margin: 0;
+      font-size: 1em;
+      font-weight: 700;
+      color: #111827;
+      border: none;
+      padding: 0;
+      text-transform: none;
+    }
+
+    /* === Redacted markers (subtle) === */
+    [class*="redacted"] {
+      background: #fef3c7;
+      color: #92400e;
+      padding: 0 4px;
+      border-radius: 3px;
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+    }
+
+    /* === Dark mode === */
+    @media (prefers-color-scheme: dark) {
+      html { color: #e5e7eb; background-color: #111827; }
+      body { background-color: #111827; color: #e5e7eb; }
+      h1, h2, h3, h4, h5, h6 { color: #f3f4f6; }
+      h1 { border-bottom-color: #3b82f6; }
+      h2 { border-bottom-color: #374151; color: #93c5fd; }
+      h3 { color: #bfdbfe; }
+      h4 { color: #d1d5db; }
+      h5 { color: #9ca3af; }
+      h6 { color: #9ca3af; }
+      p { color: #d1d5db; }
+      a { color: #60a5fa; border-bottom-color: #1e3a8a; }
+      a:hover { color: #93c5fd; border-bottom-color: #60a5fa; }
+
+      table {
+        background: #1f2937;
+        border-color: #374151;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.4);
+      }
+      table th, table td {
+        border-bottom-color: #374151 !important;
+        border-right-color: #374151 !important;
+        color: #e5e7eb;
+      }
+      table th {
+        background: linear-gradient(180deg, #1e3a8a 0%, #1e40af 100%) !important;
+        color: #f3f4f6;
+      }
+      table tbody tr:nth-child(even) td { background-color: #1a2332; }
+      table tbody tr:hover td { background-color: #1e3a8a; }
+
+      blockquote {
+        background: #1e3a8a;
+        color: #dbeafe;
+        border-left-color: #60a5fa;
+      }
+
+      code { background: #374151; color: #fbbf24; }
+      pre { background: #030712; }
+
+      [class*="redacted"] {
+        background: #422006;
+        color: #fbbf24;
+      }
+    }
+</style></head>
+<body>
+<header id="title-block-header">
+<h1 class="title">[redacted-person]
+Funktions-Lastenheft</h1>
+</header>
+<blockquote>
+<p>[redacted]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-phone]</p>
+<p>[redacted-person] / OE</p>
+<p>Hausruf [redacted-phone]</p>
+<p>Telefax [redacted]</p>
+<p>[redacted-co]</p>
+<p><img src="./03_Side_Crash-lah-dum-880-fm-berechnung-seitenschutz-i-media/media/image2.png" style="width:5.94467in;height:4.98656in"/>D[redacted]</p>
+<p><strong>[redacted]LAH.DUM.880.FM</strong></p>
+</blockquote>
+<blockquote>
+<p><strong>Verteiler</strong></p>
+</blockquote>
+<table>
+
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Seite</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Airbags</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Abstimmung</strong></p>
+</blockquote>
+<table>
+
+<tbody>
+<tr>
+<td><blockquote>
+<p>[redacted-person] Seite</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+<tr>
+<td><blockquote>
+<p>Airbags</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Änderungsdokumentation</strong></p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th><blockquote>
+<p><strong>Änderungs- stand</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Beschreibung der Änderung</strong></p>
+</blockquote></th>
+<th><blockquote>
+<p><strong>Ersteller</strong></p>
+</blockquote></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[redacted-person]</td>
+<td><blockquote>
+<p>Erstfassung</p>
+</blockquote></td>
+<td>[redacted-person]</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Inhaltsverzeichnis</strong></p>
+</blockquote>
+<p><a href="#kurzbeschreibung-des-entwicklungsumfangs">Kurzbeschreibung
+des Entwicklungsumfangs 6</a><a href="#allgemeines">Allgemeines 6</a><a href="#seiten--und-kopf-thorax-airbag">Seiten- und Kopf-Thorax-Airbag
+7</a><a href="#modellaufbau">Modellaufbau 7</a><a href="#entfaltungssimulationen">Entfaltungssimulationen 7</a><a href="#validierung-standversuche">[redacted-person] 7</a><a href="#weitergabe-von-modellen">Weitergabe von Modellen 8</a><a href="#schlitten--und-gesamtfahrzeugversuche">Schlitten- und
+Gesamtfahrzeugversuche 8</a><a href="#kopfairbag">Kopfairbag 9</a><a href="#modellaufbau-1">Modellaufbau 9</a><a href="#entfaltungssimulationen-1">Entfaltungssimulationen 9</a><a href="#validierung-standversuche-1">[redacted-person] 9</a><a href="#weitergabe-von-modellen-1">Weitergabe von Modellen 10</a><a href="#gesamtfahrzeugversuche">Gesamtfahrzeugversuche 10</a><a href="#weitere-airbags">[redacted-person] 11</a><a href="#modellierung">Modellierung 12</a><a href="#dokumentation-und-datenaustausch">Dokumentation und
+Datenaustausch 13</a><a href="#mitgeltende-unterlagen">[redacted-person] 14</a></p>
+<ol type="1">
+<li><p>Lastenhefte zur Info 14</p></li>
+<li><p>[redacted-person] / Normen 14</p></li>
+</ol>
+<h1 id="kurzbeschreibung-des-entwicklungsumfangs">Kurzbeschreibung des
+Entwicklungsumfangs</h1>
+<blockquote>
+<p>[redacted-person] von Unfallfolgen werden im [redacted-person]-,
+Kopf-Thorax- und Kopfairbags eingesetzt. [redacted-person] der Komponenten
+sollen in einen Gesamtprozess eingebettet Simulationen durchgeführt
+werden.</p>
+</blockquote>
+<h1 id="allgemeines">Allgemeines</h1>
+<blockquote>
+<p>[redacted-person] der Seiten-, Kopf-Thorax- und Kopfairbags werden vom
+Bauteillieferanten zur Verfügung gestellt. [redacted-person] der
+Airbagkomponenten und die Anforderungen an den Bauteillieferanten
+können</p>
+<p>LAH.DUM.880.EM [redacted]LAH.DUM.880.FB [redacted-person] Komponente</p>
+<p>VW82036 VW-[redacted-person] Airbag</p>
+<p>entnommen werden.</p>
+<p>Die vom Bauteillieferanten nach Lastenheft zur Verfügung gestellten
+Simulationsmodelle sind auf ihre Qualität und die Erfüllung der
+Lastenhefte zu kontrollieren.</p>
+<p>Alle geforderten Untersuchungen sind nur bei Raumtemperatur
+durchzuführen. [redacted-person] gilt für Serien- sowie
+Mehrausstattungen gleichermaßen.</p>
+</blockquote>
+<h1 id="seiten--und-kopf-thorax-airbag">Seiten- und
+Kopf-Thorax-Airbag</h1>
+<h2 id="modellaufbau">Modellaufbau</h2>
+<blockquote>
+<p>Durch den [redacted-person] beziehungsweise durch
+die [redacted-co]-Fachabteilung werden Basismodelle aller [redacted-person] vorne
+und hinten zur Verfügung gestellt. In diesen Modellen sind alle
+Komponenten, die die Entfaltung und Positionierung des Seiten-
+beziehungsweise Kopf- Thorax-Airbags beeinflussen könnten zu
+integrieren. Falls diese schon modelliert sind, so ist die Modellierung
+zu prüfen und falls notwendig anzupassen. Insbesondere sind dies:</p>
+</blockquote>
+<ul>
+<li><p>Reißnaht</p></li>
+<li><p>Innensack</p></li>
+<li><p>Schäume</p></li>
+<li><p>Bezüge</p></li>
+</ul>
+<blockquote>
+<p>Details (Geometrie [insbesondere Lose des Bezug &amp; des
+Innensacks], Materialien, Steifigkeiten, …) zu diesen Bauteilen sind mit
+dem [redacted-person] abzustimmen. Dabei sind auch alle relevanten
+Sonderausstattungen (Lehnenbreitenverstellung, Sitzheizungen,
+Massagefunktionen, …) zu betrachten.</p>
+<p>Falls notwendig, ist eine Montagesimulation des Airbags in den
+Innensack durchzuführen.</p>
+<p>[redacted-person], die im weiteren Verlauf auf die
+erstellten Modelle zugreifen müssen, spezielle Anforderungen an die
+Modelle haben, so sind diese falls möglich zu beachten.</p>
+<p>[redacted-person] der Modellqualität sind zum Abschluss des
+[redacted-person] ohne Generatorzündung durchzuführen. [redacted-person] sind auf Energiebilanz und Intersections/Penetrations zu
+prüfen. Falls erforderlich sind die Modelle entsprechend zu
+optimieren.</p>
+</blockquote>
+<h2 id="entfaltungssimulationen">Entfaltungssimulationen</h2>
+<blockquote>
+<p>Mit dem aufgebauten Modell sind Entfaltungssimulationen
+durchzuführen. Ziel ist es, eine möglichst schnelle und reproduzierbare
+Positionierung des Airbags zu erreichen. Falls sich daraus Anforderungen
+an die Hardware ergeben, so sind diese mit der zuständigen
+[redacted-co]-Fachabteilung und dem Bauteillieferanten zu diskutieren. Dazu kann
+es erforderlich sein unter anderem die folgenden Punkte zu
+untersuchen:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person] (Geometrie, Material)</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>Interaktion mit Störkonturen</p></li>
+</ul>
+<blockquote>
+<p>Dabei ist auch die Interaktion mit der Umgebung zu betrachten. Dies
+beinhaltet insbesondere die Integrität von Verkleidungsteilen und die
+Belastung von Kindersitzen.</p>
+</blockquote>
+<h2 id="validierung-standversuche">[redacted-person]</h2>
+<blockquote>
+<p>Während der Entwicklung werden vom Bauteillieferanten beziehungsweise
+dem [redacted]aus Sitz
+durchgeführt. Die relevanten Versuche sind zur Validierung der
+Entfaltung und Positionierung des Airbags zu verwenden. Die
+entsprechenden Versuchsumgebungen sind zu modellieren. Wenn für diese
+Aufgabe zusätzliche Messtechnik oder Dokumentationen notwendig sind, so
+ist dies entsprechend mit der zuständigen [redacted-co]-Fachabteilung und dem
+Bauteillieferanten abzustimmen.</p>
+<p>Bei der Validierung sind insbesondere folgende Punkte zu beachten und
+falls erforderlich ins Modell einzubringen:</p>
+</blockquote>
+<ul>
+<li><p>Zeitpunkt des Öffnen der einzelnen Abschnitte der
+Reißnaht</p></li>
+</ul>
+<ul>
+<li><p>Schaumeinreißen</p></li>
+<li><p>Verformungen von Blenden und Lehnenabdeckung</p></li>
+<li><p>Brechen von Teilen (Blenden, Lehnenbreitenverstellung,
+…)</p></li>
+</ul>
+<h2 id="weitergabe-von-modellen">Weitergabe von Modellen</h2>
+<blockquote>
+<p>Die erstellten und validierten Modelle sind an den [redacted-person] und den [redacted-person] zur
+Betrachtung in dynamischer Umgebung weiterzugeben. [redacted-person] sind
+<strong>nicht</strong> zu verschlüsseln.</p>
+<p>[redacted-person] Airbag hat eine Mitverantwortung für die
+Validierung der Entfaltung und Positionierung bezüglich des Airbags.
+Dafür müssen die entsprechenden Sitzmodelle dem Lieferanten zur
+Verfügung gestellt werden. [redacted-person] sind zu verschlüsseln.</p>
+</blockquote>
+<h2 id="schlitten--und-gesamtfahrzeugversuche">Schlitten- und
+Gesamtfahrzeugversuche</h2>
+<blockquote>
+<p>Falls es in Schlitten- und Gesamtfahrzeugversuchen zu Entfaltungs-
+und/oder Positionierungsproblemen aufgrund der [redacted-person] in
+Sitz kommt, so ist durch entsprechende Simulationen in Abstimmung mit
+dem [redacted-person] eine Analyse der Einflussparameter
+durchzuführen. Weiterhin sind in Abstimmung mit dem [redacted-person] zu entwickeln.</p>
+</blockquote>
+<h1 id="kopfairbag">Kopfairbag</h1>
+<h2 id="modellaufbau-1">Modellaufbau</h2>
+<blockquote>
+<p>Durch den [redacted-person] werden [redacted-person] zur Verfügung gestellt. In diesen Modellen sind alle
+Komponenten, die die Entfaltung und Positionierung des Kopfairbags
+beeinflussen könnten zu integrieren. Falls diese schon modelliert sind,
+so ist die Modellierung zu prüfen und falls notwendig anzupassen.
+Insbesondere sind dies:</p>
+</blockquote>
+<ul>
+<li><p>[redacted-person]</p></li>
+<li><p>Kabel und Wasserabläufe</p></li>
+<li><p>Dichtungen</p></li>
+<li><p>FMVSS201 Maßnahmen</p></li>
+</ul>
+<blockquote>
+<p>Details (Geometrie, Materialien, Steifigkeiten, …) zu diesen
+Bauteilen sind mit dem [redacted-person] abzustimmen. Dabei
+sind alle Dachvarianten (Normal-, Schiebe- und Panoramadach) sowie
+relevanten Sonderausstattungen (zum [redacted-person], Beleuchtung,
+…) zu betrachten. Falls notwendig ist eine Montagesimulation des Airbags
+in das Greenhouse durchzuführen.</p>
+<p>[redacted-person], die im weiteren Verlauf auf die erstellten
+Modelle zugreifen müssen, spezielle Anforderungen an die Modelle haben,
+so sind diese falls möglich zu beachten.</p>
+<p>[redacted-person] der Modellqualität sind zum Abschluss des
+[redacted-person] ohne Generatorzündung durchzuführen. [redacted-person] sind auf Energiebilanz und Intersections/Penetrations zu
+prüfen. Falls erforderlich sind die Modelle entsprechend zu
+optimieren.</p>
+</blockquote>
+<h2 id="entfaltungssimulationen-1">Entfaltungssimulationen</h2>
+<blockquote>
+<p>Mit dem aufgebauten Modell sind Entfaltungssimulationen
+durchzuführen. Ziel ist es, eine möglichst schnelle und reproduzierbare
+Positionierung des Airbags zu erreichen. Dabei sind fliegende und
+brechende Teile zu vermeiden. Dazu kann es erforderlich sein, unter
+anderem die folgenden Punkte zu untersuchen:</p>
+</blockquote>
+<ul>
+<li><p>Rampe und Splitlines</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>[redacted-person]</p></li>
+</ul>
+<blockquote>
+<p>Dabei ist auch die Interaktion mit der Umgebung zu betrachten. Dies
+beinhaltet insbesondere die Integrität von Verkleidungsteilen und die
+Belastung von Kindersitzen.</p>
+</blockquote>
+<h2 id="validierung-standversuche-1">[redacted-person]</h2>
+<blockquote>
+<p>Während der Entwicklung werden vom [redacted-person]
+Airbag in Karosserie mit Greenhouse durchgeführt. Die relevanten
+Versuche sind zur Validierung der Entfaltung und Positionierung des
+Airbags zu verwenden. Die entsprechenden Versuchsumgebungen sind zu
+modellieren. Wenn für diese Aufgabe zusätzliche Messtechnik oder
+Dokumentationen notwendig sind, so ist dies entsprechend mit der
+zuständigen [redacted-co]-Fachabteilung und dem Bauteillieferanten
+abzustimmen.</p>
+<p>Bei der Validierung sind insbesondere folgende Punkte zu beachten und
+falls erforderlich ins Modell einzubringen:</p>
+</blockquote>
+<ul>
+<li><p>Zeitpunkt des Öffnens der einzelnen Abschnitte des
+Greenhouses</p></li>
+<li><p>Verformungen von Blenden</p></li>
+<li><p>[redacted-person]</p></li>
+<li><p>Brechen von Teilen (Blenden, …)</p></li>
+</ul>
+<h2 id="weitergabe-von-modellen-1">Weitergabe von Modellen</h2>
+<blockquote>
+<p>Die erstellten und validierten Modelle sind an den [redacted-person] und den [redacted-person] zur
+Betrachtung in dynamischer Umgebung weiterzugeben. [redacted-person] sind
+<strong>nicht</strong> zu verschlüsseln.</p>
+<p>[redacted-person] Airbag hat eine Mitverantwortung für die
+Validierung der Entfaltung und Positionierung bezüglich des Airbags.
+Dafür müssen die entsprechenden Greenhouse- und Karosseriemodelle dem
+Lieferanten zur Verfügung gestellt werden. [redacted-person] sind zu
+verschlüsseln.</p>
+</blockquote>
+<h2 id="gesamtfahrzeugversuche">Gesamtfahrzeugversuche</h2>
+<blockquote>
+<p>Falls es in Gesamtfahrzeugversuchen zu Entfaltungs- und/oder
+Positionierungsproblemen kommt, so ist durch entsprechende Simulationen
+in Abstimmung mit dem [redacted-person] eine Analyse der
+Einflussparameter durchzuführen. Weiterhin sind in Abstimmung mit dem
+[redacted-person] zu entwickeln.</p>
+</blockquote>
+<h1 id="weitere-airbags">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] weiterer Airbags ist bei Einbau in den Sitz analog
+Abschnitt <a href="#seiten--und-kopf-thorax-airbag">3</a> <a href="#seiten--und-kopf-thorax-airbag">Seiten- und Kopf-Thorax-</a> <a href="#seiten--und-kopf-thorax-airbag">Airbag</a> beziehungsweise bei
+Einbau in das Greenhouse analog Abschnitt <a href="#_bookmark1">4</a></p>
+</blockquote>
+<blockquote>
+<p><a href="#_bookmark1">Kopfairbag</a> zu bearbeiten. Falls der Einbau
+weder im Sitz nach im Greenhouse erfolgt, so ist die Integration mit der
+[redacted-co]-Fachabteilung zu klären.</p>
+</blockquote>
+<h1 id="modellierung">Modellierung</h1>
+<blockquote>
+<p>Siehe dazu Lastenheft</p>
+</blockquote>
+<h3 id="lah.dum.880.fp-allgemeines-lastenheft-berechnung-seitenschutz-modellierung-und-prozess"><em>LAH.DUM.880.FP
+[redacted]Modellierung und
+Prozess</em></h3>
+<h1 id="dokumentation-und-datenaustausch">Dokumentation und
+Datenaustausch</h1>
+<blockquote>
+<p>Siehe dazu Lastenheft</p>
+</blockquote>
+<h3 id="lah.dum.880fn.-allgemeines-lastenheft-berechnung-seitenschutz-dokumentation-und-datenaustausch"><em>LAH.DUM.880FN.
+[redacted]Dokumentation und</em>
+Datenaustausch</h3>
+<h1 id="mitgeltende-unterlagen">[redacted-person]</h1>
+<blockquote>
+<p>[redacted-person] stellt sicher, jeweils mit den aktuellen Unterlagen
+zu arbeiten.</p>
+<p>Es gelten die am Ausgabedatum des Lastenheftes gültigen, mitgeltenden
+Unterlagen. Abweichungen sind mit der [redacted-co]/GE-Fachabteilung abzustimmen
+und im Lastenheft zu dokumentieren.</p>
+<p>[redacted-person] sind selbständig zu besorgen.</p>
+</blockquote>
+<h2 id="lastenhefte-zur-info">Lastenhefte zur Info</h2>
+<ul>
+<li><p>projektspezifisch [redacted-person]
+Seitenairbag/Kopf-Thorax-Airbag</p></li>
+<li><p>projektspezifisch [redacted-person] Kopfairbag</p></li>
+<li><p>LAH.DUM.880.H [redacted]</p></li>
+<li><p>LAH.DUM.880.EM [redacted]</p></li>
+<li><p>LAH.DUM.880.FB [redacted-person] Komponente</p></li>
+<li><p>VW82036 VW-[redacted-person] Airbag</p></li>
+<li><p>LAH.DUM.880FN. [redacted]Dokumentation und Datenaustausch</p></li>
+<li><p>LAH.DUM.880.FP [redacted]Modellierung und</p></li>
+</ul>
+<h3 id="prozess"><em>Prozess</em></h3>
+<ol start="2" type="1">
+<li><p>[redacted-person] / Normen</p>
+<ul>
+<li><p><u>[redacted]</u> Entwicklungsbedingungen</p></li>
+<li><p><u>[redacted]</u> Fahrzeugzulieferteile allgemein sowie die darin
+genannten Dokumente</p></li>
+</ul></li>
+</ol>
+<h4 id="anmerkung">ANMERKUNG</h4>
+<blockquote>
+<p>Bezugsquellen für Normen und Dokumente: [redacted-person] können über die
+B2B Lieferantenplattform [redacted-co] unter der
+Internetadresse: <a href="http://www.vwgroupsupply.com/"><u>http://www.vwgroupsupply.com</u></a>
+mit einer Zugangsberechtigung abgerufen werden.</p>
+</blockquote>
+</body>
+</html>
