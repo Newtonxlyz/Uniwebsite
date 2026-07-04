@@ -23,6 +23,12 @@
   --input: 214.3 31.8% 91.4%;
   --ring: 239 84% 67%;
   --radius: 1rem;
+  /* 页面级背景：light 主题下深色（适合长阅读）；dark 主题下紫色渐变 */
+  --page-bg: #1e1b4b;  /* 深紫黑，跟暗色卡片对比强 */
+}
+
+.light {
+  --page-bg: #1e1b4b;  /* light 主题强制深色，长阅读不刺眼 */
 }
 
 .dark {
@@ -101,6 +107,23 @@ html, body, * {
 .light .text-slate-300 { color: #475569 !important; }
 .light .text-slate-400 { color: #475569 !important; }
 .light .text-slate-500 { color: #334155 !important; }
+
+/* 例外：深色 page-bg 容器内的 text 保持白色（safety-training 等长阅读页） */
+.light .dark-page-bg .text-white,
+.dark-page-bg .text-white { color: #ffffff !important; }
+.dark-page-bg .text-white\/80 { color: rgba(255, 255, 255, 0.85) !important; }
+.dark-page-bg .text-white\/70 { color: rgba(255, 255, 255, 0.75) !important; }
+.dark-page-bg .text-white\/60 { color: rgba(255, 255, 255, 0.65) !important; }
+.dark-page-bg .text-white\/50 { color: rgba(255, 255, 255, 0.55) !important; }
+.dark-page-bg .text-white\/40 { color: rgba(255, 255, 255, 0.45) !important; }
+.dark-page-bg .text-gray-100 { color: #f1f5f9 !important; }
+.dark-page-bg .text-gray-200 { color: #e2e8f0 !important; }
+.dark-page-bg .text-gray-300 { color: #cbd5e1 !important; }
+.dark-page-bg .text-gray-400 { color: #94a3b8 !important; }
+.dark-page-bg .text-gray-500 { color: #94a3b8 !important; }
+.dark-page-bg .glass-card { background: rgba(255, 255, 255, 0.08); border-color: rgba(255, 255, 255, 0.15); color: #ffffff; }
+.dark-page-bg .glass-card:hover { background: rgba(255, 255, 255, 0.12); }
+.dark-page-bg .glass-card-strong { background: rgba(255, 255, 255, 0.12); border-color: rgba(255, 255, 255, 0.2); color: #ffffff; }
 
 /* 白天模式 border 颜色加深 */
 .light .border-white\/10 { border-color: rgba(15, 23, 42, 0.12) !important; }

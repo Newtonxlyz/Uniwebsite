@@ -10,7 +10,7 @@ const PATHS = [
     id: "transformer-math",
     icon: Brain,
     color: "#A78BFA",
-    bg: "linear-gradient(135deg, rgba(167,139,250,0.15) 0%, rgba(124,58,237,0.05) 100%)",
+    bg: "linear-gradient(135deg, rgba(167,139,250,0.2) 0%, rgba(99,102,241,0.08) 100%)",
     title: "Path 1 · Transformer 数学原理",
     subtitle: "自底向上 · 工程师思维",
     duration: "3 小时",
@@ -26,7 +26,7 @@ const PATHS = [
     id: "pytorch-engineer",
     icon: Cog,
     color: "#60A5FA",
-    bg: "linear-gradient(135deg, rgba(96,165,250,0.15) 0%, rgba(29,78,216,0.05) 100%)",
+    bg: "linear-gradient(135deg, rgba(96,165,250,0.2) 0%, rgba(29,78,216,0.08) 100%)",
     title: "Path 2 · PyTorch 全栈训练工程师",
     subtitle: "实操派 · 7 天从零到分布式",
     duration: "7 天 × 3 小时 = 21 小时",
@@ -42,7 +42,7 @@ const PATHS = [
     id: "llm-finetuning",
     icon: Sparkles,
     color: "#F59E0B",
-    bg: "linear-gradient(135deg, rgba(245,158,11,0.15) 0%, rgba(180,83,9,0.05) 100%)",
+    bg: "linear-gradient(135deg, rgba(245,158,11,0.2) 0%, rgba(180,83,9,0.08) 100%)",
     title: "Path 3 · LLM 微调实战（LoRA/QLoRA/DPO）",
     subtitle: "应用派 · 消费级 GPU 微调 7B-70B",
     duration: "5 天 × 3 小时 = 15 小时",
@@ -58,7 +58,7 @@ const PATHS = [
     id: "safety-industry-deploy",
     icon: Rocket,
     color: "#10B981",
-    bg: "linear-gradient(135deg, rgba(16,185,129,0.15) 0%, rgba(6,95,70,0.05) 100%)",
+    bg: "linear-gradient(135deg, rgba(16,185,129,0.2) 0%, rgba(6,95,70,0.08) 100%)",
     title: "Path 4 · 汽车安全 AI 落地",
     subtitle: "产品派 · 从模型到 ARR",
     duration: "10 天 × 3 小时 = 30 小时",
@@ -89,7 +89,7 @@ export default async function SafetyTrainingPage() {
   });
 
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
+    <div className="min-h-screen pt-20 px-6 pb-16 dark-page-bg" style={{ background: "var(--page-bg, #0a0a1a)" }}>
       <div className="mx-auto max-w-6xl">
         {/* 返回 */}
         <Link href="/crashai" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800 mb-6">
