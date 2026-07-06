@@ -1,15 +1,11 @@
 // /knowledge-base - TEBS 知识库新版
 // 1. Server 端登录 + WikiAccess 白名单（保留老权限机制）
-// 2. Server 端读 search-index.json，传给 client KnowledgeBrowser 渲染
-// 3. 详情用 /knowledge-base/articles/[slug] 子路由
-//    - 79 篇清洗后 html 在 public/knowledge/<slug>.html
-//    - 4 个老核心知识卡在 public/wiki/*.html（已并入 search-index.json）
-// 4. 不再保留"旧 wiki 入口"区（4 个核心知识卡已并入搜索；网站地图/图表/组件/案例/FAQ 已废弃）
+// 2. server 不读 public/（Vercel function fs 读不到，被 outputFileTracingExcludes 排除）
+//    search-index 改由 client KnowledgeBrowser fetch /knowledge/search-index.json
+// 3. 详情用 /knowledge-base/articles/[slug] 子路由（同样 client fetch）
 
 import Link from "next/link";
 import { redirect } from "next/navigation";
-import { promises as fs } from "fs";
-import path from "path";
 import { ArrowLeft, Lock, Database } from "lucide-react";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
@@ -20,30 +16,6 @@ export const metadata = {
   title: "知识库 · Lvyz Web",
   description: "TEBS Occupant Safety Knowledge-Base · 车辆安全 · 约束系统 · 碰撞分析",
 };
-
-interface SearchEntry {
-  slug: string;
-  title: string;
-  category: string;
-  categoryLabel: string;
-  excerpt: string;
-  size: number;
-  url: string;
-}
-interface SearchIndex {
-  entries: SearchEntry[];
-  total: number;
-}
-
-async function loadSearchIndex(): Promise<SearchIndex> {
-  try {
-    const pathToFile = path.join(process.cwd(), "public", "knowledge", "search-index.json");
-    const raw = await fs.readFile(pathToFile, "utf-8");
-    return JSON.parse(raw);
-  } catch {
-    return { entries: [], total: 0 };
-  }
-}
 
 export default async function KnowledgeBasePage() {
   // 1. 登录检查
@@ -86,9 +58,6 @@ export default async function KnowledgeBasePage() {
     );
   }
 
-  // 4. 加载搜索索引 + 渲染新版浏览器
-  const initialIndex = await loadSearchIndex();
-
   return (
     <div className="min-h-screen pt-28 px-6 pb-16">
       <div className="max-w-6xl mx-auto">
@@ -106,12 +75,12 @@ export default async function KnowledgeBasePage() {
             <span className="text-gradient">TEBS 技术知识库</span>
           </h1>
           <p className="mt-2 text-sm text-gray-400">
-            约束系统 · 碰撞分析 · 零部件 · C-NCAP / C-IASI · 客户端全文搜索 · 共 {initialIndex.total} 篇（79 篇技术文档 + 4 篇核心知识卡）
+            约束系统 · 碰撞分析 · 零部件 · C-NCAP / C-IASI · 客户端全文搜索
           </p>
         </header>
 
-        {/* 新版知识库浏览器（搜索 + 分类 + 列表） */}
-        <KnowledgeBrowser initialIndex={initialIndex} />
+        {/* 新版知识库浏览器（client 拉 search-index.json） */}
+        <KnowledgeBrowser />
       </div>
     </div>
   );

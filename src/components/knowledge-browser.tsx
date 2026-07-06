@@ -46,19 +46,23 @@ export default function KnowledgeBrowser({
   initialIndex?: SearchIndex;
   legacyLinks?: LegacyLink[];
 }) {
-  const [index, setIndex] = useState<SearchIndex | null>(initialIndex || null);
+  // 永远从 client fetch /knowledge/search-index.json（Vercel 静态资源）
+  // 不用 server fs.readFile：outputFileTracingExcludes 排除了 public/knowledge/**
+  // server 读不到，client fetch 静态资源永远可用
+  const [index, setIndex] = useState<SearchIndex | null>(null);
   const [query, setQuery] = useState("");
   const [activeCat, setActiveCat] = useState<string | null>(null);
   const [fuseReady, setFuseReady] = useState(false);
 
-  // 如果没传 initialIndex，从 /knowledge/search-index.json 拉
   useEffect(() => {
-    if (initialIndex) return;
-    fetch("/knowledge/search-index.json")
-      .then((r) => r.json())
+    fetch("/knowledge/search-index.json", { cache: "no-store" })
+      .then((r) => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
+      })
       .then((d) => setIndex(d))
       .catch((e) => console.error("Failed to load search index:", e));
-  }, [initialIndex]);
+  }, []);
 
   // Mark Fuse ready
   useEffect(() => {
