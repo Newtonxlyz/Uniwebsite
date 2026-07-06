@@ -15,6 +15,7 @@ import {
   Play,
   Pause,
 } from "lucide-react";
+import AboutSection from "@/components/about-section";
 
 const sites = [
   {
@@ -275,6 +276,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* About Section — 关于我 */}
+      <AboutSection />
 
       {/* Site Cards — 缩小板块 */}
       <section className="mx-auto max-w-6xl px-6 pb-16">
