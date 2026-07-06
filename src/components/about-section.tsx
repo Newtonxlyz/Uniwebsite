@@ -167,7 +167,7 @@ export default function AboutSection() {
           About Me
         </p>
         <h2 className="mb-3 text-3xl sm:text-4xl font-bold text-white">
-          认识 <span className="text-gradient">吕元卓</span>
+          认识<span className="text-gradient">我</span>
         </h2>
         <p className="text-sm text-gray-400 max-w-xl mx-auto">
           14 年车辆安全经验 · 西安交大航天工程 · 中德双语 · AI 转型中
@@ -214,10 +214,6 @@ export default function AboutSection() {
             <li className="flex gap-2">
               <span className="text-cyan-400 flex-shrink-0">·</span>
               <span>热爱仿真，深耕约束系统与碰撞分析</span>
-            </li>
-            <li className="flex gap-2">
-              <span className="text-cyan-400 flex-shrink-0">·</span>
-              <span>正在学习 AI，准备在车辆安全领域做出 AI 工具产品</span>
             </li>
           </ul>
 
