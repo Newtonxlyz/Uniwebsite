@@ -1,13 +1,16 @@
 // /knowledge-base - TEBS 知识库新版
 // 1. Server 端登录 + WikiAccess 白名单（保留老权限机制）
 // 2. Server 端读 search-index.json，传给 client KnowledgeBrowser 渲染
-// 3. 详情用 /knowledge-base/articles/[slug] 子路由（iframe 加载 public/knowledge/<slug>.html）
+// 3. 详情用 /knowledge-base/articles/[slug] 子路由
+//    - 79 篇清洗后 html 在 public/knowledge/<slug>.html
+//    - 4 个老核心知识卡在 public/wiki/*.html（已并入 search-index.json）
+// 4. 不再保留"旧 wiki 入口"区（4 个核心知识卡已并入搜索；网站地图/图表/组件/案例/FAQ 已废弃）
 
 import Link from "next/link";
 import { redirect } from "next/navigation";
 import { promises as fs } from "fs";
 import path from "path";
-import { ArrowLeft, Lock, BookOpen, Box, Wrench, Lightbulb, FileText, Database, Wrench as WrenchIcon, Search as SearchIcon } from "lucide-react";
+import { ArrowLeft, Lock, Database } from "lucide-react";
 import { auth } from "@/lib/auth";
 import { headers } from "next/headers";
 import { prisma } from "@/lib/db";
@@ -17,20 +20,6 @@ export const metadata = {
   title: "知识库 · Lvyz Web",
   description: "TEBS Occupant Safety Knowledge-Base · 车辆安全 · 约束系统 · 碰撞分析",
 };
-
-// 旧 wiki 入口（保留老用户链接）
-const LEGACY_LINKS = [
-  { title: "正碰约束系统基础知识 V1.0", href: "/wiki/RHS-knowledgebase-section4.html", desc: "所有关于正碰约束系统你应该熟悉和了解的", category: "核心知识" },
-  { title: "碰撞基础知识", href: "/wiki/Crash_Basic.html", desc: "作为一名碰撞试验工程师你应该了解的基础知识", category: "核心知识" },
-  { title: "材料基础知识", href: "/wiki/Material.html", desc: "这里你会对工作中碰到的材料有比较全面的了解", category: "核心知识" },
-  { title: "能力重点 (3/6 finished @Yuanzhuo)", href: "/wiki/Competenz_lift.html", desc: "目前和未来你所需要强化和发展的能力项目", category: "核心知识" },
-  { title: "网站地图-Mindmap", href: "/wiki/RHS-MindMap.html", desc: "思维导图", category: "网站地图" },
-  { title: "网站地图-ExcelLook", href: "/wiki/RHS约束系统匹配知识库.html", desc: "表格索引", category: "网站地图" },
-  { title: "图表", href: "/wiki/charts.html", category: "其他资源" },
-  { title: "组件", href: "/wiki/components.html", category: "其他资源" },
-  { title: "案例展示", href: "/wiki/showcase.html", category: "其他资源" },
-  { title: "FAQ", href: "/wiki/faqs.html", category: "其他资源" },
-];
 
 interface SearchEntry {
   slug: string;
@@ -117,12 +106,12 @@ export default async function KnowledgeBasePage() {
             <span className="text-gradient">TEBS 技术知识库</span>
           </h1>
           <p className="mt-2 text-sm text-gray-400">
-            约束系统 · 碰撞分析 · 零部件 · C-NCAP / C-IASI · 客户端全文搜索 · 共 {initialIndex.total} 篇技术文档
+            约束系统 · 碰撞分析 · 零部件 · C-NCAP / C-IASI · 客户端全文搜索 · 共 {initialIndex.total} 篇（79 篇技术文档 + 4 篇核心知识卡）
           </p>
         </header>
 
         {/* 新版知识库浏览器（搜索 + 分类 + 列表） */}
-        <KnowledgeBrowser initialIndex={initialIndex} legacyLinks={LEGACY_LINKS} />
+        <KnowledgeBrowser initialIndex={initialIndex} />
       </div>
     </div>
   );

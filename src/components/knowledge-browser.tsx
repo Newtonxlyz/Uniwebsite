@@ -3,7 +3,7 @@
 import { useState, useEffect, useMemo } from "react";
 import Link from "next/link";
 import Script from "next/script";
-import { ArrowLeft, Database, Search, FileText, Folder, X, ExternalLink } from "lucide-react";
+import { ArrowLeft, Database, Search, FileText, Folder, X } from "lucide-react";
 
 interface Entry {
   slug: string;
@@ -145,29 +145,7 @@ export default function KnowledgeBrowser({
       />
       <div className="min-h-screen pt-4 px-6 pb-16">
         <div className="max-w-6xl mx-auto">
-          {/* 旧 wiki 跳转入口 */}
-          {legacyLinks.length > 0 && (
-            <section className="glass-card p-4 mb-4">
-              <h3 className="text-sm font-medium text-gray-400 mb-3 flex items-center gap-2">
-                <Database className="h-4 w-4" />
-                旧 wiki 入口（保留跳转）
-              </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-2">
-                {legacyLinks.map((l) => (
-                  <a
-                    key={l.href}
-                    href={l.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 hover:bg-white/10 transition-colors text-xs text-gray-300 hover:text-white"
-                  >
-                    <ExternalLink className="h-3 w-3 flex-shrink-0 text-cyan-400" />
-                    <span className="truncate">{l.title}</span>
-                  </a>
-                ))}
-              </div>
-            </section>
-          )}
+          {/* 旧 wiki 入口已并入 search-index.json（在分类"核心知识"中可见），不再单独显示 */}
 
           {/* 搜索框 */}
           <div className="glass-card p-4 mb-4 sticky top-16 z-10 backdrop-blur-md">

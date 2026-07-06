@@ -36,13 +36,23 @@ async function loadSearchIndex(): Promise<SearchIndex> {
   }
 }
 
-async function loadArticleHtml(slug: string): Promise<string> {
-  try {
-    const filePath = path.join(process.cwd(), "public", "knowledge", `${slug}.html`);
-    return await fs.readFile(filePath, "utf-8");
-  } catch {
-    return "";
+async function loadArticleHtml(slug: string, entryUrl?: string): Promise<string> {
+  // 优先根据 entry.url 解析（支持 /wiki/ 指向老 wiki html）
+  const tryPaths: string[] = [];
+  if (entryUrl && entryUrl.startsWith("/")) {
+    // /wiki/RHS-knowledgebase-section4.html → public/wiki/RHS-knowledgebase-section4.html
+    tryPaths.push(path.join(process.cwd(), "public", entryUrl.replace(/^\//, "")));
   }
+  // fallback: public/knowledge/<slug>.html
+  tryPaths.push(path.join(process.cwd(), "public", "knowledge", `${slug}.html`));
+  for (const p of tryPaths) {
+    try {
+      return await fs.readFile(p, "utf-8");
+    } catch {
+      // continue
+    }
+  }
+  return "";
 }
 
 export default async function KnowledgeArticlePage({
@@ -69,8 +79,8 @@ export default async function KnowledgeArticlePage({
     notFound();
   }
 
-  // 3. 读 HTML
-  const html = await loadArticleHtml(slug);
+  // 3. 读 HTML（根据 entry.url 解析，支持 /wiki/ 路径）
+  const html = await loadArticleHtml(slug, entry.url);
 
   // 4. 渲染
   return (
