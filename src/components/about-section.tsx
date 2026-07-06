@@ -133,7 +133,7 @@ const HOBBIES = [
 
 // 头像旁的"亮点"小标签
 const HEADLINE_TAGS = [
-  "PPE 平台安全负责人",
+  "奥迪 NEV 安全负责人",
   "10+ 奥迪车型项目管理",
   "首届驻德团队领队",
   "CNCAP 委员会会员",
@@ -175,15 +175,15 @@ export default function AboutSection() {
       </div>
 
       {/* 头部：照片 + 名字 + 数据 */}
-      <div className="grid md:grid-cols-[200px_1fr] gap-8 mb-12">
+      <div className="grid md:grid-cols-[220px_1fr] gap-8 mb-12">
         {/* 照片 */}
         <div className="flex justify-center md:justify-start">
-          <div className="relative">
-            <div className="absolute -inset-1 rounded-2xl bg-gradient-to-br from-cyan-500 to-indigo-500 opacity-60 blur-md" />
+          <div className="relative w-[200px] h-[260px]">
+            <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-cyan-500/30 to-indigo-500/30 blur-md" />
             <img
               src="/photo.jpg"
               alt="吕元卓 LV YUANZHUO"
-              className="relative h-48 w-48 rounded-2xl object-cover ring-1 ring-white/10"
+              className="relative w-full h-full rounded-2xl object-cover ring-1 ring-white/20"
             />
           </div>
         </div>
@@ -194,21 +194,38 @@ export default function AboutSection() {
             吕元卓{" "}
             <span className="text-base text-gray-400 font-normal">/ LV YUANZHUO</span>
           </h3>
-          <p className="mt-1 text-sm text-cyan-400 font-medium">
+          <p className="mt-1 text-sm text-cyan-300 font-medium">
             车辆安全领域专家 · Vehicle Safety Expert · Fahrzeugsicherheit Experte
           </p>
 
-          <p className="mt-4 text-sm text-gray-300 leading-relaxed">
-            一汽-大众 → 奥迪一汽新能源（NEV），14 年深耕车辆安全。多次长期驻德国奥迪与大众总部，
-            主持 PPE 平台多款未来车型的安全战略制定；是一汽-大众首届驻德团队领队、首届同奥迪深化合作负责人。
-            仿真起家（HyperWorks / Animator / LS-DYNA），能写代码（HTML/CSS/JS），正在转型 AI。
-          </p>
+          <ul className="mt-4 space-y-1.5 text-sm text-gray-200 leading-relaxed">
+            <li className="flex gap-2">
+              <span className="text-cyan-400 flex-shrink-0">·</span>
+              <span>14 年深耕车辆安全，从一汽-大众到奥迪一汽新能源（NEV）</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-cyan-400 flex-shrink-0">·</span>
+              <span>多次长期驻德国奥迪与大众总部，资深中德桥梁</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-cyan-400 flex-shrink-0">·</span>
+              <span>是一汽-大众首届驻德团队领队、首届同奥迪深化合作负责人</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-cyan-400 flex-shrink-0">·</span>
+              <span>热爱仿真，深耕约束系统与碰撞分析</span>
+            </li>
+            <li className="flex gap-2">
+              <span className="text-cyan-400 flex-shrink-0">·</span>
+              <span>正在学习 AI，准备在车辆安全领域做出 AI 工具产品</span>
+            </li>
+          </ul>
 
           <div className="mt-4 flex flex-wrap gap-2">
             {HEADLINE_TAGS.map((t) => (
               <span
                 key={t}
-                className="text-xs px-2.5 py-1 rounded-full bg-cyan-500/10 text-cyan-300 border border-cyan-500/20"
+                className="text-xs px-2.5 py-1 rounded-full bg-cyan-500/20 text-cyan-200 border border-cyan-500/30"
               >
                 {t}
               </span>
