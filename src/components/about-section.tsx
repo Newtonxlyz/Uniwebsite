@@ -16,6 +16,7 @@ import {
   Sparkles,
   Cpu,
   Heart,
+  ChevronDown,
 } from "lucide-react";
 
 interface TimelineEntry {
@@ -140,8 +141,10 @@ const HEADLINE_TAGS = [
 ];
 
 export default function AboutSection() {
+  // 职业经历折叠：默认全部收起，第一个（最新）展开
+  const [expandedIdx, setExpandedIdx] = useState<number | null>(0);
+
   // 让 timeline 滚动时有渐进动画
-  const [visibleCount, setVisibleCount] = useState(3);
   useEffect(() => {
     const handler = () => {
       // 简易视口检测：展开时间线
@@ -331,70 +334,122 @@ export default function AboutSection() {
         </div>
       </div>
 
-      {/* 职业 Timeline */}
+      {/* 职业 Timeline — 默认折叠，点击展开 */}
       <div className="mb-12">
         <h4 className="flex items-center gap-2 text-sm font-semibold text-white mb-6">
           <Briefcase className="h-4 w-4 text-cyan-400" />
           职业经历 / Career
-          <span className="text-xs text-gray-500 font-normal">（按时间倒序）</span>
+          <span className="text-xs text-gray-500 font-normal">（按时间倒序 · 点击展开）</span>
         </h4>
         <div className="relative">
           {/* 时间线左侧线 */}
           <div className="absolute left-[7px] top-2 bottom-2 w-px bg-gradient-to-b from-cyan-500/60 via-indigo-500/30 to-transparent" />
-          <div className="space-y-6">
-            {TIMELINE.map((t, idx) => (
-              <div
-                key={idx}
-                data-timeline-item
-                className="relative pl-8 opacity-0 translate-y-4 transition-all duration-500"
-              >
-                {/* 圆点 */}
+          <div className="space-y-3">
+            {TIMELINE.map((t, idx) => {
+              const isOpen = expandedIdx === idx;
+              // 不同 tag 用不同色块
+              const tagStyles = (() => {
+                if (t.tag === "current") {
+                  return {
+                    border: "border-cyan-500/40",
+                    bg: "bg-cyan-500/5",
+                    dot: "bg-cyan-400 ring-cyan-400/30 animate-pulse",
+                    accent: "text-cyan-300",
+                    tag: "bg-cyan-500/20 text-cyan-300",
+                  };
+                }
+                if (t.tag === "milestone") {
+                  return {
+                    border: "border-amber-500/40",
+                    bg: "bg-amber-500/5",
+                    dot: "bg-amber-400 ring-amber-400/30",
+                    accent: "text-amber-300",
+                    tag: "bg-amber-500/20 text-amber-300",
+                  };
+                }
+                return {
+                  border: "border-indigo-500/30",
+                  bg: "bg-indigo-500/5",
+                  dot: "bg-indigo-400/60 ring-indigo-400/20",
+                  accent: "text-indigo-300",
+                  tag: "bg-indigo-500/15 text-indigo-300",
+                };
+              })();
+
+              return (
                 <div
-                  className={`absolute left-0 top-1.5 w-3.5 h-3.5 rounded-full ring-2 ${
-                    t.tag === "current"
-                      ? "bg-cyan-400 ring-cyan-400/30 animate-pulse"
-                      : t.tag === "milestone"
-                      ? "bg-amber-400 ring-amber-400/30"
-                      : "bg-white/30 ring-white/10"
-                  }`}
-                />
-                <div className="glass-card p-4 hover:scale-[1.01] transition-transform">
-                  <div className="flex flex-wrap items-baseline gap-2 mb-1">
-                    <span className="text-[10px] text-gray-500 font-mono">
-                      {t.period}
-                    </span>
-                    {t.tag === "current" && (
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-cyan-500/20 text-cyan-300">
-                        Current
-                      </span>
-                    )}
-                    {t.tag === "milestone" && (
-                      <span className="text-[10px] px-1.5 py-0.5 rounded bg-amber-500/20 text-amber-300">
-                        首创/里程碑
-                      </span>
-                    )}
+                  key={idx}
+                  data-timeline-item
+                  className="relative pl-8 opacity-0 translate-y-4 transition-all duration-500"
+                >
+                  {/* 圆点 */}
+                  <div
+                    className={`absolute left-0 top-3 w-3.5 h-3.5 rounded-full ring-2 ${tagStyles.dot}`}
+                  />
+                  <div
+                    className={`rounded-xl border ${tagStyles.border} ${tagStyles.bg} overflow-hidden transition-all`}
+                  >
+                    {/* Header — 整行可点击 */}
+                    <button
+                      onClick={() => setExpandedIdx(isOpen ? null : idx)}
+                      className="w-full flex items-start gap-3 p-4 text-left hover:bg-white/5 transition-colors"
+                      aria-expanded={isOpen}
+                    >
+                      <div className="min-w-0 flex-1">
+                        <div className="flex flex-wrap items-baseline gap-2 mb-1">
+                          <span className="text-[10px] text-gray-500 font-mono">
+                            {t.period}
+                          </span>
+                          {t.tag === "current" && (
+                            <span className={`text-[10px] px-1.5 py-0.5 rounded ${tagStyles.tag}`}>
+                              Current
+                            </span>
+                          )}
+                          {t.tag === "milestone" && (
+                            <span className={`text-[10px] px-1.5 py-0.5 rounded ${tagStyles.tag}`}>
+                              首创 / 里程碑
+                            </span>
+                          )}
+                        </div>
+                        <h5 className="text-sm font-semibold text-white">{t.title}</h5>
+                        <p className="text-xs text-gray-400 mt-0.5">
+                          {t.company}
+                          {t.location && (
+                            <span className="text-gray-500"> · {t.location}</span>
+                          )}
+                        </p>
+                      </div>
+                      <ChevronDown
+                        className={`h-4 w-4 flex-shrink-0 mt-1 text-gray-400 transition-transform duration-200 ${
+                          isOpen ? "rotate-180" : ""
+                        }`}
+                      />
+                    </button>
+
+                    {/* 折叠内容 — 高度过渡 */}
+                    <div
+                      className={`grid transition-all duration-200 ease-out ${
+                        isOpen ? "grid-rows-[1fr] opacity-100" : "grid-rows-[0fr] opacity-0"
+                      }`}
+                    >
+                      <div className="overflow-hidden">
+                        <ul className="px-4 pb-4 space-y-1.5 border-t border-white/5 pt-3">
+                          {t.highlights.map((h, i) => (
+                            <li
+                              key={i}
+                              className="text-xs text-gray-200 leading-relaxed flex gap-1.5"
+                            >
+                              <span className={`${tagStyles.accent} flex-shrink-0`}>·</span>
+                              <span>{h}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
                   </div>
-                  <h5 className="text-sm font-semibold text-white">{t.title}</h5>
-                  <p className="text-xs text-gray-400 mt-0.5">
-                    {t.company}
-                    {t.location && (
-                      <span className="text-gray-500"> · {t.location}</span>
-                    )}
-                  </p>
-                  <ul className="mt-2 space-y-1">
-                    {t.highlights.map((h, i) => (
-                      <li
-                        key={i}
-                        className="text-xs text-gray-300 leading-relaxed flex gap-1.5"
-                      >
-                        <span className="text-cyan-400/60 flex-shrink-0">·</span>
-                        <span>{h}</span>
-                      </li>
-                    ))}
-                  </ul>
                 </div>
-              </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </div>

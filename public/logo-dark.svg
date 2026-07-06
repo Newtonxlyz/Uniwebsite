@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="_图层_1" data-name="图层 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 765.35 765.35">
+  <defs>
+    <style>
+      .cls-1 {
+        letter-spacing: -.04em;
+      }
+
+      .cls-2 {
+        letter-spacing: .08em;
+      }
+
+      .cls-3 {
+        fill: #4d4d4d;
+      }
+
+      .cls-4 {
+        font-family: Corbel, Corbel;
+        font-size: 100px;
+      }
+
+      .cls-4, .cls-5 {
+        fill: #fbb03b;
+      }
+
+      .cls-6 {
+        letter-spacing: -.08em;
+      }
+
+      .cls-7 {
+        fill: #333;
+      }
+
+      .cls-8 {
+        letter-spacing: -.1em;
+      }
+
+      .cls-9 {
+        fill: gray;
+      }
+
+      .cls-10 {
+        letter-spacing: -.06em;
+      }
+
+      .cls-11 {
+        fill: #e6e6e6;
+      }
+    </style>
+  </defs>
+  <rect class="cls-7" x="-12.39" y="-15.46" width="792.54" height="805.84"/>
+  <g>
+    <circle class="cls-5" cx="388.42" cy="344.12" r="274.93"/>
+    <path class="cls-3" d="M126.06,272.33c33.21,73.3,81.3,138.97,140.65,193.49l247.96-247.96,181.41-181.41L126.06,272.33Z"/>
+    <path class="cls-11" d="M514.67,217.87L74.78,657.76h3.31l572.13-236.75c-31.55-76.58-77.89-145.5-135.54-203.15Z"/>
+  </g>
+  <g>
+    <text class="cls-4" transform="translate(147.63 729.2)"><tspan class="cls-10" x="0" y="0">Y</tspan><tspan class="cls-8" x="53.42" y="0">U</tspan><tspan class="cls-1" x="110.51" y="0">A</tspan><tspan class="cls-8" x="170.04" y="0">N</tspan></text>
+    <path class="cls-9" d="M385.43,664.22c.22,6.7,1.83,13.29,4.66,19.38l27-11.18,19.75-8.18-51.41-.02Z"/>
+    <path class="cls-11" d="M432.88,709.24l-47.89,19.84.25.11,51.6.02c.01-6.9-1.36-13.69-3.96-19.96Z"/>
+    <text class="cls-4" transform="translate(434.4 729.2)"><tspan class="cls-8" x="0" y="0">H</tspan><tspan class="cls-6" x="56.75" y="0">U</tspan><tspan class="cls-2" x="115.84" y="0">O</tspan></text>
+  </g>
+</svg>

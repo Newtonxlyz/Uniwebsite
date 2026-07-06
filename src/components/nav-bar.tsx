@@ -40,6 +40,30 @@ function getActiveSubsite(pathname: string | null) {
 
 export { getActiveSubsite };
 
+// ─────────────────────────────────────────────────
+// 主题感知 Logo（dark 用深色 SVG，light 用浅色 SVG）
+// ─────────────────────────────────────────────────
+function ThemeLogo() {
+  const [isLight, setIsLight] = useState(false);
+  useEffect(() => {
+    const check = () => {
+      setIsLight(document.documentElement.classList.contains("light"));
+    };
+    check();
+    // 监听 theme 切换（ThemeToggle 改 html class）
+    const obs = new MutationObserver(check);
+    obs.observe(document.documentElement, { attributes: true, attributeFilter: ["class"] });
+    return () => obs.disconnect();
+  }, []);
+  return (
+    <img
+      src={isLight ? "/logo-light.svg" : "/logo-dark.svg"}
+      alt="Lvyz"
+      className="h-7 w-7"
+    />
+  );
+}
+
 const ADMIN_ROLES = ["ADMIN", "SUPERADMIN"];
 
 // ─────────────────────────────────────────────────
@@ -91,10 +115,11 @@ export function NavBar() {
               onMouseLeave={scheduleCloseSubsite}
             >
               <button
-                className="flex items-center gap-1 text-lg font-bold text-gradient"
+                className="flex items-center gap-2 text-lg font-bold"
                 aria-label="Lvyz 主页菜单"
               >
-                Lvyz
+                <ThemeLogo />
+                <span className="text-gradient">Lvyz</span>
                 <ChevronDown
                   className={`h-4 w-4 text-gray-400 transition-transform ${
                     subsiteOpen ? "rotate-180" : ""
@@ -279,7 +304,10 @@ export function NavBar() {
           />
           <div className="absolute right-0 top-0 bottom-0 w-[80%] max-w-sm glass-nav border-l border-white/10 p-6 flex flex-col">
             <div className="flex items-center justify-between mb-6">
-              <div className="text-xl font-bold text-gradient">Lvyz</div>
+              <div className="flex items-center gap-2">
+                <ThemeLogo />
+                <span className="text-xl font-bold text-gradient">Lvyz</span>
+              </div>
               <button
                 onClick={() => setMobileOpen(false)}
                 className="p-2 rounded-lg hover:bg-white/5"
