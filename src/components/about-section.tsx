@@ -143,6 +143,8 @@ const HEADLINE_TAGS = [
 export default function AboutSection() {
   // 职业经历折叠：默认全部收起，第一个（最新）展开
   const [expandedIdx, setExpandedIdx] = useState<number | null>(0);
+  // 滚动时大照片缩小（cartoon 小头像浮层在 nav 下方独立显示）
+  const [scrolled, setScrolled] = useState(false);
 
   // 让 timeline 滚动时有渐进动画
   useEffect(() => {
@@ -159,6 +161,16 @@ export default function AboutSection() {
     };
     handler();
     window.addEventListener("scroll", handler);
+    return () => window.removeEventListener("scroll", handler);
+  }, []);
+
+  // 滚动后大照片缩小 + 轻微变灰（过渡到 cartoon 风格）
+  useEffect(() => {
+    const handler = () => {
+      setScrolled(window.scrollY > 300);
+    };
+    handler();
+    window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
 
@@ -181,7 +193,13 @@ export default function AboutSection() {
       <div className="grid md:grid-cols-[220px_1fr] gap-8 mb-12">
         {/* 照片 */}
         <div className="flex justify-center md:justify-start">
-          <div className="relative w-[200px] h-[260px]">
+          <div
+            className={`relative transition-all duration-500 ease-out ${
+              scrolled
+                ? "w-[80px] h-[104px] opacity-60"
+                : "w-[200px] h-[260px] opacity-100"
+            }`}
+          >
             <div className="absolute -inset-2 rounded-2xl bg-gradient-to-br from-cyan-500/30 to-indigo-500/30 blur-md" />
             <img
               src="/photo.jpg"
