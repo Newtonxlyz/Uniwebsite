@@ -38,7 +38,7 @@ const FEATURES = [
 
 export default function KidsAIHome() {
   return (
-    <div className="min-h-screen pt-16" style={{ background: `linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)` }}>
+    <div className="min-h-screen pt-28" style={{ background: `linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)` }}>
       {/* HERO 区 — 童趣鲜艳 */}
       <section className="relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none">

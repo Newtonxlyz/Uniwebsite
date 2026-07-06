@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 import { Providers } from "@/components/providers";
 import { NavBar } from "@/components/nav-bar";
+import { SubsiteNavAuto } from "@/components/subsite-nav-auto";
 
 export const metadata: Metadata = {
   title: "吕元卓 · Lvyz Web",
@@ -39,6 +40,7 @@ export default function RootLayout({
       <body className="min-h-screen antialiased">
         <Providers>
           <NavBar />
+          <SubsiteNavAuto />
           <main className="relative">{children}</main>
         </Providers>
       </body>

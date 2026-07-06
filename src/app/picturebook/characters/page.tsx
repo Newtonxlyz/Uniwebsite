@@ -40,7 +40,7 @@ export const metadata = {
 
 export default function CharactersPage() {
   return (
-    <div className="min-h-screen pt-16" style={{ background: `linear-gradient(180deg, ${C.paper} 0%, #FCE7F3 100%)` }}>
+    <div className="min-h-screen pt-28" style={{ background: `linear-gradient(180deg, ${C.paper} 0%, #FCE7F3 100%)` }}>
       {/* HERO */}
       <section
         className="relative overflow-hidden"

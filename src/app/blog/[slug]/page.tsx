@@ -49,7 +49,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
   }
 
   return (
-    <div className="min-h-screen pt-24 px-6 pb-16">
+    <div className="min-h-screen pt-32 px-6 pb-16">
       <article className="mx-auto max-w-3xl">
         {/* 返回 */}
         <Link

@@ -18,7 +18,7 @@ export default async function ChapterPage({ params }: { params: Params }) {
   if (!chapter) notFound();
 
   return (
-    <div className="min-h-screen pt-20 px-4 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
+    <div className="min-h-screen pt-28 px-4 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
       <div className="max-w-3xl mx-auto">
         <Link
           href="/kids-ai"

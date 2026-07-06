@@ -24,7 +24,7 @@ export default async function EditPostPage({ params }: { params: Promise<{ id: s
   }
 
   return (
-    <div className="min-h-screen pt-24 px-6 pb-16">
+    <div className="min-h-screen pt-32 px-6 pb-16">
       <div className="mx-auto max-w-4xl">
         <h1 className="text-3xl font-bold text-white mb-2">✏️ 编辑文章</h1>
         <p className="text-gray-400 mb-8">{post.title}</p>

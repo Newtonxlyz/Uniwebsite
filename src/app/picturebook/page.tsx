@@ -118,7 +118,7 @@ const STATS = [
 
 export default function PictureBookHome() {
   return (
-    <div className="min-h-screen pt-16">
+    <div className="min-h-screen pt-28">
       {/* HERO 区 - 鲜艳配色 */}
       <section className="relative overflow-hidden">
         {/* 背景渐变 + 浮动装饰 */}

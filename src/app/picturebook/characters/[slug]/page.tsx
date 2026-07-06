@@ -51,7 +51,7 @@ export default async function CharacterDetailPage({ params }: { params: Promise<
   });
 
   return (
-    <div className="min-h-screen pt-16" style={{ background: PAPER }}>
+    <div className="min-h-screen pt-28" style={{ background: PAPER }}>
       {/* HERO */}
       <section
         className="relative overflow-hidden"

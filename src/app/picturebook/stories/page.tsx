@@ -118,7 +118,7 @@ export default async function StoriesPage({
   const normalStories = paginatedStories.slice(5);
 
   return (
-    <div className="min-h-screen pt-16" style={{ background: C.paper }}>
+    <div className="min-h-screen pt-28" style={{ background: C.paper }}>
       {/* HERO */}
       <section
         className="relative overflow-hidden"

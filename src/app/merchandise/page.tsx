@@ -8,7 +8,7 @@ export const metadata = {
 
 export default function MerchandisePage() {
   return (
-    <div className="min-h-screen bg-[#0a0a1a] pt-20 px-6 pb-16">
+    <div className="min-h-screen bg-[#0a0a1a] pt-28 px-6 pb-16">
       <div className="mx-auto max-w-2xl">
         <header className="mb-10">
           <Link

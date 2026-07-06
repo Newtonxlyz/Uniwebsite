@@ -227,7 +227,7 @@ export default function PicturebookUploadPage() {
   const canStep2 = pages.length > 0;
 
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
+    <div className="min-h-screen pt-28 px-6 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
       <div className="max-w-4xl mx-auto">
         <Link href="/admin/picturebook" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800 mb-4">
           <ChevronLeft className="h-4 w-4" /> 返回绘本管理

@@ -16,7 +16,7 @@ export default async function CrashAIDashboard() {
   ];
 
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16">
+    <div className="min-h-screen pt-28 px-6 pb-16">
       <div className="mx-auto max-w-6xl">
         <header className="mb-10">
           <h1 className="text-3xl font-bold text-white mb-2">

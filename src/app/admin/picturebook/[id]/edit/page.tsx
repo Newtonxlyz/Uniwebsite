@@ -184,7 +184,7 @@ export default function PicturebookEditPage() {
 
   if (loading) {
     return (
-      <div className="min-h-screen pt-20 text-center">
+      <div className="min-h-screen pt-28 text-center">
         <Loader2 className="h-8 w-8 animate-spin text-amber-500 mx-auto" />
         <p className="text-sm text-gray-500 mt-2">加载中...</p>
       </div>
@@ -192,7 +192,7 @@ export default function PicturebookEditPage() {
   }
   if (error || !story) {
     return (
-      <div className="min-h-screen pt-20 text-center">
+      <div className="min-h-screen pt-28 text-center">
         <p className="text-red-500">{error || "绘本不存在"}</p>
         <Link href="/admin/picturebook" className="text-amber-600 text-sm hover:underline mt-2 inline-block">返回列表</Link>
       </div>
@@ -202,7 +202,7 @@ export default function PicturebookEditPage() {
   const st = STATUS_STYLES[status];
 
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
+    <div className="min-h-screen pt-28 px-6 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
       <div className="max-w-5xl mx-auto">
         <Link href="/admin/picturebook" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800 mb-4">
           <ChevronLeft className="h-4 w-4" /> 返回绘本管理

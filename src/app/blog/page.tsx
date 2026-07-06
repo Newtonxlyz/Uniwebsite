@@ -38,7 +38,7 @@ export default async function BlogListPage({
   const isLoggedIn = !!session?.user;
 
   return (
-    <div className="min-h-screen pt-24 px-6 pb-16">
+    <div className="min-h-screen pt-32 px-6 pb-16">
       <div className="mx-auto max-w-4xl">
         {/* Header */}
         <header className="mb-10">

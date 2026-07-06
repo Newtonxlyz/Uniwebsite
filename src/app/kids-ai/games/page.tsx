@@ -25,7 +25,7 @@ const GAMES = [
 
 export default function GamesListPage() {
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
+    <div className="min-h-screen pt-28 px-6 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
       <div className="max-w-5xl mx-auto">
         <Link href="/kids-ai" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800 mb-6">
           <ArrowLeft className="h-4 w-4" /> 返回 Kids AI 首页

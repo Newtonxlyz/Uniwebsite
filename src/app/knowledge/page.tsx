@@ -23,7 +23,7 @@ async function loadSearchIndex(): Promise<SearchIndex> {
 export default async function KnowledgePage() {
   const initialIndex = await loadSearchIndex();
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16">
+    <div className="min-h-screen pt-28 px-6 pb-16">
       <div className="max-w-6xl mx-auto">
         <header className="mb-6">
           <h1 className="text-3xl font-bold text-white flex items-center gap-3">

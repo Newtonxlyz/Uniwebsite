@@ -12,7 +12,7 @@ export default async function NewPostPage() {
     redirect("/login?redirect=/blog/new");
   }
   return (
-    <div className="min-h-screen pt-24 px-6 pb-16">
+    <div className="min-h-screen pt-32 px-6 pb-16">
       <div className="mx-auto max-w-4xl">
         <h1 className="text-3xl font-bold text-white mb-2">✍️ 写新文章</h1>
         <p className="text-gray-400 mb-8">分享你的技术笔记 / 学习心得 / 诗与远方</p>

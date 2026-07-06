@@ -35,7 +35,7 @@ export default function AchievementsPage() {
   const percent = Math.round((completed.length / ALL_BADGES.length) * 100);
 
   return (
-    <div className="min-h-screen pt-20 px-4 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
+    <div className="min-h-screen pt-28 px-4 pb-16" style={{ background: "linear-gradient(180deg, #FFF5F7 0%, #F0F9FF 100%)" }}>
       <div className="max-w-4xl mx-auto">
         <Link
           href="/kids-ai"

@@ -368,7 +368,7 @@ export default function CardsPage() {
   const stateInfo = STATE_LABELS[currentState];
 
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16">
+    <div className="min-h-screen pt-28 px-6 pb-16">
       <div className="mx-auto max-w-2xl">
         {/* 统计仪表盘 */}
         {showStats && (

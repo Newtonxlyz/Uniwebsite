@@ -89,7 +89,7 @@ export default async function SafetyTrainingPage() {
   });
 
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16 dark-page-bg" style={{ background: "var(--page-bg, #0a0a1a)" }}>
+    <div className="min-h-screen pt-28 px-6 pb-16 dark-page-bg" style={{ background: "var(--page-bg, #0a0a1a)" }}>
       <div className="mx-auto max-w-6xl">
         {/* 返回 */}
         <Link href="/crashai" className="inline-flex items-center gap-2 text-sm text-gray-500 hover:text-gray-800 mb-6">

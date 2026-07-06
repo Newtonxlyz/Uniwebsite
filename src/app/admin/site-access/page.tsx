@@ -106,7 +106,7 @@ export default function SiteAccessPage() {
   };
 
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16" style={{ background: "#FAF8F5" }}>
+    <div className="min-h-screen pt-28 px-6 pb-16" style={{ background: "#FAF8F5" }}>
       <div className="max-w-5xl mx-auto">
         <Link
           href="/admin"

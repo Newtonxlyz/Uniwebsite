@@ -90,7 +90,7 @@ export default async function KnowledgeBasePage() {
   const initialIndex = await loadSearchIndex();
 
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16">
+    <div className="min-h-screen pt-28 px-6 pb-16">
       <div className="max-w-6xl mx-auto">
         {/* Header */}
         <header className="mb-6">
