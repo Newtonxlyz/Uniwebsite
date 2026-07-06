@@ -8,6 +8,14 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "*.r2.cloudflarestorage.com" },
     ],
   },
+  // 知识库 HTML 不进 serverless bundle（83 篇 ~30MB），让 Vercel 走静态资源直读
+  // 否则 articles/[slug] server function > 250MB 限制
+  outputFileTracingExcludes: {
+    "**": [
+      "./public/knowledge/**",
+      "./public/wiki/**",
+    ],
+  },
   experimental: {
     serverActions: {
       bodySizeLimit: "4mb",
