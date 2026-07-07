@@ -42,8 +42,10 @@ export default function KnowledgeArticleClient({ slug }: { slug: string }) {
         }
         setEntry(e);
 
-        const htmlRes = await fetch(e.url, { cache: "no-store" });
-        if (!htmlRes.ok) throw new Error(`html HTTP ${htmlRes.status}`);
+        // e.url 形如 /knowledge/<slug> 或 /wiki/<file>，fetch 时补 .html
+        const fetchUrl = e.url.endsWith(".html") ? e.url : e.url + ".html";
+        const htmlRes = await fetch(fetchUrl, { cache: "no-store" });
+        if (!htmlRes.ok) throw new Error(`html HTTP ${htmlRes.status} (${fetchUrl})`);
         const text = await htmlRes.text();
         if (cancelled) return;
         setHtml(text);
