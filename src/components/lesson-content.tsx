@@ -2,6 +2,7 @@
 
 import { useState, useCallback } from 'react';
 import { NotePanel, NoteSummary } from '@/components/section-note';
+import { LessonProgressBar, LoginRequiredPrompt, ProgressProvider, ProgressEntry } from '@/components/crashai-progress';
 import { ChevronLeft, ChevronDown, ChevronUp, BookOpen, Clock, FileText, FunctionSquare, ListOrdered, Table, Lightbulb } from 'lucide-react';
 import Link from 'next/link';
 import type { Section, Lesson } from '@/types';
@@ -158,80 +159,101 @@ interface LessonContentProps {
   lesson: Lesson;
   prevLesson: Lesson | null;
   nextLesson: Lesson | null;
+  isLoggedIn: boolean;
+  initialProgress: ProgressEntry | undefined;
 }
 
-export function LessonContent({ lesson, prevLesson, nextLesson }: LessonContentProps) {
+export function LessonContent({
+  lesson,
+  prevLesson,
+  nextLesson,
+  isLoggedIn,
+  initialProgress,
+}: LessonContentProps) {
+  // 构造 initialMap
+  const initialMap = initialProgress
+    ? { [lesson.slug]: initialProgress }
+    : {};
   return (
-    <div className="min-h-screen pt-20 px-6 pb-16">
-      <div className="mx-auto max-w-3xl">
-        {/* Header */}
-        <div className="mb-8">
-          <Link
-            href="/crashai"
-            className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mb-4"
-          >
-            <ChevronLeft className="h-4 w-4" />
-            返回学习地图
-          </Link>
-          <div className="flex items-center gap-3 mb-2">
-            <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300">
-              {lesson.category}
-            </span>
-            <span className="text-xs text-gray-500">
-              Phase {lesson.phase} · 第 {lesson.order + 1} 课
-            </span>
+    <ProgressProvider initialMap={initialMap}>
+      <div className="min-h-screen pt-20 px-6 pb-16">
+        <div className="mx-auto max-w-3xl">
+          {/* Header */}
+          <div className="mb-8">
+            <Link
+              href="/crashai"
+              className="inline-flex items-center gap-2 text-sm text-gray-400 hover:text-white transition-colors mb-4"
+            >
+              <ChevronLeft className="h-4 w-4" />
+              返回学习地图
+            </Link>
+            <div className="flex items-center gap-3 mb-2">
+              <span className="text-xs font-medium px-2 py-0.5 rounded-full bg-indigo-500/20 text-indigo-300">
+                {lesson.category}
+              </span>
+              <span className="text-xs text-gray-500">
+                Phase {lesson.phase} · 第 {lesson.order + 1} 课
+              </span>
+            </div>
+            <h1 className="text-2xl font-bold text-white mb-2">{lesson.title}</h1>
+            <p className="text-sm text-gray-400">{lesson.description}</p>
           </div>
-          <h1 className="text-2xl font-bold text-white mb-2">{lesson.title}</h1>
-          <p className="text-sm text-gray-400">{lesson.description}</p>
-        </div>
 
-        {/* Note Summary */}
-        <NoteSummary lessonSlug={lesson.slug} />
+          {/* Note Summary */}
+          <NoteSummary lessonSlug={lesson.slug} />
 
-        {/* Progress indicator */}
-        <div className="flex items-center gap-2 mb-6 text-sm text-white/40">
-          <span>{lesson.sections?.length || 0} 个章节</span>
-          <span className="text-white/20">·</span>
-          <span>按类别展开/折叠</span>
-        </div>
+          {/* Progress indicator */}
+          <div className="flex items-center gap-2 mb-6 text-sm text-white/40">
+            <span>{lesson.sections?.length || 0} 个章节</span>
+            <span className="text-white/20">·</span>
+            <span>按类别展开/折叠</span>
+          </div>
 
-        {/* Sections */}
-        <div className="space-y-4">
-          {lesson.sections?.map((section, idx) => (
-            <SectionCard
-              key={idx}
-              section={section}
-              index={idx}
-              lessonSlug={lesson.slug}
-              lessonTitle={lesson.title}
-            />
-          ))}
-        </div>
+          {/* Sections */}
+          <div className="space-y-4">
+            {lesson.sections?.map((section, idx) => (
+              <SectionCard
+                key={idx}
+                section={section}
+                index={idx}
+                lessonSlug={lesson.slug}
+                lessonTitle={lesson.title}
+              />
+            ))}
+          </div>
 
-        {/* Navigation */}
-        <div className="mt-10 flex items-center justify-between">
-          {prevLesson ? (
-            <Link
-              href={`/crashai/${prevLesson.slug}`}
-              className="glass-card px-5 py-3 text-sm text-white hover:scale-105 transition-all"
-            >
-              ← {prevLesson.title}
-            </Link>
+          {/* 学习进度跟踪（已登录 / 未登录） */}
+          {isLoggedIn ? (
+            <LessonProgressBar slug={lesson.slug} />
           ) : (
-            <div />
+            <LoginRequiredPrompt redirect={`/crashai/${lesson.slug}`} />
           )}
-          {nextLesson ? (
-            <Link
-              href={`/crashai/${nextLesson.slug}`}
-              className="glass-card px-5 py-3 text-sm text-white hover:scale-105 transition-all bg-indigo-600/20 border-indigo-500/30"
-            >
-              {nextLesson.title} →
-            </Link>
-          ) : (
-            <div />
-          )}
+
+          {/* Navigation */}
+          <div className="mt-10 flex items-center justify-between">
+            {prevLesson ? (
+              <Link
+                href={`/crashai/${prevLesson.slug}`}
+                className="glass-card px-5 py-3 text-sm text-white hover:scale-105 transition-all"
+              >
+                ← {prevLesson.title}
+              </Link>
+            ) : (
+              <div />
+            )}
+            {nextLesson ? (
+              <Link
+                href={`/crashai/${nextLesson.slug}`}
+                className="glass-card px-5 py-3 text-sm text-white hover:scale-105 transition-all bg-indigo-600/20 border-indigo-500/30"
+              >
+                {nextLesson.title} →
+              </Link>
+            ) : (
+              <div />
+            )}
+          </div>
         </div>
       </div>
-    </div>
+    </ProgressProvider>
   );
 }
