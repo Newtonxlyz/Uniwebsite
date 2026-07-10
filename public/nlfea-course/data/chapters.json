@@ -1,0 +1,264 @@
+{
+  "book": {
+    "title": "非线性有限元分析导论 (第 2 版)",
+    "titleEn": "Introduction to Nonlinear Finite Element Analysis (2nd Edition)",
+    "author": "Nam-Ho Kim",
+    "publisher": "Springer",
+    "year": 2025,
+    "isbn": "978-3-031-92860-9"
+  },
+  "chapters": [
+    {
+      "slug": "ch1",
+      "num": 1,
+      "title": "连续介质力学与线性有限元分析",
+      "titleEn": "Continuum Mechanics and Linear Finite Element Analysis",
+      "startPage": 1,
+      "endPage": 86,
+      "sections": [
+        {"num": "1.1", "title": "引言", "slug": "ch1-1"},
+        {"num": "1.2", "title": "向量与张量分析", "slug": "ch1-2",
+          "subsections": [
+            {"num": "1.2.1", "title": "向量与张量"},
+            {"num": "1.2.2", "title": "向量与张量微积分"},
+            {"num": "1.2.3", "title": "积分定理"}
+          ]},
+        {"num": "1.3", "title": "应力与应变", "slug": "ch1-3",
+          "subsections": [
+            {"num": "1.3.1", "title": "应力"},
+            {"num": "1.3.2", "title": "应变"},
+            {"num": "1.3.3", "title": "应力-应变关系"}
+          ]},
+        {"num": "1.4", "title": "连续体力学", "slug": "ch1-4",
+          "subsections": [
+            {"num": "1.4.1", "title": "边值问题"},
+            {"num": "1.4.2", "title": "最小势能原理"},
+            {"num": "1.4.3", "title": "虚功原理"}
+          ]},
+        {"num": "1.5", "title": "线性系统有限元分析", "slug": "ch1-5",
+          "subsections": [
+            {"num": "1.5.1", "title": "有限元近似"},
+            {"num": "1.5.2", "title": "一维问题有限元方程"},
+            {"num": "1.5.3", "title": "3D 实体单元有限元方程"},
+            {"num": "1.5.4", "title": "2D 平面应变四边形单元"},
+            {"num": "1.5.5", "title": "MATLAB 代码实现"}
+          ]},
+        {"num": "1.6", "title": "本章总结", "slug": "ch1-6"},
+        {"num": "1.7", "title": "习题", "slug": "ch1-7"}
+      ]
+    },
+    {
+      "slug": "ch2",
+      "num": 2,
+      "title": "非线性有限元分析过程",
+      "titleEn": "Nonlinear Finite Element Analysis Procedure",
+      "startPage": 87,
+      "endPage": 150,
+      "sections": [
+        {"num": "2.1", "title": "固体力学中的非线性系统", "slug": "ch2-1"},
+        {"num": "2.2", "title": "非线性代数方程求解方法", "slug": "ch2-2",
+          "subsections": [
+            {"num": "2.2.1", "title": "Newton–Raphson 法"},
+            {"num": "2.2.2", "title": "修正 Newton–Raphson 法"},
+            {"num": "2.2.3", "title": "增量割线法"},
+            {"num": "2.2.4", "title": "增量力法"}
+          ]},
+        {"num": "2.3", "title": "非线性有限元分析步骤", "slug": "ch2-3",
+          "subsections": [
+            {"num": "2.3.1", "title": "状态确定"},
+            {"num": "2.3.2", "title": "残差计算"},
+            {"num": "2.3.3", "title": "收敛判断"},
+            {"num": "2.3.4", "title": "线性化"},
+            {"num": "2.3.5", "title": "求解"}
+          ]},
+        {"num": "2.4", "title": "NLFEA - MATLAB 非线性有限元分析代码", "slug": "ch2-4"},
+        {"num": "2.5", "title": "商业 FEA 软件非线性求解控制", "slug": "ch2-5",
+          "subsections": [
+            {"num": "2.5.1", "title": "Abaqus"},
+            {"num": "2.5.2", "title": "ANSYS"},
+            {"num": "2.5.3", "title": "Autodesk Nastran"}
+          ]},
+        {"num": "2.6", "title": "本章总结", "slug": "ch2-6"},
+        {"num": "2.7", "title": "习题", "slug": "ch2-7"}
+      ]
+    },
+    {
+      "slug": "ch3",
+      "num": 3,
+      "title": "非线性弹性系统单元分析",
+      "titleEn": "Element Analysis for Nonlinear Elastic Systems",
+      "startPage": 151,
+      "endPage": 250,
+      "sections": [
+        {"num": "3.1", "title": "引言", "slug": "ch3-1"},
+        {"num": "3.2", "title": "大变形下的应力与应变测度", "slug": "ch3-2",
+          "subsections": [
+            {"num": "3.2.1", "title": "变形梯度"},
+            {"num": "3.2.2", "title": "Lagrangian 与 Eulerian 应变"},
+            {"num": "3.2.3", "title": "极分解"},
+            {"num": "3.2.4", "title": "面与体的变形"},
+            {"num": "3.2.5", "title": "Cauchy 与 Piola-Kirchhoff 应力"}
+          ]},
+        {"num": "3.3", "title": "非线性弹性分析", "slug": "ch3-3",
+          "subsections": [
+            {"num": "3.3.1", "title": "非线性静力分析: 全 Lagrangian 公式"},
+            {"num": "3.3.2", "title": "非线性静力分析: 更新 Lagrangian 公式"}
+          ]},
+        {"num": "3.4", "title": "临界载荷分析", "slug": "ch3-4",
+          "subsections": [
+            {"num": "3.4.1", "title": "单点法"},
+            {"num": "3.4.2", "title": "两点法"},
+            {"num": "3.4.3", "title": "临界载荷因子稳定方程"}
+          ]},
+        {"num": "3.5", "title": "超弹性材料", "slug": "ch3-5",
+          "subsections": [
+            {"num": "3.5.1", "title": "应变能密度"},
+            {"num": "3.5.2", "title": "近不可压缩超弹性"},
+            {"num": "3.5.3", "title": "变分方程与线性化"}
+          ]},
+        {"num": "3.6", "title": "非线性弹性有限元公式", "slug": "ch3-6"},
+        {"num": "3.7", "title": "超弹材料模型 MATLAB 代码", "slug": "ch3-7"},
+        {"num": "3.8", "title": "商业 FEA 软件非线性弹性分析", "slug": "ch3-8",
+          "subsections": [
+            {"num": "3.8.1", "title": "商业软件使用"},
+            {"num": "3.8.2", "title": "非线性弹性材料建模实例"}
+          ]},
+        {"num": "3.9", "title": "从测试数据拟合超弹材料参数", "slug": "ch3-9",
+          "subsections": [
+            {"num": "3.9.1", "title": "弹性体测试程序"},
+            {"num": "3.9.2", "title": "数据准备"},
+            {"num": "3.9.3", "title": "曲线拟合"},
+            {"num": "3.9.4", "title": "本构模型稳定性"}
+          ]},
+        {"num": "3.10", "title": "本章总结", "slug": "ch3-10"},
+        {"num": "3.11", "title": "习题", "slug": "ch3-11"}
+      ]
+    },
+    {
+      "slug": "ch4",
+      "num": 4,
+      "title": "弹塑性问题的有限元分析",
+      "titleEn": "Finite Element Analysis for Elastoplastic Problems",
+      "startPage": 251,
+      "endPage": 372,
+      "sections": [
+        {"num": "4.1", "title": "引言", "slug": "ch4-1"},
+        {"num": "4.2", "title": "一维弹塑性", "slug": "ch4-2",
+          "subsections": [
+            {"num": "4.2.1", "title": "弹塑性材料行为"},
+            {"num": "4.2.2", "title": "弹塑性有限元公式"},
+            {"num": "4.2.3", "title": "应力状态确定"}
+          ]},
+        {"num": "4.3", "title": "多维弹塑性", "slug": "ch4-3",
+          "subsections": [
+            {"num": "4.3.1", "title": "屈服函数与屈服准则"},
+            {"num": "4.3.2", "title": "Von Mises 屈服准则"},
+            {"num": "4.3.3", "title": "硬化模型"},
+            {"num": "4.3.4", "title": "经典弹塑性模型"},
+            {"num": "4.3.5", "title": "数值积分"},
+            {"num": "4.3.6", "title": "弹塑性计算实现"}
+          ]},
+        {"num": "4.4", "title": "有限转动的客观积分", "slug": "ch4-4",
+          "subsections": [
+            {"num": "4.4.1", "title": "客观张量与客观率"},
+            {"num": "4.4.2", "title": "有限转动与客观率"},
+            {"num": "4.4.3", "title": "有限转动弹塑性增量方程"},
+            {"num": "4.4.4", "title": "有限转动计算实现"}
+          ]},
+        {"num": "4.5", "title": "超弹性的有限变形弹塑性", "slug": "ch4-5",
+          "subsections": [
+            {"num": "4.5.1", "title": "乘法分解"},
+            {"num": "4.5.2", "title": "有限变形弹塑性"},
+            {"num": "4.5.3", "title": "时间积分"},
+            {"num": "4.5.4", "title": "返回映射算法"},
+            {"num": "4.5.5", "title": "一致算法切线算子"},
+            {"num": "4.5.6", "title": "有限变形变分原理"},
+            {"num": "4.5.7", "title": "有限变形弹塑性计算实现"}
+          ]},
+        {"num": "4.6", "title": "有限弹性数学公式", "slug": "ch4-6",
+          "subsections": [
+            {"num": "4.6.1", "title": "主对数拉伸线性化"},
+            {"num": "4.6.2", "title": "弹性试算左 Cauchy-Green 张量特征向量线性化"}
+          ]},
+        {"num": "4.7", "title": "弹塑性材料模型 MATLAB 代码", "slug": "ch4-7"},
+        {"num": "4.8", "title": "商业 FEA 软件弹塑性分析", "slug": "ch4-8",
+          "subsections": [
+            {"num": "4.8.1", "title": "商业软件使用"},
+            {"num": "4.8.2", "title": "弹塑性材料建模实例"}
+          ]},
+        {"num": "4.9", "title": "本章总结", "slug": "ch4-9"},
+        {"num": "4.10", "title": "习题", "slug": "ch4-10"}
+      ]
+    },
+    {
+      "slug": "ch5",
+      "num": 5,
+      "title": "接触问题的有限元分析",
+      "titleEn": "Finite Element Analysis for Contact Problems",
+      "startPage": 373,
+      "endPage": 448,
+      "sections": [
+        {"num": "5.1", "title": "引言", "slug": "ch5-1"},
+        {"num": "5.2", "title": "单点接触示例", "slug": "ch5-2",
+          "subsections": [
+            {"num": "5.2.1", "title": "悬臂梁与刚体块的接触"},
+            {"num": "5.2.2", "title": "带摩擦的悬臂梁接触"}
+          ]},
+        {"num": "5.3", "title": "2D 接触问题通用公式", "slug": "ch5-3",
+          "subsections": [
+            {"num": "5.3.1", "title": "刚体面接触条件"},
+            {"num": "5.3.2", "title": "接触问题中的变分不等式"},
+            {"num": "5.3.3", "title": "罚正则化"},
+            {"num": "5.3.4", "title": "无摩擦接触公式"},
+            {"num": "5.3.5", "title": "有摩擦接触公式"}
+          ]},
+        {"num": "5.4", "title": "接触问题有限元公式", "slug": "ch5-4",
+          "subsections": [
+            {"num": "5.4.1", "title": "柔体与刚体接触"},
+            {"num": "5.4.2", "title": "两柔体接触"},
+            {"num": "5.4.3", "title": "接触分析 MATLAB 代码"}
+          ]},
+        {"num": "5.5", "title": "3D 接触分析", "slug": "ch5-5"},
+        {"num": "5.6", "title": "接触分析过程与建模问题", "slug": "ch5-6",
+          "subsections": [
+            {"num": "5.6.1", "title": "接触分析过程"},
+            {"num": "5.6.2", "title": "接触建模问题"}
+          ]},
+        {"num": "5.7", "title": "本章总结", "slug": "ch5-7"},
+        {"num": "5.8", "title": "习题", "slug": "ch5-8"}
+      ]
+    },
+    {
+      "slug": "ch6",
+      "num": 6,
+      "title": "时间相关问题的有限元分析",
+      "titleEn": "Finite Element Analysis for Time-Dependent Problems",
+      "startPage": 449,
+      "endPage": 488,
+      "sections": [
+        {"num": "6.1", "title": "引言", "slug": "ch6-1"},
+        {"num": "6.2", "title": "线性系统动力分析", "slug": "ch6-2",
+          "subsections": [
+            {"num": "6.2.1", "title": "动力系统 Hamilton 原理"},
+            {"num": "6.2.2", "title": "动力问题有限元公式"},
+            {"num": "6.2.3", "title": "一致质量矩阵 vs 集中质量矩阵"}
+          ]},
+        {"num": "6.3", "title": "线性系统数值时间积分", "slug": "ch6-3",
+          "subsections": [
+            {"num": "6.3.1", "title": "隐式 vs 显式时间积分方法"},
+            {"num": "6.3.2", "title": "中心差分法: 显式时间积分"},
+            {"num": "6.3.3", "title": "Newmark 法: 隐式时间积分"}
+          ]},
+        {"num": "6.4", "title": "非线性系统动力分析", "slug": "ch6-4",
+          "subsections": [
+            {"num": "6.4.1", "title": "隐式时间积分: 加速度形式"},
+            {"num": "6.4.2", "title": "隐式时间积分: 位移形式"},
+            {"num": "6.4.3", "title": "显式时间积分方法"},
+            {"num": "6.4.4", "title": "动力分析有限元实现"}
+          ]},
+        {"num": "6.5", "title": "本章总结", "slug": "ch6-5"},
+        {"num": "6.6", "title": "习题", "slug": "ch6-6"}
+      ]
+    }
+  ]
+}

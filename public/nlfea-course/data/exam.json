@@ -1,0 +1,29 @@
+{
+  "exam": {
+    "title": "NLFEA 综合考试",
+    "desc": "覆盖全书 6 章的 20 道选择题。90 分及格。",
+    "passingScore": 90,
+    "questions": [
+      {"id": "e1", "chapter": "ch1", "q": "在三维应力状态下，应力张量有多少个独立分量？", "options": ["3", "6", "9", "12"], "answer": 1, "explain": "对称应力张量有 6 个独立分量：3 个正应力 + 3 个剪应力。"},
+      {"id": "e2", "chapter": "ch1", "q": "Hooke 定律中各向同性材料的弹性常数有几个独立分量？", "options": ["1", "2", "3", "4"], "answer": 1, "explain": "各向同性线弹性：E、ν（或 G、λ）两个独立常数。"},
+      {"id": "e3", "chapter": "ch1", "q": "虚功原理中虚位移 δu 需要满足什么条件？", "options": ["满足平衡方程", "满足几何相容", "在边界上为零", "任意选取"], "answer": 2, "explain": "虚位移在给定位移边界上必须为零（本质边界条件）。"},
+      {"id": "e4", "chapter": "ch1", "q": "C0 连续性是指？", "options": ["位移连续", "应力连续", "应变连续", "曲率连续"], "answer": 0, "explain": "C0 连续 = 单元内/边界上位移连续（值连续）。"},
+      {"id": "e5", "chapter": "ch2", "q": "Newton-Raphson 法的收敛速度是？", "options": ["线性", "二次", "三次", "指数"], "answer": 1, "explain": "Newton 法在根附近有二次收敛。"},
+      {"id": "e6", "chapter": "ch2", "q": "弧长法主要用于解决？", "options": ["线性问题", "极限点通过", "材料断裂", "高频振动"], "answer": 1, "explain": "弧长法能通过载荷-位移曲线的极值点和 snap-back 现象。"},
+      {"id": "e7", "chapter": "ch2", "q": "固体力学中的接触属于哪种非线性？", "options": ["材料", "几何", "边界", "载荷"], "answer": 2, "explain": "接触是边界非线性（边界条件随状态变化）。"},
+      {"id": "e8", "chapter": "ch3", "q": "变形梯度 F 是几阶张量？", "options": ["标量", "矢量", "2 阶", "4 阶"], "answer": 2, "explain": "F 是 2 阶张量，9 个分量（3D）。"},
+      {"id": "e9", "chapter": "ch3", "q": "Neo-Hookean 模型的应变能函数是？", "a": "W = (μ/2)(I1 - 3) - μ ln J + (λ/2)(ln J)^2", "options": ["(E/2)(λ^2 + 2/λ - 3)", "(μ/2)(I1 - 3) - μ ln J + (λ/2)(ln J)^2", "C1(I1-3) + C2(I2-3)", "(G/2)ε^2"], "answer": 1, "explain": "Neo-Hookean 是最简单的超弹模型，基于不可压缩项 ln J。"},
+      {"id": "e10", "chapter": "ch3", "q": "Cauchy 应力张量是哪种类型？", "options": ["非对称", "对称", "反对称", "取决于材料"], "answer": 1, "explain": "Cauchy 应力由动量守恒推出，σ_ij = σ_ji，对称。"},
+      {"id": "e11", "chapter": "ch4", "q": "Von Mises 等效应力公式？", "options": ["σ1", "(σ1+σ2+σ3)/3", "sqrt(3J2)", "max|σi-σj|"], "answer": 2, "explain": "σ_eq = sqrt(3J2) = sqrt((3/2)s:s)，其中 s 是偏应力。"},
+      {"id": "e12", "chapter": "ch4", "q": "返回映射算法中，塑性乘子 Δλ 必须满足？", "options": ["Δλ ≥ 0", "Δλ ≤ 0", "Δλ = 0", "任意"], "answer": 0, "explain": "由 Kuhn-Tucker 条件：Δλ ≥ 0 且 Δλ·f=0。"},
+      {"id": "e13", "chapter": "ch4", "q": "等向硬化的特征是？", "options": ["屈服面膨胀", "屈服面平移", "屈服面旋转", "形状不变"], "answer": 0, "explain": "等向硬化：屈服面在所有方向均匀膨胀，中心不动。"},
+      {"id": "e14", "chapter": "ch4", "q": "J2 流动理论的塑性应变方向？", "options": ["应力方向", "偏应力方向", "主应力方向", "任意"], "answer": 1, "explain": "J2 流动理论：dε^p 方向沿 ∂f/∂σ，与偏应力共轴。"},
+      {"id": "e15", "chapter": "ch4", "q": "什么是有限变形下的乘法分解 F = F^e F^p？", "options": ["分解为体积/形状", "分解为弹性/塑性部分", "分解为线性/非线性", "分解为拉/压"], "answer": 1, "explain": "Lee 乘法分解：F^e 是弹性（含转动），F^p 是不可逆塑性。"},
+      {"id": "e16", "chapter": "ch5", "q": "罚函数法中法向接触力公式？", "options": ["Fn = kn * gap", "Fn = 0", "Fn = -λ", "Fn = μ*Ft"], "answer": 0, "explain": "Fn = kn * gap (gap<0)，kn 是法向接触刚度。"},
+      {"id": "e17", "chapter": "ch5", "q": "摩擦系数 μ 的物理含义？", "options": ["恢复系数", "滑动阻力比", "阻尼系数", "弹性模量"], "answer": 1, "explain": "μ = |切向力| / |法向力|，库仑摩擦模型。"},
+      {"id": "e18", "chapter": "ch5", "q": "接触算法中最常用的高效方法是？", "options": ["罚函数", "Lagrange 乘子", "Augmented Lagrangian", "直接约束"], "answer": 2, "explain": "Augmented Lagrangian 结合两者优点，是商业软件主流方法。"},
+      {"id": "e19", "chapter": "ch6", "q": "Newmark-β 法的 β=1/4, γ=1/2 是？", "options": ["条件稳定", "无条件稳定", "不稳定", "无阻尼"], "answer": 1, "explain": "梯形规则（β=1/4, γ=1/2）无条件稳定，无算法阻尼。"},
+      {"id": "e20", "chapter": "ch6", "q": "中心差分法的关键限制？", "options": ["精度低", "条件稳定", "难实现", "只能用线性"], "answer": 1, "explain": "显式中心差分要求 Δt ≤ Δt_cr（条件稳定）。"}
+    ]
+  }
+}

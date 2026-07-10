@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch3 · 几何非线性与大变形分析</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="brand">NLFEA 学习平台</a>
+    <a href="../index.html" class="nav-link">课程地图</a>
+    <a href="../flashcards.html" class="nav-link">闪卡</a>
+    <a href="../exam.html" class="nav-link">考试</a>
+    <a href="../review.html" class="nav-link">回顾</a>
+    <span class="nav-spacer"></span>
+    <span class="nav-btn" id="chTitle">第 3 章</span>
+  </div>
+</nav>
+
+<main class="container lesson-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="../index.html">课程地图</a> › 第 3 章
+    </div>
+    <h1>第 3 章 · 几何非线性与大变形分析</h1>
+    <p class="text-dim">Element Analysis for Nonlinear Elastic Systems · PDF p151–250</p>
+  </div>
+
+  <div class="card" id="statusSection"></div>
+
+  <!-- 3.1 -->
+  <div class="lesson-section">
+    <h3>📖 3.1 本章概览</h3>
+    <p>本章讨论<strong>几何非线性</strong>（大变形的 Lagrangian 公式）。当位移较大（小变形假设失效）时，必须使用<strong>有限应变</strong>理论。</p>
+    <p><strong>核心概念</strong>：</p>
+    <ul>
+      <li>3.2 应变度量：变形梯度 F、Cauchy-Green 张量、Green-Lagrange 应变</li>
+      <li>3.3 应力度量：Piola-Kirchhoff、PK2、PK1、Cauchy</li>
+      <li>3.4 几何非线性有限元公式</li>
+      <li>3.5 应变能密度与材料模型（超弹性）</li>
+      <li>3.6 例子：索、梁、膜的大变形</li>
+      <li>3.7 MATLAB 代码实现</li>
+    </ul>
+    <p class="text-dim">适合：橡胶密封、膜结构、软组织、橡胶衬套、汽车悬架衬套、轮胎等大变形成分的工程问题。</p>
+    <img src="../assets/pages/ch3_p155.png" alt="chapter 3 overview" class="pdf-img">
+    <p class="pdf-img-caption">图 3.x 第 3 章研究范围</p>
+  </div>
+
+  <!-- 3.2 -->
+  <div class="lesson-section">
+    <h3>📐 3.2 大变形的运动学</h3>
+    <h4>3.2.1 变形映射</h4>
+    <p>初始构形 <strong>X</strong> 映射到当前构形 <strong>x</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(3.1)</span>
+      <div class="formula-block">
+        <b>x</b> = <b>x</b>(<b>X</b>, t)
+      </div>
+    </div>
+    <p>对<strong>点 P</strong>（初始构形）映射到<strong>点 Q</strong>（当前构形）。<strong>位移</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(3.2)</span>
+      <div class="formula-block">
+        <b>x</b> = <b>X</b> + <b>u</b>(<b>X</b>, t)
+      </div>
+    </div>
+    <p>映射必须一一对应（连续可微），且 det F &gt; 0。</p>
+
+    <h4>3.2.2 变形梯度</h4>
+    <div class="formula">
+      <span class="formula-num">(3.4)</span>
+      <div class="formula-block">
+        <b>F</b> = ∂<b>x</b>/∂<b>X</b> （2 阶张量，9 个分量）
+      </div>
+    </div>
+    <div class="formula">
+      <span class="formula-num">(3.5)</span>
+      <div class="formula-block">
+        <b>F</b> = <b>I</b> + ∂<b>u</b>/∂<b>X</b> = <b>I</b> + ∇<sub>0</sub><b>u</b>
+      </div>
+    </div>
+    <p>J = det <b>F</b> &gt; 0（不可压缩性约束 = J = 1）。</p>
+
+    <img src="../assets/pages/ch3_p162.png" alt="deformation gradient" class="pdf-img">
+    <p class="pdf-img-caption">图 3.1 初始构形与当前构形：点 P 映射到 Q</p>
+
+    <img src="../assets/pages/ch3_p168.png" alt="deformation" class="pdf-img">
+    <p class="pdf-img-caption">图 3.2 变形梯度 F = ∂x/∂X 的物理意义</p>
+
+    <div class="example">
+      <div class="example-title">💡 例 3.1：均匀拉伸</div>
+      <p>立方体沿 3 个主方向均匀拉伸：x<sub>i</sub> = λ<sub>i</sub> X<sub>i</sub>。</p>
+      <ul>
+        <li>F = diag(λ<sub>1</sub>, λ<sub>2</sub>, λ<sub>3</sub>)</li>
+        <li>J = λ<sub>1</sub>·λ<sub>2</sub>·λ<sub>3</sub></li>
+        <li><strong>有效映射条件</strong>：λ<sub>i</sub> &gt; 0（不可压缩 = J = 1）</li>
+        <li><strong>体积不变</strong>：λ<sub>1</sub>·λ<sub>2</sub>·λ<sub>3</sub> = 1</li>
+      </ul>
+    </div>
+
+    <h4>3.2.3 极分解（Polar Decomposition）</h4>
+    <p>任意可逆 <strong>F</strong> 唯一分解为<strong>旋转</strong>和<strong>拉伸</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(3.20)</span>
+      <div class="formula-block">
+        <b>F</b> = <b>R</b> · <b>U</b> = <b>V</b> · <b>R</b>
+      </div>
+    </div>
+    <p>其中 <strong>R</strong> 是<strong>正交旋转张量</strong>（R<sup>T</sup>R = I），<strong>U</strong>/<strong>V</strong> 是<strong>正定对称伸长张量</strong>。</p>
+    <p><strong>物理解释</strong>：先把初始构形<strong>沿主方向拉伸</strong>，再<strong>刚体旋转</strong> → 当前构形。</p>
+
+    <img src="../assets/pages/ch3_p175.png" alt="polar decomposition" class="pdf-img">
+    <p class="pdf-img-caption">图 3.3 极分解的几何路径：先拉伸 E → e 再旋转 / 先旋转再拉伸</p>
+
+    <h4>3.2.4 右 Cauchy-Green 变形张量</h4>
+    <div class="formula">
+      <span class="formula-num">(3.21)</span>
+      <div class="formula-block">
+        <b>C</b> = <b>F</b><sup>T</sup> · <b>F</b>
+      </div>
+    </div>
+    <p><strong>C</strong> 是对称正定张量，与极分解的关系：<b>C</b> = <b>U</b><sup>2</sup>。</p>
+
+    <h4>3.2.5 Green-Lagrange 应变（材料构形）</h4>
+    <p>当位移梯度小时退化为小应变 ε = ½(∇<b>u</b> + ∇<b>u</b><sup>T</sup>)。<strong>E</strong> 满足刚体转动下不变（在初始构形参考）。</p>
+    <div class="formula">
+      <span class="formula-num">(3.10)</span>
+      <div class="formula-block">
+        <b>E</b> = ½(<b>C</b> − <b>I</b>) = ½[∇<sub>0</sub><b>u</b> + ∇<sub>0</sub><b>u</b><sup>T</sup> + ∇<sub>0</sub><b>u</b><sup>T</sup>∇<sub>0</sub><b>u</b>]
+      </div>
+    </div>
+    <p><strong>小应变极限</strong>：∇<sub>0</sub><b>u</b> → 0 时，二次项可忽略，<b>E</b> → ε。</p>
+
+    <h4>3.2.6 Euler-Almansi 应变（空间构形）</h4>
+    <p>在当前构形度量的应变：</p>
+    <div class="formula">
+      <span class="formula-num">(3.16)</span>
+      <div class="formula-block">
+        <b>e</b> = ½(<b>I</b> − <b>b</b><sup>−1</sup>)  其中 <b>b</b> = <b>F</b><b>F</b><sup>T</sup>（左 Cauchy-Green）
+      </div>
+    </div>
+
+    <div class="example">
+      <div class="example-title">💡 例 3.2：刚体转动下的应变</div>
+      <p>绕 X<sub>3</sub> 轴转 α 角：x<sub>1</sub> = X<sub>1</sub>cosα − X<sub>2</sub>sinα，x<sub>2</sub> = X<sub>1</sub>sinα + X<sub>2</sub>cosα。</p>
+      <ul>
+        <li><strong>小应变 ε</strong>：ε = diag(cosα−1, cosα−1, 0) ≠ 0（违反刚体零应变原则 ❌）</li>
+        <li><strong>Lagrangian 应变 E</strong>：<strong>E</strong> = <strong>0</strong>（正确排除刚体转动 ✓）</li>
+      </ul>
+      <p>这说明 <strong>E</strong> 适合材料构形参考，<strong>e</strong> 适合空间构形参考。</p>
+    </div>
+
+    <div class="example">
+      <div class="example-title">💡 例 3.4：简单剪切变形</div>
+      <p>x<sub>1</sub> = X<sub>1</sub> + kX<sub>2</sub>，x<sub>2</sub> = X<sub>2</sub>，x<sub>3</sub> = X<sub>3</sub>（典型大变形）：</p>
+      <ul>
+        <li>F = ⎡1 k 0⎤ = ⎡1 k 0⎤<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⎣0 1 0⎦ &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⎣0 1 0⎦（相对小量：位移 = X<sub>1</sub>X<sub>2</sub>，但有 k 二次项贡献）</li>
+        <li>C = ⎡1 k<sup>2</sup>+1  k  0⎤<br>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⎣k      1  0⎦</li>
+        <li>E<sub>11</sub> = ½k<sup>2</sup>，E<sub>12</sub> = ½k（与线性化差异在于 sp² 项）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 3.3 -->
+  <div class="lesson-section">
+    <h3>💪 3.3 大变形的应力度量</h3>
+    <p>大变形下 Cauchy 应力、PK1/PK2 在不同参考构形下有不同的转换：</p>
+
+    <div class="formula">
+      <span class="formula-num">(3.36)</span>
+      <div class="formula-block">
+        <b>P</b> = J · <b>σ</b> · <b>F</b><sup>−T</sup>   （PK1，第一 Piola-Kirchhoff）
+      </div>
+    </div>
+    <div class="formula">
+      <span class="formula-num">(3.38)</span>
+      <div class="formula-block">
+        <b>S</b> = <b>F</b><sup>−1</sup> · <b>P</b> = J · <b>F</b><sup>−1</sup> · <b>σ</b> · <b>F</b><sup>−T</sup>  （PK2，第二 Piola-Kirchhoff）
+      </div>
+    </div>
+
+    <p>4 种应力度量对比：</p>
+    <table style="width:100%; border-collapse: collapse; margin: 12px 0;">
+      <tr style="background: var(--bg-section);">
+        <th style="padding: 8px; border: 1px solid var(--border); text-align: left;">应力</th>
+        <th style="padding: 8px; border: 1px solid var(--border);">参考构形</th>
+        <th style="padding: 8px; border: 1px solid var(--border);">对称性</th>
+        <th style="padding: 8px; border: 1px solid var(--border);">用途</th>
+      </tr>
+      <tr>
+        <td style="padding: 6px; border: 1px solid var(--border);"><strong>PK1</strong> (P)</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">初始</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">不对称</td>
+        <td style="padding: 6px; border: 1px solid var(--border);">内力向量计算</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; border: 1px solid var(--border);"><strong>PK2</strong> (S)</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">初始</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">对称</td>
+        <td style="padding: 6px; border: 1px solid var(--border);">超弹性本构</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; border: 1px solid var(--border);"><strong>Cauchy</strong> (σ)</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">当前</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">对称</td>
+        <td style="padding: 6px; border: 1px solid var(--border);">真实应力（输出）</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; border: 1px solid var(--border);"><strong>Kirchhoff</strong> (τ)</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">当前</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">对称</td>
+        <td style="padding: 6px; border: 1px solid var(--border);">τ = Jσ，理论方便</td>
+      </tr>
+    </table>
+
+    <img src="../assets/pages/ch3_p182.png" alt="stress measures" class="pdf-img">
+    <p class="pdf-img-caption">图 3.x 4 种应力度量在不同参考构形下的转换</p>
+  </div>
+
+  <!-- 3.4 -->
+  <div class="lesson-section">
+    <h3>📝 3.4 几何非线性有限元公式</h3>
+    <p><strong>两步法</strong>（最常用）：</p>
+    <pre style="background:#000;color:#e5e7eb;padding:12px;border-radius:6px;font-size:12px;overflow-x:auto;">
+1. 应力更新：
+   给定 F_t, F_{t+Δt}，计算 S = S(E) 或 P = P(F)
+2. 内力计算：
+   P_int = ∫ B^T · S · dV₀   （TL） 或
+   P_int = ∫ B^T · τ · dV_t  （UL）
+3. 切线刚度：
+   K_T = ∫ B^T · D_t · B · dV（材料切线）
+        + ∫ G^T · S · G · dV（几何/初始应力刚度）
+    </pre>
+    <p>其中 <strong>D</strong><sub>t</sub> 是<strong>材料切线</strong>，<strong>G</strong> 是<strong>几何非线性矩阵</strong>。<strong>K</strong><sub>T</sub> = <strong>K</strong><sub>mat</sub> + <strong>K</strong><sub>geo</sub>。</p>
+
+    <h4>3.4.1 TL vs UL 公式</h4>
+    <div class="important">
+      <div class="important-title">核心区别</div>
+      <ul>
+        <li><strong>TL（Total Lagrangian）</strong>：所有变量参考<em>初始构形</em>。刚度矩阵积分在初始构形，<strong>K</strong><sub>mat</sub> 恒定，<strong>K</strong><sub>geo</sub> 随当前应力变。</li>
+        <li><strong>UL（Updated Lagrangian）</strong>：所有变量参考<em>上一平衡步构形</em>。每个载荷步后更新参考构形。</li>
+      </ul>
+      <p>大多数商业软件（Abaqus/ANSYS）默认用<strong>TL 公式</strong>。</p>
+    </div>
+
+    <img src="../assets/pages/ch3_p190.png" alt="TL vs UL" class="pdf-img">
+    <p class="pdf-img-caption">图 3.x TL vs UL：参考构形选择对刚度计算的影响</p>
+
+    <h4>3.4.2 几何刚度（初始应力刚度）</h4>
+    <p>大变形下，结构受<strong>轴向压力</strong>会降低弯曲刚度（如柱屈曲），受<strong>轴向拉力</strong>会提高弯曲刚度（如弦的张力）。这是<strong>几何刚度</strong>的物理意义。</p>
+    <div class="formula">
+      <span class="formula-num">(3.x)</span>
+      <div class="formula-block">
+        <b>K</b><sub>geo</sub> = ∫ <b>G</b><sup>T</sup> · <b>S</b> · <b>G</b> dV
+      </div>
+    </div>
+  </div>
+
+  <!-- 3.5 -->
+  <div class="lesson-section">
+    <h3>🌟 3.5 超弹性与应变能密度</h3>
+    <p><strong>超弹性材料</strong>：应力只与<strong>当前应变状态</strong>有关，与历史无关。<strong>存在应变能函数</strong> W：</p>
+    <div class="formula">
+      <span class="formula-num">(3.x)</span>
+      <div class="formula-block">
+        <b>S</b> = 2 · ∂W/∂<b>C</b>
+      </div>
+    </div>
+
+    <p><strong>常见超弹模型</strong>：</p>
+    <ul>
+      <li><strong>Neo-Hookean</strong>：W = (μ/2)(I<sub>1</sub> − 3) − μ·ln J + (λ/2)(ln J)²</li>
+      <li><strong>Mooney-Rivlin</strong>：W = C<sub>10</sub>(I<sub>1</sub>−3) + C<sub>01</sub>(I<sub>2</sub>−3) + (K/2)(J−1)²</li>
+      <li><strong>Ogden</strong>：W = Σ<sub>i</sub> (μ<sub>i</sub>/α<sub>i</sub>)(λ<sub>1</sub><sup>α<sub>i</sub></sup> + λ<sub>2</sub><sup>α<sub>i</sub></sup> + λ<sub>3</sub><sup>α<sub>i</sub></sup> − 3)</li>
+      <li><strong>Yeoh</strong>：W = C<sub>10</sub>(I<sub>1</sub>−3) + C<sub>20</sub>(I<sub>1</sub>−3)² + C<sub>30</sub>(I<sub>1</sub>−3)³</li>
+    </ul>
+    <p><strong>适用</strong>：橡胶、聚合物、生物组织等大变形的超弹性材料。</p>
+
+    <img src="../assets/pages/ch3_p200.png" alt="hyperelastic" class="pdf-img">
+    <p class="pdf-img-caption">图 3.x 4 种超弹模型的单轴拉伸应力-应变曲线对比</p>
+
+    <h4>近不可压缩问题</h4>
+    <p>橡胶 K/E ≈ 1000-10000（近不可压缩），<strong>纯位移公式会"体积锁死"</strong>。解决方法：</p>
+    <ul>
+      <li><strong>混合 u-p 公式</strong>：位移 + 压力独立变量</li>
+      <li><strong>罚函数法</strong>：在大体积模量下加约束</li>
+      <li><strong>B-bar 方法</strong>：用体积平均的体积应变</li>
+    </ul>
+  </div>
+
+  <!-- 3.6 -->
+  <div class="lesson-section">
+    <h3>🔧 3.6 例子与 MATLAB 实现</h3>
+
+    <div class="example">
+      <div class="example-title">💡 例 3.5：橡胶圆柱压缩</div>
+      <p>橡胶圆柱（直径 50 mm，高 100 mm）放在刚性平面上，上端用刚性压头下压。从 0 压到 30 mm 高度。</p>
+      <p><strong>结果</strong>：圆柱侧面"鼓出"，接触面从均匀变成边缘密中间疏，几何非线性显著。</p>
+    </div>
+
+    <img src="../assets/pages/ch3_p210.png" alt="rubber cylinder" class="pdf-img">
+    <p class="pdf-img-caption">图 3.x 橡胶圆柱大变形：侧面鼓出 + 接触不均匀</p>
+
+    <div class="example">
+      <div class="example-title">💡 例 3.6：膜结构大变形</div>
+      <p>方形膜（边长 L）四边固定，中心加横向集中力 F。膜厚度 h &lt;&lt; L（薄膜）。</p>
+      <p><strong>结果</strong>：膜变形呈"双锥形"（双曲面），几何非线性源于<strong>膜力与位移的耦合</strong>。</p>
+    </div>
+
+    <img src="../assets/pages/ch3_p220.png" alt="membrane" class="pdf-img">
+    <p class="pdf-img-caption">图 3.x 膜结构大变形（双锥形）</p>
+
+    <h4>3.7 MATLAB 代码（第 3.6 节）</h4>
+    <p>第 3.6 节给出 2D 平面应变单元的几何非线性 NR 实现（PDF p230-240）。</p>
+
+    <img src="../assets/pages/ch3_p230.png" alt="MATLAB" class="pdf-img">
+    <p class="pdf-img-caption">图 3.x 2D 平面应变单元大变形 NR 求解的 MATLAB 代码</p>
+
+    <img src="../assets/pages/ch3_p240.png" alt="2D deformation" class="pdf-img">
+    <p class="pdf-img-caption">图 3.x 2D 几何非线性结果：网格变形 + 应力等高线</p>
+  </div>
+
+  <!-- 3.7 -->
+  <div class="lesson-section">
+    <h3>📌 3.7 本章总结</h3>
+    <ul>
+      <li>✅ <strong>变形梯度 F</strong> + 极分解（旋转 + 拉伸）</li>
+      <li>✅ <strong>Green-Lagrange 应变 E</strong>（材料） vs <strong>Euler-Almansi e</strong>（空间）</li>
+      <li>✅ <strong>4 种应力度量</strong>：PK1 / PK2(S) / Cauchy(σ) / Kirchhoff(τ)</li>
+      <li>✅ <strong>TL vs UL 公式</strong>（参考初始构形 vs 上一构形）</li>
+      <li>✅ <strong>两步法</strong>：应力更新 → 内力/切线刚度</li>
+      <li>✅ <strong>超弹模型</strong>：Neo-Hookean / Mooney-Rivlin / Ogden / Yeoh</li>
+      <li>✅ <strong>近不可压缩</strong>：体积锁死 + u-p 混合公式</li>
+    </ul>
+    <p class="text-dim">第 4 章将进入<strong>材料非线性</strong>（弹塑性、蠕变、粘塑性）。</p>
+  </div>
+
+  <!-- 3.8 习题 -->
+  <div class="lesson-section">
+    <h3>📝 3.8 习题（PDF p230-250）</h3>
+    <ul>
+      <li><strong>3.1</strong> 变形梯度判断（拉伸、剪切、扭转）</li>
+      <li><strong>3.2</strong> Lagrangian 应变 E 计算</li>
+      <li><strong>3.3</strong> Eulerian 应变 e 计算</li>
+      <li><strong>3.4</strong> 简单剪切的 F、C、E、U、V、R</li>
+      <li><strong>3.7</strong> Cauchy 应力与 PK1/PK2 转换</li>
+      <li><strong>3.11</strong> 梁的几何非线性（大转动）</li>
+      <li><strong>3.12</strong> 方形单元纯剪切</li>
+      <li><strong>3.20</strong> 2D 平面应变几何非线性 MATLAB 实现</li>
+    </ul>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📚 本章 PDF 关键页面</h3>
+    <div class="page-thumbs">
+      <a class="page-thumb" href="../assets/pages/ch3_p155.png"><img src="../assets/pages/ch3_p155.png" alt="p155"><div class="pt-caption">p155 · 章概览</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p162.png"><img src="../assets/pages/ch3_p162.png" alt="p162"><div class="pt-caption">p162 · 变形映射</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p168.png"><img src="../assets/pages/ch3_p168.png" alt="p168"><div class="pt-caption">p168 · 变形梯度</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p175.png"><img src="../assets/pages/ch3_p175.png" alt="p175"><div class="pt-caption">p175 · 极分解</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p182.png"><img src="../assets/pages/ch3_p182.png" alt="p182"><div class="pt-caption">p182 · 应力度量</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p190.png"><img src="../assets/pages/ch3_p190.png" alt="p190"><div class="pt-caption">p190 · TL vs UL</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p200.png"><img src="../assets/pages/ch3_p200.png" alt="p200"><div class="pt-caption">p200 · 超弹模型</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p210.png"><img src="../assets/pages/ch3_p210.png" alt="p210"><div class="pt-caption">p210 · 橡胶圆柱</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p220.png"><img src="../assets/pages/ch3_p220.png" alt="p220"><div class="pt-caption">p220 · 膜变形</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p230.png"><img src="../assets/pages/ch3_p230.png" alt="p230"><div class="pt-caption">p230 · MATLAB</div></a>
+      <a class="page-thumb" href="../assets/pages/ch3_p240.png"><img src="../assets/pages/ch3_p240.png" alt="p240"><div class="pt-caption">p240 · 2D 变形</div></a>
+    </div>
+  </div>
+
+  <div class="card" id="notesSection"></div>
+</main>
+
+<script src="../js/storage.js"></script>
+<script src="../js/progress.js"></script>
+<script src="../js/notes.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/inline-data.js"></script>
+<script>
+  const SLUG = "ch3";
+  document.getElementById("statusSection").innerHTML = NLApp.statusButtonsHTML(SLUG);
+  document.getElementById("notesSection").innerHTML = NLApp.notesHTML(SLUG);
+  NLApp.bindLesson(SLUG);
+</script>
+</body>
+</html>

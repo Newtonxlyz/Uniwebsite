@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch6 · 动力学非线性</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="brand">NLFEA 学习平台</a>
+    <a href="../index.html" class="nav-link">课程地图</a>
+    <a href="../flashcards.html" class="nav-link">闪卡</a>
+    <a href="../exam.html" class="nav-link">考试</a>
+    <a href="../review.html" class="nav-link">回顾</a>
+    <span class="nav-spacer"></span>
+    <span class="nav-btn" id="chTitle">第 6 章</span>
+  </div>
+</nav>
+
+<main class="container lesson-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="../index.html">课程地图</a> › 第 6 章
+    </div>
+    <h1>第 6 章 · 时变问题的有限元分析</h1>
+    <p class="text-dim">Finite Element Analysis for Time-Dependent Problems · PDF p449–488</p>
+  </div>
+
+  <div class="card" id="statusSection"></div>
+
+  <!-- 6.1 -->
+  <div class="lesson-section">
+    <h3>📖 6.1 本章概览</h3>
+    <p>动力学非线性 = 时间相关问题（含<strong>惯性与阻尼</strong>）。<strong>核心</strong>：将 PDE 离散为常微分方程组，用<strong>时间积分</strong>算法逐步推进。<strong>惯性项</strong>仍是<strong>线性的</strong>，非线性来源仍是前几章的<strong>几何/材料/边界</strong>非线性。</p>
+    <ul>
+      <li>6.1 引言：三种动力学问题（瞬态、稳态、波动）</li>
+      <li>6.2 线性系统的动力学分析（模态叠加）</li>
+      <li>6.3 数值时间积分（隐式 / 显式）</li>
+      <li>6.4 非线性动力学（NR + 时间积分）</li>
+      <li>6.5 显式 vs 隐式对比</li>
+      <li>6.6 商业软件中的时间步控制</li>
+    </ul>
+    <p class="text-dim"><strong>适合方向</strong>：汽车碰撞仿真（LS-DYNA）、地震响应、疲劳、轮胎稳态滚动、鸟撞、手机跌落等高速动力学问题。</p>
+    <img src="../assets/pages/ch6_p455.png" alt="dynamics overview" class="pdf-img">
+    <p class="pdf-img-caption">图 6.x 动力学问题分类：瞬态 / 稳态 / 波动</p>
+  </div>
+
+  <!-- 6.2 -->
+  <div class="lesson-section">
+    <h3>📐 6.2 动力学方程</h3>
+    <h4>6.2.1 运动方程</h4>
+    <div class="formula">
+      <span class="formula-num">(6.18)</span>
+      <div class="formula-block">
+        <b>M</b>d̈ + <b>C</b>ḋ + <b>K</b>d = <b>F</b>(t)
+      </div>
+    </div>
+    <p>其中 <b>M</b> 质量矩阵（恒定），<b>C</b> 阻尼矩阵（Rayleigh），<b>K</b> 刚度矩阵（可随状态变化）。</p>
+
+    <img src="../assets/pages/ch6_p462.png" alt="mass matrices" class="pdf-img">
+    <p class="pdf-img-caption">图 6.x 一致质量矩阵 vs 集中质量矩阵的对比</p>
+
+    <h4>6.2.2 质量矩阵</h4>
+    <ul>
+      <li><strong>一致质量矩阵</strong>：∫ ρ <b>N</b><sup>T</sup><b>N</b> dV（更精确）</li>
+      <li><strong>集中质量矩阵</strong>：对角化，显式积分更高效</li>
+      <li><strong>Row-sum / Hinton 方法</strong>：构造对角 mass matrix</li>
+    </ul>
+
+    <h4>6.2.3 Rayleigh 阻尼</h4>
+    <div class="formula">
+      <span class="formula-num">(6.20)</span>
+      <div class="formula-block">
+        <b>C</b> = α<sub>M</sub> · <b>M</b> + α<sub>K</sub> · <b>K</b>
+      </div>
+    </div>
+    <p>α<sub>M</sub>、α<sub>K</sub> 由目标频率处阻尼比反算。优点：解耦模态；缺点：与频率脱节。</p>
+
+    <div class="important">
+      <div class="important-title">质量矩阵——为什么显式求解需要"对角化"</div>
+      <p>显式积分要求 d̈ = <b>M</b><sup>-1</sup> · (...) 。如果 <b>M</b> 是<strong>集中（对角）</strong>矩阵，逆矩阵就是简单的 1/diag，极大提速。一致矩阵需要解线性方程组。</p>
+    </div>
+  </div>
+
+  <!-- 6.3 -->
+  <div class="lesson-section">
+    <h3>⏱️ 6.3 时间积分方法</h3>
+
+    <img src="../assets/pages/ch6_p470.png" alt="time integration" class="pdf-img">
+    <p class="pdf-img-caption">图 6.x 三大类时间积分方法对比</p>
+
+    <h4>6.3.1 三大类</h4>
+    <table style="width:100%; border-collapse: collapse; margin: 12px 0;">
+      <tr style="background: var(--bg-section);">
+        <th style="padding: 8px; border: 1px solid var(--border); text-align: left;">方法</th>
+        <th style="padding: 8px; border: 1px solid var(--border);">类型</th>
+        <th style="padding: 8px; border: 1px solid var(--border);">稳定性</th>
+        <th style="padding: 8px; border: 1px solid var(--border);">特点</th>
+      </tr>
+      <tr>
+        <td style="padding: 6px; border: 1px solid var(--border);"><strong>中心差分 (CDM)</strong></td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">显式</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">条件稳定</td>
+        <td style="padding: 6px; border: 1px solid var(--border);">Δt ≤ Δt<sub>cr</sub></td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; border: 1px solid var(--border);"><strong>Newmark-β</strong></td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">隐式</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">无条件 (β≥1/4)</td>
+        <td style="padding: 6px; border: 1px solid var(--border);">需要 NR 迭代</td>
+      </tr>
+      <tr>
+        <td style="padding: 6px; border: 1px solid var(--border);"><strong>HHT-α</strong></td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">隐式+阻尼</td>
+        <td style="padding: 6px; border: 1px solid var(--border); text-align: center;">无条件</td>
+        <td style="padding: 6px; border: 1px solid var(--border);">数值阻尼</td>
+      </tr>
+    </table>
+
+    <h4>6.3.2 中心差分法 (CDM)</h4>
+    <div class="formula">
+      <span class="formula-num">(6.33)</span>
+      <div class="formula-block">
+        ḋ<sub>n</sub> ≈ (d<sub>n+1</sub> − d<sub>n-1</sub>) / (2Δt)
+      </div>
+      <div class="formula-block">
+        d̈<sub>n</sub> ≈ (d<sub>n+1</sub> − 2d<sub>n</sub> + d<sub>n-1</sub>) / Δt²
+      </div>
+    </div>
+    <div class="formula">
+      <span class="formula-num">(6.35)</span>
+      <div class="formula-block">
+        d<sub>n+1</sub> = 2d<sub>n</sub> − d<sub>n-1</sub> + Δt² · <b>M</b><sup>-1</sup> · (<b>F<sub>n</sub></b> − <b>K</b>·d<sub>n</sub>)
+      </div>
+    </div>
+    <p><strong>显式</strong>：直接计算 d<sub>n+1</sub>。需要两个初始条件：d<sub>0</sub> 和 d<sub>-1</sub>（用 Taylor 展开从 d̈<sub>0</sub> 计算）。</p>
+
+    <h4>6.3.3 Newmark-β 隐式法</h4>
+    <div class="formula">
+      <span class="formula-num">(6.45)</span>
+      <div class="formula-block">
+        d<sub>n+1</sub> = d<sub>n</sub> + Δt · ḋ<sub>n</sub> + (Δt²/2)[(1−2β) d̈<sub>n</sub> + 2β d̈<sub>n+1</sub>]
+      </div>
+      <div class="formula-block">
+        ḋ<sub>n+1</sub> = ḋ<sub>n</sub> + Δt · [(1−γ) d̈<sub>n</sub> + γ d̈<sub>n+1</sub>]
+      </div>
+    </div>
+    <p><strong>β = 1/4, γ = 1/2</strong> → 平均加速度法（无条件稳定）。<br>
+       <strong>β = 0, γ = 1/2</strong> → 中心差分（条件稳定）。</p>
+    <p>每步需要解 <strong>M</strong>+γΔt <strong>C</strong>+βΔt² <strong>K</strong> · d<sub>n+1</sub> = ... + NR 迭代。</p>
+
+    <img src="../assets/pages/ch6_p475.png" alt="Newmark" class="pdf-img">
+    <p class="pdf-img-caption">图 6.x Newmark-β 时间积分的几何解释</p>
+
+    <h4>6.3.4 HHT-α 阻尼方法</h4>
+    <p>对运动方程左乘 (1+α)，引入数值阻尼，抑制高频振荡（沙漏）。当 α → 0 时退化为 Newmark。</p>
+  </div>
+
+  <!-- 6.4 -->
+  <div class="lesson-section">
+    <h3>⚖️ 6.4 显式 vs 隐式</h3>
+
+    <img src="../assets/pages/ch6_p482.png" alt="explicit vs implicit" class="pdf-img">
+    <p class="pdf-img-caption">图 6.x 显式与隐式时间积分的稳定性区域</p>
+
+    <div class="important">
+      <div class="important-title">核心权衡</div>
+      <ul>
+        <li>🚀 <strong>显式（CDM）</strong>：极快（无需刚度求逆/组装），但<strong>Δt 极小</strong>。适合<em>高速冲击、短时、接触多</em>问题（汽车碰撞仿真、鸟撞、手机跌落）</li>
+        <li>🐢 <strong>隐式（Newmark）</strong>：每步<strong>解线性方程组</strong>，但 Δt 可大。适合<em>低频、长时间、几何非线性</em>（结构地震响应、轮胎稳态滚动）</li>
+      </ul>
+    </div>
+
+    <h4>6.4.1 CFL 稳定条件</h4>
+    <div class="formula">
+      <span class="formula-num">(6.55)</span>
+      <div class="formula-block">
+        Δt ≤ Δt<sub>cr</sub> = L<sub>min</sub> / c = L<sub>min</sub> · √(ρ/E)
+      </div>
+    </div>
+    <p><strong>L<sub>min</sub></strong>：最小单元长度；<strong>c</strong>：波速；<strong>ρ</strong>：密度；<strong>E</strong>：弹性模量。</p>
+    <p>钢 Δt<sub>cr</sub> ≈ 1e-6 s（10mm 单元），远小于仿真时长 → 显式积分需要<strong>百万个时间步</strong>。</p>
+  </div>
+
+  <!-- 6.5 -->
+  <div class="lesson-section">
+    <h3>🔁 6.5 非线性动力学迭代方案</h3>
+    <h4>6.5.1 组合策略</h4>
+    <p>把时间积分 + NR 结合：</p>
+    <ol>
+      <li><strong>时间步 n</strong>：当前 t = nΔt</li>
+      <li><strong>外循环</strong>（NR）：解平衡方程，找当前 d<sub>n+1</sub></li>
+      <li><strong>内循环</strong>：解局部残差 → 更新 K<sub>T</sub></li>
+      <li><strong>收敛判断</strong>：力残差 / 能量</li>
+    </ol>
+
+    <h4>6.5.2 显式动力学 = 简化</h4>
+    <p>显式时间步无需 NR 迭代，但每个时间步都需要重算内力（几何/接触/材料），计算量也不小。</p>
+  </div>
+
+  <!-- 6.6 -->
+  <div class="lesson-section">
+    <h3>🏗️ 6.6 商业软件时间步控制</h3>
+    <p><strong>Abaqus / Standard</strong>（隐式）：</p>
+    <ul>
+      <li>全自动时间步长 + 二分法（不收敛就减半）</li>
+      <li>最大/最小 Δt 限制</li>
+      <li>半步残差检查</li>
+    </ul>
+    <p><strong>Abaqus / Explicit</strong>（显式）：</p>
+    <ul>
+      <li>稳定极限自动估算 Δt<sub>cr</sub></li>
+      <li>质量缩放（mass scaling）拉长 Δt（牺牲精度）</li>
+      <li>可与材料 ERODE 失效准则联用</li>
+    </ul>
+    <p><strong>LS-DYNA</strong>（显式，汽车碰撞<strong>事实标准</strong>）：</p>
+    <ul>
+      <li>显式中心差分</li>
+      <li>接触算法丰富（NTS、STS、单面）</li>
+      <li>材料库齐全（金属、橡胶、复合材料、土壤）</li>
+    </ul>
+  </div>
+
+  <!-- 6.7 -->
+  <div class="lesson-section">
+    <h3>💡 6.7 工程例子</h3>
+
+    <div class="example">
+      <div class="example-title">💡 例 6.1 Row-sum 和 Hinton 集中质量矩阵</div>
+      <p>1D 杆单元 L：A 截面，ρ 密度。</p>
+      <ul>
+        <li><strong>Row-sum</strong>：(ρAL/2) · diag(1, 1) = lumped mass</li>
+        <li><strong>Hinton</strong>：(ρAL/2) · α · diag(2/8, 6/8)，α = ρAL/(ρAL/4 + 3ρAL/4) = 2，确保总质量守恒</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-title">💡 真实工程：汽车正面碰撞</div>
+      <ul>
+        <li>🚗 整车 100-150 ms，5-10 万单元</li>
+        <li>🚀 显式积分（LS-DYNA）单步 Δt ≈ 1e-6 s</li>
+        <li>💻 整车计算 100-1000 CPU 小时</li>
+        <li>🛡️ 为约束系统（气囊、安全带）调参 + 100+ 次 DOE</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-title">💡 真实工程：鸟撞发动机风扇叶片</div>
+      <ul>
+        <li>🐦 鸟体视为流体（SPH 或 ALE）+ 叶片为弹塑性（CEL 耦合）</li>
+        <li>🚀 显式积分处理大变形 + 材料失效（*MAT_EROSION）</li>
+        <li>⏱️ DC - 持续<em>数毫秒</em>，但 Δt 极小</li>
+      </ul>
+    </div>
+
+    <div class="example">
+      <div class="example-title">💡 真实工程：结构地震响应</div>
+      <ul>
+        <li>🌍 持续 30-60 s 地震波</li>
+        <li>📊 隐式积分（Newmark β=1/4）Δt = 0.01 s</li>
+        <li>📈 计算材料塑性累积损伤</li>
+        <li>📋 用于抗震设计规范校核</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 6.8 -->
+  <div class="lesson-section">
+    <h3>📌 6.8 本章总结</h3>
+    <ul>
+      <li>✅ <strong>动力学方程</strong>：<b>M</b>d̈ + <b>C</b>ḋ + <b>K</b>d = <b>F</b></li>
+      <li>✅ <strong>质量矩阵</strong>（一致 / 集中）与 <strong>Rayleigh 阻尼</strong></li>
+      <li>✅ <strong>显式</strong>（CDM）vs <strong>隐式</strong>（Newmark）时间积分</li>
+      <li>✅ <strong>CFL 稳定极限</strong> Δt<sub>cr</sub> = L<sub>min</sub>/c</li>
+      <li>✅ <strong>HHT-α 数值阻尼</strong></li>
+      <li>✅ <strong>商业软件</strong>：Abaqus/Standard（隐式）、Abaqus/Explicit、LS-DYNA</li>
+      <li>✅ <strong>工程应用</strong>：碰撞、跌落、地震响应、轮胎、鸟撞</li>
+    </ul>
+    <p class="text-dim">📍 <strong>整车被动安全</strong>仿真几乎完全依赖本章的<strong>显式动力学</strong>（LS-DYNA + RADIOSS + Abaqus/Explicit）。</p>
+  </div>
+
+  <!-- 6.9 -->
+  <div class="lesson-section">
+    <h3>📝 6.9 习题（PDF p480-488）</h3>
+    <ul>
+      <li><strong>6.1</strong> 质量矩阵推导</li>
+      <li><strong>6.3</strong> 中心差分法手算（2 自由度系统）</li>
+      <li><strong>6.8</strong> Newmark-β 隐式积分</li>
+      <li><strong>6.12</strong> Rayleigh 阻尼参数选取</li>
+      <li><strong>6.15</strong> 隐式 vs 显式选择</li>
+      <li><strong>6.18</strong> CFL 极限与单元尺寸关系</li>
+      <li><strong>6.22</strong> 模态叠加 vs 直接积分（线/非线性）</li>
+      <li><strong>6.25</strong> 用 MATLAB 写显式积分程序</li>
+    </ul>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📚 本章 PDF 关键页面</h3>
+    <div class="page-thumbs">
+      <a class="page-thumb" href="../assets/pages/ch6_p455.png"><img src="../assets/pages/ch6_p455.png" alt="p455"><div class="pt-caption">p455 · 章概览</div></a>
+      <a class="page-thumb" href="../assets/pages/ch6_p462.png"><img src="../assets/pages/ch6_p462.png" alt="p462"><div class="pt-caption">p462 · 质量矩阵</div></a>
+      <a class="page-thumb" href="../assets/pages/ch6_p470.png"><img src="../assets/pages/ch6_p470.png" alt="p470"><div class="pt-caption">p470 · 时间积分</div></a>
+      <a class="page-thumb" href="../assets/pages/ch6_p475.png"><img src="../assets/pages/ch6_p475.png" alt="p475"><div class="pt-caption">p475 · Newmark-β</div></a>
+      <a class="page-thumb" href="../assets/pages/ch6_p482.png"><img src="../assets/pages/ch6_p482.png" alt="p482"><div class="pt-caption">p482 · 稳定性区域</div></a>
+    </div>
+  </div>
+
+  <div class="card" id="notesSection"></div>
+</main>
+
+<script src="../js/storage.js"></script>
+<script src="../js/progress.js"></script>
+<script src="../js/notes.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/inline-data.js"></script>
+<script>
+  const SLUG = "ch6";
+  document.getElementById("statusSection").innerHTML = NLApp.statusButtonsHTML(SLUG);
+  document.getElementById("notesSection").innerHTML = NLApp.notesHTML(SLUG);
+  NLApp.bindLesson(SLUG);
+</script>
+</body>
+</html>

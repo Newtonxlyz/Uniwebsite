@@ -14,6 +14,7 @@ import {
   ChevronDown,
   Play,
   Pause,
+  Atom,
 } from "lucide-react";
 import AboutSection from "@/components/about-section";
 import ScrollAvatar from "@/components/scroll-avatar";
@@ -48,6 +49,14 @@ const sites = [
     icon: "📚",
     lucideIcon: Database,
     color: "from-blue-500/20 to-cyan-500/20",
+  },
+  {
+    href: "/learn/nlfea",
+    label: "NLFEA",
+    desc: "非线性有限元 · 6 章 49 节 · 闪卡+考试",
+    icon: "🧮",
+    lucideIcon: Atom,
+    color: "from-teal-500/20 to-cyan-500/20",
   },
   {
     href: "/blog",

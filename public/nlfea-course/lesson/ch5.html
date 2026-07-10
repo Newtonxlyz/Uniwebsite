@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch5 · 接触非线性</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="brand">NLFEA 学习平台</a>
+    <a href="../index.html" class="nav-link">课程地图</a>
+    <a href="../flashcards.html" class="nav-link">闪卡</a>
+    <a href="../exam.html" class="nav-link">考试</a>
+    <a href="../review.html" class="nav-link">回顾</a>
+    <span class="nav-spacer"></span>
+    <span class="nav-btn" id="chTitle">第 5 章</span>
+  </div>
+</nav>
+
+<main class="container lesson-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="../index.html">课程地图</a> › 第 5 章
+    </div>
+    <h1>第 5 章 · 有限元分析 - 接触问题</h1>
+    <p class="text-dim">Finite Element Analysis for Contact Problems · PDF p373–448</p>
+  </div>
+
+  <div class="card" id="statusSection"></div>
+
+  <!-- 5.1 -->
+  <div class="lesson-section">
+    <h3>📖 5.1 本章概览</h3>
+    <p>接触是最常见的<strong>边界非线性</strong>——接触边界随变形变化、接触力大小/方向也变化。<strong>两大难点</strong>：①<strong>不可穿透条件</strong>（约束）；②<strong>摩擦</strong>（非光滑）。</p>
+    <ul>
+      <li>5.1 接触基础（接触体/目标体）</li>
+      <li>5.2 单点接触例子</li>
+      <li>5.3 接触约束公式（Lagrange 乘子 / 罚函数）</li>
+      <li>5.4 接触界面构造（主面/从面）</li>
+      <li>5.5 接触数值算法（节点-面、面-面）</li>
+      <li>5.6 摩擦模型（Coulomb）</li>
+      <li>5.7 商业软件接触设置</li>
+    </ul>
+    <p class="text-dim">应用：螺栓连接、齿轮啮合、密封圈、轮胎、铆钉、薄板冲压、汽车碰撞、刹车片、轴承、塑料零件装配。</p>
+    <img src="../assets/pages/ch5_p378.png" alt="contact" class="pdf-img">
+    <p class="pdf-img-caption">图 5.1 接触边界与接触力：法向接触力 + 切向摩擦力</p>
+  </div>
+
+  <!-- 5.2 -->
+  <div class="lesson-section">
+    <h3>🔧 5.2 单点接触例子</h3>
+
+    <img src="../assets/pages/ch5_p385.png" alt="contact states" class="pdf-img">
+    <p class="pdf-img-caption">图 5.x 接触三状态：分离 / 粘结 / 滑动</p>
+
+    <h4>5.2.1 悬臂梁-刚块接触（无摩擦）</h4>
+    <p>悬臂梁端部自然挠度 v<sub>N</sub>(L) = 1.25 mm，刚块间隙 δ = 1 mm。自由状态 v<sub>tip</sub> &gt; δ，发生接触。</p>
+    <p>用叠加法：v<sub>tip</sub> = v<sub>N</sub>(L) − λ/K<sub>梁</sub> = 1.25 − λ/300000 = δ</p>
+    <p>解得 λ = <strong>75 N</strong>。</p>
+
+    <h4>5.2.2 悬臂梁-刚块接触（有摩擦）</h4>
+    <p>拉力 P = 100 N，摩擦系数 μ = 0.25，刚块反力 λ = 150 N。</p>
+    <p><strong>假设粘结</strong>（无滑动）：t = P = 100 N，但 t − μλ = 62.5 N &gt; 0 → <strong>违反粘结条件</strong></p>
+    <p><strong>改用滑动</strong>：t = μλ = 37.5 N，u<sub>tip</sub> = 0.625 mm &gt; 0 → <strong>滑动有效</strong></p>
+
+    <img src="../assets/pages/ch5_p392.png" alt="contact formulation" class="pdf-img">
+    <p class="pdf-img-caption">图 5.x 单点接触的 Lagrange 乘子 / 罚函数法求解</p>
+
+    <div class="important">
+      <div class="important-title">为什么接触是边界非线性？</div>
+      <p>接触边界 = <strong>解的一部分</strong>（不是已知）。需要在 NR 迭代中<strong>探测接触状态</strong>，根据状态施加接触力，再求解——这种"算法过程"导致<strong>不连续、不光滑</strong>。</p>
+    </div>
+  </div>
+
+  <!-- 5.3 -->
+  <div class="lesson-section">
+    <h3>📐 5.3 接触约束公式</h3>
+    <h4>5.3.1 变分不等式</h4>
+    <p>接触约束把<strong>最小势能</strong>改为<strong>受限变分不等式</strong>：</p>
+    <div class="formula">
+      <div class="formula-block">
+        ∏(<b>u</b>) = ∫<sub>Ω</sub> W(ε) dV − ∫<sub>Ω</sub> <b>f</b>·<b>u</b> dV − ∫<sub>Γ<sub>t</sub></sub> <b>t</b>·<b>u</b> dS<br>
+        &nbsp;&nbsp;s.t. g(<b>u</b>) ≥ 0 在接触面
+      </div>
+    </div>
+
+    <h4>5.3.2 三种数学处理方法</h4>
+    <ol>
+      <li><strong>Lagrange 乘子法</strong>：引入 λ 作为变量，λ ≥ 0，λ·g = 0，刚度矩阵非对角占优</li>
+      <li><strong>罚函数法</strong>：g &lt; 0 时增加罚能 (1/2)ε·g²，可有微小穿透</li>
+      <li><strong>增广 Lagrange 法</strong>：罚 + 拉格朗日乘子</li>
+      <li><strong>Mechanical / Mortar 方法</strong>：节点-面接触，弱约束形式</li>
+    </ol>
+
+    <img src="../assets/pages/ch5_p400.png" alt="contact methods" class="pdf-img">
+    <p class="pdf-img-caption">图 5.x 3 种接触约束方法比较</p>
+
+    <h4>5.3.3 Lagrange 乘子法</h4>
+    <div class="formula">
+      <div class="formula-block">
+        ∏(<b>u</b>, λ) = ∫<sub>Ω</sub> W(ε) dV − ∫<sub>Ω</sub> <b>f</b>·<b>u</b> dV − ∫<sub>Γ</sub> λ·g dS
+      </div>
+      <div class="formula-block">
+        g ≥ 0，λ ≥ 0，λ·g = 0（KKT 条件）
+      </div>
+    </div>
+    <p><strong>优</strong>：精确约束（无穿透）；<strong>劣</strong>：矩阵带状稀疏结构被破坏。</p>
+
+    <h4>5.3.4 罚函数法</h4>
+    <div class="formula">
+      <div class="formula-block">
+        ∏<sub>pen</sub> = ∏ + (1/2) ε<sub>pen</sub> · &lt;−g&gt;²
+      </div>
+    </div>
+    <p>ε<sub>pen</sub> 是罚因子（软化弹簧）。<strong>优</strong>：简单、不破坏矩阵结构；<strong>劣</strong>：有微小穿透（≈ √(ε<sub>pen</sub>)）。</p>
+
+    <div class="important">
+      <div class="important-title">增广 Lagrange = 商业软件主流</div>
+      <p>Abaqus / ANSYS 默认采用 A.L. 方法：保留拉格朗日乘子精度，又保留罚函数效率。</p>
+      <p><strong>迭代步骤</strong>：① 像罚函数求解；② 把穿透添加到乘子修正；③ 反复直到穿透 &lt; 阈值。</p>
+    </div>
+  </div>
+
+  <!-- 5.4 -->
+  <div class="lesson-section">
+    <h3>🧱 5.4 接触界面构造</h3>
+
+    <img src="../assets/pages/ch5_p410.png" alt="contact surface" class="pdf-img">
+    <p class="pdf-img-caption">图 5.x 接触界面：主面（target）+ 从面（contact）</p>
+
+    <ul>
+      <li><strong>主-从接触</strong>：接触体（从）面 vs 目标体（主）面（首选）</li>
+      <li><strong>对称接触</strong>：两侧都对等参与（更稳健，代价更大）</li>
+      <li><strong>接触探测</strong>：close-gap / short / near-field</li>
+    </ul>
+
+    <p><strong>接触面离散</strong>：</p>
+    <ul>
+      <li><strong>节点-面</strong>（NTS）：从节点积分主面罚函数。简单，但主面网格质量要求高</li>
+      <li><strong>面-面</strong>（STS）：双面投影，更稳健，可处理大滑动和摩擦</li>
+      <li><strong>Mortar</strong>：弱约束的边界面方法</li>
+    </ul>
+  </div>
+
+  <!-- 5.5 -->
+  <div class="lesson-section">
+    <h3>🛞 5.5 数值算法</h3>
+    <p><strong>时间步内迭代</strong>：</p>
+    <img src="../assets/pages/ch5_p420.png" alt="contact algorithm" class="pdf-img">
+    <p class="pdf-img-caption">图 5.x 接触算法流程：预测→探测→施加→求解→判断</p>
+
+    <ol>
+      <li>预测：求解不带接触的<strong>无约束</strong>位移</li>
+      <li>接触探测：找出所有穿透节点</li>
+      <li>接触施加：在穿透节点加<strong>反力</strong>（罚/拉格朗日）</li>
+      <li>求解带接触约束的位移</li>
+      <li>判断接触状态收敛性</li>
+      <li>未收敛 → 回到步骤 2</li>
+    </ol>
+
+    <p>关键参数：</p>
+    <ul>
+      <li><strong>gap-allowance</strong>：判定接触的<strong>距离阈值</strong></li>
+      <li><strong>penetration-tolerance</strong>：可接受的最大穿透</li>
+      <li><strong>normal stiffness</strong>：罚因子（不可过大 / 不可过小）</li>
+      <li><strong>slip tolerance</strong>：判定粘滑转换</li>
+    </ul>
+  </div>
+
+  <!-- 5.6 -->
+  <div class="lesson-section">
+    <h3>🛑 5.6 摩擦模型</h3>
+
+    <img src="../assets/pages/ch5_p430.png" alt="friction" class="pdf-img">
+    <p class="pdf-img-caption">图 5.x Coulomb 摩擦：粘结 + 滑动两阶段</p>
+
+    <h4>5.6.1 Coulomb 摩擦</h4>
+    <div class="formula">
+      <div class="formula-block">
+        φ = |t| − μλ ≤ 0（粘滞约束）
+      </div>
+      <div class="formula-block">
+        φ = 0（开始滑动）
+      </div>
+    </div>
+    <p>μ 是摩擦系数。</p>
+
+    <h4>5.6.2 其他模型</h4>
+    <ul>
+      <li><strong>指数摩擦</strong>：μ = μ<sub>∞</sub> + (μ<sub>0</sub> − μ<sub>∞</sub>) · e<sup>−γv</sup>（速度相关）</li>
+      <li><strong>剪切极限</strong>：t<sub>max</sub> = min(μλ, τ<sub>lim</sub>)（粘接强度限制）</li>
+      <li><strong>正则化</strong>：用平滑函数替代符号函数</li>
+    </ul>
+  </div>
+
+  <!-- 5.7 -->
+  <div class="lesson-section">
+    <h3>💡 5.7 工程例子</h3>
+
+    <img src="../assets/pages/ch5_p440.png" alt="engineering examples" class="pdf-img">
+    <p class="pdf-img-caption">图 5.x 工程接触例子：螺栓、密封、轴承、轮胎</p>
+
+    <div class="example">
+      <div class="example-title">💡 真实工程例子</div>
+      <ul>
+        <li>🔩 <strong>螺栓连接</strong>：螺纹接触 + 摩擦力矩</li>
+        <li>🛞 <strong>轮胎-地面</strong>：大变形 + 摩擦 + 动力</li>
+        <li>🛢️ <strong>O 型圈密封</strong>：大变形 + 接触 + 摩擦</li>
+        <li>⚙️ <strong>齿轮啮合</strong>：接触应力 + 滑动</li>
+        <li>🚗 <strong>车身覆盖件装配</strong>：多体接触 + 焊接变形</li>
+        <li>🏗️ <strong>法兰密封</strong>：金属 + 橡胶接触</li>
+        <li>🔨 <strong>薄板冲压</strong>：板料与模具接触</li>
+        <li>🚙 <strong>汽车碰撞</strong>：车身零件之间 + 与地面</li>
+      </ul>
+    </div>
+
+    <div class="important">
+      <div class="important-title">汽车碰撞中的接触</div>
+      <p>碰撞仿真（如 LS-DYNA / RADIOSS）中：</p>
+      <ul>
+        <li>🚀 1 万 ~ 50 万个<strong>接触对</strong></li>
+        <li>🔧 主面-从面自动检测（避免初始化穿透）</li>
+        <li>📈 接触力 = 罚函数法（保持显式积分稳定性）</li>
+        <li>🔥 接触面摩擦对总能量耗散贡献 ~10-30%</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 5.8 -->
+  <div class="lesson-section">
+    <h3>📌 5.8 本章总结</h3>
+    <ul>
+      <li>✅ <strong>接触三要素</strong>：接触体 / 目标体 / 接触边界</li>
+      <li>✅ <strong>三种状态</strong>：分离 / 粘结 / 滑动</li>
+      <li>✅ <strong>四种约束方法</strong>：拉格朗日乘子 / 罚函数 / 增广拉格朗日 / Mortar</li>
+      <li>✅ <strong>三种接触面离散</strong>：节点-面 / 面-面 / Mortar</li>
+      <li>✅ <strong>Coulomb 摩擦</strong> + 速度正则化</li>
+      <li>✅ <strong>工程应用</strong>：螺栓、密封、轮胎、齿轮啮合、铆钉、薄板冲压</li>
+    </ul>
+    <p class="text-dim">第 6 章将进入<strong>动力学非线性</strong>（显式积分、隐式积分、时间步长准则）。</p>
+  </div>
+
+  <!-- 5.9 习题 -->
+  <div class="lesson-section">
+    <h3>📝 5.9 习题（PDF p430-448）</h3>
+    <ul>
+      <li><strong>5.1</strong> 单点接触的接触力计算</li>
+      <li><strong>5.2</strong> Lagrange 乘子法接触求解</li>
+      <li><strong>5.3</strong> 罚函数法接触求解</li>
+      <li><strong>5.4</strong> 摩擦粘-滑判断</li>
+      <li><strong>5.5</strong> 增广 Lagrange 迭代</li>
+      <li><strong>5.8</strong> 拉格朗日 vs 罚函数对比（精度 + 效率）</li>
+      <li><strong>5.10</strong> 接触罚参数选取</li>
+      <li><strong>5.12</strong> 接触刚度矩阵推导</li>
+      <li><strong>5.15</strong> 用 MATLAB 实现 2D 接触分析</li>
+    </ul>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📚 本章 PDF 关键页面</h3>
+    <div class="page-thumbs">
+      <a class="page-thumb" href="../assets/pages/ch5_p378.png"><img src="../assets/pages/ch5_p378.png" alt="p378"><div class="pt-caption">p378 · 接触基础</div></a>
+      <a class="page-thumb" href="../assets/pages/ch5_p385.png"><img src="../assets/pages/ch5_p385.png" alt="p385"><div class="pt-caption">p385 · 接触状态</div></a>
+      <a class="page-thumb" href="../assets/pages/ch5_p392.png"><img src="../assets/pages/ch5_p392.png" alt="p392"><div class="pt-caption">p392 · 接触公式</div></a>
+      <a class="page-thumb" href="../assets/pages/ch5_p400.png"><img src="../assets/pages/ch5_p400.png" alt="p400"><div class="pt-caption">p400 · 约束方法</div></a>
+      <a class="page-thumb" href="../assets/pages/ch5_p410.png"><img src="../assets/pages/ch5_p410.png" alt="p410"><div class="pt-caption">p410 · 接触界面</div></a>
+      <a class="page-thumb" href="../assets/pages/ch5_p420.png"><img src="../assets/pages/ch5_p420.png" alt="p420"><div class="pt-caption">p420 · 接触算法</div></a>
+      <a class="page-thumb" href="../assets/pages/ch5_p430.png"><img src="../assets/pages/ch5_p430.png" alt="p430"><div class="pt-caption">p430 · 摩擦模型</div></a>
+      <a class="page-thumb" href="../assets/pages/ch5_p440.png"><img src="../assets/pages/ch5_p440.png" alt="p440"><div class="pt-caption">p440 · 工程例子</div></a>
+    </div>
+  </div>
+
+  <div class="card" id="notesSection"></div>
+</main>
+
+<script src="../js/storage.js"></script>
+<script src="../js/progress.js"></script>
+<script src="../js/notes.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/inline-data.js"></script>
+<script>
+  const SLUG = "ch5";
+  document.getElementById("statusSection").innerHTML = NLApp.statusButtonsHTML(SLUG);
+  document.getElementById("notesSection").innerHTML = NLApp.notesHTML(SLUG);
+  NLApp.bindLesson(SLUG);
+</script>
+</body>
+</html>

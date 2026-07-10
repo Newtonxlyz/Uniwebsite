@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch2 · 非线性有限元分析过程</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="brand">NLFEA 学习平台</a>
+    <a href="../index.html" class="nav-link">课程地图</a>
+    <a href="../flashcards.html" class="nav-link">闪卡</a>
+    <a href="../exam.html" class="nav-link">考试</a>
+    <a href="../review.html" class="nav-link">回顾</a>
+    <span class="nav-spacer"></span>
+    <span class="nav-btn" id="chTitle">第 2 章</span>
+  </div>
+</nav>
+
+<main class="container lesson-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="../index.html">课程地图</a> › 第 2 章
+    </div>
+    <h1>第 2 章 · 非线性有限元分析过程</h1>
+    <p class="text-dim">Nonlinear Finite Element Analysis Procedure · PDF p87–150</p>
+  </div>
+
+  <div class="card" id="statusSection"></div>
+
+  <!-- 2.1 -->
+  <div class="lesson-section">
+    <h3>📖 2.1 固体力学中的非线性系统</h3>
+    <h4>2.1.1 非线性 vs 线性</h4>
+    <p><strong>非线性问题</strong>不满足叠加原理，刚度随位移/载荷变化。本教材把它们统一为方程：</p>
+    <div class="formula">
+      <span class="formula-num">(2.6)</span>
+      <div class="formula-block"><b>P</b>(<b>u</b>) − <b>f</b> = <b>0</b></div>
+    </div>
+    <p>其中 <b>u</b> = 节点位移向量，<b>f</b> = 外加载荷，<b>P</b>(<b>u</b>) = 内力向量。线性情况下 <b>P</b>(<b>u</b>) = <b>K</b> <b>u</b>（<b>K</b> 恒定）；非线性情况下 <b>P</b> 是 <b>u</b> 的<strong>非线性函数</strong>，必须<strong>迭代求解</strong>。</p>
+
+    <h4>2.1.2 四大非线性类型</h4>
+    <p>固体力学中公认<strong>四大非线性来源</strong>：</p>
+    <ol>
+      <li><strong>材料非线性</strong>（Material）：应力-应变非线性，如弹塑性、超弹、蠕变</li>
+      <li><strong>几何非线性</strong>（Geometry）：大变形 / 大转动，平衡方程写在变形构形</li>
+      <li><strong>边界非线性</strong>（Boundary）：接触边界变化（接触问题）</li>
+      <li><strong>载荷非线性</strong>（Force）：载荷大小/方向随变形变化（follower force）</li>
+    </ol>
+    <img src="../assets/pages/ch2_p095.png" alt="nonlinearities" class="pdf-img">
+    <p class="pdf-img-caption">图 2.5 四大非线性在固体力学中的位置（位移/应变/应力/载荷/边界条件的关系）</p>
+
+    <img src="../assets/pages/ch2_p098.png" alt="geometric nonlinearity" class="pdf-img">
+    <p class="pdf-img-caption">图 2.6 几何非线性例子：悬臂梁大转动（力矩-位移非线性）</p>
+
+    <div class="example">
+      <div class="example-title">💡 例 2.1：金属薄板冲压（拉深工艺）</div>
+      <p>金属板冲压成杯形：① 板料<strong>塑性变形</strong>（材料非线性）；② 厚度减薄、轮廓大变形（几何非线性）；③ 板料与模具<strong>接触边界</strong>变化（边界非线性）。</p>
+      <p>实际工程通常只考虑 1-2 种主非线性，<strong>同时考虑全部 4 种计算成本极高</strong>。</p>
+    </div>
+
+    <h4>2.1.3 工程中的非线性例子</h4>
+    <ul>
+      <li>🚗 汽车碰撞（材料塑性 + 大变形 + 接触 + 动力）</li>
+      <li>🛢️ 压力容器（材料塑性 + 蠕变）</li>
+      <li>🛞 轮胎滚动（大变形 + 接触 + 动力）</li>
+      <li>🏗️ 地震响应（材料塑性 + 动力）</li>
+      <li>🛩️ 鸟撞发动机叶片（材料失效 + 接触 + 动力）</li>
+    </ul>
+  </div>
+
+  <!-- 2.2 -->
+  <div class="lesson-section">
+    <h3>🔄 2.2 非线性代数方程求解方法</h3>
+    <p>非线性方程 <b>P</b>(<b>u</b>) = <b>f</b> 没有解析解（除简单情况），必须<strong>迭代</strong>。从初值 <b>u</b><sup>0</sup> 开始，每步求增量 Δ<b>u</b> 直到收敛。</p>
+
+    <img src="../assets/pages/ch2_p105.png" alt="nonlinear spring" class="pdf-img">
+    <p class="pdf-img-caption">图 2.12 串联非线性弹簧：F = 100 N，k₁ = 50 + 500u₁，k₂ = 100 + 200(u₂-u₁)</p>
+
+    <div class="example">
+      <div class="example-title">💡 例 2.2：非线性弹簧系统</div>
+      <p>两弹簧串联：k₁ = 50 + 500u₁ N/m，k₂ = 100 + 200u₂ N/m。F = 100 N。</p>
+      <p>组装得非线性方程组：</p>
+      <div class="formula">
+        <div class="formula-block">
+          300u<sub>1</sub>² + 400u<sub>1</sub>u<sub>2</sub> − 200u<sub>2</sub>² + 150u<sub>1</sub> − 100u<sub>2</sub> = 0<br>
+          200u<sub>1</sub>² − 400u<sub>1</sub>u<sub>2</sub> + 200u<sub>2</sub>² − 100u<sub>1</sub> + 100u<sub>2</sub> = 100
+        </div>
+      </div>
+      <p>图 2.13 显示：可能有多解或无解，需用数值方法找零点。</p>
+    </div>
+
+    <h4>2.2.1 Newton-Raphson 法 (NR)</h4>
+    <p>最经典。在当前 <b>u</b><sup>(i)</sup> 做一阶 Taylor 展开：</p>
+    <div class="formula">
+      <span class="formula-num">(2.11)</span>
+      <div class="formula-block">
+        <b>P</b>(<b>u</b><sup>(i+1)</sup>) ≈ <b>P</b>(<b>u</b><sup>(i)</sup>) + <b>K</b><sub>T</sub>(<b>u</b><sup>(i)</sup>) · Δ<b>u</b>
+      </div>
+    </div>
+    <p><strong>K</strong><sub>T</sub> = ∂<b>P</b>/∂<b>u</b> = <strong>切线刚度矩阵</strong>。令 <b>P</b>(<b>u</b><sup>(i+1)</sup>) = <b>f</b>，解得：</p>
+    <div class="formula">
+      <span class="formula-num">(2.13)</span>
+      <div class="formula-block">
+        Δ<b>u</b><sup>(i)</sup> = <b>K</b><sub>T</sub><sup>-1</sup>(<b>u</b><sup>(i)</sup>) · <b>R</b>(<b>u</b><sup>(i)</sup>)
+      </div>
+    </div>
+    <p><strong>R</b> = <b>f</b> − <b>P</b>(<b>u</b><sup>(i)</sup>) = <strong>残差力</strong>。迭代公式：</p>
+    <div class="formula">
+      <span class="formula-num">(2.14)</span>
+      <div class="formula-block"><b>u</b><sup>(i+1)</sup> = <b>u</b><sup>(i)</sup> + Δ<b>u</b><sup>(i)</sup></div>
+    </div>
+
+    <img src="../assets/pages/ch2_p110.png" alt="NR method" class="pdf-img">
+    <p class="pdf-img-caption">图 2.16 Newton-Raphson 迭代的几何解释：每步用切线逼近曲线</p>
+
+    <div class="important">
+      <div class="important-title">NR 法核心步骤</div>
+      <ol>
+        <li>① 计算残差 <b>R</b>(<b>u</b><sup>(i)</sup>) = <b>f</b> − <b>P</b>(<b>u</b><sup>(i)</sup>)</li>
+        <li>② 计算切线刚度 <b>K</b><sub>T</sub>(<b>u</b><sup>(i)</sup>) = ∂<b>P</b>/∂<b>u</b></li>
+        <li>③ 解线性方程 <b>K</b><sub>T</sub> Δ<b>u</b> = <b>R</b></li>
+        <li>④ 更新 <b>u</b><sup>(i+1)</sup> = <b>u</b><sup>(i)</sup> + Δ<b>u</b></li>
+        <li>⑤ 检查收敛（力残差 / 位移增量 / 能量）</li>
+        <li>⑥ 未收敛则回步骤 ①</li>
+      </ol>
+      <p><strong>收敛速度</strong>：二次收敛（NR 法的最大优势）</p>
+    </div>
+
+    <h4>2.2.2 修正 Newton-Raphson (mNR)</h4>
+    <p>每 N 步才更新一次<strong>切线刚度</strong>：</p>
+    <div class="formula">
+      <div class="formula-block">
+        Δ<b>u</b><sup>(i)</sup> = <b>K</b><sub>T</sub><sup>-1</sup>(<b>u</b><sup>(0)</sup>) · <b>R</b>(<b>u</b><sup>(i)</sup>)
+      </div>
+    </div>
+    <p><strong>优</strong>：组装/分解刚度少 N 次 → 节省计算<br>
+       <strong>劣</strong>：线性收敛，收敛慢</p>
+
+    <h4>2.2.3 增量割线法</h4>
+    <p>用<strong>割线刚度</strong>（两点间的斜率）代替切线刚度：</p>
+    <div class="formula">
+      <div class="formula-block"><b>K</b><sub>sec</sub> ≈ Δ<b>P</b> / Δ<b>u</b></div>
+    </div>
+    <p>适合材料软化/硬化等弱非线性问题。</p>
+
+    <h4>2.2.4 增量力法</h4>
+    <p>载荷按增量施加：<b>f</b><sub>n+1</sub> = <b>f</b><sub>n</sub> + Δ<b>f</b>，每步用 NR 求解当前载荷下的平衡。</p>
+
+    <img src="../assets/pages/ch2_p115.png" alt="load increment" class="pdf-img">
+    <p class="pdf-img-caption">图 2.19 增量力法：把总载荷切成 N 步，每步 NR 求解</p>
+
+    <h4>2.2.5 弧长法（Arc-Length Method）</h4>
+    <p>NR 法在<strong>极限点</strong>（载荷-位移曲线峰谷）失效——切线刚度奇异。<strong>弧长法</strong>引入载荷因子 λ 作为额外未知量，约束位移增量的<strong>弧长</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(2.x)</span>
+      <div class="formula-block">
+        Δ<b>u</b><sup>T</sup> Δ<b>u</b> + α · (Δλ)² · <b>f</b><sup>T</sup> <b>f</b> = Δl²
+      </div>
+    </div>
+    <p>其中 Δl 是弧长增量。能通过 <strong>snap-through</strong>（位移跳跃）和 <strong>snap-back</strong>（力反向）。</p>
+  </div>
+
+  <!-- 2.3 -->
+  <div class="lesson-section">
+    <h3>🛠️ 2.3 非线性有限元分析步骤</h3>
+    <p>5 个核心步骤（NR 法框架）：</p>
+    <div class="important">
+      <div class="important-title">完整 NLFEA 流程</div>
+      <ol>
+        <li><strong>2.3.1 状态确定</strong>：根据当前位移计算应变、应力、内力</li>
+        <li><strong>2.3.2 残差计算</strong>：<b>R</b> = <b>f</b><sub>ext</sub> − <b>P</b><sub>int</sub></li>
+        <li><strong>2.3.3 收敛判断</strong>：|<b>R</b>| &lt; tol？</li>
+        <li><strong>2.3.4 线性化</strong>：计算 <b>K</b><sub>T</sub> = ∂<b>P</b>/∂<b>u</b></li>
+        <li><strong>2.3.5 求解</strong>：解 <b>K</b><sub>T</sub> Δ<b>u</b> = <b>R</b>，更新 <b>u</b>，回步骤 1</li>
+      </ol>
+    </div>
+
+    <img src="../assets/pages/ch2_p120.png" alt="flowchart" class="pdf-img">
+    <p class="pdf-img-caption">图 2.21 NLFEA 求解流程图</p>
+
+    <h4>2.3.3 收敛准则（3 种常用）</h4>
+    <div class="formula">
+      <div class="formula-block">
+        ① 力残差：||<b>R</b>|| / ||<b>f</b><sub>ref</sub>|| &lt; ε<sub>f</sub> （如 1e-3）
+      </div>
+      <div class="formula-block">
+        ② 位移增量：||Δ<b>u</b>|| / ||<b>u</b><sub>ref</sub>|| &lt; ε<sub>u</sub> （如 1e-3）
+      </div>
+      <div class="formula-block">
+        ③ 能量：Δ<b>u</b><sup>T</sup> · <b>R</b> / Δ<b>u</b><sub>0</sub><sup>T</sup> · <b>R</b><sub>0</sub> &lt; ε<sub>E</sub> （如 1e-6）
+      </div>
+    </div>
+    <p>商业软件通常<strong>同时使用 2-3 种准则</strong>，全部满足才收敛。</p>
+
+    <img src="../assets/pages/ch2_p125.png" alt="convergence" class="pdf-img">
+    <p class="pdf-img-caption">图 2.23 收敛准则：力 / 位移 / 能量 三种判据</p>
+  </div>
+
+  <!-- 2.4 -->
+  <div class="lesson-section">
+    <h3>💻 2.4 MATLAB 实现：1D 非线性杆</h3>
+    <p>第 2.4 节给出 1D 杆的非线性 NR 求解 MATLAB 代码（PDF p124-139）。</p>
+    <div class="example">
+      <div class="example-title">💡 NR 求解骨架（伪代码）</div>
+      <pre style="background:#000;color:#e5e7eb;padding:12px;border-radius:6px;font-size:12px;overflow-x:auto;">
+% 主循环：载荷增量
+for n = 1:N
+    f_ext = n * delta_f;
+    u = u_old;  % 从上次增量末状态开始
+    % NR 迭代
+    for i = 1:MaxIter
+        [P_int, K_T] = assemble_internal(u);  % 组装内力+切线刚度
+        R = f_ext - P_int;                    % 残差
+        if norm(R)/norm(f_ext) < 1e-3, break; end
+        du = K_T \ R;                          % 解线性方程
+        u = u + du;                            % 更新
+    end
+    u_old = u;  % 保存当前增量末状态
+end
+      </pre>
+    </div>
+
+    <img src="../assets/pages/ch2_p130.png" alt="beam bending" class="pdf-img">
+    <p class="pdf-img-caption">图 2.27 1D 杆单元非线性分析的 NR 迭代过程</p>
+
+    <img src="../assets/pages/ch2_p140.png" alt="beam 3D" class="pdf-img">
+    <p class="pdf-img-caption">图 2.28 3D 实体单元弯曲（5 个 hex8 单元模拟悬臂梁）</p>
+
+    <img src="../assets/pages/ch2_p148.png" alt="NLFEA 3D results" class="pdf-img">
+    <p class="pdf-img-caption">图 2.28b 应力 σ₂₂ 等高线：上下表面 ±1.97 MPa（3D 弯曲）</p>
+  </div>
+
+  <!-- 2.5 -->
+  <div class="lesson-section">
+    <h3>🏢 2.5 商业 FEA 软件中的非线性控制</h3>
+    <p>实际工程中通常用商业软件（Abaqus / ANSYS / Nastran）。<strong>共同的非线性控制要素</strong>：</p>
+    <ul>
+      <li><strong>载荷步 (Load Step)</strong>：分析步，载荷增量的边界</li>
+      <li><strong>子步 (Substep)</strong>：每个分析步内的载荷增量数</li>
+      <li><strong>求解器</strong>：Sparse / Direct / Iterative</li>
+      <li><strong>收敛容差</strong>：力 / 位移 / 旋转容差</li>
+      <li><strong>最大迭代数</strong>：每子步 NR 迭代上限</li>
+      <li><strong>弧长法</strong>：通过极限点（snap-through / snap-back）</li>
+    </ul>
+    <div class="important">
+      <div class="important-title">工程经验</div>
+      <ul>
+        <li>📍 <strong>收敛困难</strong>：减小子步、放松容差、换修正 NR、试弧长法</li>
+        <li>📍 <strong>不收敛</strong>：检查模型（边界、接触、材料、单位）</li>
+        <li>📍 <strong>计算慢</strong>：用稀疏求解器、并行、mNR 减少刚度组装</li>
+        <li>📍 <strong>二分法</strong>：商业软件常自动减半步长，直到收敛</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 2.6 -->
+  <div class="lesson-section">
+    <h3>📌 2.6 本章总结</h3>
+    <ul>
+      <li>✅ <strong>4 大非线性类型</strong>：材料 / 几何 / 边界 / 载荷</li>
+      <li>✅ <strong>4 大求解方法</strong>：NR / 修正 NR / 增量割线 / 增量力 + 弧长法</li>
+      <li>✅ <strong>5 步求解流程</strong>：状态确定 / 残差 / 收敛 / 线性化 / 求解</li>
+      <li>✅ <strong>3 大收敛准则</strong>：力 / 位移 / 能量</li>
+      <li>✅ <strong>商业软件控制要素</strong>（载荷步、子步、求解器、容差、弧长）</li>
+    </ul>
+    <p class="text-dim">第 3 章将深入<strong>几何非线性</strong>（大变形的 Lagrangian 公式）。</p>
+  </div>
+
+  <!-- 2.7 习题 -->
+  <div class="lesson-section">
+    <h3>📝 2.7 习题（PDF p145-150）</h3>
+    <ul>
+      <li><strong>2.1</strong> 几何非线性判断（汽车碰撞、橡胶密封、压力容器、桥梁共振）</li>
+      <li><strong>2.2</strong> 单根杆 NR 求解（k = 50 + 500u）</li>
+      <li><strong>2.3</strong> 串联弹簧 NR 求解</li>
+      <li><strong>2.4</strong> mNR 与 NR 比较（迭代次数 / 总计算量）</li>
+      <li><strong>2.5</strong> 弧长法通过 snap-through</li>
+      <li><strong>2.10</strong> 1D 杆的几何非线性（轴向力诱发弯曲）</li>
+      <li><strong>2.17</strong> 1D 杆非线性 NR 迭代（手算前 2 步）</li>
+      <li><strong>2.20</strong> 用 MATLAB 写 NLFEA 程序</li>
+    </ul>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📚 本章 PDF 关键页面</h3>
+    <div class="page-thumbs">
+      <a class="page-thumb" href="../assets/pages/ch2_p092.png"><img src="../assets/pages/ch2_p092.png" alt="p092"><div class="pt-caption">p092 · 习题</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p095.png"><img src="../assets/pages/ch2_p095.png" alt="p095"><div class="pt-caption">p095 · 四大非线性</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p098.png"><img src="../assets/pages/ch2_p098.png" alt="p098"><div class="pt-caption">p098 · 几何非线性</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p105.png"><img src="../assets/pages/ch2_p105.png" alt="p105"><div class="pt-caption">p105 · 非线性弹簧</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p110.png"><img src="../assets/pages/ch2_p110.png" alt="p110"><div class="pt-caption">p110 · NR 几何解释</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p115.png"><img src="../assets/pages/ch2_p115.png" alt="p115"><div class="pt-caption">p115 · 增量力法</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p120.png"><img src="../assets/pages/ch2_p120.png" alt="p120"><div class="pt-caption">p120 · NLFEA 流程</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p125.png"><img src="../assets/pages/ch2_p125.png" alt="p125"><div class="pt-caption">p125 · 收敛准则</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p130.png"><img src="../assets/pages/ch2_p130.png" alt="p130"><div class="pt-caption">p130 · NR 迭代过程</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p140.png"><img src="../assets/pages/ch2_p140.png" alt="p140"><div class="pt-caption">p140 · 3D 弯曲</div></a>
+      <a class="page-thumb" href="../assets/pages/ch2_p148.png"><img src="../assets/pages/ch2_p148.png" alt="p148"><div class="pt-caption">p148 · 应力等高线</div></a>
+    </div>
+  </div>
+
+  <div class="card" id="notesSection"></div>
+</main>
+
+<script src="../js/storage.js"></script>
+<script src="../js/progress.js"></script>
+<script src="../js/notes.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/inline-data.js"></script>
+<script>
+  const SLUG = "ch2";
+  document.getElementById("statusSection").innerHTML = NLApp.statusButtonsHTML(SLUG);
+  document.getElementById("notesSection").innerHTML = NLApp.notesHTML(SLUG);
+  NLApp.bindLesson(SLUG);
+</script>
+</body>
+</html>

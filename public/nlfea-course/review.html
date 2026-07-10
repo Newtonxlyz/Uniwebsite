@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>数据总览 · NLFEA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="brand">NLFEA 学习平台</a>
+    <a href="index.html" class="nav-link">课程地图</a>
+    <a href="flashcards.html" class="nav-link">闪卡</a>
+    <a href="exam.html" class="nav-link">考试</a>
+    <a href="review.html" class="nav-link active">回顾</a>
+    <span class="nav-spacer"></span>
+    <span class="nav-btn" id="chTitle">数据总览</span>
+  </div>
+</nav>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="index.html">课程地图</a> › 数据总览
+    </div>
+    <h1>学习数据总览</h1>
+    <p class="text-dim">所有进度 / 笔记 / 闪卡评分 / 数据备份</p>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📊 总体进度</h3>
+    <div id="overallStats"></div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📚 各章进度</h3>
+    <div id="chapterStats" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;"></div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📝 学习笔记</h3>
+    <p style="color: var(--text-dim); font-size: 14px;">共 <span id="notesTotalCount">0</span> 条笔记</p>
+    <div id="allNotes" style="display: flex; flex-direction: column; gap: 10px;"></div>
+  </div>
+
+  <div class="lesson-section">
+    <h3>💾 数据备份</h3>
+    <p style="color: var(--text-dim); font-size: 14px;">
+      所有数据保存在浏览器 <strong>localStorage</strong> 中（<code>nlfea_*</code> 前缀）。建议导出 JSON 备份，换设备或重装浏览器后可恢复。
+    </p>
+    <div style="display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px;">
+      <button id="exportBtn" class="btn btn-primary">⬇ 导出 JSON</button>
+      <button id="importBtn" class="btn">⬆ 导入 JSON</button>
+      <button id="resetAllBtn" class="btn btn-danger" style="margin-left: auto;">⚠ 重置所有数据</button>
+    </div>
+    <input type="file" id="importFileInput" accept=".json" style="display: none;">
+    <div id="backupStatus" style="margin-top: 12px; font-size: 14px; color: var(--text-dim);"></div>
+  </div>
+</main>
+
+<script src="js/storage.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/flashcard.js"></script>
+<script src="js/app.js"></script>
+<script src="js/inline-data.js"></script>
+<script>
+  (function () {
+    async function init() {
+      await NLApp.loadData();
+      renderOverall();
+      renderChapterStats();
+      renderAllNotes();
+    }
+
+    function renderOverall() {
+      const stats = NLProgress.summary();
+      const notes = NLNotes.all();
+      const meta = NLStorage.getObject('nlfea_flashcards_meta') || { known: [], learning: [] };
+      const known = (meta.known || []).length;
+      const learning = (meta.learning || []).length;
+      const allCards = NLApp.getCards();
+      const goodRate = allCards.length > 0 ? Math.round((known / allCards.length) * 100) : 0;
+
+      let html = '<div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 12px;">';
+      html += statCard('已完成章节', stats.completed + ' / ' + (stats.completed + stats.inProgress + (NLApp.getChapters().length - stats.completed - stats.inProgress)), 'var(--success)');
+      html += statCard('学习中的章节', stats.inProgress, 'var(--warning)');
+      html += statCard('累计学习时长', stats.totalMinutes + ' 分钟', 'var(--primary)');
+      html += statCard('笔记总数', notes.length, 'var(--primary)');
+      html += statCard('闪卡总数', allCards.length, 'var(--primary)');
+      html += statCard('已掌握闪卡', known + ' / ' + allCards.length + ' (' + goodRate + '%)', 'var(--success)');
+      html += statCard('学习中闪卡', learning, 'var(--warning)');
+      html += '</div>';
+      document.getElementById('overallStats').innerHTML = html;
+    }
+
+    function statCard(label, value, color) {
+      return '<div style="background: var(--surface-2); padding: 16px; border-radius: 8px; border-left: 4px solid ' + color + ';">' +
+        '<div style="color: var(--text-dim); font-size: 13px;">' + label + '</div>' +
+        '<div style="font-size: 22px; font-weight: bold; margin-top: 6px;">' + value + '</div>' +
+        '</div>';
+    }
+
+    function renderChapterStats() {
+      const chapters = NLApp.getChapters();
+      let html = '';
+      chapters.forEach(ch => {
+        const p = NLProgress.get(ch.slug);
+        const statusColor = p.status === 'completed' ? 'var(--success)'
+          : p.status === 'in_progress' ? 'var(--warning)' : 'var(--text-dim)';
+        const statusLabel = p.status === 'completed' ? '✓ 完成'
+          : p.status === 'in_progress' ? '⋯ 进行中' : '○ 未开始';
+
+        html += '<div style="background: var(--surface-2); padding: 14px; border-radius: 8px; border-left: 4px solid ' + statusColor + ';">';
+        html += '<div style="font-weight: bold; margin-bottom: 6px;">第 ' + ch.num + ' 章 · ' + ch.title + '</div>';
+        html += '<div style="color: var(--text-dim); font-size: 13px; margin-bottom: 8px;">' + (ch.sections || []).length + ' 个小节 · ' + (p.studyMinutes || 0) + ' 分钟</div>';
+        html += '<div style="display: flex; gap: 6px; flex-wrap: wrap; align-items: center;">';
+        html += '<span style="padding: 3px 10px; border-radius: 12px; font-size: 12px; background: ' + statusColor + '; color: #fff;">' + statusLabel + '</span>';
+        html += '<a class="btn" href="lesson/' + ch.slug + '.html" style="margin-left: auto; padding: 4px 12px; font-size: 13px;">学习 →</a>';
+        html += '</div>';
+        html += '</div>';
+      });
+      document.getElementById('chapterStats').innerHTML = html;
+    }
+
+    function renderAllNotes() {
+      const notes = NLNotes.all();
+      document.getElementById('notesTotalCount').textContent = notes.length;
+      if (notes.length === 0) {
+        document.getElementById('allNotes').innerHTML =
+          '<div style="background: var(--surface-2); padding: 16px; border-radius: 8px; color: var(--text-dim);">还没有笔记。在任意课程页添加笔记后会显示在这里。</div>';
+        return;
+      }
+      const sorted = notes.slice().sort((a, b) => b.createdAt - a.createdAt);
+      let html = '';
+      sorted.forEach(n => {
+        const d = new Date(n.createdAt);
+        const dateLabel = d.toLocaleString();
+        html += '<div style="background: var(--surface-2); padding: 12px 16px; border-radius: 8px; border-left: 3px solid var(--primary);">';
+        html += '<div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px;">';
+        html += '<span style="font-size: 13px; color: var(--text-dim);">' + (n.chapter || '') + ' · ' + dateLabel + '</span>';
+        html += '<button class="btn btn-danger" data-id="' + n.id + '" data-slug="' + (n.slug || '') + '" style="padding: 3px 10px; font-size: 12px;">删除</button>';
+        html += '</div>';
+        html += '<div style="line-height: 1.6; white-space: pre-wrap;">' + escapeHtml(n.content).replace(/\n/g, '<br>') + '</div>';
+        html += '</div>';
+      });
+      document.getElementById('allNotes').innerHTML = html;
+      document.querySelectorAll('#allNotes [data-id]').forEach(btn => {
+        btn.addEventListener('click', e => {
+          if (confirm('删除这条笔记？')) {
+            const id = e.currentTarget.getAttribute('data-id');
+            const slug = e.currentTarget.getAttribute('data-slug');
+            NLNotes.remove(slug, id);
+            renderAllNotes();
+          }
+        });
+      });
+    }
+
+    document.getElementById('exportBtn').addEventListener('click', () => {
+      NLStorage.downloadBackup();
+      document.getElementById('backupStatus').innerHTML =
+        '<span style="color: var(--success);">✓ 已下载 JSON 备份</span>';
+    });
+
+    document.getElementById('importBtn').addEventListener('click', () => {
+      document.getElementById('importFileInput').click();
+    });
+    document.getElementById('importFileInput').addEventListener('change', e => {
+      const file = e.target.files[0];
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = evt => {
+        try {
+          const data = JSON.parse(evt.target.result);
+          if (data.version && data.payloads) {
+            NLStorage.importBackup(data);
+            document.getElementById('backupStatus').innerHTML =
+              '<span style="color: var(--success);">✓ 导入成功，刷新页面生效</span>';
+            setTimeout(() => window.location.reload(), 800);
+          } else {
+            alert('文件格式错误');
+          }
+        } catch (err) {
+          alert('JSON 解析失败：' + err.message);
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    document.getElementById('resetAllBtn').addEventListener('click', () => {
+      if (confirm('警告：所有进度、笔记、闪卡评分将全部清除（不可恢复）。确定？')) {
+        if (confirm('最后确认：确定要重置所有数据？')) {
+          NLStorage.clearAll();
+          document.getElementById('backupStatus').innerHTML =
+            '<span style="color: var(--danger);">✓ 已清空所有数据，刷新中...</span>';
+          setTimeout(() => window.location.reload(), 800);
+        }
+      }
+    });
+
+    init();
+  })();
+</script>
+</body>
+</html>

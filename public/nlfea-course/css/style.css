@@ -1,0 +1,484 @@
+/* NLFEA 学习平台 v3 — 浅色主题 + 高对比度 + 频闪修复
+   - 去掉 backdrop-filter（Edge 全屏频闪根因）
+   - 去掉 fixed radial-gradient（重绘代价大）
+   - 用稳定浅色背景，文字高对比
+   - 课程内容区有纸质卡片感（白底 + 浅边框）
+*/
+
+:root {
+  --bg-page: #f6f7fb;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f3f6fc;
+  --bg-section: #fbfcfe;
+  --border: #d8dee9;
+  --border-strong: #c0c8d4;
+  --text: #1a2230;
+  --text-dim: #5a6477;
+  --text-dimmer: #8a93a4;
+  --primary: #2563eb;
+  --primary-hover: #1d4ed8;
+  --primary-soft: #e0eaff;
+  --success: #16a34a;
+  --success-soft: #dcfce7;
+  --warning: #d97706;
+  --warning-soft: #fef3c7;
+  --danger: #dc2626;
+  --danger-soft: #fee2e2;
+  --info: #0891b2;
+  --info-soft: #cffafe;
+  --purple: #7c3aed;
+  --purple-soft: #ede9fe;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 2px 8px rgba(20, 30, 60, 0.08);
+  --shadow-lg: 0 6px 24px rgba(20, 30, 60, 0.12);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-page: #0f1419;
+    --bg-card: #1a2129;
+    --bg-card-hover: #232c36;
+    --bg-section: #161c23;
+    --border: #2d3743;
+    --border-strong: #3d4856;
+    --text: #e5eaf0;
+    --text-dim: #95a3b3;
+    --text-dimmer: #6c7889;
+    --primary: #60a5fa;
+    --primary-hover: #93c5fd;
+    --primary-soft: #1e3a5f;
+    --success: #34d399;
+    --success-soft: #14532d;
+    --warning: #fbbf24;
+    --warning-soft: #78350f;
+    --danger: #f87171;
+    --danger-soft: #7f1d1d;
+    --info: #22d3ee;
+    --info-soft: #155e75;
+    --purple: #c4b5fd;
+    --purple-soft: #4c1d95;
+    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 2px 8px rgba(0, 0, 0, 0.35);
+    --shadow-lg: 0 6px 24px rgba(0, 0, 0, 0.45);
+  }
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--bg-page);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Microsoft YaHei", "PingFang SC", sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  min-height: 100vh;
+}
+
+main, .container {
+  position: relative;
+  z-index: 1;
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 24px 20px 60px;
+}
+
+/* ===== 顶部导航 (无 backdrop-filter) ===== */
+.topnav {
+  background: var(--bg-card);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+}
+.topnav-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.brand {
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+  margin-right: 16px;
+  white-space: nowrap;
+}
+.nav-link {
+  color: var(--text-dim);
+  text-decoration: none;
+  font-size: 14px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  transition: background 0.15s;
+}
+.nav-link:hover { background: var(--bg-card-hover); color: var(--text); }
+.nav-link.active { background: var(--primary-soft); color: var(--primary); }
+.nav-spacer { flex: 1; }
+.nav-btn {
+  font-size: 12px;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: var(--bg-section);
+  color: var(--text);
+  border: 1px solid var(--border);
+  cursor: pointer;
+}
+.nav-btn:hover { background: var(--primary-soft); border-color: var(--primary); color: var(--primary); }
+
+/* ===== 卡片 ===== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  margin-bottom: 16px;
+  box-shadow: var(--shadow-sm);
+}
+
+/* ===== 首页仪表板 ===== */
+header h1 { font-size: 28px; margin: 0 0 8px; }
+header p { margin: 0 0 24px; color: var(--text-dim); }
+
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: 20px;
+}
+.stat-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-align: center;
+}
+.stat-value {
+  font-size: 28px;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+}
+.stat-label {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-top: 4px;
+}
+
+.progress-bar {
+  background: var(--bg-section);
+  border-radius: 6px;
+  height: 8px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+.progress-fill {
+  background: var(--primary);
+  height: 100%;
+  transition: width 0.4s;
+}
+
+/* ===== 章节卡片 ===== */
+.chapter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 14px;
+  margin: 14px 0 28px;
+}
+.chapter-card {
+  display: block;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 16px;
+  text-decoration: none;
+  color: var(--text);
+  transition: all 0.15s;
+  box-shadow: var(--shadow-sm);
+}
+.chapter-card:hover {
+  border-color: var(--primary);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-1px);
+}
+.chapter-card .ch-num {
+  font-size: 12px;
+  color: var(--text-dimmer);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+}
+.chapter-card .ch-title {
+  font-size: 17px;
+  font-weight: 600;
+  margin: 6px 0 4px;
+}
+.chapter-card .ch-pages { font-size: 13px; color: var(--text-dim); margin: 4px 0; }
+.chapter-card .ch-progress {
+  background: var(--bg-section);
+  border-radius: 4px;
+  height: 5px;
+  overflow: hidden;
+  margin-top: 8px;
+  border: 1px solid var(--border);
+}
+.chapter-card .ch-progress-bar {
+  background: var(--primary);
+  height: 100%;
+  transition: width 0.3s;
+}
+
+/* ===== 课程章节 ===== */
+.lesson-content { max-width: 900px; margin: 0 auto; padding: 24px 20px 60px; }
+.lesson-header { margin-bottom: 28px; }
+.lesson-breadcrumb {
+  font-size: 13px;
+  color: var(--text-dim);
+  margin-bottom: 8px;
+}
+.lesson-breadcrumb a {
+  color: var(--text-dim);
+  text-decoration: none;
+}
+.lesson-breadcrumb a:hover { color: var(--primary); }
+.lesson-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 18px;
+  box-shadow: var(--shadow-sm);
+}
+.lesson-section h3 {
+  margin: 0 0 14px;
+  font-size: 20px;
+  color: var(--primary);
+  border-bottom: 2px solid var(--primary-soft);
+  padding-bottom: 8px;
+}
+.lesson-section h4 {
+  margin: 18px 0 10px;
+  font-size: 16px;
+  color: var(--text);
+}
+.lesson-section p { margin: 10px 0; line-height: 1.8; }
+.lesson-section ul, .lesson-section ol { margin: 10px 0; padding-left: 24px; }
+.lesson-section li { margin: 6px 0; line-height: 1.7; }
+.lesson-section strong { color: var(--text); font-weight: 600; }
+
+/* ===== 公式块 ===== */
+.formula {
+  background: var(--bg-section);
+  border-left: 3px solid var(--primary);
+  border-radius: 6px;
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-family: "Cambria Math", "STIX Two Math", "Times New Roman", serif;
+  position: relative;
+}
+.formula-num {
+  position: absolute;
+  right: 12px;
+  top: 6px;
+  font-size: 12px;
+  color: var(--text-dimmer);
+  font-family: -apple-system, sans-serif;
+}
+.formula-block {
+  font-size: 16px;
+  line-height: 1.9;
+  color: var(--text);
+  word-break: break-word;
+  overflow-x: auto;
+}
+
+/* ===== 例子 / 注意 / 重要 ===== */
+.example, .important {
+  background: var(--info-soft);
+  border-left: 4px solid var(--info);
+  border-radius: 8px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+.important {
+  background: var(--warning-soft);
+  border-left-color: var(--warning);
+}
+.example-title, .important-title {
+  font-weight: 700;
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+/* ===== 状态徽章 ===== */
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+.badge-emerald { background: var(--success-soft); color: var(--success); }
+.badge-cyan { background: var(--info-soft); color: var(--info); }
+.badge-dim { background: var(--bg-section); color: var(--text-dim); }
+
+/* ===== 状态切换按钮 ===== */
+.status-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+.status-btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-section);
+  color: var(--text-dim);
+  cursor: pointer;
+  font-size: 14px;
+  transition: all 0.15s;
+}
+.status-btn:hover { border-color: var(--primary); }
+.status-btn.active-not { background: var(--bg-card); color: var(--text-dim); border-color: var(--border-strong); }
+.status-btn.active-prog { background: var(--warning-soft); color: var(--warning); border-color: var(--warning); }
+.status-btn.active-done { background: var(--success-soft); color: var(--success); border-color: var(--success); }
+
+/* ===== 按钮 ===== */
+.btn {
+  padding: 8px 16px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: var(--bg-card);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 14px;
+  text-decoration: none;
+  display: inline-block;
+}
+.btn:hover { background: var(--bg-card-hover); }
+.btn-primary { background: var(--primary); color: #fff; border-color: var(--primary); }
+.btn-primary:hover { background: var(--primary-hover); }
+.btn-success { background: var(--success); color: #fff; border-color: var(--success); }
+.btn-warning { background: var(--warning); color: #fff; border-color: var(--warning); }
+.btn-danger { background: var(--danger); color: #fff; border-color: var(--danger); }
+.btn-row { display: flex; gap: 8px; flex-wrap: wrap; align-items: center; }
+
+/* ===== 笔记 ===== */
+.note-area {
+  width: 100%;
+  min-height: 80px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 10px 12px;
+  font-family: inherit;
+  font-size: 14px;
+  resize: vertical;
+  background: var(--bg-card);
+  color: var(--text);
+}
+.note-area:focus { outline: none; border-color: var(--primary); }
+.comment-list { margin-top: 12px; display: flex; flex-direction: column; gap: 10px; }
+.comment-item {
+  background: var(--bg-section);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 12px 14px;
+}
+.comment-meta {
+  font-size: 12px;
+  color: var(--text-dimmer);
+  margin-top: 6px;
+}
+
+/* ===== 闪卡 ===== */
+.flashcard-inner {
+  background: var(--bg-section);
+  padding: 24px;
+  border-radius: 12px;
+  min-height: 160px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.flashcard-inner:hover { border-color: var(--primary); }
+
+/* ===== 辅助类 ===== */
+.text-dim { color: var(--text-dim); }
+.text-dimmer { color: var(--text-dimmer); }
+.text-sm { font-size: 13px; }
+.text-center { text-align: center; }
+.mt-2 { margin-top: 8px; }
+.mt-4 { margin-top: 16px; }
+.mb-2 { margin-bottom: 8px; }
+.mb-4 { margin-bottom: 16px; }
+hr { border: none; border-top: 1px solid var(--border); margin: 24px 0; }
+
+/* ===== PDF 图片 ===== */
+.pdf-img {
+  max-width: 100%;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin: 12px 0;
+  box-shadow: var(--shadow-sm);
+  display: block;
+}
+.pdf-img-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 12px 0;
+}
+.pdf-img-row .pdf-img { max-width: calc(50% - 6px); margin: 0; }
+.pdf-img-caption {
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ===== 章节图片网格 ===== */
+.page-thumbs {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.page-thumb {
+  display: block;
+  text-decoration: none;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--bg-section);
+  transition: all 0.15s;
+}
+.page-thumb:hover { border-color: var(--primary); box-shadow: var(--shadow-md); }
+.page-thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-bottom: 1px solid var(--border);
+}
+.page-thumb .pt-caption {
+  padding: 6px 10px;
+  font-size: 12px;
+  color: var(--text-dim);
+  text-align: center;
+}
+
+/* ===== 响应式 ===== */
+@media (max-width: 640px) {
+  .topnav-inner { gap: 6px; padding: 0 12px; }
+  .brand { font-size: 15px; margin-right: 6px; }
+  .nav-link { font-size: 13px; padding: 5px 8px; }
+  main, .container, .lesson-content { padding: 16px 12px 40px; }
+  .lesson-section { padding: 18px 16px; }
+  .stat-value { font-size: 24px; }
+  .pdf-img-row .pdf-img { max-width: 100%; }
+}

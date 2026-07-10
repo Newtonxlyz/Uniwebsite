@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闪卡复习 · NLFEA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="brand">NLFEA 学习平台</a>
+    <a href="index.html" class="nav-link">课程地图</a>
+    <a href="flashcards.html" class="nav-link active">闪卡</a>
+    <a href="exam.html" class="nav-link">考试</a>
+    <a href="review.html" class="nav-link">回顾</a>
+    <span class="nav-spacer"></span>
+    <span class="nav-btn" id="chTitle">闪卡复习</span>
+  </div>
+</nav>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="index.html">课程地图</a> › 闪卡复习
+    </div>
+    <h1>闪卡复习模式</h1>
+    <p class="text-dim">点击卡片翻面，看完答案后选择掌握程度</p>
+  </div>
+
+  <div class="card" style="margin-bottom: 16px;">
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+      <label>章节筛选：
+        <select id="chapterFilter" style="margin-left: 6px; padding: 6px 10px; border-radius: 6px; background: var(--surface); color: var(--text); border: 1px solid var(--border);">
+          <option value="all">全部章节</option>
+          <option value="ch1">第 1 章</option>
+          <option value="ch2">第 2 章</option>
+          <option value="ch3">第 3 章</option>
+          <option value="ch4">第 4 章</option>
+          <option value="ch5">第 5 章</option>
+          <option value="ch6">第 6 章</option>
+        </select>
+      </label>
+      <label>难度筛选：
+        <select id="difficultyFilter" style="margin-left: 6px; padding: 6px 10px; border-radius: 6px; background: var(--surface); color: var(--text); border: 1px solid var(--border);">
+          <option value="all">全部难度</option>
+          <option value="easy">简单</option>
+          <option value="medium">中等</option>
+          <option value="hard">困难</option>
+        </select>
+      </label>
+      <label style="margin-left: auto;">
+        <input type="checkbox" id="markOnly"> 仅显示未掌握
+      </label>
+    </div>
+    <div id="summaryStats" style="margin-top: 12px; color: var(--text-dim); font-size: 14px;"></div>
+  </div>
+
+  <div class="card" id="flashCardArea" style="min-height: 300px; display: flex; flex-direction: column;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+      <div id="cardPosition" style="color: var(--text-dim); font-size: 14px;">加载中...</div>
+      <button id="flipBtn" class="btn">翻面 (Space)</button>
+    </div>
+
+    <div id="flashCard" style="background: var(--surface-2); padding: 24px; border-radius: 12px; min-height: 180px; cursor: pointer;">
+      <div style="color: var(--text-dim); font-size: 13px;">题目</div>
+      <div id="cardQuestion" style="font-size: 18px; line-height: 1.7; margin-top: 12px;"></div>
+    </div>
+
+    <div id="answerArea" style="margin-top: 16px; display: none;">
+      <div style="color: var(--text-dim); font-size: 14px; border-top: 1px solid var(--border); padding-top: 12px;">答案 / 解释</div>
+      <div id="cardAnswer" style="font-size: 15px; line-height: 1.7; margin-top: 8px;"></div>
+      <div style="display: flex; gap: 8px; margin-top: 16px; flex-wrap: wrap;">
+        <button class="btn btn-danger" data-rate="again">✗ 再来 (1)</button>
+        <button class="btn btn-warning" data-rate="hard">⚠ 困难 (2)</button>
+        <button class="btn btn-success" data-rate="good">✓ 掌握 (3)</button>
+        <button class="btn btn-primary" data-rate="easy">⭐ 简单 (4)</button>
+      </div>
+    </div>
+
+    <div style="display: flex; gap: 8px; margin-top: 20px;">
+      <button id="prevBtn" class="btn">← 上一张</button>
+      <button id="nextBtn" class="btn">下一张 →</button>
+      <button id="resetBtn" class="btn btn-danger" style="margin-left: auto;">重置进度</button>
+    </div>
+  </div>
+</main>
+
+<script src="js/storage.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/flashcard.js"></script>
+<script src="js/app.js"></script>
+<script src="js/inline-data.js"></script>
+<script>
+  (function () {
+    const KEY = 'nlfea_flashcards_meta';
+    let allCards = [];
+    let filteredCards = [];
+    let knownSet = new Set();
+    let currentIdx = 0;
+    let flipped = false;
+
+    async function init() {
+      await NLApp.loadData();
+      allCards = NLApp.getCards();
+      knownSet = new Set((NLStorage.getObject(KEY) || { known: [] }).known || []);
+      applyFilters();
+      bindEvents();
+    }
+
+    function applyFilters() {
+      const chapterVal = document.getElementById('chapterFilter').value;
+      const diffVal = document.getElementById('difficultyFilter').value;
+      const markOnly = document.getElementById('markOnly').checked;
+
+      filteredCards = allCards.filter(c => {
+        if (chapterVal !== 'all' && c.chapter !== chapterVal) return false;
+        if (diffVal !== 'all' && c.diff !== diffVal) return false;
+        if (markOnly && knownSet.has(c.id)) return false;
+        return true;
+      });
+      currentIdx = 0;
+      flipped = false;
+      renderCard();
+      updateSummary();
+    }
+
+    function updateSummary() {
+      const totalAll = allCards.length;
+      const showCount = filteredCards.length;
+      const knownInFiltered = filteredCards.filter(c => knownSet.has(c.id)).length;
+      const knownAll = knownSet.size;
+      document.getElementById('summaryStats').innerHTML =
+        '显示 <strong style="color: var(--primary);">' + showCount + '</strong> / ' + totalAll + ' 张 · ' +
+        '已掌握 <strong style="color: var(--success);">' + knownAll + '</strong> / ' + totalAll + ' 张' +
+        (filteredCards.length !== allCards.length ? '（筛选中：当前组已掌握 ' + knownInFiltered + ' / ' + showCount + '）' : '');
+    }
+
+    function renderCard() {
+      if (filteredCards.length === 0) {
+        document.getElementById('flashCardArea').innerHTML =
+          '<div style="padding: 40px; text-align: center; color: var(--text-dim);">📭 当前筛选下没有卡片，试试调整筛选条件。</div>';
+        return;
+      }
+      const c = filteredCards[currentIdx];
+      document.getElementById('cardPosition').textContent =
+        '第 ' + (currentIdx + 1) + ' / ' + filteredCards.length + ' 张' +
+        (knownSet.has(c.id) ? ' · ✓ 已掌握' : ' · ○ 未掌握');
+      document.getElementById('cardQuestion').textContent = c.q;
+
+      const diffColor = c.diff === 'easy' ? 'var(--success)' : c.diff === 'medium' ? 'var(--warning)' : 'var(--danger)';
+      document.getElementById('cardAnswer').innerHTML =
+        '<div style="display: inline-block; padding: 2px 10px; border-radius: 12px; background: ' + diffColor + '; color: #fff; font-size: 12px; margin-bottom: 8px;">' +
+        (c.diff || 'medium').toUpperCase() + '</div>' +
+        '<div style="margin-top: 8px;">' + escapeHtml(c.a) + '</div>';
+
+      document.getElementById('answerArea').style.display = flipped ? 'block' : 'none';
+      document.getElementById('flipBtn').textContent = flipped ? '翻回' : '翻面 (Space)';
+      document.getElementById('prevBtn').disabled = currentIdx === 0;
+      document.getElementById('nextBtn').disabled = currentIdx === filteredCards.length - 1;
+    }
+
+    function flip() {
+      if (filteredCards.length === 0) return;
+      flipped = !flipped;
+      renderCard();
+    }
+
+    function next() {
+      if (currentIdx < filteredCards.length - 1) {
+        currentIdx++;
+        flipped = false;
+        renderCard();
+      }
+    }
+    function prev() {
+      if (currentIdx > 0) {
+        currentIdx--;
+        flipped = false;
+        renderCard();
+      }
+    }
+
+    function rate(rate) {
+      const c = filteredCards[currentIdx];
+      if (!c) return;
+      const meta = NLStorage.getObject(KEY) || { known: [], learning: [] };
+      if (!Array.isArray(meta.known)) meta.known = [];
+      if (!Array.isArray(meta.learning)) meta.learning = [];
+      if (rate === 'good' || rate === 'easy') {
+        if (!meta.known.includes(c.id)) meta.known.push(c.id);
+        meta.learning = meta.learning.filter(id => id !== c.id);
+        knownSet.add(c.id);
+      } else {
+        if (!meta.learning.includes(c.id)) meta.learning.push(c.id);
+        meta.known = meta.known.filter(id => id !== c.id);
+        knownSet.delete(c.id);
+      }
+      NLStorage.set(KEY, meta);
+
+      if (document.getElementById('markOnly').checked) {
+        applyFilters();
+      } else {
+        next();
+      }
+      updateSummary();
+    }
+
+    function bindEvents() {
+      document.getElementById('flipBtn').addEventListener('click', flip);
+      document.getElementById('flashCard').addEventListener('click', flip);
+      document.getElementById('nextBtn').addEventListener('click', next);
+      document.getElementById('prevBtn').addEventListener('click', prev);
+      document.getElementById('resetBtn').addEventListener('click', () => {
+        if (confirm('重置所有闪卡评分？')) {
+          NLStorage.set(KEY, { known: [], learning: [] });
+          knownSet = new Set();
+          applyFilters();
+        }
+      });
+      document.querySelectorAll('[data-rate]').forEach(btn => {
+        btn.addEventListener('click', () => rate(btn.dataset.rate));
+      });
+      document.getElementById('chapterFilter').addEventListener('change', applyFilters);
+      document.getElementById('difficultyFilter').addEventListener('change', applyFilters);
+      document.getElementById('markOnly').addEventListener('change', applyFilters);
+
+      document.addEventListener('keydown', e => {
+        if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+        if (e.code === 'Space') { e.preventDefault(); flip(); }
+        else if (e.code === 'ArrowRight') { next(); }
+        else if (e.code === 'ArrowLeft') { prev(); }
+        else if (e.key === '1') rate('again');
+        else if (e.key === '2') rate('hard');
+        else if (e.key === '3') rate('good');
+        else if (e.key === '4') rate('easy');
+      });
+    }
+
+    init();
+  })();
+</script>
+</body>
+</html>

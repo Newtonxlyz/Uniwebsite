@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>综合考试 · NLFEA</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="brand">NLFEA 学习平台</a>
+    <a href="index.html" class="nav-link">课程地图</a>
+    <a href="flashcards.html" class="nav-link">闪卡</a>
+    <a href="exam.html" class="nav-link active">考试</a>
+    <a href="review.html" class="nav-link">回顾</a>
+    <span class="nav-spacer"></span>
+    <span class="nav-btn" id="chTitle">综合考试</span>
+  </div>
+</nav>
+
+<main class="container">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="index.html">课程地图</a> › 综合考试
+    </div>
+    <h1 id="examTitle">NLFEA 综合考试</h1>
+    <p class="text-dim" id="examDesc">20 道选择题 · 90 分及格 · 涵盖 6 章核心内容</p>
+  </div>
+
+  <div class="card" id="examIntro">
+    <h3>考试说明</h3>
+    <ul>
+      <li>📚 覆盖范围：第 1-6 章核心概念与公式</li>
+      <li>⏱ 建议时间：60 分钟（不限时）</li>
+      <li>🎯 及格标准：<span id="passingScoreLine">90</span> / 100 分</li>
+      <li>📝 题目：单选，每题 <span id="pointsPerQ">5</span> 分</li>
+      <li>📈 解析：交卷后可见</li>
+      <li>🔄 失败可重考</li>
+    </ul>
+    <button id="startExamBtn" class="btn btn-primary" style="margin-top: 16px;">开始考试</button>
+    <div id="examBestScore" style="margin-top: 16px;"></div>
+  </div>
+
+  <div class="card" id="examArea" style="display: none;">
+    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; padding-bottom: 12px; border-bottom: 1px solid var(--border);">
+      <div id="examProgress" style="color: var(--text-dim);">第 1 / 20 题</div>
+      <div id="examTimer" style="color: var(--text-dim); font-size: 14px;">已用 0 分钟</div>
+    </div>
+    <div id="examQuestionArea"></div>
+    <div style="display: flex; gap: 8px; margin-top: 24px; padding-top: 16px; border-top: 1px solid var(--border);">
+      <button id="prevExamBtn" class="btn">← 上一题</button>
+      <button id="nextExamBtn" class="btn">下一题 →</button>
+      <button id="submitExamBtn" class="btn btn-primary" style="margin-left: auto;">交卷评分</button>
+    </div>
+  </div>
+
+  <div class="card" id="examResultArea" style="display: none;">
+    <h3 id="resultTitle"></h3>
+    <div id="resultContent"></div>
+    <div style="margin-top: 16px;">
+      <button id="retakeExamBtn" class="btn">重考一遍</button>
+      <button class="btn" onclick="window.location.href='index.html'">返回首页</button>
+    </div>
+  </div>
+</main>
+
+<script src="js/storage.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/flashcard.js"></script>
+<script src="js/app.js"></script>
+<script src="js/inline-data.js"></script>
+<script>
+  (function () {
+    const KEY_BEST = 'nlfea_exam_best_score';
+
+    let examConfig = null;
+    let examQuestions = [];
+    let userAnswers = {};
+    let currentIdx = 0;
+    let examStartTime = 0;
+
+    function loadExam() {
+      examConfig = NLApp.getExam();
+      examQuestions = examConfig.questions || [];
+      document.getElementById('examTitle').textContent = examConfig.title;
+      document.getElementById('examDesc').textContent = examConfig.desc;
+      document.getElementById('passingScoreLine').textContent = examConfig.passingScore;
+      const pointsPerQ = Math.round(examConfig.passingScore * 100 / 100 / examQuestions.length * 10) / 10;
+      document.getElementById('pointsPerQ').textContent = pointsPerQ;
+    }
+
+    function startExam() {
+      userAnswers = {};
+      currentIdx = 0;
+      examStartTime = Date.now();
+      document.getElementById('examIntro').style.display = 'none';
+      document.getElementById('examArea').style.display = 'block';
+      document.getElementById('examResultArea').style.display = 'none';
+      renderQuestion();
+      startTimer();
+    }
+
+    let timerHandle = null;
+    function startTimer() {
+      if (timerHandle) clearInterval(timerHandle);
+      timerHandle = setInterval(() => {
+        const minutes = Math.floor((Date.now() - examStartTime) / 60000);
+        const el = document.getElementById('examTimer');
+        if (el) el.textContent = '已用 ' + minutes + ' 分钟';
+      }, 30000);
+    }
+
+    function renderQuestion() {
+      const q = examQuestions[currentIdx];
+      document.getElementById('examProgress').textContent =
+        '第 ' + (currentIdx + 1) + ' / ' + examQuestions.length + ' 题';
+
+      const area = document.getElementById('examQuestionArea');
+      const saved = userAnswers[q.id];
+
+      let html = '<div style="background: var(--surface-2); padding: 16px; border-radius: 8px; margin-bottom: 16px;">';
+      html += '<div style="color: var(--text-dim); font-size: 13px; margin-bottom: 8px;">' +
+        q.chapter.toUpperCase() + '</div>';
+      html += '<div style="font-size: 17px; line-height: 1.7;">' +
+        (currentIdx + 1) + '. ' + q.q + '</div>';
+      html += '</div>';
+
+      html += '<div style="display: flex; flex-direction: column; gap: 8px;">';
+      q.options.forEach((opt, i) => {
+        const letter = String.fromCharCode(65 + i);
+        const isSelected = saved === i;
+        const bg = isSelected ? 'var(--primary)' : 'var(--surface-2)';
+        const color = isSelected ? '#fff' : 'var(--text)';
+        html += '<button class="option-btn" data-idx="' + i + '" style="text-align:left; padding: 12px 16px; border-radius: 8px; background: ' + bg + '; color: ' + color + '; border: 1px solid var(--border); cursor: pointer; font-size: 15px; line-height: 1.6;">';
+        html += '<strong>' + letter + '.</strong> ' + opt;
+        html += '</button>';
+      });
+      html += '</div>';
+
+      area.innerHTML = html;
+
+      area.querySelectorAll('.option-btn').forEach(btn => {
+        btn.addEventListener('click', e => {
+          const idx = parseInt(e.currentTarget.getAttribute('data-idx'));
+          userAnswers[q.id] = idx;
+          renderQuestion();
+        });
+      });
+
+      const prevBtn = document.getElementById('prevExamBtn');
+      const nextBtn = document.getElementById('nextExamBtn');
+      prevBtn.disabled = currentIdx === 0;
+      nextBtn.disabled = currentIdx === examQuestions.length - 1;
+    }
+
+    function showResult() {
+      if (timerHandle) clearInterval(timerHandle);
+      let correctCount = 0;
+      const pointsPerQ = Math.round(examConfig.passingScore * 100 / 100 / examQuestions.length * 10) / 10;
+      examQuestions.forEach(q => {
+        if (userAnswers[q.id] === q.answer) correctCount++;
+      });
+      const totalScore = Math.round(correctCount * pointsPerQ);
+
+      let best = 0;
+      try { best = parseInt(NLStorage.get(KEY_BEST, 0)) || 0; } catch (e) {}
+      if (totalScore > best) {
+        NLStorage.set(KEY_BEST, totalScore);
+        best = totalScore;
+      }
+
+      const passed = totalScore >= examConfig.passingScore;
+
+      document.getElementById('examArea').style.display = 'none';
+      document.getElementById('examResultArea').style.display = 'block';
+
+      document.getElementById('resultTitle').innerHTML = passed
+        ? '<span style="color: var(--success);">🎉 通过！</span>'
+        : '<span style="color: var(--danger);">未通过，再来一次</span>';
+
+      const minutes = Math.round((Date.now() - examStartTime) / 60000);
+
+      let html = '<div style="font-size: 32px; font-weight: bold; margin: 16px 0;">' +
+        correctCount + ' / ' + examQuestions.length + ' = <span style="color: ' +
+        (passed ? 'var(--success)' : 'var(--danger)') + ';">' + totalScore + '</span> / 100</div>';
+      html += '<div style="color: var(--text-dim); margin-bottom: 16px;">用时 ' + minutes + ' 分钟 · 历史最高 ' + best + '</div>';
+
+      html += '<h4 style="margin-top: 16px;">逐题解析</h4>';
+      examQuestions.forEach((q, idx) => {
+        const userIdx = userAnswers[q.id];
+        const correct = userIdx === q.answer;
+        const bgColor = correct ? 'rgba(34,197,94,0.12)' : 'rgba(239,68,68,0.12)';
+        const borderColor = correct ? 'var(--success)' : 'var(--danger)';
+        html += '<div style="background: ' + bgColor + '; border-left: 4px solid ' +
+          borderColor + '; padding: 12px 16px; border-radius: 6px; margin-bottom: 12px;">';
+        html += '<div style="font-weight: bold;">第 ' + (idx + 1) + ' 题 ' +
+          (correct ? '✓' : '✗') + '</div>';
+        html += '<div style="margin-top: 6px; font-size: 14px; color: var(--text-dim);">' +
+          q.chapter.toUpperCase() + '</div>';
+        html += '<div style="margin-top: 6px; line-height: 1.6;">' + q.q + '</div>';
+        html += '<div style="margin-top: 8px; font-size: 14px;">';
+        html += '<div>✓ 正确答案：' + String.fromCharCode(65 + q.answer) + ' - ' + q.options[q.answer] + '</div>';
+        if (userIdx !== undefined && !correct) {
+          html += '<div style="color: var(--danger); margin-top: 4px;">' +
+            '✗ 你的答案：' + String.fromCharCode(65 + userIdx) + ' - ' + q.options[userIdx] + '</div>';
+        }
+        if (userIdx === undefined) {
+          html += '<div style="color: var(--text-dim); margin-top: 4px;">⚠ 未作答</div>';
+        }
+        html += '<div style="margin-top: 8px; padding: 8px; background: var(--surface-2); border-radius: 4px; font-size: 14px; line-height: 1.6;">' +
+          '💡 解析：' + q.explain + '</div>';
+        html += '</div>';
+        html += '</div>';
+      });
+
+      document.getElementById('resultContent').innerHTML = html;
+
+      // 更新进度
+      const KEY_EXAM_LESSON = 'ch-exam';
+      if (passed) {
+        NLProgress.setStatus(KEY_EXAM_LESSON, 'completed');
+      } else {
+        NLProgress.setStatus(KEY_EXAM_LESSON, 'in_progress');
+      }
+    }
+
+    document.getElementById('startExamBtn').addEventListener('click', startExam);
+    document.getElementById('prevExamBtn').addEventListener('click', () => {
+      if (currentIdx > 0) { currentIdx--; renderQuestion(); }
+    });
+    document.getElementById('nextExamBtn').addEventListener('click', () => {
+      if (currentIdx < examQuestions.length - 1) { currentIdx++; renderQuestion(); }
+    });
+    document.getElementById('submitExamBtn').addEventListener('click', () => {
+      if (confirm('确认交卷？\n共 ' + examQuestions.length + ' 题，已答 ' +
+        Object.keys(userAnswers).length + ' 题')) {
+        showResult();
+      }
+    });
+    document.getElementById('retakeExamBtn').addEventListener('click', startExam);
+
+    NLApp.loadData().then(() => loadExam());
+    try {
+      const best = parseInt(NLStorage.get(KEY_BEST, 0)) || 0;
+      if (best > 0) {
+        document.getElementById('examBestScore').innerHTML =
+          '<div style="color: var(--text-dim);">历史最高：<strong style="color: ' +
+          (best >= 90 ? 'var(--success)' : 'var(--text)') + ';">' + best + '</strong> / 100</div>';
+      }
+    } catch (e) {}
+  })();
+</script>
+</body>
+</html>

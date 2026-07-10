@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch1 · 连续介质力学与线性有限元分析</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="brand">NLFEA 学习平台</a>
+    <a href="../index.html" class="nav-link">课程地图</a>
+    <a href="../flashcards.html" class="nav-link">闪卡</a>
+    <a href="../exam.html" class="nav-link">考试</a>
+    <a href="../review.html" class="nav-link">回顾</a>
+    <span class="nav-spacer"></span>
+    <span class="nav-btn" id="chTitle">第 1 章</span>
+  </div>
+</nav>
+
+<main class="container lesson-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="../index.html">课程地图</a> › 第 1 章
+    </div>
+    <h1>第 1 章 · 连续介质力学与线性有限元分析</h1>
+    <p class="text-dim">Continuum Mechanics and Linear Finite Element Analysis · PDF p1–86</p>
+  </div>
+
+  <div class="card" id="statusSection"></div>
+
+  <!-- 1.1 -->
+  <div class="lesson-section">
+    <h3>📖 1.1 引言：为什么要学习非线性 FEM？</h3>
+    <p><strong>有限元方法 (FEM)</strong> 求解工程中的偏微分方程（结构力学 → 传热 → 流体力学 → 电磁）。线性结构系统已经有成熟的建模和求解方法，但<strong>非线性系统</strong>（弹塑性、大变形、接触、动力响应）需要基于问题特征的<strong>不同建模</strong>和<strong>不同求解方法</strong>。</p>
+    <p>本书目的：<strong>直接、清晰</strong>地介绍非线性 FEM 分析过程，重点 4 件事：</p>
+    <ul>
+      <li>✅ <strong>代表性非线性问题</strong>（不穷举所有理论）</li>
+      <li>✅ <strong>详细理论推导</strong>（含每一步的物理解释）</li>
+      <li>✅ <strong>求解过程</strong>（Newton-Raphson、弧长法、显式 / 隐式）</li>
+      <li>✅ <strong>MATLAB 实现</strong>（让初学者能上手）</li>
+    </ul>
+    <p class="text-dim">读者对象：机械 / 土木 / 航天 / 生物医学 / 工业工程的研究生、研究人员、设计工程师。</p>
+    <img src="../assets/pages/ch1_p004.png" alt="chapter cover" class="pdf-img">
+  </div>
+
+  <!-- 1.2 -->
+  <div class="lesson-section">
+    <h3>📐 1.2 向量与张量分析</h3>
+    <h4>1.2.1 基底与 Einstein 求和约定</h4>
+    <p>三维向量 = 三个基向量的线性组合。Einstein 求和约定：</p>
+    <div class="formula">
+      <span class="formula-num">(1.1)</span>
+      <div class="formula-block"><b>u</b> = u<sub>j</sub><b>e</b><sub>j</sub> = u<sub>1</sub><b>e</b><sub>1</sub> + u<sub>2</sub><b>e</b><sub>2</sub> + u<sub>3</sub><b>e</b><sub>3</sub></div>
+    </div>
+    <p>重复指标自动求和（j = 1,2,3 自动求和）。一个指标在单项中只能出现两次。</p>
+
+    <h4>Kronecker δ 与内积</h4>
+    <div class="formula">
+      <span class="formula-num">(1.2)</span>
+      <div class="formula-block"><b>u</b> · <b>v</b> = u<sub>i</sub>v<sub>i</sub> = u<sub>1</sub>v<sub>1</sub> + u<sub>2</sub>v<sub>2</sub> + u<sub>3</sub>v<sub>3</sub></div>
+    </div>
+    <div class="formula">
+      <span class="formula-num">(1.3)</span>
+      <div class="formula-block">δ<sub>ij</sub> = 1 if i = j, 0 if i ≠ j （Kronecker δ）</div>
+    </div>
+
+    <div class="example">
+      <div class="example-title">💡 例 1.1：向量运算</div>
+      <p><b>u</b> = (3, 4)，<b>v</b> = (1, 2)：</p>
+      <ul>
+        <li><b>u</b> · <b>v</b> = 3·1 + 4·2 = <strong>11</strong></li>
+        <li>|<b>u</b>| = √(3² + 4²) = <strong>5</strong></li>
+        <li>由 δ<sub>ij</sub>：v<sub>j</sub> δ<sub>ij</sub> = v<sub>i</sub>（重复指标替换）</li>
+      </ul>
+    </div>
+
+    <h4>置换符号 e<sub>ijk</sub>（Levi-Civita）</h4>
+    <p>3D 叉积需要：</p>
+    <div class="formula">
+      <span class="formula-num">(1.20)</span>
+      <div class="formula-block">e<sub>ijk</sub> = +1 (偶置换), −1 (奇置换), 0 (有重复)</div>
+    </div>
+    <div class="formula">
+      <span class="formula-num">(1.22)</span>
+      <div class="formula-block"><b>W</b>u = <b>w</b> × <b>u</b>  （反对称张量 W 关联向量 w）</div>
+    </div>
+
+    <h4>1.2.2 向量与张量微积分</h4>
+    <p><strong>梯度算子</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(1.23)</span>
+      <div class="formula-block">∇ = ∂/∂x<sub>i</sub> · <b>e</b><sub>i</sub></div>
+    </div>
+    <ul>
+      <li><strong>标量场的梯度</strong>：∇φ（向量）</li>
+      <li><strong>向量场的梯度</strong>：∇<b>u</b>（2 阶张量）</li>
+      <li><strong>散度</strong>：∇ · <b>u</b> = ∂u<sub>i</sub>/∂x<sub>i</sub>（标量）</li>
+      <li><strong>Laplace</strong>：∇² = ∂²/∂x<sub>i</sub>²</li>
+    </ul>
+
+    <h4>1.2.3 散度定理（重要积分定理）</h4>
+    <div class="formula">
+      <span class="formula-num">(1.30)</span>
+      <div class="formula-block">∫<sub>Ω</sub> ∇ · <b>F</b> dΩ = ∫<sub>Γ</sub> <b>F</b> · <b>n</b> dΓ</div>
+    </div>
+    <p>体积分 → 面积分。是 FEM 弱形式推导（虚功原理）的核心数学基础。</p>
+
+    <img src="../assets/pages/ch1_p013.png" alt="tensor calculus" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 散度定理：体积分等于边界通量</p>
+
+    <img src="../assets/pages/ch1_p018.png" alt="vector notation" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 向量内积与 Kronecker δ</p>
+
+    <img src="../assets/pages/ch1_p025.png" alt="gradient" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 梯度算子与向量微积分</p>
+  </div>
+
+  <!-- 1.3 -->
+  <div class="lesson-section">
+    <h3>💪 1.3 应力与应变</h3>
+    <h4>1.3.1 应力张量</h4>
+    <p><strong>应力</strong> = 单位面积上的内力。3D 中需要<strong>2 阶应力张量</strong> σ<sub>ij</sub> 描述：</p>
+    <div class="formula">
+      <span class="formula-num">(1.36)</span>
+      <div class="formula-block">
+        σ = ⎡σ<sub>11</sub> σ<sub>12</sub> σ<sub>13</sub>⎤<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⎣σ<sub>12</sub> σ<sub>22</sub> σ<sub>23</sub>⎦<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⎡σ<sub>13</sub> σ<sub>23</sub> σ<sub>33</sub>⎤
+      </div>
+    </div>
+    <p><strong>对称</strong> σ<sub>ij</sub> = σ<sub>ji</sub>（由动量矩守恒，无体力偶时）。共 <strong>6 个独立分量</strong>：3 正应力 + 3 剪应力。</p>
+    <div class="important">
+      <div class="important-title">⚠ 应力的"正方向"约定</div>
+      <p>应力分量 σ<sub>ij</sub> 的正负号 = 面的正方向 × 力的正方向。
+      <br>正法线 + 负力 → 负分量。剪应力在正面 + 沿正轴 → 正。</p>
+    </div>
+
+    <h4>Voigt 标记</h4>
+    <p>把 6 个独立分量写为 6×1 伪向量：</p>
+    <div class="formula">
+      <span class="formula-num">(1.37)</span>
+      <div class="formula-block">
+        {σ} = ⎡σ<sub>11</sub>, σ<sub>22</sub>, σ<sub>33</sub>, σ<sub>12</sub>, σ<sub>23</sub>, σ<sub>13</sub>⎤<sup>T</sup>
+      </div>
+    </div>
+
+    <h4>主应力与不变量</h4>
+    <p>解 det(<strong>σ</strong> - λ<b>I</b>) = 0 → 3 个<strong>主应力</strong> σ<sub>1</sub>, σ<sub>2</sub>, σ<sub>3</sub>（对应特征向量方向无剪应力）。</p>
+    <div class="formula">
+      <div class="formula-block">I<sub>1</sub> = tr(σ) = σ<sub>kk</sub></div>
+      <div class="formula-block">I<sub>2</sub> = (1/2)[(tr σ)² − tr(σ²)]</div>
+      <div class="formula-block">I<sub>3</sub> = det(σ)</div>
+    </div>
+    <p>3 个不变量在坐标旋转下保持不变。</p>
+
+    <img src="../assets/pages/ch1_p032.png" alt="stress tensor" class="pdf-img">
+    <p class="pdf-img-caption">图 1.5 应力张量正方向约定</p>
+
+    <h4>1.3.2 应变张量</h4>
+    <p><strong>小变形</strong>假设下的无穷小应变张量：</p>
+    <div class="formula">
+      <span class="formula-num">(1.40)</span>
+      <div class="formula-block">ε<sub>ij</sub> = (1/2)(∂u<sub>i</sub>/∂x<sub>j</sub> + ∂u<sub>j</sub>/∂x<sub>i</sub>)</div>
+    </div>
+    <ul>
+      <li>对角元素 ε<sub>ii</sub>：正应变（拉伸 / 压缩）</li>
+      <li>非对角元素 ε<sub>ij</sub>：剪应变（角变形的一半）</li>
+    </ul>
+
+    <h4>1.3.3 本构关系（Hooke 定律）</h4>
+    <p><strong>各向同性线弹性</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(1.46)</span>
+      <div class="formula-block">σ<sub>ij</sub> = λ ε<sub>kk</sub> δ<sub>ij</sub> + 2μ ε<sub>ij</sub></div>
+    </div>
+    <p>其中 λ 和 μ 是 Lamé 常数，与工程常数 E（杨氏模量）、ν（泊松比）的关系：</p>
+    <div class="formula">
+      <div class="formula-block">λ = Eν / [(1+ν)(1−2ν)]</div>
+      <div class="formula-block">μ = G = E / [2(1+ν)]</div>
+    </div>
+    <p>用 E、ν 表达：</p>
+    <div class="formula">
+      <span class="formula-num">(1.48)</span>
+      <div class="formula-block">
+        σ<sub>ij</sub> = [E/(1+ν)] · ε<sub>ij</sub> + [Eν/((1+ν)(1−2ν))] · ε<sub>kk</sub> · δ<sub>ij</sub>
+      </div>
+    </div>
+
+    <img src="../assets/pages/ch1_p038.png" alt="constitutive" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 各向同性线弹性本构</p>
+
+    <div class="example">
+      <div class="example-title">💡 例 1.2：单轴拉伸应力</div>
+      <p>钢杆 E = 200 GPa, ν = 0.3，单轴应力 σ<sub>11</sub> = 100 MPa（其他方向无应力）：</p>
+      <ul>
+        <li>横向应变：ε<sub>22</sub> = ε<sub>33</sub> = −ν · σ<sub>11</sub>/E = −0.3 × 100/200000 = <strong>−1.5e−4</strong></li>
+        <li>轴向应变：ε<sub>11</sub> = σ<sub>11</sub>/E = 100/200000 = <strong>5e−4</strong></li>
+        <li>体积应变：ε<sub>ii</sub> = ε<sub>11</sub> + ε<sub>22</sub> + ε<sub>33</sub> = 5e−4 − 2·1.5e−4 = <strong>2e−4</strong>（很小，因 ν &lt; 0.5）</li>
+      </ul>
+    </div>
+
+    <img src="../assets/pages/ch1_p045.png" alt="material" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 单轴拉伸应力-应变</p>
+  </div>
+
+  <!-- 1.4 -->
+  <div class="lesson-section">
+    <h3>⚖️ 1.4 连续体力学</h3>
+    <h4>1.4.1 边值问题 (BVP)</h4>
+    <p>固体力学 BVP 包含 3 部分：</p>
+    <ol>
+      <li><strong>平衡方程</strong>（动量守恒）：σ<sub>ij,j</sub> + f<sub>i</sub> = 0</li>
+      <li><strong>几何关系</strong>（应变-位移）：ε<sub>ij</sub> = (1/2)(u<sub>i,j</sub> + u<sub>j,i</sub>)</li>
+      <li><strong>本构关系</strong>：σ = f(ε)（如 Hooke 定律）</li>
+    </ol>
+    <p>边界条件：</p>
+    <ul>
+      <li><strong>位移边界</strong>（Dirichlet）：u<sub>i</sub> = ū<sub>i</sub> 在 Γ<sub>u</sub></li>
+      <li><strong>力边界</strong>（Neumann）：σ<sub>ij</sub> n<sub>j</sub> = t̄<sub>i</sub> 在 Γ<sub>t</sub></li>
+      <li>Γ<sub>u</sub> ∪ Γ<sub>t</sub> = ∂Ω（互补覆盖）</li>
+    </ul>
+
+    <h4>1.4.2 最小势能原理</h4>
+    <p>对保守系统，<strong>真实位移场使总势能 Π 取驻值</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(1.66)</span>
+      <div class="formula-block">δΠ = 0</div>
+    </div>
+    <p>总势能 = 应变能 − 外力功：</p>
+    <div class="formula">
+      <span class="formula-num">(1.65)</span>
+      <div class="formula-block">
+        Π = ∫<sub>Ω</sub> (1/2) σ : ε dΩ − ∫<sub>Ω</sub> <b>f</b> · <b>u</b> dΩ − ∫<sub>Γ<sub>t</sub></sub> <b>t̄</b> · <b>u</b> dΓ
+      </div>
+    </div>
+    <p><strong>优点</strong>：只要求一阶导，比平衡方程（要求二阶导）更宽松 → FEM 直接基于此。</p>
+
+    <h4>1.4.3 虚功原理</h4>
+    <p>对任意虚位移 δ<b>u</b>（在位移边界上为零）：</p>
+    <div class="formula">
+      <span class="formula-num">(1.70)</span>
+      <div class="formula-block">
+        ∫<sub>Ω</sub> σ : δε dΩ = ∫<sub>Ω</sub> <b>f</b> · δ<b>u</b> dΩ + ∫<sub>Γ<sub>t</sub></sub> <b>t̄</b> · δ<b>u</b> dΓ
+      </div>
+    </div>
+    <p>虚功原理是<strong>变分形式</strong>，不要求势能存在 → 适合任何材料（不仅保守系统）。<br>
+       对保守弹性系统，虚功 ≡ 最小势能。</p>
+
+    <img src="../assets/pages/ch1_p050.png" alt="virtual work" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 虚功原理的几何解释</p>
+  </div>
+
+  <!-- 1.5 -->
+  <div class="lesson-section">
+    <h3>🔧 1.5 线性系统有限元分析</h3>
+    <h4>1.5.1 有限元近似</h4>
+    <p>把连续体划分为<strong>有限个单元</strong>，单元内位移用<strong>形函数插值</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(1.78)</span>
+      <div class="formula-block"><b>u</b>(x) ≈ N<sub>a</sub>(x) <b>u</b><sub>a</sub></div>
+    </div>
+    <p>其中 N<sub>a</sub> 是形函数，<b>u</b><sub>a</sub> 是节点位移（对单元节点 a 求和）。</p>
+
+    <h4>1.5.2 一维杆单元有限元方程</h4>
+    <p>杆单元（长度 L，面积 A，弹性模量 E）：</p>
+    <div class="formula">
+      <span class="formula-num">(1.85)</span>
+      <div class="formula-block">
+        <b>K</b><sup>e</sup> = (EA/L) · ⎡ 1 −1 ⎤<br>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;⎣−1  1 ⎦
+      </div>
+    </div>
+    <p>组装：<strong>K</strong> <b>U</b> = <b>F</b>。</p>
+
+    <h4>1.5.3 3D 实体单元</h4>
+    <p>八节点六面体（hex8）单元刚度：</p>
+    <div class="formula">
+      <span class="formula-num">(1.137)</span>
+      <div class="formula-block">
+        <b>K</b><sup>e</sup> = ∫<sub>V<sub>e</sub></sub> <b>B</b><sup>T</sup> <b>C</b> <b>B</b> dV
+      </div>
+    </div>
+    <p>其中 <b>B</b> = LN（应变-位移矩阵），<b>C</b> = 材料弹性矩阵，LN 是形函数梯度。</p>
+
+    <h4>1.5.4 MATLAB 实现</h4>
+    <p>第 1.5.5 节给出 3D 8 节点六面体的 MATLAB 代码（见 PDF p50-58）。</p>
+
+    <img src="../assets/pages/ch1_p058.png" alt="FEM code" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 有限元离散与组装</p>
+
+    <img src="../assets/pages/ch1_p065.png" alt="2D element" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 2D 平面应变四边形单元</p>
+
+    <div class="example">
+      <div class="example-title">💡 例 1.5：3D 单元应力计算</div>
+      <p>8 节点六面体单元，节点位移已知，形函数 N 已知：</p>
+      <ul>
+        <li>① 计算每个高斯点的 Jacobian J = dx/dξ</li>
+        <li>② 计算 B = LN · J<sup>-1</sup></li>
+        <li>③ 应变 ε = B · U</li>
+        <li>④ 应力 σ = C · ε</li>
+        <li>⑤ 单元刚度 K<sup>e</sup> = ∫ B<sup>T</sup> C B |J| dξdηdζ</li>
+      </ul>
+    </div>
+
+    <img src="../assets/pages/ch1_p072.png" alt="3D mesh" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 3D 六面体单元网格</p>
+  </div>
+
+  <!-- 1.6 -->
+  <div class="lesson-section">
+    <h3>📌 1.6 本章总结</h3>
+    <ul>
+      <li>✅ <strong>向量与张量基础</strong>（Einstein 求和、Kronecker δ、Levi-Civita 置换符号）</li>
+      <li>✅ <strong>应力</strong>（对称 2 阶张量、6 个独立分量、Voigt 标记、主应力）</li>
+      <li>✅ <strong>应变</strong>（无穷小应变张量、正应变 / 剪应变）</li>
+      <li>✅ <strong>本构关系</strong>（各向同性线弹性 Hooke 定律、λ/μ 与 E/ν）</li>
+      <li>✅ <strong>边值问题</strong>（平衡 + 几何 + 本构 + 边界）</li>
+      <li>✅ <strong>最小势能原理</strong>（变分形式）</li>
+      <li>✅ <strong>虚功原理</strong>（不要求势能存在）</li>
+      <li>✅ <strong>线性 FEM</strong>（形函数、单元刚度、组装、3D hex8 实现）</li>
+    </ul>
+    <p class="text-dim">第 2 章将基于这些基础，扩展到<strong>非线性系统</strong>（Newton-Raphson 求解）。</p>
+
+    <img src="../assets/pages/ch1_p080.png" alt="chapter 1 summary" class="pdf-img">
+    <p class="pdf-img-caption">图 1.x 本章关键概念</p>
+  </div>
+
+  <!-- 1.7 习题 -->
+  <div class="lesson-section">
+    <h3>📝 1.7 习题（PDF p78-86）</h3>
+    <p class="text-dim">建议先做以下题目：</p>
+    <ul>
+      <li><strong>1.1</strong> 向量求和约定（1 维、2 维、3 维）</li>
+      <li><strong>1.2</strong> 应力张量对称性证明（从动量矩）</li>
+      <li><strong>1.3</strong> 主应力与不变量计算</li>
+      <li><strong>1.4</strong> 单轴拉伸的应力-应变关系</li>
+      <li><strong>1.5</strong> 置换符号 e<sub>ijk</sub> 性质</li>
+      <li><strong>1.10</strong> 单元刚度矩阵推导（1D 杆 → 2D 桁架 → 3D 梁）</li>
+      <li><strong>1.20</strong> 3D 实体单元的有限元方程推导</li>
+      <li><strong>1.30</strong> 用 MATLAB 实现 8 节点六面体单元</li>
+    </ul>
+  </div>
+
+  <!-- PDF 页面缩略图 -->
+  <div class="lesson-section">
+    <h3>📚 本章 PDF 关键页面</h3>
+    <p class="text-dim">点击放大看原图，对照学习。</p>
+    <div class="page-thumbs">
+      <a class="page-thumb" href="../assets/pages/ch1_p004.png"><img src="../assets/pages/ch1_p004.png" alt="p004"><div class="pt-caption">p004 · 课程封面</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p013.png"><img src="../assets/pages/ch1_p013.png" alt="p013"><div class="pt-caption">p013 · 目录</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p018.png"><img src="../assets/pages/ch1_p018.png" alt="p018"><div class="pt-caption">p018 · 向量内积</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p025.png"><img src="../assets/pages/ch1_p025.png" alt="p025"><div class="pt-caption">p025 · 梯度算子</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p032.png"><img src="../assets/pages/ch1_p032.png" alt="p032"><div class="pt-caption">p032 · 应力张量</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p038.png"><img src="../assets/pages/ch1_p038.png" alt="p038"><div class="pt-caption">p038 · 本构关系</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p045.png"><img src="../assets/pages/ch1_p045.png" alt="p045"><div class="pt-caption">p045 · 单轴拉伸</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p050.png"><img src="../assets/pages/ch1_p050.png" alt="p050"><div class="pt-caption">p050 · 虚功原理</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p058.png"><img src="../assets/pages/ch1_p058.png" alt="p058"><div class="pt-caption">p058 · FEM 离散</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p065.png"><img src="../assets/pages/ch1_p065.png" alt="p065"><div class="pt-caption">p065 · 2D 单元</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p072.png"><img src="../assets/pages/ch1_p072.png" alt="p072"><div class="pt-caption">p072 · 3D 网格</div></a>
+      <a class="page-thumb" href="../assets/pages/ch1_p080.png"><img src="../assets/pages/ch1_p080.png" alt="p080"><div class="pt-caption">p080 · 本章总结</div></a>
+    </div>
+  </div>
+
+  <div class="card" id="notesSection"></div>
+</main>
+
+<script src="../js/storage.js"></script>
+<script src="../js/progress.js"></script>
+<script src="../js/notes.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/inline-data.js"></script>
+<script>
+  const SLUG = "ch1";
+  document.getElementById("statusSection").innerHTML = NLApp.statusButtonsHTML(SLUG);
+  document.getElementById("notesSection").innerHTML = NLApp.notesHTML(SLUG);
+  NLApp.bindLesson(SLUG);
+</script>
+</body>
+</html>

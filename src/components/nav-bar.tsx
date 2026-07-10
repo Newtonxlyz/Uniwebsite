@@ -17,6 +17,7 @@ import {
   Brain,
   ShoppingBag,
   Library,
+  Atom,
 } from "lucide-react";
 import { useSession, signOut as doSignOut } from "@/lib/auth-client";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -29,6 +30,7 @@ const SUBSITES = [
   { href: "/kids-ai", label: "儿童 AI", short: "KidsAI", icon: Sparkles, desc: "儿童本地大模型互动" },
   { href: "/picturebook", label: "绘本", short: "绘本", icon: BookOpen, desc: "原创情感引导绘本" },
   { href: "/knowledge-base", label: "知识库", short: "知识库", icon: Library, desc: "TEBS 车辆安全技术库" },
+  { href: "/learn/nlfea", label: "NLFEA", short: "NLFEA", icon: Atom, desc: "非线性有限元 6 章课程" },
   { href: "/blog", label: "博客", short: "博客", icon: Brain, desc: "AI 工具 · 汽车安全思考" },
   { href: "/merchandise", label: "IP 周边", short: "周边", icon: ShoppingBag, desc: "Lvyz 周边商城" },
 ];

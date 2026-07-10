@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ch4 · 材料非线性（弹塑性）</title>
+<link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="../index.html" class="brand">NLFEA 学习平台</a>
+    <a href="../index.html" class="nav-link">课程地图</a>
+    <a href="../flashcards.html" class="nav-link">闪卡</a>
+    <a href="../exam.html" class="nav-link">考试</a>
+    <a href="../review.html" class="nav-link">回顾</a>
+    <span class="nav-spacer"></span>
+    <span class="nav-btn" id="chTitle">第 4 章</span>
+  </div>
+</nav>
+
+<main class="container lesson-content">
+  <div class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="../index.html">课程地图</a> › 第 4 章
+    </div>
+    <h1>第 4 章 · 有限元分析 - 弹塑性材料</h1>
+    <p class="text-dim">Finite Element Analysis for Elastoplastic Problems · PDF p251–372</p>
+  </div>
+
+  <div class="card" id="statusSection"></div>
+
+  <!-- 4.1 -->
+  <div class="lesson-section">
+    <h3>📖 4.1 本章概览</h3>
+    <p>本章讨论<strong>材料非线性</strong>中最常见也最复杂的<strong>弹塑性</strong>。<strong>核心</strong>：载荷-卸载行为不可逆，<strong>应力-应变</strong>依赖<strong>历史</strong>，需要<strong>本构积分算法</strong>逐载荷步更新。</p>
+    <ul>
+      <li>4.1 引言：弹塑性与路径相关性</li>
+      <li>4.2 一维弹塑性：屈服 / 流动 / 硬化</li>
+      <li>4.3 多维弹塑性：屈服准则 / 流动法则</li>
+      <li>4.4 大变形弹塑性：客观应力率</li>
+      <li>4.5 超弹塑性：乘法分解 <strong>F</strong> = <strong>F</strong><sup>e</sup> · <strong>F</strong><sup>p</sup></li>
+      <li>4.6 例子：板弯曲、压力容器</li>
+      <li>4.7 MATLAB 代码实现</li>
+    </ul>
+    <img src="../assets/pages/ch4_p258.png" alt="elastoplastic" class="pdf-img">
+    <p class="pdf-img-caption">图 4.x 弹塑性应力-应变：弹性加载→屈服→塑性流动→硬化→卸载（永久变形）</p>
+  </div>
+
+  <!-- 4.2 -->
+  <div class="lesson-section">
+    <h3>📏 4.2 一维弹塑性</h3>
+    <h4>4.2.1 基本概念</h4>
+    <ul>
+      <li><strong>屈服</strong>：应力达到 σ<sub>Y</sub> 后，材料开始<strong>塑性变形</strong>（永久变形）</li>
+      <li><strong>应变分解</strong>：ε = ε<sup>e</sup> + ε<sup>p</sup> （小变形下加法分解有效）</li>
+      <li><strong>硬化</strong>：屈服面随塑性应变移动 / 膨胀</li>
+      <li><strong>流动法则</strong>：dε<sup>p</sup> = dλ · ∂g/∂σ（g 是塑性势函数）</li>
+    </ul>
+    <div class="formula">
+      <div class="formula-block">σ = E · (ε − ε<sup>p</sup>) （应力只与<strong>弹性应变</strong>有关）</div>
+    </div>
+
+    <img src="../assets/pages/ch4_p265.png" alt="stress-strain" class="pdf-img">
+    <p class="pdf-img-caption">图 4.x 一维弹塑性应力-应变曲线：弹性段 + 屈服点 + 塑性段 + 卸载（弹性恢复）</p>
+
+    <h4>4.2.2 各向同性硬化 vs 运动硬化</h4>
+    <ul>
+      <li><strong>各向同性硬化</strong>：屈服面均匀膨胀（σ<sub>Y</sub> 增大）</li>
+      <li><strong>运动硬化</strong>：屈服面<strong>平移</strong>（σ<sub>Y</sub> 不变，处理包辛格效应）</li>
+      <li><strong>混合硬化</strong>：两者组合</li>
+    </ul>
+
+    <h4>4.2.3 1D 本构积分（返回映射 + 塑性校正）</h4>
+    <ol>
+      <li><strong>试应力</strong>：ε<sup>tr</sup> = ε<sub>n</sub> + Δε；σ<sup>tr</sup> = E · ε<sup>tr</sup></li>
+      <li><strong>屈服判断</strong>：若 |σ<sup>tr</sup>| ≤ σ<sub>Y</sub>，材料保持弹性（<strong>σ<sub>n+1</sub></strong> = <strong>σ<sup>tr</sup></strong>，<strong>ε<sub>n+1</sub><sup>p</sup></strong> = <strong>ε<sub>n</sub><sup>p</sup></strong>）</li>
+      <li><strong>塑性校正</strong>：若 |σ<sup>tr</sup>| &gt; σ<sub>Y</sub>，计算 Δε<sup>p</sup> = (|σ<sup>tr</sup>| − σ<sub>Y</sub>) / (E + H)，更新 σ<sub>n+1</sub></li>
+    </ol>
+    <div class="formula">
+      <span class="formula-num">(4.24)</span>
+      <div class="formula-block">
+        σ<sub>n+1</sub> = σ<sup>tr</sup> − sgn(σ<sup>tr</sup>) · E · Δε<sup>p</sup>
+      </div>
+    </div>
+    <div class="important">
+      <div class="important-title">核心：返回映射（Return Mapping）</div>
+      <p>先按弹性更新试应力，再把超出的部分"拉回"到屈服面。这是<strong>绝大多数本构积分算法</strong>的骨架。</p>
+    </div>
+
+    <img src="../assets/pages/ch4_p275.png" alt="return mapping" class="pdf-img">
+    <p class="pdf-img-caption">图 4.5 返回映射算法：弹性试算 → 塑性校正 → 落到屈服面</p>
+
+    <div class="example">
+      <div class="example-title">💡 例 4.1 一维弹塑性拉伸</div>
+      <p>F = 12 kN，A = 10⁻⁴ m² → σ = 120 MPa。E = 100 GPa，H = 10 GPa，σ<sub>Y</sub> = 100 MPa。</p>
+      <ul>
+        <li>ε<sup>(1)</sup><sub>e</sub> = 100/100000 = <strong>0.001</strong></li>
+        <li>Δσ = 20 MPa，Δε<sup>(2)</sup><sub>e</sub> = 20/100000 = <strong>0.0002</strong></li>
+        <li>Δε<sup>(2)</sup><sub>p</sub> = 20/10000 = <strong>0.002</strong></li>
+        <li>ε<sub>e</sub> 总 = 0.0012，ε<sub>p</sub> = 0.002</li>
+      </ul>
+      <p>总应变 = 0.0032，仅 0.0012 是弹性的，其余 62.5% 是塑性。这体现"少量应力超过 σ<sub>Y</sub> 就会引起大量塑性变形"。</p>
+    </div>
+  </div>
+
+  <!-- 4.3 -->
+  <div class="lesson-section">
+    <h3>🔩 4.3 多维弹塑性</h3>
+    <h4>4.3.1 屈服准则</h4>
+    <div class="formula">
+      <div class="formula-block">
+        f(σ) = σ<sub>eq</sub> − σ<sub>Y</sub> ≤ 0 （屈服面内：弹性；面上：塑性）
+      </div>
+    </div>
+    <p><strong>常见等效应力 σ<sub>eq</sub></strong>：</p>
+    <ul>
+      <li><strong>von Mises</strong>（金属常用）：σ<sub>eq</sub> = √(3/2 · <b>s</b>:<b>s</b>)，其中 <b>s</b> = σ − (tr σ/3) <b>I</b> 是偏应力张量</li>
+      <li><strong>Tresca</strong>（最大剪应力）：σ<sub>eq</sub> = σ<sub>1</sub> − σ<sub>3</sub></li>
+      <li><strong>Drucker-Prager</strong>（岩土）：含静水压力项</li>
+      <li><strong>Mohr-Coulomb</strong>（岩土）：τ = c + σ·tan φ</li>
+    </ul>
+
+    <h4>4.3.2 Von Mises 屈服准则</h4>
+    <div class="formula">
+      <span class="formula-num">(4.65)</span>
+      <div class="formula-block">
+        σ<sub>eq</sub> = √(3/2 · <b>s</b>:<b>s</b>) = √(3·J<sub>2</sub>)
+      </div>
+    </div>
+    <div class="formula">
+      <span class="formula-num">(4.68)</span>
+      <div class="formula-block">
+        f(<b>σ</b>) = σ<sub>eq</sub>² − σ<sub>Y</sub>² = 3J<sub>2</sub> − σ<sub>Y</sub>² = 0
+      </div>
+    </div>
+    <p>J<sub>2</sub> 是偏应力张量的第二不变量。在 2D 主应力空间，von Mises 是<strong>椭圆</strong>，Tresca 是<strong>六边形</strong>。von Mises 包络 Tresca → Tresca 更保守。</p>
+
+    <img src="../assets/pages/ch4_p295.png" alt="von Mises" class="pdf-img">
+    <p class="pdf-img-caption">图 4.11 von Mises（椭圆）vs Tresca（六边形）屈服面在 2D 主应力空间</p>
+
+    <h4>4.3.3 硬化模型</h4>
+    <p><strong>各向同性硬化</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(4.71)</span>
+      <div class="formula-block">
+        σ<sub>Y</sub>(ε<sub>p</sub>) = σ<sub>Y0</sub> + H · ε<sub>p</sub>
+      </div>
+    </div>
+    <p><strong>运动硬化</strong>（线性 Ziegler）：</p>
+    <div class="formula">
+      <span class="formula-num">(4.80)</span>
+      <div class="formula-block">
+        d<b>α</b> = (2/3) · C · dε<sub>p</sub>  （<b>α</b> 是背应力）
+      </div>
+    </div>
+
+    <h4>4.3.4 关联流动法则</h4>
+    <div class="formula">
+      <span class="formula-num">(4.90)</span>
+      <div class="formula-block">
+        dε<sub>p</sub> = dλ · ∂f/∂σ（dλ ≥ 0，Kuhn-Tucker 条件）
+      </div>
+    </div>
+    <p>关联流动保证塑性应变<strong>沿屈服面法向</strong>。</p>
+
+    <h4>4.3.5 一致性条件</h4>
+    <div class="formula">
+      <span class="formula-num">(4.95)</span>
+      <div class="formula-block">
+        df = (∂f/∂σ):dσ + (∂f/∂σ<sub>Y</sub>) · dσ<sub>Y</sub> = 0（加载时 f = 0 必须保持）
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.4 -->
+  <div class="lesson-section">
+    <h3>🌐 4.4 大变形客观应力率</h3>
+    <p>小变形假设下 dσ 已足够。大变形下<strong>Cauchy 应力的物质导数</strong>不满足<strong>刚体转动不变</strong>，需要<strong>客观应力率</strong>（<em>objective stress rate</em>）：</p>
+    <ul>
+      <li><strong>Jaumann 率</strong>：σ<sup>▽J</sup> = dσ/dt − <b>W</b>·σ − σ·<b>W</b><sup>T</sup>（用 spin 张量 <b>W</b>）</li>
+      <li><strong>Truesdell 率</strong>：σ<sup>▽T</sup> = J · d(J⁻¹σ)/dt</li>
+      <li><strong>Green-Naghdi 率</strong>：用 <b>R</b> 计算</li>
+    </ul>
+    <p><strong>本构</strong>：σ<sup>▽</sup> = <b>D</b><sup>e</sup> : dε<sup>e</sup></p>
+
+    <img src="../assets/pages/ch4_p305.png" alt="objective rate" class="pdf-img">
+    <p class="pdf-img-caption">图 4.x 大变形弹塑性的客观应力率（Jaumann / Truesdell）</p>
+  </div>
+
+  <!-- 4.5 -->
+  <div class="lesson-section">
+    <h3>🌟 4.5 超弹塑性：乘法分解</h3>
+    <p><strong>小变形假设</strong>不成立时，<strong>加法分解</strong> ε = ε<sup>e</sup> + ε<sup>p</sup> 失效（塑性变形很大，应变不能线性求和）。</p>
+    <p>Lee 提出的<strong>乘法分解</strong>：</p>
+    <div class="formula">
+      <span class="formula-num">(4.110)</span>
+      <div class="formula-block">
+        <b>F</b> = <b>F</b><sup>e</sup> · <b>F</b><sup>p</sup>
+      </div>
+    </div>
+    <p><b>F</b><sup>e</sup> = 弹性部分（卸载后可恢复），<b>F</b><sup>p</sup> = 塑性部分（中间构形）。</p>
+    <ul>
+      <li>应力只在<strong>弹性部分</strong>产生：σ = (1/J) · ∂W<sup>e</sup>/∂<b>E</b><sup>e</sup></li>
+      <li>流动法则：<b>L</b><sup>p</sup> = d<b>F</b><sup>p</sup>/dt · (<b>F</b><sup>p</sup>)<sup>-1</sup></li>
+    </ul>
+    <p>复杂但<strong>几何+材料非线性</strong>同时处理，是大变形塑性问题的"黄金标准"。</p>
+
+    <img src="../assets/pages/ch4_p315.png" alt="multiplicative" class="pdf-img">
+    <p class="pdf-img-caption">图 4.x 乘法分解：F = F<sup>e</sup> · F<sup>p</sup>（Lee 1969）</p>
+  </div>
+
+  <!-- 4.6 -->
+  <div class="lesson-section">
+    <h3>💻 4.6 数值积分算法</h3>
+    <h4>4.6.1 本构积分</h4>
+    <p><strong>关键算法</strong>：</p>
+    <ul>
+      <li><strong>返回映射</strong>（Radial Return）：各向同性硬化</li>
+      <li><strong>Closest Point Projection</strong>：一般屈服面</li>
+      <li><strong>Cutting Plane</strong>：隐式积分</li>
+      <li><strong>Euler 后向</strong> / <strong>Crisfield</strong> 等</li>
+    </ul>
+
+    <h4>4.6.2 切线模量</h4>
+    <div class="formula">
+      <span class="formula-num">(4.115)</span>
+      <div class="formula-block">
+        <b>D</b><sup>ep</sup> = <b>D</b><sup>e</sup> − <b>D</b><sup>e</sup> · <b>n</b> · <b>n</b><sup>T</sup> · <b>D</b><sup>e</sup> / (H' + <b>n</b><sup>T</sup> · <b>D</b><sup>e</sup> · <b>n</b>)
+      </div>
+    </div>
+    <p>其中 <b>n</b> = ∂f/∂σ 是塑性流方向，H' 是<strong>硬化模量</strong>。<strong>一致切线模量</strong>保证 NR 二次收敛。</p>
+
+    <img src="../assets/pages/ch4_p325.png" alt="consistent tangent" class="pdf-img">
+    <p class="pdf-img-caption">图 4.x 一致切线模量算法</p>
+
+    <h4>4.7 MATLAB 代码（第 4.6 节）</h4>
+    <p>第 4.6 节给出弹塑性 1D 杆单元 + 返回映射的 MATLAB 实现（PDF p320-340）。</p>
+
+    <img src="../assets/pages/ch4_p335.png" alt="elastoplastic code" class="pdf-img">
+    <p class="pdf-img-caption">图 4.x 弹塑性 1D 杆返回映射 MATLAB 代码</p>
+
+    <img src="../assets/pages/ch4_p345.png" alt="3D elastoplastic" class="pdf-img">
+    <p class="pdf-img-caption">图 4.x 3D 弹塑性板弯曲：塑性区演化</p>
+
+    <div class="example">
+      <div class="example-title">💡 例 4.7：板的弹塑性弯曲</div>
+      <p>板在弯曲时：中性层一侧拉伸屈服、另一侧压缩屈服。弯曲刚度（D）会随载荷增加而<strong>非线性退化</strong>。</p>
+      <p><strong>典型问题</strong>：汽车车门侧面碰撞吸能（薄壁梁弯曲塑性铰）。</p>
+    </div>
+
+    <img src="../assets/pages/ch4_p360.png" alt="engineering" class="pdf-img">
+    <p class="pdf-img-caption">图 4.x 工程应用：板料冲压成形（多步弹塑性分析）</p>
+  </div>
+
+  <!-- 4.7 -->
+  <div class="lesson-section">
+    <h3>📌 4.7 本章总结</h3>
+    <ul>
+      <li>✅ <strong>弹塑性是路径相关</strong>的（不可逆）</li>
+      <li>✅ <strong>一维核心</strong>：返回映射（试应力 → 塑性校正）</li>
+      <li>✅ <strong>多维关键</strong>：屈服准则（von Mises / Tresca / Mohr-Coulomb）+ 流动法则</li>
+      <li>✅ <strong>硬化</strong>：各向同性、运动、混合</li>
+      <li>✅ <strong>大变形弹塑性</strong>需<strong>客观应力率</strong>（Jaumann）</li>
+      <li>✅ <strong>超弹塑性</strong>：<b>F</b> = <b>F</b><sup>e</sup> · <b>F</b><sup>p</sup>（最终方案）</li>
+      <li>✅ <strong>工程价值</strong>：金属成形、碰撞、压力容器、焊接</li>
+    </ul>
+    <p class="text-dim">第 5 章将进入<strong>边界非线性</strong>（接触）。</p>
+  </div>
+
+  <!-- 4.8 习题 -->
+  <div class="lesson-section">
+    <h3>📝 4.8 习题（PDF p350-372）</h3>
+    <ul>
+      <li><strong>4.1</strong> 一维塑性分解（总应变 ε = 0.003，求各部分）</li>
+      <li><strong>4.2</strong> 加载-卸载的塑性应变计算</li>
+      <li><strong>4.5</strong> 1D 杆的 NR 迭代</li>
+      <li><strong>4.6</strong> von Mises 准则（多维应力状态）</li>
+      <li><strong>4.10</strong> 返回映射算法手算</li>
+      <li><strong>4.15</strong> 包辛格效应（运动硬化）</li>
+      <li><strong>4.20</strong> Tresca 与 von Mises 比较</li>
+      <li><strong>4.25</strong> 用 MATLAB 写弹塑性程序</li>
+    </ul>
+  </div>
+
+  <div class="lesson-section">
+    <h3>📚 本章 PDF 关键页面</h3>
+    <div class="page-thumbs">
+      <a class="page-thumb" href="../assets/pages/ch4_p258.png"><img src="../assets/pages/ch4_p258.png" alt="p258"><div class="pt-caption">p258 · 弹塑性曲线</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p265.png"><img src="../assets/pages/ch4_p265.png" alt="p265"><div class="pt-caption">p265 · 应力应变</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p275.png"><img src="../assets/pages/ch4_p275.png" alt="p275"><div class="pt-caption">p275 · 返回映射</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p285.png"><img src="../assets/pages/ch4_p285.png" alt="p285"><div class="pt-caption">p285 · NR 迭代示例</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p295.png"><img src="../assets/pages/ch4_p295.png" alt="p295"><div class="pt-caption">p295 · von Mises</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p305.png"><img src="../assets/pages/ch4_p305.png" alt="p305"><div class="pt-caption">p305 · 客观应力率</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p315.png"><img src="../assets/pages/ch4_p315.png" alt="p315"><div class="pt-caption">p315 · 乘法分解</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p325.png"><img src="../assets/pages/ch4_p325.png" alt="p325"><div class="pt-caption">p325 · 一致切线</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p335.png"><img src="../assets/pages/ch4_p335.png" alt="p335"><div class="pt-caption">p335 · MATLAB</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p345.png"><img src="../assets/pages/ch4_p345.png" alt="p345"><div class="pt-caption">p345 · 板弯曲</div></a>
+      <a class="page-thumb" href="../assets/pages/ch4_p360.png"><img src="../assets/pages/ch4_p360.png" alt="p360"><div class="pt-caption">p360 · 板料成形</div></a>
+    </div>
+  </div>
+
+  <div class="card" id="notesSection"></div>
+</main>
+
+<script src="../js/storage.js"></script>
+<script src="../js/progress.js"></script>
+<script src="../js/notes.js"></script>
+<script src="../js/app.js"></script>
+<script src="../js/inline-data.js"></script>
+<script>
+  const SLUG = "ch4";
+  document.getElementById("statusSection").innerHTML = NLApp.statusButtonsHTML(SLUG);
+  document.getElementById("notesSection").innerHTML = NLApp.notesHTML(SLUG);
+  NLApp.bindLesson(SLUG);
+</script>
+</body>
+</html>

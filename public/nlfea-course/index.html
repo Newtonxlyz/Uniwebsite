@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NLFEA 学习平台 · 非线性有限元</title>
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<nav class="topnav">
+  <div class="topnav-inner">
+    <a href="index.html" class="brand">NLFEA 学习平台</a>
+    <a href="index.html" class="nav-link active">课程地图</a>
+    <a href="flashcards.html" class="nav-link">闪卡</a>
+    <a href="exam.html" class="nav-link">考试</a>
+    <a href="review.html" class="nav-link">回顾</a>
+    <span class="nav-spacer"></span>
+    <button class="nav-btn" id="exportBtn" title="导出本地学习数据 (JSON)">📥 导出</button>
+    <button class="nav-btn" id="importBtn" title="从 JSON 文件恢复">📤 导入</button>
+  </div>
+</nav>
+
+<main class="container">
+  <header style="margin-bottom: 24px;">
+    <h1>📘 非线性有限元分析导论</h1>
+    <p class="text-dim">Introduction to Nonlinear Finite Element Analysis, 2nd Edition — Nam-Ho Kim (Springer, 2025)</p>
+  </header>
+
+  <!-- 仪表板 -->
+  <div class="stat-grid" id="stats">
+    <div class="stat-card">
+      <div class="stat-value" id="statCompleted">0</div>
+      <div class="stat-label">已完成</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="statInProgress">0</div>
+      <div class="stat-label">学习中</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="statNotStarted">6</div>
+      <div class="stat-label">未开始</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-value" id="statMinutes">0</div>
+      <div class="stat-label">学习分钟</div>
+    </div>
+  </div>
+
+  <div class="progress-bar"><div class="progress-fill" id="totalBar" style="width:0%"></div></div>
+  <p class="text-dim text-sm" id="totalPct" style="text-align:center;margin:6px 0 24px;">0% 已完成</p>
+
+  <h2>📖 6 章课程地图</h2>
+  <p class="text-dim mb-4">点击章节进入学习</p>
+  <div class="chapter-grid" id="chapterGrid"></div>
+
+  <hr>
+  <h3>🃏 闪卡 & 考试</h3>
+  <div class="chapter-grid">
+    <a href="flashcards.html" class="chapter-card">
+      <div class="ch-num">FLASH</div>
+      <div class="ch-title">Flash 闪卡</div>
+      <p class="text-dim text-sm">40+ 张概念闪卡，间隔重复复习</p>
+    </a>
+    <a href="exam.html" class="chapter-card">
+      <div class="ch-num">EXAM</div>
+      <div class="ch-title">综合考试</div>
+      <p class="text-dim text-sm">20 题覆盖全书 6 章，90 分及格</p>
+    </a>
+    <a href="review.html" class="chapter-card">
+      <div class="ch-num">REVIEW</div>
+      <div class="ch-title">学习回顾</div>
+      <p class="text-dim text-sm">查看所有笔记 + 进度统计 + 数据导出</p>
+    </a>
+  </div>
+
+  <hr>
+  <h3>💾 本地数据</h3>
+  <p class="text-dim text-sm mb-2">
+    所有学习数据（进度、笔记、闪卡评分、考试记录）都保存在你浏览器的 localStorage 中，<strong>不联网</strong>。
+    建议定期用顶部 <strong>📥 导出</strong> 按钮备份到 JSON 文件。
+  </p>
+  <p class="text-dim text-sm">
+    使用 <strong>📤 导入</strong> 可从 JSON 文件恢复数据（换电脑/换浏览器时用）。
+  </p>
+</main>
+
+<script src="js/storage.js"></script>
+<script src="js/progress.js"></script>
+<script src="js/notes.js"></script>
+<script src="js/flashcard.js"></script>
+<script src="js/app.js"></script>
+<script src="js/inline-data.js"></script>
+<script>
+  // 加载数据（优先用 inline，否则 fetch）
+  NLApp.loadData().then(() => {
+    NLApp.renderChapters();
+    NLApp.renderStats();
+    NLApp.bindStorageTools();
+  });
+</script>
+</body>
+</html>
