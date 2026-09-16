@@ -170,7 +170,7 @@
       const p = CourseProgress.get(c.id);
       const statusLabel = p.status === 'completed' ? '✓ 已完成' : p.status === 'in_progress' ? '⋯ 学习中' : '○ 未开始';
       return `
-        <a href="${c.slug}.html" class="chapter-row ${p.status}">
+        <a href="chapter-${c.slug}.html" class="chapter-row ${p.status}">
           <div class="chapter-num">${idx + 1}</div>
           <div class="chapter-info">
             <div class="chapter-info-title">${escapeHtml(c.title)}</div>
