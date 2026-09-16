@@ -137,8 +137,8 @@ for idx, ch_id in enumerate(chapter_contents.keys()):
     body_html = BODIES.get(ch_id, '<p>章节内容待补充</p>')
     prev_ch = chs[idx-1] if idx > 0 else None
     next_ch = chs[idx+1] if idx+1 < len(chs) else None
-    prev_slug = f'chapter-{prev_ch["id"]}.html' if prev_ch else ''
-    next_slug = f'chapter-{next_ch["id"]}.html' if next_ch else ''
+    prev_slug = f'chapter-{prev_ch["id"]}' if prev_ch else ''
+    next_slug = f'chapter-{next_ch["id"]}' if next_ch else ''
     prev_title = f'第 {idx} 章 · {prev_ch["title"][:8]}' if prev_ch else ''
     next_title = f'第 {idx+2} 章 · {next_ch["title"][:8]}' if next_ch else ''
     ch_html = apply_placeholders(ch_tpl,
