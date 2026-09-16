@@ -23,72 +23,42 @@
   <div class="card" id="statusSection"></div>
 
   <article id="chapterBody">
-    
-<section class="lesson-section">
-<h2>2.1 整车级代理模型里程碑</h2>
-<table style="width:100%; border-collapse: collapse;">
-<tr style="background: var(--bg-section);">
-<th style="padding: 8px; border: 1px solid var(--border);">研究 / 平台</th>
-<th style="padding: 8px; border: 1px solid var(--border);">规模</th>
-<th style="padding: 8px; border: 1px solid var(--border);">精度</th>
-</tr>
-<tr>
-<td style="padding: 6px; border: 1px solid var(--border);"><strong>Luminary SHIFT-Crash</strong></td>
-<td style="padding: 6px; border: 1px solid var(--border);">整车 (5000 仿真)</td>
-<td style="padding: 6px; border: 1px solid var(--border);">RMSE &lt; 3%</td>
-</tr>
-<tr>
-<td style="padding: 6px; border: 1px solid var(--border);">SEAT/IDIADA 侧柱撞击</td>
-<td style="padding: 6px; border: 1px solid var(--border);">整车</td>
-<td style="padding: 6px; border: 1px solid var(--border);">3.20 mm 位移 RMSE</td>
-</tr>
-<tr>
-<td style="padding: 6px; border: 1px solid var(--border);">NVIDIA + 通用汽车</td>
-<td style="padding: 6px; border: 1px solid var(--border);">白车身 (150 仿真)</td>
-<td style="padding: 6px; border: 1px solid var(--border);">数量级加速</td>
-</tr>
-<tr>
-<td style="padding: 6px; border: 1px solid var(--border);">Ansys SimAI 保险杠</td>
-<td style="padding: 6px; border: 1px solid var(--border);">子系统</td>
-<td style="padding: 6px; border: 1px solid var(--border);">压溃 &lt; 0.5%</td>
-</tr>
-</table>
-</section>
-
-<section class="lesson-section">
-<h2>2.2 架构三代演进</h2>
-<ol>
-<li>><strong>第一代标量回归</strong>(GPR/DNN):从设计参数 → 几个关键性能指标。简单,丢失空间信息。</li>
-<li>><strong>第二代全场 GNN</strong>(MeshGraphNet):网格节点位移。保留空间信息。MeshGraphNet 以网格连接为图结构,边更新-节点更新消息传递机制。</li>
-<li>><strong>第三代注意力混合</strong>(Transolver/GeoTransolver/GeoFlare):GNN + Transformer 注意力。Transolver 在物理状态空间计算注意力,降低复杂度。精度排名:GeoFlare &gt; GeoTransolver &gt; Transolver &gt; MeshGraphNet</li>
-</ol>
-</section>
-
-<section class="lesson-section">
-<h2>2.3 神经算子 (FNO) 的局限</h2>
-<p><strong>重要发现</strong>:FNO 在强非线性结构动力学中误差急剧恶化:</p>
+    <h3>2.1 学术前沿：从部件级到整车级的突破</h3>
+<p>2024-2026年，碰撞仿真领域的AI代理模型研究呈现出明显的"规模升级"趋势——从早期的简单部件（梁、管）发展到整车级复杂结构，从标量预测发展到全场时空预测。</p>
+<p><strong>整车级代理模型的最新进展。</strong> 2026年5月，SEAT与IDIADA合作发布了侧柱撞击（lateral pole-impact）整车级代理模型研究，采用MeshTransolver、MeshGeoTransolver、MeshGeoFLARE等混合架构，在25个测试样本上实现了<strong>时间平均RMSE仅3.20mm</strong>的精度。研究发现，纯注意力模型虽然在量化指标上有竞争力，但定性检查会发现局部空间噪声和变形不规则；而"网格消息传递+几何感知注意力+稀疏接触感知修正"的混合架构在标量精度、生存空间一致性和物理解释性之间取得了最佳平衡 <a href="https://arxiv.org/pdf/2605.11784" target="_blank">(arXiv:2605.11784)</a>。</p>
+<p>NVIDIA与通用汽车合作的白车身碰撞研究更进一步，使用150次LS-DYNA仿真训练MeshGraphNet和Transolver模型，支持可变厚度分布的参数化输入，能够预测整个碰撞过程的时空变形演化。虽然尚未达到完整FE精度，但实现了数量级的计算加速，证明了ML代理模型在早期碰撞安全性优化中的可行性 <a href="https://www.nvidia.com/en-us/on-demand/session/gtc26-s81785/" target="_blank">(GTC 2026)</a>。该工作已整合进NVIDIA PhysicsNeMo框架，作为官方示例提供，支持d3plot和VTP数据格式 <a href="https://docs.nvidia.com/physicsnemo/latest/physicsnemo/examples/structural_mechanics/crash/README.html" target="_blank">(NVIDIA文档)</a>。</p>
+<p><strong>模型架构的演进路径。</strong> 碰撞代理模型的架构选择经历了三代演进：</p>
+<p>第一代是<strong>标量回归模型</strong>（GPR、DNN），直接从设计参数预测几个关键性能指标（如最大侵入量、峰值加速度）。这类模型数据需求少、实现简单，但丢失了空间分布信息，无法支持详细的工程分析。典型如某皮卡车碰撞BP神经网络代理模型，以碰撞速度为输入、力-位移曲线为输出，最大峰值相对误差在2.74%-9.6%之间 <a href="http://qks.cqu.edu.cn/html/cqdxzrcn/2021/2/20210209.htm" target="_blank">(重庆大学学报)</a>。</p>
+<p>第二代是<strong>全场图神经网络</strong>（MeshGraphNet等），直接在网格上运行，以节点位移为输出，能够保留完整的空间信息。MeshGraphNet以网格连接为图结构，通过边更新-节点更新的消息传递机制学习局部物理交互，具有天然的结构归纳偏置 <a href="https://arxiv.org/pdf/2510.15201v2.pdf" target="_blank">(arXiv:2510.15201v2)</a>。</p>
+<p>第三代是<strong>注意力混合架构</strong>（Transolver、GeoTransolver），在GNN基础上引入注意力机制捕捉长程变形模式。Transolver的核心创新是在学习的物理状态空间上计算注意力而非直接在网格点上，从而克服了Transformer的二次复杂度问题，同时获得了更好的几何泛化能力。该架构在六个标准基准上比之前SOTA降低22%误差，已集成到NVIDIA PhysicsNeMo <a href="https://github.com/thuml/Transolver/blob/main/README.md" target="_blank">(Transolver GitHub)</a>。</p>
+<p><strong>精度与效率的量化进展。</strong> 不同研究的精度指标因问题规模和复杂度差异较大，但总体趋势清晰：</p>
 <ul>
-<li>线性系统:L2 误差 0.02</li>
-<li>立方硬化:0.28</li>
-<li>双线性滞回:<strong>0.38</strong></li>
-<li>超出训练区间 (0.5-1.0s):误差 &gt; 1(完全失效)</li>
+<li>部件级（轨道、横梁）：压溃误差<0.5%，力误差<10%，加速20x-50x <a href="http://hengstar-china.com/ueditor/php/upload/file/20250528/1748400839785342.pdf" target="_blank">(Ansys SimAI)</a></li>
+<li>子系统级（侧梁、B柱）：R²=0.80-0.95，加速400x+（子模型相对整车） <a href="https://www.cambridge.org/core/product/8B1C8340F82B88FACE8CD3CEAAB1E747/core-reader" target="_blank">(Cambridge Core)</a></li>
+<li>整车级（白车身）：位移RMSE=3.20mm，加速100x-1000x（推理阶段） <a href="https://arxiv.org/pdf/2605.11784" target="_blank">(arXiv:2605.11784)</a></li>
+<li>整车级（完整功能模型）：RMSE<3%，从数小时压缩到数秒 <a href="https://luminary.ai/resources/luminary-launches-shift-crash-first-physics-ai-model-for-full-vehicle-crash-prediction/" target="_blank">(Luminary SHIFT-Crash)</a></li>
 </ul>
-<div class="important">
-<div class="important-title">⚠ 对碰撞的警示</div>
-<p>碰撞比地震响应具有<strong>更强非线性</strong>和<strong>路径依赖性</strong>,纯算子学习方法面临更严峻挑战。</p>
-</div>
-</section>
-
-<section class="lesson-section">
-<h2>2.4 Luminary 迁移学习效率</h2>
+<p>需要注意的是，这些精度数字都是在<strong>训练参数空间内</strong>（interpolation）的验证结果。一旦超出训练分布，精度会急剧下降——这是所有数据驱动方法的共同瓶颈，也是PINN物理约束最有可能发挥价值的地方。</p>
+<h3>2.2 代表性研究团队与机构</h3>
+<p><strong>产业界领先团队。</strong> 当前碰撞AI仿真的技术突破主要由产业界和产业合作项目推动：</p>
 <ul>
-<li>首个 SUV 项目:5000 次仿真</li>
-<li>第二个 SUV 项目:&lt; 1000 次</li>
-<li><strong>第三个 SUV 项目:&lt; 300 次</strong></li>
-<li>跨车型级别(从 SUV 到轿车):~600 次</li>
+<li><strong>Luminary（前称PhysicsAI）</strong>：推出首个整车级Physics AI碰撞模型SHIFT-Crash，基于5000次仿真训练，采用迁移学习架构，已在实际OEM项目中验证 <a href="https://luminary.ai/resources/shift-crash-bringing-physics-ai-to-full-vehicle-crashworthiness-prediction/" target="_blank">(Luminary)</a></li>
+<li><strong>NVIDIA PhysicsNeMo团队</strong>：联合通用汽车开发碰撞ML代理模型，提供开源框架和官方示例，架构涵盖MeshGraphNet、Transolver等多种方案 <a href="https://docs.nvidia.com/physicsnemo/latest/physicsnemo/examples/structural_mechanics/crash/README.html" target="_blank">(NVIDIA)</a></li>
+<li><strong>Ansys SimAI团队</strong>：基于深度学习的通用代理建模平台，与LS-DYNA深度集成，在侧面碰撞、行人保护、保险杠碰撞等多个场景验证 <a href="https://www.ansys.com/zh-cn/blog/accelerating-automotive-safety-through-ai-powered-design" target="_blank">(Ansys博客)</a></li>
+<li><strong>Altair PhysicsAI团队</strong>：与BMW合作开发碰撞优化ML增强工作流，将聚类+分类引入优化以模拟工程经验判断 <a href="https://altair.com/docs/default-source/resource-library/altair_customerstory_bmw_letter049985b9-905b-4079-833e-8b0c8134bc40.pdf" target="_blank">(Altair案例)</a></li>
+<li><strong>DEP（Detroit Engineered Products）</strong>：AIWorks平台提供PINN架构的工程仿真代理，已在多家汽车OEM生产部署 <a href="https://depusa.com/aiworks" target="_blank">(DEP)</a></li>
 </ul>
-</section>
-
+<p><strong>学术界关键团队。</strong> 基础研究层面，以下团队的工作值得关注：</p>
+<ul>
+<li><strong>布朗大学/北京大学 Lu Lu团队（DeepXDE）</strong>：PINN框架的主要开发者，在PINN方法学、自适应采样、算子学习方面有系统性贡献 <a href="https://deepxde.readthedocs.io/en/latest/user/research.html" target="_blank">(DeepXDE文档)</a></li>
+<li><strong>西安电子科技大学董灏团队</strong>：专注高阶多尺度PINN（HOMS-PINN）方法，在复合材料多尺度热-力耦合问题上有系列成果 <a href="https://faculty.xidian.edu.cn/DH2/zh_CN/index/396877/list/index.htm" target="_blank">(西电董灏主页)</a></li>
+<li><strong>清华大学Transolver团队</strong>：开发了Transolver架构（ICML 2024 Spotlight），已被NVIDIA集成到PhysicsNeMo <a href="https://github.com/thuml/Transolver/blob/main/README.md" target="_blank">(Transolver GitHub)</a></li>
+<li><strong>SEAT/IDIADA联合团队</strong>：在工业级整车碰撞代理模型评估方面有系统研究，提供了多架构公平对比的基准数据 <a href="https://arxiv.org/pdf/2605.11784" target="_blank">(arXiv:2605.11784)</a></li>
+</ul>
+<h3>2.3 神经算子在非线性动力学中的局限</h3>
+<p>需要特别指出的是，<strong>傅里叶神经算子（FNO）等算子学习方法在强非线性结构动力学中的表现存在明显局限</strong>。UC Berkeley 2026年的系统评估显示，在地震激励下的非线性结构响应预测中，FNO的误差随非线性程度急剧恶化：线性系统相对L2误差为0.02，立方硬化系统升至0.28，双线性滞回系统达到0.38。当结构周期超出训练区间（0.5-1.0s）时，误差甚至超过1，即预测完全失效 <a href="https://engrxiv.org/preprint/view/7702/version/9942" target="_blank">(engrXiv)</a>。</p>
+<p>这一发现对碰撞仿真有直接的警示意义：碰撞动力学比地震响应具有更强的非线性和路径依赖性（塑性、接触、屈曲都是强不连续行为），纯算子学习方法可能面临更严峻的挑战。这也解释了为什么工业级方案普遍采用混合架构而非纯FNO——GNN的归纳偏置和自回归的时间递推方式对于处理强非线性瞬态过程更为可靠。</p>
+<p>---</p>
   </article>
 
   <div class="card" id="notesSection"></div>

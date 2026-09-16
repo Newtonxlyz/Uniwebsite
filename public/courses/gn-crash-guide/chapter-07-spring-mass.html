@@ -23,7 +23,675 @@
   <div class="card" id="statusSection"></div>
 
   <article id="chapterBody">
-    <p>章节内容待补充</p>
+    <h3>7.1 问题定义与物理建模</h3>
+<p>
+          我们将用一个一维弹簧-质点链作为入门案例。
+          虽然简单，但它包含了物理仿真GNN的所有核心要素：
+          节点状态、边相互作用、动力学演化、数据生成和模型训练。
+        </p>
+
+        <h4>物理模型</h4>
+        <p>
+          考虑N个质量为m的质点，通过N-1个弹簧串联成一条链。
+          每个弹簧的刚度为k，原长为L₀。
+          系统的运动由牛顿第二定律和胡克定律控制：
+        </p>
+
+        <div class="formula-box">
+          <p>m · d²x<sub>i</sub>/dt² = F<sub>i,i-1</sub> + F<sub>i,i+1</sub></p>
+          <p>F<sub>ij</sub> = k · (|x<sub>j</sub> - x<sub>i</sub>| - L₀) · (x<sub>j</sub> - x<sub>i</sub>) / |x<sub>j</sub> - x<sub>i</sub>|</p>
+        </div>
+
+        <p>其中：</p>
+        <ul>
+          <li>x<sub>i</sub> 是第i个质点的位置</li>
+          <li>F<sub>ij</sub> 是弹簧i-j对质点i的弹力</li>
+          <li>k 是弹簧刚度系数</li>
+          <li>L₀ 是弹簧原长</li>
+          <li>m 是质点质量</li>
+        </ul>
+
+        <h4>数值积分</h4>
+        <p>
+          为了生成训练数据，我们需要一个"ground truth"求解器。
+          这里使用简单的<strong>速度Verlet积分</strong>（velocity Verlet）：
+        </p>
+
+        <div class="formula-box">
+          <p>x(t+Δt) = x(t) + v(t)·Δt + ½·a(t)·Δt²</p>
+          <p>v(t+Δt) = v(t) + ½·[a(t) + a(t+Δt)]·Δt</p>
+        </div>
+
+        <p>
+          Verlet积分是动力学仿真中最常用的积分方法之一，
+          具有二阶精度、辛结构（能量近似守恒）、实现简单等优点。
+        </p>
+
+        <div class="tip-box">
+          <p>
+            <strong>为什么选弹簧-质点系统？</strong>
+            <br>1. <strong>物理简单：</strong>方程简单易懂，你可以清楚地知道"正确答案"是什么
+            <br>2. <strong>天然图结构：</strong>质点是节点，弹簧是边，直接对应GNN输入
+            <br>3. <strong>全流程覆盖：</strong>从数据生成到训练验证，所有环节都能走通
+            <br>4. <strong>可扩展性：</strong>掌握后很容易扩展到二维/三维、更复杂的物理系统
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch7-sec1">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. 在弹簧-质点系统的GNN表示中，节点和边分别对应什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 节点对应力，边对应位移</div>
+              <div class="quiz-option">B. 节点对应弹簧，边对应质点</div>
+              <div class="quiz-option">C. 节点对应质点（位置、速度等状态），边对应弹簧（连接关系和属性）</div>
+              <div class="quiz-option">D. 节点对应时间步，边对应状态变化</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              在物理系统的图表示中，节点通常对应物理实体（质点）及其状态，边对应它们之间的相互作用（弹簧）。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">2. 速度Verlet积分方法的主要优点是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 二阶精度、能量近似守恒、实现简单</div>
+              <div class="quiz-option">B. 不需要计算加速度</div>
+              <div class="quiz-option">C. 步长可以无限大</div>
+              <div class="quiz-option">D. 只适用于弹簧系统</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              Verlet积分是辛积分器，具有二阶精度、能量长期守恒好、实现简单等优点，是动力学仿真的标准方法。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. 弹簧-质点系统太简单了，用它学习GNN仿真没有什么实际价值。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              弹簧-质点系统包含了物理仿真GNN的所有核心要素：图表示、消息传递、动力学演化、训练流程。掌握后可快速扩展到复杂系统。
+            </div>
+          </div>
+        </div>
+<h3>7.2 数据生成与图构建</h3>
+<p>
+          首先，我们需要用传统数值方法生成"ground truth"数据，
+          然后将数据转换为GNN可用的图格式。
+        </p>
+
+        <div class="code-block">
+# ========================================
+# 第一步：生成弹簧-质点系统的训练数据
+# ========================================
+import numpy as np
+import torch
+from torch_geometric.data import Data, Dataset
+import os
+
+# --- 物理参数 ---
+N_MASS = 10        # 质点数量
+MASS = 1.0          # 每个质点的质量
+K_SPRING = 100.0     # 弹簧刚度
+L0 = 1.0            # 弹簧原长
+DT = 0.01           # 时间步长
+N_STEPS = 200        # 每个序列的时间步数
+
+def compute_acceleration(positions):
+    """计算每个质点受到的加速度"""
+    n = len(positions)
+    acc = np.zeros(n)
+
+    for i in range(n):
+        # 左边弹簧的力
+        if i > 0:
+            dx_left = positions[i] - positions[i-1]
+            force_left = -K_SPRING * (dx_left - L0)
+            acc[i] += force_left / MASS
+
+        # 右边弹簧的力
+        if i < n - 1:
+            dx_right = positions[i+1] - positions[i]
+            force_right = -K_SPRING * (dx_right - L0)
+            acc[i] += force_right / MASS
+
+    return acc
+
+def verlet_step(pos, vel, acc, dt):
+    """一步速度Verlet积分"""
+    pos_new = pos + vel * dt + 0.5 * acc * dt**2
+    acc_new = compute_acceleration(pos_new)
+    vel_new = vel + 0.5 * (acc + acc_new) * dt
+    return pos_new, vel_new, acc_new
+
+def generate_trajectory(seed=0):
+    """生成一条仿真轨迹"""
+    np.random.seed(seed)
+
+    # 初始位置：平衡位置 + 随机扰动
+    pos0 = np.arange(N_MASS, dtype=np.float64) * L0
+    pos0 += np.random.normal(0, 0.1, N_MASS)
+    pos0[0] = 0.0  # 左端固定
+
+    # 初始速度：随机
+    vel0 = np.random.normal(0, 0.5, N_MASS)
+    vel0[0] = 0.0  # 左端固定
+
+    acc0 = compute_acceleration(pos0)
+
+    # 积分
+    positions = [pos0.copy()]
+    velocities = [vel0.copy()]
+
+    pos, vel, acc = pos0, vel0, acc0
+    for _ in range(N_STEPS - 1):
+        pos, vel, acc = verlet_step(pos, vel, acc, DT)
+        pos[0] = 0.0  # 保持左端固定
+        vel[0] = 0.0
+        positions.append(pos.copy())
+        velocities.append(vel.copy())
+
+    return np.array(positions), np.array(velocities)
+        </div>
+
+        <h4>图构建</h4>
+        <p>
+          接下来，我们将弹簧-质点系统转换为GNN需要的图格式。
+          每个时间步的状态构成一张图：
+        </p>
+        <ul>
+          <li><strong>节点特征：</strong>位置x、速度v、是否固定（边界条件标记）</li>
+          <li><strong>边：</strong>相邻质点间的弹簧连接（无向边，双向存储）</li>
+          <li><strong>边特征：</strong>相对位移、距离、弹簧刚度、原长等</li>
+          <li><strong>目标：</strong>下一时刻的速度变化Δv（或加速度a）</li>
+        </ul>
+
+        <div class="code-block">
+def build_graph(positions, velocities, step):
+    """将某一时刻的状态构建为PyG的Data对象"""
+    pos = positions[step]
+    vel = velocities[step]
+
+    n = len(pos)
+
+    # 节点特征：位置、速度、是否为固定端
+    x = np.zeros((n, 3), dtype=np.float32)
+    x[:, 0] = pos
+    x[:, 1] = vel
+    x[0, 2] = 1.0  # 第0个节点是固定端
+
+    # 边索引：相邻质点相连（无向边）
+    src = []
+    dst = []
+    for i in range(n - 1):
+        src.extend([i, i+1])
+        dst.extend([i+1, i])
+    edge_index = torch.tensor([src, dst], dtype=torch.long)
+
+    # 边特征：相对位移、距离、原长、刚度
+    edge_attr = np.zeros((len(src), 4), dtype=np.float32)
+    for e in range(len(src)):
+        i, j = src[e], dst[e]
+        dx = pos[j] - pos[i]
+        edge_attr[e, 0] = dx       # 相对位移
+        edge_attr[e, 1] = abs(dx)  # 距离
+        edge_attr[e, 2] = L0       # 原长
+        edge_attr[e, 3] = K_SPRING # 刚度
+
+    # 目标：下一步的加速度（即速度变化率）
+    # 用数值方法计算的ground truth
+    acc = compute_acceleration(pos)
+    y = torch.tensor(acc, dtype=torch.float32).unsqueeze(1)
+
+    data = Data(
+        x=torch.tensor(x),
+        edge_index=edge_index,
+        edge_attr=torch.tensor(edge_attr),
+        y=y
+    )
+    return data
+        </div>
+
+        <div class="tip-box">
+          <p>
+            <strong>关键设计选择：预测加速度 vs 预测速度变化</strong>
+            <br>在这个简化例子中，我们直接预测加速度，因为它是物理上的基本量（F=ma）。
+            <br>更复杂的系统中，预测速度变化Δv更常见，因为：
+            <br>1. 数值上更稳定（输出更小的量）
+            <br>2. 更容易与积分器结合
+            <br>3. 模型天然学习到"增量"而非"全量"
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch7-sec2">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">1. 在物理仿真GNN中，边特征通常包含什么信息？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 节点的位置和速度</div>
+              <div class="quiz-option">B. 相对位移、距离、材料属性等与相互作用相关的量</div>
+              <div class="quiz-option">C. 全局系统的总能量</div>
+              <div class="quiz-option">D. 时间步编号</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              边特征描述两个节点之间的相互作用属性，如相对位移、距离、弹簧刚度、材料参数等。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">2. 为什么GNN仿真模型通常预测加速度或速度变化量，而不是直接预测下一时刻的位置？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 数值更稳定，符合残差预测思想，且物理意义更直接</div>
+              <div class="quiz-option">B. 这样参数量更少</div>
+              <div class="quiz-option">C. 这样不需要解码器</div>
+              <div class="quiz-option">D. 预测位置无法训练</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              预测加速度/速度变化量更稳定（小量），物理意义直接（F=ma），是残差预测的一种形式。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">3. 无向图在PyG中需要存储双向边（i→j和j→i都要有）。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              PyG的edge_index是有向的（COO格式），表示无向图需要每条边存两个方向。
+            </div>
+          </div>
+        </div>
+<h3>7.3 GNN模型实现（PyG）</h3>
+<p>
+          现在，我们使用PyG的MessagePassing基类来实现一个自定义的GNN仿真模型。
+          模型采用Encoder-Processor-Decoder架构。
+        </p>
+
+        <div class="code-block">
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+from torch_geometric.nn import MessagePassing
+
+class SpringMassGNN(nn.Module):
+    """
+    弹簧-质点系统的GNN仿真模型
+    Encoder-Processor-Decoder架构
+    """
+    def __init__(
+        self,
+        node_in_dim=3,    # 节点输入特征维度
+        edge_in_dim=4,    # 边输入特征维度
+        hidden_dim=64,    # 隐藏层维度
+        num_layers=5,      # 消息传递层数
+        out_dim=1,         # 输出维度（加速度）
+    ):
+        super().__init__()
+
+        # --- Encoder: 将输入特征映射到潜空间 ---
+        self.node_encoder = nn.Sequential(
+            nn.Linear(node_in_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim),
+        )
+        self.edge_encoder = nn.Sequential(
+            nn.Linear(edge_in_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim),
+        )
+
+        # --- Processor: 多层消息传递 ---
+        self.processor = nn.ModuleList()
+        for _ in range(num_layers):
+            self.processor.append(MPBlock(hidden_dim))
+
+        # --- Decoder: 将潜特征映射到物理输出 ---
+        self.decoder = nn.Sequential(
+            nn.Linear(hidden_dim, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, out_dim),
+        )
+
+    def forward(self, data):
+        x, edge_index, edge_attr = data.x, data.edge_index, data.edge_attr
+
+        # 编码
+        h = self.node_encoder(x)
+        e = self.edge_encoder(edge_attr)
+
+        # 消息传递
+        for layer in self.processor:
+            h, e = layer(h, edge_index, e)
+
+        # 解码：预测加速度
+        acc_pred = self.decoder(h)
+        return acc_pred
+
+
+class MPBlock(MessagePassing):
+    """消息传递块（Graph Network Block风格）"""
+    def __init__(self, hidden_dim):
+        super().__init__(aggr='add')  # 聚合方式：求和
+
+        # 边更新MLP
+        self.edge_mlp = nn.Sequential(
+            nn.Linear(hidden_dim * 3, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim),
+        )
+
+        # 节点更新MLP
+        self.node_mlp = nn.Sequential(
+            nn.Linear(hidden_dim * 2, hidden_dim),
+            nn.ReLU(),
+            nn.Linear(hidden_dim, hidden_dim),
+        )
+
+        # LayerNorm 稳定训练
+        self.node_norm = nn.LayerNorm(hidden_dim)
+        self.edge_norm = nn.LayerNorm(hidden_dim)
+
+    def forward(self, x, edge_index, edge_attr):
+        """前向传播：先更新边，再聚合更新节点"""
+        # 保存输入，用于残差连接
+        x_in = x
+        e_in = edge_attr
+
+        # 1. 更新边特征
+        row, col = edge_index
+        edge_input = torch.cat([x[row], x[col], edge_attr], dim=-1)
+        edge_attr = self.edge_mlp(edge_input)
+
+        # 2. 消息传递 & 节点更新
+        # propagate会自动调用message和aggregate
+        x = self.propagate(edge_index, x=x, edge_attr=edge_attr)
+
+        # 3. 残差连接 + LayerNorm
+        x = self.node_norm(x + x_in)
+        edge_attr = self.edge_norm(edge_attr + e_in)
+
+        return x, edge_attr
+
+    def message(self, x_i, x_j, edge_attr):
+        """
+        构造消息：这里我们已经在forward中更新了edge_attr，
+        直接用更新后的边特征作为消息。
+        x_i: 目标节点特征, x_j: 源节点特征
+        """
+        return edge_attr
+
+    def update(self, aggr_out, x):
+        """
+        节点更新：将聚合后的消息与自身特征拼接，过MLP
+        """
+        node_input = torch.cat([x, aggr_out], dim=-1)
+        return self.node_mlp(node_input)
+        </div>
+
+        <div class="info-box">
+          <p>
+            <strong>模型要点解析：</strong>
+            <br>1. <strong>MessagePassing基类：</strong>继承它可以方便地实现自定义消息传递
+            <br>2. <strong>残差连接：</strong>每层都有残差，支持深层网络训练
+            <br>3. <strong>LayerNorm：</strong>层归一化稳定训练过程
+            <br>4. <strong>边更新+节点更新：</strong>标准的Graph Network块结构
+            <br>5. <strong>求和聚合：</strong>力是矢量叠加的，求和符合物理直觉
+            <br>6. <strong>预测加速度：</strong>Decoder输出加速度，再用积分器推进状态
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch7-sec3">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. MPBlock中加入残差连接的主要目的是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 减少参数量</div>
+              <div class="quiz-option">B. 让代码更短</div>
+              <div class="quiz-option">C. 缓解梯度消失，支持训练更深的网络</div>
+              <div class="quiz-option">D. 让每层学习不同的东西</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              残差连接可以有效缓解梯度消失问题，使深层GNN能够被有效训练，同时也能减轻过度平滑。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">2. 为什么消息聚合选择"求和"（sum）而不是"平均"（mean）？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 物理上力是矢量叠加的，求和符合物理直觉</div>
+              <div class="quiz-option">B. 求和计算更快</div>
+              <div class="quiz-option">C. 平均会导致信息丢失</div>
+              <div class="quiz-option">D. 两者效果完全一样，随便选</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              在物理仿真中，每个邻居对目标节点的作用力是矢量叠加的，sum聚合方式与这个物理直觉一致。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. Decoder直接预测下一时刻的位置，而不是加速度或速度变化。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              在动力学仿真中，通常预测加速度或速度变化量（更稳定、物理意义更直接），然后用积分器推进状态。
+            </div>
+          </div>
+        </div>
+<h3>7.4 训练、验证与可视化</h3>
+<p>
+          有了数据和模型，就可以开始训练了。我们将训练模型预测一步加速度，
+          然后进行多步推演（rollout）来验证长时性能。
+        </p>
+
+        <div class="code-block">
+# ========================================
+# 训练 & 验证
+# ========================================
+import torch.optim as optim
+from torch.utils.data import DataLoader
+import matplotlib.pyplot as plt
+
+# --- 生成数据集 ---
+N_TRAIN = 100   # 训练轨迹数
+N_VAL = 20      # 验证轨迹数
+
+train_graphs = []
+val_graphs = []
+
+for i in range(N_TRAIN):
+    pos, vel = generate_trajectory(seed=i)
+    # 每隔几步取一个样本（避免过拟合相邻步）
+    for step in range(0, N_STEPS - 1, 5):
+        graph = build_graph(pos, vel, step)
+        train_graphs.append(graph)
+
+for i in range(N_VAL):
+    pos, vel = generate_trajectory(seed=1000 + i)
+    # 验证用整条轨迹，用于rollout评估
+    val_graphs.append((pos, vel))
+
+print(f"训练样本数: {len(train_graphs)}")
+print(f"验证轨迹数: {len(val_graphs)}")
+
+# --- 训练循环 ---
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+model = SpringMassGNN(hidden_dim=64, num_layers=5).to(device)
+optimizer = optim.Adam(model.parameters(), lr=1e-3)
+scheduler = optim.lr_scheduler.StepLR(optimizer, step_size=50, gamma=0.5)
+
+train_losses = []
+val_rollout_errors = []
+
+for epoch in range(100):
+    # --- 训练 ---
+    model.train()
+    epoch_loss = 0.0
+    for graph in train_graphs:
+        graph = graph.to(device)
+        optimizer.zero_grad()
+        acc_pred = model(graph)
+        loss = F.mse_loss(acc_pred, graph.y)
+        loss.backward()
+        optimizer.step()
+        epoch_loss += loss.item()
+
+    avg_loss = epoch_loss / len(train_graphs)
+    train_losses.append(avg_loss)
+    scheduler.step()
+
+    # --- 验证：长时rollout误差 ---
+    if (epoch + 1) % 10 == 0:
+        model.eval()
+        rollout_errors = []
+        with torch.no_grad():
+            for pos_true, vel_true in val_graphs:
+                # 从初始状态开始推演
+                pos = pos_true[0].copy()
+                vel = vel_true[0].copy()
+                errors = []
+
+                for step in range(N_STEPS - 1):
+                    graph = build_graph(
+                        pos[np.newaxis, :], vel[np.newaxis, :], 0
+                    ).to(device)
+                    acc_pred = model(graph).cpu().numpy().flatten()
+                    acc_pred[0] = 0.0  # 固定端
+
+                    # 用Verlet积分推进
+                    acc = compute_acceleration(pos)  # 真实加速度用于Verlet的半步
+                    pos, vel, _ = verlet_step_with_acc(
+                        pos, vel, acc_pred, DT
+                    )
+                    pos[0] = 0.0
+                    vel[0] = 0.0
+
+                    # 记录位置误差
+                    err = np.mean((pos - pos_true[step+1])**2)
+                    errors.append(err)
+
+                rollout_errors.append(np.mean(errors))
+
+        avg_rollout_err = np.mean(rollout_errors)
+        val_rollout_errors.append(avg_rollout_err)
+        print(f"Epoch {epoch+1}, Train Loss: {avg_loss:.6f}, "
+              f"Val Rollout MSE: {avg_rollout_err:.6f}")
+        </div>
+
+        <h4>可视化与分析</h4>
+        <p>训练完成后，需要从多个角度评估模型：</p>
+        <ul>
+          <li><strong>一步预测误差：</strong>单步预测的MSE，衡量模型的瞬时精度</li>
+          <li><strong>长时推演误差：</strong>整段rollout的累积误差，衡量稳定性</li>
+          <li><strong>能量守恒：</strong>推演过程中总能量是否近似守恒</li>
+          <li><strong>可视化对比：</strong>动画或关键帧对比GNN预测与ground truth</li>
+          <li><strong>泛化测试：</strong>在不同参数（如不同k、不同质量分布）下测试</li>
+        </ul>
+
+        <div class="tip-box">
+          <p>
+            <strong>进阶练习：</strong>
+            <br>1. 尝试加入噪声扰动（noise corruption），观察rollout稳定性变化
+            <br>2. 尝试二维弹簧网络，增加更多物理现象
+            <br>3. 加入能量守恒损失，将物理约束引入训练
+            <br>4. 改变节点数量，测试模型的泛化能力
+            <br>5. 尝试用不同的GNN层（GAT、GIN）对比效果
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <p>
+            <strong>写在最后：</strong>
+            这个简单的弹簧-质点系统只是入门。真正的碰撞仿真要复杂得多——
+            三维、非线性材料、接触碰撞、大变形、多种材料组合……
+            但核心的方法论是通用的：
+            <strong>将物理系统建模为图，用消息传递学习局部相互作用，
+            用注意力捕捉长程依赖，用物理约束保证一致性。</strong>
+            掌握了基础，你就可以继续探索更复杂的系统了！
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch7-sec4">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">1. 评估GNN仿真模型时，最重要的指标是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 训练损失（单步MSE）</div>
+              <div class="quiz-option">B. 长时推演（rollout）误差和稳定性</div>
+              <div class="quiz-option">C. 参数量</div>
+              <div class="quiz-option">D. 训练速度</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              单步误差低不代表长时推演好（可能误差累积很快）。实际应用中rollout的精度和稳定性更重要。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">2. 以下哪种方法可以提高自回归推演的长期稳定性？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 增加模型层数</div>
+              <div class="quiz-option">B. 增大batch size</div>
+              <div class="quiz-option">C. 减小学习率</div>
+              <div class="quiz-option">D. 训练时加入噪声扰动（noise corruption）</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              噪声扰动让模型学会处理"带误差"的状态，从而减轻自回归推演中的误差累积问题。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">3. 能量守恒等物理量的守恒性是评估物理仿真模型的重要指标。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              物理量（能量、动量、质量等）的守恒性是衡量仿真物理一致性的重要指标，仅看MSE不够。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">4. 完成本课程后，建议的进阶路径不包括？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 扩展到二维/三维系统</div>
+              <div class="quiz-option">B. 加入物理约束损失</div>
+              <div class="quiz-option">C. 放弃GNN，改用纯Transformer</div>
+              <div class="quiz-option">D. 尝试更复杂的物理系统（如接触、非线性材料）</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              纯Transformer缺乏物理归纳偏置，在物理仿真中通常不是最优选择。更推荐GNN+Transformer的混合架构。
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="#ch6" class="chapter-nav-btn prev">
+            <div class="label">← 上一章</div>
+            <div class="title">工具框架与数据集</div>
+          </a>
+          <a href="#ch-flashcards" class="chapter-nav-btn next">
+            <div class="label">复习工具 →</div>
+            <div class="title">知识卡片</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== 知识卡片章节 ===== -->
+      <section id="ch-flashcards">
+        <div class="chapter-intro">
+          <div class="chapter-num">🎴 知识卡片</div>
   </article>
 
   <div class="card" id="notesSection"></div>

@@ -23,7 +23,596 @@
   <div class="card" id="statusSection"></div>
 
   <article id="chapterBody">
-    <p>章节内容待补充</p>
+    <h3>4.1 物理信息神经网络（PINN）基础</h3>
+<p>
+          物理信息神经网络（Physics-Informed Neural Networks, PINN）
+          是Raissi等人在2019年系统提出的一种深度学习方法。其核心思想是：
+          <strong>将物理定律（通常以偏微分方程的形式）作为软约束加入神经网络的损失函数</strong>，
+          使网络在训练过程中自发地满足物理规律。
+        </p>
+
+        <h4>为什么需要物理约束？</h4>
+        <p>纯数据驱动的深度学习方法存在几个固有问题：</p>
+        <ul>
+          <li><strong>数据饥渴：</strong>需要大量高质量标注数据，而工程仿真数据往往获取成本高</li>
+          <li><strong>物理不一致：</strong>模型预测可能违反基本物理定律（如能量不守恒、质量不守恒）</li>
+          <li><strong>外推能力差：</strong>在训练分布之外的预测可能完全不合理</li>
+          <li><strong>可解释性差：</strong>黑箱模型难以验证和信任</li>
+        </ul>
+
+        <p>
+          物理约束的引入就是为了解决这些问题。它相当于给模型"上了一堂物理课"，
+          让它在学习数据模式的同时，也理解底层的物理规律。
+        </p>
+
+        <h4>PINN 的基本框架</h4>
+        <p>
+          标准PINN使用全连接网络（MLP）来近似PDE的解函数 u(x, t)，
+          其中 x 是空间坐标，t 是时间。损失函数由几部分组成：
+        </p>
+
+        <div class="formula-box">
+          <p>L = λ<sub>data</sub> L<sub>data</sub> + λ<sub>pde</sub> L<sub>pde</sub> + λ<sub>bc</sub> L<sub>bc</sub> + λ<sub>ic</sub> L<sub>ic</sub></p>
+        </div>
+
+        <p>各损失项含义：</p>
+        <ul>
+          <li><strong>L<sub>data</sub>：</strong>数据损失 — 与观测/仿真数据的偏差（MSE）</li>
+          <li><strong>L<sub>pde</sub>：</strong>PDE残差损失 — 控制方程的残差（应趋近于0）</li>
+          <li><strong>L<sub>bc</sub>：</strong>边界条件损失 — 边界上应满足的约束</li>
+          <li><strong>L<sub>ic</sub>：</strong>初始条件损失 — 初始时刻应满足的状态</li>
+          <li><strong>λ 系数：</strong>各损失项的权重，需要精心调整</li>
+        </ul>
+
+        <div class="info-box">
+          <p>
+            <strong>PINN的优势：</strong>
+            <br>• 数据效率高：即使只有少量观测数据也能训练
+            <br>• 物理一致性：预测结果满足PDE和约束条件
+            <br>• 无网格要求：任意坐标点都可以计算损失
+            <br>• 正逆问题统一：同一个框架可求解正问题和反问题
+            <br>• 易于实现：基于自动微分，代码简洁
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <p>
+            <strong>PINN的局限：</strong>
+            <br>• 训练困难：多损失项的权重平衡是个难题
+            <br>• 不适用于复杂几何：标准PINN基于MLP，处理复杂边界不便
+            <br>• 高维问题挑战：维数灾难仍然存在
+            <br>• 计算成本：每个配点都需要多次自动微分
+            <br>• 对某些PDE（如对流主导问题）收敛性差
+            <br>
+            <br>正因如此，研究人员开始探索将PINN的思想与GNN结合——
+            用GNN处理复杂几何和不规则网格，用PINN提供物理约束。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch4-sec1">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">1. PINN的核心思想是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 用神经网络完全替代PDE数值求解器</div>
+              <div class="quiz-option">B. 将物理定律（PDE等）作为软约束加入损失函数</div>
+              <div class="quiz-option">C. 用物理实验产生训练数据</div>
+              <div class="quiz-option">D. 只使用物理知识，不需要数据</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              PINN的核心是将PDE、边界条件等物理约束作为损失项，引导网络学习满足物理规律的解。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">2. 标准PINN的损失函数通常不包含以下哪一项？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. PDE残差损失</div>
+              <div class="quiz-option">B. 边界条件损失</div>
+              <div class="quiz-option">C. 分类交叉熵损失</div>
+              <div class="quiz-option">D. 数据/观测损失</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              PINN是回归/求解问题，不是分类问题，通常不使用交叉熵损失。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">3. 物理约束可以提升模型的数据效率和外推能力。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              物理约束提供了强归纳偏置，减少了对数据量的依赖，并使分布外的预测更符合物理直觉。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">4. 以下哪项是标准PINN的主要局限？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 不能处理时间相关问题</div>
+              <div class="quiz-option">B. 没有理论基础</div>
+              <div class="quiz-option">C. 只能处理线性PDE</div>
+              <div class="quiz-option">D. 多损失项权重平衡困难，处理复杂几何不便</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              PINN的多损失项权重调整是著名的难点，且基于MLP的标准PINN处理复杂几何和不规则网格不方便。
+            </div>
+          </div>
+        </div>
+<h3>4.2 PDE残差与自动微分</h3>
+<p>
+          PINN实现物理约束的关键技术是<strong>自动微分（Automatic Differentiation）</strong>。
+          通过自动微分，我们可以精确计算神经网络输出对输入的各阶导数，
+          从而计算PDE的残差。
+        </p>
+
+        <h4>什么是自动微分？</h4>
+        <p>
+          自动微分是一种精确计算函数导数的技术，介于符号微分和数值微分之间。
+          它将复杂的计算分解为一系列基本运算（加、乘、sin、exp等），
+          利用链式法则逐步累积导数。PyTorch、JAX等深度学习框架都内置了自动微分功能。
+        </p>
+
+        <p>与数值微分（有限差分）相比，自动微分的优势：</p>
+        <ul>
+          <li><strong>精度高：</strong>机器精度级别，没有截断误差</li>
+          <li><strong>效率高：</strong>反向模式自动微分计算梯度的开销约为前向传播的1-3倍</li>
+          <li><strong>无需手动推导：</strong>框架自动处理，只需定义前向计算</li>
+        </ul>
+
+        <h4>以Burgers方程为例</h4>
+        <p>
+          让我们用一个经典例子来理解PDE残差的计算。
+          <strong>Burgers方程</strong>是流体力学中的基本方程：
+        </p>
+
+        <div class="formula-box">
+          <p>∂u/∂t + u · ∂u/∂x - ν · ∂²u/∂x² = 0</p>
+          <p>其中 u(x, t) 是速度场，ν 是运动粘度系数</p>
+        </div>
+
+        <p>在PINN中，我们用神经网络 u_net(x, t) 来近似解。PDE残差定义为：</p>
+
+        <div class="formula-box">
+          <p>f(x, t) = ∂u_net/∂t + u_net · ∂u_net/∂x - ν · ∂²u_net/∂x²</p>
+          <p>L_pde = MSE(f(x_collocation, t_collocation), 0)</p>
+        </div>
+
+        <p>
+          我们在计算域内采样一些"配点"（collocation points），
+          在这些点上计算PDE残差，并训练网络使残差趋近于零。
+        </p>
+
+        <div class="code-block">
+# PyTorch中计算PDE残差的简化示例
+import torch
+import torch.nn as nn
+
+def compute_burgers_residual(model, x, t, nu):
+    """计算Burgers方程的残差"""
+    x = x.requires_grad_(True)
+    t = t.requires_grad_(True)
+
+    u = model(x, t)  # 前向传播
+
+    # 一阶导数
+    u_x = torch.autograd.grad(u, x, grad_outputs=torch.ones_like(u),
+                               create_graph=True)[0]
+    u_t = torch.autograd.grad(u, t, grad_outputs=torch.ones_like(u),
+                               create_graph=True)[0]
+
+    # 二阶导数
+    u_xx = torch.autograd.grad(u_x, x, grad_outputs=torch.ones_like(u_x),
+                                create_graph=True)[0]
+
+    # Burgers方程残差
+    residual = u_t + u * u_x - nu * u_xx
+    return residual
+</div>
+
+        <div class="tip-box">
+          <p>
+            <strong>计算技巧：</strong>计算高阶导数时，需要设置 create_graph=True，
+            这样才能在反向传播时更新网络参数。
+            二阶导数的计算成本比一阶高得多，因此在设计PINN时需要权衡：
+            对于高阶PDE，考虑是否可以降阶处理，或使用其他技巧。
+          </p>
+        </div>
+
+        <h4>配点采样策略</h4>
+        <p>
+          配点的选择对PINN的性能有很大影响。常见策略：
+        </p>
+        <ul>
+          <li><strong>均匀采样：</strong>在计算域内均匀随机采样，最简单</li>
+          <li><strong>自适应采样：</strong>在残差大的区域增加采样点，提高精度</li>
+          <li><strong>重要性采样：</strong>根据物理直觉在关键区域（如边界层、激波附近）加密采样</li>
+          <li><strong>curriculum learning：</strong>从简单到复杂逐步增加难度</li>
+        </ul>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch4-sec2">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">1. PINN中计算PDE残差依赖的核心技术是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 自动微分（Automatic Differentiation）</div>
+              <div class="quiz-option">B. 数值积分</div>
+              <div class="quiz-option">C. 符号计算</div>
+              <div class="quiz-option">D. 有限差分法</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              PINN通过自动微分精确计算神经网络输出对输入的各阶导数，从而得到PDE残差。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">2. 自动微分相比数值微分（有限差分）的主要优势是？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 计算速度更快</div>
+              <div class="quiz-option">B. 实现更简单</div>
+              <div class="quiz-option">C. 精度更高（机器精度级）且效率好</div>
+              <div class="quiz-option">D. 不需要知道函数表达式</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              自动微分可以达到机器精度，没有有限差分的截断误差，且计算效率远高于数值微分。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. 计算高阶导数时不需要设置create_graph=True。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              计算高阶导数时必须设置create_graph=True，这样才能保留计算图，支持更高阶的微分和反向传播。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">4. PINN中的"配点"（collocation points）是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 网络的隐藏层节点</div>
+              <div class="quiz-option">B. 计算域内用于计算PDE残差的采样点</div>
+              <div class="quiz-option">C. 训练数据点</div>
+              <div class="quiz-option">D. 边界上的点</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              配点是在计算域内采样的点，用于计算PDE残差损失，迫使网络在这些点上满足PDE。
+            </div>
+          </div>
+        </div>
+<h3>4.3 守恒律与边界条件的损失函数设计</h3>
+<p>
+          物理约束不仅仅是PDE残差。守恒律、边界条件、初始条件等都是重要的物理先验，
+          需要通过精心设计的损失函数来实现。
+        </p>
+
+        <h4>边界条件的处理</h4>
+        <p>边界条件是PDE问题的重要组成部分。常见的边界条件类型：</p>
+        <ul>
+          <li><strong>Dirichlet边界条件：</strong>指定边界上的函数值，如 u(x_boundary, t) = u_0</li>
+          <li><strong>Neumann边界条件：</strong>指定边界上的法向导数，如 ∂u/∂n = g</li>
+          <li><strong>Robin边界条件：</strong>函数值和导数的线性组合</li>
+          <li><strong>周期边界条件：</strong>两端值相等（周期结构）</li>
+        </ul>
+
+        <p>在PINN中，边界条件通常通过在边界上采样点并计算相应的损失来实现：</p>
+        <div class="formula-box">
+          <p>L_bc = MSE(u(x_bc, t), u_bc_target)  &nbsp;&nbsp;# Dirichlet BC</p>
+          <p>L_bc = MSE(∂u/∂n(x_bc, t), g_target)  &nbsp;&nbsp;# Neumann BC</p>
+        </div>
+
+        <h4>守恒律的应用</h4>
+        <p>
+          对于很多物理系统，某些量是守恒的（如质量守恒、动量守恒、能量守恒）。
+          这些守恒律可以作为额外的物理约束加入损失函数。
+        </p>
+
+        <p>
+          例如，在结构动力学中，系统的总能量（动能+势能）在无阻尼情况下应该守恒：
+        </p>
+        <div class="formula-box">
+          <p>E_total = Σ(½ m_i v_i²) + V(x)  = const</p>
+          <p>L_energy = MSE(dE_total/dt, 0)</p>
+        </div>
+
+        <h4>碰撞仿真中的特殊物理约束</h4>
+        <p>在碰撞仿真降阶中，可以加入的物理约束包括：</p>
+        <ul>
+          <li><strong>动量守恒：</strong>系统总动量的变化应等于外力的冲量</li>
+          <li><strong>能量关系：</strong>动能的减少应等于应变能的增加和耗散能</li>
+          <li><strong>不可穿透条件：</strong>接触区域的节点不能相互穿透</li>
+          <li><strong>摩擦定律：</strong>接触面的切向力应满足库仑摩擦定律</li>
+          <li><strong>材料模型约束：</strong>应力应变关系应符合给定的本构模型</li>
+        </ul>
+
+        <div class="warning-box">
+          <p>
+            <strong>损失权重的平衡是关键难点：</strong>
+            多个损失项的量级可能差异很大（PDE残差可能是0.001级，数据损失可能是100级），
+            直接相加会导致某一项主导训练。常用解决方案：
+            <br>1. 手动调整权重λ（需要大量实验）
+            <br>2. 自适应权重（如按各损失项的梯度幅值动态调整）
+            <br>3. 归一化各损失项到相近量级
+            <br>4. 使用课程学习，逐步加入困难的约束项
+          </p>
+        </div>
+
+        <h4>硬约束 vs 软约束</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>类型</th>
+                <th>实现方式</th>
+                <th>优点</th>
+                <th>缺点</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>软约束</strong></td>
+                <td>作为损失函数项加入</td>
+                <td>实现简单，灵活</td>
+                <td>不能精确满足，依赖权重调整</td>
+              </tr>
+              <tr>
+                <td><strong>硬约束</strong></td>
+                <td>通过网络架构或输出变换强制满足</td>
+                <td>精确满足物理约束</td>
+                <td>实现复杂，可能限制表达能力</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tip-box">
+          <p>
+            <strong>实践建议：</strong>初始阶段建议先从纯数据驱动开始，建立基线模型。
+            然后逐步加入物理约束，观察每项约束带来的性能提升。
+            对于某些容易满足的约束（如边界条件），可以用硬约束方式实现
+            （如将网络输出乘以一个掩码函数，边界处自动为指定值）。
+            对于复杂的约束（如PDE残差），先用软约束方式加入。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch4-sec3">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. Dirichlet边界条件和Neumann边界条件的区别是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 前者用于时间域，后者用于空间域</div>
+              <div class="quiz-option">B. 前者是初始条件，后者是终止条件</div>
+              <div class="quiz-option">C. 前者指定函数值，后者指定函数的导数</div>
+              <div class="quiz-option">D. 两者是一样的，只是名称不同</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              Dirichlet BC指定边界上的函数值，Neumann BC指定边界上的法向导数值。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">2. PINN中多损失项平衡的主要挑战是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 各损失项量级可能差异很大，需要精心调整权重</div>
+              <div class="quiz-option">B. 损失项太多导致无法计算</div>
+              <div class="quiz-option">C. 不能同时使用多种损失</div>
+              <div class="quiz-option">D. 损失函数不可微</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              不同物理量的数值范围差异大，直接相加会导致某项主导训练，权重平衡是PINN的核心挑战之一。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">3. "硬约束"是指通过网络架构等方式强制满足物理条件，而不是仅作为损失项。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              硬约束通过修改网络输出架构等方式强制满足，软约束通过损失函数引导，前者精确但实现复杂。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">4. 以下哪项不属于碰撞仿真中常见的物理约束？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 动量守恒</div>
+              <div class="quiz-option">B. 不可穿透条件（接触约束）</div>
+              <div class="quiz-option">C. 材料本构模型约束</div>
+              <div class="quiz-option">D. 像素值范围约束</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              像素值范围约束是图像处理中的概念，与碰撞仿真无关。
+            </div>
+          </div>
+        </div>
+<h3>4.4 PhyGNNet：物理约束+GNN</h3>
+<p>
+          PhyGNNet（Physics-informed Graph Neural Network）
+          代表了一类将PINN思想与GNN结合的方法。它的目标是：
+          <strong>在不规则域上，利用图结构表示几何，同时注入物理约束。</strong>
+        </p>
+
+        <h4>为什么需要 PhyGNNet？</h4>
+        <p>
+          标准PINN基于MLP，在处理复杂几何形状和不规则网格时存在困难：
+        </p>
+        <ul>
+          <li>MLP不知道计算域的几何形状，全靠配点来"感受"边界</li>
+          <li>复杂边界附近需要更密集的配点，效率低</li>
+          <li>MLP不利用空间邻近关系，归纳偏置弱</li>
+          <li>处理已有网格数据时，没有充分利用网格的拓扑信息</li>
+        </ul>
+
+        <p>
+          而GNN天然适合处理不规则网格和图结构数据，且有强局部归纳偏置。
+          将两者结合，就得到了PhyGNNet：<strong>用GNN处理图结构和空间关系，
+          用物理约束保证物理一致性。</strong>
+        </p>
+
+        <h4>PhyGNNet 的典型架构</h4>
+        <p>
+          PhyGNNet通常采用Encoder-Processor-Decoder结构（与GNS类似），
+          但在损失函数中加入物理约束项：
+        </p>
+
+        <ol>
+          <li><strong>Encoder：</strong>将节点坐标、边界标记等编码为潜特征</li>
+          <li><strong>Processor：</strong>多层消息传递GNN，更新节点特征</li>
+          <li><strong>Decoder：</strong>输出物理量预测（如位移、速度、压力等）</li>
+          <li><strong>物理损失：</strong>基于预测结果计算PDE残差、边界条件残差等</li>
+        </ol>
+
+        <h4>PDE残差的计算方式</h4>
+        <p>
+          在GNN上计算PDE残差，与标准PINN略有不同。主要有两种方式：
+        </p>
+
+        <h4>方式一：基于自动微分（类似PINN）</h4>
+        <p>
+          如果网络输入包含空间坐标，可以用自动微分计算物理量对坐标的导数。
+          但GNN不是简单的坐标→物理量的映射（中间还有图结构和邻域信息），
+          所以导数的计算需要更仔细的处理。
+        </p>
+
+        <h4>方式二：基于离散微分（更常用）</h4>
+        <p>
+          利用网格/图的邻接关系，用有限差分或有限元的方式在图上计算空间导数。
+          这种方式更接近传统数值方法，也更高效。
+        </p>
+
+        <div class="info-box">
+          <p>
+            <strong>PhyGNNet的优势：</strong>
+            <br>• 天然处理复杂几何和不规则网格
+            <br>• 利用图结构提供强归纳偏置
+            <br>• 物理约束提升数据效率和泛化能力
+            <br>• 比标准PINN更适合工程仿真场景
+            <br>• 可扩展性好，支持大规模网格
+            <br>
+            <br>已有研究表明，在Burgers方程等基准问题上，PhyGNNet
+            在拟合能力和时间外推能力上均优于标准PINN。
+          </p>
+        </div>
+
+        <h4>两种融合范式</h4>
+        <p>物理约束与GNN的结合大致有两种范式：</p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>范式</th>
+                <th>描述</th>
+                <th>适用场景</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Physics-Informed GNN<br>GNN为主，PINN为辅</strong></td>
+                <td>GNN作为主模型架构，物理约束作为正则化损失加入。数据驱动为主，物理约束提升泛化和一致性。</td>
+                <td>有较多仿真数据，主要目标是加速仿真</td>
+              </tr>
+              <tr>
+                <td><strong>GNN-assisted PINN<br>PINN为主，GNN为辅</strong></td>
+                <td>PINN为核心求解器，GNN提供几何编码、自适应配点、初始化解等辅助功能。物理约束为硬要求。</td>
+                <td>数据稀少，主要目标是物理地求解PDE</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tip-box">
+          <p>
+            <strong>碰撞仿真降阶的选择：</strong>在碰撞仿真降阶场景中，
+            通常有大量FEM仿真数据可用，目标是快速推理，因此更适合
+            <strong>Physics-Informed GNN</strong>范式——
+            GNN作为主力架构学习动力学，物理约束作为正则化项提升物理一致性和外推能力。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch4-sec4">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">1. PhyGNNet相比标准PINN的主要优势是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 参数量更少</div>
+              <div class="quiz-option">B. 天然适合处理复杂几何和不规则网格，有更强的空间归纳偏置</div>
+              <div class="quiz-option">C. 不需要训练数据</div>
+              <div class="quiz-option">D. 计算复杂度更低</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              PhyGNNet将GNN的图结构建模能力与PINN的物理约束结合，特别适合复杂几何和不规则网格场景。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">2. 在GNN上计算PDE残差，哪种方式更常用？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 完全随机估计</div>
+              <div class="quiz-option">B. 基于自动微分（与标准PINN完全相同）</div>
+              <div class="quiz-option">C. 基于离散微分（利用图邻接关系做有限差分类计算）</div>
+              <div class="quiz-option">D. 不需要计算PDE残差</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              在图/GNN上，利用邻接关系和离散微分计算PDE残差更自然、更高效，也更接近传统数值方法。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. 碰撞仿真降阶中，数据通常很少，所以应该优先使用GNN-assisted PINN范式。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              碰撞仿真通常有大量FEM仿真数据可用，目标是快速推理，更适合Physics-Informed GNN范式。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">4. "Physics-Informed GNN"和"GNN-assisted PINN"的主要区别是？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 前者GNN为主力架构、物理约束为正则化；后者PINN为核心、GNN做辅助</div>
+              <div class="quiz-option">B. 两者是完全相同的东西，只是名称不同</div>
+              <div class="quiz-option">C. 前者用PyTorch，后者用TensorFlow</div>
+              <div class="quiz-option">D. 前者处理二维问题，后者处理三维问题</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              两种范式的主次关系不同：前者以GNN数据驱动为主，后者以PINN物理求解为主。
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="#ch3" class="chapter-nav-btn prev">
+            <div class="label">← 上一章</div>
+            <div class="title">Transformer 与长程依赖</div>
+          </a>
+          <a href="#ch5" class="chapter-nav-btn next">
+            <div class="label">下一章 →</div>
+            <div class="title">混合架构与前沿方法</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== 第5章：混合架构与前沿方法 ===== -->
+      <section id="ch5">
+        <div class="chapter-intro">
+          <div class="chapter-num">第五章</div>
   </article>
 
   <div class="card" id="notesSection"></div>

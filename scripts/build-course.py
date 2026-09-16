@@ -69,6 +69,18 @@ if BODIES_MODULE:
         spec.loader.exec_module(mod)
         BODIES = mod.bodies
 
+# === 回退: 从 chapters.json 的 subsections[].body 拼成 HTML ===
+def build_body_from_json(ch_id):
+    """从 chapters.json 读 subsections,生成完整章节 HTML"""
+    ch = next((c for c in chapters['chapters'] if c['id'] == ch_id), None)
+    if not ch or 'subsections' not in ch:
+        return '<p>章节内容待补充</p>'
+    parts = []
+    for sub in ch['subsections']:
+        parts.append(f'<h3>{sub["title"]}</h3>')
+        parts.append(sub.get('body', '').strip())
+    return '\n'.join(parts)
+
 # 章节列表 [(id, slug_for_filename), ...]
 chapter_contents = {}
 for ch in chapters['chapters']:
@@ -134,7 +146,8 @@ with open(os.path.join(TEMPLATES, 'course-chapter.html'), encoding='utf-8') as f
 
 chs = chapters['chapters']
 for idx, ch_id in enumerate(chapter_contents.keys()):
-    body_html = BODIES.get(ch_id, '<p>章节内容待补充</p>')
+    # 优先用 BODIES 模块(PINN 路线),否则从 chapters.json 拼(GNN 路线)
+    body_html = BODIES.get(ch_id) or build_body_from_json(ch_id)
     prev_ch = chs[idx-1] if idx > 0 else None
     next_ch = chs[idx+1] if idx+1 < len(chs) else None
     prev_slug = f'chapter-{prev_ch["id"]}' if prev_ch else ''

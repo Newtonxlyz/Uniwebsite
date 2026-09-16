@@ -23,48 +23,27 @@
   <div class="card" id="statusSection"></div>
 
   <article id="chapterBody">
-    
-<section class="lesson-section">
-<h2>3.1 多尺度问题本质</h2>
-<p>汽车结构跨 4 个尺度:<strong>微观</strong>(晶粒) → <strong>介观</strong>(复合材料层、焊缝) → <strong>宏观</strong>(部件) → <strong>系统</strong>(整车)</p>
-<p>传统 FE² 方法:每宏观积分点都需调用微观 RVE 完整有限元 → 计算瓶颈。</p>
-<div class="formula">
-<b>计算量 ∝ D<sub>宏观</sub> × D<sub>微观</sub></b>(D = 自由度)</div>
-</div>
-</section>
-
-<section class="lesson-section">
-<h2>3.2 HOMS-PINN 框架</h2>
-<p><strong>核心思想</strong>:多尺度渐近分析 + 物理约束分层。</p>
-<ul>
-<li><strong>高阶多尺度 PINN</strong>:把强振荡的微观场"提取"出来,PINN 只需学宏观场+修正项</li>
-<li><strong>计算量减少约一半</strong></li>
-<li>克服神经网络的频谱偏见</li>
+    <h3>3.1 多尺度问题的本质与挑战</h3>
+<p>汽车结构中的多尺度问题横跨多个层次：微观尺度（晶粒、纤维、位错）→ 介观尺度（复合材料层、焊缝、涂层）→ 宏观尺度（部件、子系统、整车）。传统多尺度方法（如均质化方法、FE²）的计算瓶颈在于：每一个宏观积分点的响应都需要调用一次微观RVE（代表性体积单元）的完整有限元计算，计算量与两个尺度的自由度乘积成正比，在工程问题中几乎不可行。</p>
+<p>PINN和AI降阶为多尺度仿真提供了新的思路：用神经网络代理模型替代微观RVE的有限元计算，使每个宏观积分点的应力更新从"求解一个边界值问题"变为"一次神经网络前向传播"，从而实现数量级的加速。</p>
+<h3>3.2 PINN在多尺度中的技术路线</h3>
+<p><strong>高阶多尺度PINN（HOMS-PINN）框架。</strong> 西安电子科技大学董灏团队发展的高阶多尺度物理信息神经网络框架，将多尺度物理约束分解为三个层次：低阶微观单元函数、高阶微观单元函数和宏观均质方程。这种分解的核心价值在于：通过多尺度渐近分析将强振荡的微观场"提取"出来，让PINN只需学习相对光滑的宏观场和修正项，大大降低了学习难度。与直接用PINN模拟整个多尺度问题相比，HOMS-PINN的计算量可减少约一半，同时能够精确捕捉微观尺度的剧烈振荡——这是纯PINN方法难以做到的，因为神经网络倾向于学习低频成分（频谱偏见，spectral bias） <a href="https://www.bohrium.com/paper-details/higher-order-multi-scale-physics-informed-neural-network-homs-pinn-method-and-its-convergence-analysis-for-solving-elastic-problems-of-authentic-composite-materials/1056156140724813856-879" target="_blank">(Bohrium)</a>。</p>
+<p>该方法已在二维和三维复合材料、多孔材料的热力耦合问题上验证，不仅精度优于传统FEM多尺度方法，而且在大规模材料和长时间问题上的计算效率优势更加明显。2025年进一步发展的HOMS-PIRNN（随机神经网络版本）和HOMS-RNN方法在动态热力耦合问题上继续提升了效率和精度 <a href="https://journals.sagepub.com/doi/10.1177/10812865251362165" target="_blank">(SAGE Journals)</a>。</p>
+<p><strong>分层物理循环神经网络（HPRNN）。</strong> 对于编织复合材料等具有层级结构的材料，研究人员提出了三层式架构：微观纱线尺度PRNN → 介观编织RVE代理 → 宏观结构。物理循环神经网络（PRNN）的核心是将本构关系的路径依赖性编码进循环结构中，使其能够准确捕捉非线性滞回行为。测试显示，PRNN预测的纱线非线性行为与FE结果高度吻合，而传统的平均场均质化（MFH）方法偏差较大，验证了物理编码架构在多尺度建模中的优势 <a href="https://arxiv.org/html/2503.04901" target="_blank">(arXiv:2503.04901)</a>。</p>
+<p><strong>VPINN与变分方法。</strong> 变分PINN（VPINN）采用Petrov-Galerkin方法，以神经网络为试函数、局部多项式为检验函数，相比强形式PINN更适合处理材料不连续问题。结合树状自适应积分方案（quadtree/octree），VPINN能够稳健捕捉内部材料界面，同时大幅降低计算成本。这一方法已在多相架构材料的力学分析中验证 <a href="https://arxiv.org/pdf/2506.23357.pdf" target="_blank">(arXiv:2506.23357)</a>。</p>
+<h3>3.3 从材料多尺度到结构多尺度</h3>
+<p>当前的AI+PINN多尺度研究主要集中在<strong>材料多尺度</strong>（均质化、RVE代理）层面，而结构多尺度（部件-子系统-整车）的AI降阶更多依赖传统代理建模和数据驱动方法，而非PINN。主要原因在于：</p>
+<ol>
+<li>材料多尺度有明确的PDE约束（平衡方程、本构方程），PINN的物理约束作用直接而有效；而结构级碰撞的PDE形式虽然存在，但接触和失效带来的不连续性使残差计算非常困难。</li>
 </ul>
-</section>
-
-<section class="lesson-section">
-<h2>3.3 PRNN - 物理循环神经网络</h2>
-<p>核心:将本构路径依赖性编码进<strong>循环结构</strong>,捕捉非线性滞回行为。</p>
-<p>3 层架构:微观 PRNN → 介观 RVE 代理 → 宏观结构。</p>
-<p>对编织复合材料的纱线非线性行为预测,PRNN 与 FE 结果高度吻合,优于平均场均质化 (MFH)。</p>
-</section>
-
-<section class="lesson-section">
-<h2>3.4 VPINN 变分方法</h2>
-<p>采用 Petrov-Galerkin 方法,以神经网络为<strong>试函数</strong>、局部多项式为<strong>检验函数</strong>。</p>
-<p>优势:更适合处理材料不连续问题。结合 quadtree / octree 自适应积分,稳健捕捉内部材料界面。</p>
-</section>
-
-<section class="lesson-section">
-<h2>3.5 微-介-宏观的合理分工</h2>
-<ul>
-<li><strong>微观/介观</strong>:用 PINN(物理约束强、样本小、几何规整)</li>
-<li><strong>宏观/系统级</strong>:用 GNN/神经算子(数据驱动、规模大、几何复杂)</li>
-<li>两者通过<strong>尺度桥接接口</strong>连接</li>
+<ol>
+<li>材料RVE的尺度较小、边界条件规整，适合PINN的无网格方法；而整车结构几何复杂、载荷工况多样，需要GNN等直接处理非结构化数据的架构。</li>
 </ul>
-</section>
-
+<ol>
+<li>材料多尺度的核心瓶颈是计算效率（每个宏观点都要算RVE），PINN代理能带来1000x+加速；而结构级的瓶颈更多是设计空间探索，代理模型的价值在于快速评估而非每一步计算替代。</li>
+</ul>
+<p>因此，在完整的"材料-结构"跨尺度链路上，AI降阶的合理分工是：<strong>微观/介观尺度用PINN代理均质化（物理约束强、样本量小），宏观/系统级用GNN/神经算子代理全场响应（数据驱动、规模大）</strong>，两者通过尺度桥接接口连接。这也是当前最有前景的技术融合方向。</p>
+<p>---</p>
   </article>
 
   <div class="card" id="notesSection"></div>
