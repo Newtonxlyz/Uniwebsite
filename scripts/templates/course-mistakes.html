@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>错题本</title>
+<link rel="stylesheet" href="../_shared/course-css.css">
+</head>
+<body>
+<nav id="topnav"></nav>
+
+<main class="container">
+  <header class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="index.html">← 课程主页</a></div>
+    <h1>❌ 错题本</h1>
+    <p class="text-dim">自动收集测验错题 · 重做答对即移除</p>
+  </header>
+
+  <div class="card">
+    <div id="summary" class="text-dim"></div>
+  </div>
+
+  <div id="mistakesList"></div>
+</main>
+
+<script src="../_shared/course-storage.js"></script>
+<script src="../_shared/course-progress.js"></script>
+<script src="../_shared/course-flashcard.js"></script>
+<script src="../_shared/course-notes.js"></script>
+<script src="../_shared/course-mistakes.js"></script>
+<script src="../_shared/course-quiz.js"></script>
+<script src="../_shared/course-theme.js"></script>
+<script src="../_shared/course-app.js"></script>
+<script src="../_shared/course-init.js"></script>
+<script>
+(async () => {
+  const courseId = '__COURSE_ID__';
+  const chaptersData = __CHAPTERS_DATA_PLACEHOLDER__;
+  const flashcardsData = __FLASHCARDS_DATA_PLACEHOLDER__;
+  const quizzesData = __QUIZZES_DATA_PLACEHOLDER__;
+
+  CourseInit.runInline(courseId, chaptersData, flashcardsData, quizzesData);
+  document.getElementById('topnav').innerHTML = CourseApp.renderTopnav('__COURSE_SLUG__', '__COURSE_TITLE__', 'mistakes');
+
+  function render() {
+    const sum = CourseMistakes.summary();
+    const items = CourseMistakes.getAll();
+    document.getElementById('summary').innerHTML =
+      '<strong>总 ' + sum.total + ' 道</strong> · ' +
+      '<span style="color: var(--danger);">未掌握 ' + sum.active + '</span> · ' +
+      '<span style="color: var(--success);">已掌握 ' + sum.mastered + '</span>';
+
+    if (items.length === 0) {
+      document.getElementById('mistakesList').innerHTML =
+        '<div class="card text-center text-dim">🎉 还没有错题,继续保持!</div>';
+      return;
+    }
+    let html = '';
+    items.sort((a, b) => b.addedAt.localeCompare(a.addedAt));
+    items.forEach(m => {
+      const correctAns = m.options && Array.isArray(m.correctAnswer)
+        ? m.correctAnswer.map(i => String.fromCharCode(65 + i)).join(', ')
+        : m.options && typeof m.correctAnswer === 'number'
+        ? String.fromCharCode(65 + m.correctAnswer) + ' - ' + m.options[m.correctAnswer]
+        : m.correctAnswer;
+      const userAns = m.options && typeof m.userAnswer === 'number'
+        ? String.fromCharCode(65 + m.userAnswer) + ' - ' + (m.options[m.userAnswer] || '?')
+        : m.userAnswer;
+      html += `
+        <div class="mistakes-card ${m.mastered ? 'mastered' : ''}">
+          <div style="display:flex; justify-content:space-between; align-items:start; margin-bottom: 8px;">
+            <div>
+              <div style="font-weight: 600;">${escapeHtml(m.stem)}</div>
+              <div style="font-size: 12px; color: var(--text-dimmer); margin-top: 4px;">
+                ${m.chapterId} · 错误 ${m.mistakeCount} 次 · ${new Date(m.addedAt).toLocaleString('zh-CN')}
+              </div>
+            </div>
+            <span class="chapter-status ${m.mastered ? 'completed' : 'not_started'}">${m.mastered ? '✓ 已掌握' : '○ 未掌握'}</span>
+          </div>
+          <div style="font-size: 14px; line-height: 1.7; padding: 8px; background: var(--bg-section); border-radius: 6px;">
+            <div style="color: var(--danger);">你的答案: ${userAns}</div>
+            <div style="color: var(--success); margin-top: 4px;">正确答案: ${correctAns}</div>
+            ${m.explanation ? '<div style="margin-top: 6px; color: var(--text-dim);">💡 ' + m.explanation + '</div>' : ''}
+          </div>
+          <div class="btn-row" style="margin-top: 12px;">
+            ${!m.mastered ? '<button class="btn btn-success" data-master-id="' + m.questionId + '">✓ 标记已掌握</button>' : ''}
+            <button class="btn btn-danger" data-remove-id="' + m.id + '">删除</button>
+          </div>
+        </div>
+      `;
+    });
+    document.getElementById('mistakesList').innerHTML = html;
+    document.querySelectorAll('[data-master-id]').forEach(b => {
+      b.addEventListener('click', () => { CourseMistakes.redo(b.dataset.masterId); render(); });
+    });
+    document.querySelectorAll('[data-remove-id]').forEach(b => {
+      b.addEventListener('click', () => { if (confirm('删除这条错题?')) { CourseMistakes.remove(b.dataset.removeId); render(); } });
+    });
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  }
+
+  render();
+})();
+</script>
+</body>
+</html>

@@ -1,7 +1,7 @@
 # lvyz.org 平台 — 交接技术文档
 
 > **目的**：给后续 agent / 协作者 / 接手者阅读，理解平台整体架构后能安全迭代。
-> **最后更新**：2026-07-03 · commit `1b004bb` · Vercel production · https://www.lvyz.org
+> **最后更新**：2026-09-16 · commit 待定（PINN/GNN 课程子系统上线）· Vercel production · https://www.lvyz.org
 > **维护者**：lvyz（产品 / 内容主理人）+ Coder agent（开发协作）
 
 ---
@@ -17,10 +17,32 @@ lvyz.org 是一个**多子站一体化平台**，由 1 个主站（首页 + 6 �
 | 🧒 **儿童 AI** | `/kids-ai` | 童趣 AI 课程（10 章 + 6 游戏 + 5 创作工具） | `src/content/kids-ai/*` |
 | 📚 **绘本** | `/picturebook` | 雷迪嘎嘎系列（故事 + 角色） | `src/content/picturebook/*` + R2 图 |
 | 🔍 **知识库** | `/knowledge-base` | 旧 wiki iframe（待迁移） | `/wiki-legacy/` (94MB) |
+| 🧮 **NLFEA 课程** | `/learn/nlfea` | 非线性有限元 6 章 49 节 + 闪卡 + 考试 | `public/nlfea-course/` (11.4MB) |
+| 🧠 **PINN 课程** | `/learn/pinn-crash` | AI+DOE+PINN 6 章 + 35 闪卡 + 章节测验 + 期末 | `public/courses/pinn-crash-reduction/` |
+| 🕸️ **GNN 课程** | `/learn/gn-crash` | GNN+Transformer+物理约束 7 章 + 35 闪卡 + 测验 | `public/courses/gn-crash-guide/` |
 | ✍️ **博客** | `/blog` | 诗 / 随笔 / 技术（支持音视频） | Postgres `Post` |
 | 🛍️ IP 周边 | `/merchandise` | 周边展示（占位） | 静态 |
 
 **共用基础设施**：Better Auth（账号）+ Prisma Postgres（数据）+ Cloudflare R2（媒体）+ Vercel（部署）+ 全站权限 `SiteAccess`。
+
+### 0.1 课程子系统（`public/courses/`）— 2026-09 新增
+
+3 门离线课程 + 1 个**完全解耦的复用架构**，加新课程 0 改 JS：
+
+| 模块 | 路径 | 职责 |
+|---|---|---|
+| 共享 JS（8 个） | `public/courses/_shared/*.js` | 存储/进度/闪卡/测验/笔记/错题/主题/渲染 |
+| 共享 CSS | `public/courses/_shared/course-css.css` | 玻璃拟物 + 亮/暗主题 |
+| 通用模板 | `scripts/templates/*.html` | 主页/闪卡/测验/错题/报告/章节（6 个） |
+| 通用生成脚本 | `scripts/build-course.py` | CLI 参数化，`python build-course.py <dir> <id> <slug> <title> <url> [bodies]` |
+| 课程 1（NLFEA） | `public/nlfea-course/` | 6 章 49 节 · 46 闪卡 · 旧版独立（11.4MB） |
+| 课程 2（PINN） | `public/courses/pinn-crash-reduction/` | 6 章 · 35 闪卡 · 60 题测验 + 期末 |
+| 课程 3（GNN） | `public/courses/gn-crash-guide/` | 7 章 · 35 闪卡 · 56 题测验 + 13 题期末 |
+| 架构文档 | `docs/COURSES-ARCHITECTURE.md` | 15 KB 完整 API + 加新课程流程 |
+
+**核心特性**：纯静态 + localStorage · 双击 `file://` 也能用 · SM-2 间隔重复 · 5 种题型（single/multi/tf/fill/short）· 章节测验 70%/期末 80% 通过 · 错题自动收集 · 笔记全文搜索 · 学习报告 JSON 导入导出。
+
+详细架构与模块 API 见 `docs/COURSES-ARCHITECTURE.md`。
 
 ---
 

@@ -70,11 +70,23 @@ export function SubsiteNav({ subsite }: { subsite: string }) {
         return [
           { href: "/knowledge-base", label: "搜索", icon: Library, description: "83 篇技术文档" },
         ];
-      case "nlfea":
+      case "learn/nlfea":
         return [
           { href: "/learn/nlfea", label: "课程地图", icon: BookOpen, description: "6 章 49 节课程" },
           { href: "/nlfea-course/flashcards.html", label: "闪卡", icon: Brain, description: "46 张闪卡复习" },
           { href: "/nlfea-course/exam.html", label: "考试", icon: GraduationCap, description: "20 题 90 分及格" },
+        ];
+      case "learn/pinn-crash":
+        return [
+          { href: "/learn/pinn-crash", label: "课程地图", icon: BookOpen, description: "PINN 6 章课程" },
+          { href: "/courses/pinn-crash-reduction/flashcards.html", label: "闪卡", icon: Brain, description: "35 张闪卡 SM-2" },
+          { href: "/courses/pinn-crash-reduction/quizzes.html", label: "测验", icon: GraduationCap, description: "60 题 + 期末" },
+        ];
+      case "learn/gn-crash":
+        return [
+          { href: "/learn/gn-crash", label: "课程地图", icon: BookOpen, description: "GNN 7 章课程" },
+          { href: "/courses/gn-crash-guide/flashcards.html", label: "闪卡", icon: Brain, description: "35 张闪卡 SM-2" },
+          { href: "/courses/gn-crash-guide/quizzes.html", label: "测验", icon: GraduationCap, description: "56 题 + 期末" },
         ];
       case "merchandise":
         return [

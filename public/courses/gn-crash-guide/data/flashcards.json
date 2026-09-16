@@ -1,0 +1,320 @@
+{
+  "courseId": "gn-crash-guide",
+  "cards": [
+    {
+      "id": "fc-01",
+      "front": "什么是碰撞仿真降阶模型（ROM）？",
+      "back": "将高维物理系统状态映射到低维潜空间，在潜空间中进行动力学演化再映射回物理空间，以更低的计算成本提供足够准确的仿真预测。",
+      "chapterId": "01-crash-basics",
+      "tags": [
+        "碰撞仿真与降阶基"
+      ]
+    },
+    {
+      "id": "fc-02",
+      "front": "GNN替代模型相比传统FEM的推理速度提升约多少？",
+      "back": "通常可达100-1000倍加速。",
+      "chapterId": "01-crash-basics",
+      "tags": [
+        "碰撞仿真与降阶基"
+      ]
+    },
+    {
+      "id": "fc-03",
+      "front": "为什么CNN不适合处理不规则网格？",
+      "back": "因为不规则网格中节点邻居数量不固定、排列顺序不固定（缺乏平移不变性）、复杂几何形状难以用规则网格表示，而CNN依赖固定的卷积核和规则网格。",
+      "chapterId": "01-crash-basics",
+      "tags": [
+        "碰撞仿真与降阶基"
+      ]
+    },
+    {
+      "id": "fc-04",
+      "front": "GNN适合处理不规则网格的核心优势有哪些？",
+      "back": "1) 排列不变性；2) 局部归纳偏置（消息传递机制天然建模近邻相互作用）；3) 权重共享；4) 灵活的输入格式（节点/边/全局特征）。",
+      "chapterId": "01-crash-basics",
+      "tags": [
+        "碰撞仿真与降阶基"
+      ]
+    },
+    {
+      "id": "fc-05",
+      "front": "AI降阶模型和FEM是什么关系？",
+      "back": "互补关系而非替代关系。FEM提供高精度训练数据，AI模型提供快速推理，用于大规模参数扫描、实时预测等FEM成本过高的场景。",
+      "chapterId": "01-crash-basics",
+      "tags": [
+        "碰撞仿真与降阶基"
+      ]
+    },
+    {
+      "id": "fc-06",
+      "front": "消息传递神经网络（MPNN）的两个核心步骤是什么？",
+      "back": "1) 消息构造：根据源节点、目标节点和边特征计算消息；2) 聚合与更新：聚合所有邻居消息并更新节点状态。",
+      "chapterId": "02-gnn-core",
+      "tags": [
+        "图神经网络（GN"
+      ]
+    },
+    {
+      "id": "fc-07",
+      "front": "什么是GNN的\"过度平滑\"问题？",
+      "back": "当GNN层数过多时，所有节点的特征会变得越来越相似，失去区分度的现象。",
+      "chapterId": "02-gnn-core",
+      "tags": [
+        "图神经网络（GN"
+      ]
+    },
+    {
+      "id": "fc-08",
+      "front": "GCN的核心公式是什么？",
+      "back": "H^(k+1) = σ(D̃^-1/2 Ã D̃^-1/2 H^(k) W^(k))，其中Ã = A + I是加了自环的邻接矩阵，D̃是对应的度矩阵。",
+      "chapterId": "02-gnn-core",
+      "tags": [
+        "图神经网络（GN"
+      ]
+    },
+    {
+      "id": "fc-09",
+      "front": "GCN的主要局限是什么？",
+      "back": "对所有邻居平等看待（权重由度数决定），无法区分不同邻居的重要性；是直推式学习，需要完整图结构。",
+      "chapterId": "02-gnn-core",
+      "tags": [
+        "图神经网络（GN"
+      ]
+    },
+    {
+      "id": "fc-10",
+      "front": "GAT相比GCN的核心改进是什么？",
+      "back": "引入注意力机制，通过学习注意力系数来自适应地衡量每个邻居的重要性。",
+      "chapterId": "02-gnn-core",
+      "tags": [
+        "图神经网络（GN"
+      ]
+    },
+    {
+      "id": "fc-11",
+      "front": "GraphSAGE的核心思想是什么？",
+      "back": "通过\"采样+聚合\"的方式，学习聚合函数而非节点嵌入本身，支持归纳式学习，能泛化到新节点和大规模图。",
+      "chapterId": "02-gnn-core",
+      "tags": [
+        "图神经网络（GN"
+      ]
+    },
+    {
+      "id": "fc-12",
+      "front": "Encoder-Processor-Decoder架构的三个组件各自负责什么？",
+      "back": "Encoder：将物理特征映射到潜空间；Processor：多层消息传递更新潜特征；Decoder：将潜特征映射回物理输出。",
+      "chapterId": "02-gnn-core",
+      "tags": [
+        "图神经网络（GN"
+      ]
+    },
+    {
+      "id": "fc-13",
+      "front": "为什么物理仿真GNN通常预测状态变化量而非下一状态？",
+      "back": "1) 数值稳定性更好；2) 有更好的归纳偏置（平凡解为0，即状态不变）；3) 网络只需学习\"扰动\"，更易于训练。",
+      "chapterId": "02-gnn-core",
+      "tags": [
+        "图神经网络（GN"
+      ]
+    },
+    {
+      "id": "fc-14",
+      "front": "什么是自回归推演（rollout）？它的主要挑战是什么？",
+      "back": "自回归推演是指每一步的输出作为下一步的输入，逐步递推进行长时间仿真。主要挑战是误差累积——每步的小误差会逐步放大。",
+      "chapterId": "02-gnn-core",
+      "tags": [
+        "图神经网络（GN"
+      ]
+    },
+    {
+      "id": "fc-15",
+      "front": "自注意力机制的核心公式是什么？",
+      "back": "Attention(Q, K, V) = softmax(QK^T/√d_k) V，其中Q是查询、K是键、V是值，d_k是键的维度。",
+      "chapterId": "03-transformer",
+      "tags": [
+        "Transfor"
+      ]
+    },
+    {
+      "id": "fc-16",
+      "front": "为什么物理仿真需要Transformer？",
+      "back": "纯GNN受限于局部消息传递，捕捉长程依赖需要很多层（易过度平滑），而Transformer的全局注意力可以直接建模远距离节点间的相互作用。",
+      "chapterId": "03-transformer",
+      "tags": [
+        "Transfor"
+      ]
+    },
+    {
+      "id": "fc-17",
+      "front": "Vision Transformer和Graph Transformer的主要区别是什么？",
+      "back": "ViT处理规则网格（图像patch），位置编码固定；Graph Transformer处理任意图结构，位置编码需要考虑图拓扑（如相对位置、拉普拉斯特征向量等）。",
+      "chapterId": "03-transformer",
+      "tags": [
+        "Transfor"
+      ]
+    },
+    {
+      "id": "fc-18",
+      "front": "Transolver的核心创新是什么？",
+      "back": "提出Physics-Attention：先将网格点分配到\"物理状态切片\"（slice），在切片级别计算注意力而非逐点计算，降低复杂度同时提升物理可解释性。",
+      "chapterId": "03-transformer",
+      "tags": [
+        "Transfor"
+      ]
+    },
+    {
+      "id": "fc-19",
+      "front": "什么是物理信息神经网络（PINN）？",
+      "back": "将物理定律（通常是PDE）作为软约束加入损失函数的神经网络，通过自动微分计算方程残差，使网络输出满足物理规律。",
+      "chapterId": "04-physics-pinn",
+      "tags": [
+        "物理约束与 PI"
+      ]
+    },
+    {
+      "id": "fc-20",
+      "front": "PINN的损失函数通常包含哪几部分？",
+      "back": "1) 数据损失：与观测/仿真数据的偏差；2) PDE残差损失：控制方程的残差；3) 边界条件损失：边界上的约束；4) 初始条件损失：初始时刻的约束。",
+      "chapterId": "04-physics-pinn",
+      "tags": [
+        "物理约束与 PI"
+      ]
+    },
+    {
+      "id": "fc-21",
+      "front": "PhyGNNet是什么？",
+      "back": "Physics-informed Graph Neural Network的缩写，将PINN的物理约束思想与GNN结合，在不规则域上求解PDE的方法。",
+      "chapterId": "04-physics-pinn",
+      "tags": [
+        "物理约束与 PI"
+      ]
+    },
+    {
+      "id": "fc-22",
+      "front": "物理约束有什么好处？",
+      "back": "1) 提升数据效率（减少对标注数据的依赖）；2) 保证物理一致性（不会出现违背守恒律的结果）；3) 提升外推能力（在分布外仍能给出合理预测）；4) 提升泛化性能。",
+      "chapterId": "04-physics-pinn",
+      "tags": [
+        "物理约束与 PI"
+      ]
+    },
+    {
+      "id": "fc-23",
+      "front": "DeepMind的GNS是什么？",
+      "back": "Graph Network-based Simulators，基于图网络的仿真框架，用粒子作为节点，通过学习消息传递来模拟复杂物理系统（流体、刚体、可变形材料等）。",
+      "chapterId": "05-hybrid-frontend",
+      "tags": [
+        "混合架构与前沿方"
+      ]
+    },
+    {
+      "id": "fc-24",
+      "front": "MeshGraphNet的特点是什么？",
+      "back": "使用网格（mesh）本身作为图结构，支持自适应网格细化，能处理空气动力学、结构力学、布料等多种物理系统，速度比训练用的仿真器快1-2个数量级。",
+      "chapterId": "05-hybrid-frontend",
+      "tags": [
+        "混合架构与前沿方"
+      ]
+    },
+    {
+      "id": "fc-25",
+      "front": "碰撞仿真中接触建模的挑战是什么？",
+      "back": "接触是高度非线性、不连续的现象；需要精确检测碰撞对；接触力的建模影响仿真稳定性；动态变化的接触对需要动态图构建。",
+      "chapterId": "05-hybrid-frontend",
+      "tags": [
+        "混合架构与前沿方"
+      ]
+    },
+    {
+      "id": "fc-26",
+      "front": "GNN+Transformer混合架构的优势是什么？",
+      "back": "GNN擅长处理局部交互（有强归纳偏置），Transformer擅长捕捉长程依赖，两者结合可以同时建模局部和全局的物理相互作用。",
+      "chapterId": "05-hybrid-frontend",
+      "tags": [
+        "混合架构与前沿方"
+      ]
+    },
+    {
+      "id": "fc-27",
+      "front": "PyTorch Geometric (PyG) 是什么？",
+      "back": "基于PyTorch的图神经网络库，提供GCN、GAT、GraphSAGE等数十种GNN层，支持数据加载、批量处理、分布式训练等完整功能。",
+      "chapterId": "06-tools-datasets",
+      "tags": [
+        "工具框架与数据集"
+      ]
+    },
+    {
+      "id": "fc-28",
+      "front": "DGL是什么？",
+      "back": "Deep Graph Library，另一个流行的GNN框架，由亚马逊/纽约大学开发，支持PyTorch、TensorFlow、MXNet等后端。",
+      "chapterId": "06-tools-datasets",
+      "tags": [
+        "工具框架与数据集"
+      ]
+    },
+    {
+      "id": "fc-29",
+      "front": "ΦFlow是什么？",
+      "back": "一个可微仿真工具包，支持PyTorch、TensorFlow、JAX和NumPy，提供微分算子、边界条件、可微求解器等，用于物理仿真的可微编程。",
+      "chapterId": "06-tools-datasets",
+      "tags": [
+        "工具框架与数据集"
+      ]
+    },
+    {
+      "id": "fc-30",
+      "front": "DeepMind Control Suite是什么？",
+      "back": "一套基于MuJoCo的连续控制基准任务集合，包含多种机器人控制环境，常用于强化学习和模型学习研究。",
+      "chapterId": "06-tools-datasets",
+      "tags": [
+        "工具框架与数据集"
+      ]
+    },
+    {
+      "id": "fc-31",
+      "front": "弹簧-质点系统的基本物理方程是什么？",
+      "back": "遵循牛顿第二定律F=ma和胡克定律F=-kΔx，其中k是弹簧刚度，Δx是形变量。",
+      "chapterId": "07-spring-mass",
+      "tags": [
+        "实战：弹簧-质点"
+      ]
+    },
+    {
+      "id": "fc-32",
+      "front": "在GNN仿真中，节点和边通常分别代表什么？",
+      "back": "节点代表质点（存储位置、速度、质量等特征），边代表弹簧（存储刚度、原长、相对位移等特征）。",
+      "chapterId": "07-spring-mass",
+      "tags": [
+        "实战：弹簧-质点"
+      ]
+    },
+    {
+      "id": "fc-33",
+      "front": "如何验证GNN仿真模型的正确性？",
+      "back": "1) 与解析解或数值参考解对比轨迹误差；2) 检查能量守恒等物理量是否守恒；3) 在不同初始条件和参数下测试泛化能力；4) 长时推演的稳定性测试。",
+      "chapterId": "07-spring-mass",
+      "tags": [
+        "实战：弹簧-质点"
+      ]
+    },
+    {
+      "id": "fc-34",
+      "front": "训练GNN仿真模型时，噪声注入（noise corruption）的作用是什么？",
+      "back": "在训练输入中加入随机噪声，模拟推理时的误差累积，提高模型在长时自回归推演中的稳定性和鲁棒性。",
+      "chapterId": "07-spring-mass",
+      "tags": [
+        "实战：弹簧-质点"
+      ]
+    },
+    {
+      "id": "fc-35",
+      "front": "物理仿真GNN常用的评估指标有哪些？",
+      "back": "1) 一步预测误差（MSE）；2) 长时推演误差（rollout error）；3) 物理量守恒误差（能量、动量等）；4) 结构相似度（SSIM）或关键帧精度。",
+      "chapterId": "07-spring-mass",
+      "tags": [
+        "实战：弹簧-质点"
+      ]
+    }
+  ]
+}

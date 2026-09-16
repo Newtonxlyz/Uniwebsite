@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>闪卡复习</title>
+<link rel="stylesheet" href="../_shared/course-css.css">
+</head>
+<body>
+<nav id="topnav"></nav>
+
+<main class="container">
+  <header class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="index.html">← 课程主页</a></div>
+    <h1>🃏 闪卡复习</h1>
+    <p class="text-dim">SM-2 间隔重复算法 · 点击卡片翻面 · 选档评分</p>
+  </header>
+
+  <div class="card">
+    <div style="display: flex; gap: 12px; flex-wrap: wrap; align-items: center;">
+      <label>章节筛选:
+        <select id="chapterFilter" style="margin-left: 6px; padding: 6px 10px; border-radius: 6px;">
+          <option value="all">全部</option>
+        </select>
+      </label>
+      <label style="margin-left: 12px;">
+        <input type="checkbox" id="dueOnly"> 仅显示今日到期
+      </label>
+      <button class="btn btn-danger" id="resetBtn" style="margin-left: auto;">重置所有闪卡</button>
+    </div>
+    <div id="summaryStats" style="margin-top: 12px; color: var(--text-dim); font-size: 14px;"></div>
+  </div>
+
+  <div class="flashcard-area" id="cardArea">
+    <div id="emptyState" style="display:none; padding: 40px; text-align: center; color: var(--text-dim);">
+      📭 没有卡片
+    </div>
+    <div id="cardContent" style="display:none;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+        <div id="cardPosition" style="color: var(--text-dim); font-size: 13px;">第 0/0 张</div>
+        <button class="btn" id="flipBtn">翻面 (Space)</button>
+      </div>
+      <div class="flashcard" id="flashCard" style="cursor: pointer;">
+        <div style="color: var(--text-dim); font-size: 12px;">📝 题目</div>
+        <div class="flashcard-q" id="cardQuestion"></div>
+      </div>
+      <div id="answerArea" style="display:none; margin-top: 16px;">
+        <div style="color: var(--text-dim); font-size: 12px; border-top: 1px solid var(--border); padding-top: 12px;">💡 答案</div>
+        <div class="flashcard-a" id="cardAnswer" style="margin-top: 8px;"></div>
+        <div class="rate-btn-row">
+          <button class="btn btn-danger" data-rate="again">✗ 再来 (1)</button>
+          <button class="btn btn-warning" data-rate="hard">⚠ 困难 (2)</button>
+          <button class="btn btn-success" data-rate="good">✓ 掌握 (3)</button>
+          <button class="btn btn-primary" data-rate="easy">⭐ 简单 (4)</button>
+        </div>
+      </div>
+      <div style="display:flex; gap: 8px; margin-top: 20px;">
+        <button class="btn" id="prevBtn">← 上一张</button>
+        <button class="btn" id="nextBtn">下一张 →</button>
+      </div>
+    </div>
+  </div>
+</main>
+
+<script src="../_shared/course-storage.js"></script>
+<script src="../_shared/course-progress.js"></script>
+<script src="../_shared/course-flashcard.js"></script>
+<script src="../_shared/course-notes.js"></script>
+<script src="../_shared/course-mistakes.js"></script>
+<script src="../_shared/course-quiz.js"></script>
+<script src="../_shared/course-theme.js"></script>
+<script src="../_shared/course-app.js"></script>
+<script src="../_shared/course-init.js"></script>
+<script>
+(async () => {
+  const courseId = 'pinn-crash-reduction';
+  const chaptersData = {"course":{"id":"pinn-crash-reduction","title":"AI+DOE+PINN 仿真降阶 · 碰撞仿真深度课程","subtitle":"千倍加速的代理模型 · 从原理到工程落地","estimatedHours":12,"level":"intermediate","audience":"汽车安全工程师 · CAE 仿真从业者 · 仿真研究生","objectives":["理解 PINN、GNN、Transformer 在碰撞仿真中的角色","能独立评估 PINN 在工程碰撞问题的可行性","能选型 DOE / 代理模型 / 物理约束组合","能评估 Luminary / Ansys / Altair / DEP 商业方案 ROI"],"prerequisites":["Python 基础","有限元基础","深度学习入门"]},"chapters":[{"id":"01-tech-foundations","slug":"01-tech-foundations","title":"技术原理与完整链路","subtitle":"AI+DOE+PINN 三段式技术体系","estimatedMinutes":80,"summary":"理解仿真降阶的本质、PINN 损失函数、DOE 采样策略、模型训练闭环"},{"id":"02-research-progress","slug":"02-research-progress","title":"学术前沿与代表研究","subtitle":"从部件级到整车级的代理模型演进","estimatedMinutes":90,"summary":"整车级代理模型 3% RMSE、千倍加速；GNN/Transformer 演进路径；神经算子在强非线性下的局限"},{"id":"03-multiscale","slug":"03-multiscale","title":"多尺度仿真应用","subtitle":"材料-结构跨尺度 AI 降阶","estimatedMinutes":80,"summary":"HOMS-PINN、PRNN、VPINN 等多尺度方案；微-介-宏观的合理分工"},{"id":"04-tools-frameworks","slug":"04-tools-frameworks","title":"工具与框架对比","subtitle":"开源框架 vs 商业平台","estimatedMinutes":70,"summary":"DeepXDE / PhysicsNeMo 开源生态；Ansys SimAI / Luminary / Altair / DEP 商业方案能力对比"},{"id":"05-engineering-practice","slug":"05-engineering-practice","title":"工程实践与挑战","subtitle":"4 阶段落地路线图 + 风险应对","estimatedMinutes":60,"summary":"从 MVP 到生产部署的完整路径；样本、泛化、接触、能耗、可信度风险"},{"id":"06-getting-started","slug":"06-getting-started","title":"入门路径与最终建议","subtitle":"学习资源 + 7 步实践路径","estimatedMinutes":40,"summary":"入门-基础-进阶-实战 4 阶段学习路线；硬件建议；下一步行动"}]};
+  const flashcardsData = {"courseId":"pinn-crash-reduction","cards":[{"id":"f1-1","chapter":1,"difficulty":"easy","q":"什么是 AI+DOE+PINN 仿真降阶的三段式?","a":"数据生成(DOE + 高保真仿真) → 物理约束建模(PINN / 代理) → 快速推理(GNN/Transformer 代理模型)"},{"id":"f1-2","chapter":1,"difficulty":"easy","q":"PINN 损失函数由哪四部分组成?","a":"PDE 残差损失 + 边界条件损失 + 初始条件损失 + 数据拟合损失"},{"id":"f1-3","chapter":1,"difficulty":"easy","q":"DOE 常用采样方法中,LHS 的全称是什么?","a":"Latin Hypercube Sampling,拉丁超立方抽样"},{"id":"f1-4","chapter":1,"difficulty":"medium","q":"PINN 与传统 POD-ROM 相比的三大本质优势?","a":"1) 无网格特性;2) 物理一致性保证;3) 逆问题天然支持"},{"id":"f1-5","chapter":1,"difficulty":"medium","q":"AI 降阶模型在训练参数空间内插值的精度范围?","a":"零部件级 RMSE 3-5%;整车级 RMSE < 3%(基于 5000+ 训练样本)"},{"id":"f1-6","chapter":1,"difficulty":"medium","q":"PINN 的频谱偏见(spectral bias)指什么?","a":"神经网络倾向于学习低频成分,难以捕捉高阶振荡和微观尺度剧烈变化"},{"id":"f1-7","chapter":1,"difficulty":"medium","q":"为什么碰撞场景不适合直接加 PDE 残差?","a":"碰撞含强非线性 + 接触不连续,无法用显式 PDE 残差约束;工业实践用数据驱动为主、物理约束为辅的混合架构"},{"id":"f2-1","chapter":2,"difficulty":"easy","q":"Luminary SHIFT-Crash 整车级代理模型 RMSE?","a":"小于 3%(基于 5000 次 2010 Toyota Yaris 碰撞仿真)"},{"id":"f2-2","chapter":2,"difficulty":"easy","q":"SHIFT-Crash 第三个 SUV 项目需要多少额外仿真?","a":"少于 300 次(迁移学习效果)"},{"id":"f2-3","chapter":2,"difficulty":"medium","q":"SEAT/IDIADA 侧柱撞击代理模型的时间平均 RMSE?","a":"3.20 mm(25 测试样本)"},{"id":"f2-4","chapter":2,"difficulty":"medium","q":"代理模型架构三代演进路径?","a":"第一代标量回归(GPR/DNN) → 第二代全场 GNN(MeshGraphNet) → 第三代注意力混合(Transolver)"},{"id":"f2-5","chapter":2,"difficulty":"medium","q":"MeshGraphNet 的核心机制?","a":"边更新-节点更新的消息传递,以网格连接为图结构,具有结构归纳偏置"},{"id":"f2-6","chapter":2,"difficulty":"hard","q":"FNO 在强非线性结构动力学中的局限?","a":"非线性系统误差可达 0.38(立方硬化)甚至失效(双线性滞回);超出训练区间误差 > 1,完全失效"},{"id":"f2-7","chapter":2,"difficulty":"hard","q":"Transolver 相对前 SOTA 在标准基准的误差降低?","a":"降低 22%"},{"id":"f3-1","chapter":3,"difficulty":"easy","q":"传统多尺度方法 FE² 的计算瓶颈?","a":"每个宏观积分点都需调用一次微观 RVE 完整有限元,计算量与两个尺度自由度乘积成正比"},{"id":"f3-2","chapter":3,"difficulty":"medium","q":"HOMS-PINN 的核心思想?","a":"通过多尺度渐近分析将强振荡的微观场提取出来,PINN 只需学习相对光滑的宏观场和修正项"},{"id":"f3-3","chapter":3,"difficulty":"medium","q":"PRNN 的核心创新?","a":"将本构关系的路径依赖性编码进循环结构,准确捕捉非线性滞回行为"},{"id":"f3-4","chapter":3,"difficulty":"medium","q":"VPINN 采用什么方法?","a":"Petrov-Galerkin 方法,以神经网络为试函数、局部多项式为检验函数"},{"id":"f3-5","chapter":3,"difficulty":"hard","q":"材料多尺度 vs 结构多尺度 AI 降阶的合理分工?","a":"微观/介观用 PINN(物理约束强、样本小);宏观/系统级用 GNN/神经算子(数据驱动、规模大)"},{"id":"f3-6","chapter":3,"difficulty":"hard","q":"HOMS-PIRNN 与 HOMS-RNN 的改进点?","a":"随机神经网络版本 + 循环结构,提升动态热力耦合问题的效率和精度"},{"id":"f4-1","chapter":4,"difficulty":"easy","q":"DeepXDE 的核心开发者?","a":"布朗大学/北京大学 Lu Lu 团队"},{"id":"f4-2","chapter":4,"difficulty":"easy","q":"NVIDIA PhysicsNeMo 支持的官方碰撞示例架构?","a":"MeshGraphNet、Transolver、GeoTransolver、GeoFlare 多种,精度 GeoFlare > GeoTransolver > Transolver > MeshGraphNet"},{"id":"f4-3","chapter":4,"difficulty":"medium","q":"Ansys SimAI 的核心架构?","a":"基于隐式神经表示(INR)的连续代理模型,对网格变化鲁棒,能捕捉多尺度现象"},{"id":"f4-4","chapter":4,"difficulty":"medium","q":"DEP AIWorks 的核心?","a":"Physics-Informed Neural Network(PINN)技术,针对轻度/中度/高度非线性有独立架构"},{"id":"f4-5","chapter":4,"difficulty":"medium","q":"Altair PhysicsAI 与 BMW 合作的核心创新?","a":"将聚类+分类引入优化,以模拟工程经验判断"},{"id":"f4-6","chapter":4,"difficulty":"hard","q":"汽车碰撞 AI 工具的当前成熟度排名?","a":"Luminary SHIFT-Crash(整车级)< Ansys SimAI(子系统)< Altair(优化)< DEP(PINN 通用)< 学术验证"},{"id":"f5-1","chapter":5,"difficulty":"easy","q":"AI 代理模型的最关键风险?","a":"泛化性和可信度,缺乏针对 AI 仿真结果的验证标准和监管认可路径"},{"id":"f5-2","chapter":5,"difficulty":"medium","q":"AI 降阶模型的工程定位?","a":"早期设计筛选工具,而非最终验证工具;价值在于将设计空间探索能力从几十个提升到上万个方案"},{"id":"f5-3","chapter":5,"difficulty":"medium","q":"GNN+Transformer+物理约束落地 4 阶段?","a":"验证可行性(2-4周) → 完整链路(4-6周) → 工程化优化(4-8周) → 多尺度拓展"},{"id":"f5-4","chapter":5,"difficulty":"medium","q":"DOE 参数维度爆炸的经验法则?","a":"参数维度为 d 时,初始 DOE 需要 10d~20d 个样本点"},{"id":"f5-5","chapter":5,"difficulty":"hard","q":"数据获取成本 vs 物理约束建模成本的工程权衡?","a":"工业实践中高质量仿真数据获取成本低于从零构建物理约束模型的工程成本,因此'数据为主、物理为辅'是务实的混合架构选择"},{"id":"f6-1","chapter":6,"difficulty":"easy","q":"PINN 入门推荐的 2 个开源框架?","a":"DeepXDE(布朗/PKU Lu Lu 团队)、NVIDIA PhysicsNeMo"},{"id":"f6-2","chapter":6,"difficulty":"easy","q":"GNN 入门推荐的入门论文?","a":"DeepMind 2020 GNS(Learning Mesh-Based Simulation with Graph Networks)"},{"id":"f6-3","chapter":6,"difficulty":"medium","q":"学习路径的 4 阶段?","a":"基础夯实(Python+PyG+有限元) → 模型实现(GNN+Transformer) → 物理约束加入 → 商业方案调研"},{"id":"f6-4","chapter":6,"difficulty":"medium","q":"整车级 AI 代理模型的硬件需求?","a":"A100/H100 80GB+,数周训练时间"},{"id":"f6-5","chapter":6,"difficulty":"hard","q":"准备落地的团队推荐的三段式路线?","a":"DOE 采样 + GNN/神经算子代理模型 + PINN 物理增强,从子结构/部件级切入,积累数据后扩展到系统级"}]};
+  const quizzesData = {"01-tech-foundations":{"title":"第 1 章测验 · 技术原理","passingScore":70,"maxAttempts":3,"questions":[{"id":"q1-1","type":"single","difficulty":"easy","stem":"AI+DOE+PINN 仿真降阶的'三段式'是?","options":["数据采集 → 模型训练 → 部署","数据生成 → 物理约束建模 → 快速推理","模型设计 → 训练 → 验证","DOE采样 → 仿真 → 数据分析"],"answer":1,"explanation":"完整链路是:DOE 采样+高保真仿真生成数据 → PINN/GNN 代理建模 → 快速推理返回结果。","tags":["技术原理"]},{"id":"q1-2","type":"single","difficulty":"easy","stem":"PINN 损失函数的组成部分不包括?","options":["PDE 残差损失","边界条件损失","初始条件损失","数据归一化损失"],"answer":3,"explanation":"标准 PINN 损失由 PDE 残差 + 边界 + 初始 + 数据拟合 4 部分组成,数据归一化是预处理步骤不是损失项。","tags":["PINN"]},{"id":"q1-3","type":"tf","difficulty":"easy","stem":"拉丁超立方采样(LHS)是最常用的 DOE 采样方法之一。","options":["对","错"],"answer":0,"explanation":"LHS 入门级首选,确保每个变量维度均匀覆盖。","tags":["DOE"]},{"id":"q1-4","type":"single","difficulty":"medium","stem":"PINN 相对 POD-ROM 的最大劣势?","options":["无网格特性","物理一致性","训练效率低","逆问题支持"],"answer":2,"explanation":"PINN 训练速度通常显著慢于经典数值方法,因为需优化大量参数且损失函数含高阶导数计算。","tags":["PINN"]},{"id":"q1-5","type":"multi","difficulty":"medium","stem":"PINN 的本质优势包含哪些? (多选)","options":["无网格特性","物理一致性保证","线性子空间逼近","逆问题天然支持"],"answer":[0,1,3],"explanation":"PINN 三大本质优势:无网格、物理一致性、逆问题支持。线性子空间逼近是 POD-ROM 的特点。","tags":["PINN"]},{"id":"q1-6","type":"fill","difficulty":"medium","stem":"DOE 参数维度为 d 时,初始样本量的经验法则是 ____ 个样本点。","options":null,"answer":"10d~20d","explanation":"经验法则:参数维度为 d 时,初始 DOE 需要 10d~20d 个样本点。","tags":["DOE"]},{"id":"q1-7","type":"single","difficulty":"medium","stem":"神经网络倾向于学习什么频率成分?","options":["高频","低频","均匀","随机"],"answer":1,"explanation":"这是神经网络的频谱偏见(spectral bias),倾向低频,捕捉高阶振荡需多尺度方法。","tags":["PINN"]},{"id":"q1-8","type":"tf","difficulty":"medium","stem":"碰撞动力学的强非线性使纯 PDE 残差约束很难实际应用。","options":["对","错"],"answer":0,"explanation":"碰撞含塑性+接触+大变形等不连续,PDE 残差约束效果差,工业实践采用数据为主、物理约束为辅的混合架构。","tags":["碰撞"]},{"id":"q1-9","type":"single","difficulty":"hard","stem":"自适应采样(RAR-G/RAD)在 DOE 中的作用?","options":["均匀覆盖","训练过程中动态向残差大的区域补充样本","减少样本总数","固定采样网格"],"answer":1,"explanation":"自适应采样在训练过程中动态补充残差大的样本,是提升数据效率的关键。","tags":["DOE","高级"]},{"id":"q1-10","type":"short","difficulty":"hard","stem":"请简述为什么'数据为主、物理约束为辅'是当前工业级碰撞降阶的务实选择。","options":null,"answer":"因为工业实践中高质量仿真数据获取成本低于从零构建物理约束模型的工程成本,而碰撞的强非线性+接触不连续使纯 PDE 残差约束效果差。混合架构以 GNN/Transformer 学习时空动力学为主,加入能量/动量等全局物理约束作为正则化。","explanation":"开放题,需自评对照。","tags":["综合"]}]},"02-research-progress":{"title":"第 2 章测验 · 学术前沿","passingScore":70,"maxAttempts":3,"questions":[{"id":"q2-1","type":"single","difficulty":"easy","stem":"Luminary SHIFT-Crash 整车级代理模型的 RMSE?","options":["< 1%","< 3%","< 5%","< 10%"],"answer":1,"explanation":"基于 5000 次 2010 Toyota Yaris 碰撞仿真训练,RMSE < 3%。","tags":["Luminary"]},{"id":"q2-2","type":"single","difficulty":"medium","stem":"SHIFT-Crash 第三个 SUV 项目需要额外多少仿真?","options":["300 以下","500","1000","5000"],"answer":0,"explanation":"迁移学习让第三个 SUV 项目只需 < 300 次额外仿真(从首个 SUV 的 5000 次递减)。","tags":["Luminary","迁移学习"]},{"id":"q2-3","type":"single","difficulty":"medium","stem":"SEAT/IDIADA 侧柱撞击代理模型的时间平均 RMSE?","options":["1.20 mm","3.20 mm","5.20 mm","10.20 mm"],"answer":1,"explanation":"25 测试样本上时间平均 RMSE 3.20 mm,采用 MeshTransolver 等混合架构。","tags":["SEAT"]},{"id":"q2-4","type":"single","difficulty":"medium","stem":"代理模型架构第三代采用?","options":["纯 GNN","纯 Transformer","GNN + Transformer 注意力混合","纯 FNO"],"answer":2,"explanation":"第三代是注意力混合(Transolver/GeoTransolver),在 GNN 基础上引入注意力捕捉长程变形。","tags":["架构"]},{"id":"q2-5","type":"tf","difficulty":"medium","stem":"MeshGraphNet 以网格连接为图结构,通过消息传递机制学习局部物理交互。","options":["对","错"],"answer":0,"explanation":"MeshGraphNet 是第二代代表,以边更新-节点更新消息传递机制为核心。","tags":["MeshGraphNet"]},{"id":"q2-6","type":"single","difficulty":"hard","stem":"FNO 在双线性滞回非线性系统中的相对 L2 误差?","options":["0.02","0.10","0.38","> 1"],"answer":2,"explanation":"UC Berkeley 系统评估:FNO 在双线性滞回系统误差 0.38,在地震激励下非线性系统误差随非线性程度急剧恶化。","tags":["FNO","局限"]},{"id":"q2-7","type":"single","difficulty":"hard","stem":"Transolver 相对前 SOTA 在标准基准的误差降低?","options":["5%","15%","22%","40%"],"answer":2,"explanation":"Transolver 在六个标准基准上比之前 SOTA 降低 22% 误差,ICML 2024 Spotlight。","tags":["Transolver"]},{"id":"q2-8","type":"multi","difficulty":"hard","stem":"碰撞代理模型架构选择需要平衡哪些? (多选)","options":["标量精度","生存空间一致性","物理解释性","训练数据量"],"answer":[0,1,2],"explanation":"研究表明'网格消息传递+几何感知注意力+稀疏接触感知修正'在标量精度、生存空间一致性和物理解释性之间取得最佳平衡。","tags":["架构","综合"]},{"id":"q2-9","type":"single","difficulty":"medium","stem":"NVIDIA + 通用汽车白车身碰撞研究使用的样本数?","options":["15","150","1500","5000"],"answer":1,"explanation":"使用 150 次 LS-DYNA 仿真训练 MeshGraphNet 和 Transolver,支持可变厚度分布参数化输入。","tags":["NVIDIA"]},{"id":"q2-10","type":"short","difficulty":"hard","stem":"请简述为什么'纯注意力模型'虽然量化指标好但定性检查仍发现空间噪声问题。","options":null,"answer":"纯 Transformer 缺乏 GNN 的结构归纳偏置和局部平滑约束,在局部区域可能出现变形不规则、生存空间不连续等问题,需要 GNN+几何感知注意力+接触感知修正等混合架构弥补。","explanation":"开放题。","tags":["综合"]}]},"03-multiscale":{"title":"第 3 章测验 · 多尺度仿真","passingScore":70,"maxAttempts":3,"questions":[{"id":"q3-1","type":"single","difficulty":"easy","stem":"传统多尺度方法 FE² 的计算瓶颈?","options":["内存不足","每宏观积分点需调用一次微观 RVE","网格划分困难","并行效率低"],"answer":1,"explanation":"FE² 每个宏观积分点都需调用微观 RVE 完整有限元,工程问题中几乎不可行。","tags":["多尺度"]},{"id":"q3-2","type":"single","difficulty":"medium","stem":"HOMS-PINN 的核心思想?","options":["全连接替代 FEM","多尺度渐近分析分解微宏观","直接 PDE 约束","自动微分"],"answer":1,"explanation":"HOMS-PINN 通过多尺度渐近分析把强振荡的微观场提取出来,PINN 只需学相对光滑的宏观场+修正项。","tags":["HOMS-PINN"]},{"id":"q3-3","type":"tf","difficulty":"medium","stem":"PRNN 通过循环结构编码本构关系的路径依赖性。","options":["对","错"],"answer":0,"explanation":"PRNN 的核心是将本构路径依赖性编码进循环结构,准确捕捉非线性滞回行为。","tags":["PRNN"]},{"id":"q3-4","type":"single","difficulty":"medium","stem":"VPINN 采用什么方法?","options":["强形式 PINN","Petrov-Galerkin","变分方法","傅里叶方法"],"answer":1,"explanation":"VPINN 采用 Petrov-Galerkin 方法,以神经网络为试函数、局部多项式为检验函数。","tags":["VPINN"]},{"id":"q3-5","type":"fill","difficulty":"medium","stem":"HOMS-PINN 相对直接 PINN 模拟多尺度问题,计算量可减少约 ____ 。","options":null,"answer":"一半","explanation":"HOMS-PINN 计算量可减少约一半,同时能精确捕捉微观尺度剧烈振荡。","tags":["HOMS-PINN"]},{"id":"q3-6","type":"single","difficulty":"hard","stem":"微-介-宏观 AI 降阶的合理分工?","options":["全用 PINN","全用 GNN","微介观 PINN + 宏观 GNN","随机组合"],"answer":2,"explanation":"微介观用 PINN(物理约束强、样本小),宏观/系统级用 GNN/神经算子(数据驱动、规模大)。","tags":["综合"]},{"id":"q3-7","type":"multi","difficulty":"hard","stem":"结构多尺度 AI 降阶更依赖传统代理建模而非 PINN 的原因? (多选)","options":["材料多尺度 PDE 约束更明确","结构碰撞 PDE 含接触不连续使残差难算","整车几何复杂、载荷工况多样","PINN 训练时间太短"],"answer":[0,1,2],"explanation":"材料多尺度 PDE 约束直接有效;结构碰撞接触/失效使残差计算困难;整车几何载荷复杂,需 GNN 直接处理非结构化数据。","tags":["综合"]},{"id":"q3-8","type":"single","difficulty":"medium","stem":"PRNN 相对平均场均质化(MFH)的优势?","options":["计算更快","预测滞回行为更准","网格要求低","无需训练数据"],"answer":1,"explanation":"PRNN 预测的纱线非线性滞回行为与 FE 结果高度吻合,MFH 方法偏差较大。","tags":["PRNN"]},{"id":"q3-9","type":"tf","difficulty":"easy","stem":"AI 降阶在多尺度中常被用于替代微观 RVE 计算。","options":["对","错"],"answer":0,"explanation":"用神经网络代理替代微观 RVE 有限元,使每宏观积分点应力更新从'求解边界值问题'变为'神经网络前向传播',实现数量级加速。","tags":["多尺度"]},{"id":"q3-10","type":"short","difficulty":"hard","stem":"请说明 HOMS-PIRNN 和 HOMS-RNN 的应用场景及相对 HOMS-PINN 的改进点。","options":null,"answer":"HOMS-PIRNN 是随机神经网络版本,HOMS-RNN 是循环结构版本,主要解决动态热力耦合问题,提升效率和精度。","explanation":"开放题。","tags":["综合"]}]},"04-tools-frameworks":{"title":"第 4 章测验 · 工具框架","passingScore":70,"maxAttempts":3,"questions":[{"id":"q4-1","type":"single","difficulty":"easy","stem":"DeepXDE 的核心开发者?","options":["MIT","布朗大学/北京大学 Lu Lu","斯坦福","DeepMind"],"answer":1,"explanation":"DeepXDE 由布朗大学 Lu Lu 等人(现北京大学)开发,是 PINN 最广泛使用的开源框架。","tags":["DeepXDE"]},{"id":"q4-2","type":"single","difficulty":"easy","stem":"NVIDIA PhysicsNeMo 碰撞示例中精度最高的架构?","options":["MeshGraphNet","Transolver","GeoTransolver","GeoFlare"],"answer":3,"explanation":"精度排名:GeoFlare > GeoTransolver > Transolver > MeshGraphNet。","tags":["PhysicsNeMo"]},{"id":"q4-3","type":"single","difficulty":"medium","stem":"Ansys SimAI 的核心架构?","options":["基于 CNN","基于 GNN","基于隐式神经表示(INR)","基于 FNO"],"answer":2,"explanation":"Ansys SimAI 基于隐式神经表示(INR)的连续代理模型,对网格变化鲁棒,能捕捉多尺度现象。","tags":["Ansys SimAI"]},{"id":"q4-4","type":"single","difficulty":"medium","stem":"DEP AIWorks 的核心技术?","options":["GNN","Transformer","PINN","CNN"],"answer":2,"explanation":"DEP AIWorks 核心为 PINN 技术,针对轻度/中度/高度非线性有独立架构。","tags":["DEP"]},{"id":"q4-5","type":"single","difficulty":"medium","stem":"Altair PhysicsAI 与 BMW 合作的核心创新?","options":["新架构","聚类+分类引入优化","多 GPU 训练","在线学习"],"answer":1,"explanation":"Altair 与 BMW 合作将聚类+分类引入优化,以模拟工程经验判断。","tags":["Altair"]},{"id":"q4-6","type":"fill","difficulty":"medium","stem":"DeepXDE 已被 ____+ 大学采用。","options":null,"answer":"250","explanation":"DeepXDE 已被 250+ 大学采用。","tags":["DeepXDE"]},{"id":"q4-7","type":"tf","difficulty":"medium","stem":"Ansys SimAI 是物理无关的,可用于流体/结构/电磁等多种物理。","options":["对","错"],"answer":0,"explanation":"SimAI 是独立的深度学习代理建模平台,云部署,物理无关。","tags":["Ansys SimAI"]},{"id":"q4-8","type":"multi","difficulty":"hard","stem":"汽车碰撞 AI 工具选型需考虑哪些? (多选)","options":["与现有 CAE 软件兼容性","训练数据需求","GPU 硬件要求","授权模式"],"answer":[0,1,2,3],"explanation":"选型需综合考虑兼容性、数据需求、硬件、授权及维护成本。","tags":["综合"]},{"id":"q4-9","type":"single","difficulty":"medium","stem":"Ansys SimAI 保险杠碰撞压溃误差?","options":["< 0.5%","< 5%","< 10%","< 30%"],"answer":0,"explanation":"Ansys SimAI 保险杠碰撞场景:压溃误差 < 0.5%,力误差 < 10%,预测时间 < 1 分钟。","tags":["Ansys SimAI"]},{"id":"q4-10","type":"short","difficulty":"hard","stem":"请对比 DeepXDE 与 NVIDIA PhysicsNeMo 在碰撞仿真场景的适用性。","options":null,"answer":"DeepXDE 适合方法学研究和小规模验证(API 简洁,支持复杂几何,但性能优化需自行实现)。PhysicsNeMo 是当前工程应用最佳开源选择(深度 GPU 优化、预训练模型库、内置 FNO/DeepONet/GNN/PINN、官方碰撞示例、需 NVIDIA GPU)。","explanation":"开放题。","tags":["综合"]}]},"05-engineering-practice":{"title":"第 5 章测验 · 工程实践","passingScore":70,"maxAttempts":3,"questions":[{"id":"q5-1","type":"single","difficulty":"easy","stem":"AI 降阶模型最关键的风险?","options":["训练慢","泛化性和可信度","GPU 占用","代码兼容性"],"answer":1,"explanation":"最大落地障碍不是精度,而是泛化性和可信度体系,缺乏针对 AI 仿真结果的验证标准和监管认可路径。","tags":["风险"]},{"id":"q5-2","type":"single","difficulty":"easy","stem":"AI 降阶模型的工程定位?","options":["最终验证工具","早期设计筛选工具","替代 CAE","标准制定工具"],"answer":1,"explanation":"AI 降阶模型定位是'早期设计筛选工具'而非'最终验证工具',价值在于将设计空间探索能力从几十个提升到上万个方案。","tags":["定位"]},{"id":"q5-3","type":"single","difficulty":"medium","stem":"GNN+Transformer 落地 4 阶段时长?","options":["2-4周 + 4-6周 + 4-8周 + 按需","1-2周 + 2-4周 + 4-6周 + 按需","4-6周 + 2-4周 + 8-12周 + 按需","6-8周 + 4-6周 + 8-12周 + 按需"],"answer":0,"explanation":"4 阶段:验证可行性(2-4周) → 完整链路搭建(4-6周) → 工程化优化(4-8周) → 多尺度拓展(按需)。","tags":["路线图"]},{"id":"q5-4","type":"fill","difficulty":"medium","stem":"DOE 参数维度为 d 时,初始样本量经验法则是 ____ 。","options":null,"answer":"10d~20d","explanation":"经验法则:参数维度为 d 时,初始 DOE 需要 10d~20d 个样本点。","tags":["DOE"]},{"id":"q5-5","type":"single","difficulty":"medium","stem":"工业级碰撞降阶为何采用混合架构而非纯 PINN?","options":["PINN 专利限制","混合架构 GPU 友好","碰撞强非线性+接触不连续使纯 PDE 残差难","混合架构更便宜"],"answer":2,"explanation":"碰撞含塑性+接触+大变形,PDE 残差难算,需'数据为主、物理为辅'。","tags":["架构"]},{"id":"q5-6","type":"tf","difficulty":"medium","stem":"子结构技术能把仿真成本降低约 400 倍。","options":["对","错"],"answer":0,"explanation":"工业实践常采用子模型技术(如侧梁子模型比整车快约 400 倍)来降低数据生成成本。","tags":["工程技巧"]},{"id":"q5-7","type":"single","difficulty":"hard","stem":"AI 代理模型对设计探索能力提升的数量级?","options":["1-10 倍","10-100 倍","100-1000 倍","1-10 万倍"],"answer":2,"explanation":"AI 降阶模型价值在于将设计空间探索能力从几十个方案提升到上万个方案,即 100-1000 倍。","tags":["价值"]},{"id":"q5-8","type":"multi","difficulty":"hard","stem":"AI 代理模型的工程落地关键风险有哪些? (多选)","options":["样本量不足","接触预测不准","大变形误差累积","仿真数据获取慢"],"answer":[0,1,2,3],"explanation":"四大风险:样本量不足、接触预测不准、大变形误差累积、仿真数据获取慢。","tags":["风险"]},{"id":"q5-9","type":"single","difficulty":"medium","stem":"接触约束损失的最佳实现?","options":["罚函数法","KKT 软约束(FB 函数)","直接硬约束","忽略"],"answer":1,"explanation":"Fischer-Burmeister NCP 函数实现 KKT 软约束是最佳选择,优化特性良好。","tags":["接触"]},{"id":"q5-10","type":"short","difficulty":"hard","stem":"请总结当前 AI 仿真降阶工程落地的 3 大挑战及应对策略。","options":null,"answer":"1) 数据获取慢 → 子模型技术、迁移学习。2) 模型泛化性差 → 增加物理约束 + 主动学习闭环。3) 验证标准缺失 → 与传统 CAE 联合使用,定位为'设计筛选工具'。","explanation":"开放题。","tags":["综合"]}]},"06-getting-started":{"title":"第 6 章测验 · 入门与路径","passingScore":70,"maxAttempts":3,"questions":[{"id":"q6-1","type":"single","difficulty":"easy","stem":"PINN 入门推荐的 2 个开源框架?","options":["DeepXDE + PhysicsNeMo","TensorFlow + PyTorch","Caffe + MXNet","Theano + CNTK"],"answer":0,"explanation":"DeepXDE(适合方法学研究) + NVIDIA PhysicsNeMo(适合工程应用)。","tags":["入门"]},{"id":"q6-2","type":"single","difficulty":"easy","stem":"GNN 入门推荐的入门论文?","options":["GNN 综述","DeepMind 2020 GNS","PinN 论文","GAN 论文"],"answer":1,"explanation":"DeepMind 2020 GNS(Learning Mesh-Based Simulation with Graph Networks)是 GNN 入门必读。","tags":["GNN"]},{"id":"q6-3","type":"single","difficulty":"medium","stem":"学习路径的 4 阶段?","options":["看论文-写代码-调试-上线","基础夯实-模型实现-物理约束-商业调研","DOE 采样-仿真-训练-部署","Python-有限元-深度学习-CAE"],"answer":1,"explanation":"4 阶段:基础夯实(Python+PyG+有限元) → 模型实现(GNN+Transformer) → 物理约束加入 → 商业方案调研。","tags":["学习路径"]},{"id":"q6-4","type":"single","difficulty":"medium","stem":"整车级 AI 代理模型的硬件需求?","options":["RTX 3060","RTX 4090","A100/H100 80GB+","无需 GPU"],"answer":2,"explanation":"整车级代理模型需 A100/H100 80GB+,训练数周时间。","tags":["硬件"]},{"id":"q6-5","type":"fill","difficulty":"medium","stem":"NVIDIA PhysicsNeMo 官方碰撞示例中精度最高的架构是 ____ 。","options":null,"answer":"GeoFlare","explanation":"精度排名:GeoFlare > GeoTransolver > Transolver > MeshGraphNet。","tags":["工具"]},{"id":"q6-6","type":"tf","difficulty":"easy","stem":"学习路径推荐先从子结构/部件级问题切入验证可行性。","options":["对","错"],"answer":0,"explanation":"先从子结构/部件级问题切入验证可行性,积累数据后扩展到系统级。","tags":["学习路径"]},{"id":"q6-7","type":"single","difficulty":"medium","stem":"DOE+代理模型混合路线相比纯仿真路线的核心优势?","options":["更便宜","快速评估+少量高精度仿真","更准确","更易学习"],"answer":1,"explanation":"混合路线用 AI 模型快速评估 + 关键样本高精度仿真,平衡速度与精度。","tags":["混合架构"]},{"id":"q6-8","type":"multi","difficulty":"hard","stem":"落地团队推荐的 7 步实践路径包含? (多选)","options":["选简单案例","DOE 采样 100-500","训练 GNN 模型","物理约束损失","FastAPI 部署","前端 Three.js","商业方案评估"],"answer":[0,1,2,3,4,5,6],"explanation":"7 步实践路径:选案例 → DOE 采样 → 训练 → 物理约束 → 部署 → 前端 → 商业评估。","tags":["综合"]},{"id":"q6-9","type":"single","difficulty":"medium","stem":"GNN 落地推荐最简单案例?","options":["整车碰撞","白车身","悬臂梁冲击/方管压溃","发动机曲轴"],"answer":2,"explanation":"选简单案例(悬臂梁冲击、方管压溃)用 100-200 DOE 样本跑通 MVP。","tags":["入门"]},{"id":"q6-10","type":"short","difficulty":"hard","stem":"请为准备落地的仿真工程师团队给出一个具体的 30 天行动计划。","options":null,"answer":"第1周:基础夯实(PyG/DeepXDE/有限元复习)。第2周:选简单案例+DOE 100-200样本+训练基础GNN。第3周:加物理约束+FastAPI部署。第4周:前端可视化+商业方案对比+规划二期。","explanation":"开放题。","tags":["综合"]}]},"final":{"title":"期末综合考试","passingScore":80,"maxAttempts":3,"questions":[{"id":"qf-1","type":"single","difficulty":"hard","stem":"完整描述'三段式' AI 仿真降阶技术体系。","options":null,"answer":"数据生成(DOE + 高保真仿真) → 物理约束建模(PINN/GNN 代理) → 快速推理(返回结果给设计优化)。","explanation":"综合考查。","tags":["综合"]},{"id":"qf-2","type":"single","difficulty":"hard","stem":"Luminary SHIFT-Crash 核心优势与迁移学习效果?","options":null,"answer":"首个整车级 Physics AI 模型,5000 次仿真训练,RMSE < 3%。迁移学习使第三个 SUV 项目仅需 < 300 次额外仿真。","explanation":"综合考查。","tags":["综合"]},{"id":"qf-3","type":"single","difficulty":"hard","stem":"为什么纯 PINN 不适合碰撞仿真,工业实践用什么架构?","options":null,"answer":"碰撞含塑性+大变形+强不连续,PDE 残差难算。采用'数据驱动为主、物理约束为辅'的混合架构:GNN/Transformer 学时空动力学,能量/动量等全局物理约束作正则化。","explanation":"综合考查。","tags":["综合"]},{"id":"qf-4","type":"single","difficulty":"hard","stem":"HOMS-PINN 的核心思想及其相对直接 PINN 的优势?","options":null,"answer":"通过多尺度渐近分析把强振荡微观场'提取'出来,PINN 只需学相对光滑的宏观场+修正项,克服频谱偏见。计算量减少约一半。","explanation":"综合考查。","tags":["综合"]},{"id":"qf-5","type":"single","difficulty":"hard","stem":"DeepXDE 与 NVIDIA PhysicsNeMo 在碰撞仿真场景的适用性对比?","options":null,"answer":"DeepXDE 适合方法学研究和小规模验证;PhysicsNeMo 是当前工程最佳开源选择,深度 GPU 优化、预训练模型库、内置 FNO/DeepONet/GNN/PINN、官方碰撞示例。","explanation":"综合考查。","tags":["综合"]},{"id":"qf-6","type":"tf","difficulty":"medium","stem":"AI 降阶模型定位是最终验证工具而非早期筛选工具。","options":["对","错"],"answer":1,"explanation":"AI 降阶模型定位是'早期设计筛选工具'而非'最终验证工具'。","tags":["定位"]},{"id":"qf-7","type":"single","difficulty":"hard","stem":"微-介-宏观 AI 降阶的合理分工?","options":null,"answer":"微观/介观用 PINN(物理约束强、样本小);宏观/系统级用 GNN/神经算子(数据驱动、规模大);通过尺度桥接接口连接。","explanation":"综合考查。","tags":["综合"]},{"id":"qf-8","type":"fill","difficulty":"medium","stem":"DOE 参数维度为 d 时,初始样本量经验法则是 ____ 。","options":null,"answer":"10d~20d","explanation":"经验法则。","tags":["DOE"]},{"id":"qf-9","type":"tf","difficulty":"medium","stem":"FNO 在强非线性结构动力学中表现良好,适合碰撞仿真。","options":["对","错"],"answer":1,"explanation":"FNO 在强非线性结构动力学中表现存在明显局限,误差随非线性程度急剧恶化,不适合碰撞这种强非线性问题。","tags":["FNO"]},{"id":"qf-10","type":"single","difficulty":"hard","stem":"GNN+Transformer+物理约束 4 阶段落地路线图?","options":null,"answer":"阶段一:验证可行性(2-4周,简单案例+100-200样本+基础GNN,RMSE < 10%)。阶段二:完整链路搭建(4-6周,自动数据管道+混合模型+物理约束+FastAPI+前端,RMSE < 5%)。阶段三:工程化优化(4-8周,模型调优+多时间步+不确定性+性能优化,误差 < 3%)。阶段四:多尺度拓展(按需,子结构级联+材料多尺度+自适应细化)。","explanation":"综合考查。","tags":["综合"]},{"id":"qf-11","type":"single","difficulty":"hard","stem":"工程落地 AI 降阶的 3 大关键挑战及应对?","options":null,"answer":"1) 数据获取慢 → 子模型技术、迁移学习。2) 模型泛化性差 → 物理约束 + 主动学习闭环。3) 验证标准缺失 → 与传统 CAE 联合使用,定位'设计筛选工具'。","explanation":"综合考查。","tags":["综合"]},{"id":"qf-12","type":"single","difficulty":"hard","stem":"AI 降阶在汽车安全工程的商业价值与定位?","options":null,"answer":"价值:将设计空间探索能力从几十个提升到上万个方案;定位:'早期设计筛选工具'而非'最终验证工具';成本节约来自减少重复仿真;风险:跨车型零样本预测可能完全失效,需保留传统 CAE 验证闭环。","explanation":"综合考查。","tags":["综合"]},{"id":"qf-13","type":"multi","difficulty":"hard","stem":"工业级碰撞降阶架构推荐? (多选)","options":["GNN+Transformer 混合","能量/动量守恒物理约束","数据为主+物理为辅","自适应采样补充数据","纯 PINN","纯 FNO"],"answer":[0,1,2,3],"explanation":"工业推荐:GNN+Transformer 混合+物理约束正则化+数据为主为辅混合架构+主动学习闭环。纯 PINN / 纯 FNO 已被证实在碰撞场景效果有限。","tags":["综合"]},{"id":"qf-14","type":"single","difficulty":"hard","stem":"整车级 vs 零部件级代理模型的硬件需求差异?","options":null,"answer":"零部件级:RTX 3060/4070(12-16GB),训练 1-3 天。整车级:A100/H100(80GB+),训练数周。样本量 5000+ vs 200-500。","explanation":"综合考查。","tags":["硬件"]},{"id":"qf-15","type":"single","difficulty":"hard","stem":"如何评估一个 AI 降阶模型是否可投产?","options":null,"answer":"1) RMSE < 3% on 独立测试集。2) 关键指标(吸能、最大位移)误差 < 5%。3) 物理合理性检查(无穿透、能量守恒)。4) 跨工况泛化测试。5) 与传统 CAE 结果对比验证。","explanation":"综合考查。","tags":["综合"]}]}};
+
+  CourseInit.runInline(courseId, chaptersData, flashcardsData, quizzesData);
+  document.getElementById('topnav').innerHTML = CourseApp.renderTopnav('pinn-crash', 'AI+DOE+PINN', 'flashcards');
+
+  const allCards = flashcardsData.cards;
+  let visibleCards = [...allCards];
+  let currentIdx = 0;
+  let flipped = false;
+
+  function applyFilter() {
+    const ch = document.getElementById('chapterFilter').value;
+    const dueOnly = document.getElementById('dueOnly').checked;
+    visibleCards = allCards.filter(c => {
+      if (ch !== 'all' && String(c.chapter) !== ch) return false;
+      if (dueOnly) {
+        const mastery = CourseFlashcard.getAll().find(x => x.id === c.id)?.mastery;
+        return mastery?.nextReview && mastery.nextReview <= Date.now();
+      }
+      return true;
+    });
+    currentIdx = 0;
+    flipped = false;
+    renderCard();
+    updateSummary();
+  }
+
+  function updateSummary() {
+    const sum = CourseFlashcard.summary();
+    document.getElementById('summaryStats').innerHTML =
+      '总 ' + sum.total + ' 张 · ' +
+      '<span style="color: var(--success);">已掌握 ' + sum.mastered + '</span> · ' +
+      '<span style="color: var(--warning);">学习中 ' + sum.learning + '</span> · ' +
+      '今日到期 <strong>' + sum.due + '</strong> · ' +
+      '今日新增 ' + sum.new + ' 张';
+  }
+
+  function renderCard() {
+    if (visibleCards.length === 0) {
+      document.getElementById('emptyState').style.display = 'block';
+      document.getElementById('cardContent').style.display = 'none';
+      return;
+    }
+    document.getElementById('emptyState').style.display = 'none';
+    document.getElementById('cardContent').style.display = 'block';
+    const c = visibleCards[currentIdx];
+    const mastery = CourseFlashcard.getAll().find(x => x.id === c.id)?.mastery;
+    const statusLabel = mastery?.status === 'mastered' ? '✓ 已掌握' : mastery?.status === 'review' ? '◐ 复习' : mastery?.status === 'learning' ? '⋯ 学习中' : '○ 新卡';
+    document.getElementById('cardPosition').textContent =
+      '第 ' + (currentIdx + 1) + ' / ' + visibleCards.length + ' 张 · 第 ' + c.chapter + ' 章 · ' + statusLabel;
+    document.getElementById('cardQuestion').textContent = c.q;
+    const diffColor = c.difficulty === 'easy' ? 'var(--success)' : c.difficulty === 'medium' ? 'var(--warning)' : 'var(--danger)';
+    document.getElementById('cardAnswer').innerHTML =
+      '<div style="display:inline-block; padding: 2px 10px; border-radius: 12px; background: ' + diffColor + '; color: #fff; font-size: 12px; margin-bottom: 8px;">' +
+      (c.difficulty || 'medium').toUpperCase() + '</div><div>' + c.a + '</div>';
+    document.getElementById('answerArea').style.display = flipped ? 'block' : 'none';
+    document.getElementById('flipBtn').textContent = flipped ? '翻回' : '翻面 (Space)';
+    document.getElementById('prevBtn').disabled = currentIdx === 0;
+    document.getElementById('nextBtn').disabled = currentIdx === visibleCards.length - 1;
+  }
+
+  function flip() {
+    if (visibleCards.length === 0) return;
+    flipped = !flipped;
+    renderCard();
+  }
+
+  function next() {
+    if (currentIdx < visibleCards.length - 1) {
+      currentIdx++;
+      flipped = false;
+      renderCard();
+    }
+  }
+
+  function prev() {
+    if (currentIdx > 0) {
+      currentIdx--;
+      flipped = false;
+      renderCard();
+    }
+  }
+
+  function rate(r) {
+    const c = visibleCards[currentIdx];
+    CourseFlashcard.mark(c.id, r);
+    // 仅显示到期模式:移除并重渲染
+    if (document.getElementById('dueOnly').checked) {
+      applyFilter();
+    } else {
+      next();
+    }
+    updateSummary();
+  }
+
+  document.getElementById('chapterFilter').innerHTML = '<option value="all">全部</option>' +
+    chaptersData.chapters.map(c => '<option value="' + c.id.slice(-2) + '">第 ' + c.id.slice(-2) + ' 章 · ' + c.title + '</option>').join('');
+  document.getElementById('chapterFilter').addEventListener('change', applyFilter);
+  document.getElementById('dueOnly').addEventListener('change', applyFilter);
+  document.getElementById('flipBtn').addEventListener('click', flip);
+  document.getElementById('flashCard').addEventListener('click', flip);
+  document.getElementById('nextBtn').addEventListener('click', next);
+  document.getElementById('prevBtn').addEventListener('click', prev);
+  document.getElementById('resetBtn').addEventListener('click', () => {
+    if (confirm('重置所有闪卡评分?')) {
+      CourseFlashcard.reset();
+      applyFilter();
+    }
+  });
+  document.querySelectorAll('[data-rate]').forEach(btn => {
+    btn.addEventListener('click', () => rate(btn.dataset.rate));
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.target.tagName === 'TEXTAREA' || e.target.tagName === 'INPUT') return;
+    if (e.code === 'Space') { e.preventDefault(); flip(); }
+    else if (e.code === 'ArrowRight') next();
+    else if (e.code === 'ArrowLeft') prev();
+    else if (e.key === '1') rate('again');
+    else if (e.key === '2') rate('hard');
+    else if (e.key === '3') rate('good');
+    else if (e.key === '4') rate('easy');
+  });
+
+  applyFilter();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+{
+  "course": {
+    "id": "pinn-crash-reduction",
+    "title": "AI+DOE+PINN 仿真降阶 · 碰撞仿真深度课程",
+    "subtitle": "千倍加速的代理模型 · 从原理到工程落地",
+    "estimatedHours": 12,
+    "level": "intermediate",
+    "audience": "汽车安全工程师 · CAE 仿真从业者 · 仿真研究生",
+    "objectives": [
+      "理解 PINN、GNN、Transformer 在碰撞仿真中的角色",
+      "能独立评估 PINN 在工程碰撞问题的可行性",
+      "能选型 DOE / 代理模型 / 物理约束组合",
+      "能评估 Luminary / Ansys / Altair / DEP 商业方案 ROI"
+    ],
+    "prerequisites": ["Python 基础", "有限元基础", "深度学习入门"]
+  },
+  "chapters": [
+    {
+      "id": "01-tech-foundations",
+      "slug": "01-tech-foundations",
+      "title": "技术原理与完整链路",
+      "subtitle": "AI+DOE+PINN 三段式技术体系",
+      "estimatedMinutes": 80,
+      "summary": "理解仿真降阶的本质、PINN 损失函数、DOE 采样策略、模型训练闭环"
+    },
+    {
+      "id": "02-research-progress",
+      "slug": "02-research-progress",
+      "title": "学术前沿与代表研究",
+      "subtitle": "从部件级到整车级的代理模型演进",
+      "estimatedMinutes": 90,
+      "summary": "整车级代理模型 3% RMSE、千倍加速；GNN/Transformer 演进路径；神经算子在强非线性下的局限"
+    },
+    {
+      "id": "03-multiscale",
+      "slug": "03-multiscale",
+      "title": "多尺度仿真应用",
+      "subtitle": "材料-结构跨尺度 AI 降阶",
+      "estimatedMinutes": 80,
+      "summary": "HOMS-PINN、PRNN、VPINN 等多尺度方案；微-介-宏观的合理分工"
+    },
+    {
+      "id": "04-tools-frameworks",
+      "slug": "04-tools-frameworks",
+      "title": "工具与框架对比",
+      "subtitle": "开源框架 vs 商业平台",
+      "estimatedMinutes": 70,
+      "summary": "DeepXDE / PhysicsNeMo 开源生态；Ansys SimAI / Luminary / Altair / DEP 商业方案能力对比"
+    },
+    {
+      "id": "05-engineering-practice",
+      "slug": "05-engineering-practice",
+      "title": "工程实践与挑战",
+      "subtitle": "4 阶段落地路线图 + 风险应对",
+      "estimatedMinutes": 60,
+      "summary": "从 MVP 到生产部署的完整路径；样本、泛化、接触、能耗、可信度风险"
+    },
+    {
+      "id": "06-getting-started",
+      "slug": "06-getting-started",
+      "title": "入门路径与最终建议",
+      "subtitle": "学习资源 + 7 步实践路径",
+      "estimatedMinutes": 40,
+      "summary": "入门-基础-进阶-实战 4 阶段学习路线；硬件建议；下一步行动"
+    }
+  ]
+}

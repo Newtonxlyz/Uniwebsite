@@ -1,0 +1,1149 @@
+{
+  "01-crash-basics": {
+    "title": "碰撞仿真与降阶基础",
+    "passingScore": 70,
+    "maxAttempts": 3,
+    "questions": [
+      {
+        "id": "crashbasics-1",
+        "type": "single",
+        "difficulty": "easy",
+        "stem": "碰撞仿真降阶模型（ROM）的核心思想是？",
+        "explanation": "ROM = 潜空间演化 + 重构,精度/速度的工程权衡",
+        "tags": [
+          "01-crash-basics"
+        ],
+        "options": [
+          "降低物理精度以换取速度",
+          "将高维物理系统映射到低维潜空间演化再映射回去",
+          "用 AI 完全替代 FEM",
+          "减少网格密度"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "crashbasics-2",
+        "type": "single",
+        "difficulty": "easy",
+        "stem": "GNN 替代模型相比 FEM 的典型推理加速量级？",
+        "explanation": "GNN 推理复杂度与图规模线性,FEM 需迭代求解高维方程",
+        "tags": [
+          "01-crash-basics"
+        ],
+        "options": [
+          "2-5 倍",
+          "10-50 倍",
+          "100-1000 倍",
+          "无法加速"
+        ],
+        "answer": 2
+      },
+      {
+        "id": "crashbasics-3",
+        "type": "tf",
+        "difficulty": "easy",
+        "stem": "CNN 天然适合处理碰撞仿真的不规则有限元网格。",
+        "explanation": "CNN 依赖规则网格,不规则网格需 GNN",
+        "tags": [
+          "01-crash-basics"
+        ],
+        "options": [
+          "对",
+          "错"
+        ],
+        "answer": false
+      },
+      {
+        "id": "crashbasics-4",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "GNN 适合处理不规则网格的核心优势不包括？",
+        "explanation": "GNN 输入尺寸灵活,与排列无关",
+        "tags": [
+          "01-crash-basics"
+        ],
+        "options": [
+          "排列不变性",
+          "局部归纳偏置",
+          "权重共享",
+          "依赖固定输入尺寸"
+        ],
+        "answer": 3
+      },
+      {
+        "id": "crashbasics-5",
+        "type": "multi",
+        "difficulty": "medium",
+        "stem": "AI 降阶模型与 FEM 是何种关系？",
+        "explanation": "互补:FEM 精度高 + AI 推理快,各取所长",
+        "tags": [
+          "01-crash-basics"
+        ],
+        "options": [
+          "完全替代关系",
+          "互补关系",
+          "FEM 提供训练数据",
+          "GNN 提供快速推理",
+          "完全无关联"
+        ],
+        "answer": [
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "crashbasics-6",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "降阶方法（ROM）按线性/非线性分类，下列哪项属于非线性降阶？",
+        "explanation": "Autoencoder + 神经 ODE 捕捉非线性动力学",
+        "tags": [
+          "01-crash-basics"
+        ],
+        "options": [
+          "POD",
+          "Krylov 子空间",
+          "Autoencoder + 神经 ODE",
+          "模态叠加"
+        ],
+        "answer": 2
+      },
+      {
+        "id": "crashbasics-7",
+        "type": "fill",
+        "difficulty": "easy",
+        "stem": "碰撞仿真中常用的降阶目标是在保证精度的前提下降低 _______ 成本。",
+        "explanation": "计算",
+        "tags": [
+          "01-crash-basics"
+        ],
+        "answer": ""
+      },
+      {
+        "id": "crashbasics-8",
+        "type": "short",
+        "difficulty": "medium",
+        "stem": "请简述为什么传统有限元（FEM）在汽车碰撞大变形仿真中计算昂贵。",
+        "explanation": "高维非线性方程 + 显式时间积分步数多 + 接触碰撞强非线性",
+        "tags": [
+          "01-crash-basics"
+        ],
+        "answer": ""
+      }
+    ]
+  },
+  "02-gnn-core": {
+    "title": "图神经网络（GNN）核心",
+    "passingScore": 70,
+    "maxAttempts": 3,
+    "questions": [
+      {
+        "id": "gnncore-1",
+        "type": "single",
+        "difficulty": "easy",
+        "stem": "MPNN（消息传递神经网络）的两个核心步骤是？",
+        "explanation": "MPNN = 消息构造 + 邻居聚合 + 节点更新",
+        "tags": [
+          "02-gnn-core"
+        ],
+        "options": [
+          "编码-解码",
+          "消息构造 + 聚合更新",
+          "卷积-池化",
+          "采样-聚合"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "gnncore-2",
+        "type": "tf",
+        "difficulty": "easy",
+        "stem": "GNN 层数过多会导致\"过度平滑\"问题,所有节点特征趋同。",
+        "explanation": "深层 GNN 信息混合,失去区分度",
+        "tags": [
+          "02-gnn-core"
+        ],
+        "options": [
+          "对",
+          "错"
+        ],
+        "answer": true
+      },
+      {
+        "id": "gnncore-3",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "GCN 的核心公式 H^(k+1) = σ(D̃^-1/2 Ã D̃^-1/2 H^(k) W^(k)) 中 Ã = ?",
+        "explanation": "Ã = A + I,加自环保留节点自身特征",
+        "tags": [
+          "02-gnn-core"
+        ],
+        "options": [
+          "原始邻接矩阵",
+          "A + I (加自环)",
+          "D - A",
+          "D^-1 A"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "gnncore-4",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "GAT 相对 GCN 的核心改进是？",
+        "explanation": "GAT 学习 α_ij 自适应权重",
+        "tags": [
+          "02-gnn-core"
+        ],
+        "options": [
+          "更深的网络",
+          "引入注意力机制区分邻居重要性",
+          "更大的隐藏层",
+          "更快的训练"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "gnncore-5",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "GraphSAGE 的核心思想是？",
+        "explanation": "GraphSAGE 学聚合函数而非嵌入,可泛化新节点",
+        "tags": [
+          "02-gnn-core"
+        ],
+        "options": [
+          "直推式学习",
+          "采样+聚合,支持归纳式学习",
+          "全局注意力",
+          "循环连接"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "gnncore-6",
+        "type": "multi",
+        "difficulty": "hard",
+        "stem": "物理仿真 GNN 通常预测状态变化量而非下一状态的原因？",
+        "explanation": "变化量预测让 0 变化为 trivial baseline,更易训练",
+        "tags": [
+          "02-gnn-core"
+        ],
+        "options": [
+          "数值稳定性更好",
+          "更好的归纳偏置(平凡解=0)",
+          "网络只需学扰动",
+          "减少内存"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": "gnncore-7",
+        "type": "fill",
+        "difficulty": "easy",
+        "stem": "Encoder-Processor-Decoder 架构中,Processor 负责多层 _______ 更新潜特征。",
+        "explanation": "消息传递",
+        "tags": [
+          "02-gnn-core"
+        ],
+        "answer": ""
+      },
+      {
+        "id": "gnncore-8",
+        "type": "short",
+        "difficulty": "medium",
+        "stem": "请解释自回归推演（rollout）及其主要挑战。",
+        "explanation": "rollout = 上一步输出作为下一步输入;挑战是误差累积",
+        "tags": [
+          "02-gnn-core"
+        ],
+        "answer": ""
+      }
+    ]
+  },
+  "03-transformer": {
+    "title": "Transformer 与长程依赖",
+    "passingScore": 70,
+    "maxAttempts": 3,
+    "questions": [
+      {
+        "id": "transformer-1",
+        "type": "single",
+        "difficulty": "easy",
+        "stem": "自注意力公式 Attention(Q,K,V) = ?",
+        "explanation": "经典 scaled dot-product attention",
+        "tags": [
+          "03-transformer"
+        ],
+        "options": [
+          "Q·K + V",
+          "softmax(QK^T/√d_k) V",
+          "QKV 直接相乘",
+          "V·K·Q"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "transformer-2",
+        "type": "tf",
+        "difficulty": "easy",
+        "stem": "Transformer 的全局注意力可以直接建模远距离节点相互作用。",
+        "explanation": "GNN 需多层堆叠,Transformer 单层即可全局",
+        "tags": [
+          "03-transformer"
+        ],
+        "options": [
+          "对",
+          "错"
+        ],
+        "answer": true
+      },
+      {
+        "id": "transformer-3",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "Vision Transformer 与 Graph Transformer 的主要区别？",
+        "explanation": "GT 需考虑图拓扑(如 Laplacian 特征向量)",
+        "tags": [
+          "03-transformer"
+        ],
+        "options": [
+          "都是规则网格",
+          "ViT 处理规则 patch + 固定位置编码,Graph Transformer 处理任意图 + 拓扑感知位置编码",
+          "ViT 更慢",
+          "无法比较"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "transformer-4",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "Transolver 的核心创新是？",
+        "explanation": "Transolver 切片级注意力降低复杂度,适配物理场",
+        "tags": [
+          "03-transformer"
+        ],
+        "options": [
+          "标准注意力",
+          "Physics-Attention:将网格点分配到\"物理状态切片\"后计算注意力",
+          "纯 MLP",
+          "强化学习"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "transformer-5",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "Transformer 在物理仿真中的局限是？",
+        "explanation": "纯 Transformer 缺局部归纳偏置,常需 GNN 配合",
+        "tags": [
+          "03-transformer"
+        ],
+        "options": [
+          "无法并行",
+          "对几何结构无先验,易过拟合",
+          "不支持 GPU",
+          "无法处理序列"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "transformer-6",
+        "type": "multi",
+        "difficulty": "medium",
+        "stem": "为什么物理仿真需要 Transformer？",
+        "explanation": "GNN 受限于局部感受野",
+        "tags": [
+          "03-transformer"
+        ],
+        "options": [
+          "GNN 局部消息传递受限",
+          "Transformer 全局注意力建模长程依赖",
+          "GNN 多层易过度平滑",
+          "Transformer 更快收敛"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": "transformer-7",
+        "type": "fill",
+        "difficulty": "easy",
+        "stem": "Graph Transformer 的位置编码常使用图 _______ 特征向量。",
+        "explanation": "Laplacian / 拉普拉斯",
+        "tags": [
+          "03-transformer"
+        ],
+        "answer": ""
+      },
+      {
+        "id": "transformer-8",
+        "type": "short",
+        "difficulty": "medium",
+        "stem": "简述 Transolver 的\"物理状态切片\"思想如何降低注意力复杂度。",
+        "explanation": "把网格点分组到有限数量的物理状态切片,在切片级别而非逐点计算注意力,O(N^2)→O(N×S)",
+        "tags": [
+          "03-transformer"
+        ],
+        "answer": ""
+      }
+    ]
+  },
+  "04-physics-pinn": {
+    "title": "物理约束与 PINN",
+    "passingScore": 70,
+    "maxAttempts": 3,
+    "questions": [
+      {
+        "id": "physicspinn-1",
+        "type": "single",
+        "difficulty": "easy",
+        "stem": "PINN 的核心思想是？",
+        "explanation": "PINN = data loss + PDE residual loss",
+        "tags": [
+          "04-physics-pinn"
+        ],
+        "options": [
+          "用更深的网络",
+          "将 PDE 残差作为损失函数的一部分,物理定律嵌入训练",
+          "纯数据驱动",
+          "强化学习"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "physicspinn-2",
+        "type": "tf",
+        "difficulty": "easy",
+        "stem": "自动微分（autograd）是 PINN 计算 PDE 残差的关键工具。",
+        "explanation": "PDE 残差需对网络输出求导,autograd 天然支持",
+        "tags": [
+          "04-physics-pinn"
+        ],
+        "options": [
+          "对",
+          "错"
+        ],
+        "answer": true
+      },
+      {
+        "id": "physicspinn-3",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "PINN 损失函数的典型组成是？",
+        "explanation": "L = L_data + λ1·L_PDE + λ2·L_BC + λ3·L_IC",
+        "tags": [
+          "04-physics-pinn"
+        ],
+        "options": [
+          "仅数据损失",
+          "数据损失 + PDE 残差 + 边界/初始条件损失",
+          "仅边界条件",
+          "均方差"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "physicspinn-4",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "PhyGNNet 的核心思想是？",
+        "explanation": "PhyGNNet = GNN + 物理损失双驱动",
+        "tags": [
+          "04-physics-pinn"
+        ],
+        "options": [
+          "纯 GNN",
+          "物理约束损失 + GNN 架构,在图上强制 PDE 守恒",
+          "强化学习",
+          "纯 CNN"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "physicspinn-5",
+        "type": "multi",
+        "difficulty": "hard",
+        "stem": "PINN 相对纯数据驱动方法的优势？",
+        "explanation": "PINN 仍需数据,但物理约束提升泛化",
+        "tags": [
+          "04-physics-pinn"
+        ],
+        "options": [
+          "数据效率更高",
+          "外推能力更好",
+          "满足物理守恒律",
+          "无需训练数据"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": "physicspinn-6",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "下列哪项不是 PINN 训练常见难点？",
+        "explanation": "权重平衡 / 软硬约束 / 收敛慢是真实难点,GPU 不是",
+        "tags": [
+          "04-physics-pinn"
+        ],
+        "options": [
+          "损失项权重平衡",
+          "软约束 vs 硬约束",
+          "收敛速度慢",
+          "GPU 显存不足"
+        ],
+        "answer": 3
+      },
+      {
+        "id": "physicspinn-7",
+        "type": "fill",
+        "difficulty": "easy",
+        "stem": "PDE 残差通常通过自动微分计算网络输出对 _______ 的偏导。",
+        "explanation": "输入坐标",
+        "tags": [
+          "04-physics-pinn"
+        ],
+        "answer": ""
+      },
+      {
+        "id": "physicspinn-8",
+        "type": "short",
+        "difficulty": "medium",
+        "stem": "请简述 PINN 中守恒律损失的设计思路。",
+        "explanation": "把守恒律(质量/动量/能量)写成 PDE,在训练点上计算残差平方作为损失",
+        "tags": [
+          "04-physics-pinn"
+        ],
+        "answer": ""
+      }
+    ]
+  },
+  "05-hybrid-frontend": {
+    "title": "混合架构与前沿方法",
+    "passingScore": 70,
+    "maxAttempts": 3,
+    "questions": [
+      {
+        "id": "hybridfrontend-1",
+        "type": "single",
+        "difficulty": "easy",
+        "stem": "MeshGraphNet 来自哪个机构？",
+        "explanation": "DeepMind 2022 年提出 GNS / MeshGraphNet",
+        "tags": [
+          "05-hybrid-frontend"
+        ],
+        "options": [
+          "Stanford",
+          "DeepMind",
+          "MIT",
+          "Google Brain"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "hybridfrontend-2",
+        "type": "tf",
+        "difficulty": "easy",
+        "stem": "碰撞仿真中的接触建模是非线性物理,目前 AI 模型仍以\"无接触\"简化为主流。",
+        "explanation": "接触 + 大变形仍是 GNN 仿真难题",
+        "tags": [
+          "05-hybrid-frontend"
+        ],
+        "options": [
+          "对",
+          "错"
+        ],
+        "answer": true
+      },
+      {
+        "id": "hybridfrontend-3",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "GNN + Transformer 混合架构的典型分工是？",
+        "explanation": "混合架构 = GNN 局部 + Transformer 全局",
+        "tags": [
+          "05-hybrid-frontend"
+        ],
+        "options": [
+          "两者完全独立",
+          "GNN 编码局部结构 + Transformer 捕捉全局依赖",
+          "Transformer 取代 GNN",
+          "GNN 只做解码"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "hybridfrontend-4",
+        "type": "multi",
+        "difficulty": "hard",
+        "stem": "为什么混合架构（GNN + Transformer）在物理仿真中表现优秀？",
+        "explanation": "混合架构扬长避短",
+        "tags": [
+          "05-hybrid-frontend"
+        ],
+        "options": [
+          "GNN 提供局部归纳偏置",
+          "Transformer 补充长程依赖",
+          "物理场多尺度",
+          "Transformer 推理更慢"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": "hybridfrontend-5",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "目前主流的碰撞仿真 AI 替代模型在工程化中的最大瓶颈是？",
+        "explanation": "接触 + 大变形仍难处理",
+        "tags": [
+          "05-hybrid-frontend"
+        ],
+        "options": [
+          "推理速度",
+          "接触/大变形场景的精度",
+          "显存占用",
+          "训练时间"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "hybridfrontend-6",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "下列关于 GNS (Graph Network Simulator) 的描述错误的是？",
+        "explanation": "GNS 不完美处理接触,需配合传统求解器或子模型",
+        "tags": [
+          "05-hybrid-frontend"
+        ],
+        "options": [
+          "基于 Encoder-Processor-Decoder",
+          "用 GNN 做 Processor",
+          "接触通过简单消息聚合可完美处理"
+        ],
+        "answer": 2
+      },
+      {
+        "id": "hybridfrontend-7",
+        "type": "fill",
+        "difficulty": "easy",
+        "stem": "MeshGraphNet 论文中每个时间步预测的量是节点 _______ 增量。",
+        "explanation": "加速度/速度/位移",
+        "tags": [
+          "05-hybrid-frontend"
+        ],
+        "answer": ""
+      },
+      {
+        "id": "hybridfrontend-8",
+        "type": "short",
+        "difficulty": "medium",
+        "stem": "请解释为什么\"自回归推演\"在长期仿真中会累积误差。",
+        "explanation": "每步小误差被下一步放大,误差随步数增长",
+        "tags": [
+          "05-hybrid-frontend"
+        ],
+        "answer": ""
+      }
+    ]
+  },
+  "06-tools-datasets": {
+    "title": "工具框架与数据集",
+    "passingScore": 70,
+    "maxAttempts": 3,
+    "questions": [
+      {
+        "id": "toolsdatasets-1",
+        "type": "single",
+        "difficulty": "easy",
+        "stem": "PyTorch Geometric（PyG）是基于 PyTorch 的？",
+        "explanation": "PyG 提供 Data / MessagePassing / 内置数据集",
+        "tags": [
+          "06-tools-datasets"
+        ],
+        "options": [
+          "计算机视觉库",
+          "图神经网络库",
+          "NLP 库",
+          "强化学习库"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "toolsdatasets-2",
+        "type": "tf",
+        "difficulty": "easy",
+        "stem": "DGL（Deep Graph Library）支持 PyTorch、TensorFlow、MXNet 多个后端。",
+        "explanation": "DGL 是后端无关的 GNN 框架",
+        "tags": [
+          "06-tools-datasets"
+        ],
+        "options": [
+          "对",
+          "错"
+        ],
+        "answer": true
+      },
+      {
+        "id": "toolsdatasets-3",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "JAX 在物理仿真中的核心优势是？",
+        "explanation": "JAX 提供 grad/jit/vmap,适配 ΦFlow 等可微仿真",
+        "tags": [
+          "06-tools-datasets"
+        ],
+        "options": [
+          "更快 CPU",
+          "可微分编程 + JIT 编译,适合可微物理仿真",
+          "纯 Python",
+          "不支持 GPU"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "toolsdatasets-4",
+        "type": "multi",
+        "difficulty": "medium",
+        "stem": "物理仿真 GNN 训练常用数据集包括？",
+        "explanation": "前两个是物理仿真专用,后两个是 3D 形状",
+        "tags": [
+          "06-tools-datasets"
+        ],
+        "options": [
+          "CylinderFlow",
+          "DeepMind 弹簧-质点数据集",
+          "ShapeNet",
+          "ModelNet"
+        ],
+        "answer": [
+          0,
+          1
+        ]
+      },
+      {
+        "id": "toolsdatasets-5",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "ΦFlow 的核心特性是？",
+        "explanation": "ΦFlow = 可微 + 物理仿真",
+        "tags": [
+          "06-tools-datasets"
+        ],
+        "options": [
+          "静态图框架",
+          "可微分物理仿真引擎,支持多物理场",
+          "纯图像库",
+          "NLP 工具"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "toolsdatasets-6",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "下列哪个不是物理仿真 GNN 框架？",
+        "explanation": "Next.js 是前端框架,与 GNN 无关",
+        "tags": [
+          "06-tools-datasets"
+        ],
+        "options": [
+          "PyG",
+          "DGL",
+          "ΦFlow",
+          "Next.js"
+        ],
+        "answer": 3
+      },
+      {
+        "id": "toolsdatasets-7",
+        "type": "fill",
+        "difficulty": "easy",
+        "stem": "PyTorch Geometric 中数据容器称为 _______ 对象。",
+        "explanation": "Data",
+        "tags": [
+          "06-tools-datasets"
+        ],
+        "answer": ""
+      },
+      {
+        "id": "toolsdatasets-8",
+        "type": "short",
+        "difficulty": "medium",
+        "stem": "为什么 JAX 在可微物理仿真中越来越受欢迎？",
+        "explanation": "JAX = grad + jit + vmap,统一支持自动微分 + GPU/TPU 加速",
+        "tags": [
+          "06-tools-datasets"
+        ],
+        "answer": ""
+      }
+    ]
+  },
+  "07-spring-mass": {
+    "title": "实战：弹簧-质点系统",
+    "passingScore": 70,
+    "maxAttempts": 3,
+    "questions": [
+      {
+        "id": "springmass-1",
+        "type": "single",
+        "difficulty": "easy",
+        "stem": "弹簧-质点系统的核心物理方程是？",
+        "explanation": "弹簧力 + 阻尼 + 牛顿第二定律",
+        "tags": [
+          "07-spring-mass"
+        ],
+        "options": [
+          "F = ma",
+          "F = ma + 弹簧/阻尼力",
+          "E = mc^2",
+          "V = IR"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "springmass-2",
+        "type": "single",
+        "difficulty": "easy",
+        "stem": "弹簧-质点 GNN 图构建中,节点和边分别代表？",
+        "explanation": "节点 = 质点(质量+位置),边 = 弹簧(刚度)",
+        "tags": [
+          "07-spring-mass"
+        ],
+        "options": [
+          "节点=弹簧,边=质点",
+          "节点=质点,边=弹簧连接",
+          "节点=网格,边=单元",
+          "节点=材料,边=属性"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "springmass-3",
+        "type": "tf",
+        "difficulty": "medium",
+        "stem": "GNN 通过消息传递学习弹簧力,可以泛化到不同拓扑的系统。",
+        "explanation": "这是 GNN 相对硬编码的归纳偏置优势",
+        "tags": [
+          "07-spring-mass"
+        ],
+        "options": [
+          "对",
+          "错"
+        ],
+        "answer": true
+      },
+      {
+        "id": "springmass-4",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "弹簧-质点数据生成时,常用积分器是？",
+        "explanation": "Verlet 是能量守恒较好的选择",
+        "tags": [
+          "07-spring-mass"
+        ],
+        "options": [
+          "梯度下降",
+          "显式欧拉 / Verlet / RK4",
+          "Adam 优化器",
+          "牛顿迭代"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "springmass-5",
+        "type": "multi",
+        "difficulty": "medium",
+        "stem": "GNN 训练弹簧-质点系统的注意事项？",
+        "explanation": "归一化 + 误差 + 采样是三大关键",
+        "tags": [
+          "07-spring-mass"
+        ],
+        "options": [
+          "数据归一化",
+          "长时间 rollout 误差累积",
+          "邻居采样",
+          "数据增强"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": "springmass-6",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "下列关于 GNN 仿真器泛化能力的描述正确的是？",
+        "explanation": "GNN 学的是局部规则,具拓扑泛化性",
+        "tags": [
+          "07-spring-mass"
+        ],
+        "options": [
+          "只能用于训练时的拓扑",
+          "可泛化到不同节点数 / 连接方式",
+          "完全无法泛化",
+          "只能用于相同材料"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "springmass-7",
+        "type": "fill",
+        "difficulty": "easy",
+        "stem": "弹簧-质点 GNN 通常预测每个节点的 _______ 加速度或位移增量。",
+        "explanation": "下一步 / 状态变化量",
+        "tags": [
+          "07-spring-mass"
+        ],
+        "answer": ""
+      },
+      {
+        "id": "springmass-8",
+        "type": "short",
+        "difficulty": "medium",
+        "stem": "请说明为什么 GNN 适合模拟弹簧-质点系统。",
+        "explanation": "弹簧-质点天然图结构 + 局部相互作用 + GNN 排列不变",
+        "tags": [
+          "07-spring-mass"
+        ],
+        "answer": ""
+      }
+    ]
+  },
+  "final": {
+    "title": "期末综合考试",
+    "passingScore": 80,
+    "maxAttempts": 3,
+    "questions": [
+      {
+        "id": "final-1",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "碰撞仿真 AI 降阶（ROM）最准确的描述是？",
+        "explanation": "ROM = 潜空间演化 + 重构,工程权衡",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "完全取代 FEM",
+          "潜空间动力学演化 + AI 推理,与 FEM 互补",
+          "数据压缩",
+          "提高 FEM 精度"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "final-2",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "GNN 相对 CNN 在碰撞仿真网格上的优势是？",
+        "explanation": "GNN 的核心优势",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "更快的推理",
+          "天然支持不规则拓扑 + 排列不变",
+          "更小模型",
+          "更好可解释性"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "final-3",
+        "type": "tf",
+        "difficulty": "hard",
+        "stem": "PINN 通过自动微分计算 PDE 残差损失,无需额外数值求解。",
+        "explanation": "autograd 是 PINN 关键",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "对",
+          "错"
+        ],
+        "answer": true
+      },
+      {
+        "id": "final-4",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "Transolver 的切片级注意力主要解决什么问题？",
+        "explanation": "切片级 = 物理状态分组 + 注意力简化",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "过拟合",
+          "降低标准注意力的 O(N^2) 复杂度,适配物理场",
+          "替代 GNN",
+          "增加参数量"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "final-5",
+        "type": "multi",
+        "difficulty": "hard",
+        "stem": "AI 碰撞降阶在工程化部署中的主要挑战？",
+        "explanation": "四大挑战",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "长程 rollout 误差累积",
+          "接触 + 大变形场景精度",
+          "可解释性",
+          "训练数据稀缺"
+        ],
+        "answer": [
+          0,
+          1,
+          2,
+          3
+        ]
+      },
+      {
+        "id": "final-6",
+        "type": "single",
+        "difficulty": "hard",
+        "stem": "GNS / MeshGraphNet 的\"自回归 rollout\"误差累积最有效的缓解是？",
+        "explanation": "物理约束 + 多步训练是关键",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "更深网络",
+          "更大学习率",
+          "物理损失约束 + 多步 teacher forcing",
+          "更多 epoch"
+        ],
+        "answer": 2
+      },
+      {
+        "id": "final-7",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "Encoder-Processor-Decoder 中,Decoder 的职责是？",
+        "explanation": "Decoder 负责重构",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "编码物理特征",
+          "消息传递更新",
+          "将潜特征映射回物理输出",
+          "计算损失"
+        ],
+        "answer": 2
+      },
+      {
+        "id": "final-8",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "为什么 Graph Transformer 需用 Laplacian 特征向量做位置编码？",
+        "explanation": "Laplacian 特征向量编码图结构",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "随机生成",
+          "捕捉图全局拓扑结构",
+          "与图像相同",
+          "替代注意力"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "final-9",
+        "type": "multi",
+        "difficulty": "medium",
+        "stem": "哪些是物理仿真 GNN 的关键设计选择？",
+        "explanation": "第四项是训练技巧,非设计选择",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "预测状态变化量而非下一状态",
+          "局部消息传递层数",
+          "物理损失加权",
+          "固定 batch size"
+        ],
+        "answer": [
+          0,
+          1,
+          2
+        ]
+      },
+      {
+        "id": "final-10",
+        "type": "fill",
+        "difficulty": "medium",
+        "stem": "PINN 损失函数通常由数据损失 + PDE 残差 + _______ 条件损失组成。",
+        "explanation": "边界 / 初始",
+        "tags": [
+          "final"
+        ],
+        "answer": ""
+      },
+      {
+        "id": "final-11",
+        "type": "short",
+        "difficulty": "hard",
+        "stem": "请设计一个 GNN + Transformer 混合架构用于汽车前碰仿真,说明输入输出与训练策略。",
+        "explanation": "输入:车辆几何图(节点=梁/A柱单元,边=连接) + 边界速度场;Encoder:GNN 编码局部结构 + Transformer 全局碰撞波传播;Processor:GNN+Transformer 交替 N 层;输出:节点位移/加速度/应力增量;训练:数据 FEM 仿真 + 物理损失(动量/能量守恒) + rollout teacher forcing",
+        "tags": [
+          "final"
+        ],
+        "answer": ""
+      },
+      {
+        "id": "final-12",
+        "type": "single",
+        "difficulty": "medium",
+        "stem": "可微物理仿真（JAX/ΦFlow）的核心价值是？",
+        "explanation": "可微仿真 = 端到端优化",
+        "tags": [
+          "final"
+        ],
+        "options": [
+          "更快推理",
+          "端到端优化控制策略 / 反问题 + 物理约束",
+          "替代 GNN",
+          "减少显存"
+        ],
+        "answer": 1
+      },
+      {
+        "id": "final-13",
+        "type": "short",
+        "difficulty": "hard",
+        "stem": "请论述 AI 降阶模型在 5 星 C-NCAP 评价场景中的可解释性要求与实现思路。",
+        "explanation": "可解释性 = 物理一致性 + 局部归因;实现:1) 物理损失约束 2) 注意力可视化(Transformer) 3) 残差场可解释输出 4) 不确定度估计",
+        "tags": [
+          "final"
+        ],
+        "answer": ""
+      }
+    ]
+  }
+}

@@ -15,6 +15,7 @@ import {
   Play,
   Pause,
   Atom,
+  Brain,
 } from "lucide-react";
 import AboutSection from "@/components/about-section";
 import ScrollAvatar from "@/components/scroll-avatar";
@@ -57,6 +58,22 @@ const sites = [
     icon: "🧮",
     lucideIcon: Atom,
     color: "from-teal-500/20 to-cyan-500/20",
+  },
+  {
+    href: "/learn/pinn-crash",
+    label: "PINN",
+    desc: "AI+DOE+PINN · 6 章 35 闪卡 · 章节测验+期末",
+    icon: "🧠",
+    lucideIcon: Atom,
+    color: "from-purple-500/20 to-pink-500/20",
+  },
+  {
+    href: "/learn/gn-crash",
+    label: "GNN",
+    desc: "GNN+Transformer · 35 闪卡 · 7 章 + 期末综合",
+    icon: "🕸️",
+    lucideIcon: Brain,
+    color: "from-emerald-500/20 to-cyan-500/20",
   },
   {
     href: "/blog",

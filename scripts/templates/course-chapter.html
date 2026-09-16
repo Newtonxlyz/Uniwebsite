@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>章节</title>
+<link rel="stylesheet" href="../_shared/course-css.css">
+</head>
+<body>
+<nav id="topnav"></nav>
+
+<main class="lesson-content">
+  <header class="lesson-header">
+    <div class="lesson-breadcrumb">
+      <a href="index.html">← 课程主页</a> ›
+      <a href="flashcards.html">闪卡</a> ›
+      <a href="quizzes.html">测验</a>
+    </div>
+    <h1 id="chapterTitle">加载中…</h1>
+    <p class="text-dim" id="chapterSubtitle"></p>
+  </header>
+
+  <div class="card" id="statusSection"></div>
+
+  <article id="chapterBody">
+    __CHAPTER_BODY__
+  </article>
+
+  <div class="card" id="notesSection"></div>
+
+  <hr>
+
+  <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between;">
+    <div>
+      <a class="btn" id="prevBtn">← __PREV_TITLE__</a>
+      <a class="btn btn-primary" id="nextBtn">__NEXT_TITLE__ →</a>
+    </div>
+    <a class="btn" href="quiz-__CHAPTER_ID__.html" style="margin-left: auto;">📝 本章测验</a>
+  </div>
+</main>
+
+<script src="../_shared/course-storage.js"></script>
+<script src="../_shared/course-progress.js"></script>
+<script src="../_shared/course-flashcard.js"></script>
+<script src="../_shared/course-notes.js"></script>
+<script src="../_shared/course-mistakes.js"></script>
+<script src="../_shared/course-quiz.js"></script>
+<script src="../_shared/course-theme.js"></script>
+<script src="../_shared/course-app.js"></script>
+<script src="../_shared/course-init.js"></script>
+<script>
+(async () => {
+  const courseId = '__COURSE_ID__';
+  const chapterId = '__CHAPTER_ID__';
+  const chaptersData = __CHAPTERS_DATA_PLACEHOLDER__;
+  const flashcardsData = __FLASHCARDS_DATA_PLACEHOLDER__;
+  const quizzesData = __QUIZZES_DATA_PLACEHOLDER__;
+
+  CourseInit.runInline(courseId, chaptersData, flashcardsData, quizzesData);
+
+  const prev = '__PREV_SLUG__';
+  const next = '__NEXT_SLUG__';
+  document.getElementById('prevBtn').href = prev ? prev + '.html' : 'index.html';
+  document.getElementById('nextBtn').href = next ? next + '.html' : 'index.html';
+
+  document.getElementById('topnav').innerHTML = CourseApp.renderTopnav('__COURSE_SLUG__', '__COURSE_TITLE__');
+
+  const ch = chaptersData.chapters.find(c => c.id === chapterId);
+  if (ch) {
+    document.getElementById('chapterTitle').textContent = '第 ' + ch.id.slice(-2) + ' 章 · ' + ch.title;
+    document.getElementById('chapterSubtitle').textContent = ch.subtitle + ' · ' + ch.estimatedMinutes + ' 分钟';
+    // 自动标记学习中
+    if (CourseProgress.get(chapterId).status === 'not_started') {
+      CourseProgress.setChapterStatus(chapterId, 'in_progress');
+    }
+  }
+
+  document.getElementById('statusSection').innerHTML = CourseApp.statusButtonsHTML(chapterId);
+  document.getElementById('notesSection').innerHTML = CourseApp.notesHTML(chapterId);
+
+  CourseApp.bindProgress(chapterId);
+  CourseApp.bindNotes(chapterId);
+  CourseApp.bindTimer(chapterId);
+})();
+</script>
+</body>
+</html>

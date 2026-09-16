@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>课程主页</title>
+<link rel="stylesheet" href="../_shared/course-css.css">
+</head>
+<body>
+<nav id="topnav"></nav>
+
+<main class="container">
+  <header class="course-header">
+    <div class="lesson-breadcrumb">
+      <a href="__LEARN_URL__" target="_blank">← lvyz.org 课程门户</a>
+    </div>
+    <h1 id="courseTitle">加载中…</h1>
+    <p class="subtitle" id="courseSubtitle"></p>
+    <div class="course-meta" id="courseMeta"></div>
+  </header>
+
+  <section style="display:flex; gap: 24px; align-items: center; flex-wrap: wrap; margin-bottom: 24px;">
+    <div id="progressRing"></div>
+    <div style="flex: 1; min-width: 280px;">
+      <h3 style="margin-top:0;">📊 你的进度</h3>
+      <div id="statsSummary" style="color: var(--text-dim); font-size: 14px;"></div>
+      <div class="btn-row" style="margin-top: 12px;">
+        <button class="btn btn-primary" id="continueBtn">继续学习 →</button>
+        <a class="btn" href="flashcards.html">🃏 闪卡 (35)</a>
+        <a class="btn" href="quizzes.html">📝 章节测验</a>
+        <a class="btn" href="report.html">📊 学习报告</a>
+        <a class="btn" href="mistakes.html">❌ 错题本</a>
+      </div>
+    </div>
+  </section>
+
+  <hr>
+
+  <section>
+    <h2>📋 课程大纲</h2>
+    <p style="color: var(--text-dim);">点击章节进入学习。每章包含完整内容 + 笔记 + 测验。</p>
+    <div class="chapter-list" id="chapterList"></div>
+  </section>
+
+  <hr>
+
+  <section>
+    <h3>🎯 学完后你能</h3>
+    <ul id="objectivesList" style="color: var(--text-dim);"></ul>
+  </section>
+</main>
+
+<script src="../_shared/course-storage.js"></script>
+<script src="../_shared/course-progress.js"></script>
+<script src="../_shared/course-flashcard.js"></script>
+<script src="../_shared/course-notes.js"></script>
+<script src="../_shared/course-mistakes.js"></script>
+<script src="../_shared/course-quiz.js"></script>
+<script src="../_shared/course-theme.js"></script>
+<script src="../_shared/course-app.js"></script>
+<script src="../_shared/course-init.js"></script>
+<script>
+(async () => {
+  const courseId = '__COURSE_ID__';
+  const chaptersData = __CHAPTERS_DATA_PLACEHOLDER__;
+  const flashcardsData = __FLASHCARDS_DATA_PLACEHOLDER__;
+  const quizzesData = __QUIZZES_DATA_PLACEHOLDER__;
+
+  CourseInit.runInline(courseId, chaptersData, flashcardsData, quizzesData);
+
+  document.getElementById('topnav').innerHTML = CourseApp.renderTopnav('__COURSE_SLUG__', '__COURSE_TITLE__', 'home');
+
+  const c = chaptersData.course;
+  document.getElementById('courseTitle').textContent = c.title;
+  document.getElementById('courseSubtitle').textContent = c.subtitle;
+  document.getElementById('courseMeta').innerHTML =
+    '<span>📚 ' + (c.chapters?.length || 6) + ' 章</span>' +
+    '<span>⏱ ' + c.estimatedHours + ' 小时</span>' +
+    '<span>🎓 ' + c.level + '</span>' +
+    '<span>👥 ' + c.audience + '</span>';
+  document.getElementById('objectivesList').innerHTML =
+    (c.objectives || []).map(o => '<li>' + o + '</li>').join('');
+
+  const sum = CourseProgress.summary();
+  const fcSum = CourseFlashcard.summary();
+  const pct = Math.round((sum.completedChapters / sum.totalChapters) * 100);
+  document.getElementById('progressRing').innerHTML = CourseApp.renderProgressRing(pct, '已完成');
+  document.getElementById('statsSummary').innerHTML =
+    '<div>📚 章节:<strong style="color: var(--text);">' + sum.completedChapters + ' / ' + sum.totalChapters + '</strong> 已完成</div>' +
+    '<div>⏱ 累计时长:<strong style="color: var(--text);">' + Math.round(sum.totalSeconds / 60) + ' 分钟</strong></div>' +
+    '<div>🔥 连续学习:<strong style="color: var(--text);">' + sum.streak + ' 天</strong></div>' +
+    '<div>🃏 闪卡:<strong style="color: var(--text);">' + fcSum.mastered + ' / ' + fcSum.total + ' 已掌握 (' + fcSum.goodRate + '%)</strong></div>';
+
+  document.getElementById('chapterList').innerHTML = CourseApp.renderChapterList(chaptersData);
+
+  document.getElementById('continueBtn').addEventListener('click', () => {
+    const next = chaptersData.chapters.find(c => CourseProgress.get(c.id).status !== 'completed');
+    if (next) window.location.href = next.slug + '.html';
+    else alert('🎉 恭喜完成全部章节!');
+  });
+})();
+</script>
+</body>
+</html>

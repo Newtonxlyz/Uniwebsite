@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>学习报告</title>
+<link rel="stylesheet" href="../_shared/course-css.css">
+</head>
+<body>
+<nav id="topnav"></nav>
+
+<main class="container">
+  <header class="lesson-header">
+    <div class="lesson-breadcrumb"><a href="index.html">← 课程主页</a></div>
+    <h1>📊 学习报告</h1>
+    <p class="text-dim">你的完整学习画像</p>
+  </header>
+
+  <div class="card">
+    <h2>总览</h2>
+    <div id="overview" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 12px;"></div>
+  </div>
+
+  <div class="card">
+    <h2>📚 章节掌握度</h2>
+    <div id="chapterProgress"></div>
+  </div>
+
+  <div class="card">
+    <h2>🃏 闪卡分布</h2>
+    <div id="flashcardStats"></div>
+  </div>
+
+  <div class="card">
+    <h2>📝 测验表现</h2>
+    <div id="quizStats"></div>
+  </div>
+
+  <div class="card">
+    <h2>💾 数据备份</h2>
+    <p class="text-dim">导出所有进度数据,换设备时一键恢复。</p>
+    <div class="btn-row">
+      <button class="btn btn-primary" id="exportBtn">⬇ 导出 JSON</button>
+      <button class="btn" id="importBtn">⬆ 导入 JSON</button>
+    </div>
+    <input type="file" id="importFile" accept=".json" style="display:none;">
+    <div id="backupStatus" class="text-dim" style="margin-top: 12px;"></div>
+  </div>
+</main>
+
+<script src="../_shared/course-storage.js"></script>
+<script src="../_shared/course-progress.js"></script>
+<script src="../_shared/course-flashcard.js"></script>
+<script src="../_shared/course-notes.js"></script>
+<script src="../_shared/course-mistakes.js"></script>
+<script src="../_shared/course-quiz.js"></script>
+<script src="../_shared/course-theme.js"></script>
+<script src="../_shared/course-app.js"></script>
+<script src="../_shared/course-init.js"></script>
+<script>
+(async () => {
+  const courseId = '__COURSE_ID__';
+  const chaptersData = __CHAPTERS_DATA_PLACEHOLDER__;
+  const flashcardsData = __FLASHCARDS_DATA_PLACEHOLDER__;
+  const quizzesData = __QUIZZES_DATA_PLACEHOLDER__;
+
+  CourseInit.runInline(courseId, chaptersData, flashcardsData, quizzesData);
+  document.getElementById('topnav').innerHTML = CourseApp.renderTopnav('__COURSE_SLUG__', '__COURSE_TITLE__', 'report');
+
+  function stat(label, value, color) {
+    return '<div style="background: var(--bg-section); padding: 16px; border-radius: 8px; border-left: 4px solid ' + color + ';">' +
+      '<div style="color: var(--text-dim); font-size: 13px;">' + label + '</div>' +
+      '<div style="font-size: 22px; font-weight: bold; margin-top: 6px;">' + value + '</div></div>';
+  }
+
+  function render() {
+    const sum = CourseProgress.summary();
+    const fc = CourseFlashcard.summary();
+    const mk = CourseMistakes.summary();
+
+    document.getElementById('overview').innerHTML =
+      stat('📚 章节完成', sum.completedChapters + ' / ' + sum.totalChapters, 'var(--success)') +
+      stat('⏱ 累计时长', Math.round(sum.totalSeconds / 60) + ' 分钟', 'var(--primary)') +
+      stat('🔥 连续学习', sum.streak + ' 天', 'var(--warning)') +
+      stat('🃏 已掌握闪卡', fc.mastered + ' / ' + fc.total, 'var(--success)') +
+      stat('📊 闪卡掌握率', fc.goodRate + '%', 'var(--primary)') +
+      stat('❌ 错题数', mk.active + ' 道', 'var(--danger)');
+
+    // 章节进度条
+    let chHtml = '';
+    chaptersData.chapters.forEach((ch, idx) => {
+      const p = CourseProgress.get(ch.id);
+      const pct = p.status === 'completed' ? 100 : p.status === 'in_progress' ? 50 : 0;
+      chHtml += '<div style="margin-bottom: 12px;">' +
+        '<div style="display:flex; justify-content:space-between; margin-bottom: 4px;">' +
+        '<span><strong>第 ' + (idx + 1) + ' 章 · ' + escapeHtml(ch.title) + '</strong></span>' +
+        '<span class="text-dim">' + (p.seconds > 0 ? Math.round(p.seconds / 60) + ' 分' : '未开始') + ' · ' +
+        (p.status === 'completed' ? '✓' : p.status === 'in_progress' ? '⋯' : '○') + '</span>' +
+        '</div>' +
+        '<div class="progress-bar"><div class="progress-fill" style="width: ' + pct + '%"></div></div>' +
+        '</div>';
+    });
+    document.getElementById('chapterProgress').innerHTML = chHtml;
+
+    // 闪卡分布
+    const fcHtml =
+      '<div style="display:grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px;">' +
+      stat('已掌握', fc.mastered, 'var(--success)') +
+      stat('学习中', fc.learning, 'var(--warning)') +
+      stat('新卡', fc.new, 'var(--text-dim)') +
+      stat('今日到期', fc.due, 'var(--primary)') +
+      '</div>';
+    document.getElementById('flashcardStats').innerHTML = fcHtml;
+
+    // 测验表现
+    let quizHtml = '';
+    chaptersData.chapters.forEach((ch, idx) => {
+      const h = CourseQuiz.getHistory(ch.id);
+      if (h.attempts > 0) {
+        const passed = h.bestScore >= 70;
+        quizHtml += '<div style="display:flex; justify-content:space-between; padding: 8px 0; border-bottom: 1px solid var(--border);">' +
+          '<span>第 ' + (idx + 1) + ' 章 · ' + escapeHtml(ch.title) + '</span>' +
+          '<span><strong style="color: ' + (passed ? 'var(--success)' : 'var(--danger)') + ';">' + h.bestScore + '/100</strong> · ' +
+          h.attempts + ' 次</span></div>';
+      }
+    });
+    const fh = CourseQuiz.getHistory('final');
+    if (fh.attempts > 0) {
+      const passed = fh.bestScore >= 80;
+      quizHtml += '<div style="display:flex; justify-content:space-between; padding: 8px 0; font-weight: bold;">' +
+        '<span>期末考试</span>' +
+        '<span style="color: ' + (passed ? 'var(--success)' : 'var(--danger)') + ';">' + fh.bestScore + '/100 · ' +
+        fh.attempts + ' 次</span></div>';
+    }
+    document.getElementById('quizStats').innerHTML = quizHtml ||
+      '<p class="text-dim">还没参加过测验</p>';
+  }
+
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
+  }
+
+  document.getElementById('exportBtn').addEventListener('click', () => {
+    CourseStorage.downloadBackup(courseId);
+    document.getElementById('backupStatus').innerHTML = '<span style="color: var(--success);">✓ 导出完成</span>';
+  });
+  document.getElementById('importBtn').addEventListener('click', () => {
+    document.getElementById('importFile').click();
+  });
+  document.getElementById('importFile').addEventListener('change', async (e) => {
+    const f = e.target.files[0];
+    if (!f) return;
+    try {
+      const data = JSON.parse(await f.text());
+      const n = CourseStorage.importBackup(data);
+      document.getElementById('backupStatus').innerHTML =
+        '<span style="color: var(--success);">✓ 导入 ' + n + ' 项,刷新中...</span>';
+      setTimeout(() => location.reload(), 800);
+    } catch (err) {
+      alert('导入失败: ' + err.message);
+    }
+  });
+
+  render();
+})();
+</script>
+</body>
+</html>
