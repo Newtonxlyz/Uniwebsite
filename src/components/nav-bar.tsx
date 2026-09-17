@@ -18,6 +18,8 @@ import {
   ShoppingBag,
   Library,
   Atom,
+  GraduationCap,
+  FlaskConical,
 } from "lucide-react";
 import { useSession, signOut as doSignOut } from "@/lib/auth-client";
 import { ThemeToggle } from "@/components/theme-toggle";
@@ -43,6 +45,56 @@ function getActiveSubsite(pathname: string | null) {
 }
 
 export { getActiveSubsite };
+
+// ─────────────────────────────────────────────────
+// 每个子站的 hover 下拉导航 actions
+// 格式:{ subsiteHrefPrefix: [{ href, label, icon, description }, ...] }
+// ─────────────────────────────────────────────────
+type SubsiteAction = { href: string; label: string; icon: React.ComponentType<{ className?: string }>; description: string };
+
+const SUBSITE_ACTIONS: Record<string, SubsiteAction[]> = {
+  "/crashai": [
+    { href: "/crashai", label: "课程", icon: GraduationCap, description: "AI 训练课程" },
+    { href: "/crashai/safety-training", label: "路径训练", icon: FlaskConical, description: "4 路径实操" },
+    { href: "/crashai/cards", label: "闪卡", icon: Brain, description: "概念速记" },
+  ],
+  "/kids-ai": [
+    { href: "/kids-ai", label: "首页", icon: Sparkles, description: "儿童 AI 入口" },
+    { href: "/kids-ai/chapters", label: "章节", icon: BookOpen, description: "AI 课程章节" },
+    { href: "/kids-ai/games", label: "互动游戏", icon: FlaskConical, description: "本地大模型游戏" },
+    { href: "/kids-ai/achievements", label: "成就", icon: GraduationCap, description: "学习成就" },
+  ],
+  "/picturebook": [
+    { href: "/picturebook/stories", label: "故事", icon: BookOpen, description: "绘本故事" },
+    { href: "/picturebook/characters", label: "角色", icon: UserIcon, description: "绘本角色" },
+  ],
+  "/knowledge-base": [
+    { href: "/knowledge-base", label: "搜索", icon: Library, description: "83 篇技术文档" },
+  ],
+  "/learn/nlfea": [
+    { href: "/learn/nlfea", label: "课程地图", icon: BookOpen, description: "6 章 49 节课程" },
+    { href: "/nlfea-course/flashcards.html", label: "闪卡", icon: Brain, description: "46 张闪卡复习" },
+    { href: "/nlfea-course/exam.html", label: "考试", icon: GraduationCap, description: "20 题 90 分及格" },
+  ],
+  "/learn/pinn-crash": [
+    { href: "/learn/pinn-crash", label: "课程地图", icon: BookOpen, description: "PINN 6 章课程" },
+    { href: "/courses/pinn-crash-reduction/flashcards.html", label: "闪卡", icon: Brain, description: "35 张闪卡 SM-2" },
+    { href: "/courses/pinn-crash-reduction/quizzes.html", label: "测验", icon: GraduationCap, description: "60 题 + 期末" },
+  ],
+  "/learn/gn-crash": [
+    { href: "/learn/gn-crash", label: "课程地图", icon: BookOpen, description: "GNN 7 章课程" },
+    { href: "/courses/gn-crash-guide/flashcards.html", label: "闪卡", icon: Brain, description: "35 张闪卡 SM-2" },
+    { href: "/courses/gn-crash-guide/quizzes.html", label: "测验", icon: GraduationCap, description: "56 题 + 期末" },
+    { href: "/courses/gn-crash-guide/original.html", label: "原始指南", icon: BookOpen, description: "源 HTML 一比一复刻" },
+  ],
+  "/blog": [
+    { href: "/blog/new", label: "写新文章", icon: BookOpen, description: "发布新博客" },
+    { href: "/blog", label: "我的文章", icon: Brain, description: "查看博客列表" },
+  ],
+  "/merchandise": [
+    { href: "/merchandise", label: "商品", icon: ShoppingBag, description: "Lvyz 周边" },
+  ],
+};
 
 // ─────────────────────────────────────────────────
 // 主题感知 Logo（dark 用深色 SVG，light 用浅色 SVG）
@@ -83,6 +135,7 @@ export function NavBar() {
 
   // hover 下拉
   const [subsiteOpen, setSubsiteOpen] = useState(false);
+  const [hoveredSubsite, setHoveredSubsite] = useState<string | null>(null);
   const closeTimer = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   // 移动端 drawer
@@ -95,6 +148,8 @@ export function NavBar() {
   useEffect(() => {
     setMobileOpen(false);
     setUserMenuOpen(false);
+    setHoveredSubsite(null);
+    setSubsiteOpen(false);
   }, [pathname]);
 
   function openSubsite() {
@@ -104,6 +159,14 @@ export function NavBar() {
   function scheduleCloseSubsite() {
     if (closeTimer.current) clearTimeout(closeTimer.current);
     closeTimer.current = setTimeout(() => setSubsiteOpen(false), 150);
+  }
+  function openSubsiteBar(slug: string) {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    setHoveredSubsite(slug);
+  }
+  function scheduleCloseSubsiteBar() {
+    if (closeTimer.current) clearTimeout(closeTimer.current);
+    closeTimer.current = setTimeout(() => setHoveredSubsite(null), 150);
   }
 
   return (
@@ -186,6 +249,70 @@ export function NavBar() {
                 <span className="hidden sm:inline">返回首页</span>
               </Link>
             )}
+
+            {/* 水平子站导航条 · 每个按钮 hover 弹出该子站的 list */}
+            <nav className="hidden md:flex items-center gap-1 ml-2 pl-3 border-l border-white/10">
+              {SUBSITES.map((s) => {
+                const Icon = s.icon;
+                const isActive = activeSubsite?.href === s.href;
+                const isHovered = hoveredSubsite === s.href;
+                const actions = SUBSITE_ACTIONS[s.href] || [];
+                return (
+                  <div
+                    key={s.href}
+                    className="relative"
+                    onMouseEnter={() => openSubsiteBar(s.href)}
+                    onMouseLeave={scheduleCloseSubsiteBar}
+                  >
+                    <Link
+                      href={s.href}
+                      className={`inline-flex items-center gap-1.5 px-2.5 py-1.5 rounded-lg text-sm font-medium transition-colors ${
+                        isActive || isHovered
+                          ? "bg-cyan-500/15 text-white"
+                          : "text-gray-300 dark:text-gray-300 light:text-slate-700 hover:text-white dark:hover:text-white light:hover:text-slate-900 hover:bg-white/5 dark:hover:bg-white/5 light:hover:bg-slate-200/60"
+                      }`}
+                    >
+                      <Icon className={`h-3.5 w-3.5 ${isActive || isHovered ? "text-cyan-400" : "text-gray-400"}`} />
+                      <span className="hidden lg:inline">{s.short}</span>
+                    </Link>
+
+                    {/* Hover 弹下拉 list */}
+                    {isHovered && actions.length > 0 && (
+                      <div className="absolute left-0 top-full pt-2 w-[280px] z-50">
+                        <div
+                          className="glass-card p-2 rounded-xl border border-white/10 shadow-2xl"
+                          onMouseEnter={() => openSubsiteBar(s.href)}
+                          onMouseLeave={scheduleCloseSubsiteBar}
+                        >
+                          <div className="text-xs text-gray-500 px-3 py-2 font-medium flex items-center gap-2">
+                            <Icon className="h-3.5 w-3.5 text-cyan-400" />
+                            {s.label}
+                          </div>
+                          <div className="flex flex-col gap-0.5">
+                            {actions.map((a) => {
+                              const AIcon = a.icon;
+                              return (
+                                <Link
+                                  key={a.href}
+                                  href={a.href}
+                                  className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/5 text-gray-300 hover:text-white transition-colors"
+                                >
+                                  <AIcon className="h-4 w-4 mt-0.5 text-gray-400 flex-shrink-0" />
+                                  <div className="min-w-0">
+                                    <div className="text-sm font-medium">{a.label}</div>
+                                    <div className="text-xs text-gray-500 mt-0.5 line-clamp-1">{a.description}</div>
+                                  </div>
+                                </Link>
+                              );
+                            })}
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </nav>
 
             {/* 当前子站标签（仅在子站显示） */}
             {activeSubsite && (
