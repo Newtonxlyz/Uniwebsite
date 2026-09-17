@@ -11,12 +11,43 @@
 
 <main class="container">
   <header class="lesson-header">
-    <div class="lesson-breadcrumb"><a href="index.html">← 课程主页</a></div>
-    <h1>📝 章节测验 & 期末考试</h1>
-    <p class="text-dim">5 种题型 · 即时反馈 · 通过标准 ≥ 70%</p>
+    <div class="lesson-breadcrumb">
+      <a href="index.html">← 课程主页</a> ›
+      <a href="flashcards.html">闪卡</a>
+    </div>
+    <h1>📝 学习流程</h1>
+    <p class="text-dim">建议顺序:①学完章节 → ②做章节测验 → ③冲刺期末</p>
   </header>
 
-  <div id="quizList"></div>
+  <!-- 阶段 1: 章节内容学习 -->
+  <section style="margin-bottom: 32px;">
+    <h2 style="display:flex;align-items:center;gap:10px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--primary-soft);color:var(--primary);font-weight:700;">①</span>
+      章节学习
+      <span class="text-dim text-sm" style="font-weight:400;">(先把内容学完,再去做测验)</span>
+    </h2>
+    <div id="chapterLearnList"></div>
+  </section>
+
+  <!-- 阶段 2: 章节测验 -->
+  <section style="margin-bottom: 32px;">
+    <h2 style="display:flex;align-items:center;gap:10px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--primary-soft);color:var(--primary);font-weight:700;">②</span>
+      章节测验
+      <span class="text-dim text-sm" style="font-weight:400;">(每章独立 8-10 题,通过即标记章节完成)</span>
+    </h2>
+    <div id="chapterQuizList"></div>
+  </section>
+
+  <!-- 阶段 3: 期末综合考试 -->
+  <section>
+    <h2 style="display:flex;align-items:center;gap:10px;">
+      <span style="display:inline-flex;align-items:center;justify-content:center;width:36px;height:36px;border-radius:50%;background:var(--accent-soft);color:var(--accent);font-weight:700;">③</span>
+      期末综合考试
+      <span class="text-dim text-sm" style="font-weight:400;">(覆盖全课程 15 题 · 通过标准 ≥ 80%)</span>
+    </h2>
+    <div id="finalQuizList"></div>
+  </section>
 </main>
 
 <script src="../_shared/course-storage.js"></script>
@@ -38,52 +69,80 @@
   CourseInit.runInline(courseId, chaptersData, flashcardsData, quizzesData);
   document.getElementById('topnav').innerHTML = CourseApp.renderTopnav('gn-crash', 'GNN碰撞仿真降阶', 'quizzes');
 
+  function renderLearnItem(ch, idx) {
+    const status = (CourseProgress.get && CourseProgress.get(ch.id)?.status) || 'not_started';
+    const statusInfo = {
+      not_started: { label: '未开始', color: 'var(--text-dim)' },
+      in_progress: { label: '学习中', color: 'var(--primary)' },
+      completed:   { label: '已完成', color: 'var(--success)' }
+    }[status] || { label: '未开始', color: 'var(--text-dim)' };
+    return `
+      <a href="chapter-${ch.id}.html" class="card" style="display:flex;justify-content:space-between;align-items:center;text-decoration:none;color:inherit;transition:all 0.15s;">
+        <div>
+          <h3 style="margin: 0 0 4px;">第 ${idx + 1} 章 · ${ch.title}</h3>
+          <p class="text-dim text-sm" style="margin: 0;">${ch.subtitle || ''} · ~${ch.estimatedMinutes || '?'} 分钟</p>
+        </div>
+        <div style="text-align:right;display:flex;align-items:center;gap:14px;">
+          <span style="color:${statusInfo.color};font-weight:600;font-size:13px;">${statusInfo.label}</span>
+          <span style="color:var(--text-dim);font-size:18px;">→</span>
+        </div>
+      </a>
+    `;
+  }
+
   function renderQuizItem(chapterId, quiz, title, isFinal) {
     const history = CourseQuiz.getHistory(chapterId);
     const canAttempt = CourseQuiz.canAttempt(chapterId);
     const maxAttempts = quiz.maxAttempts ?? 3;
     const passingScore = quiz.passingScore ?? 70;
+    const attemptsLabel = history.attempts > 0
+      ? `历史最高 <strong style="color:var(--success);">${history.bestScore}/100</strong>`
+      : '未开始';
+    const btnLabel = history.attempts > 0 ? '重新答题' : '开始测验';
+    const btnDisabled = canAttempt
+      ? `<a class="btn btn-primary" href="quiz-${chapterId}.html">${btnLabel}</a>`
+      : `<button class="btn" disabled>已达最大次数</button>`;
     return `
       <div class="card">
-        <div style="display:flex; justify-content:space-between; align-items:start;">
-          <div style="flex: 1;">
-            <h3 style="margin: 0 0 6px;">${title}</h3>
-            <div class="text-dim text-sm">
-              ${quiz.questions?.length || 0} 题 · 通过标准 ≥ ${passingScore}% · 最多 ${maxAttempts} 次
-            </div>
+        <div style="display:flex;justify-content:space-between;align-items:start;">
+          <div style="flex:1;">
+            <h3 style="margin:0 0 6px;">${title}</h3>
+            <div class="text-dim text-sm">${quiz.questions?.length || 0} 题 · 通过 ≥ ${passingScore}% · 最多 ${maxAttempts} 次</div>
           </div>
-          <div style="text-align: right;">
-            <div style="font-size: 13px; color: var(--text-dim);">
-              ${history.attempts > 0 ? '历史最高: <strong style="color: var(--success);">' + history.bestScore + '/100</strong>' : '未开始'}
-            </div>
-            <div style="font-size: 12px; color: var(--text-dimmer); margin-top: 4px;">
-              尝试 ${history.attempts}/${maxAttempts}
-            </div>
+          <div style="text-align:right;">
+            <div style="font-size:13px;color:var(--text-dim);">${attemptsLabel}</div>
+            <div style="font-size:12px;color:var(--text-dimmer);margin-top:4px;">尝试 ${history.attempts}/${maxAttempts}</div>
           </div>
         </div>
-        <div class="btn-row" style="margin-top: 12px;">
-          ${canAttempt
-            ? '<a class="btn btn-primary" href="quiz-' + chapterId + '.html">' + (history.attempts > 0 ? '重新答题' : '开始测验') + '</a>'
-            : '<button class="btn" disabled>已达最大次数</button>'}
-        </div>
+        <div class="btn-row" style="margin-top:12px;">${btnDisabled}</div>
       </div>
     `;
   }
 
-  const list = document.getElementById('quizList');
-  let html = '';
-  // 6 章测验
+  // 阶段 1: 章节学习
+  const learnList = document.getElementById('chapterLearnList');
+  if (chaptersData.chapters.length) {
+    learnList.innerHTML = '<div style="display:flex;flex-direction:column;gap:8px;">' +
+      chaptersData.chapters.map(renderLearnItem).join('') + '</div>';
+  }
+
+  // 阶段 2: 章节测验
+  const qList = document.getElementById('chapterQuizList');
+  let qHtml = '';
   chaptersData.chapters.forEach((ch, idx) => {
     const q = quizzesData[ch.id];
-    if (q) html += renderQuizItem(ch.id, q, `第 ${idx + 1} 章 · ${ch.title}`);
+    if (q) qHtml += renderQuizItem(ch.id, q, `第 ${idx + 1} 章 · ${ch.title}`);
   });
-  // 期末考试
+  qList.innerHTML = qHtml;
+
+  // 阶段 3: 期末考试
+  const fList = document.getElementById('finalQuizList');
   const final = quizzesData.final;
   if (final) {
-    html += '<hr><h2>🎓 期末综合考试</h2>';
-    html += renderQuizItem('final', final, '期末综合考试 · 跨全部章节', true);
+    fList.innerHTML = renderQuizItem('final', final, '期末综合考试 · 跨全部章节', true);
+  } else {
+    fList.innerHTML = '<p class="text-dim">尚未开放</p>';
   }
-  list.innerHTML = html;
 })();
 </script>
 </body>
