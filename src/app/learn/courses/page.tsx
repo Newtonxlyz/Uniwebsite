@@ -12,6 +12,7 @@ export const metadata = {
 };
 
 // 课程元数据(与各课程主页对齐)
+// 注意:CourseProgressHub 是客户端组件,不能传 icon 函数,只传 iconName
 const COURSES = [
   {
     slug: "pinn-crash",
@@ -26,7 +27,7 @@ const COURSES = [
     tags: ["PINN", "DOE", "碰撞仿真", "降阶"],
     color: "from-purple-500/30 to-pink-500/30",
     accent: "purple",
-    icon: Atom,
+    iconName: "atom" as const,
   },
   {
     slug: "gn-crash",
@@ -41,7 +42,7 @@ const COURSES = [
     tags: ["GNN", "Transformer", "PINN", "工具"],
     color: "from-emerald-500/30 to-cyan-500/30",
     accent: "emerald",
-    icon: Cpu,
+    iconName: "cpu" as const,
   },
 ];
 
@@ -96,7 +97,7 @@ export default function CoursesHubPage() {
           </h2>
           <div className="grid gap-6 sm:grid-cols-2">
             {COURSES.map((c) => {
-              const Icon = c.icon;
+              const Icon = c.iconName === "atom" ? Atom : Cpu;
               return (
                 <div
                   key={c.slug}

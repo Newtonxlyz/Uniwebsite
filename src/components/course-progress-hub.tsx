@@ -5,7 +5,7 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { Flame, Clock, Layers, Brain, ArrowRight } from "lucide-react";
+import { Flame, Clock, Layers, Brain, ArrowRight, Atom, Cpu } from "lucide-react";
 
 type Course = {
   slug: string;
@@ -14,7 +14,7 @@ type Course = {
   flashcards: number;
   color: string;
   accent: string;
-  icon: React.ComponentType<{ className?: string }>;
+  iconName: "atom" | "cpu";
 };
 
 type Progress = {
@@ -74,7 +74,7 @@ export function CourseProgressHub({ courses }: { courses: Course[] }) {
       </h2>
       <div className="grid gap-4 sm:grid-cols-2">
         {courses.map((c) => {
-          const Icon = c.icon;
+          const Icon = c.iconName === "atom" ? Atom : Cpu;
           const p = progressMap[c.slug];
           const completedPct = p ? Math.round((p.completedChapters / c.chapters) * 100) : 0;
           const flashPct = p && p.totalFlashcards
