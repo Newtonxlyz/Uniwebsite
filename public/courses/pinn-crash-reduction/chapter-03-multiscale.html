@@ -22,6 +22,14 @@
 
   <div class="card" id="statusSection"></div>
 
+  <!-- 子节进度条 -->
+  <div class="subsection-progress" id="subsectionProgressCard">
+    <span style="font-weight:600;">📍 本章小节进度</span>
+    <div class="subsection-progress-bar"><div id="subsectionProgressBar"></div></div>
+    <span id="subsectionProgressText" style="color:var(--text-dim);font-size:13px;">0/0 子节完成</span>
+    <div class="subsection-all-done" id="subsectionAllDone">✅ 全部子节完成 — 可进入章节测验</div>
+  </div>
+
   <article id="chapterBody">
     <h3>3.1 多尺度问题的本质与挑战</h3>
 <p>汽车结构中的多尺度问题横跨多个层次：微观尺度（晶粒、纤维、位错）→ 介观尺度（复合材料层、焊缝、涂层）→ 宏观尺度（部件、子系统、整车）。传统多尺度方法（如均质化方法、FE²）的计算瓶颈在于：每一个宏观积分点的响应都需要调用一次微观RVE（代表性体积单元）的完整有限元计算，计算量与两个尺度的自由度乘积成正比，在工程问题中几乎不可行。</p>
@@ -68,6 +76,7 @@
 <script src="../_shared/course-mistakes.js"></script>
 <script src="../_shared/course-quiz.js"></script>
 <script src="../_shared/course-theme.js"></script>
+<script src="../_shared/course-subsection.js"></script>
 <script src="../_shared/course-app.js"></script>
 <script src="../_shared/course-init.js"></script>
 <script>
@@ -100,6 +109,20 @@
   document.getElementById('statusSection').innerHTML = CourseApp.statusButtonsHTML(chapterId);
   document.getElementById('notesSection').innerHTML = CourseApp.notesHTML(chapterId);
   document.getElementById('lectureTemplateSection').innerHTML = CourseApp.lectureTemplateHTML(chapterId, chaptersData);
+
+  // 子节进度:绑定所有 .quiz-section,自动判分 + 进度追踪
+  CourseSubsection.init(courseId, chapterId);
+  CourseSubsection.bindAll();
+
+  // 全部子节完成 → 自动把章节标记为学习中(鼓励)
+  const _sub = CourseSubsection.chapterProgressSummary();
+  if (_sub.totalSubsections > 0) {
+    if (_sub.completedSubsections === _sub.totalSubsections) {
+      // 全部完成小节 → 如果之前是 not_started 或 in_progress,维持 in_progress(等章节测验)
+      // 但 quiz-section 加 .done 类
+      document.querySelectorAll('.quiz-section[data-section]').forEach(el => el.classList.add('done'));
+    }
+  }
 
   CourseApp.bindProgress(chapterId);
   CourseApp.bindNotes(chapterId);

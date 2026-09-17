@@ -2,9 +2,22 @@
   "course": {
     "courseId": "gn-crash-guide",
     "title": "GNN + Transformer + 物理约束：碰撞仿真降阶实战",
-    "subtitle": "从图神经网络到物理感知 Transformer,系统掌握 AI 碰撞降阶的完整技术栈",
+    "subtitle": "图神经网络 + 物理感知 Transformer · 系统掌握 AI 碰撞降阶的完整技术栈",
     "level": "进阶",
-    "duration": "14 小时"
+    "duration": "14 小时",
+    "estimatedHours": 14,
+    "audience": "AI 工程师 · CAE 仿真 · 碰撞降阶研究者",
+    "objectives": [
+      "理解 GNN 消息传递与 Transformer 注意力的协同",
+      "能从零搭建 MeshGraphNet / GNS 风格的弹簧-质点仿真器",
+      "会选 PINN / GNN / Transformer / 混合架构的适用场景",
+      "能评估 rollout 误差 · 物理守恒 · 接触建模的工业指标"
+    ],
+    "prerequisites": [
+      "Python 基础",
+      "机器学习基础",
+      "PyTorch 入门"
+    ]
   },
   "chapters": [
     {

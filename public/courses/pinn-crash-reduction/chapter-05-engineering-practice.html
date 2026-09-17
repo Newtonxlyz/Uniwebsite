@@ -22,6 +22,14 @@
 
   <div class="card" id="statusSection"></div>
 
+  <!-- 子节进度条 -->
+  <div class="subsection-progress" id="subsectionProgressCard">
+    <span style="font-weight:600;">📍 本章小节进度</span>
+    <div class="subsection-progress-bar"><div id="subsectionProgressBar"></div></div>
+    <span id="subsectionProgressText" style="color:var(--text-dim);font-size:13px;">0/0 子节完成</span>
+    <div class="subsection-all-done" id="subsectionAllDone">✅ 全部子节完成 — 可进入章节测验</div>
+  </div>
+
   <article id="chapterBody">
     <h3>5.1 训练数据量与硬件需求</h3>
 <p><strong>数据量需求。</strong> 数据量需求与问题维度、复杂度和目标精度强相关。根据公开案例可总结出大致规律：</p>
@@ -77,6 +85,7 @@
 <script src="../_shared/course-mistakes.js"></script>
 <script src="../_shared/course-quiz.js"></script>
 <script src="../_shared/course-theme.js"></script>
+<script src="../_shared/course-subsection.js"></script>
 <script src="../_shared/course-app.js"></script>
 <script src="../_shared/course-init.js"></script>
 <script>
@@ -109,6 +118,20 @@
   document.getElementById('statusSection').innerHTML = CourseApp.statusButtonsHTML(chapterId);
   document.getElementById('notesSection').innerHTML = CourseApp.notesHTML(chapterId);
   document.getElementById('lectureTemplateSection').innerHTML = CourseApp.lectureTemplateHTML(chapterId, chaptersData);
+
+  // 子节进度:绑定所有 .quiz-section,自动判分 + 进度追踪
+  CourseSubsection.init(courseId, chapterId);
+  CourseSubsection.bindAll();
+
+  // 全部子节完成 → 自动把章节标记为学习中(鼓励)
+  const _sub = CourseSubsection.chapterProgressSummary();
+  if (_sub.totalSubsections > 0) {
+    if (_sub.completedSubsections === _sub.totalSubsections) {
+      // 全部完成小节 → 如果之前是 not_started 或 in_progress,维持 in_progress(等章节测验)
+      // 但 quiz-section 加 .done 类
+      document.querySelectorAll('.quiz-section[data-section]').forEach(el => el.classList.add('done'));
+    }
+  }
 
   CourseApp.bindProgress(chapterId);
   CourseApp.bindNotes(chapterId);

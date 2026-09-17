@@ -116,9 +116,11 @@ export default function CoursesHubPage() {
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
             {COURSES.map((c) => {
               const Icon = c.iconName === "atom" ? Atom : c.iconName === "cpu" ? Cpu : GraduationCap;
+              const courseHref = `/learn/${c.slug}`;
               return (
-                <div
+                <Link
                   key={c.slug}
+                  href={courseHref}
                   className={`group relative overflow-hidden rounded-2xl border border-white/10 bg-gradient-to-br ${c.color} hover:border-white/30 transition-all hover:-translate-y-0.5 hover:shadow-2xl`}
                 >
                   {/* 角落光晕 */}
@@ -182,30 +184,19 @@ export default function CoursesHubPage() {
                     </div>
 
                     {/* CTA */}
-                    <div className="flex gap-2">
-                      <Link
-                        href={`/learn/${c.slug}`}
-                        className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-white text-black text-sm font-semibold hover:bg-white/90 transition-colors"
-                      >
-                        课程地图
+                    <div className="flex gap-2 relative z-10">
+                      <span className="flex-1 inline-flex items-center justify-center gap-1.5 px-3 py-2 rounded-lg bg-white text-black text-sm font-semibold">
+                        进入课程
                         <ArrowUpRight className="h-3.5 w-3.5" />
-                      </Link>
-                      <Link
-                        href={
-                          c.slug === "pinn-crash" ? "/courses/pinn-crash-reduction/index.html" :
-                          c.slug === "gn-crash" ? "/courses/gn-crash-guide/index.html" :
-                          "/crashai"
-                        }
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center justify-center px-3 py-2 rounded-lg bg-black/30 text-white text-sm hover:bg-black/50 transition-colors backdrop-blur"
-                        title="进入课程内容"
+                      </span>
+                      <span
+                        className="inline-flex items-center justify-center px-3 py-2 rounded-lg bg-black/30 text-white text-sm backdrop-blur pointer-events-none"
                       >
-                        开始 →
-                      </Link>
+                        →
+                      </span>
                     </div>
                   </div>
-                </div>
+                </Link>
               );
             })}
           </div>
