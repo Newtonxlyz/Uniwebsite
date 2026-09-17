@@ -1,9 +1,11 @@
 {
-  "courseId": "gn-crash-guide",
-  "title": "GNN + Transformer + 物理约束：碰撞仿真降阶实战",
-  "subtitle": "从图神经网络到物理感知 Transformer,系统掌握 AI 碰撞降阶的完整技术栈",
-  "level": "进阶",
-  "duration": "14 小时",
+  "course": {
+    "courseId": "gn-crash-guide",
+    "title": "GNN + Transformer + 物理约束：碰撞仿真降阶实战",
+    "subtitle": "从图神经网络到物理感知 Transformer,系统掌握 AI 碰撞降阶的完整技术栈",
+    "level": "进阶",
+    "duration": "14 小时"
+  },
   "chapters": [
     {
       "id": "01-crash-basics",
