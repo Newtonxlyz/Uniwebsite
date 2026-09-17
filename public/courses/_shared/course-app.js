@@ -251,6 +251,7 @@
       <nav class="topnav">
         <div class="topnav-inner">
           <a href="../../../learn/${courseSlug}/" target="_blank" class="brand">${escapeHtml(courseTitle)}</a>
+          <a href="../../../learn/courses/" target="_blank" class="nav-link" title="课程中心 hub">课程中心</a>
           <a href="index.html" class="nav-link ${activeNav === 'home' ? 'active' : ''}">课程主页</a>
           <a href="flashcards.html" class="nav-link ${activeNav === 'flashcards' ? 'active' : ''}">闪卡</a>
           <a href="quizzes.html" class="nav-link ${activeNav === 'quizzes' ? 'active' : ''}">章节测验</a>
