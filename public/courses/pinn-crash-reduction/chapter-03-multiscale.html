@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>章节</title>
 <link rel="stylesheet" href="../_shared/course-css.css">
+  <!-- KaTeX 公式渲染 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\\\(',right:'\\\\)',display:false},{left:'\\\\[',right:'\\\\]',display:false}],throwOnError:false});"></script>
 </head>
 <body>
 <nav id="topnav"></nav>
@@ -39,7 +44,7 @@
           <div class="quiz-question" data-answer="1">
             <div class="quiz-question-text">传统多尺度方法 FE² 的计算瓶颈?</div>
             <div class="quiz-options">
-              <div class="quiz-option">内存不足</d
+              <div class="quiz-option" data-id
 
         <div class="quiz-section" data-section="ch03-sec2">
           <h4>📝 本节检测题</h4>
@@ -47,65 +52,62 @@
           <div class="quiz-question" data-answer="0">
             <div class="quiz-question-text">PRNN 通过循环结构编码本构关系的路径依赖性。</div>
             <div class="quiz-options">
-              <div class="quiz-option">对</div><div class="quiz-option">错</div>
+              <div class="quiz-option" data-idx="0">对</div><div class="quiz-option" data-idx="1">错</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              PRNN 的核心是将本构路径依赖性编码进循环结构,准确捕捉非线性滞回行为。
+              <strong>参考答案:</strong> PRNN 的核心是将本构路径依赖性编码进循环结构,准确捕捉非线性滞回行为。
             </div>
           </div>
 
           <div class="quiz-question" data-answer="1">
             <div class="quiz-question-text">VPINN 采用什么方法?</div>
             <div class="quiz-options">
-              <div class="quiz-option">强形式 PINN</div><div class="quiz-option">Petrov-Galerkin</div><div class="quiz-option">变分方法</div><div class="quiz-option">傅里叶方法</div>
+              <div class="quiz-option" data-idx="0">A. 强形式 PINN</div><div class="quiz-option" data-idx="1">B. Petrov-Galerkin</div><div class="quiz-option" data-idx="2">C. 变分方法</div><div class="quiz-option" data-idx="3">D. 傅里叶方法</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              VPINN 采用 Petrov-Galerkin 方法,以神经网络为试函数、局部多项式为检验函数。
+              <strong>参考答案:</strong> VPINN 采用 Petrov-Galerkin 方法,以神经网络为试函数、局部多项式为检验函数。
             </div>
           </div>
         </div>
-iv><div class="quiz-option">每宏观积分点需调用一次微观 RVE</div><div class="quiz-option">网格划分困难</div><div class="quiz-option">并行效率低</div>
+x="0">A. 内存不足</div><div class="quiz-option" data-idx="1">B. 每宏观积分点需调用一次微观 RVE</div><div class="quiz-option" data-idx="2">C. 网格划分困难</div><div class="quiz-option" data-idx="3">D. 并行效率低</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              FE² 每个宏观积分点都需调用微观 RVE 完整有限元,工程问题中几乎不可行。
-            </div>
-          </div>
-
-          <div class="quiz-question" da
+              <strong>参考答案:</strong> FE² 每个宏观积分点都需调用微
 
         <div class="quiz-section" data-section="ch03-sec3">
           <h4>📝 本节检测题</h4>
           
-          <div class="quiz-question" data-answer="0">
-            <div class="quiz-question-text">HOMS-PINN 相对直接 PINN 模拟多尺度问题,计算量可减少约 ____ 。</div>
-            <div class="quiz-feedback">
-              <strong>本节关键术语:</strong><br>
-              HOMS-PINN 计算量可减少约一半,同时能精确捕捉微观尺度剧烈振荡。
-            </div>
-          </div>
-
           <div class="quiz-question" data-answer="2">
             <div class="quiz-question-text">微-介-宏观 AI 降阶的合理分工?</div>
             <div class="quiz-options">
-              <div class="quiz-option">全用 PINN</div><div class="quiz-option">全用 GNN</div><div class="quiz-option">微介观 PINN + 宏观 GNN</div><div class="quiz-option">随机组合</div>
+              <div class="quiz-option" data-idx="0">A. 全用 PINN</div><div class="quiz-option" data-idx="1">B. 全用 GNN</div><div class="quiz-option" data-idx="2">C. 微介观 PINN + 宏观 GNN</div><div class="quiz-option" data-idx="3">D. 随机组合</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              微介观用 PINN(物理约束强、样本小),宏观/系统级用 GNN/神经算子(数据驱动、规模大)。
+              <strong>参考答案:</strong> 微介观用 PINN(物理约束强、样本小),宏观/系统级用 GNN/神经算子(数据驱动、规模大)。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">PRNN 相对平均场均质化(MFH)的优势?</div>
+            <div class="quiz-options">
+              <div class="quiz-option" data-idx="0">A. 计算更快</div><div class="quiz-option" data-idx="1">B. 预测滞回行为更准</div><div class="quiz-option" data-idx="2">C. 网格要求低</div><div class="quiz-option" data-idx="3">D. 无需训练数据</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong> PRNN 预测的纱线非线性滞回行为与 FE 结果高度吻合,MFH 方法偏差较大。
             </div>
           </div>
         </div>
-ta-answer="1">
+观 RVE 完整有限元,工程问题中几乎不可行。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="1">
             <div class="quiz-question-text">HOMS-PINN 的核心思想?</div>
             <div class="quiz-options">
-              <div class="quiz-option">全连接替代 FEM</div><div class="quiz-option">多尺度渐近分析分解微宏观</div><div class="quiz-option">直接 PDE 约束</div><div class="quiz-option">自动微分</div>
+              <div class="quiz-option" data-idx="0">A. 全连接替代 FEM</div><div class="quiz-option" data-idx="1">B. 多尺度渐近分析分解微宏观</div><div class="quiz-option" data-idx="2">C. 直接 PDE 约束</div><div class="quiz-option" data-idx="3">D. 自动微分</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              HOMS-PINN 通过多尺度渐近分析把强振荡的微观场提取出来,PINN 只需学相对光滑的宏观场+修正项。
+              <strong>参考答案:</strong> HOMS-PINN 通过多尺度渐近分析把强振荡的微观场提取出来,PINN 只需学相对光滑的宏观场+修正项。
             </div>
           </div>
         </div>

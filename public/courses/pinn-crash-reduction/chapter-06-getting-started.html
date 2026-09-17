@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>章节</title>
 <link rel="stylesheet" href="../_shared/course-css.css">
+  <!-- KaTeX 公式渲染 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\\\(',right:'\\\\)',display:false},{left:'\\\\[',right:'\\\\]',display:false}],throwOnError:false});"></script>
 </head>
 <body>
 <nav id="topnav"></nav>
@@ -39,22 +44,20 @@
           <div class="quiz-question" data-answer="0">
             <div class="quiz-question-text">PINN 入门推荐的 2 个开源框架?</div>
             <div class="quiz-options">
-              <div class="quiz-option">DeepXDE + PhysicsNeMo</div><div class="quiz-option">TensorFlow + PyTorch</div><div class="quiz-option">Caffe + MXNet</div><div class="quiz-option">Theano + CNTK</div>
+              <div class="quiz-option" data-idx="0">A. DeepXDE + PhysicsNeMo</div><div class="quiz-option" data-idx="1">B. TensorFlow + PyTorch</div><div class="quiz-option" data-idx="2">C. Caffe + MXNet</div><div class="quiz-option" data-idx="3">D. Theano + CNTK</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              DeepXDE(适合方法学研究) + NVIDIA PhysicsNeMo(适合工程应用)。
+              <strong>参考答案:</strong> DeepXDE(适合方法学研究) + NVIDIA PhysicsNeMo(适合工程应用)。
             </div>
           </div>
 
           <div class="quiz-question" data-answer="1">
             <div class="quiz-question-text">GNN 入门推荐的入门论文?</div>
             <div class="quiz-options">
-              <div class="quiz-option">GNN 综述</div><div class="quiz-option">DeepMind 2020 GNS</div><div class="quiz-option">PinN 论文</div><div class="quiz-option">GAN 论文</div>
+              <div class="quiz-option" data-idx="0">A. GNN 综述</div><div class="quiz-option" data-idx="1">B. DeepMind 2020 GNS</div><div class="quiz-option" data-idx="2">C. PinN 论文</div><div class="quiz-option" data-idx="3">D. GAN 论文</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              DeepMind 2020 GNS(Learning Mesh-Based Simulation with Graph Networks)是 GNN 入门必读。
+              <strong>参考答案:</strong> DeepMind 2020 GNS(Learning Mesh-Based Simulation with Graph Networks)是 GNN 入门必读。
             </div>
           </div>
         </div>
@@ -70,11 +73,7 @@
 <li>建议从DeepXDE入门理解原理，再根据项目需求决定是否迁移到PhysicsNeMo。</li>
 </ul>
 <ol>
-<li><strong>DOE与代理模型基础</strong>：理解拉丁超立方、Sobol序列等空间填充设计的原理，学习GPR、RBF、Kriging等传统代理模型。这是PINN的基础和对照组——先掌握传统方法，才能正确评估PINN的增量价值。</li>
-</ul>
-<p><strong>阶段二：部件级验证（4-8周）</strong></p>
-<ol>
-<li><strong>选择一个简单的结构力学问题</strong>：从简支梁
+<li><strong>DOE与代理模型基础</strong>：理解拉丁超立方、Sobol序列等空间填充设计的原理，学习GPR、RBF、Kriging等传统代理模型。这是PINN的基础和对照组——先掌握传统方法，才能正确评估PINN的增量价值。</li
 
         <div class="quiz-section" data-section="ch06-sec2">
           <h4>📝 本节检测题</h4>
@@ -82,26 +81,28 @@
           <div class="quiz-question" data-answer="1">
             <div class="quiz-question-text">学习路径的 4 阶段?</div>
             <div class="quiz-options">
-              <div class="quiz-option">看论文-写代码-调试-上线</div><div class="quiz-option">基础夯实-模型实现-物理约束-商业调研</div><div class="quiz-option">DOE 采样-仿真-训练-部署</div><div class="quiz-option">Python-有限元-深度学习-CAE</div>
+              <div class="quiz-option" data-idx="0">A. 看论文-写代码-调试-上线</div><div class="quiz-option" data-idx="1">B. 基础夯实-模型实现-物理约束-商业调研</div><div class="quiz-option" data-idx="2">C. DOE 采样-仿真-训练-部署</div><div class="quiz-option" data-idx="3">D. Python-有限元-深度学习-CAE</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              4 阶段:基础夯实(Python+PyG+有限元) → 模型实现(GNN+Transformer) → 物理约束加入 → 商业方案调研。
+              <strong>参考答案:</strong> 4 阶段:基础夯实(Python+PyG+有限元) → 模型实现(GNN+Transformer) → 物理约束加入 → 商业方案调研。
             </div>
           </div>
 
           <div class="quiz-question" data-answer="2">
             <div class="quiz-question-text">整车级 AI 代理模型的硬件需求?</div>
             <div class="quiz-options">
-              <div class="quiz-option">RTX 3060</div><div class="quiz-option">RTX 4090</div><div class="quiz-option">A100/H100 80GB+</div><div class="quiz-option">无需 GPU</div>
+              <div class="quiz-option" data-idx="0">A. RTX 3060</div><div class="quiz-option" data-idx="1">B. RTX 4090</div><div class="quiz-option" data-idx="2">C. A100/H100 80GB+</div><div class="quiz-option" data-idx="3">D. 无需 GPU</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              整车级代理模型需 A100/H100 80GB+,训练数周时间。
+              <strong>参考答案:</strong> 整车级代理模型需 A100/H100 80GB+,训练数周时间。
             </div>
           </div>
         </div>
-、悬臂梁的弹性问题开始，用PINN复现FEM结果，验证损失函数构建、边界条件施加、自动微分计算等基本环节。可以参考beam-elasticity-pinn等GitHub项目 <a href="https://github.com/Sasmxtha/beam-elasticity-pinn" target="_blank">(GitHub beam-elasticity-pinn)</a>。</li>
+>
+</ul>
+<p><strong>阶段二：部件级验证（4-8周）</strong></p>
+<ol>
+<li><strong>选择一个简单的结构力学问题</strong>：从简支梁、悬臂梁的弹性问题开始，用PINN复现FEM结果，验证损失函数构建、边界条件施加、自动微分计算等基本环节。可以参考beam-elasticity-pinn等GitHub项目 <a href="https://github.com/Sasmxtha/beam-elasticity-pinn" target="_blank">(GitHub beam-elasticity-pinn)</a>。</li>
 </ul>
 <ol>
 <li><strong>逐步引入非线性</strong>：弹性问题掌握后，逐步加入材料非线性（弹塑性）、几何非线性（大变形）、接触等复杂因素，每一步都与FEM基准解对比，观察误差来源和精度变化。</li>

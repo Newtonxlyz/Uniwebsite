@@ -55,44 +55,35 @@ QUIZ_TEMPLATE = '''
 '''
 
 def render_quiz_question(q, qid):
-    """从题目对象渲染成 HTML"""
+    """从题目对象渲染成 HTML — 子节小测只用 single/tf,跳过 multi/fill/short"""
     qtype = q.get("type", "single")
     stem = q.get("stem", "")
     options = q.get("options")
     answer = q.get("answer", 0)
     explanation = q.get("explanation", "")
-    qid_attr = f"{qid}"
 
+    # 子节小测需要轻量,过滤掉 multi / fill / short,只保留 single / tf
+    if qtype in ("multi", "fill", "short"):
+        return None
+
+    # 没有选项的(简答题) — 改成判断题占位
     if options is None:
-        # 简答/填空题,不能判分 — 改成判断题占位
-        options = ["A. (简答题,跳过判分)", "B. ", "C. ", "D. "]
+        options = ["对", "错"]
         answer = 0
-        return f'''
-          <div class="quiz-question" data-answer="{answer}">
-            <div class="quiz-question-text">{stem}</div>
-            <div class="quiz-feedback">
-              <strong>本节关键术语:</strong><br>
-              {explanation}
-            </div>
-          </div>'''
-    # 单选/多选/判断
+        qtype = "tf"
+
+    # 单选/判断:渲染 4 个 quiz-option 按钮(id 化让 JS 判分)
     if qtype == "tf":
         opt_html = "".join([
-            f'<div class="quiz-option">{o}</div>'
-            for o in options
-        ])
-    else:
-        # 选项可能是字符串列表
-        opt_html = "".join([
-            f'<div class="quiz-option">{o}</div>' if isinstance(o, str) else f'<div class="quiz-option">{chr(65+i)}. {o}</div>'
+            f'<div class="quiz-option" data-idx="{i}">{o}</div>'
             for i, o in enumerate(options)
         ])
-    # 答案格式转换:索引→数字,数组→-1 跳过
-    if isinstance(answer, list):
-        # 多选不处理
-        ans_attr = 0
     else:
-        ans_attr = answer
+        opt_html = "".join([
+            f'<div class="quiz-option" data-idx="{i}">{chr(65 + i)}. {o}</div>'
+            for i, o in enumerate(options[:6])
+        ])
+    ans_attr = answer if not isinstance(answer, list) else 0
     return f'''
           <div class="quiz-question" data-answer="{ans_attr}">
             <div class="quiz-question-text">{stem}</div>
@@ -100,8 +91,7 @@ def render_quiz_question(q, qid):
               {opt_html}
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              {explanation}
+              <strong>参考答案:</strong> {explanation}
             </div>
           </div>'''
 
@@ -121,17 +111,17 @@ def add_subsection_quizzes_to_chapter(chapter_path: Path, chapter_id: str, all_q
     PER_SUB = 2
     new_txt = txt
     for i, m in enumerate(matches):
-        # 取该节的题目
-        sub_questions = questions[i*PER_SUB : (i+1)*PER_SUB]
-        # 不足的话循环用
-        while len(sub_questions) < 1 and questions:
-            sub_questions.append(questions[0])
-        # 始终保证 2 道
-        while len(sub_questions) < 2 and questions:
-            sub_questions.append(questions[(len(sub_questions)) % len(questions)])
+        # 取该节的题目,过滤掉 multi/fill/short 保留 single/tf
+        all_single_tf = [q for q in questions if q.get("type", "single") in ("single", "tf") and q.get("options")]
+        if not all_single_tf:
+            sub_questions = []
+        else:
+            sub_questions = all_single_tf[i*PER_SUB : (i+1)*PER_SUB]
+            # 不足的话循环用
+            while len(sub_questions) < 2 and all_single_tf:
+                sub_questions.append(all_single_tf[len(sub_questions) % len(all_single_tf)])
 
         if not sub_questions:
-            # 用占位题
             sub_questions = [{
                 "type": "single",
                 "stem": "本节你学到了什么?能否用自己的话复述要点?",
@@ -142,7 +132,15 @@ def add_subsection_quizzes_to_chapter(chapter_path: Path, chapter_id: str, all_q
         # 渲染
         sec_no = i + 1
         section_id = f"ch{chapter_id.split('-')[0]}-sec{sec_no}"
-        q_html = "\n".join([render_quiz_question(q, f"{section_id}-q{j}") for j, q in enumerate(sub_questions)])
+        q_html_parts = []
+        for j, q in enumerate(sub_questions):
+            rendered = render_quiz_question(q, f"{section_id}-q{j}")
+            if rendered is None:
+                continue
+            q_html_parts.append(rendered)
+        if not q_html_parts:
+            continue
+        q_html = "\n".join(q_html_parts)
         block = QUIZ_TEMPLATE.format(section_id=section_id, questions_html=q_html)
 
         # 插入 h3 后(寻找下一个 </h3> 结束位置之后的下一个 </section> 或下个 h3 前)

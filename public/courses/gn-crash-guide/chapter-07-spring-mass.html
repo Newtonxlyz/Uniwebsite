@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>章节</title>
 <link rel="stylesheet" href="../_shared/course-css.css">
+  <!-- KaTeX 公式渲染 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\\\(',right:'\\\\)',display:false},{left:'\\\\[',right:'\\\\]',display:false}],throwOnError:false});"></script>
 </head>
 <body>
 <nav id="topnav"></nav>
@@ -746,7 +751,7 @@ for epoch in range(100):
 
   const ch = chaptersData.chapters.find(c => c.id === chapterId);
   if (ch) {
-    document.getElementById('chapterTitle').textContent = '第 ' + ch.id.slice(-2) + ' 章 · ' + ch.title;
+    document.getElementById('chapterTitle').textContent = '第 ' + ch.id.split('-')[0] + ' 章 · ' + ch.title;
     document.getElementById('chapterSubtitle').textContent = ch.subtitle + ' · ' + ch.estimatedMinutes + ' 分钟';
     // 自动标记学习中
     if (CourseProgress.get(chapterId).status === 'not_started') {

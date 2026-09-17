@@ -5,6 +5,11 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>章节</title>
 <link rel="stylesheet" href="../_shared/course-css.css">
+  <!-- KaTeX 公式渲染 -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"
+    onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false},{left:'\\\\(',right:'\\\\)',display:false},{left:'\\\\[',right:'\\\\]',display:false}],throwOnError:false});"></script>
 </head>
 <body>
 <nav id="topnav"></nav>
@@ -39,22 +44,20 @@
           <div class="quiz-question" data-answer="1">
             <div class="quiz-question-text">Luminary SHIFT-Crash 整车级代理模型的 RMSE?</div>
             <div class="quiz-options">
-              <div class="quiz-option">< 1%</div><div class="quiz-option">< 3%</div><div class="quiz-option">< 5%</div><div class="quiz-option">< 10%</div>
+              <div class="quiz-option" data-idx="0">A. < 1%</div><div class="quiz-option" data-idx="1">B. < 3%</div><div class="quiz-option" data-idx="2">C. < 5%</div><div class="quiz-option" data-idx="3">D. < 10%</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              基于 5000 次 2010 Toyota Yaris 碰撞仿真训练,RMSE < 3%。
+              <strong>参考答案:</strong> 基于 5000 次 2010 Toyota Yaris 碰撞仿真训练,RMSE < 3%。
             </div>
           </div>
 
           <div class="quiz-question" data-answer="0">
             <div class="quiz-question-text">SHIFT-Crash 第三个 SUV 项目需要额外多少仿真?</div>
             <div class="quiz-options">
-              <div class="quiz-option">300 以下</div><div class="quiz-option">500</div><div class="quiz-option">1000</div><div class="quiz-option">5000</div>
+              <div class="quiz-option" data-idx="0">A. 300 以下</div><div class="quiz-option" data-idx="1">B. 500</div><div class="quiz-option" data-idx="2">C. 1000</div><div class="quiz-option" data-idx="3">D. 5000</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              迁移学习让第三个 SUV 项目只需 < 300 次额外仿真(从首个 SUV 的 5000 次递减)。
+              <strong>参考答案:</strong> 迁移学习让第三个 SUV 项目只需 < 300 次额外仿真(从首个 SUV 的 5000 次递减)。
             </div>
           </div>
         </div>
@@ -64,8 +67,7 @@
 <p>NVIDIA与通用汽车合作的白车身碰撞研究更进一步，使用150次LS-DYNA仿真训练MeshGraphNet和Transolver模型，支持可变厚度分布的参数化输入，能够预测整个碰撞过程的时空变形演化。虽然尚未达到完整FE精度，但实现了数量级的计算加速，证明了ML代理模型在早期碰撞安全性优化中的可行性 <a href="https://www.nvidia.com/en-us/on-demand/session/gtc26-s81785/" target="_blank">(GTC 2026)</a>。该工作已整合进NVIDIA PhysicsNeMo框架，作为官方示例提供，支持d3plot和VTP数据格式 <a href="https://docs.nvidia.com/physicsnemo/latest/physicsnemo/examples/structural_mechanics/crash/README.html" target="_blank">(NVIDIA文档)</a>。</p>
 <p><strong>模型架构的演进路径。</strong> 碰撞代理模型的架构选择经历了三代演进：</p>
 <p>第一代是<strong>标量回归模型</strong>（GPR、DNN），直接从设计参数预测几个关键性能指标（如最大侵入量、峰值加速度）。这类模型数据需求少、实现简单，但丢失了空间分布信息，无法支持详细的工程分析。典型如某皮卡车碰撞BP神经网络代理模型，以碰撞速度为输入、力-位移曲线为输出，最大峰值相对误差在2.74%-9.6%之间 <a href="http://qks.cqu.edu.cn/html/cqdxzrcn/2021/2/20210209.htm" target="_blank">(重庆大学学报)</a>。</p>
-<p>第二代是<strong>全场图神经网络</strong>（MeshGraphNet等），直接在网格上运行，以节点位移为输出，能够保留完整的空间信息。MeshGraphNet以网格连接为图结构，通过边更新-节点更新的消息传递机制学习局部物理交互，具有天然的结构归纳偏置 <a href="https://arxiv.org/pdf/2510.15201v2.pdf" target="_blank">(arXiv:2510.15201v2)</a>。</p>
-<p>第三代是<strong>注意力混合架构</strong>（Transolver、GeoTransolver），在GNN基础上引入注
+<p>第二代是<strong>全场图神经网络</strong>（MeshGraphNet等），直接在网格上运行，以节点位移为输出，能够保留完整的空间信息。MeshGraphNet以网格连接为图结构，通过边更新-节点更新的消息传递机制学习局部物理交互，具有天然的结构归纳偏置 <a href="https://arxiv.org/pdf/2510.15201v2.pdf" target="_blank">(arXiv
 
         <div class="quiz-section" data-section="ch02-sec2">
           <h4>📝 本节检测题</h4>
@@ -73,32 +75,30 @@
           <div class="quiz-question" data-answer="1">
             <div class="quiz-question-text">SEAT/IDIADA 侧柱撞击代理模型的时间平均 RMSE?</div>
             <div class="quiz-options">
-              <div class="quiz-option">1.20 mm</div><div class="quiz-option">3.20 mm</div><div class="quiz-option">5.20 mm</div><div class="quiz-option">10.20 mm</div>
+              <div class="quiz-option" data-idx="0">A. 1.20 mm</div><div class="quiz-option" data-idx="1">B. 3.20 mm</div><div class="quiz-option" data-idx="2">C. 5.20 mm</div><div class="quiz-option" data-idx="3">D. 10.20 mm</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              25 测试样本上时间平均 RMSE 3.20 mm,采用 MeshTransolver 等混合架构。
+              <strong>参考答案:</strong> 25 测试样本上时间平均 RMSE 3.20 mm,采用 MeshTransolver 等混合架构。
             </div>
           </div>
 
           <div class="quiz-question" data-answer="2">
             <div class="quiz-question-text">代理模型架构第三代采用?</div>
             <div class="quiz-options">
-              <div class="quiz-option">纯 GNN</div><div class="quiz-option">纯 Transformer</div><div class="quiz-option">GNN + Transformer 注意力混合</div><div class="quiz-option">纯 FNO</div>
+              <div class="quiz-option" data-idx="0">A. 纯 GNN</div><div class="quiz-option" data-idx="1">B. 纯 Transformer</div><div class="quiz-option" data-idx="2">C. GNN + Transformer 注意力混合</div><div class="quiz-option" data-idx="3">D. 纯 FNO</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              第三代是注意力混合(Transolver/GeoTransolver),在 GNN 基础上引入注意力捕捉长程变形。
+              <strong>参考答案:</strong> 第三代是注意力混合(Transolver/GeoTransolver),在 GNN 基础上引入注意力捕捉长程变形。
             </div>
           </div>
         </div>
-意力机制捕捉长程变形模式。Transolver的核心创新是在学习的物理状态空间上计算注意力而非直接在网格点上，从而克服了Transformer的二次复杂度问题，同时获得了更好的几何泛化能力。该架构在六个标准基准上比之前SOTA降低22%误差，已集成到NVIDIA PhysicsNeMo <a href="https://github.com/thuml/Transolver/blob/main/README.md" target="_blank">(Transolver GitHub)</a>。</p>
+:2510.15201v2)</a>。</p>
+<p>第三代是<strong>注意力混合架构</strong>（Transolver、GeoTransolver），在GNN基础上引入注意力机制捕捉长程变形模式。Transolver的核心创新是在学习的物理状态空间上计算注意力而非直接在网格点上，从而克服了Transformer的二次复杂度问题，同时获得了更好的几何泛化能力。该架构在六个标准基准上比之前SOTA降低22%误差，已集成到NVIDIA PhysicsNeMo <a href="https://github.com/thuml/Transolver/blob/main/README.md" target="_blank">(Transolver GitHub)</a>。</p>
 <p><strong>精度与效率的量化进展。</strong> 不同研究的精度指标因问题规模和复杂度差异较大，但总体趋势清晰：</p>
 <ul>
 <li>部件级（轨道、横梁）：压溃误差<0.5%，力误差<10%，加速20x-50x <a href="http://hengstar-china.com/ueditor/php/upload/file/20250528/1748400839785342.pdf" target="_blank">(Ansys SimAI)</a></li>
 <li>子系统级（侧梁、B柱）：R²=0.80-0.95，加速400x+（子模型相对整车） <a href="https://www.cambridge.org/core/product/8B1C8340F82B88FACE8CD3CEAAB1E747/core-reader" target="_blank">(Cambridge Core)</a></li>
-<li>整车级（白车身）：位移RMSE=3.20mm，加速100x-1000x（推理阶段） <a href="https://arxiv.org/pdf/2605.11784" target="_blank">(arXiv:2605.11784)</a></li>
-<li>整车级（完整功能模型）：RMSE<3%，从数小时压缩到数秒 <a href="https://lum
+<li
 
         <div class="quiz-section" data-section="ch02-sec3">
           <h4>📝 本节检测题</h4>
@@ -106,26 +106,25 @@
           <div class="quiz-question" data-answer="0">
             <div class="quiz-question-text">MeshGraphNet 以网格连接为图结构,通过消息传递机制学习局部物理交互。</div>
             <div class="quiz-options">
-              <div class="quiz-option">对</div><div class="quiz-option">错</div>
+              <div class="quiz-option" data-idx="0">对</div><div class="quiz-option" data-idx="1">错</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              MeshGraphNet 是第二代代表,以边更新-节点更新消息传递机制为核心。
+              <strong>参考答案:</strong> MeshGraphNet 是第二代代表,以边更新-节点更新消息传递机制为核心。
             </div>
           </div>
 
           <div class="quiz-question" data-answer="2">
             <div class="quiz-question-text">FNO 在双线性滞回非线性系统中的相对 L2 误差?</div>
             <div class="quiz-options">
-              <div class="quiz-option">0.02</div><div class="quiz-option">0.10</div><div class="quiz-option">0.38</div><div class="quiz-option">> 1</div>
+              <div class="quiz-option" data-idx="0">A. 0.02</div><div class="quiz-option" data-idx="1">B. 0.10</div><div class="quiz-option" data-idx="2">C. 0.38</div><div class="quiz-option" data-idx="3">D. > 1</div>
             </div>
             <div class="quiz-feedback">
-              <strong>参考答案:</strong><br>
-              UC Berkeley 系统评估:FNO 在双线性滞回系统误差 0.38,在地震激励下非线性系统误差随非线性程度急剧恶化。
+              <strong>参考答案:</strong> UC Berkeley 系统评估:FNO 在双线性滞回系统误差 0.38,在地震激励下非线性系统误差随非线性程度急剧恶化。
             </div>
           </div>
         </div>
-inary.ai/resources/luminary-launches-shift-crash-first-physics-ai-model-for-full-vehicle-crash-prediction/" target="_blank">(Luminary SHIFT-Crash)</a></li>
+>整车级（白车身）：位移RMSE=3.20mm，加速100x-1000x（推理阶段） <a href="https://arxiv.org/pdf/2605.11784" target="_blank">(arXiv:2605.11784)</a></li>
+<li>整车级（完整功能模型）：RMSE<3%，从数小时压缩到数秒 <a href="https://luminary.ai/resources/luminary-launches-shift-crash-first-physics-ai-model-for-full-vehicle-crash-prediction/" target="_blank">(Luminary SHIFT-Crash)</a></li>
 </ul>
 <p>需要注意的是，这些精度数字都是在<strong>训练参数空间内</strong>（interpolation）的验证结果。一旦超出训练分布，精度会急剧下降——这是所有数据驱动方法的共同瓶颈，也是PINN物理约束最有可能发挥价值的地方。</p>
 <h3>2.2 代表性研究团队与机构</h3>
