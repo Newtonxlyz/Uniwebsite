@@ -267,6 +267,20 @@ a:hover { color: var(--primary-hover); }
 .quiz-opt.correct { background: var(--success-soft); color: var(--success); border-color: var(--success); }
 .quiz-opt.wrong { background: var(--danger-soft); color: var(--danger); border-color: var(--danger); }
 
+/* 子节小测默认折叠提示按钮 */
+.subsection-quiz-intro {
+  background: var(--primary-soft);
+  border: 1px dashed var(--primary);
+  border-radius: var(--radius-md);
+  padding: 12px 16px;
+  margin: 12px 0;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.subsection-quiz-intro .btn { padding: 6px 14px; font-size: 14px; }
+
 /* 多选 checkbox 样式(label 形式,可点击整行) */
 .quiz-opt-multi {
   padding: 12px 16px; border: 1px solid var(--border); border-radius: var(--radius-sm);

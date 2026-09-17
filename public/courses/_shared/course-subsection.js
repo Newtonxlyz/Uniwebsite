@@ -79,13 +79,39 @@
     };
   }
 
-  // 绑定单个 quiz-section:折叠 + 即时判分
+  // 绑定单个 quiz-section:默认折叠 + 即时判分
   function bindQuizSection(sectionEl) {
     if (!sectionEl) return;
     const sectionId = sectionEl.getAttribute('data-section');
     if (!sectionId) return;
 
-    // 把 feedback 隐藏,默认折叠
+    // 已经有答案了:显示完整答题态
+    const savedData = _loadSection(sectionId);
+    const hasSaved = savedData && savedData.total > 0;
+
+    if (!hasSaved) {
+      // 默认折叠 quiz-question 和 quiz-feedback,只显示标题
+      const savedState = _loadSection(sectionId);
+      // 在 section 顶部注入"开始本节小测"按钮
+      const intro = document.createElement('div');
+      intro.className = 'subsection-quiz-intro';
+      intro.innerHTML = `
+        <button class="btn btn-primary" id="startBtn">▶ 开始本节小测</button>
+        <span class="text-dim" style="margin-left:12px;font-size:13px;">${sectionEl.querySelectorAll('.quiz-question').length} 道题 · 学完正文后再来</span>
+      `;
+      sectionEl.insertBefore(intro, sectionEl.firstChild.nextSibling);
+
+      // 隐藏题目
+      sectionEl.querySelectorAll('.quiz-question').forEach(q => q.style.display = 'none');
+
+      // 绑定按钮:点击展开
+      intro.querySelector('#startBtn').addEventListener('click', () => {
+        sectionEl.querySelectorAll('.quiz-question').forEach(q => q.style.display = '');
+        intro.style.display = 'none';
+      });
+    }
+
+    // 把 feedback 隐藏(展开后作答时显示)
     const feedbacks = sectionEl.querySelectorAll('.quiz-feedback');
     feedbacks.forEach(fb => fb.style.display = 'none');
 

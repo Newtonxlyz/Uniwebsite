@@ -200,7 +200,7 @@
 
   const ch = chaptersData.chapters.find(c => c.id === chapterId);
   if (ch) {
-    document.getElementById('chapterTitle').textContent = '第 ' + ch.id.slice(-2) + ' 章 · ' + ch.title;
+    document.getElementById('chapterTitle').textContent = '第 ' + parseInt(ch.id, 10) + ' 章 · ' + ch.title;
     document.getElementById('chapterSubtitle').textContent = ch.subtitle + ' · ' + ch.estimatedMinutes + ' 分钟';
     // 自动标记学习中
     if (CourseProgress.get(chapterId).status === 'not_started') {
