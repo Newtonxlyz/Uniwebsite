@@ -95,7 +95,7 @@
 
   document.getElementById('continueBtn').addEventListener('click', () => {
     const next = chaptersData.chapters.find(c => CourseProgress.get(c.id).status !== 'completed');
-    if (next) window.location.href = 'chapter-' + next.slug + '.html';
+    if (next) window.location.href = next.slug + '.html';
     else alert('🎉 恭喜完成全部章节!');
   });
 })();

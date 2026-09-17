@@ -3,6 +3,7 @@ import "./globals.css";
 import { Providers } from "@/components/providers";
 import { NavBar } from "@/components/nav-bar";
 import { SubsiteNavAuto } from "@/components/subsite-nav-auto";
+import { LearnFloatingNav } from "@/components/learn-floating-nav";
 
 export const metadata: Metadata = {
   title: "吕元卓 · Lvyz Web",
@@ -42,6 +43,7 @@ export default function RootLayout({
           <NavBar />
           <SubsiteNavAuto />
           <main className="relative">{children}</main>
+          <LearnFloatingNav />
         </Providers>
       </body>
     </html>

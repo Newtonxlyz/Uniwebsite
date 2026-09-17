@@ -25,16 +25,14 @@ import { useSession, signOut as doSignOut } from "@/lib/auth-client";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 // ─────────────────────────────────────────────────
-// 6 个子站配置
+// 7 个子站配置(NLFEA 已下线,课程统一进 /learn/courses 顶级板块)
 // ─────────────────────────────────────────────────
 const SUBSITES = [
+  { href: "/learn/courses", label: "课程中心", short: "课程", icon: GraduationCap, desc: "AI+汽车安全 · 系统课程" },
   { href: "/crashai", label: "crashAI", short: "crashAI", icon: Cpu, desc: "AI 模型训练 · 路径学习" },
   { href: "/kids-ai", label: "儿童 AI", short: "KidsAI", icon: Sparkles, desc: "儿童本地大模型互动" },
   { href: "/picturebook", label: "绘本", short: "绘本", icon: BookOpen, desc: "原创情感引导绘本" },
   { href: "/knowledge-base", label: "知识库", short: "知识库", icon: Library, desc: "TEBS 车辆安全技术库" },
-  { href: "/learn/nlfea", label: "NLFEA", short: "NLFEA", icon: Atom, desc: "非线性有限元 6 章课程" },
-  { href: "/learn/pinn-crash", label: "PINN", short: "PINN", icon: Atom, desc: "AI+DOE+PINN 6 章课程" },
-  { href: "/learn/gn-crash", label: "GNN", short: "GNN", icon: Cpu, desc: "GNN+Transformer 7 章课程" },
   { href: "/blog", label: "博客", short: "博客", icon: Brain, desc: "AI 工具 · 汽车安全思考" },
   { href: "/merchandise", label: "IP 周边", short: "周边", icon: ShoppingBag, desc: "Lvyz 周边商城" },
 ];
@@ -70,11 +68,6 @@ const SUBSITE_ACTIONS: Record<string, SubsiteAction[]> = {
   ],
   "/knowledge-base": [
     { href: "/knowledge-base", label: "搜索", icon: Library, description: "83 篇技术文档" },
-  ],
-  "/learn/nlfea": [
-    { href: "/learn/nlfea", label: "课程地图", icon: BookOpen, description: "6 章 49 节课程" },
-    { href: "/nlfea-course/flashcards.html", label: "闪卡", icon: Brain, description: "46 张闪卡复习" },
-    { href: "/nlfea-course/exam.html", label: "考试", icon: GraduationCap, description: "20 题 90 分及格" },
   ],
   "/learn/pinn-crash": [
     { href: "/learn/pinn-crash", label: "课程地图", icon: BookOpen, description: "PINN 6 章课程" },

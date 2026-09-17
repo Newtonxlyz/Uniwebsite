@@ -617,6 +617,8 @@ def compute_burgers_residual(model, x, t, nu):
 
   <div class="card" id="notesSection"></div>
 
+  <div class="card" id="lectureTemplateSection"></div>
+
   <hr>
 
   <div style="display: flex; gap: 12px; flex-wrap: wrap; justify-content: space-between;">
@@ -666,9 +668,11 @@ def compute_burgers_residual(model, x, t, nu):
 
   document.getElementById('statusSection').innerHTML = CourseApp.statusButtonsHTML(chapterId);
   document.getElementById('notesSection').innerHTML = CourseApp.notesHTML(chapterId);
+  document.getElementById('lectureTemplateSection').innerHTML = CourseApp.lectureTemplateHTML(chapterId, chaptersData);
 
   CourseApp.bindProgress(chapterId);
   CourseApp.bindNotes(chapterId);
+  CourseApp.bindLectureTemplate(chapterId, chaptersData);
   CourseApp.bindTimer(chapterId);
 })();
 </script>

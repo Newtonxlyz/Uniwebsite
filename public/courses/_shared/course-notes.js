@@ -70,12 +70,26 @@
     return results;
   }
 
+  // ─────────────────────────────────────────────────
+  // 讲解就绪 — 一句话总结(每个章节独立)
+  // ─────────────────────────────────────────────────
+  function _lectureKey(chapterId) { return `${_courseId}_lecture_${chapterId}`; }
+
+  function saveLectureOneLine(chapterId, text) {
+    CourseStorage.set(_lectureKey(chapterId), (text || '').trim());
+  }
+
+  function getLectureOneLine(chapterId) {
+    return CourseStorage.get(_lectureKey(chapterId), '');
+  }
+
   function summary() {
     const total = search('').length;
     return { total };
   }
 
   window.CourseNotes = {
-    init, add, getAll, remove, edit, search, summary
+    init, add, getAll, remove, edit, search, summary,
+    saveLectureOneLine, getLectureOneLine
   };
 })();

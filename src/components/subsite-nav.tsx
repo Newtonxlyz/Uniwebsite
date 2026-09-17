@@ -70,12 +70,6 @@ export function SubsiteNav({ subsite }: { subsite: string }) {
         return [
           { href: "/knowledge-base", label: "搜索", icon: Library, description: "83 篇技术文档" },
         ];
-      case "learn/nlfea":
-        return [
-          { href: "/learn/nlfea", label: "课程地图", icon: BookOpen, description: "6 章 49 节课程" },
-          { href: "/nlfea-course/flashcards.html", label: "闪卡", icon: Brain, description: "46 张闪卡复习" },
-          { href: "/nlfea-course/exam.html", label: "考试", icon: GraduationCap, description: "20 题 90 分及格" },
-        ];
       case "learn/pinn-crash":
         return [
           { href: "/learn/pinn-crash", label: "课程地图", icon: BookOpen, description: "PINN 6 章课程" },

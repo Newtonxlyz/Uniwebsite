@@ -79,6 +79,122 @@
     });
   }
 
+  // ─────────────────────────────────────────────────
+  // 讲解模板(学会并能讲解:每章节末自动生成讲解骨架)
+  // 从 chapter.subsections[].title 提取要点,用户笔记作为"我的讲法"
+  // ─────────────────────────────────────────────────
+  function lectureTemplateHTML(chapterId, chaptersData) {
+    const ch = chaptersData.chapters.find(c => c.id === chapterId);
+    if (!ch) return '<p class="text-dim">章节数据未加载</p>';
+    const subsections = ch.subsections || [];
+    const userLecture = CourseNotes.getAll(chapterId).filter(n => n.tags?.includes('讲解'));
+    return `
+      <div class="lecture-template">
+        <h3 style="margin-top:0;">🎙️ 讲解就绪模板</h3>
+        <p class="text-dim" style="font-size: 13px; margin-bottom: 16px;">
+          <strong style="color: var(--text);">目标:</strong>读完本节后,能用 3 分钟向他人讲清楚本章核心。
+          下方要点自动从章节标题提取,你在笔记中加 <code style="background: var(--bg-elev); padding: 1px 6px; border-radius: 3px;">#讲解</code> 标签会出现在"我的讲法"区。
+        </p>
+
+        <div class="lecture-section">
+          <h4 style="margin: 16px 0 8px;">📌 本章核心要点(自动)</h4>
+          <ol style="padding-left: 20px; line-height: 1.8;">
+            ${subsections.map((s, i) => `<li><strong>${s.title}</strong></li>`).join('')}
+          </ol>
+        </div>
+
+        <div class="lecture-section">
+          <h4 style="margin: 16px 0 8px;">💡 一句话总结(填空)</h4>
+          <textarea class="note-area" id="lectureOneLine" placeholder="用一句话讲清本章:____ 是 ____,通过 ____ 实现 ____"
+            style="min-height: 60px;"></textarea>
+        </div>
+
+        <div class="lecture-section">
+          <h4 style="margin: 16px 0 8px;">📝 我的讲法(${userLecture.length} 条)</h4>
+          ${userLecture.length === 0
+            ? '<p class="text-dimmer" style="font-size: 13px;">还没有讲解笔记。添加笔记时输入 <code style="background: var(--bg-elev); padding: 1px 6px; border-radius: 3px;">#讲解</code> 标签即可归入这里。</p>'
+            : userLecture.map(n => `
+                <div class="lecture-note">
+                  <div style="white-space: pre-wrap;">${escapeHtml(n.content)}</div>
+                  <div class="text-dimmer" style="font-size: 11px; margin-top: 4px;">
+                    ${new Date(n.createdAt).toLocaleString('zh-CN')}
+                  </div>
+                </div>
+              `).join('')}
+        </div>
+
+        <div style="margin-top: 16px;">
+          <button class="btn btn-primary" id="exportLectureBtn" style="margin-right: 8px;">⬇ 导出讲解模板 Markdown</button>
+          <button class="btn" id="markLectureDoneBtn">✓ 标记讲解就绪</button>
+        </div>
+      </div>
+    `;
+  }
+
+  function bindLectureTemplate(chapterId, chaptersData) {
+    const ch = chaptersData.chapters.find(c => c.id === chapterId);
+    if (!ch) return;
+    // 恢复一句话总结
+    const savedOneLine = CourseNotes.getLectureOneLine(chapterId);
+    const oneLine = document.getElementById('lectureOneLine');
+    if (oneLine && savedOneLine) oneLine.value = savedOneLine;
+    if (oneLine) {
+      oneLine.addEventListener('blur', () => CourseNotes.saveLectureOneLine(chapterId, oneLine.value));
+    }
+    // 导出
+    const exportBtn = document.getElementById('exportLectureBtn');
+    if (exportBtn) exportBtn.addEventListener('click', () => exportLectureMarkdown(chapterId, ch));
+    // 标记讲解就绪
+    const markBtn = document.getElementById('markLectureDoneBtn');
+    if (markBtn) markBtn.addEventListener('click', () => {
+      const st = CourseProgress.get(chapterId);
+      CourseProgress.setChapterStatus(chapterId, 'completed');
+      alert('✅ 已标记"讲解就绪",并把章节状态推进到"已完成"');
+      // 刷新 statusSection
+      const sec = document.getElementById('statusSection');
+      if (sec) {
+        sec.innerHTML = statusButtonsHTML(chapterId);
+        bindProgress(chapterId);
+      }
+    });
+  }
+
+  function exportLectureMarkdown(chapterId, ch) {
+    const subsections = ch.subsections || [];
+    const userLecture = CourseNotes.getAll(chapterId).filter(n => n.tags?.includes('讲解'));
+    const oneLine = CourseNotes.getLectureOneLine(chapterId) || '_(待填写)_';
+    const md = [
+      `# 讲解模板 · ${ch.title}`,
+      ``,
+      `> 课程:${ch.section || 'N/A'} · 章节:${ch.id} · 导出时间:${new Date().toLocaleString('zh-CN')}`,
+      ``,
+      `## 🎯 一句话总结`,
+      oneLine,
+      ``,
+      `## 📌 本章核心要点`,
+      ...subsections.map((s, i) => `${i + 1}. **${s.title}**`),
+      ``,
+      `## 💼 我的讲法`,
+      ...(userLecture.length === 0
+        ? ['_(暂无讲解笔记,加 #讲解 标签的笔记会自动归入这里)_']
+        : userLecture.map(n => `- **"${new Date(n.createdAt).toLocaleDateString('zh-CN')}"**\n\n  ${n.content.split('\n').join('\n  ')}`)),
+      ``,
+      `---`,
+      ``,
+      `## 📚 应用案例(待补充)`,
+      `_用一段话讲完本章在真实工程 / 学术场景里的用法_`,
+    ].join('\n');
+    const blob = new Blob([md], { type: 'text/markdown' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = `${chapterId}-lecture.md`;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  }
+
   function bindNotes(chapterId) {
     const addBtn = document.getElementById('addNoteBtn');
     const noteInput = document.getElementById('noteInput');
@@ -186,6 +302,7 @@
     statusButtonsHTML, notesHTML,
     bindProgress, bindNotes, bindTimer,
     renderTopnav, renderProgressRing, renderChapterList,
+    lectureTemplateHTML, bindLectureTemplate, exportLectureMarkdown,
     escapeHtml
   };
 })();
