@@ -229,6 +229,26 @@ QUIZ_PAGE_TPL = '''<!DOCTYPE html>
       return `<textarea class="note-area" id="answerArea" placeholder="输入你的答案">${saved || ''}</textarea>
               <button class="btn btn-primary" id="answerBtn" style="margin-top: 8px;">提交答案</button>`;
     }
+    // 多选:checkbox + 确认按钮(只有按"确认选择"才判分)
+    if (q.type === 'multi') {
+      const checked = Array.isArray(saved) ? new Set(saved.map(Number)) : new Set();
+      const opts = q.options || [];
+      const htmls = opts.map((o, i) => {
+        const isChecked = checked.has(i);
+        let cls = isChecked ? 'selected' : '';
+        if (isChecked && fb) cls += fb.correct ? ' correct' : ' wrong';
+        return `<label class="quiz-opt-multi ${cls}" data-idx="${i}">
+          <input type="checkbox" class="quiz-multi-cb" data-idx="${i}" ${isChecked ? 'checked' : ''}>
+          <span class="quiz-multi-letter">${String.fromCharCode(65 + i)}.</span>
+          <span class="quiz-multi-text">${o}</span>
+        </label>`;
+      }).join('');
+      const fbClass = fb ? (fb.correct ? 'correct' : 'wrong') : '';
+      const confirmBtn = fb ? '' : `<button class="btn btn-primary" id="multiConfirmBtn" style="margin-top:12px;">确认选择</button>`;
+      const hint = !fb ? `<div class="text-dim text-sm" style="margin-top:6px;">📌 多选题:选中所有你认为正确的选项后,点击"确认选择"</div>` : '';
+      return `<div class="quiz-options quiz-options-multi" data-qid="${q.id}">${htmls}</div>${hint}${confirmBtn}`;
+    }
+    // 单选/判断:点击即判分
     const opts = q.options || ['对','错'];
     return `<div class="quiz-options">${
       opts.map((o, i) => {
@@ -251,11 +271,26 @@ QUIZ_PAGE_TPL = '''<!DOCTYPE html>
   function bindQuizEvents() {
     const st = CourseQuiz.getCurrent();
     const q = st.questions[st.currentIdx];
+    // 单选/判断:点击立即判分
     document.querySelectorAll('.quiz-opt').forEach(btn => btn.addEventListener('click', e => {
       const idx = parseInt(e.currentTarget.dataset.idx);
       CourseQuiz.answer(q.id, idx);
       renderQuiz();
     }));
+    // 多选:点击 label 切换 checkbox,不立即判分
+    document.querySelectorAll('.quiz-multi-cb').forEach(cb => cb.addEventListener('change', e => {
+      const idx = parseInt(e.target.dataset.idx);
+      const label = e.target.closest('.quiz-opt-multi');
+      if (label) label.classList.toggle('selected', e.target.checked);
+    }));
+    // 多选"确认选择"
+    const mc = document.getElementById('multiConfirmBtn');
+    if (mc) mc.addEventListener('click', () => {
+      const selected = Array.from(document.querySelectorAll('.quiz-multi-cb:checked')).map(cb => Number(cb.dataset.idx));
+      if (selected.length === 0) { alert('请至少选择一个选项'); return; }
+      CourseQuiz.answer(q.id, selected);
+      renderQuiz();
+    });
     const ansBtn = document.getElementById('answerBtn');
     if (ansBtn) ansBtn.addEventListener('click', () => {
       const v = document.getElementById('answerArea').value;

@@ -75,7 +75,7 @@
   // 6 章测验
   chaptersData.chapters.forEach((ch, idx) => {
     const q = quizzesData[ch.id];
-    if (q) html += renderQuizItem(ch.id, q, '第 ${idx + 1} 章 · ${ch.title}');
+    if (q) html += renderQuizItem(ch.id, q, `第 ${idx + 1} 章 · ${ch.title}`);
   });
   // 期末考试
   const final = quizzesData.final;

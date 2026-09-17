@@ -74,7 +74,7 @@
   document.getElementById('courseTitle').textContent = c.title;
   document.getElementById('courseSubtitle').textContent = c.subtitle;
   document.getElementById('courseMeta').innerHTML =
-    '<span>📚 ' + (chaptersData.chapters?.length || 0) + ' 章</span>' +
+    '<span>📚 ' + (c.chapters?.length || 6) + ' 章</span>' +
     '<span>⏱ ' + c.estimatedHours + ' 小时</span>' +
     '<span>🎓 ' + c.level + '</span>' +
     '<span>👥 ' + c.audience + '</span>';
