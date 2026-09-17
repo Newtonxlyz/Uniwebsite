@@ -32,13 +32,91 @@
 
   <article id="chapterBody">
     <h3>5.1 训练数据量与硬件需求</h3>
+
+        <div class="quiz-section" data-section="ch05-sec1">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">AI 降阶模型最关键的风险?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">训练慢</div><div class="quiz-option">泛化性和可信度</div><div class="quiz-option">GPU 占用</div><div class="quiz-option">代码兼容性</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              最大落地障碍不是精度,而是泛化性和可信度体系,缺乏针对 AI 仿真结果的验证标准和监管认可路径。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">AI 降阶模型的工程定位?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">最终验证工具</div><div class="quiz-option">早期设计筛选工具</div><div class="quiz-option">替代 CAE</div><div class="quiz-option">标准制定工具</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              AI 降阶模型定位是'早期设计筛选工具'而非'最终验证工具',价值在于将设计空间探索能力从几十个提升到上万个方案。
+            </div>
+          </div>
+        </div>
+
 <p><strong>数据量需求。</strong> 数据量需求与问题维度、复杂度和目标精度强相关。根据公开案例可总结出大致规律：</p>
 <ul>
 <li><strong>标量+低维（3-5个参数）</strong>：25-100次仿真即可达到较高精度。例如约束系统ROM案例用3个设计变量、25个DOE样本，R²>97% <a href="https://m.auto-testing.net/news/show-120458.html" target="_blank">(汽车测试网)</a>。</li>
-<li><strong>场量+中维（10-20个参数）</strong>：几百次仿真量级。例如Altair轨道碰撞用450次训练+50次验证 <a href="https://altair.com/docs/default-source/resource-library/altair_whitepaper_rail_crash_physicsai_061025-final-clean.pdf" target="_blank">(Altair白皮书)</a>；侧梁优化用556个变体（14个壁厚参数）<a href="https://www.cambridge.org/core/product/8B1C8340F82B88FACE8CD3CEAAB1E747/core-reader" target="_blank">(Cambridge Core)</a>。</li>
+<li><strong>场量+中维（10-20个参数）</strong>：几百次仿真量级。例如Altair轨道碰撞用450次训练+50次验证 <a href="https://altair.com/docs/default-source/resource-library/altair_whitepaper_rail_crash_physicsai_061025-final-clean.pdf" target="_blank">(
+
+        <div class="quiz-section" data-section="ch05-sec2">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">GNN+Transformer 落地 4 阶段时长?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">2-4周 + 4-6周 + 4-8周 + 按需</div><div class="quiz-option">1-2周 + 2-4周 + 4-6周 + 按需</div><div class="quiz-option">4-6周 + 2-4周 + 8-12周 + 按需</div><div class="quiz-option">6-8周 + 4-6周 + 8-12周 + 按需</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              4 阶段:验证可行性(2-4周) → 完整链路搭建(4-6周) → 工程化优化(4-8周) → 多尺度拓展(按需)。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">DOE 参数维度为 d 时,初始样本量经验法则是 ____ 。</div>
+            <div class="quiz-feedback">
+              <strong>本节关键术语:</strong><br>
+              经验法则:参数维度为 d 时,初始 DOE 需要 10d~20d 个样本点。
+            </div>
+          </div>
+        </div>
+Altair白皮书)</a>；侧梁优化用556个变体（14个壁厚参数）<a href="https://www.cambridge.org/core/product/8B1C8340F82B88FACE8CD3CEAAB1E747/core-reader" target="_blank">(Cambridge Core)</a>。</li>
 <li><strong>全场+高维（整车级）</strong>：数千次仿真量级。SHIFT-Crash基准数据集为5000次仿真 <a href="https://luminary.ai/resources/luminary-launches-shift-crash-first-physics-ai-model-for-full-vehicle-crash-prediction/" target="_blank">(Luminary)</a>；NVIDIA白车身研究用150次（变量较少、精度要求也较低）<a href="https://www.nvidia.com/en-us/on-demand/session/gtc26-s81785/" target="_blank">(GTC 2026)</a>。</li>
 </ul>
-<p>DOE采样的经验法则是参数维度d的10-20倍，但这是初始样本量。对于强非线性问题，通常还需要主动学习循环补充30%-100%的样本才能达到工程精度。</p>
+<p>DOE采样的经验法则是参数维度d的10
+
+        <div class="quiz-section" data-section="ch05-sec3">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">工业级碰撞降阶为何采用混合架构而非纯 PINN?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">PINN 专利限制</div><div class="quiz-option">混合架构 GPU 友好</div><div class="quiz-option">碰撞强非线性+接触不连续使纯 PDE 残差难</div><div class="quiz-option">混合架构更便宜</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              碰撞含塑性+接触+大变形,PDE 残差难算,需'数据为主、物理为辅'。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">子结构技术能把仿真成本降低约 400 倍。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">对</div><div class="quiz-option">错</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              工业实践常采用子模型技术(如侧梁子模型比整车快约 400 倍)来降低数据生成成本。
+            </div>
+          </div>
+        </div>
+-20倍，但这是初始样本量。对于强非线性问题，通常还需要主动学习循环补充30%-100%的样本才能达到工程精度。</p>
 <p><strong>硬件需求。</strong> 训练阶段：现代碰撞代理模型（如GNN/Transformer）通常需要单个GPU到多GPU训练。NVIDIA PhysicsNeMo的碰撞示例推荐GPU环境配PyTorch <a href="https://docs.nvidia.com/physicsnemo/latest/physicsnemo/examples/structural_mechanics/crash/README.html" target="_blank">(NVIDIA文档)</a>。对于百万节点级的整车模型，训练可能需要A100或更高级别GPU，训练周期从几小时（部件级）到几天（整车级）不等。推理阶段则非常快——通常在秒级以内，这也是代理模型的核心价值所在。</p>
 <p><strong>训练周期。</strong> 完整的AI+DOE+PINN项目周期包括：数据准备（参数化+DOE）1-4周、仿真运行（取决于并行资源）数天到数周、模型训练与调优几天到几周、验证与部署1-2周。对于部件级问题，整个周期可以在1-2个月内完成；整车级项目通常需要3-6个月，具体取决于数据可用性和团队经验。</p>
 <h3>5.2 工业落地的主要障碍</h3>

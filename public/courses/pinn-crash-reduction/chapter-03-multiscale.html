@@ -32,6 +32,84 @@
 
   <article id="chapterBody">
     <h3>3.1 多尺度问题的本质与挑战</h3>
+
+        <div class="quiz-section" data-section="ch03-sec1">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">传统多尺度方法 FE² 的计算瓶颈?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">内存不足</d
+
+        <div class="quiz-section" data-section="ch03-sec2">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">PRNN 通过循环结构编码本构关系的路径依赖性。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">对</div><div class="quiz-option">错</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              PRNN 的核心是将本构路径依赖性编码进循环结构,准确捕捉非线性滞回行为。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">VPINN 采用什么方法?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">强形式 PINN</div><div class="quiz-option">Petrov-Galerkin</div><div class="quiz-option">变分方法</div><div class="quiz-option">傅里叶方法</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              VPINN 采用 Petrov-Galerkin 方法,以神经网络为试函数、局部多项式为检验函数。
+            </div>
+          </div>
+        </div>
+iv><div class="quiz-option">每宏观积分点需调用一次微观 RVE</div><div class="quiz-option">网格划分困难</div><div class="quiz-option">并行效率低</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              FE² 每个宏观积分点都需调用微观 RVE 完整有限元,工程问题中几乎不可行。
+            </div>
+          </div>
+
+          <div class="quiz-question" da
+
+        <div class="quiz-section" data-section="ch03-sec3">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">HOMS-PINN 相对直接 PINN 模拟多尺度问题,计算量可减少约 ____ 。</div>
+            <div class="quiz-feedback">
+              <strong>本节关键术语:</strong><br>
+              HOMS-PINN 计算量可减少约一半,同时能精确捕捉微观尺度剧烈振荡。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">微-介-宏观 AI 降阶的合理分工?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">全用 PINN</div><div class="quiz-option">全用 GNN</div><div class="quiz-option">微介观 PINN + 宏观 GNN</div><div class="quiz-option">随机组合</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              微介观用 PINN(物理约束强、样本小),宏观/系统级用 GNN/神经算子(数据驱动、规模大)。
+            </div>
+          </div>
+        </div>
+ta-answer="1">
+            <div class="quiz-question-text">HOMS-PINN 的核心思想?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">全连接替代 FEM</div><div class="quiz-option">多尺度渐近分析分解微宏观</div><div class="quiz-option">直接 PDE 约束</div><div class="quiz-option">自动微分</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              HOMS-PINN 通过多尺度渐近分析把强振荡的微观场提取出来,PINN 只需学相对光滑的宏观场+修正项。
+            </div>
+          </div>
+        </div>
+
 <p>汽车结构中的多尺度问题横跨多个层次：微观尺度（晶粒、纤维、位错）→ 介观尺度（复合材料层、焊缝、涂层）→ 宏观尺度（部件、子系统、整车）。传统多尺度方法（如均质化方法、FE²）的计算瓶颈在于：每一个宏观积分点的响应都需要调用一次微观RVE（代表性体积单元）的完整有限元计算，计算量与两个尺度的自由度乘积成正比，在工程问题中几乎不可行。</p>
 <p>PINN和AI降阶为多尺度仿真提供了新的思路：用神经网络代理模型替代微观RVE的有限元计算，使每个宏观积分点的应力更新从"求解一个边界值问题"变为"一次神经网络前向传播"，从而实现数量级的加速。</p>
 <h3>3.2 PINN在多尺度中的技术路线</h3>

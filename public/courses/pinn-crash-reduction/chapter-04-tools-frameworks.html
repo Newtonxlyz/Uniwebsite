@@ -32,8 +32,62 @@
 
   <article id="chapterBody">
     <h3>4.1 开源框架</h3>
+
+        <div class="quiz-section" data-section="ch04-sec1">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">DeepXDE 的核心开发者?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">MIT</div><div class="quiz-option">布朗大学/北京大学 Lu Lu</div><div class="quiz-option">斯坦福</div><div class="quiz-option">DeepMind</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              DeepXDE 由布朗大学 Lu Lu 等人(现北京大学)开发,是 PINN 最广泛使用的开源框架。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">NVIDIA PhysicsNeMo 碰撞示例中精度最高的架构?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">MeshGraphNet</div><div class="quiz-option">Transolver</div><div class="quiz-option">GeoTransolver</div><div class="quiz-option">GeoFlare</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              精度排名:GeoFlare > GeoTransolver > Transolver > MeshGraphNet。
+            </div>
+          </div>
+        </div>
+
 <p>!<a href="https://www.coze.cn/s/xOK_nfjHl1w/" target="_blank">AI+PINN仿真工具多维度能力对比</a></p>
-<p><strong>DeepXDE。</strong> 由布朗大学Lu Lu等人（现北京大学）开发，是目前最成熟、最广泛使用的PINN开源框架，已被250+大学采用 <a href="https://deepxde.readthedocs.io/en/latest/user/research.html" target="_blank">(DeepXDE文档)</a>。支持PINN、DeepONet、FNO、MIONet等多种算法，覆盖正问题、逆问题、积分微分方程等多种场景。优势在于：API设计简洁直观，用户代码高度接近数学表述；支持复杂几何（CSG布尔运算、点云几何）；5种边界条件类型；3种自动微分方式。固体力学方面已实现弹性梁、板的大变形、赫兹接触、弹塑性等算例。不足是性能优化不如商业级框架，大规模问题和GPU并行需要自行实现。适合科研探索、方法验证和原型开发。</p>
+<p><strong>DeepXDE。</strong> 由布朗大学Lu Lu等人（现北京大学）开发，是目前最成熟、最广泛使用的PINN开源框架，已被
+
+        <div class="quiz-section" data-section="ch04-sec2">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">Ansys SimAI 的核心架构?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">基于 CNN</div><div class="quiz-option">基于 GNN</div><div class="quiz-option">基于隐式神经表示(INR)</div><div class="quiz-option">基于 FNO</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              Ansys SimAI 基于隐式神经表示(INR)的连续代理模型,对网格变化鲁棒,能捕捉多尺度现象。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">DEP AIWorks 的核心技术?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">GNN</div><div class="quiz-option">Transformer</div><div class="quiz-option">PINN</div><div class="quiz-option">CNN</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              DEP AIWorks 核心为 PINN 技术,针对轻度/中度/高度非线性有独立架构。
+            </div>
+          </div>
+        </div>
+250+大学采用 <a href="https://deepxde.readthedocs.io/en/latest/user/research.html" target="_blank">(DeepXDE文档)</a>。支持PINN、DeepONet、FNO、MIONet等多种算法，覆盖正问题、逆问题、积分微分方程等多种场景。优势在于：API设计简洁直观，用户代码高度接近数学表述；支持复杂几何（CSG布尔运算、点云几何）；5种边界条件类型；3种自动微分方式。固体力学方面已实现弹性梁、板的大变形、赫兹接触、弹塑性等算例。不足是性能优化不如商业级框架，大规模问题和GPU并行需要自行实现。适合科研探索、方法验证和原型开发。</p>
 <p><strong>NVIDIA PhysicsNeMo（原Modulus）。</strong> NVIDIA推出的物理机器学习开源平台，专为大规模工程问题和生产部署优化。核心优势在于：深度GPU优化，支持多GPU多节点训练；预训练模型库（Model Zoo）可快速微调；内置FNO、DeepONet、GNN、PINN等多种架构；官方提供碰撞动力学示例，支持LS-DYNA d3plot数据读取 <a href="https://docs.nvidia.com/physicsnemo/latest/physicsnemo/examples/structural_mechanics/crash/README.html" target="_blank">(NVIDIA文档)</a>。在碰撞仿真中提供MeshGraphNet、Transolver、GeoTransolver、GeoFlare等多种架构选择，精度排名为GeoFlare > GeoTransolver > Transolver > MeshGraphNet。与GM合作的白车身碰撞项目是其标杆案例。限制是需要NVIDIA GPU，学习曲线较陡，更适合有一定AI基础的团队。</p>
 <p><strong>NeuroDiffEq。</strong> 基于PyTorch的轻量级PINN库，由哈佛大学等机构的研究组使用。功能相对基础，主要用于教学和简单问题研究，在工程级问题上的适用性有限 <a href="https://github.com/topics/pinn?l=python&o=asc" target="_blank">(GitHub topics)</a>。</p>
 <p>其他有价值的开源工具还包括：NeuralPDE（Julia生态，基于SciML）、PyDEns（俄罗斯团队，教学用）。整体而言，<strong>对于汽车碰撞的工程应用，PhysicsNeMo是当前最佳开源选择</strong>，DeepXDE则适合方法学研究和小规模验证。</p>
@@ -44,12 +98,63 @@
 <li><strong>SimAI</strong>：独立的深度学习代理建模平台，云部署，物理无关（可用于流体、结构、电磁等多种物理）。在碰撞领域已验证多个场景：侧面碰撞（变极位置和门梁配置）、行人头碰（HIC预测，86训练+20测试样本）、保险杠碰撞（压溃误差<0.5%，力误差<10%，预测时间<1分钟）。核心架构是基于隐式神经表示（INR）的连续代理模型，对网格变化鲁棒，能捕捉多尺度现象 <a href="https://www.ansys.com/zh-cn/blog/accelerating-automotive-safety-through-ai-powered-design" target="_blank">(Ansys博客)</a>。SimAI的官方宣称加速比为10x-100x。</li>
 </ul>
 <ul>
-<li><strong>LS-DYNA + Twin Builder ROM</strong>：将降阶模型作为LS-DYNA中的代理子结构使用，用Twin Builder生成ROM，在LS-DYNA中替换复杂结构以节省计算时间。这种ROM方案是成熟的商业功能，但仅限于固定几何 <a href="https://www.ansys.com/it-it/blog/safety-first-computational-combo" target="_blank">(Ansys博客)</a>。</li>
+<li><strong>LS-DYNA + Twin Builder ROM</strong>：将降阶模型作为LS-DYNA中的代理子结构使用，用Twin Builder生成ROM，在LS-DYNA中替换复杂结构以节省计算时间。这种ROM方案是成熟的商业功能，但仅限于固定几何 <a href="https://www.ansys.com/it-it/blog/safety-first-computational-combo" target="_blank">(Ansys博
+
+        <div class="quiz-section" data-section="ch04-sec3">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">Altair PhysicsAI 与 BMW 合作的核心创新?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">新架构</div><div class="quiz-option">聚类+分类引入优化</div><div class="quiz-option">多 GPU 训练</div><div class="quiz-option">在线学习</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              Altair 与 BMW 合作将聚类+分类引入优化,以模拟工程经验判断。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">DeepXDE 已被 ____+ 大学采用。</div>
+            <div class="quiz-feedback">
+              <strong>本节关键术语:</strong><br>
+              DeepXDE 已被 250+ 大学采用。
+            </div>
+          </div>
+        </div>
+客)</a>。</li>
 </ul>
 <ul>
 <li><strong>用户自定义材料（UMAT）代理模型</strong>：通过管道框架实现LS-DYNA与Python脚本的共仿真，可将训练好的神经网络材料模型（代理本构）嵌入LS-DYNA求解流程。这种模式在电池多尺度建模中已有实践，为材料级AI降阶提供了技术路径 <a href="https://www.dynalook.com/conferences/14th-european-ls-dyna-conference-2023/battery-electric-vehicle/dhumal_dynamore.pdf/@@download/file/Dhumal_DYNAmore.pdf" target="_blank">(DYNAmore)</a>。</li>
 </ul>
-<p><strong>Altair：物理AI与优化深度整合。</strong> Altair的AI仿真产品称为<strong>PhysicsAI</strong>，整合在HyperWorks和HyperStudy生态中。其特点是与设计优化流程紧密结合，不仅做代理预测，还直接支持多学科优化（MDO）。轨道碰撞可行性研究显示：450次FEA训练、50次验证，AI与FEA结果一致性良好，帕累托前沿最大偏差15%，速度提升5倍 <a href="https://altair.com/docs/default-source/resource-library/altair_whitepaper_rail_crash_physicsai_061025-final-clean.pdf" target="_blank">(Altair白皮书)</a>。BMW的案例更具代表性：用无监督聚类理解碰撞运动学对KPI的影响，再用分类器在优化中强制执行有利的运动模式，本质上是用ML"模拟工程专家经验"，简化了优化问题的表述 <a href="https://altair.com/docs/default-source/resource-library/altair_customerstory_bmw_letter049985b9-905b-4079-833e-8b0c8134bc40.pdf" target="_blank">(Altair案例)</a>。Altair还提供ODYSSEE CAE工具，专用于DOE+ROM工作流，POD_KRG等算法在约束系统分析中R²可达97%以上 <a href="https://m.auto-testing.net/news/show-120458.html" target="_blank">(汽车测试网)</a>。</p>
+<p><strong>Altair：物理AI与优化深度整合。</strong> Altair的AI仿真产品称为<strong>PhysicsAI</strong>，整合在HyperWork
+
+        <div class="quiz-section" data-section="ch04-sec4">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">Ansys SimAI 是物理无关的,可用于流体/结构/电磁等多种物理。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">对</div><div class="quiz-option">错</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              SimAI 是独立的深度学习代理建模平台,云部署,物理无关。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">汽车碰撞 AI 工具选型需考虑哪些? (多选)</div>
+            <div class="quiz-options">
+              <div class="quiz-option">与现有 CAE 软件兼容性</div><div class="quiz-option">训练数据需求</div><div class="quiz-option">GPU 硬件要求</div><div class="quiz-option">授权模式</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              选型需综合考虑兼容性、数据需求、硬件、授权及维护成本。
+            </div>
+          </div>
+        </div>
+s和HyperStudy生态中。其特点是与设计优化流程紧密结合，不仅做代理预测，还直接支持多学科优化（MDO）。轨道碰撞可行性研究显示：450次FEA训练、50次验证，AI与FEA结果一致性良好，帕累托前沿最大偏差15%，速度提升5倍 <a href="https://altair.com/docs/default-source/resource-library/altair_whitepaper_rail_crash_physicsai_061025-final-clean.pdf" target="_blank">(Altair白皮书)</a>。BMW的案例更具代表性：用无监督聚类理解碰撞运动学对KPI的影响，再用分类器在优化中强制执行有利的运动模式，本质上是用ML"模拟工程专家经验"，简化了优化问题的表述 <a href="https://altair.com/docs/default-source/resource-library/altair_customerstory_bmw_letter049985b9-905b-4079-833e-8b0c8134bc40.pdf" target="_blank">(Altair案例)</a>。Altair还提供ODYSSEE CAE工具，专用于DOE+ROM工作流，POD_KRG等算法在约束系统分析中R²可达97%以上 <a href="https://m.auto-testing.net/news/show-120458.html" target="_blank">(汽车测试网)</a>。</p>
 <p><strong>Siemens：RomAI + HEEDS双轨。</strong> Siemens的AI仿真战略分为两条线：</p>
 <ul>
 <li><strong>Simcenter RomAI</strong>：深度学习驱动的降阶建模工具，无代码界面，支持静态和动态模型训练，可通过FMI导出，主要面向数字孪生和系统仿真。</li>

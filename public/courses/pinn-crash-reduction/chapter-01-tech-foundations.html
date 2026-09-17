@@ -32,12 +32,90 @@
 
   <article id="chapterBody">
     <h3>1.1 AI+DOE+PINN完整技术链路</h3>
+
+        <div class="quiz-section" data-section="ch01-sec1">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">AI+DOE+PINN 仿真降阶的'三段式'是?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">数据采集 → 模型训练 → 部署</div><div class="quiz-option">数据生成 → 物理约束建模 → 快速推理</div><div class="quiz-option">模型设计 → 训练 → 验证</div><div class="quiz-option">DOE采样 → 仿真 → 数据分析</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              完整链路是:DOE 采样+高保真仿真生成数据 → PINN/GNN 代理建模 → 快速推理返回结果。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">PINN 损失函数的组成部分不包括?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">PDE 残差损失</div><div class="quiz-option">边界条件损失</div><div class="quiz-option">初始条件损失</div><div class="quiz-option">数据归一化损失</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              标准 PINN 损失由 PDE 残差 + 边界 + 初始 + 数据拟合 4 部分组成,数据归一化是预处理步骤不是损失项。
+            </div>
+          </div>
+        </div>
+
 <p>AI+DOE+PINN仿真降阶是一个"数据生成—物理约束建模—快速推理"的三段式技术体系，其核心价值在于将昂贵的高保真仿真结果转化为可快速调用的代理模型，从而在设计优化、不确定性分析等需要大量重复求解的场景中实现数量级加速。</p>
 <p>!<a href="https://www.coze.cn/s/zoMZtue6_bI/" target="_blank">AI+DOE+PINN仿真降阶完整技术链路</a></p>
 <p>完整的工作流包含五个核心阶段：</p>
 <p><strong>第一阶段：问题定义与参数化。</strong> 需要明确输入参数空间（设计变量如壁厚、材料参数、几何尺寸；工况参数如碰撞速度、冲击位置）和输出量（标量如最大加速度、侵入量；场量如应力分布、变形场）。参数化质量直接决定代理模型的适用范围，维度爆炸是主要风险——当设计变量超过20个时，采样成本会急剧上升。经验法则是参数维度为<em>d</em>时，初始DOE需要<em>10d~20d</em>个样本点 <a href="https://novasolver.jp/zh/ai-cae/index.html" target="_blank">(NovaSolver)</a>。</p>
-<p><strong>第二阶段：DOE试验设计与采样。</strong> DOE的角色是在高维参数空间中以最高效的方式选取训练样本，确保用最少的仿真次数覆盖最全面的设计空间信息。常用策略包括：拉丁超立方抽样（LHS）保证每个变量维度的均匀覆盖；Hammersley/Sobol等低差异序列进一步降低样本方差；自适应采样（如RAR-G、RAD、RAR-D）则在训练过程中动态向残差大的区域补充样本点，是提升数据效率的关键 <a href="https://blog.csdn.net/qq_26157437/article/details/131249785" target="_blank">(CSDN博客)</a>。研究表明Hammersley采样在多种PDE问题上的PINN训练效果优于其他DOE策略 <a href="https://arxiv.org/pdf/2202.06416.pdf" target="_blank">(arXiv:2202.06416)</a>。</p>
-<p><strong>第三阶段：高保真仿真数据生成。</strong> 这是整个流程中计算成本最高的环节。现代整车碰撞模型通常包含4000万-5000万个单元，在700-1000核的高性能集群上单次完整碰撞仿真需要25-30小时 <a href="https://www.ansys.com/zh-cn/blog/accelerating-automotive-safety-through-ai-powered-design" target="_blank">(Ansys博客)</a>。因此DOE采样的效率和仿真的并行度直接决定了项目周期。工业实践中常采用子模型技术（如侧梁子模型比整车快约400倍）来降低数据生成成本 <a href="https://www.cambridge.org/core/product/8B1C8340F82B88FACE8CD3CEAAB1E747/core-reader" target="_blank">(Cambridge Core)</a>。</p>
+<p><strong>第二阶段：DOE试验设计与采样。</strong> DOE的角色是在高维参数空间中以最高效的方式选取训练样本，确保用最少的仿真次数覆盖最全面的设计空间信息。常用策略包括：拉丁超立方抽样（LHS）保证每个变量维度的均匀覆盖；Hammersley/Sobol等低差异序列进一步降低样本方差；自适应采样（如RAR-G、RAD、RAR-D）则在训练过程中动态向残差大的区域补充样本点，是提升数据效率的关键 <a href="https://blog.csdn.net/qq_26157437/article/details/131249785" target="_blank">(CSDN博客)</a>。研究表明Ha
+
+        <div class="quiz-section" data-section="ch01-sec2">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">拉丁超立方采样(LHS)是最常用的 DOE 采样方法之一。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">对</div><div class="quiz-option">错</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              LHS 入门级首选,确保每个变量维度均匀覆盖。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">PINN 相对 POD-ROM 的最大劣势?</div>
+            <div class="quiz-options">
+              <div class="quiz-option">无网格特性</div><div class="quiz-option">物理一致性</div><div class="quiz-option">训练效率低</div><div class="quiz-option">逆问题支持</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              PINN 训练速度通常显著慢于经典数值方法,因为需优化大量参数且损失函数含高阶导数计算。
+            </div>
+          </div>
+        </div>
+mmersley采样在多种PDE问题上的PINN训练效果优于其他DOE策略 <a href="https://arxiv.org/pdf/2202.06416.pdf" target="_blank">(arXiv:2202.06416)</a>。</p>
+<p><strong>第三阶段：高保真仿真数据生成。</strong> 这是整个流程中计算成本最高的环节。现代整车碰撞模型通常包含4000万-5000万个单元，在700-1000核的高性能集群上单次完整碰撞仿真需要25-30小时 <a href="https://www.ansys.com/zh-cn/blog/accelerating-automotive-safety-through-ai-powered-design" target="_blank">(Ansys博客)</a>。因此DOE采样的效率和仿真的并行度直接决定了项目周期。工业实践中常采用子模型技术（如侧梁子模型比整车快约400倍）来降低数据生成成本 <a href="https://www.cambridge.org/core/product/8B1C8340F82B88FACE8CD3CEAAB1E747/core-read
+
+        <div class="quiz-section" data-section="ch01-sec3">
+          <h4>📝 本节检测题</h4>
+          
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">PINN 的本质优势包含哪些? (多选)</div>
+            <div class="quiz-options">
+              <div class="quiz-option">无网格特性</div><div class="quiz-option">物理一致性保证</div><div class="quiz-option">线性子空间逼近</div><div class="quiz-option">逆问题天然支持</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>参考答案:</strong><br>
+              PINN 三大本质优势:无网格、物理一致性、逆问题支持。线性子空间逼近是 POD-ROM 的特点。
+            </div>
+          </div>
+
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">DOE 参数维度为 d 时,初始样本量的经验法则是 ____ 个样本点。</div>
+            <div class="quiz-feedback">
+              <strong>本节关键术语:</strong><br>
+              经验法则:参数维度为 d 时,初始 DOE 需要 10d~20d 个样本点。
+            </div>
+          </div>
+        </div>
+er" target="_blank">(Cambridge Core)</a>。</p>
 <p><strong>第四阶段：PINN/代理模型训练。</strong> 这是技术路线的核心。在纯PINN方案中，损失函数由三部分组成：</p>
 <p>$$\mathcal{L}(\theta) = w_r \mathcal{L}_r(\text{PDE残差}) + w_b \mathcal{L}_b(\text{边界条件}) + w_d \mathcal{L}_d(\text{数据拟合})$$</p>
 <p>其中PDE残差通过自动微分计算，无需生成网格 <a href="https://novasolver.jp/zh/ai-cae/index.html" target="_blank">(NovaSolver)</a>。但在实际碰撞场景中，由于接触、塑性大变形等强非线性难以写成可微的PDE形式，更多采用"数据驱动为主、物理约束为辅"的混合架构——以GNN或Transformer学习时空动力学，同时加入能量守恒、动量守恒等全局物理约束作为正则化项。</p>
