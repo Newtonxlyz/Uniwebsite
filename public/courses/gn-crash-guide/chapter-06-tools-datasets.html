@@ -635,6 +635,29 @@ data = Data(x=x, edge_index=edge_index, edge_attr=edge_attr)
   CourseApp.bindLectureTemplate(chapterId, chaptersData);
   CourseApp.bindTimer(chapterId);
 })();
+
+// Sticky / floating 返回按钮 · 章节正文版
+(function(){
+  if (document.getElementById('courseFloatingNav')) return;
+  const nav = document.createElement('div');
+  nav.id = 'courseFloatingNav';
+  nav.className = 'course-floating-nav';
+  nav.innerHTML = `
+    <a class="cfn-btn cfn-home" href="../../../" title="lvyz.org 主页">
+      <span class="cfn-icon">⌂</span><span class="cfn-label">主页</span>
+    </a>
+    <a class="cfn-btn cfn-hub" href="../../../learn/courses/" title="课程中心 hub">
+      <span class="cfn-icon">☷</span><span class="cfn-label">课程中心</span>
+    </a>
+    <a class="cfn-btn cfn-course" href="../../../learn/gn-crash/" title="当前课程门户">
+      <span class="cfn-icon">▶</span><span class="cfn-label">课程页</span>
+    </a>
+    <a class="cfn-btn cfn-up" href="index.html" title="课程主页(章节地图)">
+      <span class="cfn-icon">☰</span><span class="cfn-label">章节地图</span>
+    </a>
+  `;
+  document.body.appendChild(nav);
+})();
 </script>
 </body>
 </html>
