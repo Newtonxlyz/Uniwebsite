@@ -25,11 +25,10 @@ import { useSession, signOut as doSignOut } from "@/lib/auth-client";
 import { ThemeToggle } from "@/components/theme-toggle";
 
 // ─────────────────────────────────────────────────
-// 7 个子站配置(NLFEA 已下线,课程统一进 /learn/courses 顶级板块)
+// 6 个子站配置(课程统一进 /learn/courses 顶级板块,crashAI 也是课程)
 // ─────────────────────────────────────────────────
 const SUBSITES = [
-  { href: "/learn/courses", label: "课程中心", short: "课程", icon: GraduationCap, desc: "AI+汽车安全 · 系统课程" },
-  { href: "/crashai", label: "crashAI", short: "crashAI", icon: Cpu, desc: "AI 模型训练 · 路径学习" },
+  { href: "/learn/courses", label: "课程中心", short: "课程", icon: GraduationCap, desc: "AI+汽车安全 · 3 门系统课程" },
   { href: "/kids-ai", label: "儿童 AI", short: "KidsAI", icon: Sparkles, desc: "儿童本地大模型互动" },
   { href: "/picturebook", label: "绘本", short: "绘本", icon: BookOpen, desc: "原创情感引导绘本" },
   { href: "/knowledge-base", label: "知识库", short: "知识库", icon: Library, desc: "TEBS 车辆安全技术库" },
@@ -45,17 +44,45 @@ function getActiveSubsite(pathname: string | null) {
 export { getActiveSubsite };
 
 // ─────────────────────────────────────────────────
+// 课程中心 · 概览卡(hub hover 时显示 3 门课)
+// ─────────────────────────────────────────────────
+const COURSE_OVERVIEW = [
+  {
+    href: "/learn/pinn-crash",
+    label: "AI+DOE+PINN 仿真降阶",
+    short: "PINN",
+    chapters: 6,
+    flashcards: 35,
+    color: "from-purple-500/30 to-pink-500/30",
+    icon: Atom,
+  },
+  {
+    href: "/learn/gn-crash",
+    label: "GNN + Transformer + 物理约束",
+    short: "GNN",
+    chapters: 7,
+    flashcards: 35,
+    color: "from-emerald-500/30 to-cyan-500/30",
+    icon: Cpu,
+  },
+  {
+    href: "/crashai",
+    label: "crashAI · AI 转行作战图",
+    short: "crashAI",
+    chapters: 24,
+    flashcards: 1500,
+    color: "from-indigo-500/30 to-violet-500/30",
+    icon: GraduationCap,
+  },
+];
+
+// ─────────────────────────────────────────────────
 // 每个子站的 hover 下拉导航 actions
 // 格式:{ subsiteHrefPrefix: [{ href, label, icon, description }, ...] }
 // ─────────────────────────────────────────────────
 type SubsiteAction = { href: string; label: string; icon: React.ComponentType<{ className?: string }>; description: string };
 
 const SUBSITE_ACTIONS: Record<string, SubsiteAction[]> = {
-  "/crashai": [
-    { href: "/crashai", label: "课程", icon: GraduationCap, description: "AI 训练课程" },
-    { href: "/crashai/safety-training", label: "路径训练", icon: FlaskConical, description: "4 路径实操" },
-    { href: "/crashai/cards", label: "闪卡", icon: Brain, description: "概念速记" },
-  ],
   "/kids-ai": [
     { href: "/kids-ai", label: "首页", icon: Sparkles, description: "儿童 AI 入口" },
     { href: "/kids-ai/chapters", label: "章节", icon: BookOpen, description: "AI 课程章节" },
@@ -270,36 +297,75 @@ export function NavBar() {
                     </Link>
 
                     {/* Hover 弹下拉 list */}
-                    {isHovered && actions.length > 0 && (
-                      <div className="absolute left-0 top-full pt-2 w-[280px] z-50">
-                        <div
-                          className="glass-card p-2 rounded-xl border border-white/10 shadow-2xl"
-                          onMouseEnter={() => openSubsiteBar(s.href)}
-                          onMouseLeave={scheduleCloseSubsiteBar}
-                        >
-                          <div className="text-xs text-gray-500 px-3 py-2 font-medium flex items-center gap-2">
-                            <Icon className="h-3.5 w-3.5 text-cyan-400" />
-                            {s.label}
+                    {isHovered && (
+                      <div className="absolute left-0 top-full pt-2 z-50">
+                        {s.href === "/learn/courses" ? (
+                          // 课程中心:3 张课程概览卡(横向)
+                          <div
+                            className="glass-card p-3 rounded-xl border border-white/10 shadow-2xl w-[520px]"
+                            onMouseEnter={() => openSubsiteBar(s.href)}
+                            onMouseLeave={scheduleCloseSubsiteBar}
+                          >
+                            <div className="text-xs text-gray-500 px-2 py-1.5 font-medium flex items-center justify-between">
+                              <span className="inline-flex items-center gap-2">
+                                <GraduationCap className="h-3.5 w-3.5 text-violet-400" />
+                                课程中心 · {COURSE_OVERVIEW.length} 门课
+                              </span>
+                              <Link href={s.href} className="text-violet-400 hover:text-violet-300">
+                                全部 →
+                              </Link>
+                            </div>
+                            <div className="grid gap-2">
+                              {COURSE_OVERVIEW.map((c) => {
+                                const CIcon = c.icon;
+                                return (
+                                  <Link
+                                    key={c.href}
+                                    href={c.href}
+                                    className={`flex items-center gap-3 p-3 rounded-lg bg-gradient-to-br ${c.color} hover:scale-[1.02] transition-transform`}
+                                  >
+                                    <CIcon className="h-5 w-5 text-white flex-shrink-0" />
+                                    <div className="min-w-0 flex-1">
+                                      <div className="text-sm font-semibold text-white truncate">{c.label}</div>
+                                      <div className="text-xs text-white/70 mt-0.5">
+                                        {c.chapters} 章节 · {c.flashcards}+ 闪卡
+                                      </div>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
                           </div>
-                          <div className="flex flex-col gap-0.5">
-                            {actions.map((a) => {
-                              const AIcon = a.icon;
-                              return (
-                                <Link
-                                  key={a.href}
-                                  href={a.href}
-                                  className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/5 text-gray-300 hover:text-white transition-colors"
-                                >
-                                  <AIcon className="h-4 w-4 mt-0.5 text-gray-400 flex-shrink-0" />
-                                  <div className="min-w-0">
-                                    <div className="text-sm font-medium">{a.label}</div>
-                                    <div className="text-xs text-gray-500 mt-0.5 line-clamp-1">{a.description}</div>
-                                  </div>
-                                </Link>
-                              );
-                            })}
+                        ) : actions.length > 0 && (
+                          <div
+                            className="glass-card p-2 rounded-xl border border-white/10 shadow-2xl w-[280px]"
+                            onMouseEnter={() => openSubsiteBar(s.href)}
+                            onMouseLeave={scheduleCloseSubsiteBar}
+                          >
+                            <div className="text-xs text-gray-500 px-3 py-2 font-medium flex items-center gap-2">
+                              <Icon className="h-3.5 w-3.5 text-cyan-400" />
+                              {s.label}
+                            </div>
+                            <div className="flex flex-col gap-0.5">
+                              {actions.map((a) => {
+                                const AIcon = a.icon;
+                                return (
+                                  <Link
+                                    key={a.href}
+                                    href={a.href}
+                                    className="flex items-start gap-3 p-2.5 rounded-lg hover:bg-white/5 text-gray-300 hover:text-white transition-colors"
+                                  >
+                                    <AIcon className="h-4 w-4 mt-0.5 text-gray-400 flex-shrink-0" />
+                                    <div className="min-w-0">
+                                      <div className="text-sm font-medium">{a.label}</div>
+                                      <div className="text-xs text-gray-500 mt-0.5 line-clamp-1">{a.description}</div>
+                                    </div>
+                                  </Link>
+                                );
+                              })}
+                            </div>
                           </div>
-                        </div>
+                        )}
                       </div>
                     )}
                   </div>

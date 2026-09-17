@@ -17,15 +17,28 @@ export function LearnFloatingNav() {
   useEffect(() => setMounted(true), []);
   useEffect(() => { setOpen(false); }, [pathname]);
 
-  // 只在 /learn/* 路由下显示(主站门户页)
+  // 在以下路由下显示:所有 /learn/* 课程相关 + /crashai (把它视为课程)
   if (!mounted) return null;
   const isLearnPage = pathname?.startsWith("/learn");
-  if (!isLearnPage) return null;
+  const isCrashai = pathname === "/crashai" || pathname?.startsWith("/crashai/");
+  if (!isLearnPage && !isCrashai) return null;
 
-  // 当前课程(从 pathname 推断): /learn/pinn-crash → pinn-crash
-  const currentCourseSlug = pathname?.match(/^\/learn\/([^/]+)/)?.[1];
+  // 当前课程(从 pathname 推断): /learn/pinn-crash → pinn-crash; /crashai → crashai
+  let currentCourseSlug: string | undefined;
+  if (isLearnPage) {
+    currentCourseSlug = pathname?.match(/^\/learn\/([^/]+)/)?.[1];
+  } else if (isCrashai) {
+    currentCourseSlug = "crashai";
+  }
   const isHub = pathname === "/learn/courses" || !currentCourseSlug || currentCourseSlug === "courses";
   const currentCourseLabel = currentCourseSlug && !isHub ? currentCourseSlug.toUpperCase() : null;
+
+  // 当前课程对应的 static 资源目录
+  const staticCourseBase = currentCourseSlug === "pinn-crash"
+      ? "/courses/pinn-crash-reduction"
+      : currentCourseSlug === "gn-crash"
+      ? "/courses/gn-crash-guide"
+      : null;
 
   return (
     <div className="fixed bottom-6 right-6 z-40 select-none">
@@ -63,9 +76,9 @@ export function LearnFloatingNav() {
           </Link>
 
           {/* 当前课程地图 */}
-          {!isHub && (
+          {!isHub && staticCourseBase && (
             <Link
-              href={`/courses/${currentCourseSlug === "pinn-crash" ? "pinn-crash-reduction" : "gn-crash-guide"}/index.html`}
+              href={`${staticCourseBase}/index.html`}
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 text-gray-300 hover:text-white transition-colors"
@@ -74,6 +87,20 @@ export function LearnFloatingNav() {
               <div className="min-w-0">
                 <div className="text-sm font-medium">{currentCourseLabel} 课程地图</div>
                 <div className="text-xs text-gray-500 mt-0.5">学习进度 · 闪卡 · 笔记 · 报告</div>
+              </div>
+            </Link>
+          )}
+
+          {/* crashAI 当前子页面直接回退到 crashAI 主页 */}
+          {!isHub && currentCourseSlug === "crashai" && (
+            <Link
+              href="/crashai"
+              className="flex items-start gap-3 p-3 rounded-lg hover:bg-white/5 text-gray-300 hover:text-white transition-colors"
+            >
+              <BookOpen className="h-4 w-4 mt-0.5 text-emerald-400 flex-shrink-0" />
+              <div className="min-w-0">
+                <div className="text-sm font-medium">crashAI 课程主页</div>
+                <div className="text-xs text-gray-500 mt-0.5">24 主题 · 1500+ 闪卡</div>
               </div>
             </Link>
           )}
