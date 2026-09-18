@@ -65,7 +65,8 @@
 ```
 D:\LvyzWeb\platform\
 ├── AGENTS.md                    ← 你在读的
-├── README.md                    ← 暂时未写(下面会建议补)
+├── README.md                    ← 已写(2026-09-18 同步:版本/课程子系统/项目结构)
+├── _archive/                    ← 一次性产物归档(Vercel 抓包 dump、旧 gen/parse 脚本,无引用)
 ├── package.json
 ├── vercel.json                  ← 强制 npm install/build
 ├── docs/
@@ -121,6 +122,8 @@ D:\LvyzWeb\platform\
 │   ├── app/                     ← Next.js App Router
 │   │   ├── layout.tsx           ← 全局 layout(LearnFloatingNav 已挂载)
 │   │   ├── page.tsx             ← 主页
+│   │   ├── (auth)/, (main)/     ← 路由组
+│   │   ├── api/                 ← auth / blog / admin / crashai / media / posts
 │   │   ├── learn/               ← 课程门户(Next 路由)
 │   │   │   ├── courses/page.tsx       ← 课程中心 hub(3 张大卡片整体可点)
 │   │   │   ├── pinn-crash/page.tsx   ← PINN 课程门户
@@ -135,6 +138,7 @@ D:\LvyzWeb\platform\
 │   │   ├── kids-ai/             ← Kids AI 演示
 │   │   ├── picturebook/         ← 绘本
 │   │   ├── knowledge/           ← 知识库
+│   │   ├── knowledge-base/      ← 知识库(与 knowledge 并存,待合并)
 │   │   ├── merchandise/         ← 商品
 │   │   ├── admin/               ← 后台(博客/绘本/访问权限)
 │   │   ├── login/, register/    ← 认证
@@ -410,6 +414,7 @@ Invoke-RestMethod -Uri "https://api.vercel.com/v6/deployments?limit=1&target=pro
 ## 12. Recent commits(最近 25 条,从最新到旧)
 
 ```
+6d7beb1  docs(agents): 写一份 AGENTS.md 项目入口(深度档案)
 ab06e5d  fix(courses): 章节正文 quiz-option 按钮样式 + sticky/floating 返回按钮
 296d954  fix(courses): 公式渲染 + 章节正文 quiz 多选支持
 6463e9b  fix(courses): 章节命名修正 + 子节小测默认折叠

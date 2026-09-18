@@ -56,3 +56,7 @@ public/picturebook/
 verceltoken.txt
 .vercel-token*
 
+
+# local dev db (Postgres is real backend)
+dev.db
+_archive/
