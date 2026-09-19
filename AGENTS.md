@@ -83,7 +83,7 @@ D:\LvyzWeb\platform\
 │   │   ├── course-mistakes.html
 │   │   ├── course-quizzes.html  ← 测验列表(三阶段)
 │   │   ├── course-report.html
-│   │   └── _chapter_bodies.py   ← PINN 章节正文内容数据
+│   │   └── (Course Package v1:正文在 <course>/contents/,不再有 bodies 模块)
 │   ├── add_pinn_subsection_quizzes.py  ← 注入 PINN 子节 quiz-section
 │   ├── fix_chapter_title.py     ← 一次性脚本:parseInt 章节命名修复
 │   ├── audit_quizzes.py         ← 题库分布统计
@@ -102,7 +102,9 @@ D:\LvyzWeb\platform\
 │   │   │   ├── course-app.js
 │   │   │   ├── course-init.js
 │   │   │   └── course-css.css       (含 .course-floating-nav + .quiz-option 等)
-│   │   ├── pinn-crash-reduction/   ← PINN 课程(75 题 / 6 章 + final 15)
+│   │   ├── pinn-crash-reduction/   ← PINN 课程(Course Package v1)
+│   │   │   ├── course.json          # 课程元数据 SSOT(id/slug/title/learnUrl/level)
+│   │   │   ├── contents/            # 章节正文 HTML(唯一事实源,一章一个文件)
 │   │   │   ├── index.html
 │   │   │   ├── flashcards.html
 │   │   │   ├── quizzes.html         ← 3 阶段:学 → 测 → 期末
@@ -112,11 +114,11 @@ D:\LvyzWeb\platform\
 │   │   │   ├── quiz-NN-...html      × 6
 │   │   │   ├── quiz-final.html
 │   │   │   └── data/
-│   │   │       ├── chapters.json
-│   │   │       ├── flashcards.json
-│   │   │       └── quizzes.json
+│   │   │       ├── chapters.json    # 纯元数据(正文已抽离,不再内联)
+│   │   │       ├── flashcards.json  # v1 统一字段:chapterId/front/back
+│   │   │       └── quizzes.json     # v1:tf=0/1,fill 必须有答案,大题=short
 │   │   └── gn-crash-guide/        ← GNN 课程(69 题 / 7 章 + final 13)
-│   │       └── (同上结构,不含 _chapter_bodies)
+│   │       └── (同上结构,Course Package v1)
 │   └── (其他资源:images, embeds 等)
 ├── src/
 │   ├── app/                     ← Next.js App Router
@@ -351,14 +353,10 @@ D:\LvyzWeb\testPINN\
 
 **注意**:这些是 git 外文件,只在本地。
 
-### 9.2 PINN 章节正文切分
-- `scripts/templates/_chapter_bodies.py` 是源(50 KB Python 数据 dict)
-- `scripts/build-course.py` 用 `--chapter-bodies-module _chapter_bodies` 读取
-- 章节内容是 inline 嵌到 chapter-XX.html 的 `<article id="chapterBody">` 元素
-
-### 9.3 GNN 章节正文
-- GNN 没有 `_chapter_bodies.py`,章节正文来自 `original.html` 直接部署(270 KB 自包含)
-- `public/courses/gn-crash-guide/original.html` 是源文件
+### 9.2 章节正文(Course Package v1 起)
+- **唯一事实源:`<course>/contents/<ch-id>.html`**(一章一个文件,含 quiz-section 由 PINN 后注入)
+- 旧源已归档:`_archive/course-v1-migration/`(_chapter_bodies.py / gn-original.html)
+- 加新课 SOP:写 contents/ + 三份 data json → `validate_course.py` → `build-course.py <slug>`
 
 ---
 
@@ -375,7 +373,7 @@ cd ..
 
 # 2. 重建 GNN 课程(无 chapter body)
 cd scripts
-python build-course.py gn-crash-guide gn-crash-guide gn-crash "GNN碰撞仿真降阶" "https://lvyz.org/learn/gn-crash"
+python build-course.py gn-crash-guide
 cd ..
 
 # 3. 审计题库分布
