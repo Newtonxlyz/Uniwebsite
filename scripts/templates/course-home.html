@@ -72,12 +72,13 @@
   document.getElementById('topnav').innerHTML = CourseApp.renderTopnav('__COURSE_SLUG__', '__COURSE_TITLE__', 'home');
 
   const c = chaptersData.course;
+  const LEVEL_LABEL = { beginner: '入门', intermediate: '进阶', advanced: '高级' };
   document.getElementById('courseTitle').textContent = c.title;
   document.getElementById('courseSubtitle').textContent = c.subtitle;
   document.getElementById('courseMeta').innerHTML =
-    '<span>📚 ' + (c.chapters?.length || 6) + ' 章</span>' +
+    '<span>📚 ' + (chaptersData.chapters?.length || 0) + ' 章</span>' +
     '<span>⏱ ' + c.estimatedHours + ' 小时</span>' +
-    '<span>🎓 ' + c.level + '</span>' +
+    '<span>🎓 ' + (LEVEL_LABEL[c.level] || c.level) + '</span>' +
     '<span>👥 ' + c.audience + '</span>';
   document.getElementById('objectivesList').innerHTML =
     (c.objectives || []).map(o => '<li>' + o + '</li>').join('');

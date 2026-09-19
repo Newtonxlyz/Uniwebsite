@@ -1,0 +1,651 @@
+<h3>2.1 消息传递机制详解</h3>
+<p>
+          消息传递神经网络（MPNN）是GNN的通用框架。
+          其核心思想是：每个节点不断地从其邻居节点接收"消息"，
+          并根据这些消息更新自己的状态。经过多轮消息传递后，
+          每个节点的表示就融合了更远距离的信息。
+        </p>
+
+        <h4>基本流程</h4>
+        <p>消息传递分为两个核心步骤，在每一层中重复执行：</p>
+        <ol>
+          <li>
+            <strong>消息构造（Message）：</strong>
+            对于每条边 (i, j)，根据源节点 j 的特征、目标节点 i 的特征以及边的特征，
+            计算出一条"消息" m<sub>ij</sub>
+          </li>
+          <li>
+            <strong>聚合与更新（Aggregate & Update）：</strong>
+            对于每个节点 i，将其所有邻居发来的消息聚合起来（如求和、平均、最大池化），
+            然后结合节点自身的当前状态，更新得到新的节点特征 h<sub>i</sub>
+          </li>
+        </ol>
+
+        <div class="formula-box">
+          <p>m<sub>ij</sub><sup>(k)</sup> = M<sup>(k)</sup>(h<sub>i</sub><sup>(k-1)</sup>, h<sub>j</sub><sup>(k-1)</sup>, e<sub>ij</sub>)</p>
+          <p>m<sub>i</sub><sup>(k)</sup> = AGG<sub>j∈N(i)</sub>({m<sub>ij</sub><sup>(k)</sup> | j ∈ N(i)})</p>
+          <p>h<sub>i</sub><sup>(k)</sup> = U<sup>(k)</sup>(h<sub>i</sub><sup>(k-1)</sup>, m<sub>i</sub><sup>(k)</sup>)</p>
+        </div>
+
+        <p>其中：</p>
+        <ul>
+          <li>h<sub>i</sub><sup>(k)</sup> 是第 k 层节点 i 的特征向量</li>
+          <li>N(i) 是节点 i 的所有邻居</li>
+          <li>M 是消息函数（通常是MLP）</li>
+          <li>AGG 是聚合函数（sum, mean, max 等）</li>
+          <li>U 是更新函数（通常是MLP或GRU）</li>
+        </ul>
+
+        <h4>感受野与层数的关系</h4>
+        <p>
+          每增加一层GNN，节点的感受野就向外扩展一跳。
+          一个 L 层的GNN，每个节点能接收到 L 跳以内的邻居信息。
+          在物理仿真中，这对应着信息能够传播的距离。
+        </p>
+
+        <div class="warning-box">
+          <p>
+            <strong>过度平滑问题：</strong>当GNN层数过多时，所有节点的特征会变得越来越相似，
+            失去区分度，这就是"过度平滑"（over-smoothing）现象。
+            在物理仿真中，如果需要捕捉很长距离的依赖（如碰撞波从车头传到车尾），
+            单纯增加GNN层数可能不是最优方案——这也是引入Transformer的重要原因之一。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch2-sec1">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">1. 消息传递神经网络（MPNN）的两个核心步骤是？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 消息构造 + 聚合更新</div>
+              <div class="quiz-option">B. 编码 + 解码</div>
+              <div class="quiz-option">C. 卷积 + 池化</div>
+              <div class="quiz-option">D. 前向传播 + 反向传播</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              MPNN的核心是每一层都执行"消息构造"和"聚合更新"两个步骤，逐层传播信息。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">2. 一个5层的GNN，每个节点最多能融合几跳邻居的信息？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 1跳</div>
+              <div class="quiz-option">B. 3跳</div>
+              <div class="quiz-option">C. 5跳</div>
+              <div class="quiz-option">D. 10跳</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              每增加一层GNN，感受野扩展一跳。5层GNN意味着每个节点能接收5跳以内的邻居信息。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">3. 以下关于"过度平滑"的说法，哪个是错误的？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 过度平滑指GNN层数过多时所有节点特征趋于相似</div>
+              <div class="quiz-option">B. 过度平滑会导致节点失去区分度</div>
+              <div class="quiz-option">C. 这是引入Transformer的原因之一</div>
+              <div class="quiz-option">D. 增加GNN层数可以解决过度平滑</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              增加GNN层数恰恰是导致过度平滑的原因，而不是解决方案。解决方法包括跳跃连接、注意力机制等。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">4. 消息传递中的聚合函数只能用求和（sum）。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              聚合函数可以有多种选择，包括sum、mean、max、attention-weighted sum等，不同选择对应不同的GNN变体。
+            </div>
+          </div>
+        </div>
+<h3>2.2 GCN：图卷积网络</h3>
+<p>
+          GCN（Graph Convolutional Network）
+          由Kipf和Welling在2017年提出，是图神经网络的里程碑式工作。
+          它将谱图卷积简化为高效的空间域形式，成为最经典的GNN架构之一。
+        </p>
+
+        <h4>核心公式</h4>
+        <div class="formula-box">
+          <p>H<sup>(k+1)</sup> = σ( D̃<sup>-1/2</sup> Ã D̃<sup>-1/2</sup> H<sup>(k)</sup> W<sup>(k)</sup> )</p>
+        </div>
+
+        <p>各部分含义：</p>
+        <ul>
+          <li><strong>Ã = A + I</strong>：邻接矩阵加上自环（每个节点能看到自己）</li>
+          <li><strong>D̃</strong>：Ã 的度矩阵（对角矩阵，对角元素为每个节点的度数）</li>
+          <li><strong>D̃<sup>-1/2</sup> Ã D̃<sup>-1/2</sup></strong>：对称归一化的邻接矩阵</li>
+          <li><strong>W<sup>(k)</sup></strong>：可学习的权重矩阵</li>
+          <li><strong>σ</strong>：非线性激活函数（如ReLU）</li>
+        </ul>
+
+        <h4>直观理解</h4>
+        <p>
+          GCN做的事情其实很简单：<strong>每个节点把自己和邻居的特征加权平均，再做一次线性变换和非线性激活</strong>。
+          归一化的目的是让度数高的节点不会因为接收更多消息而数值过大。
+        </p>
+
+        <div class="info-box">
+          <p>
+            <strong>GCN的特点：</strong>
+            <br>✅ 计算效率高（基于稀疏矩阵乘法）
+            <br>✅ 理论基础扎实（源于谱图理论）
+            <br>❌ 对所有邻居平等看待，无法区分邻居的重要性
+            <br>❌ 需要知道完整图结构（直推式学习，transductive）
+            <br>❌ 处理大图时内存占用高
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <p>
+            <strong>在物理仿真中的适用性：</strong>GCN虽然经典，但在物理仿真中用得相对较少。
+            原因是：物理交互中不同方向、不同距离的邻居影响力应该不同，
+            而GCN的"平等看待所有邻居"的假设与物理直觉不完全吻合。
+            物理仿真中更常用的是带边特征的消息传递GNN（如GraphNets架构）。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch2-sec2">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">1. GCN中对邻接矩阵进行对称归一化的主要目的是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 防止度数高的节点因接收更多消息而数值过大</div>
+              <div class="quiz-option">B. 增加模型的参数量</div>
+              <div class="quiz-option">C. 让计算变得更慢</div>
+              <div class="quiz-option">D. 处理缺失的边</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              对称归一化（D^-1/2 A D^-1/2）的目的是平衡不同度数节点的消息，避免高度数节点主导计算。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">2. GCN的一个主要局限是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 计算效率太低</div>
+              <div class="quiz-option">B. 对所有邻居平等看待，无法区分重要性</div>
+              <div class="quiz-option">C. 不能处理节点分类任务</div>
+              <div class="quiz-option">D. 需要的参数量太大</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              GCN的核心局限是对所有邻居使用固定权重（由度数决定），无法学习不同邻居的不同重要性。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">3. GCN中的自环（self-loop，即Ã = A + I）的作用是让节点在更新时也考虑自身特征。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              添加自环确保每个节点在聚合邻居信息时也保留自己的特征信息。
+            </div>
+          </div>
+        </div>
+<h3>2.3 GAT：图注意力网络</h3>
+<p>
+          GAT（Graph Attention Network）
+          由Velickovic等人在2018年提出，解决了GCN"平等对待所有邻居"的问题。
+          GAT引入了注意力机制，让每个节点自动学习不同邻居的重要程度。
+        </p>
+
+        <h4>注意力系数的计算</h4>
+        <p>对于节点 i 和它的邻居 j，注意力系数 α<sub>ij</sub> 衡量了 j 对 i 的重要性：</p>
+
+        <div class="formula-box">
+          <p>e<sub>ij</sub> = LeakyReLU( a<sup>T</sup> [W h<sub>i</sub> || W h<sub>j</sub>] )</p>
+          <p>α<sub>ij</sub> = softmax<sub>j</sub>(e<sub>ij</sub>) = exp(e<sub>ij</sub>) / Σ<sub>k∈N(i)</sub> exp(e<sub>ik</sub>)</p>
+          <p>h<sub>i</sub>' = σ( Σ<sub>j∈N(i)</sub> α<sub>ij</sub> W h<sub>j</sub> )</p>
+        </div>
+
+        <p>各部分含义：</p>
+        <ul>
+          <li><strong>W</strong>：共享的线性变换矩阵，先对节点特征做变换</li>
+          <li><strong>||</strong>：拼接（concatenation）操作</li>
+          <li><strong>a</strong>：注意力向量，一个可学习的向量，用于计算注意力得分</li>
+          <li><strong>LeakyReLU</strong>：非线性激活函数</li>
+          <li><strong>softmax</strong>：对所有邻居的注意力得分归一化，使其和为1</li>
+        </ul>
+
+        <h4>多头注意力</h4>
+        <p>
+          与Transformer类似，GAT也使用多头注意力来稳定学习过程并捕捉不同类型的关系。
+          每个头独立计算注意力，然后将结果拼接或平均。
+        </p>
+
+        <div class="info-box">
+          <p>
+            <strong>GAT的特点：</strong>
+            <br>✅ 能学习不同邻居的重要性，更灵活
+            <br>✅ 不需要预先知道完整图结构（归纳式学习能力更强）
+            <br>✅ 计算效率较高（可并行计算所有边的注意力）
+            <br>❌ 两两计算注意力，复杂度与边数成正比
+            <br>❌ 注意力仅基于特征相似性，可能忽略结构信息
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <p>
+            <strong>在物理仿真中的意义：</strong>GAT的注意力机制在物理仿真中非常有用。
+            例如，碰撞发生时，接触区域附近的节点之间影响力更大，
+            注意力机制可以自适应地聚焦于这些关键交互。
+            这也是为什么"注意力"成为后续Graph Transformer等架构的核心组件。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch2-sec3">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">1. GAT相比GCN的核心改进是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 参数量更少</div>
+              <div class="quiz-option">B. 引入注意力机制，自动学习邻居的重要性</div>
+              <div class="quiz-option">C. 计算速度更快</div>
+              <div class="quiz-option">D. 支持更大的图</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              GAT的核心贡献是引入注意力机制，让每个节点能够学习到不同邻居的重要性权重。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">2. GAT中使用多头注意力的主要目的不包括？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 稳定学习过程</div>
+              <div class="quiz-option">B. 捕捉不同类型的节点关系</div>
+              <div class="quiz-option">C. 减少参数量</div>
+              <div class="quiz-option">D. 提高模型表达能力</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              多头注意力会增加参数量（多头就有多组参数），而不是减少。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">3. 在碰撞仿真中，注意力机制有助于自适应地聚焦于碰撞接触区域等关键交互位置。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              碰撞发生时接触区域的节点间影响力更大，注意力机制可以自适应地关注这些重要交互。
+            </div>
+          </div>
+        </div>
+<h3>2.4 GraphSAGE：归纳式学习</h3>
+<p>
+          GraphSAGE
+          由Hamilton等人在2017年提出，解决了GCN和早期GNN"直推式学习"的局限——
+          即训练时必须见过所有节点，无法泛化到新节点。
+          GraphSAGE学习的是<strong>聚合函数</strong>而不是节点嵌入本身，因此能处理未见过的节点。
+        </p>
+
+        <h4>核心思想：采样 + 聚合</h4>
+        <p>GraphSAGE的每一层包含两个关键操作：</p>
+        <ol>
+          <li>
+            <strong>邻居采样（Sample）：</strong>
+            为每个节点固定采样 K 个邻居（如果邻居多于K个则随机采样，少于则有放回采样）。
+            这使得计算量可控，可以处理大规模图。
+          </li>
+          <li>
+            <strong>特征聚合（Aggregate）：</strong>
+            用聚合函数将邻居特征聚合起来，然后与自身特征拼接，再经过线性变换。
+          </li>
+        </ol>
+
+        <div class="formula-box">
+          <p>h<sub>N(i)</sub><sup>(k)</sup> = AGG<sub>j∈N(i)</sub>({h<sub>j</sub><sup>(k-1)</sup>})</p>
+          <p>h<sub>i</sub><sup>(k)</sup> = σ(W<sup>(k)</sup> · [h<sub>i</sub><sup>(k-1)</sup> || h<sub>N(i)</sub><sup>(k)</sup>])</p>
+        </div>
+
+        <h4>三种聚合函数</h4>
+        <ul>
+          <li><strong>Mean聚合：</strong>对邻居特征取平均，最简单也最常用</li>
+          <li><strong>Pool聚合：</strong>先通过MLP变换，再取最大池化（max-pooling）</li>
+          <li><strong>LSTM聚合：</strong>将邻居随机排序后输入LSTM，表达能力更强但计算更慢</li>
+        </ul>
+
+        <div class="info-box">
+          <p>
+            <strong>GraphSAGE的特点：</strong>
+            <br>✅ 支持归纳式学习（inductive），能泛化到新节点
+            <br>✅ 通过邻居采样，可以处理大规模图
+            <br>✅ 训练效率高，支持小批量训练
+            <br>❌ 采样引入随机性，可能丢失重要邻居信息
+            <br>❌ 固定采样数量可能不适合所有节点
+          </p>
+        </div>
+
+        <h4>GCN vs GAT vs GraphSAGE 对比</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>特性</th>
+                <th>GCN</th>
+                <th>GAT</th>
+                <th>GraphSAGE</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>核心机制</td>
+                <td>谱图卷积简化</td>
+                <td>注意力加权聚合</td>
+                <td>采样+聚合</td>
+              </tr>
+              <tr>
+                <td>邻居权重</td>
+                <td>固定（由度数决定）</td>
+                <td>可学习（注意力）</td>
+                <td>固定（mean/max等）</td>
+              </tr>
+              <tr>
+                <td>学习方式</td>
+                <td>直推式</td>
+                <td>归纳式（更强）</td>
+                <td>归纳式</td>
+              </tr>
+              <tr>
+                <td>大规模图</td>
+                <td>支持（稀疏矩阵）</td>
+                <td>一般</td>
+                <td>好（采样机制）</td>
+              </tr>
+              <tr>
+                <td>计算效率</td>
+                <td>高</td>
+                <td>中</td>
+                <td>中高</td>
+              </tr>
+              <tr>
+                <td>适用场景</td>
+                <td>小规模静态图</td>
+                <td>需要区分邻居重要性</td>
+                <td>大规模、动态图</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tip-box">
+          <p>
+            <strong>物理仿真中的选择：</strong>在物理仿真中，最常用的架构其实是
+            <strong>自定义的消息传递网络</strong>（基于GraphNets框架），
+            它们使用MLP作为消息和更新函数，支持丰富的边特征，
+            比标准的GCN/GAT/GraphSAGE更灵活。
+            这三种经典GNN更像是基础组件，而实际仿真系统通常在此基础上做了大量定制。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch2-sec4">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. GraphSAGE的"归纳式学习"指的是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 能学习到更准确的节点分类</div>
+              <div class="quiz-option">B. 训练速度更快</div>
+              <div class="quiz-option">C. 能泛化到训练时没见过的新节点</div>
+              <div class="quiz-option">D. 需要的训练数据更少</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              归纳式学习意味着模型学习的是聚合函数本身，而不是特定节点的嵌入，因此可以处理新出现的节点。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">2. 哪种GNN变体最适合处理大规模图？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. GraphSAGE（邻居采样机制）</div>
+              <div class="quiz-option">B. 标准GCN</div>
+              <div class="quiz-option">C. 单层GAT</div>
+              <div class="quiz-option">D. 三者性能一样</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              GraphSAGE的邻居采样机制使其可以通过小批量训练处理非常大的图，而不需要一次性加载全图。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">3. 以下哪种不是GraphSAGE的聚合函数变体？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. Mean聚合</div>
+              <div class="quiz-option">B. Pool聚合</div>
+              <div class="quiz-option">C. LSTM聚合</div>
+              <div class="quiz-option">D. Transformer聚合</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              GraphSAGE原文提出了Mean、Pool、LSTM三种聚合函数，Transformer聚合不是GraphSAGE的标准变体。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">4. 在物理仿真中，标准GCN是最常用的GNN架构。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              物理仿真中更常用的是自定义消息传递网络（基于GraphNets/MPNN框架），支持丰富的边特征，比标准GCN更灵活。
+            </div>
+          </div>
+        </div>
+<h3>2.5 Encoder-Processor-Decoder 架构</h3>
+<p>
+          在物理仿真领域，Encoder-Processor-Decoder（EPD）
+          是最主流的GNN架构范式。DeepMind的GNS（Graph Network-based Simulators）
+          和MeshGraphNet都采用了这一架构。
+        </p>
+
+        <h4>三大组件</h4>
+
+        <div class="arch-diagram">
+          <svg viewBox="0 0 700 200" width="100%">
+            <!-- Encoder -->
+            <rect x="20" y="50" width="180" height="100" rx="12" fill="rgba(59,130,246,0.1)" stroke="#3b82f6" stroke-width="2" />
+            <text x="110" y="80" text-anchor="middle" fill="#60a5fa" font-size="14" font-weight="bold">Encoder 编码器</text>
+            <text x="110" y="105" text-anchor="middle" fill="#94a3b8" font-size="12">物理空间 → 潜空间</text>
+            <text x="110" y="125" text-anchor="middle" fill="#94a3b8" font-size="12">MLP嵌入节点/边特征</text>
+            <!-- 输入箭头 -->
+            <path d="M 0 100 L 20 100" stroke="#64748b" stroke-width="2" marker-end="url(#arrow2)" />
+            <text x="10" y="90" text-anchor="middle" fill="#94a3b8" font-size="11">原始</text>
+            <text x="10" y="115" text-anchor="middle" fill="#94a3b8" font-size="11">状态</text>
+            <!-- Processor -->
+            <rect x="260" y="50" width="180" height="100" rx="12" fill="rgba(139,92,246,0.1)" stroke="#8b5cf6" stroke-width="2" />
+            <text x="350" y="80" text-anchor="middle" fill="#c4b5fd" font-size="14" font-weight="bold">Processor 处理器</text>
+            <text x="350" y="105" text-anchor="middle" fill="#94a3b8" font-size="12">多层消息传递</text>
+            <text x="350" y="125" text-anchor="middle" fill="#94a3b8" font-size="12">MPNN/GN blocks (×N)</text>
+            <defs>
+              <marker id="arrow2" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+              </marker>
+            </defs>
+            <!-- 连接箭头 -->
+            <path d="M 200 100 L 260 100" stroke="#64748b" stroke-width="2" marker-end="url(#arrow2)" />
+            <text x="230" y="90" text-anchor="middle" fill="#94a3b8" font-size="11">潜图</text>
+            <text x="230" y="115" text-anchor="middle" fill="#94a3b8" font-size="11">表示</text>
+            <!-- Decoder -->
+            <rect x="500" y="50" width="180" height="100" rx="12" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="2" />
+            <text x="590" y="80" text-anchor="middle" fill="#34d399" font-size="14" font-weight="bold">Decoder 解码器</text>
+            <text x="590" y="105" text-anchor="middle" fill="#94a3b8" font-size="12">潜空间 → 物理输出</text>
+            <text x="590" y="125" text-anchor="middle" fill="#94a3b8" font-size="12">MLP输出物理量变化</text>
+            <!-- 连接箭头 -->
+            <path d="M 440 100 L 500 100" stroke="#64748b" stroke-width="2" marker-end="url(#arrow2)" />
+            <text x="470" y="90" text-anchor="middle" fill="#94a3b8" font-size="11">更新后</text>
+            <text x="470" y="115" text-anchor="middle" fill="#94a3b8" font-size="11">潜特征</text>
+            <!-- 输出箭头 -->
+            <path d="M 680 100 L 700 100" stroke="#64748b" stroke-width="2" marker-end="url(#arrow2)" />
+            <text x="692" y="90" text-anchor="middle" fill="#94a3b8" font-size="11">Δ状态</text>
+            <text x="692" y="115" text-anchor="middle" fill="#94a3b8" font-size="11">预测</text>
+          </svg>
+          <p>
+            图：Encoder-Processor-Decoder 架构示意图
+          </p>
+        </div>
+
+        <h4>1. Encoder（编码器）</h4>
+        <p>
+          编码器将原始的物理特征（节点位置、速度、材料属性等）映射到高维潜空间。
+          通常用两个独立的MLP分别处理节点特征和边特征：
+        </p>
+        <ul>
+          <li>节点编码器：h<sub>i</sub><sup>0</sup> = MLP<sub>node</sub>(x<sub>i</sub>)</li>
+          <li>边编码器：e<sub>ij</sub><sup>0</sup> = MLP<sub>edge</sub>(r<sub>ij</sub>)</li>
+        </ul>
+        <p>
+          其中 x<sub>i</sub> 是节点 i 的原始物理特征（如位置、速度、类型），
+          r<sub>ij</sub> 是边 ij 的原始特征（如相对位移、距离、边类型）。
+        </p>
+
+        <h4>2. Processor（处理器）</h4>
+        <p>
+          处理器是模型的核心，由 N 个消息传递层（Graph Network blocks）堆叠而成。
+          每一层执行：
+        </p>
+        <ol>
+          <li><strong>边更新：</strong>e<sub>ij</sub><sup>(k+1)</sup> = MLP<sub>edge</sub>([e<sub>ij</sub><sup>(k)</sup> || h<sub>i</sub><sup>(k)</sup> || h<sub>j</sub><sup>(k)</sup>])</li>
+          <li><strong>边聚合：</strong>m<sub>i</sub><sup>(k+1)</sup> = Σ<sub>j∈N(i)</sub> e<sub>ji</sub><sup>(k+1)</sup></li>
+          <li><strong>节点更新：</strong>h<sub>i</sub><sup>(k+1)</sup> = MLP<sub>node</sub>([h<sub>i</sub><sup>(k)</sup> || m<sub>i</sub><sup>(k+1)</sup>])</li>
+        </ol>
+
+        <div class="tip-box">
+          <p>
+            <strong>残差连接：</strong>在Processor的每层中通常会加入残差连接
+            （即 h<sub>i</sub><sup>(k+1)</sup> = h<sub>i</sub><sup>(k)</sup> + Δh<sub>i</sub>），
+            这样可以训练更深的网络，缓解梯度消失和过度平滑问题。
+            实际应用中10-15层是常见的配置。
+          </p>
+        </div>
+
+        <h4>3. Decoder（解码器）</h4>
+        <p>
+          解码器将处理后的节点潜特征映射回物理空间，输出预测的物理量。
+          在动力学仿真中，通常预测<strong>状态的变化量</strong>（如加速度、位移增量），
+          而不是直接预测下一时刻的状态：
+        </p>
+        <ul>
+          <li>Δv<sub>i</sub> = MLP<sub>decoder</sub>(h<sub>i</sub><sup>(N)</sup>)</li>
+          <li>v<sub>i</sub><sup>t+1</sup> = v<sub>i</sub><sup>t</sup> + Δv<sub>i</sub></li>
+        </ul>
+
+        <div class="info-box">
+          <p>
+            <strong>为什么预测变化量？</strong>
+            <br>1. <strong>数值稳定性：</strong>物理状态通常变化缓慢，预测小的增量更稳定
+            <br>2. <strong>归纳偏置：</strong>如果模型什么都不学，输出0，预测就是当前状态（平凡解），符合物理直觉
+            <br>3. <strong>易于学习：</strong>网络只需要学习"扰动"，而不需要学习完整的状态映射
+          </p>
+        </div>
+
+        <h4>自回归推演（Rollout）</h4>
+        <p>
+          训练时，模型只需预测一步的状态变化。但在推理时，我们需要进行长时间推演：
+          每一步的输出作为下一步的输入，不断递推。这种方式称为<strong>自回归推演</strong>。
+        </p>
+        <p>
+          自回归推演的一个关键挑战是<strong>误差累积</strong>——每一步的小误差会逐步放大。
+          常用的解决方案包括：训练时加入噪声扰动（noise corruption）、
+          使用多步预测损失、或引入稳定化机制。
+        </p>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch2-sec5">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">1. Encoder-Processor-Decoder架构中，Processor的主要作用是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 将物理特征映射到潜空间</div>
+              <div class="quiz-option">B. 通过多层消息传递在图上传播信息、更新状态</div>
+              <div class="quiz-option">C. 将潜特征映射回物理空间</div>
+              <div class="quiz-option">D. 计算损失函数</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              Processor是模型的核心，通过多层消息传递在图上进行信息传播和状态更新。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">2. 物理仿真的GNN为什么通常预测"状态变化量"而不是直接预测下一状态？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 这样参数量更少</div>
+              <div class="quiz-option">B. 这样可以减少层数</div>
+              <div class="quiz-option">C. 数值更稳定，符合物理直觉，且更易于学习</div>
+              <div class="quiz-option">D. 这样不需要解码器</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              预测变化量（残差预测）有数值稳定性更好、归纳偏置更强、学习更简单等多重优势。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">3. 自回归推演（rollout）中的主要挑战是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 计算速度太慢</div>
+              <div class="quiz-option">B. 内存占用太大</div>
+              <div class="quiz-option">C. 需要太多训练数据</div>
+              <div class="quiz-option">D. 每步误差会逐步累积，长时间推演可能发散</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              自回归推演的核心挑战是误差累积——每一步的微小误差会在多步递推中逐渐放大。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">4. 在Processor中加入残差连接可以帮助训练更深的GNN。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              残差连接可以缓解梯度消失和过度平滑问题，使深层GNN能够有效训练。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">5. 以下哪个不是Decoder的功能？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 将潜特征映射回物理空间</div>
+              <div class="quiz-option">B. 执行消息传递计算</div>
+              <div class="quiz-option">C. 输出物理量的预测值</div>
+              <div class="quiz-option">D. 通常是一个MLP</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              消息传递是Processor的功能，不是Decoder的。Decoder负责将潜空间映射回物理输出。
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="#ch1" class="chapter-nav-btn prev">
+            <div class="label">← 上一章</div>
+            <div class="title">碰撞仿真与降阶基础</div>
+          </a>
+          <a href="#ch3" class="chapter-nav-btn next">
+            <div class="label">下一章 →</div>
+            <div class="title">Transformer 与长程依赖</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== 第3章：Transformer与长程依赖 ===== -->
+      <section id="ch3">
+        <div class="chapter-intro">
+          <div class="chapter-num">第三章</div>

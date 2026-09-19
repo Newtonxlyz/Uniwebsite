@@ -1,0 +1,437 @@
+<h3>1.1 为什么要做碰撞仿真降阶</h3>
+<p>
+          碰撞仿真在汽车安全、航空航天、国防军工等领域具有不可替代的作用。
+          一辆汽车的正面碰撞仿真，使用传统有限元方法（FEM）可能需要在高性能计算集群上运行
+          <strong>数小时甚至数天</strong>才能完成一次完整仿真。
+        </p>
+        <p>
+          在工程设计流程中，设计人员往往需要进行几十甚至上百次的仿真迭代来优化结构参数。
+          如果每次仿真都要等待数小时，整个设计周期将变得极其漫长。
+          降阶模型（Reduced Order Model, ROM）
+          的目标就是用更低的计算成本，提供足够准确的仿真预测。
+        </p>
+
+        <div class="info-box">
+          <p>
+            <strong>降阶的本质：</strong>将高维的物理系统状态（通常是数万个节点的位移、速度、应力等）
+            映射到一个低维的"潜空间"中，在潜空间中进行动力学演化，再映射回原始物理空间。
+            由于计算量大幅降低，推理速度可以提升<strong>几个数量级</strong>。
+            据研究，GNN替代模型在推理时可达传统FEM的<strong>100-1000倍加速</strong>
+            <a href="https://arxiv.org/html/2507.13459v1" target="_blank" rel="noopener noreferrer" class="citation">[1]</a>。
+          </p>
+        </div>
+
+        <h4>AI降阶的核心优势</h4>
+        <ul>
+          <li><strong>速度提升显著：</strong>训练完成后，单次推理仅需毫秒到秒级</li>
+          <li><strong>设计优化效率：</strong>支持大规模参数扫描和优化设计</li>
+          <li><strong>实时仿真能力：</strong>可用于数字孪生、实时控制等场景</li>
+          <li><strong>数据驱动发现：</strong>从仿真数据中学习隐含的物理规律</li>
+        </ul>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch1-sec1">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">1. 碰撞仿真降阶模型的主要目标是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 提高仿真的物理精度</div>
+              <div class="quiz-option">B. 在保证一定精度的前提下大幅提升计算速度</div>
+              <div class="quiz-option">C. 完全替代有限元方法</div>
+              <div class="quiz-option">D. 减少训练数据量</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              降阶模型的核心目标是用更低的计算成本提供足够准确的预测，实现速度与精度的权衡。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">2. GNN替代模型在推理时相比传统FEM大约能达到多少倍加速？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 100-1000倍</div>
+              <div class="quiz-option">B. 2-5倍</div>
+              <div class="quiz-option">C. 10-20倍</div>
+              <div class="quiz-option">D. 10000倍以上</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              研究表明，GNN替代模型在推理时通常可以达到传统FEM的100-1000倍加速效果。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. AI降阶模型可以完全替代有限元仿真，不再需要FEM数据。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              AI降阶模型通常需要FEM生成的高质量数据进行训练，目前还不能完全替代FEM，而是作为其补充和加速器。
+            </div>
+          </div>
+        </div>
+<h3>1.2 传统有限元方法的局限</h3>
+<p>
+          有限元方法（FEM）是目前工程仿真的主流方法。它将连续的物理域离散化为有限个单元，
+          通过求解每个单元的力学方程来得到整个系统的响应。虽然FEM精度很高，但存在以下固有局限：
+        </p>
+
+        <h4>计算成本高昂</h4>
+        <p>
+          碰撞等非线性问题需要大量的迭代求解步骤。一个整车碰撞模型可能包含
+          <strong>数百万个节点和单元</strong>，模拟几十毫秒的碰撞过程需要数万步时间积分。
+          这种计算量使得在设计早期阶段进行大量参数探索变得不切实际。
+        </p>
+
+        <h4>难以处理逆问题与优化</h4>
+        <p>
+          结构优化、参数识别等逆问题需要反复调用仿真器。如果每次仿真需要几小时，
+          优化过程将耗费数周时间。而降阶模型可以将优化时间从"周"级别缩短到"小时"甚至"分钟"级别。
+        </p>
+
+        <h4>需要专业知识进行建模</h4>
+        <p>
+          建立高质量的有限元模型需要深厚的力学知识和工程经验，包括网格划分、材料模型标定、
+          接触定义等。AI降阶方法则有望降低这一门槛，让更多设计人员能快速评估设计方案。
+        </p>
+
+        <div class="warning-box">
+          <p>
+            <strong>注意：</strong>AI降阶方法不是要取代FEM，而是与FEM形成互补。
+            FEM生成的高质量仿真数据是训练AI模型的基础，而AI模型则可以处理那些FEM
+            计算成本过高的场景，如大规模参数扫描、实时预测等。
+            两者是"伙伴"而非"对手"关系。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch1-sec2">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. 以下哪项不是传统有限元方法的局限？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 计算成本高昂，单次仿真可能需要数小时</div>
+              <div class="quiz-option">B. 难以高效处理结构优化等逆问题</div>
+              <div class="quiz-option">C. 完全无法处理非线性问题</div>
+              <div class="quiz-option">D. 建模需要深厚的专业知识</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              有限元方法完全可以处理非线性问题（如碰撞中的大变形、材料非线性等），只是计算成本很高。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">2. AI降阶模型需要FEM数据来训练，因此两者是互补关系而非替代关系。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              AI降阶模型通常依赖FEM生成的训练数据，两者形成互补：FEM提供高精度数据，AI提供快速推理。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">3. 以下哪个场景最能体现AI降阶模型的价值？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 最终设计方案的高精度验证</div>
+              <div class="quiz-option">B. 单次标准工况的仿真</div>
+              <div class="quiz-option">C. 单一参数的精确求解</div>
+              <div class="quiz-option">D. 大规模参数扫描与结构优化</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              AI降阶模型最大的价值在于需要反复调用仿真器的场景，如参数扫描和优化设计，因为其推理速度远快于FEM。
+            </div>
+          </div>
+        </div>
+<h3>1.3 为什么GNN适合不规则网格</h3>
+<p>
+          碰撞仿真中的物体通常被离散化为不规则的有限元网格。
+          这些网格中的节点位置是任意的，连接关系也是非结构化的——
+          不同节点可能有不同数量的邻居，整体形状复杂多样。
+        </p>
+
+        <h4>CNN的局限</h4>
+        <p>
+          卷积神经网络（CNN）在规则网格数据（如图像）上取得了巨大成功，因为图像中的每个像素
+          都有固定的8邻域结构，卷积核可以在整个图像上共享权重。但对于不规则网格：
+        </p>
+        <ul>
+          <li>节点的邻居数量不固定，无法用固定大小的卷积核</li>
+          <li>节点排列顺序不固定，缺乏平移不变性</li>
+          <li>复杂几何形状难以用规则网格表示</li>
+        </ul>
+
+        <h4>GNN的天然优势</h4>
+        <p>
+          图神经网络（GNN）直接以图结构作为输入，
+          每个节点可以有任意数量的邻居，天然适配不规则网格：
+        </p>
+        <ul>
+          <li><strong>排列不变性：</strong>节点顺序不影响计算结果，符合物理系统的本质</li>
+          <li><strong>局部归纳偏置：</strong>通过消息传递机制，天然建模"邻近节点相互作用"的物理直觉</li>
+          <li><strong>权重共享：</strong>同一个消息传递函数应用于所有节点和边，参数量不随网格增大而增长</li>
+          <li><strong>灵活的输入格式：</strong>节点特征、边特征、全局特征均可灵活定义</li>
+        </ul>
+
+        <div class="arch-diagram">
+          <svg viewBox="0 0 600 200" width="100%">
+            <defs>
+              <linearGradient id="nodeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" />
+                <stop offset="100%" />
+              </linearGradient>
+            </defs>
+            <!-- 不规则网格示意 -->
+            <text x="150" y="20" text-anchor="middle" fill="#94a3b8" font-size="13">不规则有限元网格</text>
+            <!-- 节点 -->
+            <circle cx="80" cy="70" r="8" fill="url(#nodeGrad)" />
+            <circle cx="140" cy="50" r="8" fill="url(#nodeGrad)" />
+            <circle cx="200" cy="80" r="8" fill="url(#nodeGrad)" />
+            <circle cx="60" cy="130" r="8" fill="url(#nodeGrad)" />
+            <circle cx="130" cy="140" r="8" fill="url(#nodeGrad)" />
+            <circle cx="200" cy="150" r="8" fill="url(#nodeGrad)" />
+            <circle cx="110" cy="100" r="8" fill="url(#nodeGrad)" />
+            <!-- 边 -->
+            <line x1="80" y1="70" x2="140" y2="50" stroke="#475569" stroke-width="1.5" />
+            <line x1="140" y1="50" x2="200" y2="80" stroke="#475569" stroke-width="1.5" />
+            <line x1="80" y1="70" x2="60" y2="130" stroke="#475569" stroke-width="1.5" />
+            <line x1="60" y1="130" x2="130" y2="140" stroke="#475569" stroke-width="1.5" />
+            <line x1="130" y1="140" x2="200" y2="150" stroke="#475569" stroke-width="1.5" />
+            <line x1="80" y1="70" x2="110" y2="100" stroke="#475569" stroke-width="1.5" />
+            <line x1="110" y1="100" x2="200" y2="80" stroke="#475569" stroke-width="1.5" />
+            <line x1="110" y1="100" x2="130" y2="140" stroke="#475569" stroke-width="1.5" />
+            <line x1="110" y1="100" x2="60" y2="130" stroke="#475569" stroke-width="1.5" />
+            <line x1="140" y1="50" x2="110" y2="100" stroke="#475569" stroke-width="1.5" />
+
+            <!-- 箭头 -->
+            <path d="M 280 100 L 320 100" stroke="#64748b" stroke-width="2" fill="none" marker-end="url(#arrowhead)" />
+            <defs>
+              <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                <polygon points="0 0, 10 3.5, 0 7" fill="#64748b" />
+              </marker>
+            </defs>
+
+            <!-- 图结构示意 -->
+            <text x="450" y="20" text-anchor="middle" fill="#94a3b8" font-size="13">GNN 图表示</text>
+            <!-- 节点 -->
+            <circle cx="380" cy="70" r="10" fill="#3b82f6" />
+            <circle cx="450" cy="50" r="10" fill="#3b82f6" />
+            <circle cx="520" cy="80" r="10" fill="#3b82f6" />
+            <circle cx="370" cy="130" r="10" fill="#3b82f6" />
+            <circle cx="440" cy="140" r="10" fill="#3b82f6" />
+            <circle cx="510" cy="150" r="10" fill="#3b82f6" />
+            <circle cx="425" cy="100" r="10" fill="#f59e0b" />
+            <!-- 边（带消息传递箭头） -->
+            <line x1="380" y1="70" x2="425" y2="100" stroke="#3b82f6" stroke-width="2" opacity="0.6">
+              <animate attributeName="stroke-dashoffset" from="100" to="0" dur="2s" repeatCount="indefinite" />
+            </line>
+            <line x1="425" y1="100" x2="450" y2="50" stroke="#3b82f6" stroke-width="2" opacity="0.6" />
+            <line x1="425" y1="100" x2="520" y2="80" stroke="#3b82f6" stroke-width="2" opacity="0.6" />
+            <line x1="370" y1="130" x2="425" y2="100" stroke="#3b82f6" stroke-width="2" opacity="0.6" />
+            <line x1="425" y1="100" x2="440" y2="140" stroke="#3b82f6" stroke-width="2" opacity="0.6" />
+            <line x1="440" y1="140" x2="510" y2="150" stroke="#3b82f6" stroke-width="2" opacity="0.6" />
+            <!-- 节点标签 -->
+            <text x="425" y="104" text-anchor="middle" fill="white" font-size="10" font-weight="bold">v</text>
+          </svg>
+          <p>
+            图：不规则网格自然转化为图结构，节点存储物理状态，边表示连接关系
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <p>
+            <strong>关键洞察：</strong>将物理系统建模为图，不仅是形式上的转换，更是一种深刻的归纳偏置。
+            物理系统的相互作用本质上是"局部的"——每个粒子/单元主要受其近邻影响，
+            而GNN的消息传递机制恰好编码了这一先验知识。这就是为什么GNN
+            在物理仿真任务上比全连接网络等结构更高效、泛化能力更强的根本原因。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch1-sec3">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. GNN相比于CNN，处理不规则网格的核心优势是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. GNN的参数量更大</div>
+              <div class="quiz-option">B. GNN训练速度更快</div>
+              <div class="quiz-option">C. GNN天然支持任意拓扑的图结构，具有排列不变性</div>
+              <div class="quiz-option">D. GNN需要的训练数据更少</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              GNN直接以图结构作为输入，支持任意拓扑，且计算结果不受节点排列顺序影响，这是其处理不规则数据的核心优势。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">2. GNN的消息传递机制与物理系统的局部相互作用具有天然的对应关系。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              物理系统中每个粒子/单元主要受近邻影响，GNN的消息传递机制恰好编码了这种局部相互作用的归纳偏置。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">3. 在物理仿真的图表示中，边通常代表什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 节点的物理状态（如位移、速度）</div>
+              <div class="quiz-option">B. 节点之间的连接或相互作用关系</div>
+              <div class="quiz-option">C. 全局系统属性</div>
+              <div class="quiz-option">D. 时间步信息</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              在物理仿真的图表示中，边代表节点之间的连接关系或相互作用（如网格邻接、粒子碰撞等）。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">4. CNN不适合处理不规则网格的原因，以下哪项是错误的？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 不规则网格中每个节点的邻居数量不固定</div>
+              <div class="quiz-option">B. 节点排列顺序不固定，缺乏平移不变性</div>
+              <div class="quiz-option">C. 复杂几何形状难以用规则网格表示</div>
+              <div class="quiz-option">D. CNN无法学习非线性特征</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              CNN当然可以学习非线性特征。它不适合不规则网格的主要原因是A、B、C所述的结构性问题。
+            </div>
+          </div>
+        </div>
+<h3>1.4 降阶方法的分类与发展脉络</h3>
+<p>
+          仿真降阶方法经历了数十年的发展，从传统的数学方法到如今的AI驱动方法，形成了丰富的技术谱系。
+        </p>
+
+        <h4>传统降阶方法</h4>
+        <ul>
+          <li><strong>本征正交分解（POD）：</strong>通过奇异值分解（SVD）找到数据的主成分，将高维状态投影到低维子空间</li>
+          <li><strong>正交分解（DMD）：</strong>适用于动态系统，提取主导的空间-时间模态</li>
+          <li><strong>Krylov子空间方法：</strong>基于矩匹配的系统级降阶</li>
+        </ul>
+        <p>
+          这些传统方法的优点是有坚实的数学理论保证，但对于强非线性系统（如碰撞）效果有限，
+          且通常只适用于特定的几何和参数配置。
+        </p>
+
+        <h4>AI驱动的降阶方法</h4>
+        <p>
+          随着深度学习的发展，AI降阶方法逐渐成为主流，大致可分为以下几代：
+        </p>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>代际</th>
+                <th>代表方法</th>
+                <th>核心思想</th>
+                <th>优点</th>
+                <th>局限</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>第一代</strong></td>
+                <td>CNN + Autoencoder</td>
+                <td>用编码器压缩、解码器重建，在潜空间用MLP预测动力学</td>
+                <td>实现简单，适合规则网格</td>
+                <td>无法处理不规则网格，泛化能力有限</td>
+              </tr>
+              <tr>
+                <td><strong>第二代</strong></td>
+                <td>GNN / GNS / MeshGraphNet</td>
+                <td>用图结构表示物理系统，通过消息传递学习动力学</td>
+                <td>支持不规则网格，有强归纳偏置，泛化性好</td>
+                <td>长程依赖需要多层GNN，可能出现过度平滑</td>
+              </tr>
+              <tr>
+                <td><strong>第三代</strong></td>
+                <td>GNN + Transformer</td>
+                <td>GNN处理局部交互，Transformer捕捉长程依赖</td>
+                <td>同时具备局部建模和全局建模能力</td>
+                <td>计算复杂度较高，需要更多数据</td>
+              </tr>
+              <tr>
+                <td><strong>第四代</strong></td>
+                <td>GNN + Transformer + 物理约束</td>
+                <td>在数据驱动基础上加入PDE、守恒律等物理约束</td>
+                <td>物理一致性好，数据效率高，外推能力强</td>
+                <td>物理损失的设计和平衡较复杂</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <p>
+            <strong>前沿趋势：</strong>当前的研究前沿正在向"物理约束的混合架构"演进——
+            结合GNN的局部建模能力、Transformer的长程依赖捕捉能力，以及PINN的物理一致性保证。
+            NVIDIA与通用汽车的合作研究就展示了MeshGraphNet + Transolver架构在汽车碰撞仿真中的应用潜力
+            <a href="https://www.nvidia.com/en-us/on-demand/session/gtc26-s81785/" target="_blank" rel="noopener noreferrer" class="citation">[2]</a>。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch1-sec4">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. 传统POD方法在碰撞仿真降阶中的主要局限是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 计算速度太慢</div>
+              <div class="quiz-option">B. 需要太多内存</div>
+              <div class="quiz-option">C. 对强非线性问题效果有限，且泛化能力差</div>
+              <div class="quiz-option">D. 无法处理高维数据</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              POD等传统降阶方法基于线性假设，对碰撞这类强非线性问题效果有限，且通常只适用于特定几何和参数。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">2. 第四代AI降阶方法的核心特征是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 使用了更深的神经网络</div>
+              <div class="quiz-option">B. 结合GNN + Transformer + 物理约束，同时具备局部、全局和物理一致性</div>
+              <div class="quiz-option">C. 完全不需要训练数据</div>
+              <div class="quiz-option">D. 只能处理二维问题</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              第四代方法的核心是融合GNN的局部建模、Transformer的长程依赖和PINN的物理约束，三者互补。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. 有了第四代AI降阶方法，传统降阶方法就完全没有价值了。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              传统降阶方法在特定场景下仍有价值，如线性问题、有严格理论保证要求的场景，且可与AI方法结合使用。
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="#ch0-home" class="chapter-nav-btn prev">
+            <div class="label">← 返回首页</div>
+            <div class="title">课程介绍</div>
+          </a>
+          <a href="#ch2" class="chapter-nav-btn next">
+            <div class="label">下一章 →</div>
+            <div class="title">图神经网络核心</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== 第2章：GNN核心 ===== -->
+      <section id="ch2">
+        <div class="chapter-intro">
+          <div class="chapter-num">第二章</div>

@@ -1,0 +1,30 @@
+<h3>5.1 训练数据量与硬件需求</h3>
+<p><strong>数据量需求。</strong> 数据量需求与问题维度、复杂度和目标精度强相关。根据公开案例可总结出大致规律：</p>
+<ul>
+<li><strong>标量+低维（3-5个参数）</strong>：25-100次仿真即可达到较高精度。例如约束系统ROM案例用3个设计变量、25个DOE样本，R²>97% <a href="https://m.auto-testing.net/news/show-120458.html" target="_blank">(汽车测试网)</a>。</li>
+<li><strong>场量+中维（10-20个参数）</strong>：几百次仿真量级。例如Altair轨道碰撞用450次训练+50次验证 <a href="https://altair.com/docs/default-source/resource-library/altair_whitepaper_rail_crash_physicsai_061025-final-clean.pdf" target="_blank">(Altair白皮书)</a>；侧梁优化用556个变体（14个壁厚参数）<a href="https://www.cambridge.org/core/product/8B1C8340F82B88FACE8CD3CEAAB1E747/core-reader" target="_blank">(Cambridge Core)</a>。</li>
+<li><strong>全场+高维（整车级）</strong>：数千次仿真量级。SHIFT-Crash基准数据集为5000次仿真 <a href="https://luminary.ai/resources/luminary-launches-shift-crash-first-physics-ai-model-for-full-vehicle-crash-prediction/" target="_blank">(Luminary)</a>；NVIDIA白车身研究用150次（变量较少、精度要求也较低）<a href="https://www.nvidia.com/en-us/on-demand/session/gtc26-s81785/" target="_blank">(GTC 2026)</a>。</li>
+</ul>
+<p>DOE采样的经验法则是参数维度d的10-20倍，但这是初始样本量。对于强非线性问题，通常还需要主动学习循环补充30%-100%的样本才能达到工程精度。</p>
+<p><strong>硬件需求。</strong> 训练阶段：现代碰撞代理模型（如GNN/Transformer）通常需要单个GPU到多GPU训练。NVIDIA PhysicsNeMo的碰撞示例推荐GPU环境配PyTorch <a href="https://docs.nvidia.com/physicsnemo/latest/physicsnemo/examples/structural_mechanics/crash/README.html" target="_blank">(NVIDIA文档)</a>。对于百万节点级的整车模型，训练可能需要A100或更高级别GPU，训练周期从几小时（部件级）到几天（整车级）不等。推理阶段则非常快——通常在秒级以内，这也是代理模型的核心价值所在。</p>
+<p><strong>训练周期。</strong> 完整的AI+DOE+PINN项目周期包括：数据准备（参数化+DOE）1-4周、仿真运行（取决于并行资源）数天到数周、模型训练与调优几天到几周、验证与部署1-2周。对于部件级问题，整个周期可以在1-2个月内完成；整车级项目通常需要3-6个月，具体取决于数据可用性和团队经验。</p>
+<h3>5.2 工业落地的主要障碍</h3>
+<p><strong>精度与问题规模的矛盾。</strong> PINN在小规模、PDE形式清晰的问题上表现出色，但在整车级碰撞这种千万自由度、强非线性、多接触的问题上，纯PINN方案计算上不可行且精度不足。当前工业级解决方案都是"数据驱动为主、物理约束为辅"的混合架构，这意味着对数据量的依赖仍然很高，PINN的"小样本优势"在工程级问题上被稀释。</p>
+<p><strong>泛化性与分布外（OOD）性能。</strong> 这是最大的落地障碍。代理模型在训练参数空间内的插值预测可以达到很高精度，但一旦超出训练分布（如新的几何拓扑、不同量级的冲击速度、新材料体系），性能会急剧恶化。空气动力学代理模型的零样本跨车型测试显示阻力R²降至-5.27（完全失效），虽然是气动案例但反映了普遍问题 <a href="https://arxiv.org/html/2605.27968v1" target="_blank">(arXiv:2605.27968)</a>。碰撞问题的非线性更强，OOD泛化的挑战更为严峻。迁移学习可以部分缓解（同级别车型从5000次降到300次），但跨级别、跨拓扑仍然困难 <a href="https://luminary.ai/resources/luminary-launches-shift-crash-first-physics-ai-model-for-full-vehicle-crash-prediction/" target="_blank">(Luminary)</a>。</p>
+<p><strong>可解释性与可信度。</strong> 深度学习模型的"黑箱"特性在汽车安全领域尤为敏感——碰撞性能直接关系到乘员生命安全，任何预测都需要可追溯、可验证。当前的应对方式包括：等价评分（equivalence scoring）为每个预测提供置信度评估，置信度不足的不用于设计决策 <a href="https://depusa.com/aiworks" target="_blank">(DEP AIWorks)</a>；KPI从预测场量衍生而非直接回归，作为物理一致性自检 <a href="https://luminary.ai/resources/shift-crash-bringing-physics-ai-to-full-vehicle-crashworthiness-prediction/" target="_blank">(Luminary)</a>。但这些手段尚未形成行业标准。</p>
+<p><strong>验证标准与监管认可。</strong> 汽车碰撞有严格的法规体系（FMVSS、C-NCAP等），所有安全设计必须通过物理试验验证。AI代理模型目前的定位是"设计筛选工具"——帮助工程师快速找出有潜力的设计方案，最终验证仍然依靠物理仿真和实车试验。AI结果能否直接用于认证、需要满足哪些精度标准，目前全球都在探索中。</p>
+<p><strong>数据获取与质量。</strong> 高质量标注的碰撞仿真数据是训练代理模型的基础，但获取成本极高（单次数万到数十万元计算资源）。而且历史数据可能存在参数化不统一、网格差异大、数据格式不规范等问题。这也是为什么领先的项目（如SHIFT-Crash）都从统一的参数化平台系统生成数据，而非直接使用零散的历史数据。</p>
+<p><strong>人才与组织障碍。</strong> 这项工作需要同时懂CAE仿真、机器学习和汽车工程的跨学科人才，目前市场上极为稀缺。传统CAE团队普遍缺乏AI能力，而AI团队又缺乏工程物理理解。组织上，AI项目需要CAE团队与数据团队紧密协作，但两者的工作模式、评价体系和沟通语言差异很大。</p>
+<h3>5.3 成功案例与标杆项目</h3>
+<table class="markdown-table"><thead><tr><th>项目/案例</th><th>主体</th><th>场景</th><th>关键指标</th><th>技术路线</th><th>成熟度</th></tr></thead><tbody>
+<tr><td>SHIFT-Crash</td><td>Luminary</td><td>整车正面碰撞</td><td>RMSE<3%, 数秒推理</td><td>Physics AI + 迁移学习</td><td>商用产品</td></tr>
+<tr><td>白车身碰撞代理</td><td>NVIDIA + GM</td><td>白车身碰撞变形</td><td>数量级加速</td><td>MeshGraphNet/Transolver</td><td>研究验证</td></tr>
+<tr><td>侧柱碰整车代理</td><td>SEAT + IDIADA</td><td>侧柱撞击</td><td>RMSE=3.20mm</td><td>混合GNN+注意力</td><td>学术研究</td></tr>
+<tr><td>轨道碰撞优化</td><td>Altair PhysicsAI</td><td>轨道压溃</td><td>5倍加速, 偏差<15%</td><td>ML代理 + 优化</td><td>商业验证</td></tr>
+<tr><td>保险杠碰撞</td><td>Ansys SimAI</td><td>保险杠冲击</td><td>压溃误差<0.5%</td><td>深度学习代理</td><td>商业验证</td></tr>
+<tr><td>行人头碰HIC优化</td><td>Altair</td><td>发动机罩</td><td>550倍加速, 误差~6%</td><td>DOE + ML代理</td><td>工程应用</td></tr>
+<tr><td>BMW碰撞运动学优化</td><td>BMW + Altair</td><td>前碰撞</td><td>减少设计迭代</td><td>聚类+分类ML</td><td>生产部署</td></tr>
+<tr><td>约束系统ROM</td><td>ODYSSEE CAE</td><td>正面碰撞乘员约束</td><td>R²>97%（多数响应）</td><td>POD+KRG</td><td>工程应用</td></tr>
+<p>这些案例呈现出一个清晰的<strong>落地路径</strong>：从部件级/子系统级开始验证（风险低、周期短），积累经验和数据后扩展到系统级，最后逐步向整车级推进。当前工业界的量产部署主要集中在部件优化和设计筛选层面，整车级代理模型虽然有产品推出但仍处于早期采用阶段。</p>
+<p>---</p>
+</tbody></table>

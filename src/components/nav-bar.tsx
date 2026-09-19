@@ -105,7 +105,7 @@ const SUBSITE_ACTIONS: Record<string, SubsiteAction[]> = {
     { href: "/learn/gn-crash", label: "课程地图", icon: BookOpen, description: "GNN 7 章课程" },
     { href: "/courses/gn-crash-guide/flashcards.html", label: "闪卡", icon: Brain, description: "35 张闪卡 SM-2" },
     { href: "/courses/gn-crash-guide/quizzes.html", label: "测验", icon: GraduationCap, description: "56 题 + 期末" },
-    { href: "/courses/gn-crash-guide/original.html", label: "原始指南", icon: BookOpen, description: "源 HTML 一比一复刻" },
+    { href: "/courses/gn-crash-guide/chapter-01-crash-basics.html", label: "章节正文", icon: BookOpen, description: "第 1 章 · 碰撞仿真与降阶基础" },
   ],
   "/blog": [
     { href: "/blog/new", label: "写新文章", icon: BookOpen, description: "发布新博客" },

@@ -1,0 +1,522 @@
+<h3>6.1 PyTorch Geometric 入门</h3>
+<p>
+          PyTorch Geometric（PyG）
+          是最流行的图神经网络库之一，基于PyTorch构建。
+          它提供了丰富的GNN层、数据集和工具，是物理仿真GNN项目的首选框架之一。
+        </p>
+
+        <h4>安装</h4>
+        <div class="code-block">
+# 基础安装
+pip install torch
+pip install torch_geometric
+
+# 可选：安装扩展算子（提升性能）
+pip install torch_scatter torch_sparse torch_cluster torch_spline_conv
+        </div>
+
+        <h4>核心数据结构：Data 与 Batch</h4>
+        <p>
+          PyG用 <code>Data</code> 类表示单个图，主要属性：
+        </p>
+        <ul>
+          <li><strong>x：</strong>节点特征矩阵，形状 [num_nodes, num_node_features]</li>
+          <li><strong>edge_index：</strong>边索引，形状 [2, num_edges]，COO格式</li>
+          <li><strong>edge_attr：</strong>边特征矩阵，形状 [num_edges, num_edge_features]</li>
+          <li><strong>y：</strong>标签/目标，形状依任务而定</li>
+          <li><strong>pos：</strong>节点位置（常用于3D点云/网格），形状 [num_nodes, 3]</li>
+        </ul>
+
+        <div class="code-block">
+import torch
+from torch_geometric.data import Data
+
+# 一个简单的弹簧-质点系统的图表示
+# 3个节点，每个节点有位置(x,y)和速度(vx,vy)共4个特征
+x = torch.tensor([
+    [0.0, 0.0, 0.0, 0.0],  # 节点0
+    [1.0, 0.0, 0.0, 0.0],  # 节点1
+    [2.0, 0.0, 0.0, 0.0],  # 节点2
+], dtype=torch.float)
+
+# 边索引（无向图需要双向）
+edge_index = torch.tensor([
+    [0, 1, 1, 2],  # 源节点
+    [1, 0, 2, 1],  # 目标节点
+], dtype=torch.long)
+
+# 边特征：弹簧原长、刚度系数
+edge_attr = torch.tensor([
+    [1.0, 100.0],  # 边 0→1
+    [1.0, 100.0],  # 边 1→0
+    [1.0, 100.0],  # 边 1→2
+    [1.0, 100.0],  # 边 2→1
+], dtype=torch.float)
+
+data = Data(x=x, edge_index=edge_index, edge_attr=edge_attr)
+        </div>
+
+        <h4>常用GNN层</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>层类型</th>
+                <th>PyG类名</th>
+                <th>说明</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>GCN</td>
+                <td><code>GCNConv</code></td>
+                <td>图卷积层，适合同构图</td>
+              </tr>
+              <tr>
+                <td>GAT</td>
+                <td><code>GATConv</code></td>
+                <td>图注意力层，支持多头注意力</td>
+              </tr>
+              <tr>
+                <td>GraphSAGE</td>
+                <td><code>SAGEConv</code></td>
+                <td>采样+聚合，适合大图</td>
+              </tr>
+              <tr>
+                <td>GIN</td>
+                <td><code>GINConv</code></td>
+                <td>图同构网络，表达能力强</td>
+              </tr>
+              <tr>
+                <td>消息传递基类</td>
+                <td><code>MessagePassing</code></td>
+                <td>自定义消息传递网络的基类（最常用）</td>
+              </tr>
+              <tr>
+                <td>Transformer</td>
+                <td><code>TransformerConv</code></td>
+                <td>图Transformer层</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="tip-box">
+          <p>
+            <strong>物理仿真推荐：</strong>在物理仿真中，最常用的是继承
+            <code>MessagePassing</code> 基类来实现自定义的消息传递网络。
+            因为物理仿真通常需要丰富的边特征和自定义的消息/更新函数，
+            标准的GCN/GAT层可能不够灵活。
+            基于MessagePassing可以完全控制消息构造和聚合的每个细节。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch6-sec1">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">1. PyG中表示单个图的核心类是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. Data</div>
+              <div class="quiz-option">B. Graph</div>
+              <div class="quiz-option">C. Tensor</div>
+              <div class="quiz-option">D. Network</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              PyG使用Data类表示单个图，包含x（节点特征）、edge_index（边索引）、edge_attr（边特征）等属性。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">2. 物理仿真中，为什么常基于MessagePassing基类自定义GNN？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 因为这样代码更短</div>
+              <div class="quiz-option">B. 因为标准GNN层不能用GPU</div>
+              <div class="quiz-option">C. 因为物理仿真需要丰富的边特征和自定义的消息/更新函数，标准层不够灵活</div>
+              <div class="quiz-option">D. 因为MessagePassing不需要训练</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              物理仿真需要灵活处理各种边特征和自定义的物理交互规则，基于MessagePassing可以完全控制消息传递的细节。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. edge_index的形状是[num_edges, 2]。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              edge_index的形状是[2, num_edges]，第一行是源节点索引，第二行是目标节点索引（COO格式）。
+            </div>
+          </div>
+        </div>
+<h3>6.2 DGL 与其他GNN框架</h3>
+<h4>DGL（Deep Graph Library）</h4>
+        <p>
+          DGL是另一个主流的GNN框架，由亚马逊/纽约大学等开发。
+          它支持PyTorch、TensorFlow、MXNet等多个后端，
+          提供了丰富的GNN模型和大规模图训练支持。
+        </p>
+
+        <p><strong>DGL的特点：</strong></p>
+        <ul>
+          <li>多后端支持，灵活切换</li>
+          <li>高效的消息传递实现（基于稀疏矩阵和内核优化）</li>
+          <li>强大的采样和分布式训练支持</li>
+          <li>内置很多经典模型和数据集</li>
+          <li>graph-physics等项目使用DGL实现物理仿真GNN</li>
+        </ul>
+
+        <h4>PyG vs DGL 对比</h4>
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>维度</th>
+                <th>PyG</th>
+                <th>DGL</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>后端</td>
+                <td>仅PyTorch</td>
+                <td>PyTorch / TF / MXNet</td>
+              </tr>
+              <tr>
+                <td>模型数量</td>
+                <td>非常多</td>
+                <td>多</td>
+              </tr>
+              <tr>
+                <td>自定义灵活性</td>
+                <td>高（MessagePassing基类）</td>
+                <td>高（原生消息传递API）</td>
+              </tr>
+              <tr>
+                <td>大规模图训练</td>
+                <td>好</td>
+                <td>很好</td>
+              </tr>
+              <tr>
+                <td>社区活跃度</td>
+                <td>高</td>
+                <td>高</td>
+              </tr>
+              <tr>
+                <td>物理仿真项目</td>
+                <td>多</td>
+                <td>有（如graph-physics）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <h4>其他值得关注的框架</h4>
+        <ul>
+          <li><strong>PyTorch Geometric Temporal：</strong>PyG的时空扩展，适合动态图和时序物理仿真</li>
+          <li><strong>Graph Nets（DeepMind）：</strong>DeepMind的GraphNets库，基于TensorFlow/Sonnet，是GNS等工作的原始实现</li>
+          <li><strong>Jraph：</strong>DeepMind基于JAX的GNN库，适合高性能计算和可微仿真</li>
+          <li><strong>NVIDIA PhysicsNeMo：</strong>NVIDIA的物理仿真AI框架，包含MeshGraphNet、Transolver等SOTA模型</li>
+        </ul>
+
+        <div class="info-box">
+          <p>
+            <strong>框架选择建议：</strong>
+            <br>• 初学者：从PyG开始，文档丰富，社区活跃
+            <br>• 物理仿真研究：PyG或PhysicsNeMo（工业级）
+            <br>• 需要大规模分布式训练：考虑DGL
+            <br>• 追求极致性能+可微仿真：JAX + Jraph
+            <br>• 不用担心——核心概念是通用的，学会一个再转其他很快
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch6-sec2">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. DGL相比PyG的一个独特特点是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 速度更快</div>
+              <div class="quiz-option">B. 支持更多GNN层</div>
+              <div class="quiz-option">C. 支持PyTorch、TensorFlow等多个后端</div>
+              <div class="quiz-option">D. 完全不需要GPU</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              DGL的一个显著特点是支持多个深度学习后端（PyTorch、TensorFlow、MXNet），而PyG仅支持PyTorch。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">2. 对于GNN物理仿真的初学者，推荐从哪个框架开始？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. PyTorch Geometric（PyG）</div>
+              <div class="quiz-option">B. 直接写CUDA</div>
+              <div class="quiz-option">C. 用纯NumPy手动实现</div>
+              <div class="quiz-option">D. 直接上分布式框架</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              PyG文档丰富、社区活跃、入门友好，是初学者的最佳选择。学会后再转其他框架很快。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">3. NVIDIA PhysicsNeMo框架中包含了MeshGraphNet和Transolver等物理仿真模型。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              NVIDIA PhysicsNeMo是面向工业物理仿真的AI框架，集成了MeshGraphNet、Transolver等SOTA模型。
+            </div>
+          </div>
+        </div>
+<h3>6.3 JAX / ΦFlow 与可微仿真</h3>
+<h4>JAX 是什么</h4>
+        <p>
+          JAX是Google开发的高性能数值计算框架。
+          它结合了NumPy的友好接口和强大的自动微分、JIT编译、GPU/TPU加速能力。
+          在物理仿真和科学计算领域，JAX越来越受欢迎。
+        </p>
+
+        <p><strong>JAX的核心功能：</strong></p>
+        <ul>
+          <li><strong>自动微分（grad）：</strong>支持任意阶导数，正反向模式自动选择</li>
+          <li><strong>JIT编译（jit）：</strong>将Python函数编译为优化的XLA代码，大幅加速</li>
+          <li><strong>向量化（vmap）：</strong>自动批处理，写单样本代码自动支持batch</li>
+          <li><strong>并行化（pmap）：</strong>轻松实现多设备并行</li>
+        </ul>
+
+        <h4>ΦFlow (PhiFlow)</h4>
+        <p>
+          ΦFlow是一个可微仿真工具包，
+          支持PyTorch、TensorFlow、JAX和NumPy四种后端。
+          它提供了构建可微物理仿真所需的各种组件：
+        </p>
+        <ul>
+          <li>微分算子（梯度、拉普拉斯等）</li>
+          <li>边界条件处理</li>
+          <li>可微求解器</li>
+          <li>可视化工具</li>
+          <li>内置流体仿真等示例</li>
+        </ul>
+
+        <h4>可微仿真是什么？</h4>
+        <p>
+          可微仿真（Differentiable Simulation）是指整个仿真过程都是可微的——
+          你可以计算最终结果对输入参数（如材料属性、边界条件、初始状态）的梯度。
+          这有什么用呢？
+        </p>
+        <ul>
+          <li><strong>逆问题求解：</strong>通过梯度下降优化参数，使仿真结果匹配观测</li>
+          <li><strong>设计优化：</strong>直接优化设计参数，使性能指标最优</li>
+          <li><strong>参数识别：</strong>从实验数据反推材料参数等未知量</li>
+          <li><strong>与AI结合：</strong>可微仿真可以作为AI模型的物理层，提供强归纳偏置</li>
+        </ul>
+
+        <div class="info-box">
+          <p>
+            <strong>可微仿真 vs 学习型仿真：</strong>
+            <br>• <strong>可微仿真：</strong>基于物理原理构建仿真器，整个过程可微。物理精度高，但速度仍受限于数值方法。
+            <br>• <strong>学习型仿真（GNN等）：</strong>从数据中学习仿真模型。速度快，但物理一致性依赖数据和约束。
+            <br>• <strong>融合趋势：</strong>两者结合是方向——可微仿真提供物理先验，
+            学习型仿真提供加速，形成"物理指导 + 数据驱动"的混合范式。
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <p>
+            <strong>注意：</strong>JAX的编程范式与PyTorch有些不同（更函数式），
+            初学者可能需要一定时间适应。但如果你的目标是做前沿的可微物理仿真研究，
+            JAX是非常值得投入的工具。DeepMind的很多最新工作都是基于JAX的。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch6-sec3">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">1. JAX的核心功能不包括以下哪项？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 自动微分</div>
+              <div class="quiz-option">B. 内置的GNN层</div>
+              <div class="quiz-option">C. JIT编译加速</div>
+              <div class="quiz-option">D. 自动向量化(vmap)</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              JAX是通用数值计算框架，不内置GNN层。GNN需要用JAX自己实现或使用Jraph等上层库。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">2. "可微仿真"最重要的应用价值是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 让仿真速度更快</div>
+              <div class="quiz-option">B. 让仿真更精确</div>
+              <div class="quiz-option">C. 可以计算结果对参数的梯度，支持优化、反问题求解等</div>
+              <div class="quiz-option">D. 让代码更容易写</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              可微仿真的核心价值是梯度——有了梯度就可以用优化方法解决逆问题、设计优化、参数识别等问题。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. ΦFlow只能与JAX一起使用。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              ΦFlow支持PyTorch、TensorFlow、JAX和NumPy四种后端，用户可以自由选择。
+            </div>
+          </div>
+        </div>
+<h3>6.4 常用仿真数据集</h3>
+<p>
+          数据是AI仿真的基础。以下是一些常用的仿真数据集和基准环境。
+        </p>
+
+        <h4>粒子/流体仿真数据集</h4>
+        <ul>
+          <li>
+            <strong>DeepMind Learning to Simulate 数据集：</strong>
+            包含流体、刚体、可变形材料等多种粒子系统仿真数据，是GNS论文使用的基准
+          </li>
+          <li>
+            <strong>SPH数据集系列：</strong>
+            基于光滑粒子流体动力学（SPH）生成的各种流体仿真数据
+          </li>
+        </ul>
+
+        <h4>结构/固体力学数据集</h4>
+        <ul>
+          <li>
+            <strong>graph-physics数据集：</strong>
+            包含流体动力学、材料力学等基于网格的仿真数据集，支持.h5和.xdmf格式
+          </li>
+          <li>
+            <strong>ShapeNet Car（汽车设计）：</strong>
+            大量不同形状汽车的空气动力学/结构仿真数据，用于验证模型的几何泛化能力
+          </li>
+          <li>
+            <strong>AirfRANS：</strong>
+            翼型气动仿真数据集，工业级CFD基准
+          </li>
+        </ul>
+
+        <h4>控制与机器人仿真环境</h4>
+        <ul>
+          <li>
+            <strong>DeepMind Control Suite（dm_control）：</strong>
+            基于MuJoCo的连续控制基准，包含多种机器人任务，常用于强化学习和模型学习研究
+          </li>
+          <li>
+            <strong>MuJoCo MPC（MJPC）：</strong>
+            DeepMind的模型预测控制框架，基于MuJoCo物理引擎，支持实时规划
+          </li>
+        </ul>
+
+        <h4>碰撞/冲击相关数据集</h4>
+        <ul>
+          <li>
+            <strong>方管/圆柱压溃仿真数据集：</strong>
+            学术界常用的简化碰撞问题，数据相对容易生成
+          </li>
+          <li>
+            <strong>整车碰撞数据集：</strong>
+            通常是企业私有数据（如通用汽车的BIW数据集），公开的较少
+          </li>
+          <li>
+            <strong>VZCrash：</strong>
+            真实世界车辆碰撞的惯性测量数据集，用于碰撞检测模型训练
+          </li>
+        </ul>
+
+        <div class="tip-box">
+          <p>
+            <strong>没有数据怎么办？自己生成！</strong>
+            <br>在碰撞仿真领域，公开数据集往往不够用。好消息是——
+            你可以用开源的FEM/DEM工具自己生成数据：
+            <br>• FEniCS / deal.II（开源FEM框架）
+            <br>• PyBullet / MuJoCo（刚体和简单变形）
+            <br>• Taichi Elements（SPH流体）
+            <br>• LS-DYNA / Abaqus（商业软件，学术版通常免费）
+            <br>
+            <br>自己生成数据的好处是：完全可控，想生成多少生成多少。
+            这也是为什么物理仿真AI研究通常与数值仿真紧密结合。
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <p>
+            <strong>数据质量很重要：</strong>
+            AI模型的上限取决于训练数据的质量。
+            如果FEM仿真本身就不准（网格太粗、材料模型不对），
+            AI模型学到的也是"错误的物理"。
+            在准备数据阶段，务必确保仿真设置正确、结果经过验证。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch6-sec4">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">1. DeepMind Control Suite（dm_control）是基于什么物理引擎的？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. Unity</div>
+              <div class="quiz-option">B. MuJoCo</div>
+              <div class="quiz-option">C. Box2D</div>
+              <div class="quiz-option">D. PhysX</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              DeepMind Control Suite基于MuJoCo物理引擎，提供了一系列连续控制基准任务。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">2. 关于碰撞仿真数据集，以下哪种说法最准确？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 有大量高质量的公开数据集可用</div>
+              <div class="quiz-option">B. 完全不需要数据</div>
+              <div class="quiz-option">C. 数据只能从真实碰撞实验获取</div>
+              <div class="quiz-option">D. 公开数据集较少，常用FEM等工具自己生成训练数据</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              碰撞仿真的公开高质量数据集有限，研究者通常使用FEM工具自己生成训练数据。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">3. AI模型的性能上限受限于训练数据的质量。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              数据质量决定了模型学习的上限。如果FEM仿真数据本身就不准确，AI模型也学不到正确的物理规律。
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="#ch5" class="chapter-nav-btn prev">
+            <div class="label">← 上一章</div>
+            <div class="title">混合架构与前沿方法</div>
+          </a>
+          <a href="#ch7" class="chapter-nav-btn next">
+            <div class="label">下一章 →</div>
+            <div class="title">实战：弹簧-质点系统</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== 第7章：实战 ===== -->
+      <section id="ch7">
+        <div class="chapter-intro">
+          <div class="chapter-num">第七章</div>

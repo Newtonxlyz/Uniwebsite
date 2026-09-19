@@ -1,0 +1,21 @@
+{
+  "id": "pinn-crash-reduction",
+  "slug": "pinn-crash",
+  "title": "AI+DOE+PINN",
+  "subtitle": "千倍加速的代理模型 · 从原理到工程落地",
+  "learnUrl": "https://lvyz.org/learn/pinn-crash",
+  "level": "intermediate",
+  "estimatedHours": 12,
+  "audience": "汽车安全工程师 · CAE 仿真从业者 · 仿真研究生",
+  "objectives": [
+    "理解 PINN、GNN、Transformer 在碰撞仿真中的角色",
+    "能独立评估 PINN 在工程碰撞问题的可行性",
+    "能选型 DOE / 代理模型 / 物理约束组合",
+    "能评估 Luminary / Ansys / Altair / DEP 商业方案 ROI"
+  ],
+  "prerequisites": [
+    "Python 基础",
+    "有限元基础",
+    "深度学习入门"
+  ]
+}

@@ -1,0 +1,69 @@
+<h3>6.1 从0到1的技术路线图</h3>
+<p><strong>阶段一：理论与工具准备（2-4周）</strong></p>
+<ol>
+<li><strong>PINN基础理论学习</strong>：从Raissi 2019年的原始PINN论文开始，理解物理约束损失函数的核心思想。配合YouTube PINN教程系列和GitHub上的入门notebook（如AGN000/PINN_tutorial），从简单的热方程、Burgers方程入手，亲手跑通第一个PINN实验 <a href="https://github.com/AGN000/PINN_tutorial" target="_blank">(GitHub PINN_tutorial)</a>。</li>
+</ul>
+<ol>
+<li><strong>选定框架并上手</strong>：</li>
+<li>如果研究导向、Python基础扎实 → DeepXDE（文档完善、案例丰富）</li>
+<li>如果有GPU资源、面向工程应用 → NVIDIA PhysicsNeMo（有碰撞官方示例）</li>
+<li>建议从DeepXDE入门理解原理，再根据项目需求决定是否迁移到PhysicsNeMo。</li>
+</ul>
+<ol>
+<li><strong>DOE与代理模型基础</strong>：理解拉丁超立方、Sobol序列等空间填充设计的原理，学习GPR、RBF、Kriging等传统代理模型。这是PINN的基础和对照组——先掌握传统方法，才能正确评估PINN的增量价值。</li>
+</ul>
+<p><strong>阶段二：部件级验证（4-8周）</strong></p>
+<ol>
+<li><strong>选择一个简单的结构力学问题</strong>：从简支梁、悬臂梁的弹性问题开始，用PINN复现FEM结果，验证损失函数构建、边界条件施加、自动微分计算等基本环节。可以参考beam-elasticity-pinn等GitHub项目 <a href="https://github.com/Sasmxtha/beam-elasticity-pinn" target="_blank">(GitHub beam-elasticity-pinn)</a>。</li>
+</ul>
+<ol>
+<li><strong>逐步引入非线性</strong>：弹性问题掌握后，逐步加入材料非线性（弹塑性）、几何非线性（大变形）、接触等复杂因素，每一步都与FEM基准解对比，观察误差来源和精度变化。</li>
+</ul>
+<ol>
+<li><strong>构建DOE+代理模型工作流</strong>：选取一个真实的部件级问题（如轨道压溃、B柱弯曲），按完整流程实践：参数化→DOE采样→批量FEM计算→数据提取→PINN/ML训练→精度验证。建议先做纯数据驱动的GPR/DNN基准，再加入PINN物理约束，量化PINN带来的精度提升。</li>
+</ul>
+<p><strong>阶段三：系统级扩展（2-6个月）</strong></p>
+<ol>
+<li><strong>从标量到场量</strong>：如果前期只做标量KPI的代理预测，此时可以升级到场量预测（应力分布、变形云图）。这一步需要GNN或自编码器等架构，推荐用PhysicsNeMo的MeshGraphNet或Transolver实现。</li>
+</ul>
+<ol>
+<li><strong>从部件到子系统</strong>：验证通过后，扩展到子系统级问题（如侧梁总成、前端模块），数据量和计算成本都会上升，需要注意并行计算和数据管理。</li>
+</ul>
+<ol>
+<li><strong>引入多尺度</strong>：如果涉及新材料或复杂本构，可以在材料参数层面引入PINN代理——用PINN替代RVE计算或材料参数反演，再与结构级代理模型耦合。</li>
+</ul>
+<p><strong>阶段四：工程化部署（持续迭代）</strong></p>
+<ol>
+<li><strong>建立数据管道</strong>：将参数化建模、DOE生成、仿真提交、结果提取、模型训练全流程自动化，形成数据飞轮——新的仿真结果持续加入训练集，模型不断迭代改进。</li>
+</ul>
+<ol>
+<li><strong>验证体系建设</strong>：建立完整的模型验证流程，包括精度指标、置信度评估、OOD检测、基准案例库等，确保模型的可靠性和可追溯性。</li>
+</ul>
+<ol>
+<li><strong>与现有CAE工作流集成</strong>：通过插件、API或独立工具的方式将训练好的代理模型集成到工程师的日常工作流中，降低使用门槛。</li>
+</ul>
+<h3>6.2 推荐学习资源</h3>
+<p><strong>核心论文清单</strong>：</p>
+<ul>
+<li>Raissi et al. (2019) "Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations" — PINN奠基论文</li>
+<li>Lu et al. (2021) "DeepXDE: A deep learning library for solving differential equations" — DeepXDE框架论文</li>
+<li>Wang et al. (2021) "On the eigenvector bias of Fourier feature networks" — PINN训练问题分析</li>
+<li>Sahin et al. (2024) "Solving forward and inverse problems of contact mechanics using physics-informed neural networks" — PINN接触力学</li>
+<li>Curtosi et al. (2026) "Crash Assessment via Mesh-Based Graph Neural Networks and Physics-Aware Attention" — 整车碰撞GNN代理</li>
+</ul>
+<p><strong>代码仓库</strong>：</p>
+<ul>
+<li>DeepXDE: https://github.com/lululxvi/deepxde — PINN开源框架</li>
+<li>NVIDIA PhysicsNeMo: https://github.com/NVIDIA/physicsnemo — 工业级物理ML框架（含碰撞示例）</li>
+<li>Transolver: https://github.com/thuml/Transolver — Transformer求解器架构</li>
+<li>PINN Tutorial: https://github.com/AGN000/PINN_tutorial — 入门教程系列</li>
+<li>PINNpapers: https://github.com/... — PINN论文分类与资源汇总</li>
+</ul>
+<p><strong>商业工具试用</strong>：</p>
+<ul>
+<li>Ansys SimAI: 提供云服务试用，适合LS-DYNA用户快速体验</li>
+<li>Altair PhysicsAI: HyperWorks生态内可直接接入</li>
+<li>DEP AIWorks: 提供技术演示，PINN导向</li>
+<li>Luminary SHIFT-Crash: 整车级碰撞AI标杆，可申请演示</li>
+</ul>
+<p>---</p>

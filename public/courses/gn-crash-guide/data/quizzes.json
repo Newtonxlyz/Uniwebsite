@@ -51,7 +51,7 @@
           "对",
           "错"
         ],
-        "answer": false
+        "answer": 0
       },
       {
         "id": "crashbasics-4",
@@ -111,7 +111,7 @@
       },
       {
         "id": "crashbasics-7",
-        "type": "fill",
+        "type": "short",
         "difficulty": "easy",
         "stem": "碰撞仿真中常用的降阶目标是在保证精度的前提下降低 _______ 成本。",
         "explanation": "计算",
@@ -168,7 +168,7 @@
           "对",
           "错"
         ],
-        "answer": true
+        "answer": 1
       },
       {
         "id": "gnncore-3",
@@ -244,7 +244,7 @@
       },
       {
         "id": "gnncore-7",
-        "type": "fill",
+        "type": "short",
         "difficulty": "easy",
         "stem": "Encoder-Processor-Decoder 架构中,Processor 负责多层 _______ 更新潜特征。",
         "explanation": "消息传递",
@@ -301,7 +301,7 @@
           "对",
           "错"
         ],
-        "answer": true
+        "answer": 1
       },
       {
         "id": "transformer-3",
@@ -377,7 +377,7 @@
       },
       {
         "id": "transformer-7",
-        "type": "fill",
+        "type": "short",
         "difficulty": "easy",
         "stem": "Graph Transformer 的位置编码常使用图 _______ 特征向量。",
         "explanation": "Laplacian / 拉普拉斯",
@@ -434,7 +434,7 @@
           "对",
           "错"
         ],
-        "answer": true
+        "answer": 1
       },
       {
         "id": "physicspinn-3",
@@ -510,7 +510,7 @@
       },
       {
         "id": "physicspinn-7",
-        "type": "fill",
+        "type": "short",
         "difficulty": "easy",
         "stem": "PDE 残差通常通过自动微分计算网络输出对 _______ 的偏导。",
         "explanation": "输入坐标",
@@ -567,7 +567,7 @@
           "对",
           "错"
         ],
-        "answer": true
+        "answer": 1
       },
       {
         "id": "hybridfrontend-3",
@@ -642,7 +642,7 @@
       },
       {
         "id": "hybridfrontend-7",
-        "type": "fill",
+        "type": "short",
         "difficulty": "easy",
         "stem": "MeshGraphNet 论文中每个时间步预测的量是节点 _______ 增量。",
         "explanation": "加速度/速度/位移",
@@ -699,7 +699,7 @@
           "对",
           "错"
         ],
-        "answer": true
+        "answer": 1
       },
       {
         "id": "toolsdatasets-3",
@@ -774,7 +774,7 @@
       },
       {
         "id": "toolsdatasets-7",
-        "type": "fill",
+        "type": "short",
         "difficulty": "easy",
         "stem": "PyTorch Geometric 中数据容器称为 _______ 对象。",
         "explanation": "Data",
@@ -848,7 +848,7 @@
           "对",
           "错"
         ],
-        "answer": true
+        "answer": 1
       },
       {
         "id": "springmass-4",
@@ -907,7 +907,7 @@
       },
       {
         "id": "springmass-7",
-        "type": "fill",
+        "type": "short",
         "difficulty": "easy",
         "stem": "弹簧-质点 GNN 通常预测每个节点的 _______ 加速度或位移增量。",
         "explanation": "下一步 / 状态变化量",
@@ -981,7 +981,7 @@
           "对",
           "错"
         ],
-        "answer": true
+        "answer": 1
       },
       {
         "id": "final-4",
@@ -1096,7 +1096,7 @@
       },
       {
         "id": "final-10",
-        "type": "fill",
+        "type": "short",
         "difficulty": "medium",
         "stem": "PINN 损失函数通常由数据损失 + PDE 残差 + _______ 条件损失组成。",
         "explanation": "边界 / 初始",

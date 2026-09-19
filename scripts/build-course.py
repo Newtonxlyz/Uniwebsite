@@ -1,48 +1,52 @@
-"""build_course.py - 通用课程批量生成脚本
-   用法: python build-course.py <course_dir> <course_id> <course_slug> <course_title> <learn_url> [chapter_bodies_module]
+"""build_course.py - 通用课程批量生成脚本(Course Package v1)
+   用法: python build-course.py <course_dir>
+   例:  python build-course.py pinn-crash-reduction
 
-   例(PINN):
-     python build-course.py pinn-crash-reduction pinn-crash-reduction pinn-crash "AI+DOE+PINN" \
-       https://lvyz.org/learn/pinn-crash _chapter_bodies
-
-   例(GNN):
-     python build-course.py gn-crash-guide gn-crash-guide gn-crash "GNN碰撞仿真降阶" \
-       https://lvyz.org/learn/gn-crash
-
-   课程目录结构:
+   课程包结构(v1,详见 validate_course.py):
      <course_dir>/
+       course.json            # 课程元数据 SSOT: id/slug/title/learnUrl/level...
+       chapters.json          # 章节清单(纯元数据)
+       contents/<ch-id>.html  # 章节正文(唯一事实源)
        data/{chapters,flashcards,quizzes}.json
-       index.html  (生成)
-       flashcards.html / quizzes.html / mistakes.html / report.html (生成)
-       chapter-XX.html (生成)
-       quiz-XX.html (生成)
-       quiz-final.html (生成)
+
+   构建前自动跑 validate_course.py,不过校验不构建。
+   生成: index/flashcards/quizzes/mistakes/report + chapter-XX + quiz-XX + quiz-final
 """
-import os, sys, json, importlib.util, re
+import os, sys, json, subprocess
 
 # PowerShell GBK 兼容
 try: sys.stdout.reconfigure(encoding='utf-8')
 except: pass
 
 # === CLI 参数 ===
-if len(sys.argv) < 6:
+if len(sys.argv) < 2 or sys.argv[1] in ('-h', '--help'):
     print(__doc__)
     sys.exit(1)
 
-COURSE_DIR = sys.argv[1]                  # 如 pinn-crash-reduction
-COURSE_ID = sys.argv[2]                   # 同上 (用于 JS 内 courseId)
-COURSE_SLUG = sys.argv[3]                 # 如 pinn-crash
-COURSE_TITLE = sys.argv[4]                # 如 AI+DOE+PINN
-LEARN_URL = sys.argv[5]                   # 如 https://lvyz.org/learn/pinn-crash
-BODIES_MODULE = sys.argv[6] if len(sys.argv) > 6 else None  # 可选: 章节正文模块名
+COURSE_DIR = sys.argv[1]
 
-ROOT = os.path.join(r'D:\LvyzWeb\platform\public\courses', COURSE_DIR)
-TEMPLATES = r'D:\LvyzWeb\platform\scripts\templates'
+PLATFORM = r'D:\LvyzWeb\platform'
+ROOT = os.path.join(PLATFORM, 'public', 'courses', COURSE_DIR)
+TEMPLATES = os.path.join(PLATFORM, 'scripts', 'templates')
 DATA = os.path.join(ROOT, 'data')
 
 if not os.path.isdir(ROOT):
     print(f'错误: 课程目录不存在 {ROOT}')
     sys.exit(1)
+
+# === 0. 校验门禁 ===
+val = subprocess.run([sys.executable, os.path.join(PLATFORM, 'scripts', 'validate_course.py'), COURSE_DIR])
+if val.returncode != 0:
+    print('✗ 校验未通过,中止构建')
+    sys.exit(1)
+
+# === 读取 course.json(元数据 SSOT) ===
+with open(os.path.join(ROOT, 'course.json'), encoding='utf-8') as f:
+    course_meta = json.load(f)
+COURSE_ID = course_meta['id']
+COURSE_SLUG = course_meta['slug']
+COURSE_TITLE = course_meta['title']
+LEARN_URL = course_meta['learnUrl']
 
 # === 读取数据 ===
 with open(os.path.join(DATA, 'chapters.json'), encoding='utf-8') as f:
@@ -59,27 +63,13 @@ CHAPTERS_JSON = js_data(chapters)
 FLASHCARDS_JSON = js_data(flashcards)
 QUIZZES_JSON = js_data(quizzes)
 
-# === 可选: 加载章节正文模块 ===
-BODIES = {}
-if BODIES_MODULE:
-    mod_path = os.path.join(TEMPLATES, BODIES_MODULE + '.py')
-    if os.path.isfile(mod_path):
-        spec = importlib.util.spec_from_file_location(BODIES_MODULE, mod_path)
-        mod = importlib.util.module_from_spec(spec)
-        spec.loader.exec_module(mod)
-        BODIES = mod.bodies
-
-# === 回退: 从 chapters.json 的 subsections[].body 拼成 HTML ===
-def build_body_from_json(ch_id):
-    """从 chapters.json 读 subsections,生成完整章节 HTML"""
-    ch = next((c for c in chapters['chapters'] if c['id'] == ch_id), None)
-    if not ch or 'subsections' not in ch:
-        return '<p>章节内容待补充</p>'
-    parts = []
-    for sub in ch['subsections']:
-        parts.append(f'<h3>{sub["title"]}</h3>')
-        parts.append(sub.get('body', '').strip())
-    return '\n'.join(parts)
+# === 章节正文:唯一事实源 contents/<ch-id>.html ===
+def load_body(ch_id):
+    p = os.path.join(ROOT, 'contents', ch_id + '.html')
+    if os.path.isfile(p):
+        with open(p, encoding='utf-8') as f:
+            return f.read().strip()
+    return '<p>章节内容待补充</p>'
 
 # 章节列表 [(id, slug_for_filename), ...]
 chapter_contents = {}
@@ -146,8 +136,7 @@ with open(os.path.join(TEMPLATES, 'course-chapter.html'), encoding='utf-8') as f
 
 chs = chapters['chapters']
 for idx, ch_id in enumerate(chapter_contents.keys()):
-    # 优先用 BODIES 模块(PINN 路线),否则从 chapters.json 拼(GNN 路线)
-    body_html = BODIES.get(ch_id) or build_body_from_json(ch_id)
+    body_html = load_body(ch_id)
     prev_ch = chs[idx-1] if idx > 0 else None
     next_ch = chs[idx+1] if idx+1 < len(chs) else None
     prev_slug = f'chapter-{prev_ch["id"]}' if prev_ch else ''

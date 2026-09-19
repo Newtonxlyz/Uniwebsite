@@ -87,11 +87,19 @@
   let currentIdx = 0;
   let flipped = false;
 
+  // v1 统一字段:chapterId(章 id 字符串)/front/back;兼容旧字段 chapter/q/a
+  function cardChapterId(c) { return c.chapterId != null ? String(c.chapterId) : String(c.chapter); }
+  function cardFront(c) { return c.front != null ? c.front : c.q; }
+  function cardBack(c) { return c.back != null ? c.back : c.a; }
+  // 章 id → 章号(显示用)
+  const chapterNumById = {};
+  (chaptersData.chapters || []).forEach((ch, i) => { chapterNumById[String(ch.id)] = i + 1; });
+
   function applyFilter() {
     const ch = document.getElementById('chapterFilter').value;
     const dueOnly = document.getElementById('dueOnly').checked;
     visibleCards = allCards.filter(c => {
-      if (ch !== 'all' && String(c.chapter) !== ch) return false;
+      if (ch !== 'all' && cardChapterId(c) !== ch) return false;
       if (dueOnly) {
         const mastery = CourseFlashcard.getAll().find(x => x.id === c.id)?.mastery;
         return mastery?.nextReview && mastery.nextReview <= Date.now();
@@ -126,12 +134,12 @@
     const mastery = CourseFlashcard.getAll().find(x => x.id === c.id)?.mastery;
     const statusLabel = mastery?.status === 'mastered' ? '✓ 已掌握' : mastery?.status === 'review' ? '◐ 复习' : mastery?.status === 'learning' ? '⋯ 学习中' : '○ 新卡';
     document.getElementById('cardPosition').textContent =
-      '第 ' + (currentIdx + 1) + ' / ' + visibleCards.length + ' 张 · 第 ' + c.chapter + ' 章 · ' + statusLabel;
-    document.getElementById('cardQuestion').textContent = c.q;
+      '第 ' + (currentIdx + 1) + ' / ' + visibleCards.length + ' 张 · 第 ' + (chapterNumById[cardChapterId(c)] || '?') + ' 章 · ' + statusLabel;
+    document.getElementById('cardQuestion').textContent = cardFront(c);
     const diffColor = c.difficulty === 'easy' ? 'var(--success)' : c.difficulty === 'medium' ? 'var(--warning)' : 'var(--danger)';
     document.getElementById('cardAnswer').innerHTML =
       '<div style="display:inline-block; padding: 2px 10px; border-radius: 12px; background: ' + diffColor + '; color: #fff; font-size: 12px; margin-bottom: 8px;">' +
-      (c.difficulty || 'medium').toUpperCase() + '</div><div>' + c.a + '</div>';
+      (c.difficulty || 'medium').toUpperCase() + '</div><div>' + cardBack(c) + '</div>';
     document.getElementById('answerArea').style.display = flipped ? 'block' : 'none';
     document.getElementById('flipBtn').textContent = flipped ? '翻回' : '翻面 (Space)';
     document.getElementById('prevBtn').disabled = currentIdx === 0;
@@ -173,7 +181,7 @@
   }
 
   document.getElementById('chapterFilter').innerHTML = '<option value="all">全部</option>' +
-    chaptersData.chapters.map(c => '<option value="' + c.id.slice(-2) + '">第 ' + c.id.slice(-2) + ' 章 · ' + c.title + '</option>').join('');
+    chaptersData.chapters.map((c, i) => '<option value="' + c.id + '">第 ' + (i + 1) + ' 章 · ' + c.title + '</option>').join('');
   document.getElementById('chapterFilter').addEventListener('change', applyFilter);
   document.getElementById('dueOnly').addEventListener('change', applyFilter);
   document.getElementById('flipBtn').addEventListener('click', flip);

@@ -1,0 +1,502 @@
+<h3>3.1 注意力机制基础</h3>
+<p>
+          注意力机制（Attention）是Transformer的核心组件，
+          最早在自然语言处理领域提出，用于解决序列模型中长距离依赖难以捕捉的问题。
+          它的核心思想是：<strong>在处理每个元素时，动态地决定应该关注其他哪些元素，以及关注的程度。</strong>
+        </p>
+
+        <h4>Scaled Dot-Product Attention</h4>
+        <p>最常用的注意力形式是"缩放点积注意力"，公式如下：</p>
+
+        <div class="formula-box">
+          <p>Attention(Q, K, V) = softmax(QK<sup>T</sup> / √d<sub>k</sub>) V</p>
+        </div>
+
+        <p>各部分含义：</p>
+        <ul>
+          <li><strong>Q（Query）：</strong>查询向量——当前元素发出的"查询"，表示它想要找什么</li>
+          <li><strong>K（Key）：</strong>键向量——每个元素的"标识"，表示它包含什么信息</li>
+          <li><strong>V（Value）：</strong>值向量——每个元素实际携带的信息内容</li>
+          <li><strong>d<sub>k</sub>：</strong>键向量的维度，用于缩放，防止点积过大导致softmax饱和</li>
+        </ul>
+
+        <p>计算过程可以理解为：</p>
+        <ol>
+          <li>计算Q和所有K的点积，得到注意力得分（相似度）</li>
+          <li>除以√d<sub>k</sub>进行缩放</li>
+          <li>通过softmax归一化，得到注意力权重（和为1）</li>
+          <li>用注意力权重对V加权求和，得到输出</li>
+        </ol>
+
+        <h4>多头注意力（Multi-Head Attention）</h4>
+        <p>
+          多头注意力将Q、K、V分别投影到多个不同的子空间，在每个子空间独立计算注意力，
+          最后将结果拼接。这使得模型可以同时关注多种不同类型的关系。
+        </p>
+
+        <div class="info-box">
+          <p>
+            <strong>注意力 vs GNN消息传递：</strong>
+            <br>• GNN：每个节点只能与邻居交互（局部性硬约束），信息逐层传播
+            <br>• 注意力：每个节点可以与所有其他节点交互（全局交互），一步到位建立长程关联
+            <br>• 共同点：都是"聚合其他节点信息来更新当前节点"的思想
+            <br>• 关键区别：注意力的连接是动态学习的，GNN的连接是预定义的图结构
+          </p>
+        </div>
+
+        <div class="warning-box">
+          <p>
+            <strong>计算复杂度问题：</strong>
+            标准自注意力的计算复杂度是O(N²)，其中N是节点数。
+            对于大规模物理仿真（数万甚至数百万节点），这在计算上是不可行的。
+            因此，物理仿真中的Transformer架构通常会采用各种优化手段来降低复杂度，
+            如稀疏注意力、滑动窗口、或下一节要介绍的"切片"思想。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch3-sec1">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. 自注意力机制中Q、K、V分别代表什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 质量、动能、速度</div>
+              <div class="quiz-option">B. 量子数、波矢、势能</div>
+              <div class="quiz-option">C. 查询向量、键向量、值向量</div>
+              <div class="quiz-option">D. 快速、慢速、变速</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              Q(Query)是查询、K(Key)是键、V(Value)是值，三者配合计算注意力权重和输出。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">2. 标准自注意力的计算复杂度是多少？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. O(N²)，其中N是序列/节点长度</div>
+              <div class="quiz-option">B. O(N)，线性复杂度</div>
+              <div class="quiz-option">C. O(log N)，对数复杂度</div>
+              <div class="quiz-option">D. O(1)，常数复杂度</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              标准自注意力需要计算每对元素之间的注意力得分，因此复杂度是O(N²)，这是处理大规模问题的主要瓶颈。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. GNN的消息传递和Transformer的注意力是完全等价的，只是名字不同。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              两者有本质区别：GNN只在预定义的邻居间传递信息（局部），而注意力在所有节点间动态计算权重（全局）。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">4. 多头注意力的主要作用是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 减少计算量</div>
+              <div class="quiz-option">B. 在多个不同子空间中学习不同类型的注意力关系</div>
+              <div class="quiz-option">C. 使模型更深</div>
+              <div class="quiz-option">D. 替代激活函数</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              多头注意力通过多组独立的Q/K/V投影，在不同子空间学习不同的注意力模式，增强模型表达能力。
+            </div>
+          </div>
+        </div>
+<h3>3.2 ViT 与 Graph Transformer 的区别</h3>
+<p>
+          Vision Transformer（ViT）将Transformer应用于图像，而Graph Transformer
+          将Transformer应用于图结构数据。两者虽然都基于注意力机制，但面临的问题和解决方案有重要区别。
+        </p>
+
+        <h4>ViT 的基本思路</h4>
+        <p>
+          ViT将图像分割成固定大小的patch（如16×16像素），将每个patch线性投影为向量作为token，
+          然后用标准Transformer encoder处理。位置信息通过<strong>位置编码</strong>（positional embedding）注入，
+          因为注意力本身是排列无关的（permutation invariant）。
+        </p>
+
+        <h4>Graph Transformer 的挑战</h4>
+        <p>将Transformer应用到图上，面临几个独特的挑战：</p>
+        <ul>
+          <li>
+            <strong>位置编码问题：</strong>
+            图没有固定的空间位置，节点是离散的、任意分布的。
+            需要设计合适的位置编码来表达图结构信息，如拉普拉斯特征向量（Laplacian eigenvectors）、
+            随机游走编码、相对距离编码等。
+          </li>
+          <li>
+            <strong>图结构的利用：</strong>
+            全注意力会忽略图的拓扑信息。许多Graph Transformer会将邻接信息作为偏置项加入注意力得分，
+            或者只在邻居间计算注意力（稀疏注意力）。
+          </li>
+          <li>
+            <strong>可变节点数：</strong>
+            不同图的节点数量可能不同，需要处理变长输入。
+          </li>
+          <li>
+            <strong>边特征：</strong>
+            图数据中边通常带有丰富的特征（如物理仿真中的距离、相对位移等），
+            如何将这些边信息融入注意力计算是一个关键问题。
+          </li>
+        </ul>
+
+        <div class="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>特性</th>
+                <th>Vision Transformer (ViT)</th>
+                <th>Graph Transformer</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>输入结构</td>
+                <td>规则网格（图像patch）</td>
+                <td>任意图结构</td>
+              </tr>
+              <tr>
+                <td>位置编码</td>
+                <td>固定/可学习的绝对位置编码</td>
+                <td>拉普拉斯特征向量、相对距离、RWPE等</td>
+              </tr>
+              <tr>
+                <td>token数量</td>
+                <td>固定（由图像大小和patch大小决定）</td>
+                <td>可变（不同图节点数不同）</td>
+              </tr>
+              <tr>
+                <td>连接关系</td>
+                <td>全注意力（所有patch互相关注）</td>
+                <td>全注意力或稀疏注意力（可利用图结构）</td>
+              </tr>
+              <tr>
+                <td>边特征</td>
+                <td>通常不需要</td>
+                <td>非常重要，需融入注意力计算</td>
+              </tr>
+              <tr>
+                <td>归纳偏置</td>
+                <td>弱（几乎没有空间先验）</td>
+                <td>中（可注入图结构先验）</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="info-box">
+          <p>
+            <strong>在物理仿真中的选择：</strong>
+            物理仿真通常既有强烈的局部相互作用（如近邻节点间的力传递），
+            又有长程效应（如应力波传播、整体形变模式）。
+            因此，纯GNN或纯Transformer都不是最优解——
+            最有效的方法往往是两者的结合：用GNN处理局部交互，
+            用Transformer层补充全局信息。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch3-sec2">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. Graph Transformer相比ViT的独特挑战不包括哪项？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 图没有固定的空间位置，位置编码需要特殊设计</div>
+              <div class="quiz-option">B. 不同图的节点数量可能不同</div>
+              <div class="quiz-option">C. 无法使用多头注意力</div>
+              <div class="quiz-option">D. 边特征的处理和融入</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              Graph Transformer完全可以使用多头注意力，这不是它独特的挑战。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="true">
+            <div class="quiz-question-text">2. 在物理仿真中，GNN和Transformer的混合架构通常比纯GNN或纯Transformer效果更好。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A（正确）</strong><br>
+              因为物理系统既有强烈的局部相互作用（GNN擅长），又有长程效应（Transformer擅长），两者结合可以互补。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="3">
+            <div class="quiz-question-text">3. 以下哪个不是Graph Transformer常用的位置编码方式？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 拉普拉斯特征向量（Laplacian eigenvectors）</div>
+              <div class="quiz-option">B. 随机游走位置编码（RWPE）</div>
+              <div class">quiz-option">C. 相对距离编码</div>
+              <div class="quiz-option">D. 固定的像素坐标编码</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：D</strong><br>
+              固定的像素坐标编码是ViT用的，Graph Transformer因为图结构是任意的，所以不用固定坐标编码。
+            </div>
+          </div>
+        </div>
+<h3>3.3 Transformer 在物理仿真中的应用</h3>
+<p>
+          Transformer在物理仿真中的应用正在快速增长。它的核心价值在于能够有效捕捉
+          长程依赖，而这正是纯GNN架构的短板。
+        </p>
+
+        <h4>为什么物理仿真需要长程依赖建模？</h4>
+        <p>在很多物理场景中，远距离的节点之间存在显著的相互影响：</p>
+        <ul>
+          <li><strong>碰撞波传播：</strong>车头的撞击力会传递到车尾，GNN需要很多层才能传播过去</li>
+          <li><strong>全局形变模式：</strong>结构的整体屈曲、振动模式涉及整个系统的协同运动</li>
+          <li><strong>流体中的远场效应：</strong>如气动阻力受整车形状影响</li>
+          <li><strong>边界条件的全局影响：</strong>如两端固定的梁，边界条件影响整个应力分布</li>
+        </ul>
+
+        <h4>GNN的层数瓶颈</h4>
+        <p>
+          纯GNN要捕捉长程依赖需要很多层（L层=L跳），但这带来几个问题：
+        </p>
+        <ul>
+          <li>计算量随层数线性增长</li>
+          <li>容易出现过度平滑（节点特征趋同）</li>
+          <li>梯度消失/爆炸问题</li>
+          <li>信息在传递过程中逐渐"模糊"</li>
+        </ul>
+        <p>
+          Transformer的自注意力机制可以在<strong>一层之内</strong>建立所有节点间的直接联系，
+          信息传递没有"距离衰减"。
+        </p>
+
+        <h4>主要应用模式</h4>
+
+        <h4>1. 替代GNN的纯Transformer方法</h4>
+        <p>
+          将整个物理系统的节点作为token序列，直接应用Transformer。
+          这种方法需要解决位置编码和计算效率问题，通常适用于节点数较少的场景。
+        </p>
+
+        <h4>2. GNN + Transformer 混合架构（主流）</h4>
+        <p>
+          这是目前最主流的方式。先用GNN层提取局部特征，然后用Transformer层
+          （或注意力层）建立全局关联。常见的变体包括：
+        </p>
+        <ul>
+          <li><strong>交替使用：</strong>GNN层和Transformer层交替堆叠</li>
+          <li><strong>瓶颈式：</strong>先通过GNN提取局部特征，然后在顶层加入注意力层</li>
+          <li><strong>注意力增强GNN：</strong>在GNN的消息传递中加入注意力机制（如GAT）</li>
+        </ul>
+
+        <h4>3. 神经算子方向</h4>
+        <p>
+          将Transformer作为神经算子（Neural Operator）的核心组件，
+          学习PDE解映射。代表工作有FNO、Transformer-based Neural Operators、Transolver等。
+        </p>
+
+        <div class="tip-box">
+          <p>
+            <strong>工程实践建议：</strong>在实际碰撞仿真降阶项目中，建议从GNN基线开始，
+            因为GNN有更强的物理归纳偏置、数据效率更高。如果发现模型在长程依赖上表现不足
+            （如应力波传递不准、整体模式预测差），再逐步引入注意力机制。
+            不要一开始就用纯Transformer，可能会因为数据量不足而泛化不佳。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch3-sec3">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. 为什么碰撞仿真需要长程依赖建模？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 因为物理定律只有全局的</div>
+              <div class="quiz-option">B. 因为碰撞是瞬间发生的</div>
+              <div class="quiz-option">C. 因为碰撞波、整体形变等效应涉及远距离节点间的关联</div>
+              <div class="quiz-option">D. 因为GNN完全无法处理物理问题</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              碰撞波传播、全局形变模式、边界条件的全局影响等都需要捕捉长程依赖关系。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">2. 纯GNN捕捉长程依赖的主要问题是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 参数量太大</div>
+              <div class="quiz-option">B. 需要多层GNN，易导致过度平滑且计算效率低</div>
+              <div class="quiz-option">C. 完全无法捕捉长程依赖</div>
+              <div class="quiz-option">D. 只能处理二维问题</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              GNN每扩展一跳就需要增加一层，多层GNN计算量大且容易过度平滑。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. 在碰撞仿真中，纯Transformer通常比纯GNN效果更好，因为Transformer更先进。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              GNN有更强的物理归纳偏置，数据效率更高。在有限数据下纯GNN往往表现更好。混合架构通常最优。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">4. 物理仿真中GNN+Transformer混合架构的主要优势是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. GNN处理局部交互+Transformer捕捉长程依赖，两者互补</div>
+              <div class="quiz-option">B. 参数量更少</div>
+              <div class="quiz-option">C. 训练速度更快</div>
+              <div class="quiz-option">D. 需要的训练数据更少</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              混合架构结合了GNN的局部归纳偏置和Transformer的全局建模能力，两者互补。
+            </div>
+          </div>
+        </div>
+<h3>3.4 Transolver：物理感知 Transformer</h3>
+<p>
+          Transolver
+          是清华大学团队2024年提出的一种面向PDE求解的Transformer架构，
+          其核心创新是提出了<strong>Physics-Attention（物理注意力）</strong>机制，
+          在工业级仿真（包括汽车设计）中取得了SOTA效果
+          <a href="https://github.com/thuml/Transolver" target="_blank" rel="noopener noreferrer" class="citation">[3]</a>。
+          NVIDIA的PhysicsNeMo框架中也集成了Transolver模型。
+        </p>
+
+        <h4>核心思想：物理状态切片（Physics-Aware Slices）</h4>
+        <p>
+          传统Transformer直接在所有网格点之间计算注意力，复杂度是O(N²)。
+          Transolver的洞察是：<strong>物理系统中，许多网格点处于相似的物理状态，
+          它们的行为模式是相似的。</strong>如果我们将相似物理状态的点归为一个"切片"（slice），
+          那么只需要在切片之间计算注意力，就能大大降低计算量。
+        </p>
+
+        <div class="info-box">
+          <p>
+            <strong>关键洞察：</strong>注意力不是在"空间位置"之间计算，而是在"物理状态"之间计算。
+            处于相似物理状态（如相似的速度、压力、应力水平）的点，
+            即使在空间上相隔很远，也会被分配到同一个切片。
+            这样，模型在少量切片之间计算注意力，就能捕捉全局物理关联。
+            这有点像"物以类聚"——相似状态的点聚在一起，共同参与全局交互。
+          </p>
+        </div>
+
+        <h4>Physics-Attention 的计算流程</h4>
+        <ol>
+          <li><strong>切片分配：</strong>通过可学习的权重，将每个网格点分配到M个物理状态切片中（软分配，即每个点可以属于多个切片，权重不同）</li>
+          <li><strong>切片编码：</strong>每个切片聚合分配给它的所有点的特征，形成M个"切片token"</li>
+          <li><strong>切片注意力：</strong>在M个切片token之间计算标准自注意力（复杂度O(M²)，M远小于N）</li>
+          <li><strong>反切片：</strong>将切片token的信息重新分配回各个网格点</li>
+        </ol>
+
+        <div class="formula-box">
+          <p>S = W<sup>slice</sup> · X  &nbsp;&nbsp;# 切片权重矩阵 [N×M]</p>
+          <p>T = (S<sup>T</sup> X) / (S<sup>T</sup> 1)  &nbsp;&nbsp;# 加权平均得到M个切片token</p>
+          <p>T' = TransformerBlock(T)  &nbsp;&nbsp;# 切片间注意力</p>
+          <p>X' = S · T'  &nbsp;&nbsp;# 反分配回各点</p>
+        </div>
+
+        <h4>优势</h4>
+        <ul>
+          <li><strong>计算效率高：</strong>从O(N²)降到O(N·M + M²)，M通常只有几十个</li>
+          <li><strong>几何通用性：</strong>学习的是物理状态之间的关系，不依赖具体几何形状</li>
+          <li><strong>可解释性：</strong>每个切片对应一种物理状态，可以可视化分析</li>
+          <li><strong>扩展性好：</strong>Transolver++可以扩展到百万级网格点的工业仿真</li>
+        </ul>
+
+        <div class="warning-box">
+          <p>
+            <strong>注意：</strong>Transolver最初是为稳态或准稳态PDE设计的（如气动、弹性变形场预测），
+            对于瞬态动力学（如碰撞）的时序演化，还需要结合自回归或其他时序建模方法。
+            NVIDIA和通用汽车的GTC 2026展示中，就将Transolver应用于汽车碰撞仿真，
+            验证了其在瞬态问题上的潜力。
+          </p>
+        </div>
+
+        <div class="tip-box">
+          <p>
+            <strong>与其他高效注意力方法的对比：</strong>
+            Transolver的切片思想类似于"聚类后注意力"，但关键区别在于它不是按空间位置聚类，
+            而是按<strong>物理状态</strong>聚类。这意味着挡风玻璃和车牌（物理状态相似：都在车前端）
+            可能被分到同一个切片，即使它们空间上不相邻。这是一种更深层的"物以类聚"。
+          </p>
+        </div>
+
+        <!-- 小节检测题 -->
+        <div class="quiz-section" data-section="ch3-sec4">
+          <h4>📝 小节检测</h4>
+          <div class="quiz-question" data-answer="2">
+            <div class="quiz-question-text">1. Transolver的Physics-Attention核心思想是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 在空间邻域内计算注意力</div>
+              <div class="quiz-option">B. 用更小的网络减少计算量</div>
+              <div class="quiz-option">C. 将网格点按物理状态分组为切片，在切片级别计算注意力</div>
+              <div class="quiz-option">D. 只在边界节点间计算注意力</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：C</strong><br>
+              Transolver的核心是将网格点分配到物理状态切片，在切片级别计算注意力，大幅降低复杂度。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="0">
+            <div class="quiz-question-text">2. Transolver中，"切片"是根据什么划分的？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 物理状态的相似性</div>
+              <div class="quiz-option">B. 空间位置的邻近性</div>
+              <div class="quiz-option">C. 节点编号顺序</div>
+              <div class="quiz-option">D. 随机分配</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：A</strong><br>
+              切片是按物理状态相似性划分的，处于相似物理状态的点被分配到相同切片，与空间位置无关。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="false">
+            <div class="quiz-question-text">3. Transolver只能处理二维问题。</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 正确</div>
+              <div class="quiz-option">B. 错误</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B（错误）</strong><br>
+              Transolver支持二维和三维问题，Transolver++还能处理百万级网格点的工业仿真。
+            </div>
+          </div>
+          <div class="quiz-question" data-answer="1">
+            <div class="quiz-question-text">4. Transolver相比标准Transformer的主要优势是什么？</div>
+            <div class="quiz-options">
+              <div class="quiz-option">A. 参数量更大</div>
+              <div class="quiz-option">B. 计算效率更高，具有几何通用性和物理可解释性</div>
+              <div class="quiz-option">C. 不需要训练数据</div>
+              <div class="quiz-option">D. 只能处理图像数据</div>
+            </div>
+            <div class="quiz-feedback">
+              <strong>正确答案：B</strong><br>
+              Transolver通过物理状态切片降低了计算复杂度，同时具备几何通用性和物理可解释性。
+            </div>
+          </div>
+        </div>
+
+        <div class="chapter-nav">
+          <a href="#ch2" class="chapter-nav-btn prev">
+            <div class="label">← 上一章</div>
+            <div class="title">图神经网络核心</div>
+          </a>
+          <a href="#ch4" class="chapter-nav-btn next">
+            <div class="label">下一章 →</div>
+            <div class="title">物理约束与 PINN</div>
+          </a>
+        </div>
+      </section>
+
+      <!-- ===== 第4章：物理约束与PINN ===== -->
+      <section id="ch4">
+        <div class="chapter-intro">
+          <div class="chapter-num">第四章</div>

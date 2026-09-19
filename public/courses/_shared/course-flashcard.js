@@ -49,7 +49,8 @@
   }
 
   function getByChapter(chapterId) {
-    return getAll().filter(c => String(c.chapter) === String(chapterId));
+    // v1 字段 chapterId;兼容旧字段 chapter
+    return getAll().filter(c => String(c.chapterId != null ? c.chapterId : c.chapter) === String(chapterId));
   }
 
   function getDue() {
