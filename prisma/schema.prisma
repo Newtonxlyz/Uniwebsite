@@ -43,6 +43,7 @@ model User {
   media         Media[]
   siteAccess    SiteAccess[]
   uploadedPicturebooks PicturebookStory[]
+  courseKv      CourseKv[]
 
   @@map("users")
 }
@@ -342,4 +343,28 @@ model PicturebookCharacter {
   @@unique([storyId, charId])
   @@index([storyId])
   @@map("picturebook_character")
+}
+
+// ─────────────────────────────────────────────────
+// 课程子系统：学习数据云端同步（KV 文档模型）
+// 客户端 CourseCloud 把整个学习文档(进度/闪卡/错题/笔记)按 key 整体 upsert
+// LWW 冲突解决：客户端 ts(Date.now()) 大者胜
+// ─────────────────────────────────────────────────
+model CourseKv {
+  id        String   @id @default(cuid())
+  userId    String
+  courseId  String
+  // 完整 localStorage key，如 course_pinn-crash-reduction_flashcards_meta
+  key       String
+  // 学习文档整体 JSON（进度/ SM-2 元数据/错题列表/笔记...）
+  value     Json
+  // 客户端 LWW 时钟（Date.now()，毫秒）
+  ts        BigInt
+  updatedAt DateTime @updatedAt
+
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, courseId, key])
+  @@index([userId, courseId])
+  @@map("course_kv")
 }

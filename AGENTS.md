@@ -180,6 +180,7 @@ D:\LvyzWeb\platform\
 | `course-theme.js` | `toggle()`, `get()` | 暗色/亮色切换 |
 | `course-app.js` | `renderTopnav(slug, title, active)`, `bindProgress`, `bindNotes`, `bindTimer` | UI 渲染 + 事件绑定 |
 | `course-init.js` | `runInline(courseId, chapters, flashcards, quizzes)` | 通用启动器 |
+| `course-cloud.js` | `ready(Promise) / syncNow() / mode() / status()` | 云端同步引擎:挂在 CourseStorage.set/remove 后打补丁,11 个模块零改动。页面加载从 URL 解析 courseId → pull(`/api/courses/state`)→ LWW 合并(ts=Date.now)→ push 脏数据。未登录/离线自动降级纯本地 |
 | `course-css.css` | (CSS only) | 含 `.quiz-section`, `.subsection-progress`, `.course-floating-nav`, `.quiz-option`, `.quiz-opt-multi`, `.subsection-quiz-intro` 等 |
 
 ### 5.2 解耦设计原则(加新课程 0 改 JS)
@@ -204,6 +205,14 @@ D:\LvyzWeb\platform\
 - 任何带 `class="quiz-section" data-section="..."` 的元素都被 `course-subsection.js` 自动接管
 - 任何带 `class="flashcard"` 的元素都被 `course-flashcard.js` 自动接管
 - **不要在 JS 里 hardcode 任何课程特定逻辑**
+
+### 5.1b 云端同步(2026-09-19 上线)
+
+- 表:`CourseKv(userId, courseId, key, value:Json, ts:BigInt)`,`@@unique([userId, courseId, key])`,LWW 按客户端 ts
+- API:`GET/POST /api/courses/state`(未登录 401;key 必须 `course_` 前缀且含 courseId,防越课写)
+- 客户端:`course-cloud.js` 自动从 URL 解析 courseId,所有课程页已注入 script 标签(模板同步改,重建不丢)
+- 合并规则:双端冲突(本设备首次同步)服务器为准,本地副本存 `conflict_` 前缀留底;flush 由 meta 驱动(墓碑不在 localStorage 里)
+- 覆盖 key 命名不统一:progress 是 `progress_<id>` 前缀式,其余是 `<id>_xxx` —— 同步透明但人看着别扭,格式统一时顺手归一
 
 ### 5.3 5 题型支持矩阵
 

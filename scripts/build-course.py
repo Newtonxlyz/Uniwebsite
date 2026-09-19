@@ -187,6 +187,7 @@ QUIZ_PAGE_TPL = '''<!DOCTYPE html>
 <div id="quizContainer"></div>
 </main>
 <script src="../_shared/course-storage.js"></script>
+  <script src="../_shared/course-cloud.js"></script>
 <script src="../_shared/course-progress.js"></script>
 <script src="../_shared/course-flashcard.js"></script>
 <script src="../_shared/course-notes.js"></script>
